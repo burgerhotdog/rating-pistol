@@ -6,8 +6,8 @@ import {
   isEnabledEcho,
   toArray,
   resolveRankedValue,
+  normalizeAction,
 } from '@/utils';
-import { normAction } from './actions';
 
 function normScope(ownerId, memberIds, rawScope) {
   switch (rawScope) {
@@ -76,7 +76,7 @@ export const normEffect = (ctx, rawEffect) => {
     ...rawEffect,
     ownerId, sourceId, index,
     category: `${sourceId}:effect${index}`,
-    id: `${ownerId}.${sourceId}:effect${index}`,
+    id: `${sourceId}:effect${index}`,
   };
 
   // Scope
@@ -139,7 +139,7 @@ export const normEffect = (ctx, rawEffect) => {
         mode: ctx.memberMode,
       };
 
-      const action = normAction(ctx.gameId, rawUseAction, inlineSpec);
+      const action = normalizeAction(ctx.gameId, rawUseAction, inlineSpec);
       effect.use.action.push(action);
     }
   }

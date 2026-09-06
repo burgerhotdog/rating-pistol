@@ -1,10 +1,4 @@
-batch compute snapshot damage, but spread out hits
-
-for algo, check derivatives and see when confidence bands converge
-also where 2nd deriv becomes 0
 maybe compare stamina efficiency with talents/rate of stamina eff
-
-have new tab that compares diff weapons/sets/teammates?
 
 use solver to filter only variable stat maps that actually affect damage
 also batch hits that have same buffmaps but different hit times for chart
@@ -12,7 +6,5 @@ buff saturation index
 comapre echo sets and teammates
 
 editing rot doesnt update duration
-per resin not per week
 
-fix concerto, make apply to all
 improve speed of healing chars

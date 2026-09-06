@@ -113,7 +113,6 @@
           },
           "duration": 12000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "resonanceLiberationDmgBonus%": [
@@ -121,7 +120,8 @@
               0.14
             ]
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },
@@ -160,7 +160,6 @@
           },
           "duration": 14000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "heavyAttackDmgBonus%": [
@@ -168,7 +167,8 @@
               0.48
             ]
           }
-        }
+        },
+        "maxStacks": 2
       }
     ]
   },
@@ -292,7 +292,7 @@
     "id": 21010034,
     "icon": "wuthering-waves/weapon/21010034.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "broadblade",
     "stats": {
       "baseAtk": 412,
@@ -580,7 +580,6 @@
     "id": 21010053,
     "icon": "wuthering-waves/weapon/21010053.webp",
     "quality": 3,
-    "free": true,
     "type": "broadblade",
     "stats": {
       "baseAtk": 325,
@@ -636,7 +635,6 @@
           },
           "duration": 15000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "resonanceLiberationDmgBonus%": [
@@ -644,7 +642,8 @@
               0.16
             ]
           }
-        }
+        },
+        "maxStacks": 3
       },
       {
         "use": {
@@ -701,7 +700,6 @@
     "id": 21010063,
     "icon": "wuthering-waves/weapon/21010063.webp",
     "quality": 3,
-    "free": true,
     "type": "broadblade",
     "stats": {
       "baseAtk": 300,
@@ -736,7 +734,6 @@
           "offset": 6000
         },
         "rampingInterval": 2000,
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
@@ -744,7 +741,8 @@
               0.06
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -821,7 +819,6 @@
           "cooldown": 1000,
           "duration": 7000
         },
-        "maxStacks": 5,
         "buff": {
           "stats": {
             "atk%": [
@@ -829,7 +826,8 @@
               0.128
             ]
           }
-        }
+        },
+        "maxStacks": 5
       }
     ]
   },
@@ -1049,7 +1047,7 @@
     "id": 21010094,
     "icon": "wuthering-waves/weapon/21010094.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "broadblade",
     "stats": {
       "baseAtk": 462,
@@ -1078,7 +1076,6 @@
           "cooldown": 1000,
           "duration": 10000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
@@ -1086,7 +1083,8 @@
               0.08
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -1241,7 +1239,6 @@
           },
           "duration": 10000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "atk%": [
@@ -1249,7 +1246,8 @@
               0.12
             ]
           }
-        }
+        },
+        "maxStacks": 2
       }
     ]
   },
@@ -1290,7 +1288,6 @@
           "when": "maxStacks",
           "offset": 12000
         },
-        "maxStacks": 14,
         "buff": {
           "stats": {
             "resonanceSkillDmgBonus%": [
@@ -1298,7 +1295,8 @@
               0.08
             ]
           }
-        }
+        },
+        "maxStacks": 14
       },
       {
         "use": {
@@ -1321,7 +1319,6 @@
     "id": 21020017,
     "icon": "wuthering-waves/weapon/21020017.webp",
     "quality": 4,
-    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 462,
@@ -1346,7 +1343,6 @@
             "field": "offField"
           }
         },
-        "maxStacks": 10,
         "buff": {
           "stats": {
             "atk%": [
@@ -1354,7 +1350,8 @@
               0.04
             ]
           }
-        }
+        },
+        "maxStacks": 10
       },
       {
         "buff": {
@@ -1460,7 +1457,6 @@
           "cooldown": 1000,
           "duration": 14000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": [
@@ -1468,7 +1464,8 @@
               0.2
             ]
           }
-        }
+        },
+        "maxStacks": 3
       },
       {
         "enable": {
@@ -1507,7 +1504,7 @@
     "id": 21020034,
     "icon": "wuthering-waves/weapon/21020034.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "sword",
     "stats": {
       "baseAtk": 387,
@@ -1724,7 +1721,7 @@
     "id": 21020046,
     "icon": "wuthering-waves/weapon/21020046.webp",
     "quality": 5,
-    "free": true,
+    "permanent": true,
     "type": "sword",
     "stats": {
       "baseAtk": 587,
@@ -1787,7 +1784,6 @@
     "id": 21020053,
     "icon": "wuthering-waves/weapon/21020053.webp",
     "quality": 3,
-    "free": true,
     "type": "sword",
     "stats": {
       "baseAtk": 300,
@@ -1974,7 +1970,6 @@
             "field": "offField"
           }
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "heavyAttackDmgBonus%": [
@@ -1982,7 +1977,8 @@
               0.6
             ]
           }
-        }
+        },
+        "maxStacks": 2
       },
       {
         "stores": "$team",
@@ -2247,7 +2243,7 @@
     "id": 21020094,
     "icon": "wuthering-waves/weapon/21020094.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "sword",
     "stats": {
       "baseAtk": 462,
@@ -2276,7 +2272,6 @@
           "cooldown": 1000,
           "duration": 10000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
@@ -2284,7 +2279,8 @@
               0.08
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -2792,7 +2788,7 @@
     "id": 21030034,
     "icon": "wuthering-waves/weapon/21030034.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "pistols",
     "stats": {
       "baseAtk": 387,
@@ -3059,7 +3055,6 @@
           },
           "duration": 30000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "dmgBonus%": [
@@ -3067,7 +3062,8 @@
               0.16
             ]
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },
@@ -3077,7 +3073,6 @@
     "id": 21030053,
     "icon": "wuthering-waves/weapon/21030053.webp",
     "quality": 3,
-    "free": true,
     "type": "pistols",
     "stats": {
       "baseAtk": 300,
@@ -3128,7 +3123,6 @@
           },
           "duration": 14000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "spectroDmgBonus%": [
@@ -3136,7 +3130,8 @@
               0.4
             ]
           }
-        }
+        },
+        "maxStacks": 2
       },
       {
         "apply": {
@@ -3308,7 +3303,6 @@
           "cooldown": 1000,
           "duration": 10000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "resonanceSkillDmgBonus%": [
@@ -3316,7 +3310,8 @@
               0.23
             ]
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },
@@ -3360,7 +3355,7 @@
     "id": 21030094,
     "icon": "wuthering-waves/weapon/21030094.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "pistols",
     "stats": {
       "baseAtk": 462,
@@ -3389,7 +3384,6 @@
           "cooldown": 1000,
           "duration": 10000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
@@ -3397,7 +3391,8 @@
               0.08
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -3429,7 +3424,6 @@
           "cooldown": 1000,
           "duration": 7000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
@@ -3441,7 +3435,8 @@
               0.072
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -3755,7 +3750,7 @@
     "id": 21040034,
     "icon": "wuthering-waves/weapon/21040034.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "gauntlets",
     "stats": {
       "baseAtk": 387,
@@ -3969,7 +3964,6 @@
           "cooldown": 500,
           "duration": 3000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": [
@@ -3977,7 +3971,8 @@
               0.09
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -4075,7 +4070,6 @@
     "id": 21040053,
     "icon": "wuthering-waves/weapon/21040053.webp",
     "quality": 3,
-    "free": true,
     "type": "gauntlets",
     "stats": {
       "baseAtk": 300,
@@ -4354,7 +4348,7 @@
     "id": 21040094,
     "icon": "wuthering-waves/weapon/21040094.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "gauntlets",
     "stats": {
       "baseAtk": 462,
@@ -4383,7 +4377,6 @@
           "cooldown": 1000,
           "duration": 10000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
@@ -4391,7 +4384,8 @@
               0.08
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -4549,7 +4543,6 @@
           "cooldown": 500,
           "duration": 8000
         },
-        "maxStacks": 5,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": [
@@ -4557,7 +4550,8 @@
               0.064
             ]
           }
-        }
+        },
+        "maxStacks": 5
       }
     ]
   },
@@ -4595,7 +4589,6 @@
           },
           "duration": 5000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "atk%": [
@@ -4603,7 +4596,8 @@
               0.24
             ]
           }
-        }
+        },
+        "maxStacks": 2
       },
       {
         "buff": {
@@ -4626,7 +4620,7 @@
     "id": 21050017,
     "icon": "wuthering-waves/weapon/21050017.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "rectifier",
     "stats": {
       "baseAtk": 337,
@@ -4746,7 +4740,6 @@
           },
           "duration": 6000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": [
@@ -4754,7 +4747,8 @@
               0.24
             ]
           }
-        }
+        },
+        "maxStacks": 3
       },
       {
         "apply": {
@@ -4798,7 +4792,6 @@
     "id": 21050027,
     "icon": "wuthering-waves/weapon/21050027.webp",
     "quality": 4,
-    "free": true,
     "type": "rectifier",
     "stats": {
       "baseAtk": 462,
@@ -4827,7 +4820,6 @@
           "cooldown": 1000,
           "duration": 6000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "spectroDmgBonus%": [
@@ -4835,7 +4827,8 @@
               0.1
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -4845,7 +4838,7 @@
     "id": 21050034,
     "icon": "wuthering-waves/weapon/21050034.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "rectifier",
     "stats": {
       "baseAtk": 337,
@@ -5061,7 +5054,6 @@
           },
           "duration": 6000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": [
@@ -5073,7 +5065,8 @@
               0.28
             ]
           }
-        }
+        },
+        "maxStacks": 3
       },
       {
         "stores": "global",
@@ -5103,7 +5096,6 @@
     "id": 21050053,
     "icon": "wuthering-waves/weapon/21050053.webp",
     "quality": 3,
-    "free": true,
     "type": "rectifier",
     "stats": {
       "baseAtk": 325,
@@ -5258,7 +5250,6 @@
           "cooldown": 600,
           "duration": 8000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "healingBonus%": [
@@ -5266,7 +5257,8 @@
               0.06
             ]
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },
@@ -5567,7 +5559,7 @@
     "id": 21050094,
     "icon": "wuthering-waves/weapon/21050094.webp",
     "quality": 4,
-    "free": true,
+    "craftable": true,
     "type": "rectifier",
     "stats": {
       "baseAtk": 462,
@@ -5596,7 +5588,6 @@
           "cooldown": 1000,
           "duration": 10000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
@@ -5604,7 +5595,8 @@
               0.08
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },

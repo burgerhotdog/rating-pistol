@@ -2,36 +2,41 @@ import { CHARACTER } from '@/data';
 import { toArray } from './toArray';
 
 export const isEnabledChar = (effect, member, gameId, memberIds) => {
-  if ('rank' in effect) {
-    if (effect.rank > member.rank) return false;
+  if (effect.rank && effect.rank > member.rank) {
+    return false;
   }
 
-  if ('mode' in effect) {
-    if (effect.mode !== member.mode) return false;
+  if (effect.mode && effect.mode !== member.mode) {
+    return false;
   }
 
-  const { enable } = effect;
-  if (!enable) return true;
+  if (!effect.enable) {
+    return true;
+  }
 
-  if ('team' in enable) {
-    const [specialKey, countReq] = enable.team;
+  if (effect.enable.team) {
+    const [specialKey, countReq] = effect.enable.team;
 
     if (specialKey === 'lupa') {
       // Count fusion members
-      let count = 0;
-      for (const memberId of memberIds) {
-        const charData = CHARACTER[gameId][memberId];
-        if (charData?.element === 'fusion') count++;
+      const fusionMemberCount = memberIds.reduce(
+        (acc, memberId) => CHARACTER[gameId][memberId]?.element === 'fusion'
+          ? acc + 1
+          : acc,
+        0,
+      );
+
+      if (fusionMemberCount < countReq) {
+        return false;
       }
-      if (count < countReq) return false;
     }
 
     if (specialKey === 'hiyuki') {
       // Count members that can inflict glacio chafe or havoc bane
       let count = 0;
+
       for (const memberId of memberIds) {
-        const charData = CHARACTER[gameId][memberId];
-        const found = Object.values(charData.skills).some(({ actions }) =>
+        const found = Object.values(CHARACTER[gameId][memberId].skills).some(({ actions }) =>
           actions.some(({ inflict }) => {
             const statuses = Object.keys(inflict?.status ?? {});
             return (
@@ -40,9 +45,15 @@ export const isEnabledChar = (effect, member, gameId, memberIds) => {
             );
           })
         );
-        if (found) count++;
+
+        if (found) {
+          count++;
+        }
       }
-      if (count < countReq) return false;
+
+      if (count < countReq) {
+        return false;
+      }
     }
   }
 

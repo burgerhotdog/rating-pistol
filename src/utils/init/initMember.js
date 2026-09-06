@@ -1,4 +1,4 @@
-import { WW, CHARACTER, SET } from '@/data';
+import { WW, CHARACTER, SET, MISC } from '@/data';
 import { getDefaultCharRank, getDefaultWeapRank } from '../getDefault';
 
 function buildSetCounts(gameId, equipList) {
@@ -80,6 +80,14 @@ export function initMember(gameId, memberId, build, overrides) {
       member.mainEcho = Number(mainEcho);
     }
   }
+
+  member.skillLevels = {
+    ...Object.fromEntries(
+      MISC[gameId].skillIds
+        .map((skillId) => [skillId, MISC[gameId].maxSkillLevel])
+    ),
+    ...(build?.skillLevels ?? {}),
+  };
 
   member.rotation = [...(preset.rotation ?? [])];
   member.duration = preset.duration ?? null;

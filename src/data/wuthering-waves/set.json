@@ -32,12 +32,12 @@
           },
           "duration": 15000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "glacioDmgBonus%": 0.1
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },
@@ -243,12 +243,12 @@
           },
           "duration": 15000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "havocDmgBonus%": 0.075
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -364,12 +364,12 @@
             "field": "offField"
           }
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": 0.05
           }
-        }
+        },
+        "maxStacks": 4
       },
       {
         "bonus": 5,
@@ -418,12 +418,12 @@
           },
           "duration": 15000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "glacioDmgBonus%": 0.225
           }
-        }
+        },
+        "maxStacks": 2
       },
       {
         "bonus": 5,
@@ -436,12 +436,12 @@
           },
           "duration": 5000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "resonanceSkillDmgBonus%": 0.18
           }
-        }
+        },
+        "maxStacks": 2
       }
     ]
   },
@@ -893,13 +893,13 @@
           "cooldown": 500,
           "duration": 4000
         },
-        "maxStacks": 5,
         "buff": {
           "stats": {
             "atk%": 0.06,
             "critDmg%": 0.04
           }
-        }
+        },
+        "maxStacks": 5
       }
     ]
   },
@@ -955,12 +955,12 @@
           },
           "duration": 30000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "echoSkillDmgBonus%": 0.04
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -1233,12 +1233,12 @@
           },
           "duration": 5000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.1
           }
-        }
+        },
+        "maxStacks": 3
       },
       {
         "bonus": 5,
@@ -1699,6 +1699,7 @@
       },
       {
         "bonus": 5,
+        "key": "xuanlingsFeather",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1721,6 +1722,7 @@
       },
       {
         "bonus": 5,
+        "key": "chongmingsFeather",
         "stores": "$team",
         "apply": {
           "when": "inflict",
@@ -1821,12 +1823,12 @@
           "cooldown": 500,
           "duration": 5000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "critRate%": 0.05
           }
-        }
+        },
+        "maxStacks": 4
       },
       {
         "bonus": 5,

@@ -161,12 +161,12 @@
           },
           "duration": 20000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "atk%": 0.1
           }
-        }
+        },
+        "maxStacks": 2
       }
     ],
     "skills": {
@@ -372,7 +372,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -405,7 +404,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -1136,7 +1134,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -1169,7 +1166,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -2023,7 +2019,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -2056,7 +2051,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -2419,7 +2413,6 @@
             "tagged": "Striding Lion",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -2622,12 +2615,12 @@
           },
           "duration": 27000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "atk%": 0.06
           }
-        }
+        },
+        "maxStacks": 3
       },
       {
         "stores": "$next",
@@ -2644,92 +2637,6 @@
           "stats": {
             "glacioDmgAmp%": 0.2,
             "resonanceSkillDmgAmp%": 0.25
-          }
-        }
-      },
-      {
-        "rank": 1,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.2"
-            }
-          },
-          "duration": 27000
-        },
-        "buff": {
-          "stats": {
-            "critRate%": 0.1
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceSkill.0",
-                "forteCircuit.1",
-                "forteCircuit.2"
-              ]
-            }
-          },
-          "duration": 27000
-        },
-        "maxStacks": 3,
-        "buff": {
-          "stats": {
-            "atk%": 0.15
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "stores": "$team",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.1"
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "stats": {
-            "atk%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 0.467
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.1",
-                "forteCircuit.2"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 1.2
           }
         }
       }
@@ -2868,7 +2775,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -2924,7 +2830,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -3320,12 +3225,12 @@
           },
           "duration": 7000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "critDmg%": 0.15
           }
-        }
+        },
+        "maxStacks": 4
       }
     ],
     "skills": {
@@ -3545,7 +3450,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -3578,7 +3482,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -4265,15 +4168,7 @@
           "stats": {
             "defIgnore%": 0.18
           }
-        },
-        "rankMods": [
-          {
-            "rank": 1,
-            "stats": {
-              "critRate%": 0.125
-            }
-          }
-        ]
+        }
       },
       {
         "apply": {
@@ -4302,98 +4197,6 @@
           },
           "stats": {
             "damageMv%": 0.8
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.2"
-            }
-          },
-          "stats": {
-            "damageMv%": 1.26
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "outroSkill"
-              }
-            }
-          },
-          "stats": {
-            "damageMv": 10.3218
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceSkill.0",
-                "resonanceSkill.1"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.93
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "stores": "$team",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": [
-                "normalAttack.5",
-                "normalAttack.6",
-                "forteCircuit.0"
-              ]
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "stats": {
-            "resonanceSkillDmgBonus%": 0.25
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 0.47
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.1"
-            }
-          },
-          "stats": {
-            "damageMv": 1.866
           }
         }
       }
@@ -4827,7 +4630,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -4860,7 +4662,6 @@
             "name": "Customary Greetings",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -4917,7 +4718,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -5735,7 +5535,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -5768,7 +5567,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -7376,7 +7174,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -7409,7 +7206,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -7897,7 +7693,6 @@
             "tagged": "Reminiscence",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -7931,7 +7726,6 @@
             "tagged": "Reminiscence",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -8624,7 +8418,6 @@
             "tagged": "Zepher Stance",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -8658,7 +8451,6 @@
             "tagged": "Zepher Stance",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -9433,7 +9225,6 @@
             "name": "Swallow's Cut",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -9598,12 +9389,12 @@
           },
           "duration": 10000
         },
-        "maxStacks": 30,
         "buff": {
           "stats": {
             "atk%": 0.01
           }
-        }
+        },
+        "maxStacks": 30
       },
       {
         "rank": 1,
@@ -9866,7 +9657,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -9899,7 +9689,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -10300,12 +10089,12 @@
           },
           "duration": 6000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "fusionDmgBonus%": 0.03
           }
-        }
+        },
+        "maxStacks": 4
       },
       {
         "rank": 3,
@@ -10369,12 +10158,12 @@
           },
           "duration": 10000
         },
-        "maxStacks": 6,
         "buff": {
           "stats": {
             "atk%": 0.05
           }
-        }
+        },
+        "maxStacks": 6
       }
     ],
     "skills": {
@@ -10579,7 +10368,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -10612,7 +10400,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -10929,7 +10716,6 @@
             "tagged": "Cosmos",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -11574,7 +11360,6 @@
             "name": "Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -11607,7 +11392,6 @@
             "name": "Mid-air Attack 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -11640,7 +11424,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -11976,109 +11759,6 @@
             "resonanceLiberationDmgAmp%": 0.25
           }
         }
-      },
-      {
-        "rank": 1,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceSkill.0",
-                "resonanceSkill.1",
-                "resonanceSkill.2",
-                "forteCircuit.0"
-              ]
-            }
-          },
-          "stats": {
-            "dmgBonus%": 0.1
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceSkill.1",
-                "resonanceSkill.2",
-                "resonanceLiberation.0"
-              ]
-            }
-          },
-          "duration": 8000
-        },
-        "buff": {
-          "stats": {
-            "critRate%": 0.25
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "dmgBonus%": 0.8
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "stores": "$team",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "introSkill"
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "stats": {
-            "atk%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 0.5,
-            "dmgBonus%": 0.5
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceSkill.0",
-                "resonanceSkill.1",
-                "resonanceSkill.2",
-                "forteCircuit.0",
-                "resonanceLiberation.0"
-              ]
-            }
-          },
-          "stats": {
-            "defIgnore%": 0.4
-          }
-        }
       }
     ],
     "skills": {
@@ -12240,7 +11920,6 @@
             "name": "Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -12272,7 +11951,6 @@
             "name": "Mid-air Attack 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -12305,7 +11983,6 @@
             "name": "Mid-air Attack 3",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -12338,7 +12015,6 @@
             "name": "Mid-air Attack 4",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -12481,7 +12157,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -12995,169 +12670,6 @@
             "resonanceSkillDmgAmp%": 0.25
           }
         }
-      },
-      {
-        "rank": 1,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": [
-                "introSkill.0",
-                "normalAttack.8",
-                "normalAttack.12",
-                "normalAttack.14"
-              ]
-            }
-          },
-          "duration": 5000
-        },
-        "maxStacks": 3,
-        "buff": {
-          "stats": {
-            "dmgBonus%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "filter": {
-            "action": {
-              "or": [
-                {
-                  "type": "mid-airAttack"
-                },
-                {
-                  "ref": "forteCircuit.0"
-                }
-              ]
-            }
-          },
-          "stats": {
-            "critRate%": 0.3
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "stores": "$next",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
-          },
-          "duration": 20000,
-          "uses": 2
-        },
-        "use": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "type": "resonanceSkill"
-            }
-          },
-          "cooldown": 1000,
-          "action": {
-            "damage": {
-              "type": "basicAttack",
-              "multipliers": [
-                {
-                  "mv": 4.4
-                }
-              ]
-            }
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 0.42
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.0"
-            }
-          },
-          "stats": {
-            "shieldBonus%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "use": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.0"
-            }
-          },
-          "action": {
-            "healing": {
-              "attr": "energyRegen",
-              "multipliers": [
-                {
-                  "mv": 660
-                }
-              ],
-              "times": "$teamSize"
-            }
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "basicAttack"
-              }
-            }
-          },
-          "duration": 10000
-        },
-        "buff": {
-          "stats": {
-            "basicAttackDmgBonus%": 0.15
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "or": [
-                {
-                  "type": "mid-airAttack"
-                },
-                {
-                  "ref": "forteCircuit.0"
-                }
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.3
-          }
-        }
       }
     ],
     "skills": {
@@ -13435,7 +12947,6 @@
             "name": "Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13468,7 +12979,6 @@
             "name": "Mid-air Attack 1: Charged Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13550,7 +13060,6 @@
             "name": "Mid-air Attack 1: Flip",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13607,7 +13116,6 @@
             "name": "Mid-air Attack 1: Slash",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13641,7 +13149,6 @@
             "name": "Mid-air Attack 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13698,7 +13205,6 @@
             "name": "Mid-air Attack 2: Charged Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13732,7 +13238,6 @@
             "name": "Mid-air Attack 2: Flip",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13789,7 +13294,6 @@
             "name": "Mid-air Attack 3",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13823,7 +13327,6 @@
             "name": "Mid-air Attack 3: Flip",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13880,7 +13383,6 @@
             "name": "Mid-air Attack 4",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13962,7 +13464,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -14748,110 +14249,6 @@
             "basicAttackDmgAmp%": 0.25
           }
         }
-      },
-      {
-        "rank": 1,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "duration": 10000
-        },
-        "buff": {
-          "stats": {
-            "critRate%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "stores": "$team",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceLiberation.0",
-                "normalAttack.5",
-                "normalAttack.6",
-                "normalAttack.10"
-              ]
-            }
-          },
-          "duration": 30000
-        },
-        "maxStacks": 2,
-        "buff": {
-          "stats": {
-            "fusionDmgBonus%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "introSkill.1"
-            }
-          },
-          "stats": {
-            "damageMv%": 1
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.1"
-            }
-          },
-          "stats": {
-            "damageMv%": 1.25
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": [
-                "introSkill.0",
-                "introSkill.1"
-              ]
-            }
-          },
-          "duration": 10000
-        },
-        "buff": {
-          "stats": {
-            "resonanceLiberationDmgBonus%": 0.15
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.1",
-                "resonanceLiberation.0",
-                "introSkill.1"
-              ]
-            }
-          },
-          "stats": {
-            "defIgnore%": 0.3
-          }
-        }
       }
     ],
     "skills": {
@@ -15305,7 +14702,6 @@
             "name": "Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -15338,7 +14734,6 @@
             "name": "Mid-air Attack 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -15396,7 +14791,6 @@
             "name": "Mid-air Attack 3",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -15510,7 +14904,6 @@
             "name": "Plunging Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -15648,7 +15041,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -18521,7 +17913,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -18554,7 +17945,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -18588,7 +17978,6 @@
             "tagged": "Wide Field Observation Mode",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -19736,7 +19125,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -19769,7 +19157,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -20317,7 +19704,6 @@
             "tagged": "Mech",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -20376,7 +19762,6 @@
             "tagged": "Mech",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -21411,7 +20796,6 @@
             "tagged": "Stagecraft Form",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -21469,7 +20853,6 @@
             "tagged": "Stagecraft Form",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -21730,7 +21113,6 @@
             "tagged": "Breakdown Form",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -21764,7 +21146,6 @@
             "tagged": "Breakdown Form",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -21985,7 +21366,6 @@
             "tagged": "Breakdown Form",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -22847,7 +22227,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -24401,7 +23780,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -24434,7 +23812,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -25335,97 +24712,6 @@
             "resonanceLiberationDmgAmp%": 0.25
           }
         }
-      },
-      {
-        "rank": 1,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceSkill.0",
-                "resonanceSkill.1"
-              ]
-            }
-          },
-          "stats": {
-            "dmgBonus%": 0.7
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.1"
-            }
-          },
-          "stats": {
-            "damageMv%": 0.55
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "stores": "$team",
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.1"
-            }
-          },
-          "duration": 12000
-        },
-        "buff": {
-          "stats": {
-            "atk%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "dmgBonus%": 1
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "duration": 30000,
-          "uses": 4
-        },
-        "use": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "type": "basicAttack"
-            }
-          },
-          "action": {
-            "damage": {
-              "type": "resonanceSkill",
-              "multipliers": [
-                {
-                  "mv": 4.1959
-                }
-              ]
-            }
-          }
-        }
       }
     ],
     "skills": {
@@ -25599,7 +24885,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -25632,7 +24917,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -26391,7 +25675,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -26424,7 +25707,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -26991,7 +26273,6 @@
             "tagged": "Lightning Infused",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "attr": "def",
               "multipliers": [
                 {
@@ -27152,108 +26433,6 @@
           },
           "stats": {
             "damageMv%": 0.5
-          }
-        }
-      },
-      {
-        "rank": 1,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.0",
-                "forteCircuit.1",
-                "forteCircuit.2",
-                "forteCircuit.3",
-                "forteCircuit.6"
-              ]
-            }
-          },
-          "duration": 6000
-        },
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.7",
-                "forteCircuit.8",
-                "forteCircuit.9"
-              ]
-            }
-          },
-          "stats": {
-            "dmgBonus%": 0.2
-          }
-        },
-        "maxStacks": 4
-      },
-      {
-        "rank": 3,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "introSkill.0"
-            }
-          },
-          "duration": 20000
-        },
-        "maxStacks": 2,
-        "buff": {
-          "stats": {
-            "atk%": 0.25
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "stores": "$team",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceLiberation.0",
-                "forteCircuit.7"
-              ]
-            }
-          },
-          "duration": 20000
-        },
-        "buff": {
-          "stats": {
-            "dmgBonus%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 1.2
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.7",
-                "forteCircuit.8",
-                "forteCircuit.9"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.45
           }
         }
       }
@@ -27539,7 +26718,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -27617,7 +26795,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -28157,7 +27334,6 @@
             "tagged": "Incarnation",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -28513,12 +27689,12 @@
           },
           "duration": 8000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "electroDmgBonus%": 0.05
           }
-        }
+        },
+        "maxStacks": 4
       },
       {
         "stores": "$next",
@@ -28549,130 +27725,6 @@
                 }
               ]
             }
-          }
-        }
-      },
-      {
-        "rank": 1,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.1"
-            }
-          },
-          "stats": {
-            "damageMv%": 0.48
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "apply": {
-          "when": "start",
-          "filter": [
-            {
-              "action": {
-                "type": "resonanceSkill"
-              }
-            },
-            {
-              "action": {
-                "ref": "resonanceLiberation.0"
-              }
-            }
-          ],
-          "duration": 8000
-        },
-        "buff": {
-          "stats": {
-            "critDmg%": 0.3
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "duration": 24000,
-          "uses": 5
-        },
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceSkill.0",
-                "resonanceLiberation.4",
-                "forteCircuit.0",
-                "forteCircuit.1"
-              ]
-            }
-          },
-          "stats": {
-            "dmgBonus%": 0.63
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "stores": "$team",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "stats": {
-            "resonanceLiberationDmgBonus%": 0.25
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "outroSkill"
-              }
-            }
-          },
-          "stats": {
-            "damageMv%": 2.22
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 1
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.1"
-            }
-          },
-          "stats": {
-            "damageMv%": 0.76
           }
         }
       }
@@ -28905,7 +27957,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -28938,7 +27989,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -29897,7 +28947,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -29931,7 +28980,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -29965,7 +29013,6 @@
             "name": "Dodge Counter: Mid-air",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -30809,7 +29856,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -30842,7 +29888,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -31413,12 +30458,12 @@
           },
           "duration": 12000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "atk%": 0.1
           }
-        }
+        },
+        "maxStacks": 2
       },
       {
         "stores": "$applier",
@@ -31764,7 +30809,6 @@
             "tagged": "Huntress",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -31798,7 +30842,6 @@
             "tagged": "Huntress",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -32127,7 +31170,6 @@
             "tagged": "Guts",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -32161,7 +31203,6 @@
             "tagged": "Guts",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -33908,7 +32949,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -33941,7 +32981,6 @@
             "name": "Mid-air Attack: Havoc 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -33974,7 +33013,6 @@
             "name": "Mid-air Attack: Havoc 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -34007,7 +33045,6 @@
             "name": "Mid-air Attack: Havoc 3",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -34088,7 +33125,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -34145,7 +33181,6 @@
             "name": "Dodge Counter: Mid-air",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -35789,7 +34824,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -35854,7 +34888,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -36048,7 +35081,6 @@
             "name": "Feather Release",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -36540,7 +35572,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -36637,7 +35668,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -36958,133 +35988,6 @@
             }
           }
         }
-      },
-      {
-        "rank": 2,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "introSkill.0"
-            }
-          },
-          "cooldown": 15000,
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "atk%": 0.28
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceSkill.0",
-                "resonanceLiberation.0",
-                "forteCircuit.0",
-                "introSkill.0"
-              ]
-            }
-          },
-          "duration": 8000
-        },
-        "buff": {
-          "stats": {
-            "critRate%": 0.16,
-            "critDmg%": 0.32
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "stores": "$team",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceLiberation.0",
-                "forteCircuit.0"
-              ]
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "stats": {
-            "heavyAttackDmgBonus%": 0.25
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "outroSkill"
-              }
-            }
-          },
-          "stats": {
-            "damageMv%": 1.2
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "has": "damage"
-            }
-          },
-          "duration": 8000
-        },
-        "buff": {
-          "stats": {
-            "atk%": 0.45
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "apply": {
-          "when": "start",
-          "filter": [
-            {
-              "action": {
-                "type": "heavyAttack"
-              }
-            },
-            {
-              "action": {
-                "ref": [
-                  "introSkill.0",
-                  "resonanceSkill.0"
-                ]
-              }
-            }
-          ],
-          "uses": 1
-        },
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.0"
-            }
-          },
-          "stats": {
-            "damageMv": 1.2
-          }
-        },
-        "maxStacks": 2
       }
     ],
     "skills": {
@@ -37380,7 +36283,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -37413,7 +36315,6 @@
             "name": "Banner Of Triumph",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -37478,7 +36379,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -38154,7 +37054,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -38186,7 +37085,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -39403,7 +38301,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -39436,7 +38333,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -40101,92 +38997,6 @@
             "aeroErosionDmgAmp%": 1
           }
         }
-      },
-      {
-        "rank": 1,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "basicAttack"
-            }
-          },
-          "duration": 10000
-        },
-        "buff": {
-          "stats": {
-            "atk%": 0.35
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "stores": "$team",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "stats": {
-            "aeroDmgBonus%": 0.4
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "buff": {
-          "filter": {
-            "action": {
-              "or": [
-                {
-                  "ref": "forteCircuit.0"
-                },
-                {
-                  "damage": {
-                    "type": "resonanceLiberation"
-                  }
-                }
-              ]
-            }
-          },
-          "stats": {
-            "defIgnore%": 0.45
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "stats": {
-            "resonanceLiberationDmgBonus%": 0.4
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "use": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "ref": "normalAttack.3"
-            }
-          },
-          "action": {
-            "damage": {
-              "type": "resonanceLiberation",
-              "multipliers": [
-                {
-                  "mv": 2.2
-                }
-              ]
-            }
-          }
-        }
       }
     ],
     "skills": {
@@ -40477,7 +39287,6 @@
             "name": "Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -40511,7 +39320,6 @@
             "name": "Mid-air Attack 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -40545,7 +39353,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -41397,7 +40204,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "extraType": "aeroErosion",
               "attr": "hp",
               "multipliers": [
@@ -41432,7 +40238,6 @@
             "name": "Mid-air Attack 1 Sword Shadow Recalled",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "extraType": "aeroErosion",
               "attr": "hp",
               "multipliers": [
@@ -41467,7 +40272,6 @@
             "name": "Mid-air Attack 2 Sword Shadows Recalled",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "extraType": "aeroErosion",
               "attr": "hp",
               "multipliers": [
@@ -41503,7 +40307,6 @@
             "name": "Mid-air Attack 3 Sword Shadows Recalled",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "extraType": "aeroErosion",
               "attr": "hp",
               "multipliers": [
@@ -41539,7 +40342,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -42247,7 +41049,6 @@
             "name": "Fleurdelys: Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -42329,7 +41130,6 @@
             "name": "Fleurdelys: Mid-air Attack 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -42411,7 +41211,6 @@
             "name": "Fleurdelys: Mid-air Attack 3",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -42445,7 +41244,6 @@
             "name": "Fleurdelys: Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -43118,7 +41916,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -43153,7 +41950,6 @@
             "tagged": "Half Moon",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -44608,7 +43404,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -45911,7 +44706,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -45944,7 +44738,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -46025,7 +44818,6 @@
             "name": "Mid-air Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -48496,7 +47288,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -48529,7 +47320,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49284,7 +48074,6 @@
             "name": "Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49317,7 +48106,6 @@
             "name": "Mid-air Attack 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49350,7 +48138,6 @@
             "name": "Mid-air Attack 3",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49417,7 +48204,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49797,7 +48583,6 @@
             "tagged": "Starflower Blooms",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49882,7 +48667,6 @@
             "tagged": "Starflower Blooms",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49967,7 +48751,6 @@
             "tagged": "Starflower Blooms",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -50350,7 +49133,6 @@
             "tagged": "Yellow Light",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -50567,7 +49349,6 @@
             "tagged": "Red Light",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -50601,7 +49382,6 @@
             "tagged": "Red Light",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -51220,15 +50000,7 @@
           "when": "interval",
           "cooldown": 3000,
           "action": "resonanceLiberation.1"
-        },
-        "rankMods": [
-          {
-            "rank": 1,
-            "apply": {
-              "duration": 10000
-            }
-          }
-        ]
+        }
       },
       {
         "key": "stellarealm",
@@ -51245,15 +50017,7 @@
           "stats": {
             "energyRegen%": 0.1
           }
-        },
-        "rankMods": [
-          {
-            "rank": 1,
-            "apply": {
-              "duration": 10000
-            }
-          }
-        ]
+        }
       },
       {
         "key": "evolved",
@@ -51383,46 +50147,6 @@
         "buff": {
           "stats": {
             "dmgAmp%": 0.15
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "filter": {
-            "effectStacks": {
-              "has": "stellarealm"
-            }
-          },
-          "stats": {
-            "atk%": 0.4
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceSkill.0"
-            }
-          },
-          "stats": {
-            "healingBonus%": 0.7
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "introSkill.1"
-            }
-          },
-          "stats": {
-            "damageMv%": 0.42,
-            "critDmg%": 5
           }
         }
       }
@@ -51597,7 +50321,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -51630,7 +50353,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -51858,7 +50580,6 @@
             "name": "Mid-air Attack: Transmutation",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -52286,226 +51007,6 @@
             "spectroFrazzleDmgAmp%": 1
           }
         }
-      },
-      {
-        "rank": 1,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 2.25
-          }
-        }
-      },
-      {
-        "rank": 1,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.1"
-            }
-          },
-          "stats": {
-            "damageMv%": 0.9
-          }
-        }
-      },
-      {
-        "rank": 1,
-        "use": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.1"
-            }
-          },
-          "action": {
-            "inflict": {
-              "status": {
-                "spectroFrazzle": 2
-              }
-            }
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.0"
-            }
-          }
-        },
-        "buff": {
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "damage": {
-                    "type": "outroSkill"
-                  }
-                }
-              },
-              {
-                "states": {
-                  "negativeStatuses": {
-                    "has": "spectroFrazzle"
-                  }
-                }
-              }
-            ]
-          },
-          "stats": {
-            "dmgAmp%": 1.2
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "stores": "global",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "outroSkill.1"
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "filter": {
-            "field": "onField"
-          },
-          "stats": {
-            "spectroFrazzleDmgAmp%": 1.2
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.2"
-            }
-          },
-          "stats": {
-            "damageMv%": 0.91
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.3"
-            }
-          },
-          "stats": {
-            "damageMv%": 2.49
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "stores": "global",
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "type": [
-                "basicAttack",
-                "dodgeCounter"
-              ]
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "stats": {
-            "spectroResReduction%": 0.1
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "introSkill.0"
-            }
-          },
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "spectroDmgBonus%": 0.12
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "resonanceSkill.0"
-            }
-          },
-          "duration": 20000
-        },
-        "buff": {
-          "stats": {
-            "atk%": 0.1
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.0"
-            }
-          }
-        },
-        "use": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "ref": "resonanceSkill.0"
-            }
-          },
-          "action": "forteCircuit.2"
-        }
-      },
-      {
-        "rank": 6,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.1"
-            }
-          }
-        },
-        "use": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "ref": "resonanceSkill.0"
-            }
-          },
-          "action": "forteCircuit.3"
-        }
       }
     ],
     "skills": {
@@ -52670,7 +51171,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -52704,7 +51204,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -52739,7 +51238,6 @@
             "tagged": "Chamuel's Star",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -53272,9 +51770,29 @@
     },
     "effects": [
       {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceSkill.2",
+                "resonanceSkill.3"
+              ]
+            }
+          },
+          "action": {
+            "inflict": {
+              "status": {
+                "spectroFrazzle": 1
+              }
+            }
+          }
+        }
+      },
+      {
         "key": "sunburst",
         "apply": {
-          "when": "start",
+          "when": "end",
           "filter": {
             "action": {
               "ref": [
@@ -53293,6 +51811,23 @@
       },
       {
         "key": "infernoMode",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 20000
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          }
+        },
         "buff": {
           "filter": {
             "action": {
@@ -53309,6 +51844,29 @@
             "damageMv%": 0.25
           }
         }
+      },
+      {
+        "stores": "global",
+        "gameRule": "heliacalEmber"
+      },
+      {
+        "key": "blaze",
+        "apply": {
+          "by": "$team",
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "status": {
+                  "has": "spectroFrazzle"
+                }
+              }
+            }
+          },
+          "stacks": 5,
+          "perStatusInflict": "spectroFrazzle"
+        },
+        "maxStacks": 100
       },
       {
         "use": {
@@ -53338,6 +51896,36 @@
         }
       },
       {
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "action": {
+            "consume": {
+              "status": {
+                "spectroFrazzle": 60
+              }
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.1
+          },
+          "statusStacks": "spectroFrazzle"
+        }
+      },
+      {
         "stores": "$ally",
         "apply": {
           "when": "start",
@@ -53349,128 +51937,15 @@
           "duration": 20000
         },
         "buff": {
+          "filter": {
+            "states": {
+              "negativeStatuses": {
+                "has": "spectroFrazzle"
+              }
+            }
+          },
           "stats": {
             "spectroDmgAmp%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 1,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceSkill.2",
-                "resonanceSkill.3"
-              ]
-            }
-          },
-          "duration": 14000
-        },
-        "buff": {
-          "stats": {
-            "spectroDmgBonus%": 0.5
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "stats": {
-            "critRate%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceSkill.2",
-                "resonanceSkill.3"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.8
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.1"
-            }
-          },
-          "stats": {
-            "damageMv%": 12
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "stores": "$team",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "introSkill.0"
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "stats": {
-            "atk%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 1.2
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.0",
-                "forteCircuit.1",
-                "forteCircuit.2",
-                "forteCircuit.3",
-                "forteCircuit.4"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.4
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.2"
-            }
-          },
-          "stats": {
-            "damageMv": 16
           }
         }
       }
@@ -53703,7 +52178,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -53736,7 +52210,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -54121,7 +52594,7 @@
         "name": "There Will Be A Light",
         "actions": [
           {
-            "name": "Heavy Slash - Daybreak",
+            "name": "Basic Attack: Heavy Slash - Daybreak",
             "tagged": "Inferno Mode",
             "type": "basicAttack",
             "damage": {
@@ -54156,7 +52629,7 @@
             }
           },
           {
-            "name": "Heavy Slash - Dawning",
+            "name": "Basic Attack: Heavy Slash - Dawning",
             "tagged": "Inferno Mode",
             "type": "basicAttack",
             "damage": {
@@ -54191,7 +52664,7 @@
             }
           },
           {
-            "name": "Heavy Slash - Nightfall",
+            "name": "Basic Attack: Heavy Slash - Nightfall",
             "tagged": "Inferno Mode",
             "type": "basicAttack",
             "damage": {
@@ -54284,8 +52757,9 @@
             "times": 40
           },
           {
-            "name": "Heavy Slash - Lightsmash",
+            "name": "Basic Attack: Heavy Slash - Lightsmash",
             "tagged": "Inferno Mode",
+            "type": "basicAttack",
             "damage": {
               "type": "heavyAttack",
               "extraType": "spectroFrazzle",
@@ -54565,70 +53039,6 @@
           "stats": {
             "havocDmgBonus%": 0.2,
             "healingBonus%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 1,
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "or": [
-                {
-                  "ref": "normalAttack.10"
-                },
-                {
-                  "damage": {
-                    "type": "resonanceSkill"
-                  }
-                }
-              ]
-            }
-          },
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "atk%": 0.3
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "stats": {
-            "havocResIgnore%": 0.1
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "stores": "$applier",
-        "apply": {
-          "by": "$team",
-          "when": "inflict",
-          "filter": {
-            "and": [
-              {
-                "effectStacks": {
-                  "has": "resonantThreadOfClosure"
-                }
-              },
-              {
-                "action": {
-                  "inflict": {
-                    "has": "status"
-                  }
-                }
-              }
-            ]
-          },
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "dmgBonus%": 0.5
           }
         }
       }
@@ -55057,7 +53467,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -55204,7 +53613,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -55285,7 +53693,6 @@
             "name": "Eye of Unraveling: Retraction",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -56147,86 +54554,6 @@
             "resonanceLiberationDmgAmp%": 0.25
           }
         }
-      },
-      {
-        "rank": 1,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.0",
-                "forteCircuit.1",
-                "forteCircuit.2"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 1.2
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "stats": {
-            "dmgAmp%": 0.25
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "stores": "$next",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
-          },
-          "duration": 14000
-        },
-        "buff": {
-          "stats": {
-            "dmgAmp%": 0.25
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.3",
-                "forteCircuit.4"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.9
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "buff": {
-          "stats": {
-            "atk%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 0.7
-          }
-        }
       }
     ],
     "skills": {
@@ -56381,7 +54708,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -56414,7 +54740,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -56833,7 +55158,6 @@
             "name": "Kaleidoscopic Parade: Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -56932,7 +55256,6 @@
             "name": "Kaleidoscopic Parade: Mid-Air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -56989,7 +55312,6 @@
             "name": "Kaleidoscopic Parade: Mid-air Heavy Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -57837,7 +56159,6 @@
             "name": "Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -57870,7 +56191,6 @@
             "name": "Mid-air Attack 2 Scythe: Dissection",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -58011,7 +56331,6 @@
             "name": "Mid-air Attack 3 Scythe: Dissection",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -58152,7 +56471,6 @@
             "name": "Mid-air Attack 4",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -58185,7 +56503,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -58242,7 +56559,6 @@
             "name": "Dodge Counter: Mid-air",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -58581,7 +56897,6 @@
             "name": "Gavel of Earthshaker",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -58850,117 +57165,6 @@
         "buff": {
           "stats": {
             "dmgAmp%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 1,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "introSkill.0"
-            }
-          },
-          "duration": 14000
-        },
-        "buff": {
-          "stats": {
-            "atk%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "resonanceSkill.1"
-            }
-          },
-          "uses": 1
-        },
-        "use": {
-          "when": "interval",
-          "action": [
-            {
-              "damage": {
-                "type": "heavyAttack",
-                "multipliers": [
-                  {
-                    "mv": 4.5
-                  }
-                ]
-              }
-            },
-            "resonanceLiberation.2",
-            "resonanceLiberation.3"
-          ]
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceLiberation.6",
-                "resonanceLiberation.7"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.5,
-            "critDmg%": 1
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceLiberation.5",
-                "forteCircuit.0"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.65
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "stores": "$team",
-        "buff": {
-          "stats": {
-            "dmgBonus%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "states": {
-              "tune": {
-                "or": [
-                  {
-                    "shifting": "hack"
-                  },
-                  {
-                    "interfered": "hack"
-                  }
-                ]
-              }
-            }
-          },
-          "stats": {
-            "heavyAttackDmgBonus%": 0.4,
-            "hackDmgBonus%": 0.6
           }
         }
       }
@@ -59458,7 +57662,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -59515,7 +57718,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -60412,7 +58614,6 @@
             "tagged": "Algorithm Compaction",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -60470,7 +58671,6 @@
             "tagged": "Algorithm Compaction",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -61615,7 +59815,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -61648,7 +59847,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -62468,7 +60666,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -62501,7 +60698,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -63079,15 +61275,7 @@
           "stats": {
             "damageMv%": 1
           }
-        },
-        "rankMods": [
-          {
-            "rank": 6,
-            "stats": {
-              "damageMv%": 2
-            }
-          }
-        ]
+        }
       },
       {
         "buff": {
@@ -63124,131 +61312,6 @@
           "stats": {
             "damageMv": 4.5902
           }
-        }
-      },
-      {
-        "rank": 1,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "introSkill.0"
-            }
-          },
-          "cooldown": 25000,
-          "duration": 18000
-        },
-        "buff": {
-          "stats": {
-            "critDmg%": 0.28
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 1.2
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 0.5
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.0"
-            }
-          },
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "atk%": 0.58
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "stores": "$team",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "introSkill.0"
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "stats": {
-            "basicAttackDmgBonus%": 0.25
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "introSkill.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 3.03
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "outroSkill"
-              }
-            }
-          },
-          "stats": {
-            "damageMv%": 0.68
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.0"
-            }
-          },
-          "cooldown": 25000,
-          "duration": 15000,
-          "uses": 1
-        },
-        "use": {
-          "when": "hit",
-          "action": "forteCircuit.0"
         }
       }
     ],
@@ -63458,7 +61521,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -63492,7 +61554,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -63804,7 +61865,6 @@
             "tagged": "Blossom Mode",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -64332,7 +62392,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -64365,7 +62424,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -64817,7 +62875,6 @@
             "tagged": "Umbra",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -64851,7 +62908,6 @@
             "tagged": "Umbra",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -65122,163 +63178,6 @@
             "basicAttackDmgAmp%": 0.25
           }
         }
-      },
-      {
-        "rank": 2,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.0",
-                "forteCircuit.1",
-                "forteCircuit.2"
-              ]
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "stats": {
-            "havocDmgBonus%": 0.1
-          }
-        },
-        "maxStacks": 3
-      },
-      {
-        "rank": 2,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.2"
-            }
-          },
-          "duration": 30000
-        },
-        "buff": {
-          "stats": {
-            "havocDmgBonus%": 0.1
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "introSkill.0"
-            }
-          },
-          "duration": 15000
-        },
-        "buff": {
-          "stats": {
-            "critRate%": 0.1,
-            "critDmg%": 0.3
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "resonanceSkill.0"
-            }
-          },
-          "duration": 12000
-        },
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.0",
-                "forteCircuit.1",
-                "forteCircuit.2"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.6
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 0.2
-          }
-        }
-      },
-      {
-        "rank": 5,
-        "buff": {
-          "filter": {
-            "action": {
-              "type": "heavyAttack"
-            }
-          },
-          "stats": {
-            "damageMv%": 0.8
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "duration": 12000
-        },
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.0",
-                "forteCircuit.1",
-                "forteCircuit.2"
-              ]
-            }
-          },
-          "stats": {
-            "defIgnore%": 0.6
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "duration": 12000
-        },
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "forteCircuit.2"
-            }
-          },
-          "stats": {
-            "damageMv%": 1
-          }
-        }
       }
     ],
     "skills": {
@@ -65476,7 +63375,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -65509,7 +63407,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -65864,12 +63761,12 @@
           },
           "duration": 10000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "havocDmgBonus%": 0.06
           }
-        }
+        },
+        "maxStacks": 2
       },
       {
         "stores": "$next",
@@ -65886,103 +63783,6 @@
           "stats": {
             "havocDmgAmp%": 0.2,
             "resonanceSkillDmgAmp%": 0.25
-          }
-        }
-      },
-      {
-        "rank": 1,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "resonanceSkill.0",
-                "resonanceSkill.1",
-                "forteCircuit.4"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.5
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "use": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "action": "resonanceSkill.2"
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceSkill.2"
-            }
-          },
-          "stats": {
-            "damageMv%": 2.45
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "stats": {
-            "damageMv%": 3.7
-          }
-        }
-      },
-      {
-        "rank": 4,
-        "buff": {
-          "stats": {
-            "healingBonus%": 0.25
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": [
-                "forteCircuit.0",
-                "forteCircuit.1",
-                "forteCircuit.2"
-              ]
-            }
-          },
-          "stats": {
-            "damageMv%": 0.8
-          }
-        }
-      },
-      {
-        "rank": 6,
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "duration": 10000
-        },
-        "buff": {
-          "stats": {
-            "defIgnore%": 0.3
           }
         }
       }
@@ -66159,7 +63959,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -66216,7 +64015,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -66534,7 +64332,6 @@
             "tagged": "Mirage",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -66628,7 +64425,6 @@
             "tagged": "Mirage",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -67417,7 +65213,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -67450,7 +65245,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -68960,7 +66754,6 @@
             "tagged": "Azure Sword Stance",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -68994,7 +66787,6 @@
             "tagged": "Feather Sword Stance",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -69028,7 +66820,6 @@
             "tagged": "Azure Sword Stance",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -69110,7 +66901,6 @@
             "tagged": "Feather Sword Stance",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -69576,7 +67366,6 @@
             "tagged": "Feather Sword Stance",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [

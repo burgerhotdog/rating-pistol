@@ -11,6 +11,7 @@ import { runRotation } from './rotation';
 import { runTrials } from './runTrials';
 import { weaponTests } from './weaponTests';
 import { setTests } from './setTests';
+import { skillLevelTests } from './skillLevelTests';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
@@ -44,16 +45,10 @@ self.onmessage = async ({ data }) => {
 
   const equipMaps = await resolveEquipMaps(cache);
 
-  // Sanity check
   self.postMessage({ status: 'Checking rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
   const concertoExtraTime = computeConcertoExtraTime(cache.member[cache.charId]);
   const userDps = computeDps(userSnapshots, cache.rotationDuration + concertoExtraTime);
-  if (Number.isNaN(userDps)) {
-    console.log(userDps);
-    self.postMessage({ errorLog: cache.effects });
-    throw new Error('error');
-  }
 
   console.time('runTrials');
   const results = await runTrials(cache, equipMaps, cache.charId, true);
@@ -68,6 +63,11 @@ self.onmessage = async ({ data }) => {
   console.time('setTests');
   const setResults = setTests(cache, equipMaps, cache.charId);
   console.timeEnd('setTests');
+
+  console.time('skillLevelTests');
+  const skillLevelResults = skillLevelTests(cache, equipMaps, cache.charId);
+  console.timeEnd('skillLevelTests');
+  
 
   self.postMessage({
     dpsProgression: results.dpsProgression,
@@ -84,6 +84,7 @@ self.onmessage = async ({ data }) => {
     memberIds: cache.memberIds,
     weaponResults,
     setResults,
+    skillLevelResults,
     userMember: {
       weaponId: cache.member[cache.charId].weaponId,
       weaponRank: cache.member[cache.charId].weaponRank,

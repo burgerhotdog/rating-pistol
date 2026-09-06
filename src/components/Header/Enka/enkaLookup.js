@@ -20,7 +20,7 @@ export default {
     'FIGHT_PROP_PHYSICAL_ADD_HURT': 'physicalDmgBonus%',
     'FIGHT_PROP_CRITICAL': 'critRate%',
     'FIGHT_PROP_CRITICAL_HURT': 'critDmg%',
-    'FIGHT_PROP_HEAL_ADD': 'healingBonus%'
+    'FIGHT_PROP_HEAL_ADD': 'healingBonus%',
   },
   [HSR]: {
     'HPDelta': 'hp',
@@ -49,7 +49,7 @@ export default {
     'SPRatioBase': 'energyRegenerationRate%',
     'StatusResistance': 'effectRes%',
     'ElationDamageAddedRatioBase': 'elation%',
-    'ElationDamageAddedRatio': 'elation%'
+    'ElationDamageAddedRatio': 'elation%',
   },
   [ZZZ]: {
     '11102': 'hp%',

@@ -108,6 +108,7 @@ export const compileCache = ({ gameId, charId, team }) => {
     mCache.weaponRank = member.weaponRank;
     mCache.setCounts = member.setCounts;
     mCache.mainEcho = member.mainEcho;
+    mCache.skillLevels = member.skillLevels;
 
     mCache.baseMap = buildBaseMap(gameId, member.id, member.weaponId);
     if (member.build?.equipList) {
@@ -125,6 +126,7 @@ export const compileCache = ({ gameId, charId, team }) => {
     cache.rotationDuration += duration;
 
     const effectDefs = normalizeEffects(gameId, member, { memberIds: cache.memberIds, actionDefs });
+    mCache.effects = effectDefs;
     Object.assign(cache.effects, effectDefs);
 
     const charData = CHARACTER[gameId][member.id];

@@ -4,31 +4,209 @@
     "maxLevel": 90,
     "maxEquips": 5,
     "maxSubstats": 4,
-    "equipsPerDay": 9,
-    "energyAttr": "energyRecharge%"
+    "energyAttr": "energyRecharge%",
+    "skillIds": [
+      "normalAttack",
+      "elementalSkill",
+      "elementalBurst"
+    ],
+    "maxSkillLevel": 10,
+    "skillLevelUpgradeCosts": [
+      {
+        "money": 12500,
+        "material": 3,
+        "weekly": 0
+      },
+      {
+        "money": 17500,
+        "material": 6,
+        "weekly": 0
+      },
+      {
+        "money": 25000,
+        "material": 12,
+        "weekly": 0
+      },
+      {
+        "money": 30000,
+        "material": 18,
+        "weekly": 0
+      },
+      {
+        "money": 37500,
+        "material": 27,
+        "weekly": 0
+      },
+      {
+        "money": 120000,
+        "material": 36,
+        "weekly": 1
+      },
+      {
+        "money": 260000,
+        "material": 54,
+        "weekly": 1
+      },
+      {
+        "money": 450000,
+        "material": 108,
+        "weekly": 2
+      },
+      {
+        "money": 700000,
+        "material": 144,
+        "weekly": 2
+      }
+    ],
+    "domains": {
+      "money": {
+        "stamina": 20,
+        "reward": {
+          "money": 60000
+        }
+      },
+      "material": {
+        "stamina": 20,
+        "reward": {
+          "material": 10.12
+        }
+      },
+      "weekly": {
+        "stamina": 30,
+        "reward": {
+          "money": 8100,
+          "weekly": 0.8
+        }
+      },
+      "equip": {
+        "stamina": 20,
+        "reward": {
+          "equip": 1.065
+        }
+      }
+    }
   },
   "honkai-star-rail": {
     "maxMembers": 4,
     "maxLevel": 80,
     "maxEquips": 6,
     "maxSubstats": 4,
-    "equipsPerDay": 10,
-    "energyAttr": "energyRegenerationRate%"
+    "energyAttr": "energyRegenerationRate%",
+    "skillIds": [
+      "basicAtk",
+      "skill",
+      "ultimate",
+      "talent"
+    ],
+    "maxSkillLevel": 10
   },
   "wuthering-waves": {
     "maxMembers": 3,
     "maxLevel": 90,
     "maxEquips": 5,
     "maxSubstats": 5,
-    "equipsPerDay": 17,
-    "energyAttr": "energyRegen%"
+    "staminaPerDay": 240,
+    "energyAttr": "energyRegen%",
+    "skillIds": [
+      "normalAttack",
+      "resonanceSkill",
+      "resonanceLiberation",
+      "forteCircuit",
+      "introSkill"
+    ],
+    "maxSkillLevel": 10,
+    "skillLevelUpgradeCosts": [
+      {
+        "money": 1500,
+        "material": 2,
+        "weekly": 0
+      },
+      {
+        "money": 2000,
+        "material": 3,
+        "weekly": 0
+      },
+      {
+        "money": 4500,
+        "material": 6,
+        "weekly": 0
+      },
+      {
+        "money": 6000,
+        "material": 9,
+        "weekly": 0
+      },
+      {
+        "money": 16000,
+        "material": 27,
+        "weekly": 0
+      },
+      {
+        "money": 30000,
+        "material": 45,
+        "weekly": 1
+      },
+      {
+        "money": 50000,
+        "material": 54,
+        "weekly": 1
+      },
+      {
+        "money": 70000,
+        "material": 81,
+        "weekly": 1
+      },
+      {
+        "money": 100000,
+        "material": 162,
+        "weekly": 1
+      }
+    ],
+    "domains": {
+      "money": {
+        "stamina": 40,
+        "reward": {
+          "money": 84000
+        }
+      },
+      "material": {
+        "stamina": 40,
+        "reward": {
+          "money": 4000,
+          "material": 51
+        }
+      },
+      "weekly": {
+        "stamina": 60,
+        "reward": {
+          "money": 54000,
+          "weekly": 3
+        }
+      },
+      "equip": {
+        "stamina": 60,
+        "reward": {
+          "money": 5250,
+          "equip": 4.3,
+          "tuners": 20,
+          "exp": 24155
+        }
+      }
+    }
   },
   "zenless-zone-zero": {
     "maxMembers": 3,
     "maxLevel": 60,
     "maxEquips": 6,
     "maxSubstats": 4,
-    "equipsPerDay": 15,
-    "energyAttr": "energyRegen%"
+    "energyAttr": "energyRegen%",
+    "skillIds": [
+      "basicAttack",
+      "dodge",
+      "assist",
+      "specialAttack",
+      "chainAttack"
+    ],
+    "maxSkillLevel": 12
   }
 }

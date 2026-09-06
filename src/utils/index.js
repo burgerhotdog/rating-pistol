@@ -1,10 +1,11 @@
 export * from './buildMap';
 export * from './compute';
+export * from './equipListConfig';
 export * from './format';
 export * from './init';
+export * from './normalize';
 export * from './randomStat';
 export * from './resolve';
-export * from './equipListConfig';
 
 export * from './estimateTrajectory';
 export * from './getAttr';

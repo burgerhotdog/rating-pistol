@@ -9,7 +9,7 @@ const nameToId =
   );
 
 export async function ocrId(imageBitmap, ocrWorker) {
-  const region = { x: 67, y: 24, w: 600, h: 54};
+  const region = { x: 67, y: 24, w: 600, h: 54 };
   const text = await ocrRegion(region, imageBitmap, ocrWorker, 7, 'id');
   const name = matchString(text, Object.keys(nameToId), 10);
   return nameToId[name];
@@ -159,4 +159,32 @@ export async function ocrSubstat(imageBitmap, ocrWorker, index, lineIndex) {
   const value = Math.round(isPercent ? substatValueRaw * 100 : substatValueRaw);
 
   return { id, value };
+}
+
+const skillLevelRegions = {
+  'normalAttack': { x: 1066, y: 187, w: 87, h: 22 },
+  'resonanceSkill': { x: 840, y: 343, w: 87, h: 22 },
+  'resonanceLiberation': { x: 1266, y: 343, w: 87, h: 22 },
+  'forteCircuit': { x: 1186, y: 589, w: 87, h: 22 },
+  'introSkill': { x: 920, y: 589, w: 87, h: 22 },
+};
+
+const skillLevelMatch = [
+  'LV.1/10',
+  'LV.2/10',
+  'LV.3/10',
+  'LV.4/10',
+  'LV.5/10',
+  'LV.6/10',
+  'LV.7/10',
+  'LV.8/10',
+  'LV.9/10',
+  'LV.10/10',
+];
+
+export async function ocrSkillLevel(imageBitmap, ocrWorker, skillKey) {
+  const region = skillLevelRegions[skillKey];
+  const text = await ocrRegion(region, imageBitmap, ocrWorker, 8, 'skill');
+  const matched = matchString(text, skillLevelMatch);
+  return skillLevelMatch.indexOf(matched) + 1;
 }

@@ -1,6 +1,12 @@
 import { CHARACTER, ECHO, SET, WW } from '@/data';
-import { appliesToCharId, isEnabledEcho, isEnabledSet, isStaticBuff, toMergedObj } from '@/utils';
-import { normAction } from '../cache/actions';
+import {
+  appliesToCharId,
+  isEnabledEcho,
+  isEnabledSet,
+  isStaticBuff,
+  toMergedObj,
+  normalizeAction,
+} from '@/utils';
 import { normEffect, resolveEffectTokens } from '../cache/effects';
 import { runVariantDps } from '../variantDps';
 
@@ -107,7 +113,7 @@ function getNormalizedEchoEffects(gameId, ownerId, echoId, memberIds, weaponRank
 function buildEchoAction(gameId, echoId, ownerId, teamSize) {
   const rawAction = ECHO[echoId]?.action;
   if (!rawAction) return undefined;
-  return normAction(gameId, rawAction, { ownerId, category: 'echoSkill', index: 0, teamSize });
+  return normalizeAction(gameId, rawAction, { ownerId, category: 'echoSkill', index: 0, teamSize });
 }
 
 // Mirrors the main echo insertion timing in compileCache's getConvertedRotation
@@ -148,13 +154,10 @@ export function setTests(cache, equipMaps, charId) {
   const mCache = cache.member[charId];
 
   const nonSetEffects = Object.fromEntries(
-    Object.entries(cache.effects)
+    Object.entries(mCache.effects)
       .filter(([, effect]) => !(
-        effect.ownerId === charId &&
-        (
-          mCache.setCounts[effect.sourceId] ||
-          effect.sourceId === mCache.mainEcho
-        )
+        mCache.setCounts[effect.sourceId] ||
+        effect.sourceId === mCache.mainEcho
       ))
   );
 
@@ -176,7 +179,7 @@ export function setTests(cache, equipMaps, charId) {
       const effects = { ...nonSetEffects, ...setEffects, ...echoEffects };
  
       const staticBuffMaps = Object.values(effects)
-        .filter((effect) => effect.ownerId === charId && isStaticBuff(effect) && appliesToCharId(effect, charId))
+        .filter((effect) => isStaticBuff(effect) && appliesToCharId(effect, charId))
         .map((effect) => effect.buff.stats);
       const testStatMap = toMergedObj(mCache.baseMap, mCache.equipMap, ...staticBuffMaps);
 
@@ -184,10 +187,9 @@ export function setTests(cache, equipMaps, charId) {
       const rotation = withEchoAction(nonEchoRotation, echoAction, ECHO[echoId]?.timing);
  
       return runVariantDps(cache, equipMaps, charId, {
-        effects,
         sourceStatMap: mCache.menuMap,
         testStatMap,
-        memberOverride: { rotation },
+        memberOverride: { effects, rotation },
       });
     };
 
@@ -212,8 +214,8 @@ export function setTests(cache, equipMaps, charId) {
   const usefulSetBonuses = buildUsefulSetBonuses(gameId, TOTAL_SLOTS, baselineDps, runTest);
 
   // Pass 2: build the actual results, with main echo candidates tested
-  const results = {};
-  results.none = baselineDps;
+  const results = [];
+  results.push({ comboKey: 'none', dps: baselineDps });
 
   const PASS_2_TYPES = [[5], [3, 2], [2, 2, 1]];
 
@@ -239,7 +241,7 @@ export function setTests(cache, equipMaps, charId) {
       const key = assignment.map(({ setId, size }) => `${setId}_${size}`).join('+');
       const keyWithEcho = echoId != null ? `${key}|${echoId}` : key;
 
-      results[keyWithEcho] = dps;
+      results.push({ comboKey: keyWithEcho, dps });
     }
   }
 

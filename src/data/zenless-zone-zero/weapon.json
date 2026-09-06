@@ -216,7 +216,7 @@
     "id": 13001,
     "icon": "zenless-zone-zero/weapon/13001.webp",
     "quality": 4,
-    "free": true,
+    "permanent": true,
     "type": "attack",
     "stats": {
       "baseAtk": 594,
@@ -231,7 +231,7 @@
     "id": 13002,
     "icon": "zenless-zone-zero/weapon/13002.webp",
     "quality": 4,
-    "free": true,
+    "permanent": true,
     "type": "support",
     "stats": {
       "baseAtk": 594,
@@ -246,7 +246,7 @@
     "id": 13003,
     "icon": "zenless-zone-zero/weapon/13003.webp",
     "quality": 4,
-    "free": true,
+    "permanent": true,
     "type": "anomaly",
     "stats": {
       "baseAtk": 594,
@@ -261,7 +261,7 @@
     "id": 13004,
     "icon": "zenless-zone-zero/weapon/13004.webp",
     "quality": 4,
-    "free": true,
+    "permanent": true,
     "type": "attack",
     "stats": {
       "baseAtk": 594,
@@ -276,7 +276,7 @@
     "id": 13005,
     "icon": "zenless-zone-zero/weapon/13005.webp",
     "quality": 4,
-    "free": true,
+    "permanent": true,
     "type": "stun",
     "stats": {
       "baseAtk": 594,
@@ -291,7 +291,7 @@
     "id": 13006,
     "icon": "zenless-zone-zero/weapon/13006.webp",
     "quality": 4,
-    "free": true,
+    "permanent": true,
     "type": "stun",
     "stats": {
       "baseAtk": 594,
@@ -306,7 +306,7 @@
     "id": 13007,
     "icon": "zenless-zone-zero/weapon/13007.webp",
     "quality": 4,
-    "free": true,
+    "permanent": true,
     "type": "defense",
     "stats": {
       "baseAtk": 594,
@@ -321,7 +321,7 @@
     "id": 13008,
     "icon": "zenless-zone-zero/weapon/13008.webp",
     "quality": 4,
-    "free": true,
+    "permanent": true,
     "type": "anomaly",
     "stats": {
       "baseAtk": 594,
@@ -350,7 +350,7 @@
     "id": 13010,
     "icon": "zenless-zone-zero/weapon/13010.webp",
     "quality": 4,
-    "free": true,
+    "permanent": true,
     "type": "defense",
     "stats": {
       "baseAtk": 594,
@@ -379,7 +379,7 @@
     "id": 13012,
     "icon": "zenless-zone-zero/weapon/13012.webp",
     "quality": 4,
-    "free": true,
+    "permanent": true,
     "type": "rupture",
     "stats": {
       "baseAtk": 594,
@@ -394,7 +394,6 @@
     "id": 13013,
     "icon": "zenless-zone-zero/weapon/13013.webp",
     "quality": 4,
-    "free": true,
     "type": "attack",
     "stats": {
       "baseAtk": 594,
@@ -423,7 +422,6 @@
     "id": 13015,
     "icon": "zenless-zone-zero/weapon/13015.webp",
     "quality": 4,
-    "free": true,
     "type": "attack",
     "stats": {
       "baseAtk": 594,
@@ -438,7 +436,6 @@
     "id": 13016,
     "icon": "zenless-zone-zero/weapon/13016.webp",
     "quality": 4,
-    "free": true,
     "type": "defense",
     "stats": {
       "baseAtk": 594,
@@ -453,7 +450,6 @@
     "id": 13018,
     "icon": "zenless-zone-zero/weapon/13018.webp",
     "quality": 4,
-    "free": true,
     "type": "anomaly",
     "stats": {
       "baseAtk": 594,
@@ -468,7 +464,6 @@
     "id": 13019,
     "icon": "zenless-zone-zero/weapon/13019.webp",
     "quality": 4,
-    "free": true,
     "type": "rupture",
     "stats": {
       "baseAtk": 594,
@@ -483,7 +478,6 @@
     "id": 13020,
     "icon": "zenless-zone-zero/weapon/13020.webp",
     "quality": 4,
-    "free": true,
     "type": "stun",
     "stats": {
       "baseAtk": 594,

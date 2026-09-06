@@ -27,7 +27,10 @@ export const getBuffMap = (ctx, options = {}) => {
       buffCooldown ||
       !ctx.eventFilter(effect.buff?.filter, action, effect)
     ) continue;
-    const buffMult = (effect.chance ?? 1) * stacks;
+    const linkedStacks = effect.buff?.statusStacks
+      ? ctx.states.negativeStatuses[effect.buff.statusStacks]?.stacks ?? 0
+      : 1;
+    const buffMult = (effect.chance ?? 1) * stacks * linkedStacks;
 
     if (effect.buff?.stats) {
       mergeStatMap(buffMap, effect.buff.stats, buffMult);

@@ -1,5 +1,5 @@
 import { CHARACTER, WEAPON } from '@/data';
-import { buildBaseMap, isEnabledWeap, toMergedObj } from '@/utils';
+import { buildBaseMap, isEnabledWeap, toMergedObj, getDefaultWeapRank } from '@/utils';
 import { normEffect, resolveEffectTokens } from './cache/effects';
 import { runVariantDps } from './variantDps';
 
@@ -33,28 +33,31 @@ export function weaponTests(cache, equipMaps, charId) {
   const weapDatas = WEAPON[cache.gameId];
 
   const nonWeapEffects = Object.fromEntries(
-    Object.entries(cache.effects)
-      .filter(([, effect]) => !(effect.ownerId === charId && effect.sourceId === mCache.weaponId))
+    Object.entries(mCache.effects)
+      .filter(([, effect]) => effect.sourceId !== mCache.weaponId)
   );
 
   const weapDatasToTest = Object.values(weapDatas)
     .filter((weapData) => weapData.type === charData.type);
 
-  const weaponResults = {};
+  const weaponResults = [];
 
   for (const weapData of weapDatasToTest) {
     const baseMap = buildBaseMap(cache.gameId, charId, weapData.id);
     const statMap = toMergedObj(baseMap, mCache.equipMap);
 
     const concertoPenalty = charData.concertoReq && !weapDatas[weapData.id]?.concerto;
-    const memberOverride = { baseMap, statMap, concertoPenalty };
 
-    weaponResults[weapData.id] = [1, 5].map((weaponRank) => {
-      const weaponEffects = getNormalizedWeaponEffects(weapData.effects, cache.gameId, charId, weapData.id, weaponRank, cache.memberIds);
-      const effects = { ...nonWeapEffects, ...weaponEffects };
+    const testRank = weapData.id === mCache.weaponId
+      ? mCache.weaponRank
+      : getDefaultWeapRank(cache.gameId, weapData.id);
 
-      return runVariantDps(cache, equipMaps, charId, { effects, memberOverride });
-    });
+    const weaponEffects = getNormalizedWeaponEffects(weapData.effects, cache.gameId, charId, weapData.id, testRank, cache.memberIds);
+    const effects = { ...nonWeapEffects, ...weaponEffects };
+
+    const memberOverride = { baseMap, statMap, concertoPenalty, effects };
+    const dps = runVariantDps(cache, equipMaps, charId, { memberOverride });
+    weaponResults.push({ weaponId: weapData.id, weaponRank: testRank, dps });
   }
 
   return weaponResults;

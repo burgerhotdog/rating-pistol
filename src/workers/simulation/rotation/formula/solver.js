@@ -1,20 +1,17 @@
 import { HSR, ZZZ } from '@/data';
 
-function getBaseAttrs(part, compressed) {
-  const baseAttrs = new Set();
-  baseAttrs.add(`${part}Mv%`);
-  baseAttrs.add(`${part}Mv`);
-  baseAttrs.add('flat');
+export function getUsedAttrs(gameId, action, part) {
+  const usedAttrs = new Set();
 
-  for (const attr of Object.keys(compressed.mvs)) {
-    baseAttrs.add(attr);
+  usedAttrs.add(`${part}Mv%`);
+  usedAttrs.add(`${part}Mv`);
+  usedAttrs.add(`${part}Flat`);
+  for (const attr of Object.keys(action[part].compressed.mvs)) {
+    usedAttrs.add(attr);
+    if (!attr.endsWith('%')) {
+      usedAttrs.add(`${attr}%`);
+    }
   }
-
-  return baseAttrs;
-}
-
-export function getUsedAttrs(gameId, part, action) {
-  const usedAttrs = new Set([...getBaseAttrs(part, action[part].compressed)]);
 
   switch (part) {
     case 'damage':
