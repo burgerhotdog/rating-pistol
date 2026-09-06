@@ -6,8 +6,9 @@ import {
   isStaticBuff,
   toMergedObj,
   normalizeAction,
+  normalizeEffect,
+  resolveEffectTokens,
 } from '@/utils';
-import { normEffect, resolveEffectTokens } from '../cache/effects';
 import { runVariantDps } from '../variantDps';
 
 import { buildUsefulSetBonuses } from './buildUsefulSetBonuses';
@@ -85,7 +86,7 @@ function getNormalizedSetEffects(effectSources, gameId, ownerId, memberIds) {
       if (!isEnabledSet(rawEffect, pieceCount, charData)) continue;
 
       const normCtx = { ...sharedNormCtx, index };
-      const effect = normEffect(normCtx, rawEffect);
+      const effect = normalizeEffect(gameId, rawEffect, normCtx);
       normalized[effect.id] = effect;
     }
   }
@@ -103,7 +104,7 @@ function getNormalizedEchoEffects(gameId, ownerId, echoId, memberIds, weaponRank
     if (!isEnabledEcho(rawEffect, charData)) continue;
 
     const normCtx = { ...sharedNormCtx, index };
-    const effect = normEffect(normCtx, rawEffect);
+    const effect = normalizeEffect(gameId, rawEffect, normCtx);
     normalized[effect.id] = effect;
   }
 

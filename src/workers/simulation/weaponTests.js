@@ -1,6 +1,12 @@
 import { CHARACTER, WEAPON } from '@/data';
-import { buildBaseMap, isEnabledWeap, toMergedObj, getDefaultWeapRank } from '@/utils';
-import { normEffect, resolveEffectTokens } from './cache/effects';
+import {
+  buildBaseMap,
+  isEnabledWeap,
+  toMergedObj,
+  getDefaultWeapRank,
+  normalizeEffect,
+  resolveEffectTokens,
+} from '@/utils';
 import { runVariantDps } from './variantDps';
 
 function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weaponRank, memberIds) {
@@ -20,7 +26,7 @@ function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weapo
     if (!isEnabledWeap(rawEffect, charData, weapData)) continue;
 
     const normCtx = { ...sharedNormCtx, index };
-    const effect = normEffect(normCtx, rawEffect);
+    const effect = normalizeEffect(gameId, rawEffect, normCtx);
     normalized[effect.id] = effect;
   }
 
