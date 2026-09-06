@@ -33,10 +33,15 @@ export function runUseEffect(ctx, state, spec = {}) {
       delete state.isRunning;
     }
 
-    if (effect.use.cooldown) state.useCooldown = effect.use.cooldown;
+    if (effect.use.cooldown) {
+      state.useCooldown = effect.use.cooldown;
+    }
+
     if (state.usesLeft) {
       state.usesLeft--;
-      if (!state.usesLeft) return delete store[effect.id];
+      if (!state.usesLeft) {
+        return delete store[effect.id];
+      }
     }
   }
 }
@@ -64,28 +69,33 @@ export function runApplyEffect(ctx, effect, spec = {}) {
       store,
       effect,
       stacks: Math.min(nextStacks, maxStacks),
-      ...(effect.apply?.duration &&
-        { timeLeft: isDurationExt
+      ...(effect.apply?.duration && {
+        timeLeft: isDurationExt
           ? prevState.timeLeft + spec.duration
           : prevState.timeLeft > effect.apply.duration
             ? prevState.timeLeft
-            : effect.apply.duration }),
-      ...(effect.apply?.uses &&
-        { usesLeft: isUsesExt
+            : effect.apply.duration,
+      }),
+      ...(effect.apply?.uses && {
+        usesLeft: isUsesExt
           ? prevState.usesLeft + spec.uses
-          : effect.apply.uses }),
-      ...(effect.maxExtensions &&
-        { extensionsLeft: isExt
+          : effect.apply.uses,
+      }),
+      ...(effect.maxExtensions && {
+        extensionsLeft: isExt
           ? prevState.extensionsLeft - 1
-          : effect.maxExtensions }),
-      ...(effect.apply?.offset &&
-        { useCooldown: isExt
+          : effect.maxExtensions,
+      }),
+      ...(effect.apply?.offset && {
+        useCooldown: isExt
           ? prevState.useCooldown
-          : effect.apply.offset }),
-      ...(effect.rampingInterval &&
-        { rampingTimer: isExt
+          : effect.apply.offset,
+      }),
+      ...(effect.rampingInterval && {
+        rampingTimer: isExt
           ? prevState.rampingTimer
-          : effect.rampingOffset ?? 0 }),
+          : effect.rampingOffset ?? 0,
+      }),
     };
 
     if ( // If effect should be removed when reaching max stacks
