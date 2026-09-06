@@ -18,7 +18,19 @@
     "sets": [
       3
     ],
-    "cost": 4
+    "cost": 4,
+    "action": {
+      "name": "Echo Skill: Tempest Mephis",
+      "type": "echoSkill",
+      "damage": {
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 1.0248
+          }
+        ]
+      }
+    }
   },
   "6000040": {
     "name": "Hoochief",
@@ -50,7 +62,39 @@
     "sets": [
       6
     ],
-    "cost": 4
+    "cost": 4,
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "havocDmgBonus%": 0.12,
+            "resonanceSkillDmgBonus%": 0.12
+          }
+        }
+      }
+    ],
+    "action": {
+      "name": "Echo Skill: Crownless",
+      "type": "echoSkill",
+      "damage": {
+        "element": "havoc",
+        "multipliers": [
+          {
+            "mv": 1.3408
+          }
+        ]
+      }
+    },
+    "timing": "start"
   },
   "6000043": {
     "name": "Feilian Beringal",
@@ -60,7 +104,19 @@
     "sets": [
       4
     ],
-    "cost": 4
+    "cost": 4,
+    "action": {
+      "name": "Echo Skill: Feilian Beringal",
+      "type": "echoSkill",
+      "damage": {
+        "element": "aero",
+        "multipliers": [
+          {
+            "mv": 2.3184
+          }
+        ]
+      }
+    }
   },
   "6000044": {
     "name": "Lampylumen Myriad",
@@ -70,7 +126,39 @@
     "sets": [
       1
     ],
-    "cost": 4
+    "cost": 4,
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "glacioDmgBonus%": 0.04,
+            "resonanceSkillDmgBonus%": 0.04
+          }
+        },
+        "maxStacks": 3
+      }
+    ],
+    "action": {
+      "name": "Echo Skill: Lampylumen Myriad",
+      "type": "echoSkill",
+      "damage": {
+        "element": "glacio",
+        "multipliers": [
+          {
+            "mv": 2.0016
+          }
+        ]
+      }
+    }
   },
   "6000045": {
     "name": "Mourning Aix",
@@ -80,7 +168,19 @@
     "sets": [
       5
     ],
-    "cost": 4
+    "cost": 4,
+    "action": {
+      "name": "Echo Skill: Mourning Aix",
+      "type": "echoSkill",
+      "damage": {
+        "element": "spectro",
+        "multipliers": [
+          {
+            "mv": 1.5744
+          }
+        ]
+      }
+    }
   },
   "6000046": {
     "name": "Carapace",
@@ -116,7 +216,7 @@
     "effects": [
       {
         "apply": {
-          "when": "cast",
+          "when": "start",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
@@ -872,6 +972,12 @@
     "id": 6000085,
     "icon": "wuthering-waves/echo/6000085.webp",
     "sets": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
       13
     ],
     "cost": 4,
@@ -1056,6 +1162,15 @@
         }
       },
       {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          },
+          "duration": 2000
+        },
         "buff": {
           "filter": {
             "action": {
