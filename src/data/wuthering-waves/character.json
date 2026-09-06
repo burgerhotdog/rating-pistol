@@ -44327,12 +44327,126 @@
     },
     "effects": [
       {
-        "rank": 6,
+        "key": "divergent",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "cooldown": 20000
+        }
+      },
+      {
         "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.1",
+                "forteCircuit.2",
+                "forteCircuit.3"
+              ]
+            }
+          },
           "stats": {
-            "dmgBonus%": 0.3
+            "damageMv%": 0.5
           }
         }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.1",
+                "forteCircuit.2",
+                "forteCircuit.3",
+                "forteCircuit.4"
+              ]
+            }
+          },
+          "stats": {
+            "dmgAmp%": 0.6
+          }
+        }
+      },
+      {
+        "key": "convergent",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          },
+          "cooldown": 20000
+        }
+      },
+      {
+        "key": "blessingOfRunes",
+        "stores": "$team",
+        "apply": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "echoSkill"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "states": {
+              "field": "onField"
+            }
+          },
+          "stats": {
+            "aeroDmgBonus%": 0.03,
+            "echoSkillDmgBonus%": 0.03
+          }
+        },
+        "maxStacks": 6
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "blessingOfRunes": 6
+            }
+          },
+          "stats": {
+            "aeroDmgBonus%": 0.3,
+            "echoSkillDmgBonus%": 0.3
+          }
+        }
+      },
+      {
+        "buff": {
+          "specs": {
+            "echoSkillDmgBonus%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "offset": 1.25,
+              "value": 0.02,
+              "maxValue": 0.5
+            }
+          }
+        }
+      },
+      {
+        "key": "encapsulated",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "cooldown": 30000,
+          "stacks": 2
+        },
+        "maxStacks": 2
       }
     ],
     "skills": {
@@ -44612,7 +44726,7 @@
             }
           },
           {
-            "name": "Decipher: Basic Attack - Elucidated",
+            "name": "Decipher: Basic Attack: Elucidated",
             "type": "basicAttack",
             "damage": {
               "type": "echoSkill",
@@ -44815,38 +44929,6 @@
             }
           },
           {
-            "name": "Mid-air Dodge Counter",
-            "type": "dodgeCounter",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.037,
-                    1.1221,
-                    1.2071,
-                    1.3262,
-                    1.4112,
-                    1.509,
-                    1.645,
-                    1.7811,
-                    1.9172,
-                    2.0617,
-                    2.2318,
-                    2.4018,
-                    2.5719,
-                    2.742,
-                    2.912,
-                    3.0821,
-                    3.2522,
-                    3.4223,
-                    3.5923,
-                    3.7624
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Decipher: Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
@@ -44899,6 +44981,38 @@
                     2.0435,
                     2.145,
                     2.2466
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Dodge Counter: Mid-air",
+            "type": "dodgeCounter",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.037,
+                    1.1221,
+                    1.2071,
+                    1.3262,
+                    1.4112,
+                    1.509,
+                    1.645,
+                    1.7811,
+                    1.9172,
+                    2.0617,
+                    2.2318,
+                    2.4018,
+                    2.5719,
+                    2.742,
+                    2.912,
+                    3.0821,
+                    3.2522,
+                    3.4223,
+                    3.5923,
+                    3.7624
                   ]
                 }
               ]
@@ -45173,7 +45287,7 @@
         "name": "Within Infinity's Embrace",
         "actions": [
           {
-            "name": "Schemata of Runes",
+            "name": "Heavy Attack: Schemata of Runes",
             "type": "heavyAttack",
             "damage": {
               "type": "echoSkill",
@@ -45487,7 +45601,7 @@
         "name": "Solsworn Etymology",
         "actions": [
           {
-            "name": "Solsworn Etymology",
+            "name": "Intro Skill",
             "type": "introSkill",
             "damage": {
               "multipliers": [
@@ -45524,7 +45638,7 @@
         "name": "In This Very Moment",
         "actions": [
           {
-            "name": "In This Very Moment",
+            "name": "Outro Skill",
             "type": "outroSkill",
             "damage": {
               "multipliers": [
