@@ -1,4 +1,5 @@
 import { WW, CHARACTER, SET, MISC } from '@/data';
+import { getEnergyLevel } from './getEnergyLevel';
 import { getDefaultCharRank, getDefaultWeapRank } from '../getDefault';
 
 function buildSetCounts(gameId, equipList) {
@@ -98,6 +99,10 @@ export function initMember(gameId, memberId, build, overrides) {
       overrides?.mode ??
       charData.modes[0];
   }
+
+  member.energyReq =
+    preset.energyReq ??
+    build
 
   return member;
 }
