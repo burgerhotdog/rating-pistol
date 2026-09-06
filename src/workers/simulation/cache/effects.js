@@ -27,11 +27,13 @@ export const normalizeEffects = (gameId, member, spec) => {
   for (const [index, rawEffect] of charEffects.entries()) {
     if (!isEnabledChar(rawEffect, member, gameId, spec.memberIds)) continue;
 
-    const sourceId = member.id;
-    const sourceType = 'character';
-    const normCtx = { ...sharedNormCtx, sourceId, sourceType, index };
-    const effect = normalizeEffect(gameId, rawEffect, normCtx);
-    normalized[effect.id] = effect;
+    const effectId = `${member.id}.${member.id}:effect${index}`;
+    normalized[effectId] = normalizeEffect(gameId, rawEffect, {
+      ...sharedNormCtx,
+      sourceId: member.id,
+      sourceType: 'character',
+      index,
+    });
   }
 
   // Weapon effects
@@ -40,24 +42,29 @@ export const normalizeEffects = (gameId, member, spec) => {
   for (const [index, rawEffect] of weapEffects.entries()) {
     if (!isEnabledWeap(rawEffect, charData, weapData)) continue;
 
-    const sourceId = member.weaponId;
-    const sourceType = 'weapon';
-    const normCtx = { ...sharedNormCtx, sourceId, sourceType, index };
-    const effect = normalizeEffect(gameId, rawEffect, normCtx);
-    normalized[effect.id] = effect;
+    const effectId = `${member.id}.${member.weaponId}:effect${index}`;
+    normalized[effectId] = normalizeEffect(gameId, rawEffect, {
+      ...sharedNormCtx,
+      sourceId: member.weaponId,
+      sourceType: 'weapon',
+      index,
+    });
   }
 
   // Set effects
   for (const [setId, pcCount] of Object.entries(member.setCounts)) {
     const setEffects = SET[gameId][setId]?.effects ?? [];
+
     for (const [index, rawEffect] of setEffects.entries()) {
       if (!isEnabledSet(rawEffect, pcCount, charData)) continue;
 
-      const sourceId = setId;
-      const sourceType = 'set';
-      const normCtx = { ...sharedNormCtx, sourceId, sourceType, index };
-      const effect = normalizeEffect(gameId, rawEffect, normCtx);
-      normalized[effect.id] = effect;
+      const effectId = `${member.id}.${setId}:effect${index}`;
+      normalized[effectId] = normalizeEffect(gameId, rawEffect, {
+        ...sharedNormCtx,
+        sourceId: setId,
+        sourceType: 'set',
+        index,
+      });
     }
   }
 
@@ -67,11 +74,13 @@ export const normalizeEffects = (gameId, member, spec) => {
     for (const [index, rawEffect] of echoEffects.entries()) {
       if (!isEnabledEcho(rawEffect, charData)) continue;
 
-      const sourceId = member.mainEcho;
-      const sourceType = 'echo';
-      const normCtx = { ...sharedNormCtx, sourceId, sourceType, index };
-      const effect = normalizeEffect(gameId, rawEffect, normCtx);
-      normalized[effect.id] = effect;
+      const effectId = `${member.id}.${member.mainEcho}:effect${index}`;
+      normalized[effectId] = normalizeEffect(gameId, rawEffect, {
+        ...sharedNormCtx,
+        sourceId: member.mainEcho,
+        sourceType: 'echo',
+        index,
+      });
     }
   }
 

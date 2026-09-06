@@ -10,22 +10,27 @@ export const resolveEffectTokens = (normalized) => {
 
   function walkBooleanTree(node, onLeaf) {
     if (node == null || typeof node !== 'object') return;
+
     if (Array.isArray(node)) {
       node.forEach((n) => walkBooleanTree(n, onLeaf));
       return;
     }
+
     if ('and' in node) {
       node.and.forEach((n) => walkBooleanTree(n, onLeaf));
       return;
     }
+
     if ('or' in node) {
       node.or.forEach((n) => walkBooleanTree(n, onLeaf));
       return;
     }
+
     if ('not' in node) {
       walkBooleanTree(node.not, onLeaf);
       return;
     }
+
     onLeaf(node);
   }
 
@@ -34,10 +39,12 @@ export const resolveEffectTokens = (normalized) => {
       if ('has' in leaf) return; // generic has (e.g. action.has) - not an effect reference
 
       const [key, value] = Object.entries(leaf)[0];
+
       if (key === 'effectStacks') {
         resolveEffectStacksKeys(value, ownerId, sourceId);
         return;
       }
+
       traverseFilter(value, ownerId, sourceId);
     });
   }
@@ -99,4 +106,3 @@ export const resolveEffectTokens = (normalized) => {
 
   return normalized;
 };
-
