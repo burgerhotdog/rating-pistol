@@ -41,8 +41,8 @@ const DistributionChart = ({ results }) => {
 
   return (
     <PieChart
-      style={{ width: '100%', height: '100%' }}
       responsive
+      style={{ width: '100%', height: '100%' }}
     >
       <Pie
         data={data}

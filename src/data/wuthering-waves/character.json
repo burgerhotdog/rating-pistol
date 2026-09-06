@@ -161,12 +161,12 @@
           },
           "duration": 20000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "atk%": 0.1
           }
-        }
+        },
+        "maxStacks": 2
       }
     ],
     "skills": {
@@ -372,7 +372,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -405,7 +404,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -1136,7 +1134,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -1169,7 +1166,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -2023,7 +2019,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -2056,7 +2051,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -2419,7 +2413,6 @@
             "tagged": "Striding Lion",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -2622,12 +2615,12 @@
           },
           "duration": 27000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "atk%": 0.06
           }
-        }
+        },
+        "maxStacks": 3
       },
       {
         "stores": "$next",
@@ -2679,12 +2672,12 @@
           },
           "duration": 27000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "atk%": 0.15
           }
-        }
+        },
+        "maxStacks": 3
       },
       {
         "rank": 4,
@@ -2868,7 +2861,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -2924,7 +2916,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -3320,12 +3311,12 @@
           },
           "duration": 7000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "critDmg%": 0.15
           }
-        }
+        },
+        "maxStacks": 4
       }
     ],
     "skills": {
@@ -3545,7 +3536,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -3578,7 +3568,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -4827,7 +4816,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -4860,7 +4848,6 @@
             "name": "Customary Greetings",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -4917,7 +4904,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -5735,7 +5721,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -5768,7 +5753,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -7376,7 +7360,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -7409,7 +7392,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -7897,7 +7879,6 @@
             "tagged": "Reminiscence",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -7931,7 +7912,6 @@
             "tagged": "Reminiscence",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -8624,7 +8604,6 @@
             "tagged": "Zepher Stance",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -8658,7 +8637,6 @@
             "tagged": "Zepher Stance",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -9433,7 +9411,6 @@
             "name": "Swallow's Cut",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -9598,12 +9575,12 @@
           },
           "duration": 10000
         },
-        "maxStacks": 30,
         "buff": {
           "stats": {
             "atk%": 0.01
           }
-        }
+        },
+        "maxStacks": 30
       },
       {
         "rank": 1,
@@ -9866,7 +9843,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -9899,7 +9875,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -10300,12 +10275,12 @@
           },
           "duration": 6000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "fusionDmgBonus%": 0.03
           }
-        }
+        },
+        "maxStacks": 4
       },
       {
         "rank": 3,
@@ -10369,12 +10344,12 @@
           },
           "duration": 10000
         },
-        "maxStacks": 6,
         "buff": {
           "stats": {
             "atk%": 0.05
           }
-        }
+        },
+        "maxStacks": 6
       }
     ],
     "skills": {
@@ -10579,7 +10554,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -10612,7 +10586,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -10929,7 +10902,6 @@
             "tagged": "Cosmos",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -11574,7 +11546,6 @@
             "name": "Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -11607,7 +11578,6 @@
             "name": "Mid-air Attack 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -11640,7 +11610,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -12240,7 +12209,6 @@
             "name": "Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -12272,7 +12240,6 @@
             "name": "Mid-air Attack 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -12305,7 +12272,6 @@
             "name": "Mid-air Attack 3",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -12338,7 +12304,6 @@
             "name": "Mid-air Attack 4",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -12481,7 +12446,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13012,12 +12976,12 @@
           },
           "duration": 5000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "dmgBonus%": 0.2
           }
-        }
+        },
+        "maxStacks": 3
       },
       {
         "rank": 2,
@@ -13435,7 +13399,6 @@
             "name": "Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13468,7 +13431,6 @@
             "name": "Mid-air Attack 1: Charged Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13550,7 +13512,6 @@
             "name": "Mid-air Attack 1: Flip",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13607,7 +13568,6 @@
             "name": "Mid-air Attack 1: Slash",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13641,7 +13601,6 @@
             "name": "Mid-air Attack 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13698,7 +13657,6 @@
             "name": "Mid-air Attack 2: Charged Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13732,7 +13690,6 @@
             "name": "Mid-air Attack 2: Flip",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13789,7 +13746,6 @@
             "name": "Mid-air Attack 3",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13823,7 +13779,6 @@
             "name": "Mid-air Attack 3: Flip",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13880,7 +13835,6 @@
             "name": "Mid-air Attack 4",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13962,7 +13916,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -14783,12 +14736,12 @@
           },
           "duration": 30000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "fusionDmgBonus%": 0.2
           }
-        }
+        },
+        "maxStacks": 2
       },
       {
         "rank": 3,
@@ -15305,7 +15258,6 @@
             "name": "Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -15338,7 +15290,6 @@
             "name": "Mid-air Attack 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -15396,7 +15347,6 @@
             "name": "Mid-air Attack 3",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -15510,7 +15460,6 @@
             "name": "Plunging Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -15648,7 +15597,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -18521,7 +18469,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -18554,7 +18501,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -18588,7 +18534,6 @@
             "tagged": "Wide Field Observation Mode",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -19736,7 +19681,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -19769,7 +19713,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -20317,7 +20260,6 @@
             "tagged": "Mech",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -20376,7 +20318,6 @@
             "tagged": "Mech",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -21411,7 +21352,6 @@
             "tagged": "Stagecraft Form",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -21469,7 +21409,6 @@
             "tagged": "Stagecraft Form",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -21730,7 +21669,6 @@
             "tagged": "Breakdown Form",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -21764,7 +21702,6 @@
             "tagged": "Breakdown Form",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -21985,7 +21922,6 @@
             "tagged": "Breakdown Form",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -22847,7 +22783,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -24401,7 +24336,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -24434,7 +24368,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -25599,7 +25532,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -25632,7 +25564,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -26391,7 +26322,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -26424,7 +26354,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -26991,7 +26920,6 @@
             "tagged": "Lightning Infused",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "attr": "def",
               "multipliers": [
                 {
@@ -27199,12 +27127,12 @@
           },
           "duration": 20000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "atk%": 0.25
           }
-        }
+        },
+        "maxStacks": 2
       },
       {
         "rank": 4,
@@ -27539,7 +27467,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -27617,7 +27544,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -28157,7 +28083,6 @@
             "tagged": "Incarnation",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -28513,12 +28438,12 @@
           },
           "duration": 8000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "electroDmgBonus%": 0.05
           }
-        }
+        },
+        "maxStacks": 4
       },
       {
         "stores": "$next",
@@ -28905,7 +28830,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -28938,7 +28862,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -29897,7 +29820,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -29931,7 +29853,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -29965,7 +29886,6 @@
             "name": "Dodge Counter: Mid-air",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -30809,7 +30729,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -30842,7 +30761,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -31413,12 +31331,12 @@
           },
           "duration": 12000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "atk%": 0.1
           }
-        }
+        },
+        "maxStacks": 2
       },
       {
         "stores": "$applier",
@@ -31764,7 +31682,6 @@
             "tagged": "Huntress",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -31798,7 +31715,6 @@
             "tagged": "Huntress",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -32127,7 +32043,6 @@
             "tagged": "Guts",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -32161,7 +32076,6 @@
             "tagged": "Guts",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -33908,7 +33822,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -33941,7 +33854,6 @@
             "name": "Mid-air Attack: Havoc 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -33974,7 +33886,6 @@
             "name": "Mid-air Attack: Havoc 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -34007,7 +33918,6 @@
             "name": "Mid-air Attack: Havoc 3",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -34088,7 +33998,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -34145,7 +34054,6 @@
             "name": "Dodge Counter: Mid-air",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -35789,7 +35697,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -35854,7 +35761,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -36048,7 +35954,6 @@
             "name": "Feather Release",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -36540,7 +36445,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -36637,7 +36541,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -37380,7 +37283,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -37413,7 +37315,6 @@
             "name": "Banner Of Triumph",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -37478,7 +37379,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -38154,7 +38054,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -38186,7 +38085,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -39403,7 +39301,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -39436,7 +39333,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -40477,7 +40373,6 @@
             "name": "Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -40511,7 +40406,6 @@
             "name": "Mid-air Attack 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -40545,7 +40439,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -41397,7 +41290,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "extraType": "aeroErosion",
               "attr": "hp",
               "multipliers": [
@@ -41432,7 +41324,6 @@
             "name": "Mid-air Attack 1 Sword Shadow Recalled",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "extraType": "aeroErosion",
               "attr": "hp",
               "multipliers": [
@@ -41467,7 +41358,6 @@
             "name": "Mid-air Attack 2 Sword Shadows Recalled",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "extraType": "aeroErosion",
               "attr": "hp",
               "multipliers": [
@@ -41503,7 +41393,6 @@
             "name": "Mid-air Attack 3 Sword Shadows Recalled",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "extraType": "aeroErosion",
               "attr": "hp",
               "multipliers": [
@@ -41539,7 +41428,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -42247,7 +42135,6 @@
             "name": "Fleurdelys: Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -42329,7 +42216,6 @@
             "name": "Fleurdelys: Mid-air Attack 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -42411,7 +42297,6 @@
             "name": "Fleurdelys: Mid-air Attack 3",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -42445,7 +42330,6 @@
             "name": "Fleurdelys: Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -43118,7 +43002,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -43153,7 +43036,6 @@
             "tagged": "Half Moon",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -44608,7 +44490,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -45911,7 +45792,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -45944,7 +45824,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -46025,7 +45904,6 @@
             "name": "Mid-air Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -48496,7 +48374,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -48529,7 +48406,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49284,7 +49160,6 @@
             "name": "Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49317,7 +49192,6 @@
             "name": "Mid-air Attack 2",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49350,7 +49224,6 @@
             "name": "Mid-air Attack 3",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49417,7 +49290,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49797,7 +49669,6 @@
             "tagged": "Starflower Blooms",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49882,7 +49753,6 @@
             "tagged": "Starflower Blooms",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49967,7 +49837,6 @@
             "tagged": "Starflower Blooms",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -50350,7 +50219,6 @@
             "tagged": "Yellow Light",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -50567,7 +50435,6 @@
             "tagged": "Red Light",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -50601,7 +50468,6 @@
             "tagged": "Red Light",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -51597,7 +51463,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -51630,7 +51495,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -51858,7 +51722,6 @@
             "name": "Mid-air Attack: Transmutation",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -52670,7 +52533,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -52704,7 +52566,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -52739,7 +52600,6 @@
             "tagged": "Chamuel's Star",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -53680,7 +53540,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -53713,7 +53572,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -55035,7 +54893,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -55182,7 +55039,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -55263,7 +55119,6 @@
             "name": "Eye of Unraveling: Retraction",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -56359,7 +56214,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -56392,7 +56246,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -56811,7 +56664,6 @@
             "name": "Kaleidoscopic Parade: Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -56910,7 +56762,6 @@
             "name": "Kaleidoscopic Parade: Mid-Air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -56967,7 +56818,6 @@
             "name": "Kaleidoscopic Parade: Mid-air Heavy Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -57815,7 +57665,6 @@
             "name": "Mid-air Attack 1",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -57848,7 +57697,6 @@
             "name": "Mid-air Attack 2 Scythe: Dissection",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -57989,7 +57837,6 @@
             "name": "Mid-air Attack 3 Scythe: Dissection",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -58130,7 +57977,6 @@
             "name": "Mid-air Attack 4",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -58163,7 +58009,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -58220,7 +58065,6 @@
             "name": "Dodge Counter: Mid-air",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -58559,7 +58403,6 @@
             "name": "Gavel of Earthshaker",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -59436,7 +59279,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -59493,7 +59335,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -60390,7 +60231,6 @@
             "tagged": "Algorithm Compaction",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -60448,7 +60288,6 @@
             "tagged": "Algorithm Compaction",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -61593,7 +61432,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -61626,7 +61464,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -62446,7 +62283,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -62479,7 +62315,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -63436,7 +63271,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -63470,7 +63304,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -63782,7 +63615,6 @@
             "tagged": "Blossom Mode",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -64310,7 +64142,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -64343,7 +64174,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -64795,7 +64625,6 @@
             "tagged": "Umbra",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -64829,7 +64658,6 @@
             "tagged": "Umbra",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -65454,7 +65282,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -65487,7 +65314,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -65842,12 +65668,12 @@
           },
           "duration": 10000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "havocDmgBonus%": 0.06
           }
-        }
+        },
+        "maxStacks": 2
       },
       {
         "stores": "$next",
@@ -66137,7 +65963,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -66194,7 +66019,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -66512,7 +66336,6 @@
             "tagged": "Mirage",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -66606,7 +66429,6 @@
             "tagged": "Mirage",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -67395,7 +67217,6 @@
             "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -67428,7 +67249,6 @@
             "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -68938,7 +68758,6 @@
             "tagged": "Azure Sword Stance",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -68972,7 +68791,6 @@
             "tagged": "Feather Sword Stance",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -69006,7 +68824,6 @@
             "tagged": "Azure Sword Stance",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -69088,7 +68905,6 @@
             "tagged": "Feather Sword Stance",
             "type": "dodgeCounter",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -69554,7 +69370,6 @@
             "tagged": "Feather Sword Stance",
             "type": "mid-airAttack",
             "damage": {
-              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [

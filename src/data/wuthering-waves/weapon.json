@@ -113,7 +113,6 @@
           },
           "duration": 12000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "resonanceLiberationDmgBonus%": [
@@ -121,7 +120,8 @@
               0.14
             ]
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },
@@ -160,7 +160,6 @@
           },
           "duration": 14000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "heavyAttackDmgBonus%": [
@@ -168,7 +167,8 @@
               0.48
             ]
           }
-        }
+        },
+        "maxStacks": 2
       }
     ]
   },
@@ -635,7 +635,6 @@
           },
           "duration": 15000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "resonanceLiberationDmgBonus%": [
@@ -643,7 +642,8 @@
               0.16
             ]
           }
-        }
+        },
+        "maxStacks": 3
       },
       {
         "use": {
@@ -734,7 +734,6 @@
           "offset": 6000
         },
         "rampingInterval": 2000,
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
@@ -742,7 +741,8 @@
               0.06
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -819,7 +819,6 @@
           "cooldown": 1000,
           "duration": 7000
         },
-        "maxStacks": 5,
         "buff": {
           "stats": {
             "atk%": [
@@ -827,7 +826,8 @@
               0.128
             ]
           }
-        }
+        },
+        "maxStacks": 5
       }
     ]
   },
@@ -1076,7 +1076,6 @@
           "cooldown": 1000,
           "duration": 10000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
@@ -1084,7 +1083,8 @@
               0.08
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -1239,7 +1239,6 @@
           },
           "duration": 10000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "atk%": [
@@ -1247,7 +1246,8 @@
               0.12
             ]
           }
-        }
+        },
+        "maxStacks": 2
       }
     ]
   },
@@ -1288,7 +1288,6 @@
           "when": "maxStacks",
           "offset": 12000
         },
-        "maxStacks": 14,
         "buff": {
           "stats": {
             "resonanceSkillDmgBonus%": [
@@ -1296,7 +1295,8 @@
               0.08
             ]
           }
-        }
+        },
+        "maxStacks": 14
       },
       {
         "use": {
@@ -1343,7 +1343,6 @@
             "field": "offField"
           }
         },
-        "maxStacks": 10,
         "buff": {
           "stats": {
             "atk%": [
@@ -1351,7 +1350,8 @@
               0.04
             ]
           }
-        }
+        },
+        "maxStacks": 10
       },
       {
         "buff": {
@@ -1457,7 +1457,6 @@
           "cooldown": 1000,
           "duration": 14000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": [
@@ -1465,7 +1464,8 @@
               0.2
             ]
           }
-        }
+        },
+        "maxStacks": 3
       },
       {
         "enable": {
@@ -1970,7 +1970,6 @@
             "field": "offField"
           }
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "heavyAttackDmgBonus%": [
@@ -1978,7 +1977,8 @@
               0.6
             ]
           }
-        }
+        },
+        "maxStacks": 2
       },
       {
         "stores": "$team",
@@ -2272,7 +2272,6 @@
           "cooldown": 1000,
           "duration": 10000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
@@ -2280,7 +2279,8 @@
               0.08
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -3055,7 +3055,6 @@
           },
           "duration": 30000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "dmgBonus%": [
@@ -3063,7 +3062,8 @@
               0.16
             ]
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },
@@ -3123,7 +3123,6 @@
           },
           "duration": 14000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "spectroDmgBonus%": [
@@ -3131,7 +3130,8 @@
               0.4
             ]
           }
-        }
+        },
+        "maxStacks": 2
       },
       {
         "apply": {
@@ -3303,7 +3303,6 @@
           "cooldown": 1000,
           "duration": 10000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "resonanceSkillDmgBonus%": [
@@ -3311,7 +3310,8 @@
               0.23
             ]
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },
@@ -3384,7 +3384,6 @@
           "cooldown": 1000,
           "duration": 10000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
@@ -3392,7 +3391,8 @@
               0.08
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -3424,7 +3424,6 @@
           "cooldown": 1000,
           "duration": 7000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
@@ -3436,7 +3435,8 @@
               0.072
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -3964,7 +3964,6 @@
           "cooldown": 500,
           "duration": 3000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": [
@@ -3972,7 +3971,8 @@
               0.09
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -4377,7 +4377,6 @@
           "cooldown": 1000,
           "duration": 10000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
@@ -4385,7 +4384,8 @@
               0.08
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -4543,7 +4543,6 @@
           "cooldown": 500,
           "duration": 8000
         },
-        "maxStacks": 5,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": [
@@ -4551,7 +4550,8 @@
               0.064
             ]
           }
-        }
+        },
+        "maxStacks": 5
       }
     ]
   },
@@ -4589,7 +4589,6 @@
           },
           "duration": 5000
         },
-        "maxStacks": 2,
         "buff": {
           "stats": {
             "atk%": [
@@ -4597,7 +4596,8 @@
               0.24
             ]
           }
-        }
+        },
+        "maxStacks": 2
       },
       {
         "buff": {
@@ -4740,7 +4740,6 @@
           },
           "duration": 6000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": [
@@ -4748,7 +4747,8 @@
               0.24
             ]
           }
-        }
+        },
+        "maxStacks": 3
       },
       {
         "apply": {
@@ -4820,7 +4820,6 @@
           "cooldown": 1000,
           "duration": 6000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "spectroDmgBonus%": [
@@ -4828,7 +4827,8 @@
               0.1
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -5054,7 +5054,6 @@
           },
           "duration": 6000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "basicAttackDmgBonus%": [
@@ -5066,7 +5065,8 @@
               0.28
             ]
           }
-        }
+        },
+        "maxStacks": 3
       },
       {
         "stores": "global",
@@ -5250,7 +5250,6 @@
           "cooldown": 600,
           "duration": 8000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "healingBonus%": [
@@ -5258,7 +5257,8 @@
               0.06
             ]
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },
@@ -5588,7 +5588,6 @@
           "cooldown": 1000,
           "duration": 10000
         },
-        "maxStacks": 4,
         "buff": {
           "stats": {
             "atk%": [
@@ -5596,7 +5595,8 @@
               0.08
             ]
           }
-        }
+        },
+        "maxStacks": 4
       }
     ]
   },

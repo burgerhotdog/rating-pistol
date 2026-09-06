@@ -68,11 +68,20 @@ export function normalizeAction(gameId, rawAction, spec) {
 
   if (action.damage) {
     const damage = action.damage = { ...action.damage };
-    if (action.type) damage.type ??= action.type;
+
+    if (action.type) {
+      if (action.type === 'mid-airAttack' || action.type === 'dodgeCounter') {
+        damage.type ??= 'basicAttack';
+      } else {
+        damage.type ??= action.type;
+      }
+    }
+
     if (Array.isArray(damage.type)) {
       const modeIndex = CHARACTER[gameId][spec.ownerId].modes.indexOf(spec.mode);
       damage.type = damage.type[modeIndex];
     }
+
     const isGiPhysNa = gameId === GI && category === 'normalAttack' && spec.weaponType !== 'catalyst';
     damage.element ??= isGiPhysNa ? 'physical' : spec.charElement;
     damage.attr ??= 'atk';
@@ -100,7 +109,11 @@ export function normalizeAction(gameId, rawAction, spec) {
 
   if (action.healing) {
     const healing = action.healing = { ...action.healing };
-    if (healing.times === '$teamSize') healing.times = spec.teamSize;
+
+    if (healing.times === '$teamSize') {
+      healing.times = spec.teamSize;
+    }
+
     healing.attr ??= 'atk';
     healing.compressed = getCompressed(
       healing.multipliers,
@@ -111,6 +124,7 @@ export function normalizeAction(gameId, rawAction, spec) {
 
   if (action.shield) {
     const shield = action.shield = { ...action.shield };
+
     shield.attr ??= 'atk';
     shield.compressed = getCompressed(
       shield.multipliers,
