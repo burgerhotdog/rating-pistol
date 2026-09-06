@@ -1,19 +1,16 @@
-import { CHARACTER, ECHO, SET, WW } from '@/data';
+import { WW, CHARACTER, SET, ECHO } from '@/data';
 import {
   appliesToCharId,
   isEnabledEcho,
   isEnabledSet,
   isStaticBuff,
-  toMergedObj,
   normalizeAction,
   normalizeEffect,
   resolveEffectTokens,
+  toMergedObj,
 } from '@/utils';
 import { runVariantDps } from '../variantDps';
-
 import { buildUsefulSetBonuses } from './buildUsefulSetBonuses';
-
-const TOTAL_SLOTS = 5;
 
 function combinations(arr, k) {
   const results = [];
@@ -24,6 +21,7 @@ function combinations(arr, k) {
       results.push([...combo]);
       return;
     }
+
     for (let i = start; i < arr.length; i++) {
       combo.push(arr[i]);
       backtrack(i + 1);
@@ -212,7 +210,7 @@ export function setTests(cache, equipMaps, charId) {
 
   // Pass 1: Find which sets are worth combining, ignoring main echo so a lucky echo match can't prop up a dead set
   const { dps: baselineDps } = runTest([], { testEcho: false });
-  const usefulSetBonuses = buildUsefulSetBonuses(gameId, TOTAL_SLOTS, baselineDps, runTest);
+  const usefulSetBonuses = buildUsefulSetBonuses(gameId, baselineDps, runTest);
 
   // Pass 2: build the actual results, with main echo candidates tested
   const results = [];

@@ -1,18 +1,21 @@
-import { SET } from '@/data';
+import { SET, MISC } from '@/data';
 
-export function buildUsefulSetBonuses(gameId, maxEquips, baselineDps, runTest) {
+export function buildUsefulSetBonuses(gameId, baselineDps, runTest) {
+  const { maxEquips } = MISC[gameId];
+  const setDatasList = Object.values(SET[gameId]);
+
   const setBonusDpsIfUseful = {};
   const usefulSetBonuses = {};
 
-  for (let tier = 1; tier <= maxEquips; tier++) {
+  for (let bonusTier = 1; bonusTier <= maxEquips; bonusTier++) {
     const usefulSetIds = new Set();
 
-    for (const { id, effects, bonuses } of Object.values(SET[gameId])) {
-      if (!bonuses.includes(tier)) continue;
+    for (const { id, effects, bonuses } of setDatasList) {
+      if (!bonuses.includes(bonusTier)) continue;
 
       const { dps } = runTest([{
         rawEffects: effects,
-        pieceCount: tier,
+        pieceCount: bonusTier,
         sourceId: id,
       }], { testEcho: false });
 
@@ -24,7 +27,7 @@ export function buildUsefulSetBonuses(gameId, maxEquips, baselineDps, runTest) {
       }
     }
  
-    usefulSetBonuses[tier] = usefulSetIds;
+    usefulSetBonuses[bonusTier] = usefulSetIds;
   }
 
   return usefulSetBonuses;
