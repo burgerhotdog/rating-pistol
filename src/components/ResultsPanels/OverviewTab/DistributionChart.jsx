@@ -26,10 +26,10 @@ const buildData = (snapshots, charId) => {
 
   const total = entries.reduce((acc, entry) => acc + entry.value, 0);
 
-  return entries.map((entry) => {
-    const percent = entry.value / total;
-    return { ...entry, percent };
-  });
+  return entries.map((entry) => ({
+    ...entry,
+    percent: entry.value / total,
+  }));
 };
 
 const DistributionChart = ({ results }) => {

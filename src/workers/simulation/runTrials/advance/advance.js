@@ -3,7 +3,7 @@ import { buildEquipMap } from '@/utils';
 import { getSkippableStats } from './getSkippableStats';
 import { createEquipGenerator } from './generateEquip';
 
-function createEquipEvaluator(cache, evaluateEquipMap) {
+function createEquipEvaluator(evaluateEquipMap) {
   function trySlots(slots, equip, prev) {
     const next = { ...prev };
     for (const equipIndex of slots) {
@@ -39,7 +39,7 @@ export function createAdvanceTrial(cache, evaluateEquipMap) {
   const { score } = evaluateEquipMap();
   const skippable = getSkippableStats(gameId, score, evaluateEquipMap);
   const generateEquip = createEquipGenerator(skippable);
-  const evaluateEquip = createEquipEvaluator(cache, evaluateEquipMap);
+  const evaluateEquip = createEquipEvaluator(evaluateEquipMap);
 
   const { staminaPerDay, domains } = MISC[gameId];
   const runsPerDay = staminaPerDay / domains.equip.stamina;

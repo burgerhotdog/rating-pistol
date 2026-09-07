@@ -1,11 +1,11 @@
 import { CHARACTER, WEAPON } from '@/data';
 import {
   buildBaseMap,
-  isEnabledWeap,
-  toMergedObj,
   getDefaultWeapRank,
+  isEnabledWeap,
   normalizeEffect,
   resolveEffectTokens,
+  toMergedObj,
 } from '@/utils';
 import { runVariantDps } from './variantDps';
 
@@ -20,13 +20,10 @@ function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weapo
     memberIds,
   };
 
-  const charData = CHARACTER[gameId][ownerId];
-  const weapData = WEAPON[gameId][sourceId];
   for (const [index, rawEffect] of rawEffects.entries()) {
-    if (!isEnabledWeap(rawEffect, charData, weapData)) continue;
+    if (!isEnabledWeap(rawEffect, CHARACTER[gameId][ownerId], WEAPON[gameId][sourceId])) continue;
 
-    const normCtx = { ...sharedNormCtx, index };
-    const effect = normalizeEffect(gameId, rawEffect, normCtx);
+    const effect = normalizeEffect(gameId, rawEffect, { ...sharedNormCtx, index });
     normalized[effect.id] = effect;
   }
 
@@ -34,35 +31,42 @@ function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weapo
 }
 
 export function weaponTests(cache, equipMaps, charId) {
+  const { gameId } = cache;
+  const { type: charType, concertoReq } = CHARACTER[gameId][charId];
   const mCache = cache.member[charId];
-  const charData = CHARACTER[cache.gameId][charId];
-  const weapDatas = WEAPON[cache.gameId];
 
   const nonWeapEffects = Object.fromEntries(
     Object.entries(mCache.effects)
       .filter(([, effect]) => effect.sourceId !== mCache.weaponId)
   );
 
-  const weapDatasToTest = Object.values(weapDatas)
-    .filter((weapData) => weapData.type === charData.type);
+  const weapDatasToTest = Object.values(WEAPON[gameId])
+    .filter((weapData) => weapData.type === charType);
 
   const weaponResults = [];
 
   for (const weapData of weapDatasToTest) {
-    const baseMap = buildBaseMap(cache.gameId, charId, weapData.id);
-    const statMap = toMergedObj(baseMap, mCache.equipMap);
-
-    const concertoPenalty = charData.concertoReq && !weapDatas[weapData.id]?.concerto;
+    const baseMap = buildBaseMap(gameId, charId, weapData.id);
 
     const testRank = weapData.id === mCache.weaponId
       ? mCache.weaponRank
-      : getDefaultWeapRank(cache.gameId, weapData.id);
+      : getDefaultWeapRank(gameId, weapData.id);
 
-    const weaponEffects = getNormalizedWeaponEffects(weapData.effects, cache.gameId, charId, weapData.id, testRank, cache.memberIds);
-    const effects = { ...nonWeapEffects, ...weaponEffects };
+    const mCacheOverrides = {
+      baseMap,
+      statMap: toMergedObj(baseMap, mCache.equipMap),
+      effects: {
+        ...nonWeapEffects,
+        ...getNormalizedWeaponEffects(weapData.effects, gameId, charId, weapData.id, testRank, cache.memberIds),
+      },
+      ...(concertoReq && { concertoPenalty: Boolean(weapData.concerto) }),
+    };
 
-    const dps = runVariantDps(cache, equipMaps, charId, { baseMap, statMap, concertoPenalty, effects });
-    weaponResults.push({ weaponId: weapData.id, weaponRank: testRank, dps });
+    weaponResults.push({
+      weaponId: weapData.id,
+      weaponRank: testRank,
+      dps: runVariantDps(cache, equipMaps, charId, mCacheOverrides),
+    });
   }
 
   return weaponResults;

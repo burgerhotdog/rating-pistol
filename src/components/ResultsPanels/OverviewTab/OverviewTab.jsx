@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useAccent } from '@/hooks';
-import { formatNum } from '@/utils';
+import { formatNum, getTotals } from '@/utils';
 import { Switch } from '../../Colored';
 import DistributionChart from './DistributionChart';
 import AreaView from './RotationTimeline/AreaView';
@@ -59,7 +59,7 @@ const Stat = ({ label, value, valueColor }) => {
 };
 
 const OverviewTab = ({ results }) => {
-  const { userDps, dpsCeiling, benchmarkDps, memberIds, userSnapshots } = results;
+  const { userDps, dpsCeiling, benchmarkDps, memberIds, userRotationTime, userSnapshots } = results;
   const accent = useAccent();
   const [showHits, setShowHits] = useState(false);
 
@@ -67,9 +67,6 @@ const OverviewTab = ({ results }) => {
   if (userSnapshots.some((snapshot) => snapshot.ownerId === 'other')) {
     memberStack.push('other');
   }
-
-  const totalDamage = userSnapshots.reduce((acc, { damage = 0 }) => acc + damage, 0);
-  const duration = userSnapshots.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
 
   const benchmarkPct = userDps / benchmarkDps * 100;
   const { grade, color: gradeColor } = getGrade(benchmarkPct);
@@ -116,7 +113,7 @@ const OverviewTab = ({ results }) => {
       <Card component={Stack} sx={{ flex: 1 }}>
         <CardHeader
           title="Rotation Timeline"
-          subheader={`${(duration / 1000).toFixed(1)}s rotation · ${formatNum(totalDamage)} dmg · ${formatNum(userDps)} DPS`}
+          subheader={`${(userRotationTime / 1000).toFixed(1)}s rotation · ${formatNum(getTotals(userSnapshots).damage)} damage`}
           action={
             <FormControlLabel
               control={

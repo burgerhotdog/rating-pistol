@@ -48,7 +48,8 @@ self.onmessage = async ({ data }) => {
   self.postMessage({ status: 'Checking rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
   const userDamage = getTotals(userSnapshots).damage;
-  const userDps = userDamage / computeActualRotationTime(cache, equipMaps) * 1000;
+  const userRotationTime = computeActualRotationTime(cache, equipMaps);
+  const userDps = userDamage / userRotationTime * 1000;
 
   console.time('runTrials');
   const results = await runTrials(cache, equipMaps, cache.charId, true);
@@ -75,10 +76,11 @@ self.onmessage = async ({ data }) => {
     fit: results.fit,
     equipListConfigs: results.equipListConfigs,
     userSnapshots,
-    userDay: estimateDay(userDps, results.dpsCeiling, results.dpsProgression, results.fit),
+    userRotationTime,
     userDps,
-    benchmarkDay,
+    userDay: estimateDay(userDps, results.dpsCeiling, results.dpsProgression, results.fit),
     benchmarkDps,
+    benchmarkDay,
     userMainstatConfigKey: getMainstatConfigKey(cache.gameId, cache.member[cache.charId].equipList),
     userSubstatRolls: sumSubstatRolls(cache.gameId, cache.member[cache.charId].equipList),
     memberIds: cache.memberIds,
