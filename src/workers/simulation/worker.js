@@ -1,12 +1,12 @@
 import {
-  computeConcertoExtraTime,
-  computeDps,
+  computeActualRotationTime,
   estimateDay,
   estimateDps,
   getMainstatConfigKey,
+  getTotals,
   sumSubstatRolls,
 } from '@/utils';
-import { compileCache } from './cache';
+import { buildCache } from './cache';
 import { runRotation } from './rotation';
 import { runTrials } from './runTrials';
 import { weaponTests } from './weaponTests';
@@ -39,16 +39,16 @@ async function resolveEquipMaps(cache, allowBlank = false) {
 self.onmessage = async ({ data }) => {
   self.postMessage({ status: 'Compiling cache' });
 
-  console.time('compileCache');
-  const cache = compileCache(data);
-  console.timeEnd('compileCache');
+  console.time('buildCache');
+  const cache = buildCache(data);
+  console.timeEnd('buildCache');
 
   const equipMaps = await resolveEquipMaps(cache);
 
   self.postMessage({ status: 'Checking rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
-  const concertoExtraTime = computeConcertoExtraTime(cache.member[cache.charId]);
-  const userDps = computeDps(userSnapshots, cache.rotationDuration + concertoExtraTime);
+  const userDamage = getTotals(userSnapshots).damage;
+  const userDps = userDamage / computeActualRotationTime(cache, equipMaps) * 1000;
 
   console.time('runTrials');
   const results = await runTrials(cache, equipMaps, cache.charId, true);

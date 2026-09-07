@@ -61,8 +61,7 @@ export function weaponTests(cache, equipMaps, charId) {
     const weaponEffects = getNormalizedWeaponEffects(weapData.effects, cache.gameId, charId, weapData.id, testRank, cache.memberIds);
     const effects = { ...nonWeapEffects, ...weaponEffects };
 
-    const memberOverride = { baseMap, statMap, concertoPenalty, effects };
-    const dps = runVariantDps(cache, equipMaps, charId, { memberOverride });
+    const dps = runVariantDps(cache, equipMaps, charId, { baseMap, statMap, concertoPenalty, effects });
     weaponResults.push({ weaponId: weapData.id, weaponRank: testRank, dps });
   }
 

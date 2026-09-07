@@ -1,13 +1,10 @@
 import { WW, CHARACTER, SET, ECHO } from '@/data';
 import {
-  appliesToCharId,
   isEnabledEcho,
   isEnabledSet,
-  isStaticBuff,
   normalizeAction,
   normalizeEffect,
   resolveEffectTokens,
-  toMergedObj,
 } from '@/utils';
 import { runVariantDps } from '../variantDps';
 import { buildUsefulSetBonuses } from './buildUsefulSetBonuses';
@@ -176,20 +173,11 @@ export function setTests(cache, equipMaps, charId) {
         ? getNormalizedEchoEffects(gameId, charId, echoId, cache.memberIds, mCache.weaponRank)
         : {};
       const effects = { ...nonSetEffects, ...setEffects, ...echoEffects };
- 
-      const staticBuffMaps = Object.values(effects)
-        .filter((effect) => isStaticBuff(effect) && appliesToCharId(effect, charId))
-        .map((effect) => effect.buff.stats);
-      const testStatMap = toMergedObj(mCache.baseMap, mCache.equipMap, ...staticBuffMaps);
 
       const echoAction = echoId != null ? buildEchoAction(gameId, echoId, charId, cache.teamSize) : undefined;
       const rotation = withEchoAction(nonEchoRotation, echoAction, ECHO[echoId]?.timing);
- 
-      return runVariantDps(cache, equipMaps, charId, {
-        sourceStatMap: mCache.menuMap,
-        testStatMap,
-        memberOverride: { effects, rotation },
-      });
+
+      return runVariantDps(cache, equipMaps, charId, { effects, rotation });
     };
 
     if (!echoCandidates.length) {

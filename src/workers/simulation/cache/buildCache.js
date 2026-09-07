@@ -96,7 +96,7 @@ const getConvertedRotation = (gameId, member, actionDefs, memberIds) => {
   return { rotation, duration: rotationDuration };
 };
 
-export const compileCache = ({ gameId, charId, team }) => {
+export const buildCache = ({ gameId, charId, team }) => {
   const cache = { gameId, charId };
   const fTeam = team.filter((member) => member.id);
   cache.memberIds = fTeam.map((member) => member.id);
@@ -140,15 +140,19 @@ export const compileCache = ({ gameId, charId, team }) => {
     if (charData.tagged.includes('healing')) mCache.healing = true;
     if (charData.tagged.includes('shield')) mCache.shield = true;
 
-    if (charData.energy && member.id === charId) {
+    mCache.concertoPenalty = charData.concertoReq && !WEAPON[WW][member.weaponId]?.concerto;
+
+    if (charData.energy) {
       mCache.energy = charData.energy;
 
       const { energyMin = 1, energyMax = Infinity } = charData;
-      const energyLevel = getEnergyLevel(gameId, mCache.statMap);
-      mCache.energyReq = clamp(energyLevel, energyMin, energyMax);
+      if (!mCache.statMap) {
+        mCache.energyReq = energyMin;
+      } else {
+        const energyLevel = getEnergyLevel(gameId, mCache.statMap);
+        mCache.energyReq = clamp(energyLevel, energyMin, energyMax);
+      }
     }
-
-    mCache.concertoPenalty = charData.concertoReq && !WEAPON[WW][member.weaponId]?.concerto;
 
     cache.member[member.id] = mCache;
   }

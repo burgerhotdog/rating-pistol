@@ -8,13 +8,10 @@ function createEquipEvaluator(cache, evaluateEquipMap) {
     const next = { ...prev };
     for (const equipIndex of slots) {
       const equipList = prev.equipList.with(equipIndex, equip);
-      const { snapshots, totals, score, penalty } = evaluateEquipMap(buildEquipMap(equipList, true));
+      const { snapshots, totals, score, actualRotationTime } = evaluateEquipMap(buildEquipMap(equipList, true));
 
       if (score > next.score) {
-        const concertoExtraTime = cache.member[cache.charId].concertoPenalty
-          ? ((100 / 92) * cache.member[cache.charId].duration - cache.member[cache.charId].duration)
-          : 0;
-        const dps = totals.damage / (cache.rotationDuration + concertoExtraTime) * 1000 * penalty;
+        const dps = totals.damage / actualRotationTime * 1000;
         Object.assign(next, { equipList, snapshots, score, dps });
       }
     }
