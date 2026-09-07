@@ -29,7 +29,7 @@ export function runVariantDps(cache, equipMaps, charId, options = {}) {
   const rawDps = getTotals(snapshots).damage / (cache.rotationDuration + concertoExtraTime) * 1000;
 
   const penalty = mCache.energy
-    ? computeEnergyPenalty(cache.gameId, cache.rotationDuration, mCache.duration, sourceStatMap, testStatMap)
+    ? computeEnergyPenalty(cache.gameId, cache.rotationDuration, mCache.duration, mCache.energyReq, testStatMap)
     : 1;
 
   return rawDps * penalty;

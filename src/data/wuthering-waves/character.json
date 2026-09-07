@@ -705,7 +705,8 @@
         "forteCircuit.2",
         "outroSkill.0"
       ],
-      "duration": 2840
+      "duration": 2840,
+      "energyReq": 1
     },
     "teamPreset": [
       1603,
@@ -1607,7 +1608,8 @@
         "resonanceSkill.0",
         "outroSkill.0"
       ],
-      "duration": 4310
+      "duration": 4310,
+      "energyReq": 2.2
     },
     "teamPreset": [
       1104,
@@ -2522,7 +2524,8 @@
         "forteCircuit.5",
         "outroSkill.0"
       ],
-      "duration": 12700
+      "duration": 12700,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1104,
@@ -3106,7 +3109,8 @@
         "forteCircuit.2",
         "outroSkill.0"
       ],
-      "duration": 7020
+      "duration": 7020,
+      "energyReq": 1.3
     },
     "teamPreset": [
       1107,
@@ -4122,7 +4126,8 @@
         "resonanceSkill.3",
         "outroSkill.0"
       ],
-      "duration": 6500
+      "duration": 6500,
+      "energyReq": 1
     },
     "teamPreset": [
       1301,
@@ -5208,7 +5213,8 @@
         "resonanceSkill.1",
         "outroSkill.0"
       ],
-      "duration": 13300
+      "duration": 13300,
+      "energyReq": 1.1
     },
     "teamPreset": [
       1107,
@@ -6773,7 +6779,8 @@
         "resonanceSkill.0",
         "outroSkill.0"
       ],
-      "duration": 10500
+      "duration": 10500,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1108,
@@ -7932,7 +7939,8 @@
         "resonanceLiberation.4",
         "outroSkill.0"
       ],
-      "duration": 7530
+      "duration": 7530,
+      "energyReq": 1
     },
     "teamPreset": [
       1108,
@@ -9324,7 +9332,8 @@
         "resonanceLiberation.0",
         "outroSkill.0"
       ],
-      "duration": 7800
+      "duration": 7800,
+      "energyReq": 2.6
     },
     "teamPreset": [
       1610,
@@ -9987,7 +9996,8 @@
         "forteCircuit.1",
         "outroSkill.0"
       ],
-      "duration": 8830
+      "duration": 8830,
+      "energyReq": 1.1
     },
     "teamPreset": [
       1202,
@@ -10912,7 +10922,8 @@
         "forteCircuit.1",
         "outroSkill.0"
       ],
-      "duration": 11690
+      "duration": 11690,
+      "energyReq": 1.3
     },
     "teamPreset": [
       1203,
@@ -11663,7 +11674,8 @@
         "resonanceLiberation.0",
         "outroSkill.0"
       ],
-      "duration": 5620
+      "duration": 5620,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1404,
@@ -12573,7 +12585,8 @@
         "forteCircuit.0",
         "outroSkill.0"
       ],
-      "duration": 9780
+      "duration": 9780,
+      "energyReq": 1.1
     },
     "teamPreset": [
       1205,
@@ -14037,7 +14050,8 @@
         "forteCircuit.0",
         "outroSkill.0"
       ],
-      "duration": 8200
+      "duration": 8200,
+      "energyReq": 2.5
     },
     "teamPreset": [
       1205,
@@ -15605,7 +15619,8 @@
         "forteCircuit.1",
         "outroSkill.0"
       ],
-      "duration": 8140
+      "duration": 8140,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1205,
@@ -17259,7 +17274,8 @@
         "forteCircuit.4",
         "outroSkill.0"
       ],
-      "duration": 12200
+      "duration": 12200,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1208,
@@ -18507,7 +18523,8 @@
         "forteCircuit.3",
         "resonanceLiberation.0",
         "outroSkill.0"
-      ]
+      ],
+      "energyReq": 2.6
     },
     "teamPreset": [
       1210,
@@ -20362,7 +20379,8 @@
         "resonanceLiberation.1",
         "outroSkill.0"
       ],
-      "duration": 11690
+      "duration": 11690,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1210,
@@ -21827,7 +21845,8 @@
         "resonanceLiberation.1",
         "outroSkill.0"
       ],
-      "duration": 5630
+      "duration": 5630,
+      "energyReq": 1.1
     },
     "teamPreset": [
       {
@@ -23419,7 +23438,8 @@
       "rotation": [
         "introSkill.0",
         "outroSkill.0"
-      ]
+      ],
+      "energyReq": 1.1
     },
     "teamPreset": [
       1212,
@@ -24579,7 +24599,8 @@
         "forteCircuit.1",
         "outroSkill.0"
       ],
-      "duration": 13400
+      "duration": 13400,
+      "energyReq": 1.3
     },
     "teamPreset": [
       1301,
@@ -25228,7 +25249,8 @@
         "forteCircuit.0",
         "outroSkill.0"
       ],
-      "duration": 6460
+      "duration": 6460,
+      "energyReq": 1.3
     },
     "teamPreset": [
       1305,
@@ -26391,7 +26413,8 @@
         "resonanceSkill.0",
         "outroSkill.0"
       ],
-      "duration": 2960
+      "duration": 2960,
+      "energyReq": 1
     },
     "teamPreset": [
       1304,
@@ -27653,7 +27676,8 @@
         "forteCircuit.9",
         "outroSkill.0"
       ],
-      "duration": 10200
+      "duration": 10200,
+      "energyReq": 1
     },
     "teamPreset": [
       1304,
@@ -28532,7 +28556,8 @@
         "forteCircuit.1",
         "outroSkill.0"
       ],
-      "duration": 13300
+      "duration": 13300,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1305,
@@ -29647,7 +29672,8 @@
         "resonanceLiberation.3",
         "outroSkill.0"
       ],
-      "duration": 11170
+      "duration": 11170,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1306,
@@ -30387,7 +30413,8 @@
         "normalAttack.9",
         "forteCircuit.0",
         "outroSkill.0"
-      ]
+      ],
+      "energyReq": 1.3
     },
     "teamPreset": [
       1107,
@@ -32468,7 +32495,8 @@
         "resonanceLiberation.3",
         "outroSkill.0"
       ],
-      "duration": 7890
+      "duration": 7890,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1511,
@@ -34517,7 +34545,8 @@
         "forteCircuit.0",
         "outroSkill.0"
       ],
-      "duration": 7690
+      "duration": 7690,
+      "energyReq": 1.2
     },
     "teamPreset": [
       null,
@@ -35206,7 +35235,8 @@
         "forteCircuit.1",
         "outroSkill.0"
       ],
-      "duration": 5030
+      "duration": 5030,
+      "energyReq": 1.1
     },
     "teamPreset": [
       1107,
@@ -35886,7 +35916,8 @@
         "forteCircuit.0",
         "outroSkill.0"
       ],
-      "duration": 5500
+      "duration": 5500,
+      "energyReq": 1.5
     },
     "teamPreset": [
       1404,
@@ -36688,7 +36719,8 @@
         "resonanceSkill.0",
         "outroSkill.0"
       ],
-      "duration": 12170
+      "duration": 12170,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1404,
@@ -37846,7 +37878,8 @@
         "forteCircuit.4",
         "forteCircuit.9",
         "outroSkill.0"
-      ]
+      ],
+      "energyReq": 1.6
     },
     "teamPreset": [
       1410,
@@ -38919,7 +38952,8 @@
         "forteCircuit.2",
         "outroSkill.0"
       ],
-      "duration": 5960
+      "duration": 5960,
+      "energyReq": 1.3
     },
     "teamPreset": [
       1409,
@@ -39633,7 +39667,8 @@
         "resonanceLiberation.0",
         "outroSkill.0"
       ],
-      "duration": 4500
+      "duration": 4500,
+      "energyReq": 1.3
     },
     "teamPreset": [
       1409,
@@ -41625,7 +41660,8 @@
         "resonanceLiberation.1",
         "outroSkill.0"
       ],
-      "duration": 13230
+      "duration": 13230,
+      "energyReq": 1.1
     },
     "teamPreset": [
       1409,
@@ -42975,7 +43011,8 @@
         "forteCircuit.7",
         "outroSkill.0"
       ],
-      "duration": 8430
+      "duration": 8430,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1306,
@@ -44300,7 +44337,8 @@
         "forteCircuit.6",
         "outroSkill.0"
       ],
-      "duration": 6350
+      "duration": 6350,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1208,
@@ -45673,7 +45711,8 @@
         "forteCircuit.4",
         "outroSkill.0"
       ],
-      "duration": 11090
+      "duration": 11090,
+      "energyReq": 1.1
     },
     "teamPreset": [
       1412,
@@ -47765,7 +47804,8 @@
         "forteCircuit.2",
         "outroSkill.0"
       ],
-      "duration": 5560
+      "duration": 5560,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1507,
@@ -49010,7 +49050,8 @@
         "forteCircuit.3",
         "outroSkill.0"
       ],
-      "duration": 3350
+      "duration": 3350,
+      "energyReq": 2.2
     },
     "teamPreset": [
       1304,
@@ -50054,7 +50095,8 @@
         "forteCircuit.5",
         "outroSkill.0"
       ],
-      "duration": 12410
+      "duration": 12410,
+      "energyReq": 1.4
     },
     "teamPreset": [
       1304,
@@ -50961,7 +51003,8 @@
         "resonanceSkill.0",
         "resonanceLiberation.0",
         "outroSkill.0"
-      ]
+      ],
+      "energyReq": 2.5
     },
     "teamPreset": [
       1306,
@@ -51858,7 +51901,8 @@
         "forteCircuit.3",
         "outroSkill.0"
       ],
-      "duration": 11600
+      "duration": 11600,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1507,
@@ -53009,7 +53053,8 @@
         "resonanceLiberation.1",
         "outroSkill.0"
       ],
-      "duration": 12640
+      "duration": 12640,
+      "energyReq": 1.1
     },
     "teamPreset": [
       1507,
@@ -54558,7 +54603,8 @@
         "forteCircuit.9",
         "outroSkill.0"
       ],
-      "duration": 7210
+      "duration": 7210,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1610,
@@ -55945,7 +55991,8 @@
         "forteCircuit.4",
         "outroSkill.0"
       ],
-      "duration": 7100
+      "duration": 7100,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1210,
@@ -57123,7 +57170,8 @@
         "resonanceSkill.0",
         "outroSkill.0"
       ],
-      "duration": 12400
+      "duration": 12400,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1510,
@@ -59543,7 +59591,8 @@
         "resonanceLiberation.7",
         "outroSkill.0"
       ],
-      "duration": 11830
+      "duration": 11830,
+      "energyReq": 1.3
     },
     "teamPreset": [
       1511,
@@ -60458,7 +60507,8 @@
         "resonanceSkill.1",
         "outroSkill.0"
       ],
-      "duration": 8440
+      "duration": 8440,
+      "energyReq": 1
     },
     "teamPreset": [
       1107,
@@ -61322,7 +61372,8 @@
         "forteCircuit.1",
         "outroSkill.0"
       ],
-      "duration": 7610
+      "duration": 7610,
+      "energyReq": 1
     },
     "teamPreset": [
       1603,
@@ -62164,7 +62215,8 @@
         "resonanceSkill.6",
         "outroSkill.0"
       ],
-      "duration": 15500
+      "duration": 15500,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1603,
@@ -63183,7 +63235,8 @@
         "resonanceLiberation.0",
         "outroSkill.0"
       ],
-      "duration": 11300
+      "duration": 11300,
+      "energyReq": 1.4
     },
     "teamPreset": [
       1605,
@@ -63797,7 +63850,8 @@
         "resonanceLiberation.0",
         "outroSkill.0"
       ],
-      "duration": 6650
+      "duration": 6650,
+      "energyReq": 1.3
     },
     "teamPreset": [
       1603,
@@ -64809,7 +64863,8 @@
         "resonanceSkill.2",
         "outroSkill.0"
       ],
-      "duration": 7060
+      "duration": 7060,
+      "energyReq": 1.3
     },
     "teamPreset": [
       1608,
@@ -65978,7 +66033,8 @@
         "resonanceLiberation.0",
         "outroSkill.0"
       ],
-      "duration": 9450
+      "duration": 9450,
+      "energyReq": 1
     },
     "teamPreset": [
       1608,
@@ -67969,7 +68025,8 @@
         "forteCircuit.2",
         "outroSkill.0"
       ],
-      "duration": 10140
+      "duration": 10140,
+      "energyReq": 1.2
     },
     "teamPreset": [
       1610,

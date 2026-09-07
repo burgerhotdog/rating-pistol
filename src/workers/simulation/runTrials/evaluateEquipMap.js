@@ -17,7 +17,7 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
   }
 
   const energyAttr = MISC[cache.gameId].energyAttr;
-  const energyReq = getAttr(energyAttr, mCache.statMap ?? mCache.baseMap);
+  const energyReq = mCache.energyReq;
   function energyPenalty(testStatMap) {
     if (!mCache.energy) return 1; // no energy req
 

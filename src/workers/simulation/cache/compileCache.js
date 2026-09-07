@@ -135,6 +135,7 @@ export const compileCache = ({ gameId, charId, team }) => {
 
     if (charData.energy) {
       mCache.energy = charData.energy;
+
       if (member.energyReq) {
         mCache.energyReq = member.energyReq;
       }
