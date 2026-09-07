@@ -47821,7 +47821,7 @@
     "element": "spectro",
     "type": "rectifier",
     "energy": 175,
-    "energyMin": 2.2,
+    "energyMin": 2.3,
     "tagged": [
       "healing"
     ],

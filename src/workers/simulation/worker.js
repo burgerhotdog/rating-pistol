@@ -55,7 +55,7 @@ self.onmessage = async ({ data }) => {
   const results = await runTrials(cache, equipMaps, cache.charId, true);
   console.timeEnd('runTrials');
 
-  const { benchmarkDay, benchmarkDps } = findBenchmark(results.dpsProgression, results.fit, results.dpsCeiling);
+  const { benchmarkDps, benchmarkDay } = findBenchmark(results.dpsCeiling, results.dpsProgression, results.fit);
 
   console.time('weaponTests');
   const weaponResults = weaponTests(cache, equipMaps, cache.charId);
@@ -95,29 +95,36 @@ self.onmessage = async ({ data }) => {
   });
 };
 
-function findBenchmark(dpsProgression, fit, dpsCeiling) {
+function findBenchmark(dpsCeiling, dpsProgression, fit) {
   let today = 0;
   let todayDps = dpsProgression[0].mean;
+  console.log('todayDps', todayDps);
 
   while (true) {
     const tomorrowDps = estimateDps(today + 1, dpsCeiling, dpsProgression, fit);
+    console.log('tomorrowDps', tomorrowDps);
     if ((tomorrowDps / todayDps) >= 1.01) {
       today++;
       todayDps = tomorrowDps;
       continue;
     }
 
-    let daysForMoreThanOnePercentGain = 2;
+    let daysUntil5pctGain = 2;
     while (true) {
-      const nextDps = estimateDps(today + daysForMoreThanOnePercentGain, dpsCeiling, dpsProgression, fit);
+      const nextDps = estimateDps(today + daysUntil5pctGain, dpsCeiling, dpsProgression, fit);
+
       if ((nextDps / todayDps) >= 1.05) {
         break;
       }
-      daysForMoreThanOnePercentGain++;
-    }
 
-    if (daysForMoreThanOnePercentGain > today) {
-      return { benchmarkDay: today, benchmarkDps: todayDps };
+      if (daysUntil5pctGain > today) {
+        return {
+          benchmarkDps: todayDps,
+          benchmarkDay: today,
+        };
+      }
+
+      daysUntil5pctGain++;
     }
 
     today++;

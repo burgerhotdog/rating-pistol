@@ -59,7 +59,7 @@ export function weaponTests(cache, equipMaps, charId) {
         ...nonWeapEffects,
         ...getNormalizedWeaponEffects(weapData.effects, gameId, charId, weapData.id, testRank, cache.memberIds),
       },
-      ...(concertoReq && { concertoPenalty: Boolean(weapData.concerto) }),
+      ...(concertoReq && { concertoPenalty: Boolean(!weapData.concerto) }),
     };
 
     weaponResults.push({

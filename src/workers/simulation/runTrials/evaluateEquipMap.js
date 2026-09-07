@@ -15,13 +15,13 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
     return baseScore;
   }
   
-  const actualRotationTime = computeActualRotationTime(cache, equipMaps);
 
   return (evalEquipMap = {}) => {
     const evalStatMap = toMergedObj(mCache.baseMap, evalEquipMap);
 
     const snapshots = snapshotSpecs(evalStatMap);
     const totals = getTotals(snapshots);
+    const actualRotationTime = computeActualRotationTime(cache, { ...equipMaps, [evalId]: evalEquipMap });
     const score = baseScore(totals) / actualRotationTime * 1000;
 
     return { snapshots, totals, score, actualRotationTime };
