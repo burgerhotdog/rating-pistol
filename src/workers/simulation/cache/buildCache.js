@@ -9,7 +9,6 @@ import {
 } from '@/utils';
 import { getActionDefs } from './actions';
 import { normalizeEffects } from './effects';
-import { cacheTuneResponses } from './tuneResponse';
 
 function adjustTimings(rotation, actual, expected) {
   if (!expected) return;
@@ -140,7 +139,9 @@ export const buildCache = ({ gameId, charId, team }) => {
     if (charData.tagged.includes('healing')) mCache.healing = true;
     if (charData.tagged.includes('shield')) mCache.shield = true;
 
-    mCache.concertoPenalty = charData.concertoReq && !WEAPON[WW][member.weaponId]?.concerto;
+    if (charData.concertoReq) {
+      mCache.concertoPenalty = !WEAPON[WW][member.weaponId]?.concerto;
+    }
 
     if (charData.energy) {
       mCache.energy = charData.energy;
@@ -161,3 +162,20 @@ export const buildCache = ({ gameId, charId, team }) => {
 
   return cache;
 };
+
+const alwaysStrain = new Set([1209, 1510, 1413]);
+const onlyStrainIfMode = new Set([1509, 1211]);
+
+function cacheTuneResponses(cache) {
+  cache.tuneStrainMaxStacks = 1;
+
+  for (const mCache of Object.values(cache.member)) {
+    const isStrain =
+      alwaysStrain.has(mCache.id) ||
+      (onlyStrainIfMode.has(mCache.id) && mCache.mode === 'tuneStrain');
+    if (!isStrain) continue;
+
+    mCache.tuneStrainResponse = true;
+    cache.tuneStrainMaxStacks++;
+  }
+}

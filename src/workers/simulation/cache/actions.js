@@ -18,11 +18,12 @@ export function createMvIndexGetter(gameId, member) {
 export const getActionDefs = (gameId, member, teamSize) => {
   const getMvIndex = createMvIndexGetter(gameId, member);
   const charData = CHARACTER[gameId][member.id];
+
   const actionDefs = {};
 
   // Character actions
   for (const [category, { actions }] of Object.entries(charData.skills)) {
-    const spec = {
+    const sharedSpec = {
       ownerId: member.id,
       category,
       teamSize,
@@ -32,7 +33,7 @@ export const getActionDefs = (gameId, member, teamSize) => {
     }
 
     for (const [index, rawAction] of actions.entries()) {
-      const action = normalizeAction(gameId, rawAction, { ...spec, index });
+      const action = normalizeAction(gameId, rawAction, { ...sharedSpec, index });
       actionDefs[action.ref] = action;
     }
   }
@@ -41,13 +42,12 @@ export const getActionDefs = (gameId, member, teamSize) => {
   if (gameId === WW) {
     const echoAction = ECHO[member.mainEcho]?.action;
     if (echoAction) {
-      const spec = {
+      const action = normalizeAction(WW, echoAction, {
         ownerId: member.id,
         category: 'echoSkill',
         index: 0,
         teamSize,
-      };
-      const action = normalizeAction(WW, echoAction, spec);
+      });
       actionDefs[action.ref] = action;
     }
   }

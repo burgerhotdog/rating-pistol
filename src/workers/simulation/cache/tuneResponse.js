@@ -1,28 +1,16 @@
-const alwaysTuneStrain = [
-  '1209',
-  '1510',
-  '1413'
-];
-
-const sometimesTuneStrain = [
-  '1509',
-  '1211'
-];
+const always = new Set([1209, 1510, 1413]);
+const onlyIfMode = new Set([1509, 1211]);
 
 export function cacheTuneResponses(cache) {
   cache.tuneStrainMaxStacks = 1;
 
-  const respondsToTuneStrain = (memberId) =>
-    alwaysTuneStrain.includes(memberId) ||
-    (
-      sometimesTuneStrain.includes(memberId) &&
-      cache.member[memberId].mode === 'tuneStrain'
-    )
+  for (const mCache of Object.values(cache.member)) {
+    const isStrain =
+      always.has(mCache.id) ||
+      (onlyIfMode.has(mCache.id) && mCache.mode === 'tuneStrain');
+    if (!isStrain) continue;
 
-  for (const memberId in cache.member) {
-    if (!respondsToTuneStrain(memberId)) continue;
-
-    cache.member[memberId].tuneStrainResponse = true;
+    mCache.tuneStrainResponse = true;
     cache.tuneStrainMaxStacks++;
   }
 }

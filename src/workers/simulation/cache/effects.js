@@ -11,7 +11,7 @@ import {
 export const normalizeEffects = (gameId, member, spec) => {
   const normalized = {};
 
-  const sharedNormCtx = {
+  const sharedCtx = {
     gameId,
     ownerId: member.id,
     memberRank: member.rank,
@@ -27,13 +27,13 @@ export const normalizeEffects = (gameId, member, spec) => {
   for (const [index, rawEffect] of charEffects.entries()) {
     if (!isEnabledChar(rawEffect, member, gameId, spec.memberIds)) continue;
 
-    const effectId = `${member.id}.${member.id}:effect${index}`;
-    normalized[effectId] = normalizeEffect(gameId, rawEffect, {
-      ...sharedNormCtx,
+    const effect = normalizeEffect(gameId, rawEffect, {
+      ...sharedCtx,
       sourceId: member.id,
       sourceType: 'character',
       index,
     });
+    normalized[effect.id] = effect;
   }
 
   // Weapon effects
@@ -42,13 +42,13 @@ export const normalizeEffects = (gameId, member, spec) => {
   for (const [index, rawEffect] of weapEffects.entries()) {
     if (!isEnabledWeap(rawEffect, charData, weapData)) continue;
 
-    const effectId = `${member.id}.${member.weaponId}:effect${index}`;
-    normalized[effectId] = normalizeEffect(gameId, rawEffect, {
-      ...sharedNormCtx,
+    const effect = normalizeEffect(gameId, rawEffect, {
+      ...sharedCtx,
       sourceId: member.weaponId,
       sourceType: 'weapon',
       index,
     });
+    normalized[effect.id] = effect;
   }
 
   // Set effects
@@ -58,13 +58,13 @@ export const normalizeEffects = (gameId, member, spec) => {
     for (const [index, rawEffect] of setEffects.entries()) {
       if (!isEnabledSet(rawEffect, pcCount, charData)) continue;
 
-      const effectId = `${member.id}.${setId}:effect${index}`;
-      normalized[effectId] = normalizeEffect(gameId, rawEffect, {
-        ...sharedNormCtx,
+      const effect = normalizeEffect(gameId, rawEffect, {
+        ...sharedCtx,
         sourceId: setId,
         sourceType: 'set',
         index,
       });
+      normalized[effect.id] = effect;
     }
   }
 
@@ -74,13 +74,13 @@ export const normalizeEffects = (gameId, member, spec) => {
     for (const [index, rawEffect] of echoEffects.entries()) {
       if (!isEnabledEcho(rawEffect, charData)) continue;
 
-      const effectId = `${member.id}.${member.mainEcho}:effect${index}`;
-      normalized[effectId] = normalizeEffect(gameId, rawEffect, {
-        ...sharedNormCtx,
+      const effect = normalizeEffect(gameId, rawEffect, {
+        ...sharedCtx,
         sourceId: member.mainEcho,
         sourceType: 'echo',
         index,
       });
+      normalized[effect.id] = effect;
     }
   }
 
