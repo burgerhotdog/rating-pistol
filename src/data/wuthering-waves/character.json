@@ -8,6 +8,7 @@
     "element": "glacio",
     "type": "sword",
     "energy": 100,
+    "energyMax": 1,
     "tagged": [],
     "stats": {
       "baseHp": 10062,
@@ -705,8 +706,7 @@
         "forteCircuit.2",
         "outroSkill.0"
       ],
-      "duration": 2840,
-      "energyReq": 1
+      "duration": 2840
     },
     "teamPreset": [
       1603,
@@ -723,6 +723,7 @@
     "element": "glacio",
     "type": "rectifier",
     "energy": 175,
+    "energyMin": 2.2,
     "tagged": [
       "healing"
     ],
@@ -1608,8 +1609,7 @@
         "resonanceSkill.0",
         "outroSkill.0"
       ],
-      "duration": 4310,
-      "energyReq": 2.2
+      "duration": 4310
     },
     "teamPreset": [
       1104,
@@ -1626,6 +1626,7 @@
     "element": "glacio",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10387,
@@ -2524,8 +2525,7 @@
         "forteCircuit.5",
         "outroSkill.0"
       ],
-      "duration": 12700,
-      "energyReq": 1.2
+      "duration": 12700
     },
     "teamPreset": [
       1104,
@@ -2542,6 +2542,7 @@
     "element": "glacio",
     "type": "rectifier",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 12250,
@@ -3109,8 +3110,7 @@
         "forteCircuit.2",
         "outroSkill.0"
       ],
-      "duration": 7020,
-      "energyReq": 1.3
+      "duration": 7020
     },
     "teamPreset": [
       1107,
@@ -3127,6 +3127,7 @@
     "element": "glacio",
     "type": "gauntlets",
     "energy": 100,
+    "energyMin": 1,
     "tagged": [
       "healing"
     ],
@@ -4126,8 +4127,7 @@
         "resonanceSkill.3",
         "outroSkill.0"
       ],
-      "duration": 6500,
-      "energyReq": 1
+      "duration": 6500
     },
     "teamPreset": [
       1301,
@@ -4144,6 +4144,7 @@
     "element": "glacio",
     "type": "pistols",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 12450,
@@ -5213,8 +5214,7 @@
         "resonanceSkill.1",
         "outroSkill.0"
       ],
-      "duration": 13300,
-      "energyReq": 1.1
+      "duration": 13300
     },
     "teamPreset": [
       1107,
@@ -5231,6 +5231,7 @@
     "element": "glacio",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10300,
@@ -6779,8 +6780,7 @@
         "resonanceSkill.0",
         "outroSkill.0"
       ],
-      "duration": 10500,
-      "energyReq": 1.2
+      "duration": 10500
     },
     "teamPreset": [
       1108,
@@ -7939,8 +7939,7 @@
         "resonanceLiberation.4",
         "outroSkill.0"
       ],
-      "duration": 7530,
-      "energyReq": 1
+      "duration": 7530
     },
     "teamPreset": [
       1108,
@@ -7957,6 +7956,7 @@
     "element": "glacio",
     "type": "rectifier",
     "energy": 175,
+    "energyMin": 2.6,
     "tagged": [
       "healing"
     ],
@@ -9332,8 +9332,7 @@
         "resonanceLiberation.0",
         "outroSkill.0"
       ],
-      "duration": 7800,
-      "energyReq": 2.6
+      "duration": 7800
     },
     "teamPreset": [
       1610,
@@ -9350,6 +9349,7 @@
     "element": "fusion",
     "type": "pistols",
     "energy": 150,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 9087,
@@ -9996,8 +9996,7 @@
         "forteCircuit.1",
         "outroSkill.0"
       ],
-      "duration": 8830,
-      "energyReq": 1.1
+      "duration": 8830
     },
     "teamPreset": [
       1202,
@@ -10014,6 +10013,7 @@
     "element": "fusion",
     "type": "rectifier",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 10512,
@@ -10922,8 +10922,7 @@
         "forteCircuit.1",
         "outroSkill.0"
       ],
-      "duration": 11690,
-      "energyReq": 1.3
+      "duration": 11690
     },
     "teamPreset": [
       1203,
@@ -10940,6 +10939,7 @@
     "element": "fusion",
     "type": "pistols",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10025,
@@ -11674,8 +11674,7 @@
         "resonanceLiberation.0",
         "outroSkill.0"
       ],
-      "duration": 5620,
-      "energyReq": 1.2
+      "duration": 5620
     },
     "teamPreset": [
       1404,
@@ -11692,6 +11691,7 @@
     "element": "fusion",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 10387,
@@ -12585,8 +12585,7 @@
         "forteCircuit.0",
         "outroSkill.0"
       ],
-      "duration": 9780,
-      "energyReq": 1.1
+      "duration": 9780
     },
     "teamPreset": [
       1205,
@@ -12603,6 +12602,7 @@
     "element": "fusion",
     "type": "sword",
     "energy": 175,
+    "energyMin": 2.5,
     "tagged": [],
     "stats": {
       "baseHp": 11675,
@@ -14050,8 +14050,7 @@
         "forteCircuit.0",
         "outroSkill.0"
       ],
-      "duration": 8200,
-      "energyReq": 2.5
+      "duration": 8200
     },
     "teamPreset": [
       1205,
@@ -14068,6 +14067,7 @@
     "element": "fusion",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 11912,
@@ -15619,8 +15619,7 @@
         "forteCircuit.1",
         "outroSkill.0"
       ],
-      "duration": 8140,
-      "energyReq": 1.2
+      "duration": 8140
     },
     "teamPreset": [
       1205,
@@ -15637,6 +15636,7 @@
     "element": "fusion",
     "type": "pistols",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10300,
@@ -17274,8 +17274,7 @@
         "forteCircuit.4",
         "outroSkill.0"
       ],
-      "duration": 12200,
-      "energyReq": 1.2
+      "duration": 12200
     },
     "teamPreset": [
       1208,
@@ -17292,6 +17291,7 @@
     "element": "fusion",
     "type": "broadblade",
     "energy": 175,
+    "energyMin": 2.6,
     "tagged": [
       "healing"
     ],
@@ -18523,8 +18523,7 @@
         "forteCircuit.3",
         "resonanceLiberation.0",
         "outroSkill.0"
-      ],
-      "energyReq": 2.6
+      ]
     },
     "teamPreset": [
       1210,
@@ -18541,6 +18540,7 @@
     "element": "fusion",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 11025,
@@ -20379,8 +20379,7 @@
         "resonanceLiberation.1",
         "outroSkill.0"
       ],
-      "duration": 11690,
-      "energyReq": 1.2
+      "duration": 11690
     },
     "teamPreset": [
       1210,
@@ -20397,6 +20396,7 @@
     "element": "fusion",
     "type": "rectifier",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 11025,
@@ -21845,8 +21845,7 @@
         "resonanceLiberation.1",
         "outroSkill.0"
       ],
-      "duration": 5630,
-      "energyReq": 1.1
+      "duration": 5630
     },
     "teamPreset": [
       {
@@ -21866,6 +21865,7 @@
     "element": "fusion",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 15375,
@@ -23438,8 +23438,7 @@
       "rotation": [
         "introSkill.0",
         "outroSkill.0"
-      ],
-      "energyReq": 1.1
+      ]
     },
     "teamPreset": [
       1212,
@@ -23456,6 +23455,7 @@
     "element": "electro",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 10500,
@@ -24599,8 +24599,7 @@
         "forteCircuit.1",
         "outroSkill.0"
       ],
-      "duration": 13400,
-      "energyReq": 1.3
+      "duration": 13400
     },
     "teamPreset": [
       1301,
@@ -24617,6 +24616,7 @@
     "element": "electro",
     "type": "rectifier",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 11000,
@@ -25249,8 +25249,7 @@
         "forteCircuit.0",
         "outroSkill.0"
       ],
-      "duration": 6460,
-      "energyReq": 1.3
+      "duration": 6460
     },
     "teamPreset": [
       1305,
@@ -25267,6 +25266,7 @@
     "element": "electro",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1,
     "tagged": [],
     "stats": {
       "baseHp": 8525,
@@ -26413,8 +26413,7 @@
         "resonanceSkill.0",
         "outroSkill.0"
       ],
-      "duration": 2960,
-      "energyReq": 1
+      "duration": 2960
     },
     "teamPreset": [
       1304,
@@ -26431,6 +26430,7 @@
     "element": "spectro",
     "type": "broadblade",
     "energy": 150,
+    "energyMin": 1,
     "tagged": [],
     "stats": {
       "baseHp": 10825,
@@ -27676,8 +27676,7 @@
         "forteCircuit.9",
         "outroSkill.0"
       ],
-      "duration": 10200,
-      "energyReq": 1
+      "duration": 10200
     },
     "teamPreset": [
       1304,
@@ -27694,6 +27693,7 @@
     "element": "electro",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10625,
@@ -28556,8 +28556,7 @@
         "forteCircuit.1",
         "outroSkill.0"
       ],
-      "duration": 13300,
-      "energyReq": 1.2
+      "duration": 13300
     },
     "teamPreset": [
       1305,
@@ -28574,6 +28573,7 @@
     "element": "electro",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10300,
@@ -29672,8 +29672,7 @@
         "resonanceLiberation.3",
         "outroSkill.0"
       ],
-      "duration": 11170,
-      "energyReq": 1.2
+      "duration": 11170
     },
     "teamPreset": [
       1306,
@@ -29690,6 +29689,7 @@
     "element": "electro",
     "type": "rectifier",
     "energy": 150,
+    "energyMin": 1.3,
     "tagged": [
       "healing"
     ],
@@ -30413,8 +30413,7 @@
         "normalAttack.9",
         "forteCircuit.0",
         "outroSkill.0"
-      ],
-      "energyReq": 1.3
+      ]
     },
     "teamPreset": [
       1107,
@@ -30431,6 +30430,7 @@
     "element": "electro",
     "type": "pistols",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 11600,
@@ -32495,8 +32495,7 @@
         "resonanceLiberation.3",
         "outroSkill.0"
       ],
-      "duration": 7890,
-      "energyReq": 1.2
+      "duration": 7890
     },
     "teamPreset": [
       1511,
@@ -32513,6 +32512,7 @@
     "element": "electro",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10775,
@@ -34545,8 +34545,7 @@
         "forteCircuit.0",
         "outroSkill.0"
       ],
-      "duration": 7690,
-      "energyReq": 1.2
+      "duration": 7690
     },
     "teamPreset": [
       null,
@@ -34563,6 +34562,7 @@
     "element": "aero",
     "type": "sword",
     "energy": 100,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 10200,
@@ -35235,8 +35235,7 @@
         "forteCircuit.1",
         "outroSkill.0"
       ],
-      "duration": 5030,
-      "energyReq": 1.1
+      "duration": 5030
     },
     "teamPreset": [
       1107,
@@ -35253,6 +35252,7 @@
     "element": "aero",
     "type": "pistols",
     "energy": 150,
+    "energyMin": 1.5,
     "tagged": [],
     "stats": {
       "baseHp": 9850,
@@ -35916,8 +35916,7 @@
         "forteCircuit.0",
         "outroSkill.0"
       ],
-      "duration": 5500,
-      "energyReq": 1.5
+      "duration": 5500
     },
     "teamPreset": [
       1404,
@@ -35934,6 +35933,7 @@
     "element": "aero",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10487,
@@ -36719,8 +36719,7 @@
         "resonanceSkill.0",
         "outroSkill.0"
       ],
-      "duration": 12170,
-      "energyReq": 1.2
+      "duration": 12170
     },
     "teamPreset": [
       1404,
@@ -36737,6 +36736,7 @@
     "element": "aero",
     "type": "gauntlets",
     "energy": 150,
+    "energyMin": 1.6,
     "tagged": [],
     "stats": {
       "baseHp": 14112,
@@ -37878,8 +37878,7 @@
         "forteCircuit.4",
         "forteCircuit.9",
         "outroSkill.0"
-      ],
-      "energyReq": 1.6
+      ]
     },
     "teamPreset": [
       1410,
@@ -37896,6 +37895,7 @@
     "element": "aero",
     "type": "sword",
     "energy": 150,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 10775,
@@ -38952,8 +38952,7 @@
         "forteCircuit.2",
         "outroSkill.0"
       ],
-      "duration": 5960,
-      "energyReq": 1.3
+      "duration": 5960
     },
     "teamPreset": [
       1409,
@@ -38970,6 +38969,7 @@
     "element": "aero",
     "type": "pistols",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 12237,
@@ -39667,8 +39667,7 @@
         "resonanceLiberation.0",
         "outroSkill.0"
       ],
-      "duration": 4500,
-      "energyReq": 1.3
+      "duration": 4500
     },
     "teamPreset": [
       1409,
@@ -39685,6 +39684,7 @@
     "element": "aero",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 14800,
@@ -41660,8 +41660,7 @@
         "resonanceLiberation.1",
         "outroSkill.0"
       ],
-      "duration": 13230,
-      "energyReq": 1.1
+      "duration": 13230
     },
     "teamPreset": [
       1409,
@@ -41678,6 +41677,7 @@
     "element": "aero",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10525,
@@ -43011,8 +43011,7 @@
         "forteCircuit.7",
         "outroSkill.0"
       ],
-      "duration": 8430,
-      "energyReq": 1.2
+      "duration": 8430
     },
     "teamPreset": [
       1306,
@@ -43029,6 +43028,7 @@
     "element": "aero",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 12237,
@@ -44337,8 +44337,7 @@
         "forteCircuit.6",
         "outroSkill.0"
       ],
-      "duration": 6350,
-      "energyReq": 1.2
+      "duration": 6350
     },
     "teamPreset": [
       1208,
@@ -44355,6 +44354,7 @@
     "element": "aero",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 10775,
@@ -45711,8 +45711,7 @@
         "forteCircuit.4",
         "outroSkill.0"
       ],
-      "duration": 11090,
-      "energyReq": 1.1
+      "duration": 11090
     },
     "teamPreset": [
       1412,
@@ -45729,6 +45728,7 @@
     "element": "aero",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 10300,
@@ -47024,8 +47024,7 @@
         "resonanceLiberation.0",
         "outroSkill.0"
       ],
-      "duration": 12400,
-      "energyReq": 1.1
+      "duration": 12400
     },
     "teamPreset": [
       1413,
@@ -47049,6 +47048,7 @@
     "element": "spectro",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 11400,
@@ -47804,8 +47804,7 @@
         "forteCircuit.2",
         "outroSkill.0"
       ],
-      "duration": 5560,
-      "energyReq": 1.2
+      "duration": 5560
     },
     "teamPreset": [
       1507,
@@ -47822,6 +47821,7 @@
     "element": "spectro",
     "type": "rectifier",
     "energy": 175,
+    "energyMin": 2.2,
     "tagged": [
       "healing"
     ],
@@ -49050,8 +49050,7 @@
         "forteCircuit.3",
         "outroSkill.0"
       ],
-      "duration": 3350,
-      "energyReq": 2.2
+      "duration": 3350
     },
     "teamPreset": [
       1304,
@@ -49068,6 +49067,7 @@
     "element": "electro",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1.4,
     "tagged": [],
     "stats": {
       "baseHp": 8500,
@@ -50095,8 +50095,7 @@
         "forteCircuit.5",
         "outroSkill.0"
       ],
-      "duration": 12410,
-      "energyReq": 1.4
+      "duration": 12410
     },
     "teamPreset": [
       1304,
@@ -50113,6 +50112,7 @@
     "element": "spectro",
     "type": "rectifier",
     "energy": 175,
+    "energyMin": 2.5,
     "tagged": [
       "healing"
     ],
@@ -51003,8 +51003,7 @@
         "resonanceSkill.0",
         "resonanceLiberation.0",
         "outroSkill.0"
-      ],
-      "energyReq": 2.5
+      ]
     },
     "teamPreset": [
       1306,
@@ -51021,6 +51020,7 @@
     "element": "spectro",
     "type": "rectifier",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10825,
@@ -51901,8 +51901,7 @@
         "forteCircuit.3",
         "outroSkill.0"
       ],
-      "duration": 11600,
-      "energyReq": 1.2
+      "duration": 11600
     },
     "teamPreset": [
       1507,
@@ -51919,6 +51918,7 @@
     "element": "spectro",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 10775,
@@ -53053,8 +53053,7 @@
         "resonanceLiberation.1",
         "outroSkill.0"
       ],
-      "duration": 12640,
-      "energyReq": 1.1
+      "duration": 12640
     },
     "teamPreset": [
       1507,
@@ -53071,6 +53070,7 @@
     "element": "havoc",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10775,
@@ -54603,8 +54603,7 @@
         "forteCircuit.9",
         "outroSkill.0"
       ],
-      "duration": 7210,
-      "energyReq": 1.2
+      "duration": 7210
     },
     "teamPreset": [
       1610,
@@ -54621,6 +54620,7 @@
     "element": "spectro",
     "type": "pistols",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 12237,
@@ -55991,8 +55991,7 @@
         "forteCircuit.4",
         "outroSkill.0"
       ],
-      "duration": 7100,
-      "energyReq": 1.2
+      "duration": 7100
     },
     "teamPreset": [
       1210,
@@ -56009,6 +56008,7 @@
     "element": "spectro",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10300,
@@ -57170,8 +57170,7 @@
         "resonanceSkill.0",
         "outroSkill.0"
       ],
-      "duration": 12400,
-      "energyReq": 1.2
+      "duration": 12400
     },
     "teamPreset": [
       1510,
@@ -57195,6 +57194,7 @@
     "element": "spectro",
     "type": "pistols",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 11025,
@@ -59591,8 +59591,7 @@
         "resonanceLiberation.7",
         "outroSkill.0"
       ],
-      "duration": 11830,
-      "energyReq": 1.3
+      "duration": 11830
     },
     "teamPreset": [
       1511,
@@ -59609,6 +59608,7 @@
     "element": "havoc",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1,
     "tagged": [],
     "stats": {
       "baseHp": 8950,
@@ -60507,8 +60507,7 @@
         "resonanceSkill.1",
         "outroSkill.0"
       ],
-      "duration": 8440,
-      "energyReq": 1
+      "duration": 8440
     },
     "teamPreset": [
       1107,
@@ -60525,6 +60524,7 @@
     "element": "havoc",
     "type": "sword",
     "energy": 100,
+    "energyMin": 1,
     "tagged": [],
     "stats": {
       "baseHp": 9437,
@@ -61372,8 +61372,7 @@
         "forteCircuit.1",
         "outroSkill.0"
       ],
-      "duration": 7610,
-      "energyReq": 1
+      "duration": 7610
     },
     "teamPreset": [
       1603,
@@ -61390,6 +61389,7 @@
     "element": "havoc",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10325,
@@ -62215,8 +62215,7 @@
         "resonanceSkill.6",
         "outroSkill.0"
       ],
-      "duration": 15500,
-      "energyReq": 1.2
+      "duration": 15500
     },
     "teamPreset": [
       1603,
@@ -62233,6 +62232,7 @@
     "element": "havoc",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.4,
     "tagged": [],
     "stats": {
       "baseHp": 10825,
@@ -63235,8 +63235,7 @@
         "resonanceLiberation.0",
         "outroSkill.0"
       ],
-      "duration": 11300,
-      "energyReq": 1.4
+      "duration": 11300
     },
     "teamPreset": [
       1605,
@@ -63253,6 +63252,7 @@
     "element": "havoc",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 12250,
@@ -63850,8 +63850,7 @@
         "resonanceLiberation.0",
         "outroSkill.0"
       ],
-      "duration": 6650,
-      "energyReq": 1.3
+      "duration": 6650
     },
     "teamPreset": [
       1603,
@@ -63868,6 +63867,7 @@
     "element": "havoc",
     "type": "rectifier",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 11600,
@@ -64863,8 +64863,7 @@
         "resonanceSkill.2",
         "outroSkill.0"
       ],
-      "duration": 7060,
-      "energyReq": 1.3
+      "duration": 7060
     },
     "teamPreset": [
       1608,
@@ -66033,8 +66032,7 @@
         "resonanceLiberation.0",
         "outroSkill.0"
       ],
-      "duration": 9450,
-      "energyReq": 1
+      "duration": 9450
     },
     "teamPreset": [
       1608,
@@ -66051,6 +66049,7 @@
     "element": "havoc",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 11025,
@@ -68025,8 +68024,7 @@
         "forteCircuit.2",
         "outroSkill.0"
       ],
-      "duration": 10140,
-      "energyReq": 1.2
+      "duration": 10140
     },
     "teamPreset": [
       1610,

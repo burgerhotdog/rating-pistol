@@ -95,7 +95,5 @@ export function initMember(gameId, memberId, build, overrides) {
       charData.modes[0];
   }
 
-  member.energyReq = preset.energyReq ?? 1;
-
   return member;
 }

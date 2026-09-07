@@ -1,5 +1,12 @@
 import { WW, CHARACTER, WEAPON, ECHO } from '@/data';
-import { toMergedObj, buildEquipMap, buildBaseMap, buildMenuMap } from '@/utils';
+import {
+  buildEquipMap,
+  buildBaseMap,
+  buildMenuMap,
+  clamp,
+  getEnergyLevel,
+  toMergedObj,
+} from '@/utils';
 import { getActionDefs } from './actions';
 import { normalizeEffects } from './effects';
 import { cacheTuneResponses } from './tuneResponse';
@@ -133,12 +140,12 @@ export const compileCache = ({ gameId, charId, team }) => {
     if (charData.tagged.includes('healing')) mCache.healing = true;
     if (charData.tagged.includes('shield')) mCache.shield = true;
 
-    if (charData.energy) {
+    if (charData.energy && member.id === charId) {
       mCache.energy = charData.energy;
 
-      if (member.energyReq) {
-        mCache.energyReq = member.energyReq;
-      }
+      const { energyMin = 1, energyMax = Infinity } = charData;
+      const energyLevel = getEnergyLevel(gameId, mCache.statMap);
+      mCache.energyReq = clamp(energyLevel, energyMin, energyMax);
     }
 
     mCache.concertoPenalty = charData.concertoReq && !WEAPON[WW][member.weaponId]?.concerto;
