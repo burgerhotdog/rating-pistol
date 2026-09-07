@@ -14,10 +14,9 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
 
     return baseScore;
   }
-  
 
   return (evalEquipMap = {}) => {
-    const evalStatMap = toMergedObj(mCache.baseMap, evalEquipMap);
+    const evalStatMap = toMergedObj(mCache.baseMap, mCache.staticMap, evalEquipMap);
 
     const snapshots = snapshotSpecs(evalStatMap);
     const totals = getTotals(snapshots);

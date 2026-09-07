@@ -14,7 +14,7 @@ export function computeActualRotationTime(cache, equipMaps) {
       continue;
     }
 
-    const statMap = toMergedObj(mCache.baseMap, equipMaps[mCache.id]);
+    const statMap = toMergedObj(mCache.baseMap, mCache.staticMap, equipMaps[mCache.id]);
     const energyLevel = getEnergyLevel(cache.gameId, statMap);
 
     if (energyLevel - mCache.energyReq >= 0) {

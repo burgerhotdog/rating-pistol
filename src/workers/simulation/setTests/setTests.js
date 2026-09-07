@@ -5,6 +5,7 @@ import {
   normalizeAction,
   normalizeEffect,
   resolveEffectTokens,
+  toMergedObj,
 } from '@/utils';
 import { runVariantDps } from '../variantDps';
 import { buildUsefulSetBonuses } from './buildUsefulSetBonuses';
@@ -174,10 +175,14 @@ export function setTests(cache, equipMaps, charId) {
         : {};
       const effects = { ...nonSetEffects, ...setEffects, ...echoEffects };
 
+      const staticMap = Object.values(effects)
+        .filter((effect) => effect.static)
+        .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
+
       const echoAction = echoId != null ? buildEchoAction(gameId, echoId, charId, cache.teamSize) : undefined;
       const rotation = withEchoAction(nonEchoRotation, echoAction, ECHO[echoId]?.timing);
 
-      return runVariantDps(cache, equipMaps, charId, { effects, rotation });
+      return runVariantDps(cache, equipMaps, charId, { staticMap, effects, rotation });
     };
 
     if (!echoCandidates.length) {

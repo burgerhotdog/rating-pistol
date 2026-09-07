@@ -8,7 +8,7 @@ import {
   resolveEffectTokens,
 } from '@/utils';
 
-export const normalizeEffects = (gameId, member, spec) => {
+export const getEffectDefs = (gameId, member, spec) => {
   const normalized = {};
 
   const sharedCtx = {

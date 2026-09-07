@@ -8,7 +8,7 @@ import {
   toMergedObj,
 } from '@/utils';
 import { getActionDefs } from './actions';
-import { normalizeEffects } from './effects';
+import { getEffectDefs } from './effects';
 
 function adjustTimings(rotation, actual, expected) {
   if (!expected) return;
@@ -131,7 +131,15 @@ export const buildCache = ({ gameId, charId, team }) => {
     mCache.duration = duration;
     cache.rotationDuration += duration;
 
-    const effectDefs = normalizeEffects(gameId, member, { memberIds: cache.memberIds, actionDefs });
+    const effectDefs = getEffectDefs(gameId, member, { memberIds: cache.memberIds, actionDefs });
+
+    mCache.staticMap = Object.values(effectDefs)
+      .filter((effect) => effect.static)
+      .reduce((acc, effect) => {
+        const { stats } = effect.buff;
+        return toMergedObj(acc, stats);
+      }, {});
+
     mCache.effects = effectDefs;
     Object.assign(cache.effects, effectDefs);
 

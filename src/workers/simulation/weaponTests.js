@@ -52,13 +52,20 @@ export function weaponTests(cache, equipMaps, charId) {
       ? mCache.weaponRank
       : getDefaultWeapRank(gameId, weapData.id);
 
+    const overrideEffects = {
+      ...nonWeapEffects,
+      ...getNormalizedWeaponEffects(weapData.effects, gameId, charId, weapData.id, testRank, cache.memberIds),
+    };
+
+    const overrideStaticMap = Object.values(overrideEffects)
+      .filter((effect) => effect.static)
+      .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
+
     const mCacheOverrides = {
       baseMap,
       statMap: toMergedObj(baseMap, mCache.equipMap),
-      effects: {
-        ...nonWeapEffects,
-        ...getNormalizedWeaponEffects(weapData.effects, gameId, charId, weapData.id, testRank, cache.memberIds),
-      },
+      staticMap: overrideStaticMap,
+      effects: overrideEffects,
       ...(concertoReq && { concertoPenalty: Boolean(!weapData.concerto) }),
     };
 

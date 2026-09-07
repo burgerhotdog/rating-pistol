@@ -177,7 +177,8 @@ function runAction(ctx, action, options = {}) {
 export const runRotation = (cache, equipMaps, specId) => {  
   const buildMaps = {};
   for (const [memberId, equipMap] of Object.entries(equipMaps)) {
-    buildMaps[memberId] = toMergedObj(cache.member[memberId].baseMap, equipMap);
+    const { baseMap, staticMap } = cache.member[memberId];
+    buildMaps[memberId] = toMergedObj(baseMap, staticMap, equipMap);
   }
 
   const ctx = {
@@ -206,7 +207,7 @@ export const runRotation = (cache, equipMaps, specId) => {
   // Init passives into effect states
   for (const mCache of Object.values(cache.member)) {
     for (const effect of Object.values(mCache.effects)) {
-      if (effect.apply?.when) continue;
+      if (effect.apply?.when || effect.static) continue;
       runApplyEffect(ctx, effect);
     }
   }

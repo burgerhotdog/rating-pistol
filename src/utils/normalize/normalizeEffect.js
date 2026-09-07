@@ -153,5 +153,15 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     resolveRankMods(effect, spec.memberRank);
   }
 
+  if (
+    effect.buff?.stats &&
+    !effect.buff?.filter &&
+    !effect.apply &&
+    !effect.remove &&
+    !rawEffect.stores
+  ) {
+    effect.static = true;
+  }
+
   return effect;
 };

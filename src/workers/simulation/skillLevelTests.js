@@ -56,7 +56,7 @@ export function skillLevelTests(cache, equipMaps, charId) {
       }
     }
 
-    const dps = runVariantDps(cache, equipMaps, charId, { effects: testCache.effects, memberOverride: tmCache });
+    const dps = runVariantDps(cache, equipMaps, charId, tmCache);
     skillLevelResults.push({ skillId, dps, newLevel: mCache.skillLevels[skillId] + 1 });
   }
 
