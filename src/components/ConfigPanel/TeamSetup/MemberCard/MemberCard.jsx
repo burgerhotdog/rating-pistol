@@ -11,6 +11,7 @@ import MainEcho from './MainEcho';
 import SkillLevels from './SkillLevels';
 import Mode from './Mode';
 import RotationEditor from './RotationEditor';
+import EnergyReq from './EnergyReq';
 
 const MemberCard = ({ member, setMember, allyIds }) => {
   const { gameId } = useParams();
@@ -76,6 +77,11 @@ const MemberCard = ({ member, setMember, allyIds }) => {
             />
           )}
         </Stack>
+        <EnergyReq
+          memberId={member.id}
+          energyReq={member.energyReq}
+          onChange={(energyReq) => setMember({ ...member, energyReq })}
+        />
       </CardContent>
     </Card>
   );

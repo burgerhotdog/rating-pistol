@@ -46985,7 +46985,8 @@
         "resonanceLiberation.0",
         "outroSkill.0"
       ],
-      "duration": 12400
+      "duration": 12400,
+      "energyReq": 1.1
     },
     "teamPreset": [
       1413,
