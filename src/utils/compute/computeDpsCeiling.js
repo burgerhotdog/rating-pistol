@@ -18,6 +18,15 @@ const toEquip = (cost, mainstat, substats = []) => ({
   })),
 });
 
+const toEquipI = (gameId, index, mainstat, substats = []) => ({
+  mainstatId: mainstat,
+  mainstatValue: MAINSTAT[gameId][index][mainstat].value,
+  substats: substats.map((id) => ({
+    id,
+    value: SUBSTAT[gameId][id].value,
+  })),
+});
+
 // Greedily fill substats onto a fixed set of equips (mainstats already chosen).
 // At each step, try every legal (equip slot, unused-on-that-equip substat type)
 // pair and keep whichever single addition improves score the most.
@@ -59,9 +68,7 @@ function greedyFillSubstats(evaluateEquipMap, equips) {
   return equips;
 }
 
-function getMainstatCombos(costPattern) {
-  const optionsPerSlot = costPattern.map((cost) => Object.keys(MAINSTAT[WW][cost]));
-
+function getMainstatCombos(optionsPerSlot) {
   const combos = [];
   const idxs = new Array(optionsPerSlot.length).fill(0);
 
@@ -85,16 +92,25 @@ function getMainstatCombos(costPattern) {
   return combos;
 }
 
-export function computeDpsCeiling(evaluateEquipMap, currId) {
+export function computeDpsCeiling(gameId, evaluateEquipMap, currId) {
   const costPattern = currId === 1409
     ? [4, 4, 1, 1, 1]
     : [4, 3, 3, 1, 1];
 
+  const optionsPerSlot = gameId === WW
+    ? costPattern.map((cost) => Object.keys(MAINSTAT[WW][cost]))
+    : MAINSTAT[gameId].map((mainstatDatas) => Object.keys(mainstatDatas));
+
   const rankedCombos = [];
 
-  for (const combo of getMainstatCombos(costPattern)) {
-    const equipList = costPattern.map((cost, i) => toEquip(cost, combo[i]));
-    const { score } = evaluateEquipMap(buildEquipMap(equipList, true));
+  for (const combo of getMainstatCombos(optionsPerSlot)) {
+    const equipList = gameId === WW
+      ? costPattern.map((cost, i) => toEquip(cost, combo[i]))
+      : combo.map((mainstatId, i) => toEquipI(gameId, i, mainstatId));
+
+    const equipMap = buildEquipMap(equipList, true);
+    const { score } = evaluateEquipMap(equipMap);
+
     rankedCombos.push({ combo, score });
   }
 

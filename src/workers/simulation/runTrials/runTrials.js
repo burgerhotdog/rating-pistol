@@ -97,7 +97,7 @@ function runContinuous(workers, dpsCeil, isMainChar) {
 export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
   const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
   console.time('dpsCeiling');
-  const dpsCeiling = computeDpsCeiling(evaluateEquipMap, currId);
+  const dpsCeiling = computeDpsCeiling(cache.gameId, evaluateEquipMap, currId);
   console.timeEnd('dpsCeiling');
 
   const dpsProgression = [];
