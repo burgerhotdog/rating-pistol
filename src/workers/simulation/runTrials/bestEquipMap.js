@@ -27,7 +27,8 @@ function greedyFillSubstats(evaluateEquipMap, equips) {
   const totalSlots = equips.length * 5;
 
   for (let step = 0; step < totalSlots; step++) {
-    let best = null;
+    let bestDps = 0;
+    let best;
 
     for (let e = 0; e < equips.length; e++) {
       if (chosen[e].length >= 5) continue;
@@ -35,13 +36,18 @@ function greedyFillSubstats(evaluateEquipMap, equips) {
       for (const substat of substatPool) {
         if (chosen[e].includes(substat)) continue; // no dupes on one equip
 
-        const trialEquips = equips.map((eq, i) =>
-          i === e
-            ? toEquip(eq.cost, eq.mainstatId, [...chosen[i], substat])
-            : eq);
-        const { score } = evaluateEquipMap(buildEquipMap(trialEquips, true));
+        const trialEquips = equips.map((eq, i) => i === e
+          ? toEquip(eq.cost, eq.mainstatId, [...chosen[i], substat])
+          : eq
+        );
 
-        if (!best || score > best.score) best = { score, equipIndex: e, substat };
+        const { totals, actualRotationTime } = evaluateEquipMap(buildEquipMap(trialEquips, true));
+        const dps = totals.damage / actualRotationTime * 1000;
+
+        if (dps > bestDps) {
+          bestDps = dps;
+          best = { equipIndex: e, substat };
+        }
       }
     }
 
@@ -91,17 +97,19 @@ export function findBestPossibleEquipMap(evaluateEquipMap, currId) {
   // then compare combos by their REAL final score - this is what actually
   // resolves the mainstat-vs-substat interaction correctly, since it's
   // asking evaluateEquipMap to judge the complete build, caps and all.
-  let best = null;
-  const SHORTLIST_SIZE = 15;
-  for (const { combo } of rankedCombos.slice(0, SHORTLIST_SIZE)) {
+  let bestDps = 0;
+
+  for (const { combo } of rankedCombos.slice(0, 15)) {
     const bareEquips = costPattern.map((cost, i) => toEquip(cost, combo[i]));
     const equipList = greedyFillSubstats(evaluateEquipMap, bareEquips);
-    const { score, totals, actualRotationTime } = evaluateEquipMap(buildEquipMap(equipList, true));
+    const equipMap = buildEquipMap(equipList, true);
+    const { totals, actualRotationTime } = evaluateEquipMap(equipMap);
+    const dps = totals.damage / actualRotationTime * 1000;
 
-    if (!best || score > best.score) {
-      best = { score, equipList, totals, actualRotationTime };
+    if (dps > bestDps) {
+      bestDps = dps;
     }
   }
 
-  return best.totals.damage / best.actualRotationTime * 1000;
+  return bestDps;
 }
