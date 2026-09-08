@@ -99,9 +99,5 @@ export function findBestPossibleEquipMap(evaluateEquipMap) {
     }
   }
 
-  return {
-    equipList: best.equipList,
-    totals: best.totals,
-    actualRotationTime: best.actualRotationTime,
-  };
+  return best.totals.damage / best.actualRotationTime * 1000;
 }

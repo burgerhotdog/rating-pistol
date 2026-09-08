@@ -97,9 +97,7 @@ function runContinuous(workers, dpsCeil, isMainChar) {
 
 export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
   const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
-  const bestEquipMap = findBestPossibleEquipMap(evaluateEquipMap);
-
-  const dpsCeil = bestEquipMap.totals.damage / bestEquipMap.actualRotationTime * 1000;
+  const dpsCeiling = findBestPossibleEquipMap(evaluateEquipMap);
 
   const dpsProgression = [];
 
@@ -111,7 +109,7 @@ export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
   const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, snapshots, score, baseDps });
 
   if (isMainChar) self.postMessage({ status: `Running Trials` });
-  const result = await runContinuous(workers, dpsCeil, isMainChar);
+  const result = await runContinuous(workers, dpsCeiling, isMainChar);
 
   dpsProgression.push(...result.dpsUpdates);
   workers.forEach((worker) => worker.terminate());
@@ -124,7 +122,7 @@ export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
 
   return {
     dpsProgression,
-    dpsCeiling: dpsCeil,
+    dpsCeiling,
     fit,
     equipListConfigs: result.equipListConfigs,
   };
