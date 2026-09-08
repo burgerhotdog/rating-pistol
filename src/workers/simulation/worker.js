@@ -84,7 +84,6 @@ self.onmessage = async ({ data }) => {
 function findBenchmark(dpsCeiling, dpsProgression, fit) {
   let today = 0;
   let todayDps = dpsProgression[0].mean;
-  console.log('todayDps', todayDps);
 
   while (true) {
     const tomorrowDps = estimateDps(today + 1, dpsCeiling, dpsProgression, fit);
