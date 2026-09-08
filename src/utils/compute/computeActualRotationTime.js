@@ -23,7 +23,7 @@ export function computeActualRotationTime(cache, equipMaps) {
     }
 
     const deficit = 1 - energyLevel / mCache.energyReq;
-    fullTime += mCache.duration * Math.exp(2 * deficit);
+    fullTime += mCache.duration * Math.exp(deficit);
   }
 
   return fullTime;
