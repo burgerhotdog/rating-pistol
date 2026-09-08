@@ -3,9 +3,10 @@ import { buildEquipMap } from '@/utils';
 import { getSkippableStats } from './getSkippableStats';
 import { createEquipGenerator } from './generateEquip';
 
-function createEquipEvaluator(evaluateEquipMap) {
+function createEquipEvaluator(evaluateEquipMap, id) {
   function trySlots(slots, equip, prev) {
     const next = { ...prev };
+
     for (const equipIndex of slots) {
       const equipList = prev.equipList.with(equipIndex, equip);
       const { snapshots, totals, score, actualRotationTime } = evaluateEquipMap(buildEquipMap(equipList, true));
@@ -15,12 +16,24 @@ function createEquipEvaluator(evaluateEquipMap) {
         Object.assign(next, { equipList, snapshots, score, dps });
       }
     }
+
     return next;
   }
 
   return (equip, trial) => {
     if ('index' in equip) {
       return trySlots([equip.index], equip, trial);
+    }
+
+    if (id === 1409) {
+      switch (equip.cost) {
+        case 4:
+          return trySlots([0, 1], equip, trial);
+        case 3:
+          return trial;
+        case 1:
+          return trySlots([2, 3, 4], equip, trial);
+      }
     }
 
     switch (equip.cost) {
@@ -34,12 +47,12 @@ function createEquipEvaluator(evaluateEquipMap) {
   };
 }
 
-export function createAdvanceTrial(cache, evaluateEquipMap) {
+export function createAdvanceTrial(cache, evaluateEquipMap, currId) {
   const { gameId } = cache;
   const { score } = evaluateEquipMap();
   const skippable = getSkippableStats(gameId, score, evaluateEquipMap);
   const generateEquip = createEquipGenerator(skippable);
-  const evaluateEquip = createEquipEvaluator(evaluateEquipMap);
+  const evaluateEquip = createEquipEvaluator(evaluateEquipMap, currId);
 
   const { staminaPerDay, domains } = MISC[gameId];
   const runsPerDay = staminaPerDay / domains.equip.stamina;

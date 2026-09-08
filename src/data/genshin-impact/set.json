@@ -9,7 +9,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "cryoDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -31,8 +31,17 @@
       2,
       4
     ],
-    "halfStat": "",
-    "effects": []
+    "halfStat": "electroRes%",
+    "effects": [
+      {
+        "bonus": 2,
+        "buff": {
+          "stats": {
+            "electroRes%": 0.4
+          }
+        }
+      }
+    ]
   },
   "14003": {
     "disabled": true,
@@ -44,8 +53,17 @@
       2,
       4
     ],
-    "halfStat": "",
-    "effects": []
+    "halfStat": "pyroRes%",
+    "effects": [
+      {
+        "bonus": 2,
+        "buff": {
+          "stats": {
+            "pyroRes%": 0.4
+          }
+        }
+      }
+    ]
   },
   "14004": {
     "disabled": true,
@@ -57,7 +75,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "healingBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -100,7 +118,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "atk%",
     "effects": [
       {
         "bonus": 2,
@@ -137,7 +155,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "anemoDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -159,7 +177,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "elementalMastery",
     "effects": [
       {
         "bonus": 2,
@@ -195,7 +213,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "electroDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -217,7 +235,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "pyroDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -239,7 +257,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "elementalBurstDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -279,7 +297,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "physicalDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -301,7 +319,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "geoDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -336,7 +354,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "hydroDmgBonus%",
     "effects": [
       {
         "buff": {
@@ -375,7 +393,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "hp%",
     "effects": [
       {
         "bonus": 2,
@@ -418,7 +436,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "physicalDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -462,7 +480,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "atk%",
     "effects": [
       {
         "bonus": 2,
@@ -504,7 +522,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "energyRecharge%",
     "effects": [
       {
         "bonus": 2,
@@ -538,7 +556,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "def%",
     "effects": [
       {
         "bonus": 2,
@@ -569,7 +587,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "healingBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -616,7 +634,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "atk%",
     "effects": [
       {
         "bonus": 2,
@@ -661,7 +679,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "atk%",
     "effects": [
       {
         "bonus": 2,
@@ -683,7 +701,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "dendroDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -727,7 +745,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "elementalMastery",
     "effects": [
       {
         "bonus": 2,
@@ -757,7 +775,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "anemoDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -801,7 +819,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "elementalMastery",
     "effects": [
       {
         "bonus": 2,
@@ -823,7 +841,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "hydroDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -871,7 +889,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "hp%",
     "effects": [
       {
         "bonus": 2,
@@ -911,7 +929,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "normalAndChargedAttackDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -942,7 +960,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "elementalSkillDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -983,7 +1001,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "healingBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -1005,7 +1023,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "atk%",
     "effects": [
       {
         "bonus": 2,
@@ -1035,7 +1053,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "atk%",
     "effects": [
       {
         "bonus": 2,
@@ -1065,7 +1083,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "atk%",
     "effects": [
       {
         "bonus": 2,
@@ -1141,7 +1159,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "plungeAttackDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -1171,7 +1189,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "cryoDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -1205,7 +1223,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "elementalMastery",
     "effects": [
       {
         "bonus": 2,
@@ -1238,7 +1256,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "energyRecharge%",
     "effects": [
       {
         "bonus": 2,
@@ -1278,7 +1296,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "elementalMastery",
     "effects": [
       {
         "bonus": 2,
@@ -1300,7 +1318,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "atk%",
     "effects": [
       {
         "bonus": 2,
@@ -1373,7 +1391,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "energyRecharge%",
     "effects": [
       {
         "bonus": 2,
@@ -1416,7 +1434,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "atk%",
     "effects": [
       {
         "bonus": 2,
@@ -1438,8 +1456,17 @@
       2,
       4
     ],
-    "halfStat": "",
-    "effects": []
+    "halfStat": "atk%",
+    "effects": [
+      {
+        "bonus": 2,
+        "buff": {
+          "stats": {
+            "atk%": 0.18
+          }
+        }
+      }
+    ]
   },
   "15048": {
     "disabled": true,
@@ -1451,7 +1478,16 @@
       2,
       4
     ],
-    "halfStat": "",
-    "effects": []
+    "halfStat": "atk%",
+    "effects": [
+      {
+        "bonus": 2,
+        "buff": {
+          "stats": {
+            "atk%": 0.18
+          }
+        }
+      }
+    ]
   }
 }

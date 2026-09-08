@@ -1,8 +1,6 @@
 import { WW, MAINSTAT, SUBSTAT } from '@/data';
 import { buildEquipMap } from '@/utils';
 
-const COST_PATTERN = [4, 3, 3, 1, 1];
-
 const FLAT_STAT_BY_COST = {
   4: { mainstatSubId: 'atk', mainstatSubValue: 150 },
   3: { mainstatSubId: 'atk', mainstatSubValue: 100 },
@@ -74,13 +72,19 @@ function* mainstatCombos(costPattern) {
   }
 }
 
-export function findBestPossibleEquipMap(evaluateEquipMap) {
+export function findBestPossibleEquipMap(evaluateEquipMap, currId) {
+  const costPattern = currId === 1409
+    ? [4, 4, 1, 1, 1]
+    : [4, 3, 3, 1, 1];
+
   const rankedCombos = [];
-  for (const combo of mainstatCombos(COST_PATTERN)) {
-    const equipList = COST_PATTERN.map((cost, i) => toEquip(cost, combo[i]));
+
+  for (const combo of mainstatCombos(costPattern)) {
+    const equipList = costPattern.map((cost, i) => toEquip(cost, combo[i]));
     const { score } = evaluateEquipMap(buildEquipMap(equipList, true));
     rankedCombos.push({ combo, score });
   }
+
   rankedCombos.sort((a, b) => b.score - a.score);
 
   // Pass 2 (accurate): for each shortlisted combo, fully optimize substats,
@@ -90,7 +94,7 @@ export function findBestPossibleEquipMap(evaluateEquipMap) {
   let best = null;
   const SHORTLIST_SIZE = 15;
   for (const { combo } of rankedCombos.slice(0, SHORTLIST_SIZE)) {
-    const bareEquips = COST_PATTERN.map((cost, i) => toEquip(cost, combo[i]));
+    const bareEquips = costPattern.map((cost, i) => toEquip(cost, combo[i]));
     const equipList = greedyFillSubstats(evaluateEquipMap, bareEquips);
     const { score, totals, actualRotationTime } = evaluateEquipMap(buildEquipMap(equipList, true));
 

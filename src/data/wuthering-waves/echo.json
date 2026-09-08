@@ -1505,7 +1505,11 @@
     "cost": 4,
     "effects": [
       {
-        "aeroDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.1
+          }
+        }
       },
       {
         "enable": {
@@ -1514,7 +1518,11 @@
             1409
           ]
         },
-        "aeroDmgBonus%": 0.1
+        "buff": {
+          "stats": {
+            "aeroDmgBonus%": 0.1
+          }
+        }
       }
     ],
     "action": {

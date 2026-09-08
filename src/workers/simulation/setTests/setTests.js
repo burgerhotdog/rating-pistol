@@ -209,7 +209,7 @@ export function setTests(cache, equipMaps, charId) {
   const results = [];
   results.push({ comboKey: 'none', dps: baselineDps });
 
-  const PASS_2_TYPES = [[5], [3, 2], [2, 2, 1]];
+  const PASS_2_TYPES = [[5], [3, 2], [2, 2], [2, 2, 1]];
 
   for (const sizes of PASS_2_TYPES) {
     const assignments = assignPartition(toSizeGroups(sizes), usefulSetBonuses);

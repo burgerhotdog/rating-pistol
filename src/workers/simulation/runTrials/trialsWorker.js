@@ -18,7 +18,7 @@ self.onmessage = ({ data }) => {
       const equipListLength = MISC[gameId].maxEquips;
       const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
 
-      advanceTrial = createAdvanceTrial(cache, evaluateEquipMap);
+      advanceTrial = createAdvanceTrial(cache, evaluateEquipMap, currId);
 
       trials = Array.from({ length: 250 }, () => ({
         equipList: new Array(equipListLength).fill(null),
