@@ -148,9 +148,10 @@ const TrajectoryChart = ({ results }) => {
           const { solidMean, dottedMean, day = 0 } = payload[0].payload;
           const value = solidMean ?? dottedMean;
 
-          const nextDayDps = estimateDps(day + 1, dpsCeiling, dpsProgression, fit);
-          const nextDiff = (nextDayDps / value * 100) - 100;
-          const diffPerStamina = nextDiff / staminaPerDay;
+          const nextDps = estimateDps(day + 1, dpsCeiling, dpsProgression, fit);
+          const diff = nextDps - value;
+          const diffPct = diff / value * 100;
+          const diffPctPerStamina = diffPct / staminaPerDay;
 
           return (
             <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
@@ -162,7 +163,7 @@ const TrajectoryChart = ({ results }) => {
                   DPS: {formatNum(value ?? 0)}
                 </Typography>
                 <Typography variant="caption">
-                  Rate: {Math.abs(diffPerStamina).toFixed(4)}% per stamina
+                  Rate: {Math.abs(diffPctPerStamina).toFixed(4)}% per stamina
                 </Typography>
               </Stack>
             </Paper>

@@ -1,3 +1,4 @@
+import { MISC } from '@/data';
 import { computeActualRotationTime, estimateDps, getTotals } from '@/utils';
 import { buildCache } from './cache';
 import { runRotation } from './rotation';
@@ -48,7 +49,10 @@ self.onmessage = async ({ data }) => {
   const results = await runTrials(cache, equipMaps, cache.charId, true);
   console.timeEnd('runTrials');
 
-  const { benchmarkDps, benchmarkDay } = findBenchmark(results.dpsCeiling, results.dpsProgression, results.fit);
+  const {
+    dps: benchmarkDps,
+    day: benchmarkDay,
+  } = findBenchmark(cache.gameId, results.dpsCeiling, results.dpsProgression, results.fit);
 
   console.time('weaponTests');
   const weaponResults = weaponTests(cache, equipMaps, cache.charId);
@@ -81,37 +85,23 @@ self.onmessage = async ({ data }) => {
   });
 };
 
-function findBenchmark(dpsCeiling, dpsProgression, fit) {
-  let today = 0;
-  let todayDps = dpsProgression[0].mean;
+function findBenchmark(gameId, dpsCeiling, dpsProgression, fit) {
+  const { staminaPerDay } = MISC[gameId];
+
+  let day = 0;
 
   while (true) {
-    const tomorrowDps = estimateDps(today + 1, dpsCeiling, dpsProgression, fit);
-    if ((tomorrowDps / todayDps) >= 1.01) {
-      today++;
-      todayDps = tomorrowDps;
-      continue;
+    const dps = estimateDps(day, dpsCeiling, dpsProgression, fit);
+    const nextDps = estimateDps(day + 1, dpsCeiling, dpsProgression, fit);
+
+    const diff = nextDps - dps;
+    const diffPct = diff / dps * 100;
+    const diffPctPerStamina = diffPct / staminaPerDay;
+
+    if (diffPctPerStamina < 0.004) {
+      return { dps, day };
     }
 
-    let daysUntil5pctGain = 2;
-    while (true) {
-      const nextDps = estimateDps(today + daysUntil5pctGain, dpsCeiling, dpsProgression, fit);
-
-      if ((nextDps / todayDps) >= 1.05) {
-        break;
-      }
-
-      if (daysUntil5pctGain > today) {
-        return {
-          benchmarkDps: todayDps,
-          benchmarkDay: today,
-        };
-      }
-
-      daysUntil5pctGain++;
-    }
-
-    today++;
-    todayDps = tomorrowDps;
+    day++;
   }
 }
