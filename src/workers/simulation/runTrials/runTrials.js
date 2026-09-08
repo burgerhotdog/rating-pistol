@@ -98,7 +98,8 @@ function runContinuous(workers, dpsCeil, isMainChar) {
 export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
   const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
   const bestEquipMap = findBestPossibleEquipMap(evaluateEquipMap);
-  const dpsCeil = bestEquipMap.totals.damage / cache.rotationDuration * 1000;
+
+  const dpsCeil = bestEquipMap.totals.damage / bestEquipMap.actualRotationTime * 1000;
 
   const dpsProgression = [];
 

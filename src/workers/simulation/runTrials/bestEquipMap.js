@@ -92,23 +92,16 @@ export function findBestPossibleEquipMap(evaluateEquipMap) {
   for (const { combo } of rankedCombos.slice(0, SHORTLIST_SIZE)) {
     const bareEquips = COST_PATTERN.map((cost, i) => toEquip(cost, combo[i]));
     const equipList = greedyFillSubstats(evaluateEquipMap, bareEquips);
-    const { score, totals } = evaluateEquipMap(buildEquipMap(equipList, true));
+    const { score, totals, actualRotationTime } = evaluateEquipMap(buildEquipMap(equipList, true));
 
-    if (!best || score > best.score) best = { score, equipList, totals };
-  }
-
-  // console.log
-  for (const e of best.equipList) {
-    const lines = [];
-    lines.push(`\nMain\n${e.mainstatId}: ${e.mainstatValue}`);
-    lines.push(`\nMainSub\n${e.mainstatSubId}: ${e.mainstatSubValue}`);
-
-    for (const ss of e.substats) {
-      lines.push(`\nSub\n${ss.id}: ${ss.value}`);
+    if (!best || score > best.score) {
+      best = { score, equipList, totals, actualRotationTime };
     }
-
-    // console.log(lines.join());
   }
 
-  return { equipList: best.equipList, totals: best.totals };
+  return {
+    equipList: best.equipList,
+    totals: best.totals,
+    actualRotationTime: best.actualRotationTime,
+  };
 }

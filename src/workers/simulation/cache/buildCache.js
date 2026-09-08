@@ -2,7 +2,6 @@ import { WW, CHARACTER, WEAPON, ECHO } from '@/data';
 import {
   buildEquipMap,
   buildBaseMap,
-  buildMenuMap,
   clamp,
   getEnergyLevel,
   toMergedObj,
@@ -45,9 +44,8 @@ const getConvertedRotation = (gameId, member, actionDefs, memberIds) => {
   for (const ref of rawRotation) {
     const action = actionDefs[ref];
 
-    if (teamSize === 1) {
-      const { type } = action;
-      if (type === 'introSkill' || type === 'outroSkill') continue;
+    if (teamSize === 1 && (action.type === 'introSkill' || action.type === 'outroSkill')) {
+      continue;
     }
 
     duration += action.duration ?? 0;
@@ -98,6 +96,7 @@ const getConvertedRotation = (gameId, member, actionDefs, memberIds) => {
 export const buildCache = ({ gameId, charId, team }) => {
   const cache = { gameId, charId };
   const fTeam = team.filter((member) => member.id);
+
   cache.memberIds = fTeam.map((member) => member.id);
   cache.teamSize = fTeam.length;
 
@@ -121,7 +120,6 @@ export const buildCache = ({ gameId, charId, team }) => {
       mCache.equipList = member.build.equipList;
       mCache.equipMap = buildEquipMap(mCache.equipList);
       mCache.statMap = toMergedObj(mCache.baseMap, mCache.equipMap);
-      mCache.menuMap = buildMenuMap(gameId, member.id, team, { baseMap: mCache.baseMap, equipMap: mCache.equipMap });
     }
 
     const actionDefs = getActionDefs(gameId, member, cache.teamSize);

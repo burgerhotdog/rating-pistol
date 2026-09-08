@@ -1,7 +1,5 @@
 import { WW, CHARACTER, SET, MISC } from '@/data';
-import { getEnergyLevel } from '../getEnergyLevel';
 import { getDefaultCharRank, getDefaultWeapRank } from '../getDefault';
-import { buildMenuMap } from '../buildMap';
 
 function buildSetCounts(gameId, equipList) {
   // Tally set ids in equipList

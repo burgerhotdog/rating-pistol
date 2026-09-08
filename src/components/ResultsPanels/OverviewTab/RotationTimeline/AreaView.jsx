@@ -11,13 +11,11 @@ import {
 import { useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
-const BUCKET_SIZE = 500;
-
 function buildData(snapshots, memberStack) {
   const runtimeDamage = {};
 
   const addDamage = (runtime, ownerId, damage, name) => {
-    const time = Math.floor(runtime / BUCKET_SIZE) * BUCKET_SIZE;
+    const time = Math.floor(runtime / 1000) * 1000;
 
     runtimeDamage[time] ??= { time, name };
     runtimeDamage[time][ownerId] ??= 0;
@@ -151,7 +149,7 @@ const AreaView = ({ results }) => {
           return (
             <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
               <Typography variant="subtitle2" color="textSecondary">
-                Time: {(time / 1000).toFixed(1)}s
+                Time: {(time / 1000).toFixed()}s
               </Typography>
 
               {rows.map(({ dataKey, name, value }) => (
