@@ -1,5 +1,5 @@
 import { WW, MAINSTAT, SUBSTAT } from '@/data';
-import { buildEquipMap } from '@/utils';
+import { buildEquipMap } from '../buildMap';
 
 const FLAT_STAT_BY_COST = {
   4: { mainstatSubId: 'atk', mainstatSubValue: 150 },
@@ -59,33 +59,40 @@ function greedyFillSubstats(evaluateEquipMap, equips) {
   return equips;
 }
 
-// Cartesian product of mainstat choices across the 5 slots.
-function* mainstatCombos(costPattern) {
+function getMainstatCombos(costPattern) {
   const optionsPerSlot = costPattern.map((cost) => Object.keys(MAINSTAT[WW][cost]));
+
+  const combos = [];
   const idxs = new Array(optionsPerSlot.length).fill(0);
 
   while (true) {
-    yield optionsPerSlot.map((opts, i) => opts[idxs[i]]);
+    combos.push(optionsPerSlot.map((opts, i) => opts[idxs[i]]));
 
     let pos = idxs.length - 1;
+
     while (pos >= 0) {
       idxs[pos]++;
+
       if (idxs[pos] < optionsPerSlot[pos].length) break;
+
       idxs[pos] = 0;
       pos--;
     }
+
     if (pos < 0) break;
   }
+
+  return combos;
 }
 
-export function findBestPossibleEquipMap(evaluateEquipMap, currId) {
+export function computeDpsCeiling(evaluateEquipMap, currId) {
   const costPattern = currId === 1409
     ? [4, 4, 1, 1, 1]
     : [4, 3, 3, 1, 1];
 
   const rankedCombos = [];
 
-  for (const combo of mainstatCombos(costPattern)) {
+  for (const combo of getMainstatCombos(costPattern)) {
     const equipList = costPattern.map((cost, i) => toEquip(cost, combo[i]));
     const { score } = evaluateEquipMap(buildEquipMap(equipList, true));
     rankedCombos.push({ combo, score });
@@ -99,7 +106,7 @@ export function findBestPossibleEquipMap(evaluateEquipMap, currId) {
   // asking evaluateEquipMap to judge the complete build, caps and all.
   let bestDps = 0;
 
-  for (const { combo } of rankedCombos.slice(0, 15)) {
+  for (const { combo } of rankedCombos.slice(0, 10)) {
     const bareEquips = costPattern.map((cost, i) => toEquip(cost, combo[i]));
     const equipList = greedyFillSubstats(evaluateEquipMap, bareEquips);
     const equipMap = buildEquipMap(equipList, true);

@@ -1,7 +1,6 @@
 import { mean } from 'simple-statistics';
-import { fitDecay, mergeEquipListConfigs } from '@/utils';
+import { computeDpsCeiling, fitDecay, mergeEquipListConfigs } from '@/utils';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
-import { findBestPossibleEquipMap } from './bestEquipMap';
 
 async function initWorkers(payload) {
   const workers = Array.from({ length: 4 }, () => new Worker(
@@ -97,7 +96,9 @@ function runContinuous(workers, dpsCeil, isMainChar) {
 
 export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
   const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
-  const dpsCeiling = findBestPossibleEquipMap(evaluateEquipMap, currId);
+  console.time('dpsCeiling');
+  const dpsCeiling = computeDpsCeiling(evaluateEquipMap, currId);
+  console.timeEnd('dpsCeiling');
 
   const dpsProgression = [];
 

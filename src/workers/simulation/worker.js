@@ -1,5 +1,9 @@
 import { MISC } from '@/data';
-import { computeActualRotationTime, estimateDps, getTotals } from '@/utils';
+import {
+  computeActualRotationTime,
+  estimateDps,
+  getTotals,
+} from '@/utils';
 import { buildCache } from './cache';
 import { runRotation } from './rotation';
 import { runTrials } from './runTrials';
