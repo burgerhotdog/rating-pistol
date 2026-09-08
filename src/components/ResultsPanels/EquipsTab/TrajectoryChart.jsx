@@ -14,7 +14,7 @@ import {
   YAxis,
 } from 'recharts';
 import { useAccent, useData } from '@/hooks';
-import { estimateDps, formatDmg, formatNum } from '@/utils';
+import { estimateDay, estimateDps, formatDmg, formatNum } from '@/utils';
 
 function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
   const data = [];
@@ -57,10 +57,12 @@ function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
 }
 
 const TrajectoryChart = ({ results }) => {
-  const { dpsProgression, userDay, userDps, dpsCeiling, fit, benchmarkDay } = results;
+  const { dpsProgression, userDps, dpsCeiling, fit, benchmarkDay } = results;
   const { palette } = useTheme();
   const accent = useAccent();
   const { staminaPerDay } = useData('misc');
+
+  const userDay = estimateDay(userDps, results.dpsCeiling, results.dpsProgression, results.fit);
 
   const maxDay = Math.ceil(Math.max(userDay, benchmarkDay, 1) * 1.25);
   const data = buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit);

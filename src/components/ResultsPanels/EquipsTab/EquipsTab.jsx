@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   Card,
   CardContent,
@@ -7,14 +8,19 @@ import {
   Stack,
 } from '@mui/material';
 import { useAccent } from '@/hooks';
+import { getMainstatConfigKey, sumSubstatRolls } from '@/utils';
 import { Switch } from '../../Colored';
 import Mainstats from './Mainstats';
 import SubstatsChart from './SubstatsChart';
 import TrajectoryChart from './TrajectoryChart';
 
 const EquipsTab = ({ results }) => {
+  const { gameId } = useParams();
   const accent = useAccent();
   const [substatsAll, setSubstatsAll] = useState(false);
+
+  const userMainstatConfigKey = getMainstatConfigKey(gameId, results.userMember.equipList);
+  const userSubstatRolls = sumSubstatRolls(gameId, results.userMember.equipList);
 
   return (
     <Stack spacing={1} sx={{ flex: 1 }}>
@@ -22,7 +28,10 @@ const EquipsTab = ({ results }) => {
         <Card component={Stack} sx={{ flex: 1 }}>
           <CardHeader title="Mainstat Distribution" />
           <CardContent component={Stack} sx={{ flex: 1, overflow: 'hidden' }}>
-            <Mainstats results={results} />
+            <Mainstats
+              results={results}
+              userMainstatConfigKey={userMainstatConfigKey}
+            />
           </CardContent>
         </Card>
 
@@ -44,6 +53,8 @@ const EquipsTab = ({ results }) => {
           />
           <SubstatsChart
             results={results}
+            userMainstatConfigKey={userMainstatConfigKey}
+            userSubstatRolls={userSubstatRolls}
             substatsAll={substatsAll}
           />
         </Card>

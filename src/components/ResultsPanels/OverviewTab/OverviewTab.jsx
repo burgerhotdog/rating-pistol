@@ -76,7 +76,12 @@ const OverviewTab = ({ results }) => {
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
         <Card component={Stack} sx={{ flex: 1 }}>
           <CardHeader title="Overall Rating" />
-          <CardContent component={Stack} divider={<Divider />} spacing={2} sx={{ flex: 1 }}>
+          <CardContent
+            component={Stack}
+            divider={<Divider />}
+            spacing={2}
+            sx={{ flex: 1 }}
+          >
             <Stack direction="row" spacing={1} sx={{ alignItems: 'baseline' }}>
               <Typography variant="h4" sx={{ color: gradeColor, fontWeight: 'bold' }}>
                 {grade}
@@ -91,15 +96,22 @@ const OverviewTab = ({ results }) => {
 
             <Stack
               direction="row"
-              divider={<Divider orientation="vertical" />}
               spacing={2}
               sx={{ flex: 1 }}
             >
-              <Stack direction="row" spacing={2} sx={{ flex: 1 }}>
-                <Stat label="Team DPS" value={formatNum(userDps)} />
-                <Stat label="Benchmark" value={formatNum(benchmarkDps)} />
-                <Stat label="Theoretical Max" value={formatNum(dpsCeiling)} />
-              </Stack>
+              <Stat label="Team DPS" value={formatNum(userDps)} />
+              <Stat label="Benchmark" value={formatNum(benchmarkDps)} />
+              <Stat label="Theoretical Max" value={formatNum(dpsCeiling)} />
+            </Stack>
+
+            <Stack
+              direction="row"
+              spacing={2}
+              sx={{ flex: 1 }}
+            >
+              <Stat label="Team DPS" value={formatNum(userDps)} />
+              <Stat label="Benchmark" value={formatNum(benchmarkDps)} />
+              <Stat label="Theoretical Max" value={formatNum(dpsCeiling)} />
             </Stack>
           </CardContent>
         </Card>

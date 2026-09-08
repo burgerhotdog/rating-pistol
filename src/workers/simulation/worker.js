@@ -1,11 +1,4 @@
-import {
-  computeActualRotationTime,
-  estimateDay,
-  estimateDps,
-  getMainstatConfigKey,
-  getTotals,
-  sumSubstatRolls,
-} from '@/utils';
+import { computeActualRotationTime, estimateDps, getTotals } from '@/utils';
 import { buildCache } from './cache';
 import { runRotation } from './rotation';
 import { runTrials } from './runTrials';
@@ -71,27 +64,20 @@ self.onmessage = async ({ data }) => {
   
 
   self.postMessage({
-    dpsProgression: results.dpsProgression,
-    dpsCeiling: results.dpsCeiling,
-    fit: results.fit,
-    equipListConfigs: results.equipListConfigs,
+    userMember: { ...cache.member[cache.charId] },
     userSnapshots,
     userRotationTime,
     userDps,
-    userDay: estimateDay(userDps, results.dpsCeiling, results.dpsProgression, results.fit),
+    dpsCeiling: results.dpsCeiling,
+    dpsProgression: results.dpsProgression,
+    fit: results.fit,
     benchmarkDps,
     benchmarkDay,
-    userMainstatConfigKey: getMainstatConfigKey(cache.gameId, cache.member[cache.charId].equipList),
-    userSubstatRolls: sumSubstatRolls(cache.gameId, cache.member[cache.charId].equipList),
+    equipListConfigs: results.equipListConfigs,
     memberIds: cache.memberIds,
     weaponResults,
     setResults,
     skillLevelResults,
-    userMember: {
-      weaponId: cache.member[cache.charId].weaponId,
-      weaponRank: cache.member[cache.charId].weaponRank,
-      setCounts: cache.member[cache.charId].setCounts,
-    },
   });
 };
 
@@ -102,7 +88,6 @@ function findBenchmark(dpsCeiling, dpsProgression, fit) {
 
   while (true) {
     const tomorrowDps = estimateDps(today + 1, dpsCeiling, dpsProgression, fit);
-    console.log('tomorrowDps', tomorrowDps);
     if ((tomorrowDps / todayDps) >= 1.01) {
       today++;
       todayDps = tomorrowDps;

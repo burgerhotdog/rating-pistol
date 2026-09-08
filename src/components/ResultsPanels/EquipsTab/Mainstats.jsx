@@ -13,8 +13,8 @@ import { ATTR_ASSETS } from '@/assets';
 import { useAccent } from '@/hooks';
 import { formatStr } from '@/utils';
 
-const Mainstats = ({ results }) => {
-  const { equipListConfigs, userMainstatConfigKey } = results;
+const Mainstats = ({ results, userMainstatConfigKey }) => {
+  const { equipListConfigs } = results;
   const { gameId } = useParams();
   const accent = useAccent();
 
