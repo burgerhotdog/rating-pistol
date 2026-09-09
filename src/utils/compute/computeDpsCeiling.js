@@ -27,49 +27,7 @@ const toEquipWW = (cost, mainstatId, substats = []) => ({
   })),
 });
 
-function greedyFillSubstats(gameId, evaluateEquipMap, equips) {
-  const substatPool = Object.keys(SUBSTAT[gameId]);
-  const chosen = equips.map(() => []); // substat names per equip
-  const totalSlots = equips.length * 5;
-
-  for (let step = 0; step < totalSlots; step++) {
-    let bestDps = 0;
-    let best;
-
-    for (let e = 0; e < equips.length; e++) {
-      if (chosen[e].length >= 5) continue;
-
-      for (const substat of substatPool) {
-        if (chosen[e].includes(substat)) continue; // no dupes on one equip
-
-        const trialEquips = equips.map((eq, i) => i === e
-          ? toEquip(eq.cost, eq.mainstatId, [...chosen[i], substat])
-          : eq
-        );
-
-        const { totals, actualRotationTime } = evaluateEquipMap(buildEquipMap(trialEquips, true));
-        const dps = totals.damage / actualRotationTime * 1000;
-
-        if (dps > bestDps) {
-          bestDps = dps;
-          best = { equipIndex: e, substat };
-        }
-      }
-    }
-
-    if (!best) break; // no legal moves left (shouldn't happen before totalSlots)
-    chosen[best.equipIndex] = [...chosen[best.equipIndex], best.substat];
-    equips[best.equipIndex] = toEquip(
-      equips[best.equipIndex].cost,
-      equips[best.equipIndex].mainstatId,
-      chosen[best.equipIndex],
-    );
-  }
-
-  return equips;
-}
-
-function greedyFillSubstatsWW(evaluateEquipMap, equipMap) {
+function greedyFillSubstats(gameId, evaluateEquipMap, equipMap, skippable) {
   const substatPool = Object.keys(SUBSTAT[WW]);
   const counts = {};
 
@@ -81,6 +39,52 @@ function greedyFillSubstatsWW(evaluateEquipMap, equipMap) {
 
     for (const statId of substatPool) {
       if ((counts[statId] ?? 0) >= 5) continue;
+      if (skippable.has(statId)) continue;
+
+      const trialEquipMap = {
+        ...equipMap,
+        [statId]:
+          (equipMap[statId] ?? 0) +
+          SUBSTAT[WW][statId].value,
+      };
+
+      const { score } = evaluateEquipMap(trialEquipMap);
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestSubstat = statId;
+      }
+    }
+
+    if (!bestSubstat) break;
+
+    equipMap = {
+      ...equipMap,
+      [bestSubstat]:
+        (equipMap[bestSubstat] ?? 0) +
+        SUBSTAT[WW][bestSubstat].value,
+    };
+
+    counts[bestSubstat] = (counts[bestSubstat] ?? 0) + 1;
+    currentScore = bestScore;
+  }
+
+  return currentScore;
+}
+
+function greedyFillSubstatsWW(evaluateEquipMap, equipMap, skippable) {
+  const substatPool = Object.keys(SUBSTAT[WW]);
+  const counts = {};
+
+  let currentScore = evaluateEquipMap(equipMap).score;
+
+  for (let step = 0; step < 25; step++) {
+    let bestScore = currentScore;
+    let bestSubstat;
+
+    for (const statId of substatPool) {
+      if ((counts[statId] ?? 0) >= 5) continue;
+      if (skippable.has(statId)) continue;
 
       const trialEquipMap = {
         ...equipMap,
@@ -189,7 +193,7 @@ export function computeDpsCeiling(gameId, evaluateEquipMap, currId, skippable) {
       : combo.map((mainstatId, i) => toEquip(gameId, i, mainstatId));
 
     const comboScore = gameId === WW
-      ? greedyFillSubstatsWW(evaluateEquipMap, buildEquipMap(bareEquips, true))
+      ? greedyFillSubstatsWW(evaluateEquipMap, buildEquipMap(bareEquips, true), skippable.substats)
       : greedyFillSubstats(gameId, evaluateEquipMap, buildEquipMap(bareEquips, true));
 
     if (comboScore > bestScore) {
