@@ -8,11 +8,11 @@ export function computeStaminaToUpgradeSkill(gameId, upgradeCosts) {
 
   const weeklyDomainTimes = upgradeCosts.weekly / domains.weekly.reward.weekly;
   stamina += weeklyDomainTimes * domains.weekly.stamina;
-  moneyAcc += weeklyDomainTimes * domains.weekly.reward.money;
+  moneyAcc += weeklyDomainTimes * (domains.weekly.reward.money ?? 0);
 
   const materialDomainTimes = upgradeCosts.material / domains.material.reward.material;
   stamina += materialDomainTimes * domains.material.stamina;
-  moneyAcc += materialDomainTimes * domains.material.reward.money;
+  moneyAcc += materialDomainTimes * (domains.material.reward.money ?? 0);
 
   const moneyStillNeeded = Math.max(upgradeCosts.money - moneyAcc, 0);
   const moneyDomainTimes = moneyStillNeeded / domains.money.reward.money;

@@ -1,4 +1,4 @@
-import { WW, CHARACTER, SET, ECHO } from '@/data';
+import { GI, HSR, WW, ZZZ, CHARACTER, SET, ECHO } from '@/data';
 import {
   isEnabledEcho,
   isEnabledSet,
@@ -209,9 +209,7 @@ export function setTests(cache, equipMaps, charId) {
   const results = [];
   results.push({ comboKey: 'none', dps: baselineDps });
 
-  const PASS_2_TYPES = [[5], [3, 2], [2, 2], [2, 2, 1]];
-
-  for (const sizes of PASS_2_TYPES) {
+  for (const sizes of getBonusPartitions(gameId)) {
     const assignments = assignPartition(toSizeGroups(sizes), usefulSetBonuses);
     const seen2pc = new Set();
 
@@ -246,4 +244,17 @@ function get2pcKey(gameId, assignment) {
     .map(({ setId }) => SET[gameId][setId].halfStat)
     .sort()
     .join('|');
+}
+
+function getBonusPartitions(gameId) {
+  switch (gameId) {
+    case GI:
+      return [[4], [2, 2]];
+    case HSR:
+      return [];
+    case WW:
+      return [[5], [3, 2], [2, 2], [2, 2, 1]];
+    case ZZZ:
+      return [[4, 2], [2, 2, 2]];
+  }
 }

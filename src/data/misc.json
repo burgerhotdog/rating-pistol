@@ -5,6 +5,7 @@
     "maxEquips": 5,
     "maxSubstats": 4,
     "maxSkillLevel": 10,
+    "staminaPerDay": 200,
     "energyAttr": "energyRecharge%",
     "skillIds": [
       "normalAttack",

@@ -59,7 +59,7 @@ const WeaponsChart = ({ data }) => {
             const entry = data[index];
             if (!entry?.icon) return null;
 
-            const size = width - 16;
+            const size = Math.max(width - 16, 0);
             const ix = x + 8;
             const iy = y + height - size - 8;
 

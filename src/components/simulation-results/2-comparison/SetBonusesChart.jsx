@@ -175,7 +175,7 @@ const SetBonusesChart = ({ results }) => {
             const entry = data[index];
             if (!entry?.comboKey || entry.empty || entry.comboKey === 'none') return null;
 
-            const size = width - 16;
+            const size = Math.max(width - 16, 0);
             const ix = x + 8;
             const iy = y + height - size - 8;
 

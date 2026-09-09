@@ -124,9 +124,6 @@ const gaussianKDE = (values = [], steps = 48) => {
   return points.map((p) => ({ v: p.v, density: p.density / maxDensity }));
 };
 
-const AXIS_DOMAIN = [0, 5];
-const violinDataKey = () => AXIS_DOMAIN;
-
 const classifyRoll = (user, { min, q1, q3, max }) => {
   if (user >= q1 && user <= q3) return 'ideal';
   if (user >= min && user <= max) return 'acceptable';
@@ -156,6 +153,12 @@ const SubstatsChart = ({ results, userMainstatConfigKey, userSubstatRolls, subst
       return { stat: label, min, q1, median, q3, max, user, violin, zone };
     })
     .sort((a, b) => b.median - a.median);
+
+  const AXIS_DOMAIN = [
+    0,
+    Math.ceil(Math.max(...data.map(({ max }) => max))),
+  ];
+  const violinDataKey = () => AXIS_DOMAIN;
 
   return (
     <BarChart
