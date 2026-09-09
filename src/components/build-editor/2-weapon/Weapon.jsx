@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import { Stack, TextField } from '@mui/material';
+import { Autocomplete } from '@/components/Autocomplete';
 import { useData } from '@/hooks';
 import { inRange } from '@/utils';
-import { Autocomplete } from '../Autocomplete';
 
-const WeaponTab = ({ draft, setDraft }) => {
+const Weapon = ({ draft, setDraft }) => {
   const weapons = useData('weapon');
   const miscData = useData('misc');
 
@@ -83,4 +83,4 @@ const WeaponTab = ({ draft, setDraft }) => {
   );
 };
 
-export default WeaponTab;
+export default Weapon;

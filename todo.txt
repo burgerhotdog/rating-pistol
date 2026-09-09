@@ -1,10 +1,3 @@
-maybe compare stamina efficiency with talents/rate of stamina eff
-
-use solver to filter only variable stat maps that actually affect damage
 also batch hits that have same buffmaps but different hit times for chart
 buff saturation index
-comapre echo sets and teammates
-
-editing rot doesnt update duration
-
 improve speed of healing chars

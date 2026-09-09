@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Card, CardHeader, FormControlLabel, Stack } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { useAccent, useData } from '@/hooks';
-import { Switch } from '../../Colored';
+import { Switch } from '@/components/Colored';
 import WeaponsChart from './WeaponsChart';
 import SetBonusesChart from './SetBonusesChart';
 

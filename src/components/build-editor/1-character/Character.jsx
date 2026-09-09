@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import { Stack, TextField } from '@mui/material';
+import { Autocomplete } from '@/components/Autocomplete';
 import { useData } from '@/hooks';
 import { inRange } from '@/utils';
-import { Autocomplete } from '../Autocomplete';
 
-const CharacterTab = ({ draft, setDraft, edit }) => {
+const Character = ({ draft, setDraft, edit }) => {
   const characters = useData('character');
   const miscData = useData('misc');
 
@@ -76,4 +76,4 @@ const CharacterTab = ({ draft, setDraft, edit }) => {
   );
 };
 
-export default CharacterTab;
+export default Character;

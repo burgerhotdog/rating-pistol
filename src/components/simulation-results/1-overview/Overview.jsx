@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { useAccent } from '@/hooks';
 import { formatNum, getTotals } from '@/utils';
-import { Switch } from '../../Colored';
+import { Switch } from '@/components/Colored';
 import DistributionChart from './DistributionChart';
 import AreaView from './RotationTimeline/AreaView';
 import ScatterView from './RotationTimeline/ScatterView';

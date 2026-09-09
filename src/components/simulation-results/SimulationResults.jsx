@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Stack, Tab } from '@mui/material';
 import { useAccent, useSimulation } from '@/hooks';
-import { Tabs } from '../Colored';
+import { Tabs } from '@/components/Colored';
 import LoadingBar from './LoadingBar';
 import OverviewTab from './1-overview';
 import ComparisonTab from './2-comparison';

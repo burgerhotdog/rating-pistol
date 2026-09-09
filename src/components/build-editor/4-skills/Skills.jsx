@@ -2,7 +2,7 @@ import { Stack, TextField } from '@mui/material';
 import { useData } from '@/hooks';
 import { formatStr, inRange } from '@/utils';
 
-const SkillsTab = ({ draft, setDraft }) => {
+const Skills = ({ draft, setDraft }) => {
   const { skillIds, maxSkillLevel } = useData('misc');
 
   return (
@@ -45,4 +45,4 @@ const SkillsTab = ({ draft, setDraft }) => {
   );
 };
 
-export default SkillsTab;
+export default Skills;

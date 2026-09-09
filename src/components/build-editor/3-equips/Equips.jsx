@@ -10,12 +10,12 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import { Autocomplete } from '@/components/Autocomplete';
 import { WW } from '@/data';
 import { useData } from '@/hooks';
 import { formatStr } from '@/utils';
-import { Autocomplete } from '../Autocomplete';
 
-const EquipsTab = ({ draft, setDraft }) => {
+const Equips = ({ draft, setDraft }) => {
   const { gameId } = useParams();
   const [tab, setTab] = useState(0);
 
@@ -259,4 +259,4 @@ const EquipsTab = ({ draft, setDraft }) => {
   );
 };
 
-export default EquipsTab;
+export default Equips;

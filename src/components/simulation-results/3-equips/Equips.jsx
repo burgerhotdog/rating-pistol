@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { useAccent } from '@/hooks';
 import { getMainstatConfigKey, sumSubstatRolls } from '@/utils';
-import { Switch } from '../../Colored';
+import { Switch } from '@/components/Colored';
 import Mainstats from './Mainstats';
 import SubstatsChart from './SubstatsChart';
 import TrajectoryChart from './TrajectoryChart';
