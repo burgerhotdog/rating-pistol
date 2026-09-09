@@ -14,36 +14,28 @@ const Navbar = () => {
       variant="scrollable"
       orientation="vertical"
       value={charId}
-      onChange={(_, value) => value !== charId &&
-        navigate(`/${gameId}/${value}`, { replace: true })
-      }
-      slotProps={{
-        indicator: {
-          style: { display: 'none' },
-        },
+      onChange={(_, value) => {
+        if (value !== charId) {
+          navigate(`/${gameId}/${value}`, { replace: true });
+        }
       }}
+      slotProps={{ indicator: { style: { display: 'none' } } }}
     >
-      {sortedKeys.map((id) => (
-        <Tab
-          key={id}
-          value={id}
-          icon={(
-            <Avatar
-              src={charDatas[id].icon}
-              alt={charDatas[id].name}
-            />
-          )}
-          sx={{
-            minWidth: 0,
-            '&:hover': {
-              backgroundColor: 'action.hover',
-            },
-            '&.Mui-selected': {
-              backgroundColor: 'action.selected',
-            },
-          }}
-        />
-      ))}
+      {sortedKeys.map((id) => {
+        const { name, icon } = charDatas[id];
+        return (
+          <Tab
+            key={id}
+            value={id}
+            icon={<Avatar src={icon} alt={name} />}
+            sx={{
+              minWidth: 0,
+              '&:hover': { backgroundColor: 'action.hover' },
+              '&.Mui-selected': { backgroundColor: 'action.selected' },
+            }}
+          />
+        );
+      })}
     </Tabs>
   );
 };

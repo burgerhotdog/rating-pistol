@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
   Box,
@@ -13,24 +13,18 @@ import { ZZZ } from '@/data';
 import { fetchEnka } from './fetchEnka';
 import SelectDialog from './SelectDialog';
 
-const isValidUid = (gameId, uid) =>
-  gameId === ZZZ
-    ? /^\d{10,11}$/.test(uid)
-    : /^\d{9,10}$/.test(uid);
+const isValidUid = (gameId, uid) => gameId === ZZZ
+  ? /^\d{10,11}$/.test(uid)
+  : /^\d{9,10}$/.test(uid);
 
 const Enka = () => {
   const { gameId } = useParams();
   const { savedUids, updateSavedUids } = useUser();
-  const [uid, setUid] = useState('');
+  const [uid, setUid] = useState(savedUids[gameId] ?? '');
   const [isSyncLoading, setIsSyncLoading] = useState(false);
   const [error, setError] = useState(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [charEnkas, setCharEnkas] = useState([]);
-
-  useEffect(
-    () => setUid(savedUids[gameId] ?? ''),
-    [savedUids, gameId],
-  );
 
   const handleSync = async () => {
     setIsSyncLoading(true);

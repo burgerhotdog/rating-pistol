@@ -8,9 +8,9 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
+import { Switch } from '@/components/Colored';
 import { useAccent } from '@/hooks';
 import { formatNum } from '@/utils';
-import { Switch } from '@/components/Colored';
 import DistributionChart from './DistributionChart';
 import AreaView from './RotationTimeline/AreaView';
 import ScatterView from './RotationTimeline/ScatterView';
@@ -23,7 +23,9 @@ const GRADE_BANDS = [
 ];
 
 function getGrade(pct) {
-  if (pct > 100) return { grade: 'S', color: '#FFD700' };
+  if (pct > 100) {
+    return { grade: 'S', color: '#FFD700' };
+  }
 
   for (const { floor, letter, color } of GRADE_BANDS) {
     if (pct >= floor) {
@@ -36,7 +38,7 @@ function getGrade(pct) {
   return { grade: 'E', color: '#ef4444' };
 }
 
-const Stat = ({ label, value, valueColor }) => {
+const TextBox = ({ label, value }) => {
   return (
     <Card
       component={Stack}
@@ -51,7 +53,7 @@ const Stat = ({ label, value, valueColor }) => {
       <Typography variant="overline" color="textSecondary">
         {label}
       </Typography>
-      <Typography variant="h6" sx={{ fontWeight: 'bold', color: valueColor }}>
+      <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
         {value}
       </Typography>
     </Card>
@@ -99,9 +101,9 @@ const Overview = ({ results }) => {
               spacing={2}
               sx={{ flex: 1 }}
             >
-              <Stat label="Team DPS" value={formatNum(userDps)} />
-              <Stat label="Benchmark" value={formatNum(benchmarkDps)} />
-              <Stat label="Theoretical Max" value={formatNum(dpsCeiling)} />
+              <TextBox label="Team DPS" value={formatNum(userDps)} />
+              <TextBox label="Benchmark" value={formatNum(benchmarkDps)} />
+              <TextBox label="Theoretical Max" value={formatNum(dpsCeiling)} />
             </Stack>
 
             <Stack
@@ -109,9 +111,9 @@ const Overview = ({ results }) => {
               spacing={2}
               sx={{ flex: 1 }}
             >
-              <Stat label="Team DPS" value={formatNum(userDps)} />
-              <Stat label="Benchmark" value={formatNum(benchmarkDps)} />
-              <Stat label="Theoretical Max" value={formatNum(dpsCeiling)} />
+              <TextBox label="Team DPS" value={formatNum(userDps)} />
+              <TextBox label="Benchmark" value={formatNum(benchmarkDps)} />
+              <TextBox label="Theoretical Max" value={formatNum(dpsCeiling)} />
             </Stack>
           </CardContent>
         </Card>
