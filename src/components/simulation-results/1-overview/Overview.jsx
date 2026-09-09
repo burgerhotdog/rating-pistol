@@ -58,7 +58,7 @@ const Stat = ({ label, value, valueColor }) => {
   );
 };
 
-const OverviewTab = ({ results }) => {
+const Overview = ({ results }) => {
   const { userDps, dpsCeiling, benchmarkDps, memberIds, userSnapshots } = results;
   const accent = useAccent();
   const [showHits, setShowHits] = useState(false);
@@ -147,4 +147,4 @@ const OverviewTab = ({ results }) => {
   );
 };
 
-export default OverviewTab;
+export default Overview;

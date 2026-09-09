@@ -14,7 +14,7 @@ import Mainstats from './Mainstats';
 import SubstatsChart from './SubstatsChart';
 import TrajectoryChart from './TrajectoryChart';
 
-const EquipsTab = ({ results }) => {
+const Equips = ({ results }) => {
   const { gameId } = useParams();
   const accent = useAccent();
   const [substatsAll, setSubstatsAll] = useState(false);
@@ -79,4 +79,4 @@ const EquipsTab = ({ results }) => {
   );
 };
 
-export default EquipsTab;
+export default Equips;

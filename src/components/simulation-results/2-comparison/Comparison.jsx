@@ -7,7 +7,7 @@ import { Switch } from '@/components/Colored';
 import WeaponsChart from './WeaponsChart';
 import SetBonusesChart from './SetBonusesChart';
 
-const ComparisonTab = ({ results }) => {
+const Comparison = ({ results }) => {
   const { weaponResults, userDps, userMember } = results;
   const { charId } = useParams();
   const { qualityColors } = useTheme();
@@ -98,4 +98,4 @@ const ComparisonTab = ({ results }) => {
   );
 };
 
-export default ComparisonTab;
+export default Comparison;

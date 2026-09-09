@@ -7,7 +7,7 @@ import SkillLevelsAnalysisCharts from './SkillLevelsAnalysisCharts';
 import UpgradeCosts from './UpgradeCosts';
 import RatePerStamina from './RatePerStamina';
 
-const SkillLevelsAnalysisTab = ({ results }) => {
+const SkillLevels = ({ results }) => {
   const { gameId } = useParams();
   const { skillLevelUpgradeCosts } = useData('misc');
   const accent = useAccent();
@@ -52,4 +52,4 @@ const SkillLevelsAnalysisTab = ({ results }) => {
   );
 };
 
-export default SkillLevelsAnalysisTab;
+export default SkillLevels;
