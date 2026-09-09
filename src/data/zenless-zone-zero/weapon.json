@@ -209,6 +209,20 @@
     },
     "effects": []
   },
+  "12016": {
+    "disabled": true,
+    "name": "[Lunar] Semiluna",
+    "version": 3.2,
+    "id": 12016,
+    "icon": "zenless-zone-zero/weapon/12016.webp",
+    "quality": 3,
+    "type": "armorer",
+    "stats": {
+      "baseDef": 282,
+      "def%": 0.32
+    },
+    "effects": []
+  },
   "13001": {
     "disabled": true,
     "name": "Street Superstar",
@@ -443,6 +457,20 @@
     },
     "effects": []
   },
+  "13017": {
+    "disabled": true,
+    "name": "Catty Luck",
+    "version": 3.2,
+    "id": 13017,
+    "icon": "zenless-zone-zero/weapon/13017.webp",
+    "quality": 4,
+    "type": "armorer",
+    "stats": {
+      "baseDef": 356,
+      "def%": 0.4
+    },
+    "effects": []
+  },
   "13018": {
     "disabled": true,
     "name": "Boisterous Echoes",
@@ -482,6 +510,20 @@
     "stats": {
       "baseAtk": 594,
       "impact%": 0.15
+    },
+    "effects": []
+  },
+  "13021": {
+    "disabled": true,
+    "name": "Bloodmarrow Coffer",
+    "version": 3.2,
+    "id": 13021,
+    "icon": "zenless-zone-zero/weapon/13021.webp",
+    "quality": 4,
+    "type": "armorer",
+    "stats": {
+      "baseDef": 356,
+      "critRate%": 0.2
     },
     "effects": []
   },
@@ -1342,6 +1384,34 @@
     "stats": {
       "baseAtk": 713,
       "critDmg%": 0.48
+    },
+    "effects": []
+  },
+  "14161": {
+    "disabled": true,
+    "name": "Crimson Thirst",
+    "version": 3.2,
+    "id": 14161,
+    "icon": "zenless-zone-zero/weapon/14161.webp",
+    "quality": 5,
+    "type": "armorer",
+    "stats": {
+      "baseDef": 431,
+      "def%": 0.48
+    },
+    "effects": []
+  },
+  "14162": {
+    "disabled": true,
+    "name": "Crimson Moon Casket",
+    "version": 3.2,
+    "id": 14162,
+    "icon": "zenless-zone-zero/weapon/14162.webp",
+    "quality": 5,
+    "type": "stun",
+    "stats": {
+      "baseAtk": 713,
+      "energyRegen%": 0.6
     },
     "effects": []
   }
