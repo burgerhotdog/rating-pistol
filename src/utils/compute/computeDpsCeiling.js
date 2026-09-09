@@ -27,25 +27,33 @@ const toEquipWW = (cost, mainstatId, substats = []) => ({
   })),
 });
 
-function greedyFillSubstats(gameId, evaluateEquipMap, equipMap, skippable) {
-  const substatPool = Object.keys(SUBSTAT[WW]);
-  const counts = {};
+function greedyFillSubstats(gameId, evaluateEquipMap, equipMap, skippable, mainstatIds) {
+  const substatPool = Object.keys(SUBSTAT[gameId]);
+
+  const rollCounts = {};
+
+  const maxRolls = Object.fromEntries(
+    substatPool.map((statId) => [
+      statId,
+      6 * mainstatIds.filter((mainstatId) => mainstatId !== statId).length,
+    ]),
+  );
 
   let currentScore = evaluateEquipMap(equipMap).score;
 
-  for (let step = 0; step < 25; step++) {
+  for (let step = 0; step < 45; step++) {
     let bestScore = currentScore;
     let bestSubstat;
 
     for (const statId of substatPool) {
-      if ((counts[statId] ?? 0) >= 5) continue;
+      if ((rollCounts[statId] ?? 0) >= maxRolls[statId]) continue;
       if (skippable.has(statId)) continue;
 
       const trialEquipMap = {
         ...equipMap,
         [statId]:
           (equipMap[statId] ?? 0) +
-          SUBSTAT[WW][statId].value,
+          SUBSTAT[gameId][statId].value,
       };
 
       const { score } = evaluateEquipMap(trialEquipMap);
@@ -62,10 +70,10 @@ function greedyFillSubstats(gameId, evaluateEquipMap, equipMap, skippable) {
       ...equipMap,
       [bestSubstat]:
         (equipMap[bestSubstat] ?? 0) +
-        SUBSTAT[WW][bestSubstat].value,
+        SUBSTAT[gameId][bestSubstat].value,
     };
 
-    counts[bestSubstat] = (counts[bestSubstat] ?? 0) + 1;
+    rollCounts[bestSubstat] = (rollCounts[bestSubstat] ?? 0) + 1;
     currentScore = bestScore;
   }
 
