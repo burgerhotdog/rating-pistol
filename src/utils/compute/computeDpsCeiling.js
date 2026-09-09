@@ -7,10 +7,19 @@ const FLAT_STAT_BY_COST = {
   1: { mainstatSubId: 'hp', mainstatSubValue: 2280 },
 };
 
-const toEquip = (cost, mainstat, substats = []) => ({
+const toEquip = (gameId, index, mainstatId, substats = []) => ({
+  mainstatId,
+  mainstatValue: MAINSTAT[gameId][index][mainstatId].value,
+  substats: substats.map((id) => ({
+    id,
+    value: SUBSTAT[gameId][id].value,
+  })),
+});
+
+const toEquipWW = (cost, mainstatId, substats = []) => ({
   cost,
-  mainstatId: mainstat,
-  mainstatValue: MAINSTAT[WW][cost][mainstat].value,
+  mainstatId,
+  mainstatValue: MAINSTAT[WW][cost][mainstatId].value,
   ...FLAT_STAT_BY_COST[cost],
   substats: substats.map((id) => ({
     id,
@@ -18,20 +27,8 @@ const toEquip = (cost, mainstat, substats = []) => ({
   })),
 });
 
-const toEquipI = (gameId, index, mainstat, substats = []) => ({
-  mainstatId: mainstat,
-  mainstatValue: MAINSTAT[gameId][index][mainstat].value,
-  substats: substats.map((id) => ({
-    id,
-    value: SUBSTAT[gameId][id].value,
-  })),
-});
-
-// Greedily fill substats onto a fixed set of equips (mainstats already chosen).
-// At each step, try every legal (equip slot, unused-on-that-equip substat type)
-// pair and keep whichever single addition improves score the most.
-function greedyFillSubstats(evaluateEquipMap, equips) {
-  const substatPool = Object.keys(SUBSTAT[WW]);
+function greedyFillSubstats(gameId, evaluateEquipMap, equips) {
+  const substatPool = Object.keys(SUBSTAT[gameId]);
   const chosen = equips.map(() => []); // substat names per equip
   const totalSlots = equips.length * 5;
 
@@ -62,10 +59,58 @@ function greedyFillSubstats(evaluateEquipMap, equips) {
 
     if (!best) break; // no legal moves left (shouldn't happen before totalSlots)
     chosen[best.equipIndex] = [...chosen[best.equipIndex], best.substat];
-    equips[best.equipIndex] = toEquip(equips[best.equipIndex].cost, equips[best.equipIndex].mainstatId, chosen[best.equipIndex]);
+    equips[best.equipIndex] = toEquip(
+      equips[best.equipIndex].cost,
+      equips[best.equipIndex].mainstatId,
+      chosen[best.equipIndex],
+    );
   }
 
   return equips;
+}
+
+function greedyFillSubstatsWW(evaluateEquipMap, equipMap) {
+  const substatPool = Object.keys(SUBSTAT[WW]);
+  const counts = {};
+
+  let currentScore = evaluateEquipMap(equipMap).score;
+
+  for (let step = 0; step < 25; step++) {
+    let bestScore = currentScore;
+    let bestSubstat;
+
+    for (const statId of substatPool) {
+      if ((counts[statId] ?? 0) >= 5) continue;
+
+      const trialEquipMap = {
+        ...equipMap,
+        [statId]:
+          (equipMap[statId] ?? 0) +
+          SUBSTAT[WW][statId].value,
+      };
+
+      const { score } = evaluateEquipMap(trialEquipMap);
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestSubstat = statId;
+      }
+    }
+
+    if (!bestSubstat) break;
+
+    equipMap = {
+      ...equipMap,
+      [bestSubstat]:
+        (equipMap[bestSubstat] ?? 0) +
+        SUBSTAT[WW][bestSubstat].value,
+    };
+
+    counts[bestSubstat] = (counts[bestSubstat] ?? 0) + 1;
+    currentScore = bestScore;
+  }
+
+  return currentScore;
 }
 
 function getMainstatCombos(optionsPerSlot) {
@@ -121,8 +166,8 @@ export function computeDpsCeiling(gameId, evaluateEquipMap, currId, skippable) {
 
   for (const combo of getMainstatCombos(optionsPerSlot)) {
     const equipList = gameId === WW
-      ? costPattern.map((cost, i) => toEquip(cost, combo[i]))
-      : combo.map((mainstatId, i) => toEquipI(gameId, i, mainstatId));
+      ? costPattern.map((cost, i) => toEquipWW(cost, combo[i]))
+      : combo.map((mainstatId, i) => toEquip(gameId, i, mainstatId));
 
     const equipMap = buildEquipMap(equipList, true);
     const { score } = evaluateEquipMap(equipMap);
@@ -136,21 +181,22 @@ export function computeDpsCeiling(gameId, evaluateEquipMap, currId, skippable) {
   // then compare combos by their REAL final score - this is what actually
   // resolves the mainstat-vs-substat interaction correctly, since it's
   // asking evaluateEquipMap to judge the complete build, caps and all.
-  let bestDps = 0;
+  let bestScore = 0;
 
   for (const { combo } of rankedCombos.slice(0, 10)) {
     const bareEquips = gameId === WW
-      ? costPattern.map((cost, i) => toEquip(cost, combo[i]))
-      : combo.map((mainstatId, i) => toEquipI(gameId, i, mainstatId));
+      ? costPattern.map((cost, i) => toEquipWW(cost, combo[i]))
+      : combo.map((mainstatId, i) => toEquip(gameId, i, mainstatId));
 
-    const equipList = greedyFillSubstats(evaluateEquipMap, bareEquips);
-    const equipMap = buildEquipMap(equipList, true);
-    const { score } = evaluateEquipMap(equipMap);
+    const comboScore = gameId === WW
+      ? greedyFillSubstatsWW(evaluateEquipMap, buildEquipMap(bareEquips, true))
+      : greedyFillSubstats(gameId, evaluateEquipMap, buildEquipMap(bareEquips, true));
 
-    if (score > bestDps) {
-      bestDps = score;
+    if (comboScore > bestScore) {
+      bestScore = comboScore;
     }
   }
 
-  return bestDps;
+  console.log(bestScore);
+  return bestScore;
 }
