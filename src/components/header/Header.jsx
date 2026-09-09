@@ -2,8 +2,8 @@ import { useParams } from 'react-router-dom';
 import { Divider, Stack } from '@mui/material';
 import { WW } from '@/data';
 import HeaderNav from './HeaderNav';
-import HeaderOcr from './header-ocr';
-import HeaderEnka from './header-enka';
+import HeaderOcr from './ocr';
+import HeaderEnka from './enka';
 import HeaderUser from './HeaderUser';
 
 const Header = () => {
