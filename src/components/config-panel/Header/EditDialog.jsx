@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { useBuild } from '@/contexts';
 import { useBuilds, useData } from '@/hooks';
-import BuildEditor from '../../BuildEditor';
+import BuildEditor from '../../build-editor';
 import DeleteDialog from './DeleteDialog';
 
 const EditDialog = ({ open, onClose }) => {

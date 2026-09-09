@@ -5,7 +5,7 @@ import {
   DialogContent,
   DialogTitle,
 } from '@mui/material';
-import BuildEditor from '../../BuildEditor';
+import BuildEditor from '../../build-editor';
 
 export const ConfirmDialog = ({
   open,
