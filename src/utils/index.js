@@ -7,6 +7,7 @@ export * from './normalize';
 export * from './randomStat';
 export * from './resolve';
 
+export * from './buildSkippable';
 export * from './estimateTrajectory';
 export * from './getAttr';
 export * from './getDefault';

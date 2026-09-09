@@ -92,14 +92,30 @@ function getMainstatCombos(optionsPerSlot) {
   return combos;
 }
 
-export function computeDpsCeiling(gameId, evaluateEquipMap, currId) {
+function getOptionsPerSlot(gameId, evalId, skippable) {
+  if (gameId !== WW) {
+    return MAINSTAT[gameId].map((mainstatDatas, i) =>
+      Object.keys(mainstatDatas)
+        .filter((statId) => !skippable[i].has(statId))
+    );
+  }
+
+  const costPattern = evalId === 1409
+    ? [4, 4, 1, 1, 1]
+    : [4, 3, 3, 1, 1];
+
+  return costPattern.map((cost) =>
+    Object.keys(MAINSTAT[WW][cost])
+      .filter((statId) => !skippable[cost].has(statId))
+  );
+}
+
+export function computeDpsCeiling(gameId, evaluateEquipMap, currId, skippable) {
   const costPattern = currId === 1409
     ? [4, 4, 1, 1, 1]
     : [4, 3, 3, 1, 1];
 
-  const optionsPerSlot = gameId === WW
-    ? costPattern.map((cost) => Object.keys(MAINSTAT[WW][cost]))
-    : MAINSTAT[gameId].map((mainstatDatas) => Object.keys(mainstatDatas));
+  const optionsPerSlot = getOptionsPerSlot(gameId, currId, skippable.mainstats);
 
   const rankedCombos = [];
 
@@ -123,14 +139,16 @@ export function computeDpsCeiling(gameId, evaluateEquipMap, currId) {
   let bestDps = 0;
 
   for (const { combo } of rankedCombos.slice(0, 10)) {
-    const bareEquips = costPattern.map((cost, i) => toEquip(cost, combo[i]));
+    const bareEquips = gameId === WW
+      ? costPattern.map((cost, i) => toEquip(cost, combo[i]))
+      : combo.map((mainstatId, i) => toEquipI(gameId, i, mainstatId));
+
     const equipList = greedyFillSubstats(evaluateEquipMap, bareEquips);
     const equipMap = buildEquipMap(equipList, true);
-    const { totals, actualRotationTime } = evaluateEquipMap(equipMap);
-    const dps = totals.damage / actualRotationTime * 1000;
+    const { score } = evaluateEquipMap(equipMap);
 
-    if (dps > bestDps) {
-      bestDps = dps;
+    if (score > bestDps) {
+      bestDps = score;
     }
   }
 

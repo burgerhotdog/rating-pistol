@@ -1,5 +1,5 @@
 import { mean } from 'simple-statistics';
-import { computeDpsCeiling, fitDecay, mergeEquipListConfigs } from '@/utils';
+import { buildSkippable, computeDpsCeiling, fitDecay, mergeEquipListConfigs } from '@/utils';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
 
 async function initWorkers(payload) {
@@ -22,7 +22,7 @@ async function initWorkers(payload) {
   return workers;
 }
 
-function runContinuous(workers, dpsCeil, isMainChar) {
+function runContinuous(workers, dpsCeiling, isMainChar) {
   return new Promise((resolve) => {
     const pending = new Map(); // day -> meanDps values collected so far
     const dpsUpdates = [];
@@ -52,7 +52,7 @@ function runContinuous(workers, dpsCeil, isMainChar) {
             dpsUpdates.push({ day, mean: avgDps });
 
             if (isMainChar) {
-              const remaining = dpsCeil - avgDps;
+              const remaining = dpsCeiling - avgDps;
               if (day >= 95) remainingHistory.push({ day, remaining });
               if (isMainChar) self.postMessage({ progressDay: day });
             }
@@ -96,18 +96,19 @@ function runContinuous(workers, dpsCeil, isMainChar) {
 
 export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
   const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
+  const { snapshots, score: dpsFloor } = evaluateEquipMap();
+  const skippable = buildSkippable(cache.gameId, dpsFloor, evaluateEquipMap);
+
   console.time('dpsCeiling');
-  const dpsCeiling = computeDpsCeiling(cache.gameId, evaluateEquipMap, currId);
+  const dpsCeiling = computeDpsCeiling(cache.gameId, evaluateEquipMap, currId, skippable);
   console.timeEnd('dpsCeiling');
 
   const dpsProgression = [];
 
   // Initialize trials
   if (isMainChar) self.postMessage({ status: `Initializing Trials` });
-  const { snapshots, totals, score, actualRotationTime } = evaluateEquipMap();
-  const baseDps = totals.damage / actualRotationTime * 1000;
-  dpsProgression.push({ day: 0, mean: baseDps });
-  const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, snapshots, score, baseDps });
+  dpsProgression.push({ day: 0, mean: dpsFloor });
+  const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, snapshots, score: dpsFloor });
 
   if (isMainChar) self.postMessage({ status: `Running Trials` });
   const result = await runContinuous(workers, dpsCeiling, isMainChar);

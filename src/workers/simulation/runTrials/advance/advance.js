@@ -9,11 +9,10 @@ function createEquipEvaluator(gameId, evaluateEquipMap, id) {
 
     for (const equipIndex of slots) {
       const equipList = prev.equipList.with(equipIndex, equip);
-      const { snapshots, totals, score, actualRotationTime } = evaluateEquipMap(buildEquipMap(equipList, true));
+      const { snapshots, score } = evaluateEquipMap(buildEquipMap(equipList, true));
 
       if (score > next.score) {
-        const dps = totals.damage / actualRotationTime * 1000;
-        Object.assign(next, { equipList, snapshots, score, dps });
+        Object.assign(next, { equipList, snapshots, score });
       }
     }
 

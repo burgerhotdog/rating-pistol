@@ -11,7 +11,7 @@ let gameId;
 self.onmessage = ({ data }) => {
   switch (data.type) {
     case 'init': {
-      const { cache, equipMaps, currId, snapshots, score, baseDps } = data;
+      const { cache, equipMaps, currId, snapshots, score } = data;
 
       gameId = cache.gameId;
 
@@ -24,7 +24,6 @@ self.onmessage = ({ data }) => {
         equipList: new Array(equipListLength).fill(null),
         snapshots,
         score,
-        dps: baseDps,
       }));
 
       return self.postMessage({ type: 'ready' });
@@ -38,7 +37,7 @@ self.onmessage = ({ data }) => {
           advanceTrial(trial);
         }
 
-        const meanDps = mean(trials.map((trial) => trial.dps));
+        const meanDps = mean(trials.map((trial) => trial.score));
         self.postMessage({ type: 'progress', day, meanDps });
       }
 
