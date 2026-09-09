@@ -115,8 +115,9 @@ const CharacterPickerDialog = ({ open, onClose, onSelect, allyIds }) => {
             gap: 1,
           }}
         >
-          {options.map(({ id, name, icon }) => {
-            const isDisabled = allyIds.includes(id);
+          {options.map(({ disabled, id, name, icon }) => {
+            const isDisabled = disabled || allyIds.includes(id);
+
             return (
               <Card key={id} title={name}>
                 <CardActionArea
@@ -131,12 +132,16 @@ const CharacterPickerDialog = ({ open, onClose, onSelect, allyIds }) => {
                     src={icon}
                     alt={name}
                     loading="lazy"
-                    sx={{ width: 100, height: 100, filter: isDisabled && 'brightness(60%)' }}
+                    sx={{
+                      width: 100,
+                      height: 100,
+                      filter: isDisabled && 'brightness(50%)',
+                    }}
                   />
                   <Typography
                     variant="body2"
-                    noWrap
                     color={isDisabled && 'textDisabled'}
+                    noWrap
                     sx={{ textAlign: 'center', px: 1 }}
                   >
                     {name}
