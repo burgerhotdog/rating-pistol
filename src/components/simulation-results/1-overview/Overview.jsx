@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useAccent } from '@/hooks';
-import { formatNum, getTotals } from '@/utils';
+import { formatNum } from '@/utils';
 import { Switch } from '@/components/Colored';
 import DistributionChart from './DistributionChart';
 import AreaView from './RotationTimeline/AreaView';
@@ -59,7 +59,7 @@ const Stat = ({ label, value, valueColor }) => {
 };
 
 const OverviewTab = ({ results }) => {
-  const { userDps, dpsCeiling, benchmarkDps, memberIds, userRotationTime, userSnapshots } = results;
+  const { userDps, dpsCeiling, benchmarkDps, memberIds, userSnapshots } = results;
   const accent = useAccent();
   const [showHits, setShowHits] = useState(false);
 
@@ -125,7 +125,6 @@ const OverviewTab = ({ results }) => {
       <Card component={Stack} sx={{ flex: 1 }}>
         <CardHeader
           title="Rotation Timeline"
-          subheader={`${(userRotationTime / 1000).toFixed(1)}s rotation · ${formatNum(getTotals(userSnapshots).damage)} damage`}
           action={
             <FormControlLabel
               control={
