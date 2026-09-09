@@ -97,7 +97,9 @@
       "basicAtk",
       "skill",
       "ultimate",
-      "talent"
+      "talent",
+      "memospriteSkill",
+      "memospriteTalent"
     ]
   },
   "wuthering-waves": {

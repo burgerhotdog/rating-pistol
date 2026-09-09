@@ -1,4 +1,4 @@
-import { GI, HSR, ZZZ, WEAPON } from '@/data';
+import { GI, HSR, ZZZ, WEAPON, MISC } from '@/data';
 import { initBuild } from '@/utils';
 import ENKA_LOOKUP from './enkaLookup';
 
@@ -33,6 +33,23 @@ const PARSERS = {
       const isPercent = ENKA_LOOKUP[GI][appendPropId].endsWith('%');
       return isPercent ? statValue * 100 : statValue;
     },
+
+    skillLevels: (charEnka) => {
+      const { skillLevelMap } = charEnka;
+      const entries = Object.values(skillLevelMap);
+
+      if (entries.length === 4) {
+        entries.shift();
+      }
+
+      const skillLevels = {};
+
+      for (const [i, skillId] of MISC[GI].skillIds.entries()) {
+        skillLevels[skillId] = entries[i];
+      }
+
+      return skillLevels;
+    },
   },
   [HSR]: {
     level: (charEnka) => Number(charEnka.level),
@@ -64,6 +81,24 @@ const PARSERS = {
       const isPercent = ENKA_LOOKUP[HSR][type].endsWith('%');
       return isPercent ? value * 10000 : value;
     },
+
+    skillLevels: (charEnka) => {
+      const { skillTreeList } = charEnka;
+      const skillLevels = {};
+
+      for (const [i, skillId] of MISC[HSR].skillIds.entries()) {
+        if (i <= 3) {
+          skillLevels[skillId] = skillTreeList[i].level;
+        } else {
+          const suffix = String(300 + i - 3);
+          const dataObj = skillTreeList.find((dObj) => String(dObj.pointId).endsWith(suffix));
+          if (!dataObj) continue;
+          skillLevels[skillId] = dataObj.level;
+        }
+      }
+
+      return skillLevels;
+    },
   },
   [ZZZ]: {
     level: (charEnka) => Number(charEnka.Level),
@@ -92,6 +127,19 @@ const PARSERS = {
     substatValue: (subIter) => {
       const { PropertyValue, PropertyLevel } = subIter;
       return PropertyValue * PropertyLevel;
+    },
+
+    skillLevels: (charEnka) => {
+      const { SkillLevelList } = charEnka;
+      SkillLevelList.splice(4, 1);
+
+      const skillLevels = {};
+
+      for (const [i, skillId] of MISC[ZZZ].skillIds.entries()) {
+        skillLevels[skillId] = SkillLevelList[i].level;
+      }
+
+      return skillLevels;
     },
   },
 };
@@ -125,6 +173,8 @@ export function parseEnka(gameId, charEnka) {
       substat.value = parsers.substatValue(subIter);
     }
   }
+
+  build.skillLevels = parsers.skillLevels(charEnka);
 
   return [id, build];
 }
