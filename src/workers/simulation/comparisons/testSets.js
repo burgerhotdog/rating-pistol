@@ -7,7 +7,7 @@ import {
   resolveEffectTokens,
   toMergedObj,
 } from '@/utils';
-import { runVariantDps } from '../variantDps';
+import { runVariantDps } from './variantDps';
 import { buildUsefulSetBonuses } from './buildUsefulSetBonuses';
 
 function combinations(arr, k) {
@@ -146,7 +146,7 @@ function getEchoCandidates(gameId, testSetIds) {
   });
 }
 
-export function setTests(cache, equipMaps, charId) {
+export function testSets(cache, equipMaps, charId) {
   const gameId = cache.gameId;
   const mCache = cache.member[charId];
 

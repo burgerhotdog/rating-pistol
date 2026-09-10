@@ -7,8 +7,7 @@ import {
 import { buildCache } from './cache';
 import { runRotation } from './rotation';
 import { runTrials } from './runTrials';
-import { weaponTests } from './weaponTests';
-import { setTests } from './setTests';
+import { testWeapons, testSets } from './comparisons';
 import { testSkillLevels } from './skill-levels';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
@@ -59,15 +58,15 @@ self.onmessage = async ({ data }) => {
   } = findBenchmark(cache.gameId, results.dpsCeiling, results.dpsProgression, results.fit);
 
   console.time('weaponTests');
-  const weaponResults = weaponTests(cache, equipMaps, cache.charId);
+  const weaponResults = testWeapons(cache, equipMaps, cache.charId);
   console.timeEnd('weaponTests');
 
   console.time('setTests');
-  const setResults = setTests(cache, equipMaps, cache.charId);
+  const setResults = testSets(cache, equipMaps, cache.charId);
   console.timeEnd('setTests');
 
   console.time('skillLevelTests');
-  const skillLevelResults = testSkillLevels(cache, equipMaps, cache.charId);
+  const skillLevelResults = testSkillLevels(cache, equipMaps, cache.charId, userDps);
   console.timeEnd('skillLevelTests');
   
 

@@ -11,13 +11,12 @@ const SkillLevelsAnalysisCharts = ({ data }) => {
   return (
     <BarChart
       data={data}
-      layout="vertical"
       style={{ width: '100%', height: '100%' }}
       responsive
     >
-      <XAxis type="number" />
-      <YAxis dataKey="name" type="category" tick={{ fontSize: 11 }} />
-      <Bar dataKey="dps" fill={accent} />
+      <XAxis dataKey="name" type="category" tick={{ fontSize: 11 }} />
+      <YAxis type="number" />
+      <Bar dataKey="diff" fill={accent} />
       <Tooltip
         content={({ payload, label }) => {
           const { isMax, dps = 0, diff = 0, newLevel } = payload?.[0]?.payload ?? {};

@@ -14,16 +14,16 @@ const SkillLevels = ({ results }) => {
   const { skillLevelUpgradeCosts } = useData('misc');
 
   const improvementData = useMemo(
-    () => skillLevelResults
-      .map(({ skillId, isMax, dps, newLevel }) => ({
+    () => Object.values(skillLevelResults)
+      .map(({ skillId, isMax, dpsArr, baseLevel }) => ({
         name: formatStr(skillId),
-        newLevel,
+        newLevel: baseLevel + 1,
         isMax: Boolean(isMax),
-        dps: isMax ? userDps : dps,
-        diff: isMax ? 0 : ((dps / userDps) - 1) * 100,
+        dps: isMax ? userDps : dpsArr[0],
+        diff: isMax ? 0 : ((dpsArr[0] / userDps) - 1) * 100,
+        fill: `url(#gradientAccent)`,
         ...(isMax && { opacity: 0.5, filter: 'grayscale(1)' }),
-      }))
-      .toSorted((a, b) => (a.isMax - b.isMax) || (b.dps - a.dps)),
+      })),
     [skillLevelResults, userDps],
   );
 
@@ -36,9 +36,12 @@ const SkillLevels = ({ results }) => {
         const upgradeCosts = skillLevelUpgradeCosts[newLevel - 2];
         const stamina = computeStaminaToUpgradeSkill(gameId, upgradeCosts);
         const rate = diff / stamina;
-        return { ...entry, staminaCost: stamina, rate };
-      })
-      .toSorted((a, b) => (a.isMax - b.isMax) || (b.rate - a.rate)),
+        return {
+          ...entry,
+          staminaCost: stamina,
+          rate,
+        };
+      }),
     [improvementData, gameId, skillLevelUpgradeCosts],
   );
 
@@ -56,8 +59,8 @@ const SkillLevels = ({ results }) => {
     <Stack spacing={1} sx={{ flex: 1 }}>
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
         <Card component={Stack} sx={{ flex: 1 }}>
-          <CardHeader title="Team DPS after increasing skill level by 1" />
-          <SkillLevelsAnalysisCharts data={improvementData} />
+          <CardHeader title="Current rate of improvement per stamina" />
+          <RatePerStamina data={rateData} />
         </Card>
 
         <Card component={Stack} sx={{ flex: 1 }}>
@@ -67,7 +70,10 @@ const SkillLevels = ({ results }) => {
       </Stack>
 
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
-        <RatePerStamina data={rateData} />
+        <Card component={Stack} sx={{ flex: 1 }}>
+          <CardHeader title="Team DPS after increasing skill level by 1" />
+          <SkillLevelsAnalysisCharts data={improvementData} />
+        </Card>
       </Stack>
 
       <svg width="0" height="0" style={{ position: 'absolute' }}>

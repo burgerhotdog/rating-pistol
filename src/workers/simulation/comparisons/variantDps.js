@@ -1,5 +1,5 @@
 import { computeActualRotationTime, getTotals } from '@/utils';
-import { runRotation } from './rotation';
+import { runRotation } from '../rotation';
 
 export function runVariantDps(cache, equipMaps, charId, memberOverride) {
   const variantCache = {

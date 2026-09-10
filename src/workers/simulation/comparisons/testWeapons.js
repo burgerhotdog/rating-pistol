@@ -30,7 +30,7 @@ function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weapo
   return resolveEffectTokens(normalized);
 }
 
-export function weaponTests(cache, equipMaps, charId) {
+export function testWeapons(cache, equipMaps, charId) {
   const { gameId } = cache;
   const { type: charType, concertoReq } = CHARACTER[gameId][charId];
   const mCache = cache.member[charId];
