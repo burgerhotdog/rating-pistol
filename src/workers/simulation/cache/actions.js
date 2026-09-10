@@ -29,6 +29,7 @@ export const getActionDefs = (gameId, member, teamSize) => {
       teamSize,
       mvIndex: getMvIndex(category),
       charElement: charData.element,
+      weaponType: charData.type,
       mode: member.mode,
     }
 
