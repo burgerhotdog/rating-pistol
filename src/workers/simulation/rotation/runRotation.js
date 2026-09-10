@@ -112,11 +112,6 @@ function decayBuffStates(ctx, action) {
   }
 }
 
-const canSnapshot = (action) =>
-  'damage' in action ||
-  'healing' in action ||
-  'shield' in action;
-
 function runAction(ctx, action, options = {}) {
   const { runtimeOffset, noDuration } = options;
   const { duration = 0, hitOffsets = [0] } = action;
@@ -152,9 +147,16 @@ function runAction(ctx, action, options = {}) {
   runEffectsWhen('start');
   advanceTimeTo(hitOffsets[0]);
 
-  if (canSnapshot(action)) {
-    if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, action, { runtimeOffset }));
-    if (ctx.cache.gameId === WW && 'damage' in action) applyOffTuneBuildup(ctx, action);
+  if (action.damage || action.healing || action.shield) {
+    if (ctx.saveSnapshots) {
+      const snapshot = buildSnapshot(ctx, action, { runtimeOffset });
+      ctx.snapshots.push(snapshot);
+    }
+
+    if (ctx.cache.gameId === WW && action.damage) {
+      applyOffTuneBuildup(ctx, action);
+    }
+
     decayBuffStates(ctx, action);
   }
 
@@ -217,8 +219,7 @@ export const runRotation = (cache, equipMaps, specId) => {
   // Rotation loop
   const actionOrder = cache.memberIds
     .toReversed()
-    .flatMap((memberId) =>
-      cache.member[memberId].rotation);
+    .flatMap((memberId) => cache.member[memberId].rotation);
 
   for (const action of actionOrder) {
     ctx.states.onFieldId = action.ownerId;

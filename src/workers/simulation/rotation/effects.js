@@ -172,6 +172,7 @@ function advanceEffectState(ctx, state, elapsed) {
 
 export function advanceEffects(ctx, elapsed) {
   if (!elapsed) return;
+
   for (const state of getEffectStates(ctx, { member: 'all' })) {
     const { effect } = state;
 

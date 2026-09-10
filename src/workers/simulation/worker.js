@@ -9,7 +9,7 @@ import { runRotation } from './rotation';
 import { runTrials } from './runTrials';
 import { weaponTests } from './weaponTests';
 import { setTests } from './setTests';
-import { skillLevelTests } from './skillLevelTests';
+import { testSkillLevels } from './skill-levels';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
@@ -67,7 +67,7 @@ self.onmessage = async ({ data }) => {
   console.timeEnd('setTests');
 
   console.time('skillLevelTests');
-  const skillLevelResults = skillLevelTests(cache, equipMaps, cache.charId);
+  const skillLevelResults = testSkillLevels(cache, equipMaps, cache.charId);
   console.timeEnd('skillLevelTests');
   
 

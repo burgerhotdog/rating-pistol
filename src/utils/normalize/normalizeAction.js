@@ -144,7 +144,8 @@ export function normalizeAction(gameId, rawAction, spec) {
       shiftMode === 'electroFlare' ||
       shiftMode === 'aeroErosion' ||
       shiftMode === 'spectroFrazzle' ||
-      shiftMode === 'havocBane');
+      shiftMode === 'havocBane'
+    );
 
     const resolveMode = (statusId) => {
       if (statusId !== '$mode') {

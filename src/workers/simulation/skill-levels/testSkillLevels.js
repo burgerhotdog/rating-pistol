@@ -1,13 +1,18 @@
 import { CHARACTER, MISC } from '@/data';
-import { getCompressed } from '@/utils';
-import { runVariantDps } from './variantDps';
-import { createMvIndexGetter } from './cache/actions';
+import {
+  computeActualRotationTime,
+  getCompressed,
+  getTotals,
+} from '@/utils';
+import { runRotation } from '../rotation';
+import { createMvIndexGetter } from '../cache/actions';
 
 const parts = ['damage', 'healing', 'shield'];
 
-export function skillLevelTests(cache, equipMaps, charId) {
+export function testSkillLevels(cache, equipMaps, charId) {
   const gameId = cache.gameId;
   const mCache = cache.member[charId];
+  const charSkills = CHARACTER[gameId][charId].skills;
 
   const getMvIndex = createMvIndexGetter(gameId, mCache);
 
@@ -21,17 +26,19 @@ export function skillLevelTests(cache, equipMaps, charId) {
 
     const mvIndex = getMvIndex(skillId) + 1;
 
-    const testCache = structuredClone(cache);
-    const tmCache = testCache.member[charId];
+    const memberOverrides = {
+      rotation: structuredClone(mCache.rotation),
+      effects: structuredClone(mCache.effects),
+    };
 
-    for (const action of tmCache.rotation) {
+    for (const action of memberOverrides.rotation) {
       if (action.category !== skillId) continue;
 
       for (const part of parts) {
         const actionPart = action[part];
         if (!actionPart) continue;
 
-        const rawPartDef = CHARACTER[gameId][charId].skills[skillId].actions[action.index]?.[part];
+        const rawPartDef = charSkills[skillId].actions[action.index]?.[part];
         if (!rawPartDef) continue;
 
         actionPart.compressed = getCompressed(
@@ -43,17 +50,17 @@ export function skillLevelTests(cache, equipMaps, charId) {
     }
 
     // effects
-    for (const effect of Object.values(testCache.effects)) {
-      if (effect.sourceId !== charId) continue;
+    for (const effect of Object.values(memberOverrides.effects)) {
       if (!effect.use?.action?.length) continue;
 
       for (const action of effect.use.action) {
         if (action.category !== skillId) continue;
+
         for (const part of parts) {
           const actionPart = action[part];
           if (!actionPart) continue;
 
-          const rawPartDef = CHARACTER[gameId][charId].skills[skillId].actions[action.index]?.[part];
+          const rawPartDef = charSkills[skillId].actions[action.index]?.[part];
           if (!rawPartDef) continue;
 
           actionPart.compressed = getCompressed(
@@ -65,7 +72,21 @@ export function skillLevelTests(cache, equipMaps, charId) {
       }
     }
 
-    const dps = runVariantDps(cache, equipMaps, charId, tmCache);
+    const variantCache = {
+      ...cache,
+      member: {
+        ...cache.member,
+        [charId]: {
+          ...cache.member[charId],
+          ...memberOverrides,
+        },
+      },
+    };
+
+    const snapshots = runRotation(variantCache, equipMaps);
+    const actualRotationTime = computeActualRotationTime(variantCache, equipMaps);
+    const dps = getTotals(snapshots).damage / actualRotationTime * 1000;
+
     skillLevelResults.push({ skillId, dps, newLevel: mCache.skillLevels[skillId] + 1 });
   }
 
