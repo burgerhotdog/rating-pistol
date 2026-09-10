@@ -15,10 +15,60 @@
       "baseDef": 784,
       "critDmg%": 0.384
     },
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 5000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 250,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "offset": 5000,
+          "uses": 1
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": 0.3,
+            "chargedAttackDmgBonus%": 0.3
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Kamisato Art: Kabuki",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -266,10 +316,10 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Kamisato Art: Hyouka",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -298,12 +348,16 @@
         ]
       },
       "elementalBurst": {
-        "name": "Cutting DMG",
+        "name": "Kamisato Art: Soumetsu",
         "actions": [
           {
-            "name": "Cutting DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Elemental Burst: Cutting",
             "damage": {
+              "type": "elementalBurst",
               "multipliers": [
                 {
                   "mv": [
@@ -328,9 +382,9 @@
             }
           },
           {
-            "name": "Bloom DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst: Bloom",
             "damage": {
+              "type": "elementalBurst",
               "multipliers": [
                 {
                   "mv": [
