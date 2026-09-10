@@ -9,44 +9,23 @@ import {
 import { getActionDefs } from './actions';
 import { getEffectDefs } from './effects';
 
-function adjustTimings(rotation, actual, expected) {
-  if (!expected) return;
-  const ratio = expected / actual;
-
-  const adjusted = new Set([]);
-
-  for (const action of rotation) {
-    if (adjusted.has(action.id)) continue;
-    adjusted.add(action.id);
-
-    action.duration = Math.round(action.duration * ratio);
-    if (action.hitOffsets) {
-      for (const [index, offset] of action.hitOffsets.entries()) {
-        action.hitOffsets[index] = Math.round(offset * ratio);
-      }
-    }
-  }
-}
-
 const getConvertedRotation = (gameId, member, actionDefs, memberIds) => {
-  const {
-    id: memberId,
-    mainEcho,
-    rotation: rawRotation,
-    duration: rotationDuration,
-  } = member;
   const teamSize = memberIds.length;
 
   const rotation = [];
   let duration = 0;
 
   // Convert refs to actions
-  for (const ref of rawRotation) {
+  for (const ref of member.rotation) {
     const action = actionDefs[ref];
 
-    if (teamSize === 1 && (action.type === 'introSkill' || action.type === 'outroSkill')) {
-      continue;
-    }
+    if (
+      teamSize === 1 &&
+      (
+        action.type === 'introSkill' ||
+        action.type === 'outroSkill'
+      )
+    ) continue;
 
     duration += action.duration ?? 0;
     rotation.push(action);
@@ -54,10 +33,11 @@ const getConvertedRotation = (gameId, member, actionDefs, memberIds) => {
 
   if (gameId === WW) {
     // Insert main echo rotation
-    if (ECHO[mainEcho]?.action) {
+    const echoData = ECHO[member.mainEcho] ?? {};
+    if (echoData.action) {
       let insertAtIndex = rotation.length;
 
-      if (ECHO[mainEcho]?.timing === 'start') {
+      if (echoData.timing === 'start') {
         insertAtIndex = rotation[0]?.type === 'introSkill' ? 1 : 0;
       } else {
         if (rotation.at(-1)?.type === 'outroSkill') insertAtIndex = -1;
@@ -67,7 +47,7 @@ const getConvertedRotation = (gameId, member, actionDefs, memberIds) => {
     }
 
     // Insert tune break action for first character
-    if (memberId === memberIds[0]) {
+    if (member.id === memberIds[0]) {
       // Ensure no more than 8000 ms remain after tune break
       let timeLeft = duration;
       let insertAtIndex = 0;
@@ -82,15 +62,27 @@ const getConvertedRotation = (gameId, member, actionDefs, memberIds) => {
 
       rotation.splice(insertAtIndex, 0, {
         id: 'other:tuneBreak',
-        ownerId: memberId,
+        ownerId: member.id,
       });
     }
   }
 
-  if (!rotationDuration) return { rotation, duration };
+  if (!member.duration) {
+    return { rotation, duration };
+  }
 
-  adjustTimings(rotation, duration, rotationDuration)
-  return { rotation, duration: rotationDuration };
+  const adjustTiming = (time) => Math.round(time * member.duration / duration);
+
+  return {
+    rotation: rotation.map((action) => ({
+      ...action,
+      duration: adjustTiming(action.duration),
+      ...(action.hitOffsets && {
+        hitOffsets: action.hitOffsets.map(adjustTiming),
+      }),
+    })),
+    duration: member.duration,
+  };
 };
 
 export const buildCache = ({ gameId, charId, team }) => {
@@ -102,18 +94,14 @@ export const buildCache = ({ gameId, charId, team }) => {
 
   cache.member = {};
   cache.effects = {};
-  cache.rotationDuration = 0;
 
   for (const member of fTeam) {
-    const mCache = {};
+    const actionDefs = getActionDefs(gameId, member, cache.teamSize);
 
-    mCache.id = member.id;
-    mCache.rank = member.rank;
-    mCache.weaponId = member.weaponId;
-    mCache.weaponRank = member.weaponRank;
-    mCache.setCounts = member.setCounts;
-    mCache.mainEcho = member.mainEcho;
-    mCache.skillLevels = member.skillLevels;
+    const mCache = {
+      ...member,
+      ...getConvertedRotation(gameId, member, actionDefs, cache.memberIds),
+    };
 
     mCache.baseMap = buildBaseMap(gameId, member.id, member.weaponId);
     if (member.build?.equipList) {
@@ -121,13 +109,6 @@ export const buildCache = ({ gameId, charId, team }) => {
       mCache.equipMap = buildEquipMap(mCache.equipList);
       mCache.statMap = toMergedObj(mCache.baseMap, mCache.equipMap);
     }
-
-    const actionDefs = getActionDefs(gameId, member, cache.teamSize);
-
-    const { rotation, duration } = getConvertedRotation(gameId, member, actionDefs, cache.memberIds);
-    mCache.rotation = rotation;
-    mCache.duration = duration;
-    cache.rotationDuration += duration;
 
     const effectDefs = getEffectDefs(gameId, member, { memberIds: cache.memberIds, actionDefs });
 
@@ -145,10 +126,6 @@ export const buildCache = ({ gameId, charId, team }) => {
     if (charData.tagged.includes('healing')) mCache.healing = true;
     if (charData.tagged.includes('shield')) mCache.shield = true;
 
-    if (charData.concertoReq) {
-      mCache.concertoPenalty = !WEAPON[WW][member.weaponId]?.concerto;
-    }
-
     if (charData.energy) {
       mCache.energy = charData.energy;
 
@@ -161,10 +138,18 @@ export const buildCache = ({ gameId, charId, team }) => {
       }
     }
 
-    cache.member[member.id] = mCache;
+    if (gameId === WW) {
+      if (charData.concertoReq) {
+        mCache.concertoPenalty = !WEAPON[WW][member.weaponId]?.concerto;
+      }
+    }
+
+    cache.member[mCache.id] = mCache;
   }
 
-  cacheTuneResponses(cache);
+  if (gameId === WW) {
+    cacheTuneResponses(cache);
+  }
 
   return cache;
 };

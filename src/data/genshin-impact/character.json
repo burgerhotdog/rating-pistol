@@ -10607,7 +10607,7 @@
         "name": "Abiogenesis: Solar Isotoma",
         "actions": [
           {
-            "name": "Abiogenesis: Solar Isotoma",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -10667,7 +10667,7 @@
         "name": "Rite of Progeniture: Tectonic Tide",
         "actions": [
           {
-            "name": "Rite of Progeniture: Tectonic Tide",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
               "multipliers": [

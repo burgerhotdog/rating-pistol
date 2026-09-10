@@ -340,7 +340,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "retracingBolide",
     "effects": []
   },
   "15016": {
@@ -1122,7 +1122,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "scrollOfTheHeroOfCinderCity",
     "effects": []
   },
   "15038": {
@@ -1135,7 +1135,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "obsidianCodex",
     "effects": [
       {
         "bonus": 2,
