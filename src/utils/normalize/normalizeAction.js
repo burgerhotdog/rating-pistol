@@ -61,7 +61,7 @@ export function normalizeAction(gameId, rawAction, spec) {
     ...rawAction,
     ownerId, category, index,
     ref: `${category}.${index}`,
-    id: `${ownerId}:${category}.${index}`,
+    key: `${ownerId}:${category}.${index}`,
   };
 
   action.duration ??= DEFAULT_DURATIONS[gameId][action.type] ?? 0;
@@ -146,14 +146,19 @@ export function normalizeAction(gameId, rawAction, spec) {
       shiftMode === 'spectroFrazzle' ||
       shiftMode === 'havocBane');
 
-    const resolve = (id) => {
-      if (id !== '$mode') return id;
-      if (isValid) return shiftMode;
+    const resolveMode = (statusId) => {
+      if (statusId !== '$mode') {
+        return statusId;
+      }
+
+      if (isValid) {
+        return shiftMode;
+      }
     };
 
     const resolved = {};
     for (const status in action.inflict.status) {
-      const resolvedStatus = resolve(status);
+      const resolvedStatus = resolveMode(status);
       if (!resolvedStatus) continue;
       resolved[resolvedStatus] = action.inflict.status[status];
     }

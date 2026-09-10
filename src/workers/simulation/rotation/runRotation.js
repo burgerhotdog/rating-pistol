@@ -142,7 +142,7 @@ function runAction(ctx, action, options = {}) {
     handleApplyWhen(ctx, action, when);
   }
 
-  if (action.id === 'other:tuneBreak') {
+  if (action.key === 'other:tuneBreak') {
     runTuneBreak(ctx, action);
     runEffectsWhen('tuneBreak');
     return;

@@ -20,7 +20,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
   const gameId = ctx.cache.gameId;
 
   const snapshot = {
-    id: action.id,
+    key: action.key,
     name: action.name,
     ownerId: action.ownerId,
     category: action.category,

@@ -61,7 +61,7 @@ const getConvertedRotation = (gameId, member, actionDefs, memberIds) => {
       if (insertAtIndex === 0) insertAtIndex++;
 
       rotation.splice(insertAtIndex, 0, {
-        id: 'other:tuneBreak',
+        key: 'other:tuneBreak',
         ownerId: member.id,
       });
     }
