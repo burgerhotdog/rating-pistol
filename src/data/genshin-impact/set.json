@@ -547,7 +547,7 @@
         "buff": {
           "specs": {
             "elementalBurstDmgBonus%": {
-              "attr": "ER",
+              "attr": "energyRecharge%",
               "step": 0.01,
               "value": 0.0025,
               "maxValue": 0.75
