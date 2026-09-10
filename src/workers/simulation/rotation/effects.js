@@ -8,8 +8,8 @@ export function runRemoveEffect(state, stacks) {
   state.stacks -= stacks ?? effect.maxStacks ?? 1;
 
   if (state.stacks <= 0) {
-    const { store, effect: { id } } = state;
-    delete store[id];
+    const { store } = state;
+    delete store[effect.key];
   }
 }
 
@@ -40,7 +40,7 @@ export function runUseEffect(ctx, state, spec = {}) {
     if (state.usesLeft) {
       state.usesLeft--;
       if (!state.usesLeft) {
-        return delete store[effect.id];
+        return delete store[effect.key];
       }
     }
   }
@@ -48,13 +48,13 @@ export function runUseEffect(ctx, state, spec = {}) {
 
 export function runApplyEffect(ctx, effect, spec = {}) {
   const { applyCooldowns, memberEffects, globalEffects } = ctx.states;
-  const { id, maxStacks = 1 } = effect;
+  const { maxStacks = 1 } = effect;
   const isExt = spec.type === 'extend';
   const isDurationExt = isExt && spec.duration;
   const isUsesExt = isExt && spec.uses;
 
   function updateState(store) {
-    const prevState = store[id] ?? {};
+    const prevState = store[effect.key] ?? {};
     const prevStacks = prevState.stacks ?? 0;
 
     const statusInflictMult = effect?.apply?.perStatusInflict
@@ -65,7 +65,7 @@ export function runApplyEffect(ctx, effect, spec = {}) {
 
     if (isExt && !prevState.extensionsLeft) return;
 
-    store[id] = {
+    store[effect.key] = {
       store,
       effect,
       stacks: Math.min(nextStacks, maxStacks),
@@ -100,12 +100,12 @@ export function runApplyEffect(ctx, effect, spec = {}) {
 
     if ( // If effect should be removed when reaching max stacks
       effect.remove?.when === 'maxStacks' &&
-      store[id].stacks === maxStacks
+      store[effect.key].stacks === maxStacks
     ) {
       if (effect.remove?.offset) {
-        store[id].removeTimer ??= effect.remove.offset;
+        store[effect.key].removeTimer ??= effect.remove.offset;
       } else {
-        delete store[id];
+        delete store[effect.key];
       }
     }
 
@@ -129,7 +129,7 @@ export function runApplyEffect(ctx, effect, spec = {}) {
   }
 
   if (effect.apply?.cooldown) {
-    applyCooldowns[id] = effect.apply.cooldown;
+    applyCooldowns[effect.key] = effect.apply.cooldown;
   }
 }
 
@@ -138,12 +138,12 @@ function advanceEffectState(ctx, state, elapsed) {
 
   if ('timeLeft' in state) {
     state.timeLeft -= elapsed;
-    if (state.timeLeft <= 0) return delete store[effect.id];
+    if (state.timeLeft <= 0) return delete store[effect.key];
   }
 
   if ('removeTimer' in state) {
     state.removeTimer -= elapsed;
-    if (state.removeTimer <= 0) return delete store[effect.id];
+    if (state.removeTimer <= 0) return delete store[effect.key];
   }
 
   if ('useCooldown' in state) {

@@ -80,7 +80,7 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     ...rawEffect,
     ownerId, sourceId, index,
     category: `${sourceId}:effect${index}`,
-    id: `${ownerId}.${sourceId}:effect${index}`,
+    key: `${ownerId}.${sourceId}:effect${index}`,
   };
 
   // Scope

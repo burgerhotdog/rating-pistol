@@ -7,14 +7,14 @@ import {
 function doRemove(ctx, ownerId, toRemove = {}) {
   const { memberEffects, globalEffects } = ctx.states;
 
-  for (const [id, stacks] of Object.entries(toRemove)) {
-    const effect = ctx.cache.member[ownerId].effects[id];
+  for (const [effectKey, stacks] of Object.entries(toRemove)) {
+    const effect = ctx.cache.member[ownerId].effects[effectKey];
 
     for (const target of effect.stores) {
       if (target === 'global') {
-        runRemoveEffect(globalEffects[id], stacks);
+        runRemoveEffect(globalEffects[effectKey], stacks);
       } else {
-        runRemoveEffect(memberEffects[target][id], stacks);
+        runRemoveEffect(memberEffects[target][effectKey], stacks);
       }
     }
   }
@@ -23,22 +23,22 @@ function doRemove(ctx, ownerId, toRemove = {}) {
 function doUse(ctx, ownerId, toUse = {}) {
   const { memberEffects, globalEffects } = ctx.states;
 
-  for (const [effectId, times] of Object.entries(toUse)) {
-    const effect = ctx.cache.member[ownerId].effects[effectId];
+  for (const [effectKey, times] of Object.entries(toUse)) {
+    const effect = ctx.cache.member[ownerId].effects[effectKey];
 
     for (const store of effect.stores) {
       if (store === 'global') {
-        runUseEffect(ctx, globalEffects[effectId]);
+        runUseEffect(ctx, globalEffects[effectKey]);
       } else {
-        runUseEffect(ctx, memberEffects[store][effectId]);
+        runUseEffect(ctx, memberEffects[store][effectKey]);
       }
     }
   }
 }
 
 function doApply(ctx, ownerId, applier, toApply = {}, doApplyType = 'refresh', doApplyDuration) {
-  for (const [effectId, stacks] of Object.entries(toApply)) {
-    const effect = ctx.cache.member[ownerId].effects[effectId];
+  for (const [effectKey, stacks] of Object.entries(toApply)) {
+    const effect = ctx.cache.member[ownerId].effects[effectKey];
     const spec = {
       stacks,
       applier,

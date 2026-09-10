@@ -85,7 +85,7 @@ function recordTuneBreak(ctx) {
           const { apply } = effect;
           if (
             !apply.by.includes(responseOwnerId) ||
-            applyCooldowns[effect.id] ||
+            applyCooldowns[effect.key] ||
             apply.when !== 'tuneResponse' ||
             !use?.filter?.states?.tune?.interfered === shifting
           ) continue;

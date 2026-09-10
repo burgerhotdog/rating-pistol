@@ -33,7 +33,7 @@ export const getEffectDefs = (gameId, member, spec) => {
       sourceType: 'character',
       index,
     });
-    normalized[effect.id] = effect;
+    normalized[effect.key] = effect;
   }
 
   // Weapon effects
@@ -48,7 +48,7 @@ export const getEffectDefs = (gameId, member, spec) => {
       sourceType: 'weapon',
       index,
     });
-    normalized[effect.id] = effect;
+    normalized[effect.key] = effect;
   }
 
   // Set effects
@@ -64,7 +64,7 @@ export const getEffectDefs = (gameId, member, spec) => {
         sourceType: 'set',
         index,
       });
-      normalized[effect.id] = effect;
+      normalized[effect.key] = effect;
     }
   }
 
@@ -80,7 +80,7 @@ export const getEffectDefs = (gameId, member, spec) => {
         sourceType: 'echo',
         index,
       });
-      normalized[effect.id] = effect;
+      normalized[effect.key] = effect;
     }
   }
 

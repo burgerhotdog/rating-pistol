@@ -83,7 +83,7 @@ function getNormalizedSetEffects(effectSources, gameId, ownerId, memberIds) {
 
       const normCtx = { ...sharedNormCtx, index };
       const effect = normalizeEffect(gameId, rawEffect, normCtx);
-      normalized[effect.id] = effect;
+      normalized[effect.key] = effect;
     }
   }
 
@@ -101,7 +101,7 @@ function getNormalizedEchoEffects(gameId, ownerId, echoId, memberIds, weaponRank
 
     const normCtx = { ...sharedNormCtx, index };
     const effect = normalizeEffect(gameId, rawEffect, normCtx);
-    normalized[effect.id] = effect;
+    normalized[effect.key] = effect;
   }
 
   return resolveEffectTokens(normalized);

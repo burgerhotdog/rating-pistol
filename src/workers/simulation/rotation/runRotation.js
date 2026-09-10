@@ -70,7 +70,7 @@ function handleApplyWhen(ctx, action, when) {
       const { apply } = effect;
       if (
         !apply.by.includes(action.ownerId) ||
-        applyCooldowns[effect.id] ||
+        applyCooldowns[effect.key] ||
         apply.when !== when ||
         !ctx.eventFilter(apply.filter, action, effect)
       ) continue;
@@ -83,10 +83,10 @@ function handleApplyWhen(ctx, action, when) {
 
 function advanceCooldowns(ctx, elapsed) {
   const { applyCooldowns } = ctx.states;
-  for (const effectId in applyCooldowns) {
-    applyCooldowns[effectId] -= elapsed;
-    if (applyCooldowns[effectId] <= 0) {
-      delete applyCooldowns[effectId];
+  for (const effectKey in applyCooldowns) {
+    applyCooldowns[effectKey] -= elapsed;
+    if (applyCooldowns[effectKey] <= 0) {
+      delete applyCooldowns[effectKey];
     }
   }
 }
@@ -105,7 +105,9 @@ function decayBuffStates(ctx, action) {
 
     if ('usesLeft' in state) {
       state.usesLeft--;
-      if (!state.usesLeft) delete store[effect.id];
+      if (!state.usesLeft) {
+        delete store[effect.key];
+      }
     }
   }
 }

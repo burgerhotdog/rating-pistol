@@ -1,12 +1,15 @@
 export const resolveEffectTokens = (normalized) => {
-  const resolveEffectId = (ref, ownerId, sourceId) =>
-    ref.includes(':')
-      ? ref
-      : Object.values(normalized)
-        .find((effect) =>
-          effect.ownerId === ownerId &&
-          effect.sourceId === sourceId &&
-          effect.ref === ref).id;
+  const resolveEffectRef = (ref, ownerId, sourceId) => {
+    if (ref.includes(':')) return ref;
+
+    const effect = Object.values(normalized).find((effect) =>
+      effect.ownerId === ownerId &&
+      effect.sourceId === sourceId &&
+      effect.ref === ref
+    );
+
+    return effect.key;
+  };
 
   function walkBooleanTree(node, onLeaf) {
     if (node == null || typeof node !== 'object') return;
@@ -53,18 +56,18 @@ export const resolveEffectTokens = (normalized) => {
     walkBooleanTree(value, (leaf) => {
       if ('has' in leaf) {
         if (Array.isArray(leaf.has)) {
-          leaf.has = leaf.has.map((key) => resolveEffectId(key, ownerId, sourceId));
+          leaf.has = leaf.has.map((effectRef) => resolveEffectRef(effectRef, ownerId, sourceId));
         } else if (leaf.has !== '*') {
-          leaf.has = resolveEffectId(leaf.has, ownerId, sourceId);
+          leaf.has = resolveEffectRef(leaf.has, ownerId, sourceId);
         }
         return;
       }
 
       // remaining keys are effect ids being compared (stacks thresholds etc.)
-      for (const key of Object.keys(leaf)) {
-        const comparison = leaf[key];
-        delete leaf[key];
-        leaf[resolveEffectId(key, ownerId, sourceId)] = comparison;
+      for (const effectRef of Object.keys(leaf)) {
+        const effectKey = resolveEffectRef(effectRef, ownerId, sourceId);
+        leaf[effectKey] = leaf[effectRef];
+        delete leaf[effectRef];
       }
     });
   }
@@ -74,12 +77,13 @@ export const resolveEffectTokens = (normalized) => {
 
     for (const field in effect) {
       if (/^on[A-Z]\w*Do[A-Z]\w*$/.test(field)) {
-        const resolved = {};
-        for (const [key, stacks] of Object.entries(effect[field])) {
-          const id = resolveEffectId(key, ownerId, sourceId);
-          resolved[id] = stacks;
+        const doEvent = effect[field] = { ...effect[field] };
+
+        for (const effectRef of Object.keys(doEvent)) {
+          const effectKey = resolveEffectRef(effectRef, ownerId, sourceId);
+          doEvent[effectKey] = doEvent[effectRef];
+          delete doEvent[effectRef];
         }
-        effect[field] = resolved;
       }
     }
 
