@@ -26927,7 +26927,7 @@
     },
     "effects": [
       {
-        "key": "windfavoredNA",
+        "ref": "windfavoredNA",
         "apply": {
           "when": "start",
           "filter": {
@@ -26952,7 +26952,7 @@
         }
       },
       {
-        "key": "windfavoredCA",
+        "ref": "windfavoredCA",
         "apply": {
           "when": "start",
           "filter": {

@@ -334,7 +334,7 @@
         }
       },
       {
-        "key": "resonanceLiberationDmgIncreased",
+        "ref": "resonanceLiberationDmgIncreased",
         "apply": {
           "when": "start",
           "filter": {
@@ -625,7 +625,7 @@
         }
       },
       {
-        "key": "resonanceLiberationDmgIncreased",
+        "ref": "resonanceLiberationDmgIncreased",
         "apply": {
           "when": "start",
           "filter": {
@@ -854,7 +854,7 @@
         }
       },
       {
-        "key": "naturesOrder",
+        "ref": "naturesOrder",
         "apply": {
           "when": "start",
           "filter": {
@@ -883,7 +883,7 @@
         "maxStacks": 6
       },
       {
-        "key": "naturesOrderMax",
+        "ref": "naturesOrderMax",
         "buff": {
           "filter": {
             "and": [
@@ -910,7 +910,7 @@
         }
       },
       {
-        "key": "cradleOfLife",
+        "ref": "cradleOfLife",
         "apply": {
           "when": "start",
           "filter": {
@@ -1274,7 +1274,7 @@
         }
       },
       {
-        "key": "searingFeather",
+        "ref": "searingFeather",
         "apply": {
           "when": "hit",
           "filter": {
@@ -1326,7 +1326,7 @@
     },
     "effects": [
       {
-        "key": "hiss",
+        "ref": "hiss",
         "apply": {
           "when": "hit",
           "filter": {
@@ -1923,7 +1923,7 @@
         }
       },
       {
-        "key": "bambooCleaverReady",
+        "ref": "bambooCleaverReady",
         "apply": {
           "when": "start",
           "filter": {
@@ -1938,7 +1938,7 @@
         }
       },
       {
-        "key": "bambooCleaver",
+        "ref": "bambooCleaver",
         "apply": {
           "when": "start",
           "filter": {
@@ -2402,7 +2402,7 @@
         }
       },
       {
-        "key": "aeroBonus",
+        "ref": "aeroBonus",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -2830,7 +2830,7 @@
         }
       },
       {
-        "key": "heavyAttackDmgIncreased",
+        "ref": "heavyAttackDmgIncreased",
         "apply": {
           "when": "hit",
           "filter": {
@@ -2852,7 +2852,7 @@
         }
       },
       {
-        "key": "echoSkillDmgIncreased",
+        "ref": "echoSkillDmgIncreased",
         "apply": {
           "when": "hit",
           "filter": {
@@ -3607,7 +3607,7 @@
         }
       },
       {
-        "key": "adVeritatem",
+        "ref": "adVeritatem",
         "apply": {
           "when": "start",
           "filter": {
@@ -4021,7 +4021,7 @@
         }
       },
       {
-        "key": "resLibDmgInc",
+        "ref": "resLibDmgInc",
         "apply": {
           "when": "hit",
           "filter": {
@@ -4723,7 +4723,7 @@
         }
       },
       {
-        "key": "basicAttackDmgIncreased",
+        "ref": "basicAttackDmgIncreased",
         "apply": {
           "when": "start",
           "filter": {
@@ -5141,7 +5141,7 @@
         }
       },
       {
-        "key": "gentleDreamReady",
+        "ref": "gentleDreamReady",
         "apply": {
           "when": "start",
           "filter": {
@@ -5156,7 +5156,7 @@
         }
       },
       {
-        "key": "gentleDream",
+        "ref": "gentleDream",
         "apply": {
           "when": "start",
           "filter": {
@@ -5371,7 +5371,7 @@
         }
       },
       {
-        "key": "resonanceLiberationDmgIncreased",
+        "ref": "resonanceLiberationDmgIncreased",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -5624,7 +5624,7 @@
         }
       },
       {
-        "key": "snowTaint",
+        "ref": "snowTaint",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -5640,7 +5640,7 @@
         }
       },
       {
-        "key": "ripples",
+        "ref": "ripples",
         "apply": {
           "when": "hit",
           "filter": {

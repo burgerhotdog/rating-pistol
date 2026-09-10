@@ -1,12 +1,12 @@
 export const resolveEffectTokens = (normalized) => {
-  const resolveEffectId = (key, ownerId, sourceId) =>
-    key.includes(':')
-      ? key
+  const resolveEffectId = (ref, ownerId, sourceId) =>
+    ref.includes(':')
+      ? ref
       : Object.values(normalized)
         .find((effect) =>
           effect.ownerId === ownerId &&
           effect.sourceId === sourceId &&
-          effect.key === key).id;
+          effect.ref === ref).id;
 
   function walkBooleanTree(node, onLeaf) {
     if (node == null || typeof node !== 'object') return;

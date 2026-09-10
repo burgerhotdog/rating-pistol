@@ -975,7 +975,7 @@
     "effects": [
       {
         "bonus": 3,
-        "key": "heavyAttackCritRateIncreased",
+        "ref": "heavyAttackCritRateIncreased",
         "apply": {
           "when": "hit",
           "filter": {
@@ -1002,7 +1002,7 @@
       },
       {
         "bonus": 3,
-        "key": "echoSkillCritRateIncreased",
+        "ref": "echoSkillCritRateIncreased",
         "apply": {
           "when": "hit",
           "filter": {
@@ -1221,7 +1221,7 @@
       },
       {
         "bonus": 5,
-        "key": "spectroDmgIncreased",
+        "ref": "spectroDmgIncreased",
         "apply": {
           "when": "hit",
           "filter": {
@@ -1337,7 +1337,7 @@
       },
       {
         "bonus": 5,
-        "key": "fusionDmgBonusGained",
+        "ref": "fusionDmgBonusGained",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1494,7 +1494,7 @@
       },
       {
         "bonus": 5,
-        "key": "snowfall",
+        "ref": "snowfall",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1512,7 +1512,7 @@
       },
       {
         "bonus": 5,
-        "key": "critRateIncreased",
+        "ref": "critRateIncreased",
         "apply": {
           "when": "hit",
           "filter": {
@@ -1699,7 +1699,7 @@
       },
       {
         "bonus": 5,
-        "key": "xuanlingsFeather",
+        "ref": "xuanlingsFeather",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1722,7 +1722,7 @@
       },
       {
         "bonus": 5,
-        "key": "chongmingsFeather",
+        "ref": "chongmingsFeather",
         "stores": "$team",
         "apply": {
           "when": "inflict",
@@ -1812,7 +1812,7 @@
       },
       {
         "bonus": 5,
-        "key": "critRateIncreased",
+        "ref": "critRateIncreased",
         "apply": {
           "when": "hit",
           "filter": {

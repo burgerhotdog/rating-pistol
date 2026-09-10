@@ -446,7 +446,7 @@
       },
       {
         "bonus": 4,
-        "key": "skillHit",
+        "ref": "skillHit",
         "apply": {
           "when": "hit",
           "filter": {

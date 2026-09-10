@@ -297,7 +297,7 @@
     "cost": 4,
     "effects": [
       {
-        "key": "heronReady",
+        "ref": "heronReady",
         "apply": {
           "when": "start",
           "filter": {
@@ -468,7 +468,7 @@
     "cost": 4,
     "effects": [
       {
-        "key": "blessingOfTime",
+        "ref": "blessingOfTime",
         "apply": {
           "when": "start",
           "filter": {
@@ -2346,7 +2346,7 @@
     "cost": 4,
     "effects": [
       {
-        "key": "hyvatiaSummoned",
+        "ref": "hyvatiaSummoned",
         "apply": {
           "when": "start",
           "filter": {
@@ -2583,7 +2583,7 @@
     "cost": 3,
     "effects": [
       {
-        "key": "summoned",
+        "ref": "summoned",
         "apply": {
           "when": "hit",
           "filter": {
@@ -2681,7 +2681,7 @@
     "cost": 4,
     "effects": [
       {
-        "key": "tricksterSummoned",
+        "ref": "tricksterSummoned",
         "apply": {
           "when": "hit",
           "filter": {

@@ -784,7 +784,7 @@
         }
       },
       {
-        "key": "concentration",
+        "ref": "concentration",
         "apply": {
           "when": "hit",
           "filter": {
@@ -796,7 +796,7 @@
         "maxStacks": 4
       },
       {
-        "key": "euphonia",
+        "ref": "euphonia",
         "apply": {
           "when": "start",
           "filter": {
@@ -6845,7 +6845,7 @@
       },
       {
         "mode": "glacioChafe",
-        "key": "filmRoll",
+        "ref": "filmRoll",
         "apply": {
           "when": "start",
           "filter": {
@@ -6868,7 +6868,7 @@
       },
       {
         "mode": "echo",
-        "key": "zoom",
+        "ref": "zoom",
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -7970,7 +7970,7 @@
     },
     "effects": [
       {
-        "key": "enrichment",
+        "ref": "enrichment",
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -7986,7 +7986,7 @@
         }
       },
       {
-        "key": "ceaselessLandscape",
+        "ref": "ceaselessLandscape",
         "apply": {
           "when": "start",
           "filter": {
@@ -7998,7 +7998,7 @@
         }
       },
       {
-        "key": "roamingTranscendent",
+        "ref": "roamingTranscendent",
         "apply": {
           "when": "start",
           "filter": {
@@ -8152,7 +8152,7 @@
         }
       },
       {
-        "key": "reflectingShadows",
+        "ref": "reflectingShadows",
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -9388,7 +9388,7 @@
         }
       },
       {
-        "key": "numbinglySpicy!",
+        "ref": "numbinglySpicy!",
         "apply": {
           "when": "hit",
           "filter": {
@@ -14090,7 +14090,7 @@
         }
       },
       {
-        "key": "packHunt",
+        "ref": "packHunt",
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -14109,7 +14109,7 @@
         }
       },
       {
-        "key": "packHunt3",
+        "ref": "packHunt3",
         "enable": {
           "team": [
             "lupa",
@@ -14133,7 +14133,7 @@
         }
       },
       {
-        "key": "glory1",
+        "ref": "glory1",
         "enable": {
           "team": [
             "lupa",
@@ -14157,7 +14157,7 @@
         }
       },
       {
-        "key": "glory2",
+        "ref": "glory2",
         "enable": {
           "team": [
             "lupa",
@@ -14181,7 +14181,7 @@
         }
       },
       {
-        "key": "glory3",
+        "ref": "glory3",
         "enable": {
           "team": [
             "lupa",
@@ -15647,7 +15647,7 @@
     },
     "effects": [
       {
-        "key": "demonHypostasis",
+        "ref": "demonHypostasis",
         "apply": {
           "when": "start",
           "filter": {
@@ -15666,7 +15666,7 @@
         }
       },
       {
-        "key": "afterflame",
+        "ref": "afterflame",
         "apply": {
           "by": "$team",
           "when": "start",
@@ -15760,7 +15760,7 @@
         }
       },
       {
-        "key": "burningDrive",
+        "ref": "burningDrive",
         "apply": {
           "when": "start",
           "filter": {
@@ -15784,7 +15784,7 @@
         }
       },
       {
-        "key": "fatedEnd",
+        "ref": "fatedEnd",
         "apply": {
           "when": "hit",
           "filter": {
@@ -18556,7 +18556,7 @@
     ],
     "effects": [
       {
-        "key": "stardustResonance",
+        "ref": "stardustResonance",
         "apply": {
           "when": "start",
           "filter": {
@@ -18569,7 +18569,7 @@
       },
       {
         "mode": "tuneRupture",
-        "key": "rupturousTrail",
+        "ref": "rupturousTrail",
         "apply": {
           "by": "$team",
           "when": "tuneResponse",
@@ -18601,7 +18601,7 @@
       },
       {
         "mode": "fusionBurst",
-        "key": "fusionTrail",
+        "ref": "fusionTrail",
         "stores": "global",
         "apply": {
           "by": "$team",
@@ -18698,7 +18698,7 @@
       },
       {
         "mode": "tuneRupture",
-        "key": "betweenTheStars",
+        "ref": "betweenTheStars",
         "apply": {
           "by": "$team",
           "when": "tuneResponse",
@@ -20412,7 +20412,7 @@
     ],
     "effects": [
       {
-        "key": "darkCore",
+        "ref": "darkCore",
         "apply": {
           "when": "start",
           "filter": {
@@ -20437,7 +20437,7 @@
         "maxStacks": 3
       },
       {
-        "key": "entropyShiftBreakdownForm",
+        "ref": "entropyShiftBreakdownForm",
         "apply": {
           "when": "start",
           "filter": {
@@ -20466,7 +20466,7 @@
         }
       },
       {
-        "key": "generateDarkCore",
+        "ref": "generateDarkCore",
         "apply": {
           "when": "start",
           "filter": {
@@ -20485,7 +20485,7 @@
         }
       },
       {
-        "key": "erosionField",
+        "ref": "erosionField",
         "apply": {
           "filter": {
             "action": {
@@ -20501,7 +20501,7 @@
         }
       },
       {
-        "key": "voidParticle",
+        "ref": "voidParticle",
         "buff": {
           "filter": {
             "action": {
@@ -20572,7 +20572,7 @@
       },
       {
         "mode": "tuneStrain",
-        "key": "tuneOutro",
+        "ref": "tuneOutro",
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -21877,7 +21877,7 @@
     },
     "effects": [
       {
-        "key": "yingHuo",
+        "ref": "yingHuo",
         "apply": {
           "when": "start",
           "filter": {
@@ -21901,7 +21901,7 @@
         }
       },
       {
-        "key": "netherToLight",
+        "ref": "netherToLight",
         "buff": {
           "specs": {
             "healingReceived%": {
@@ -21920,7 +21920,7 @@
         }
       },
       {
-        "key": "yangChangesYinUnites",
+        "ref": "yangChangesYinUnites",
         "buff": {
           "specs": {
             "atk": {
@@ -21933,7 +21933,7 @@
         }
       },
       {
-        "key": "earthCharm",
+        "ref": "earthCharm",
         "apply": {
           "when": "start",
           "filter": {
@@ -21969,7 +21969,7 @@
         }
       },
       {
-        "key": "earthCharmYingHuo",
+        "ref": "earthCharmYingHuo",
         "use": {
           "when": "hit",
           "filter": {
@@ -28585,7 +28585,7 @@
     },
     "effects": [
       {
-        "key": "rulersRealm",
+        "ref": "rulersRealm",
         "apply": {
           "when": "start",
           "filter": {
@@ -28628,7 +28628,7 @@
         }
       },
       {
-        "key": "glorysFavor",
+        "ref": "glorysFavor",
         "use": {
           "when": "hit",
           "filter": {
@@ -28651,7 +28651,7 @@
         }
       },
       {
-        "key": "battlesongOfTheUnyielding",
+        "ref": "battlesongOfTheUnyielding",
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -28669,7 +28669,7 @@
         }
       },
       {
-        "key": "crownOfWills",
+        "ref": "crownOfWills",
         "apply": {
           "by": "$next",
           "when": "start",
@@ -32583,7 +32583,7 @@
         }
       },
       {
-        "key": "electroCore",
+        "ref": "electroCore",
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -37967,7 +37967,7 @@
         }
       },
       {
-        "key": "aeolianRealm",
+        "ref": "aeolianRealm",
         "apply": {
           "when": "start",
           "filter": {
@@ -39696,7 +39696,7 @@
     },
     "effects": [
       {
-        "key": "swordOfDivinitysShadow",
+        "ref": "swordOfDivinitysShadow",
         "apply": {
           "when": "end",
           "filter": {
@@ -39708,7 +39708,7 @@
         }
       },
       {
-        "key": "swordOfDiscordsShadow",
+        "ref": "swordOfDiscordsShadow",
         "apply": {
           "when": "end",
           "filter": {
@@ -39723,7 +39723,7 @@
         }
       },
       {
-        "key": "mandateOfDivinity",
+        "ref": "mandateOfDivinity",
         "stores": "global",
         "apply": {
           "when": "end",
@@ -39750,7 +39750,7 @@
         }
       },
       {
-        "key": "powerOfDiscord",
+        "ref": "powerOfDiscord",
         "stores": "global",
         "apply": {
           "when": "end",
@@ -39771,7 +39771,7 @@
         }
       },
       {
-        "key": "manifest",
+        "ref": "manifest",
         "apply": {
           "action": {
             "ref": "resonanceLiberation.0"
@@ -41689,7 +41689,7 @@
     },
     "effects": [
       {
-        "key": "fullMoonDomain",
+        "ref": "fullMoonDomain",
         "apply": {
           "when": "start",
           "filter": {
@@ -41708,7 +41708,7 @@
       },
       {
         "stores": "$applier",
-        "key": "blessingOfTheWanLight",
+        "ref": "blessingOfTheWanLight",
         "apply": {
           "by": "$team",
           "when": "start",
@@ -43063,7 +43063,7 @@
         }
       },
       {
-        "key": "bamboosShade",
+        "ref": "bamboosShade",
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -43081,7 +43081,7 @@
         }
       },
       {
-        "key": "quietudeWithin",
+        "ref": "quietudeWithin",
         "apply": {
           "when": "start",
           "filter": {
@@ -43114,7 +43114,7 @@
         }
       },
       {
-        "key": "flowingPanaceaReady",
+        "ref": "flowingPanaceaReady",
         "apply": {
           "when": "start",
           "filter": {
@@ -43132,7 +43132,7 @@
         }
       },
       {
-        "key": "flowingPanacea",
+        "ref": "flowingPanacea",
         "apply": {
           "when": "start",
           "filter": {
@@ -44366,7 +44366,7 @@
     },
     "effects": [
       {
-        "key": "divergent",
+        "ref": "divergent",
         "apply": {
           "when": "start",
           "filter": {
@@ -44411,7 +44411,7 @@
         }
       },
       {
-        "key": "convergent",
+        "ref": "convergent",
         "apply": {
           "when": "start",
           "filter": {
@@ -44423,7 +44423,7 @@
         }
       },
       {
-        "key": "blessingOfRunes",
+        "ref": "blessingOfRunes",
         "stores": "$team",
         "apply": {
           "by": "$team",
@@ -44474,7 +44474,7 @@
         }
       },
       {
-        "key": "encapsulated",
+        "ref": "encapsulated",
         "apply": {
           "when": "start",
           "filter": {
@@ -45758,7 +45758,7 @@
         }
       },
       {
-        "key": "mindlock",
+        "ref": "mindlock",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -45793,7 +45793,7 @@
         "maxStacks": 15
       },
       {
-        "key": "mindlockEarly",
+        "ref": "mindlockEarly",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -45828,7 +45828,7 @@
         "maxStacks": 7
       },
       {
-        "key": "heavensClarity",
+        "ref": "heavensClarity",
         "apply": {
           "when": "start",
           "filter": {
@@ -47077,7 +47077,7 @@
         }
       },
       {
-        "key": "shimmer",
+        "ref": "shimmer",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -50161,7 +50161,7 @@
         }
       },
       {
-        "key": "stellarealm",
+        "ref": "stellarealm",
         "apply": {
           "when": "start",
           "filter": {
@@ -50178,7 +50178,7 @@
         }
       },
       {
-        "key": "evolved",
+        "ref": "evolved",
         "apply": {
           "by": "$team",
           "when": "start",
@@ -50210,7 +50210,7 @@
         "maxStacks": 2
       },
       {
-        "key": "innerStellarealm",
+        "ref": "innerStellarealm",
         "stores": "$team",
         "buff": {
           "filter": {
@@ -51950,7 +51950,7 @@
         }
       },
       {
-        "key": "sunburst",
+        "ref": "sunburst",
         "apply": {
           "when": "end",
           "filter": {
@@ -51970,7 +51970,7 @@
         }
       },
       {
-        "key": "infernoMode",
+        "ref": "infernoMode",
         "apply": {
           "when": "start",
           "filter": {
@@ -52010,7 +52010,7 @@
         "gameRule": "heliacalEmber"
       },
       {
-        "key": "blaze",
+        "ref": "blaze",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -53119,7 +53119,7 @@
         }
       },
       {
-        "key": "resonantThreadOfClosure",
+        "ref": "resonantThreadOfClosure",
         "apply": {
           "when": "start",
           "filter": {
@@ -53154,7 +53154,7 @@
         "gameRule": "chisa"
       },
       {
-        "key": "threadOfBane",
+        "ref": "threadOfBane",
         "stores": "$applier",
         "apply": {
           "by": "$team",
@@ -56031,7 +56031,7 @@
         }
       },
       {
-        "key": "aureateJudge",
+        "ref": "aureateJudge",
         "apply": {
           "when": "start",
           "filter": {
@@ -64890,7 +64890,7 @@
     },
     "effects": [
       {
-        "key": "maestro",
+        "ref": "maestro",
         "apply": {
           "when": "start",
           "filter": {
@@ -64918,7 +64918,7 @@
         }
       },
       {
-        "key": "maestroHecateBasic1",
+        "ref": "maestroHecateBasic1",
         "apply": {
           "when": "start",
           "filter": {
@@ -64947,7 +64947,7 @@
         }
       },
       {
-        "key": "maestroHecateBasic2",
+        "ref": "maestroHecateBasic2",
         "apply": {
           "when": "start",
           "filter": {
@@ -64976,7 +64976,7 @@
         }
       },
       {
-        "key": "maestroHecateEnhanced",
+        "ref": "maestroHecateEnhanced",
         "apply": {
           "when": "start",
           "filter": {
@@ -65004,7 +65004,7 @@
         }
       },
       {
-        "key": "maestroHecateEnhancedFollowUp",
+        "ref": "maestroHecateEnhancedFollowUp",
         "apply": {
           "when": "start",
           "filter": {
@@ -65061,7 +65061,7 @@
         }
       },
       {
-        "key": "aftersound",
+        "ref": "aftersound",
         "apply": {
           "when": "start",
           "filter": {
@@ -65089,7 +65089,7 @@
         "maxStacks": 14
       },
       {
-        "key": "aftersoundStarting",
+        "ref": "aftersoundStarting",
         "buff": {
           "stats": {
             "critDmg%": 0.25
@@ -65097,7 +65097,7 @@
         }
       },
       {
-        "key": "aftersoundOverflow",
+        "ref": "aftersoundOverflow",
         "apply": {
           "when": "start",
           "filter": {
@@ -66061,7 +66061,7 @@
     },
     "effects": [
       {
-        "key": "voiceUponVoice",
+        "ref": "voiceUponVoice",
         "apply": {
           "when": "start",
           "filter": {
@@ -66085,7 +66085,7 @@
         }
       },
       {
-        "key": "basedBreath",
+        "ref": "basedBreath",
         "buff": {
           "filter": {
             "and": [
@@ -66106,7 +66106,7 @@
         }
       },
       {
-        "key": "streamingStorm",
+        "ref": "streamingStorm",
         "apply": {
           "when": "start",
           "filter": {
@@ -66145,7 +66145,7 @@
         }
       },
       {
-        "key": "featheredOath",
+        "ref": "featheredOath",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -66184,7 +66184,7 @@
         "maxStacks": 6
       },
       {
-        "key": "unbrokenVow1",
+        "ref": "unbrokenVow1",
         "buff": {
           "filter": {
             "states": {
@@ -66203,7 +66203,7 @@
         }
       },
       {
-        "key": "unbrokenVow2",
+        "ref": "unbrokenVow2",
         "buff": {
           "filter": {
             "states": {
@@ -66222,7 +66222,7 @@
         }
       },
       {
-        "key": "unbrokenVow3",
+        "ref": "unbrokenVow3",
         "buff": {
           "filter": {
             "states": {
@@ -66241,7 +66241,7 @@
         }
       },
       {
-        "key": "unbrokenVow4",
+        "ref": "unbrokenVow4",
         "buff": {
           "filter": {
             "states": {
@@ -66260,7 +66260,7 @@
         }
       },
       {
-        "key": "unbrokenVow5",
+        "ref": "unbrokenVow5",
         "buff": {
           "filter": {
             "states": {
@@ -66279,7 +66279,7 @@
         }
       },
       {
-        "key": "unbrokenVow6",
+        "ref": "unbrokenVow6",
         "buff": {
           "filter": {
             "states": {
@@ -66298,7 +66298,7 @@
         }
       },
       {
-        "key": "windbound",
+        "ref": "windbound",
         "apply": {
           "by": "$team",
           "when": "start",
@@ -66315,7 +66315,7 @@
         "maxStacks": 6
       },
       {
-        "key": "oneWithTheWind",
+        "ref": "oneWithTheWind",
         "use": {
           "when": "inflict",
           "filter": {
@@ -66348,7 +66348,7 @@
         }
       },
       {
-        "key": "tonalSwitch",
+        "ref": "tonalSwitch",
         "apply": {
           "when": "start",
           "filter": {
