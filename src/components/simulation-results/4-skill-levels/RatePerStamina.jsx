@@ -1,41 +1,11 @@
-import { useParams } from 'react-router-dom';
 import { Card, CardContent, CardHeader, Paper, Stack, Typography } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import { Bar, BarChart, Tooltip, XAxis, YAxis } from 'recharts';
-import { useAccent, useData } from '@/hooks';
-import { computeStaminaToUpgradeSkill, formatStr } from '@/utils';
+import { useAccent } from '@/hooks';
 
-const RatePerStamina = ({ results }) => {
-  const { userDps, skillLevelResults } = results;
-  const { gameId } = useParams();
+const RatePerStamina = ({ data }) => {
   const { palette } = useTheme();
-  const { skillLevelUpgradeCosts } = useData('misc');
   const accent = useAccent();
-
-  const data = skillLevelResults
-    .map(({ skillId, isMax, dps, newLevel }) => {
-      return {
-        name: formatStr(skillId),
-        newLevel,
-        isMax: Boolean(isMax),
-        dps: isMax ? userDps : dps,
-        diff: isMax ? 0 : ((dps / userDps) - 1) * 100,
-        ...(isMax && { opacity: 0.5, filter: 'grayscale(1)' }),
-      };
-    })
-    .toSorted((a, b) => (a.isMax - b.isMax) || (b.dps - a.dps));
-
-  const data2 = data
-    .map((entry) => {
-      const { isMax, diff, newLevel } = entry;
-      if (isMax) return entry;
-
-      const upgradeCosts = skillLevelUpgradeCosts[newLevel - 2];
-      const stamina = computeStaminaToUpgradeSkill(gameId, upgradeCosts);
-      const rate = diff / stamina;
-      return { ...entry, staminaCost: stamina, rate };
-    })
-    .toSorted((a, b) => (a.isMax - b.isMax) || (b.rate - a.rate));
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
@@ -43,7 +13,7 @@ const RatePerStamina = ({ results }) => {
       <CardContent component={Stack} sx={{ flex: 1 }}> 
         <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
           <BarChart
-            data={data2}
+            data={data}
             layout="vertical"
             style={{ width: '100%', height: '100%' }}
             responsive

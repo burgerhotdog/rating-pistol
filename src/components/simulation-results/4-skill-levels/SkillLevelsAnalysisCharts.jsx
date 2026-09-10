@@ -2,25 +2,11 @@ import { Paper, Stack, Typography } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import { Bar, BarChart, Tooltip, XAxis, YAxis } from 'recharts';
 import { useAccent } from '@/hooks';
-import { formatNum, formatStr } from '@/utils';
+import { formatNum } from '@/utils';
 
-const SkillLevelsAnalysisCharts = ({ results }) => {
-  const { userDps, skillLevelResults } = results;
+const SkillLevelsAnalysisCharts = ({ data }) => {
   const { palette } = useTheme();
   const accent = useAccent();
-
-  const data = skillLevelResults
-    .map(({ skillId, isMax, dps, newLevel }) => {
-      return {
-        name: formatStr(skillId),
-        newLevel,
-        isMax: Boolean(isMax),
-        dps: isMax ? userDps : dps,
-        diff: isMax ? 0 : ((dps / userDps) - 1) * 100,
-        ...(isMax && { opacity: 0.5, filter: 'grayscale(1)' }),
-      };
-    })
-    .toSorted((a, b) => (a.isMax - b.isMax) || (b.dps - a.dps));
 
   return (
     <BarChart

@@ -5,7 +5,7 @@
     "maxEquips": 5,
     "maxSubstats": 4,
     "maxSkillLevel": 10,
-    "staminaPerDay": 200,
+    "staminaPerDay": 180,
     "energyAttr": "energyRecharge%",
     "skillIds": [
       "normalAttack",
@@ -15,28 +15,23 @@
     "skillLevelUpgradeCosts": [
       {
         "money": 12500,
-        "material": 3,
-        "weekly": 0
+        "material": 3
       },
       {
         "money": 17500,
-        "material": 6,
-        "weekly": 0
+        "material": 6
       },
       {
         "money": 25000,
-        "material": 12,
-        "weekly": 0
+        "material": 12
       },
       {
         "money": 30000,
-        "material": 18,
-        "weekly": 0
+        "material": 18
       },
       {
         "money": 37500,
-        "material": 27,
-        "weekly": 0
+        "material": 27
       },
       {
         "money": 120000,
@@ -93,6 +88,7 @@
     "maxEquips": 6,
     "maxSubstats": 4,
     "maxSkillLevel": 10,
+    "staminaPerDay": 240,
     "energyAttr": "energyRegenerationRate%",
     "skillIds": [
       "basicAtk",
@@ -121,28 +117,23 @@
     "skillLevelUpgradeCosts": [
       {
         "money": 1500,
-        "material": 2,
-        "weekly": 0
+        "material": 2
       },
       {
         "money": 2000,
-        "material": 3,
-        "weekly": 0
+        "material": 3
       },
       {
         "money": 4500,
-        "material": 6,
-        "weekly": 0
+        "material": 6
       },
       {
         "money": 6000,
-        "material": 9,
-        "weekly": 0
+        "material": 9
       },
       {
         "money": 16000,
-        "material": 27,
-        "weekly": 0
+        "material": 27
       },
       {
         "money": 30000,
@@ -203,6 +194,7 @@
     "maxEquips": 6,
     "maxSubstats": 4,
     "maxSkillLevel": 12,
+    "staminaPerDay": 320,
     "energyAttr": "energyRegen%",
     "skillIds": [
       "basicAttack",
@@ -210,6 +202,73 @@
       "assist",
       "specialAttack",
       "chainAttack"
-    ]
+    ],
+    "skillLevelUpgradeCosts": [
+      {
+        "money": 2000,
+        "material": 2
+      },
+      {
+        "money": 3000,
+        "material": 3
+      },
+      {
+        "money": 6000,
+        "material": 6
+      },
+      {
+        "money": 9000,
+        "material": 9
+      },
+      {
+        "money": 12000,
+        "material": 12
+      },
+      {
+        "money": 18000,
+        "material": 18
+      },
+      {
+        "money": 45000,
+        "material": 45
+      },
+      {
+        "money": 67500,
+        "material": 72
+      },
+      {
+        "money": 90000,
+        "material": 90
+      },
+      {
+        "money": 112500,
+        "material": 108
+      },
+      {
+        "money": 135000,
+        "material": 135
+      }
+    ],
+    "domains": {
+      "money": {
+        "stamina": 20,
+        "reward": {
+          "money": 25000
+        }
+      },
+      "material": {
+        "stamina": 20,
+        "reward": {
+          "material": 15.3
+        }
+      },
+      "equip": {
+        "stamina": 60,
+        "reward": {
+          "money": 4125,
+          "equip": 2.47
+        }
+      }
+    }
   }
 }
