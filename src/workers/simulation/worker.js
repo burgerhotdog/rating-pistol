@@ -1,3 +1,4 @@
+import { LANG } from '@/data';
 import {
   computeActualRotationTime,
   estimateDps,
@@ -38,7 +39,8 @@ self.onmessage = async ({ data }) => {
   const cache = buildCache(data);
   console.timeEnd('buildCache');
 
-  const { charId } = cache;
+  const { gameId, charId } = cache;
+  const langData = LANG[gameId];
 
   const equipMaps = await resolveEquipMaps(cache);
 
@@ -48,22 +50,22 @@ self.onmessage = async ({ data }) => {
   const userRotationTime = computeActualRotationTime(cache, equipMaps);
   const userDps = userDamage / userRotationTime * 1000;
 
-  self.postMessage({ title: 'Running weapon tests' });
+  self.postMessage({ title: `Running ${langData.Weapon} Tests` });
   console.time('testWeapons');
   const weaponResults = testWeapons(cache, equipMaps, charId);
   console.timeEnd('testWeapons');
 
-  self.postMessage({ title: 'Running set bonus tests' });
+  self.postMessage({ title: `Running ${langData.Equip} Set Bonus Tests` });
   console.time('testSets');
   const setResults = testSets(cache, equipMaps, charId);
   console.timeEnd('testSets');
 
-  self.postMessage({ title: 'Running equip farming simulations' });
+  self.postMessage({ title: `Running ${langData.Equip} Farming Simulations` });
   console.time('runTrials');
   const results = await runEquipTests(cache, equipMaps, charId, true);
   console.timeEnd('runTrials');
 
-  self.postMessage({ title: 'Running skill level tests' });
+  self.postMessage({ title: 'Running Skill Level Tests' });
   console.time('runSkillLevelTests');
   const skillLevelResults = runSkillLevelTests(cache, equipMaps, charId);
   console.timeEnd('runSkillLevelTests');
