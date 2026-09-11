@@ -1,12 +1,31 @@
-import { Paper, Stack, Typography } from '@mui/material';
+import { useMemo } from 'react';
+import { Paper, Typography } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
-import { Bar, BarChart, Tooltip, XAxis, YAxis } from 'recharts';
-import { useAccent } from '@/hooks';
-import { formatNum } from '@/utils';
+import { Bar, BarChart, ReferenceLine, Tooltip, XAxis, YAxis } from 'recharts';
+import { useData } from '@/hooks';
+import { formatStr } from '@/utils';
 
-const SkillLevelsAnalysisCharts = ({ data }) => {
+const SkillLevelsAnalysisCharts = ({ results }) => {
+  const { userDps, skillLevelResults } = results;
   const { palette } = useTheme();
-  const accent = useAccent();
+  const { maxSkillLevel } = useData('misc');
+
+  const data = useMemo(
+    () => Object.values(skillLevelResults)
+      .map(({ skillId, dpsArr, userLevel }) => {
+        const pctOfBase = (dps) => (dps / dpsArr[0] - 1) * 100;
+
+        return {
+          name: formatStr(skillId),
+          userLevel,
+          userValue: pctOfBase(userDps),
+          ...Object.fromEntries(
+            dpsArr.slice(1).map((dps, i) => [i + 2, pctOfBase(dps)])
+          ),
+        };
+      }),
+    [skillLevelResults, userDps],
+  );
 
   return (
     <BarChart
@@ -14,29 +33,56 @@ const SkillLevelsAnalysisCharts = ({ data }) => {
       style={{ width: '100%', height: '100%' }}
       responsive
     >
-      <XAxis dataKey="name" type="category" tick={{ fontSize: 11 }} />
-      <YAxis type="number" />
-      <Bar dataKey="diff" fill={accent} />
+      <XAxis
+        dataKey="name"
+        tick={{ fontSize: 11 }}
+      />
+
+      <YAxis
+        type="number"
+        domain={[0, 'dataMax']}
+        tickFormatter={(t) => `+${t.toFixed()}%`}
+      />
+
+      {Array.from({ length: maxSkillLevel - 1 }).map((_, i) => (
+        <Bar
+          key={i + 2}
+          dataKey={i + 2}
+          shape={({ x, y, width, height, value, payload }) => {
+            const { userValue } = payload;
+
+            return (
+              <rect
+                x={x}
+                y={y}
+                width={width}
+                height={height}
+                fill="url(#gradientAccent)"
+                rx={2}
+                {...(value > userValue && {
+                  filter: 'grayscale(1)',
+                })}
+              />
+            );
+          }}
+        />
+      ))}
+
+      <ReferenceLine y={0} opacity={0.5} />
+
       <Tooltip
         content={({ payload, label }) => {
-          const { isMax, dps = 0, diff = 0, newLevel } = payload?.[0]?.payload ?? {};
-          if (isMax) return;
+          if (!payload?.[0]?.payload) return;
+          const { userLevel } = payload[0].payload;
 
           return (
             <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
               <Typography variant="body2" color="textSecondary">
-                {`${label} ${newLevel - 1} > ${newLevel}`}
+                {label}
               </Typography>
-              <Stack direction="row" spacing={0.5}>
-                <Typography variant="body2">
-                  {formatNum(dps)} dps
-                </Typography>
-                {!isMax && (
-                  <Typography variant="body2" color="success">
-                    (+{Math.abs(diff).toFixed(2)}%)
-                  </Typography>
-                )}
-              </Stack>
+              <Typography variant="body2">
+                Level {userLevel}
+              </Typography>
             </Paper>
           );
         }}

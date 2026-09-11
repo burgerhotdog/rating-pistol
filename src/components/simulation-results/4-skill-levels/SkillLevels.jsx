@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, CardHeader, Stack } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { useAccent, useData } from '@/hooks';
 import { computeStaminaToUpgradeSkill, formatStr } from '@/utils';
 import SkillLevelsAnalysisCharts from './SkillLevelsAnalysisCharts';
@@ -10,6 +11,7 @@ import RatePerStamina from './RatePerStamina';
 const SkillLevels = ({ results }) => {
   const { userDps, skillLevelResults } = results;
   const { gameId } = useParams();
+  const { palette } = useTheme();
   const accent = useAccent();
   const { maxSkillLevel, skillLevelUpgradeCosts } = useData('misc');
 
@@ -74,16 +76,26 @@ const SkillLevels = ({ results }) => {
 
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
         <Card component={Stack} sx={{ flex: 1 }}>
-          <CardHeader title="Team DPS after increasing skill level by 1" />
-          <SkillLevelsAnalysisCharts data={improvementData} />
+          <CardHeader title="Δ DPS when increasing skill levels" />
+          <SkillLevelsAnalysisCharts results={results} />
         </Card>
       </Stack>
 
       <svg width="0" height="0" style={{ position: 'absolute' }}>
         <defs>
-          <linearGradient id={`gradientAccent`} x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id="gradientAccent" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor={accent} stopOpacity={1} />
             <stop offset="100%" stopColor={accent} stopOpacity={0} />
+          </linearGradient>
+
+          <linearGradient id="gradientSuccess" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor={palette.success.main} stopOpacity={1} />
+            <stop offset="100%" stopColor={palette.success.main} stopOpacity={0} />
+          </linearGradient>
+
+          <linearGradient id="gradientError" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor={palette.error.main} stopOpacity={0} />
+            <stop offset="100%" stopColor={palette.error.main} stopOpacity={1} />
           </linearGradient>
         </defs>
       </svg>
