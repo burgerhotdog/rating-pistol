@@ -12,7 +12,7 @@ const SimulationResults = ({ team }) => {
   const results = useSimulation(team);
   const [tab, setTab] = useState(1);
 
-  if (!results.userSnapshots) {
+  if (results.status !== 'done') {
     return <LoadingBar results={results} />;
   }
 

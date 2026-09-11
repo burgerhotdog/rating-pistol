@@ -1,15 +1,11 @@
 import { CHARACTER, MISC } from '@/data';
-import {
-  computeActualRotationTime,
-  getCompressed,
-  getTotals,
-} from '@/utils';
+import { computeActualRotationTime, getCompressed, getTotals } from '@/utils';
 import { runRotation } from '../rotation';
 import { createMvIndexGetter } from '../cache/actions';
 
 const parts = ['damage', 'healing', 'shield'];
 
-export function testSkillLevels(cache, equipMaps, charId) {
+export function runSkillLevelTests(cache, equipMaps, charId) {
   const gameId = cache.gameId;
   const mCache = cache.member[charId];
   const charSkills = CHARACTER[gameId][charId].skills;

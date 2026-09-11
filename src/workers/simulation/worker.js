@@ -1,4 +1,3 @@
-import { MISC } from '@/data';
 import {
   computeActualRotationTime,
   estimateDps,
@@ -6,9 +5,9 @@ import {
 } from '@/utils';
 import { buildCache } from './cache';
 import { runRotation } from './rotation';
-import { runTrials } from './runTrials';
-import { testWeapons, testSets } from './comparisons';
-import { testSkillLevels } from './skill-levels';
+import { testWeapons, testSets } from './comparison-tests';
+import { runEquipTests } from './equip-tests';
+import { runSkillLevelTests } from './skill-level-tests';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
@@ -24,51 +23,53 @@ async function resolveEquipMaps(cache, allowBlank = false) {
       continue;
     }
 
-    self.postMessage({ status: `Generating trial build for ${member.id}` });
+    self.postMessage({ title: `Generating trial build for ${member.id}` });
 
     const trialEquipMaps = await resolveEquipMaps(cache, true);
-    equipMaps[member.id] = await runTrials(cache, trialEquipMaps, member.id);
+    equipMaps[member.id] = await runEquipTests(cache, trialEquipMaps, member.id);
   }
 
   return equipMaps;
 }
 
 self.onmessage = async ({ data }) => {
-  self.postMessage({ status: 'Building cache' });
+  self.postMessage({ title: 'Building cache' });
   console.time('buildCache');
   const cache = buildCache(data);
   console.timeEnd('buildCache');
 
-  const { gameId, charId } = cache;
+  const { charId } = cache;
 
   const equipMaps = await resolveEquipMaps(cache);
 
-  self.postMessage({ status: 'Checking rotation' });
+  self.postMessage({ title: 'Simulating rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
   const userDamage = getTotals(userSnapshots).damage;
   const userRotationTime = computeActualRotationTime(cache, equipMaps);
   const userDps = userDamage / userRotationTime * 1000;
 
-  self.postMessage({ status: 'Testing weapons' });
+  self.postMessage({ title: 'Running weapon tests' });
   console.time('testWeapons');
   const weaponResults = testWeapons(cache, equipMaps, charId);
   console.timeEnd('testWeapons');
 
-  self.postMessage({ status: 'Testing sets' });
+  self.postMessage({ title: 'Running set bonus tests' });
   console.time('testSets');
   const setResults = testSets(cache, equipMaps, charId);
   console.timeEnd('testSets');
 
+  self.postMessage({ title: 'Running equip farming simulations' });
   console.time('runTrials');
-  const results = await runTrials(cache, equipMaps, charId, true);
+  const results = await runEquipTests(cache, equipMaps, charId, true);
   console.timeEnd('runTrials');
 
-  self.postMessage({ status: 'Testing skill levels' });
-  console.time('skillLevelTests');
-  const skillLevelResults = testSkillLevels(cache, equipMaps, charId);
-  console.timeEnd('skillLevelTests');
+  self.postMessage({ title: 'Running skill level tests' });
+  console.time('runSkillLevelTests');
+  const skillLevelResults = runSkillLevelTests(cache, equipMaps, charId);
+  console.timeEnd('runSkillLevelTests');
 
   self.postMessage({
+    status: 'done',
     memberIds: cache.memberIds,
     userMember: { ...cache.member[charId] },
     userSnapshots,
@@ -80,31 +81,26 @@ self.onmessage = async ({ data }) => {
     dpsProgression: results.dpsProgression,
     fit: results.fit,
     equipListConfigs: results.equipListConfigs,
-    ...findBenchmark(gameId, results.dpsCeiling, results.dpsProgression, results.fit),
+    ...findBenchmark(results.dpsCeiling, results.dpsProgression, results.fit),
     skillLevelResults,
   });
 };
 
-function findBenchmark(gameId, dpsCeiling, dpsProgression, fit) {
-  const { staminaPerDay } = MISC[gameId];
-
-  let day = 0;
+function findBenchmark(dpsCeiling, dpsProgression, fit) {
+  let benchmarkDay = 0;
+  let benchmarkDps = estimateDps(0, dpsCeiling, dpsProgression, fit);
 
   while (true) {
-    const dps = estimateDps(day, dpsCeiling, dpsProgression, fit);
-    const nextDps = estimateDps(day + 1, dpsCeiling, dpsProgression, fit);
+    const nextDps = estimateDps(benchmarkDay + 1, dpsCeiling, dpsProgression, fit)
 
-    const diff = nextDps - dps;
-    const diffPct = diff / dps * 100;
-    const diffPctPerStamina = diffPct / staminaPerDay;
-
-    if (diffPctPerStamina < 0.004) {
+    if (nextDps / benchmarkDps < 1.01) {
       return {
-        benchmarkDps: dps,
-        benchmarkDay: day,
+        benchmarkDay,
+        benchmarkDps,
       };
     }
 
-    day++;
+    benchmarkDay++;
+    benchmarkDps = nextDps;
   }
 }

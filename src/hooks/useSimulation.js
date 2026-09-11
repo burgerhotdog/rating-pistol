@@ -31,7 +31,7 @@ export const useSimulation = (team) => {
   const { gameId, charId } = useParams();
   const workerRef = useRef(null);
   const prevPayloadRef = useRef(undefined);
-  const [result, setResult] = useState({});
+  const [result, setResult] = useState({ status: 'idle' });
 
   const payload = useMemo(() => {
     const data = { gameId, charId: Number(charId), team };
@@ -40,7 +40,7 @@ export const useSimulation = (team) => {
 
   if (prevPayloadRef.current !== payload) {
     prevPayloadRef.current = payload;
-    setResult({});
+    setResult({ status: 'running' });
   }
 
   useEffect(() => {
@@ -75,5 +75,5 @@ export const useSimulation = (team) => {
     };
   }, [payload]);
 
-  return payload ? result : {};
+  return payload ? result : { status: 'idle' };
 };

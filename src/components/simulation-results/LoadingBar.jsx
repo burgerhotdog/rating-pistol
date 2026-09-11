@@ -2,8 +2,10 @@ import { LinearProgress, Stack, Typography } from '@mui/material';
 import { useAccent } from '@/hooks';
 
 const LoadingBar = ({ results }) => {
-  const { status, progressDay } = results;
+  const { status, title, message, progressDay } = results;
   const accent = useAccent();
+
+  const isIdle = status === 'idle';
 
   return (
     <Stack
@@ -18,16 +20,16 @@ const LoadingBar = ({ results }) => {
         <Typography
           variant="body2"
           color="textSecondary"
-          sx={{ textAlign: 'center' }}
+          sx={{ textAlign: 'center', height: '1.5em' }}
         >
-          {status ?? ''}
+          {title}
         </Typography>
 
         <LinearProgress
           variant="determinate"
           value={progressDay ?? 0}
           sx={{
-            visibility: status ? 'visible' : 'hidden',
+            visibility: !isIdle ? 'visible' : 'hidden',
             backgroundColor: 'action.hover',
             '& .MuiLinearProgress-bar': { backgroundColor: accent },
           }}
@@ -36,9 +38,9 @@ const LoadingBar = ({ results }) => {
         <Typography
           variant="caption"
           color="textSecondary"
-          sx={{ visibility: progressDay ? 'visible' : 'hidden' }}
+          sx={{ height: '1.5em' }}
         >
-          Day {progressDay}
+          {message}
         </Typography>
       </Stack>
     </Stack>

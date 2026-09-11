@@ -5,18 +5,14 @@ import {
   CardContent,
   CardHeader,
   Divider,
-  FormControlLabel,
   Stack,
   Typography,
 } from '@mui/material';
-import { Switch } from '@/components/Colored';
-import { useAccent } from '@/hooks';
 import { formatNum } from '@/utils';
 import WeaponsDialog from './WeaponsDialog';
 import SetsDialog from './SetsDialog';
 import DistributionChart from './DistributionChart';
 import AreaView from './RotationTimeline/AreaView';
-import ScatterView from './RotationTimeline/ScatterView';
 
 const GRADE_BANDS = [
   { floor: 90, letter: 'A', color: '#4ade80' },
@@ -65,8 +61,6 @@ const TextBox = ({ label, value }) => {
 
 const Overview = ({ results }) => {
   const { userDps, dpsCeiling, benchmarkDps, memberIds, userSnapshots } = results;
-  const accent = useAccent();
-  const [showHits, setShowHits] = useState(false);
   const [weaponOpen, setWeaponOpen] = useState(false);
   const [setsOpen, setSetsOpen] = useState(false);
 
@@ -154,23 +148,8 @@ const Overview = ({ results }) => {
         <Card component={Stack} sx={{ flex: 2 }}>
           <CardHeader
             title="Rotation Timeline"
-            action={
-              <FormControlLabel
-                control={
-                  <Switch
-                    color={accent}
-                    checked={showHits}
-                    onChange={(e) => setShowHits(e.target.checked)}
-                  />
-                }
-                label="Show Damage Ticks"
-              />
-            }
           />
-          {!showHits
-            ? <AreaView results={results} />
-            : <ScatterView results={results} />
-          }
+          <AreaView results={results} />
         </Card>
 
         <Card component={Stack} sx={{ flex: 1 }}>

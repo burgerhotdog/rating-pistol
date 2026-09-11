@@ -54,7 +54,7 @@ function runContinuous(workers, dpsCeiling, isMainChar) {
             if (isMainChar) {
               const remaining = dpsCeiling - avgDps;
               if (day >= 95) remainingHistory.push({ day, remaining });
-              if (isMainChar) self.postMessage({ progressDay: day });
+              if (isMainChar) self.postMessage({ message: `Day ${day}`, progressDay: day });
             }
 
             pending.delete(day);
@@ -94,7 +94,7 @@ function runContinuous(workers, dpsCeiling, isMainChar) {
   });
 }
 
-export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
+export async function runEquipTests(cache, equipMaps, currId, isMainChar = false) {
   const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
   const { snapshots, score: dpsFloor } = evaluateEquipMap();
   const skippable = buildSkippable(cache.gameId, dpsFloor, evaluateEquipMap);
@@ -106,11 +106,11 @@ export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
   const dpsProgression = [];
 
   // Initialize trials
-  if (isMainChar) self.postMessage({ status: `Initializing Trials` });
+  if (isMainChar) self.postMessage({ message: `Initializing Trials` });
   dpsProgression.push({ day: 0, mean: dpsFloor });
   const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, snapshots, score: dpsFloor });
 
-  if (isMainChar) self.postMessage({ status: `Running Trials` });
+  if (isMainChar) self.postMessage({ message: `Running Trials` });
   const result = await runContinuous(workers, dpsCeiling, isMainChar);
 
   dpsProgression.push(...result.dpsUpdates);
