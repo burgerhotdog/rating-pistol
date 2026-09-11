@@ -77,7 +77,7 @@ const SkillLevels = ({ results }) => {
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
         <Card component={Stack} sx={{ flex: 1 }}>
           <CardHeader title="Δ DPS when increasing skill levels" />
-          <SkillLevelsAnalysisCharts results={results} />
+          <SkillLevelsAnalysisCharts results={results} costData={costData} />
         </Card>
       </Stack>
 

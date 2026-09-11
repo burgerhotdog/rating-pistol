@@ -2,12 +2,13 @@ import { useMemo } from 'react';
 import { Paper, Typography } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import { Bar, BarChart, ReferenceLine, Tooltip, XAxis, YAxis } from 'recharts';
-import { useData } from '@/hooks';
+import { useAccent, useData } from '@/hooks';
 import { formatStr } from '@/utils';
 
-const SkillLevelsAnalysisCharts = ({ results }) => {
+const SkillLevelsAnalysisCharts = ({ results, costData }) => {
   const { userDps, skillLevelResults } = results;
   const { palette } = useTheme();
+  const accent = useAccent();
   const { maxSkillLevel } = useData('misc');
 
   const data = useMemo(
@@ -15,16 +16,29 @@ const SkillLevelsAnalysisCharts = ({ results }) => {
       .map(({ skillId, dpsArr, userLevel }) => {
         const pctOfBase = (dps) => (dps / dpsArr[0] - 1) * 100;
 
+        const bars = Object.fromEntries(
+          dpsArr.slice(1).map((dps, i) => [i + 2, pctOfBase(dps)])
+        )
+
+        let thresholdValue = pctOfBase(dpsArr[1]);
+        for (const { level, stamina } of costData) {
+          const improvement = bars[level];
+          const prevImprovement = bars[level - 1] ?? 0;
+          const rate = ((improvement + 100) / (prevImprovement + 100) - 1) * 100 / stamina;
+          if (rate > 0.004) {
+            thresholdValue = improvement;
+          }
+        }
+
         return {
           name: formatStr(skillId),
           userLevel,
           userValue: pctOfBase(userDps),
-          ...Object.fromEntries(
-            dpsArr.slice(1).map((dps, i) => [i + 2, pctOfBase(dps)])
-          ),
+          thresholdValue,
+          ...bars,
         };
       }),
-    [skillLevelResults, userDps],
+    [skillLevelResults, userDps, costData],
   );
 
   return (
@@ -49,7 +63,10 @@ const SkillLevelsAnalysisCharts = ({ results }) => {
           key={i + 2}
           dataKey={i + 2}
           shape={({ x, y, width, height, value, payload }) => {
-            const { userValue } = payload;
+            const { userValue, thresholdValue } = payload;
+
+            const isOverUser = value > userValue;
+            const isOverThreshold = value > thresholdValue;
 
             return (
               <rect
@@ -57,9 +74,10 @@ const SkillLevelsAnalysisCharts = ({ results }) => {
                 y={y}
                 width={width}
                 height={height}
-                fill="url(#gradientAccent)"
+                fill={isOverUser ? 'none' : 'url(#gradientAccent)'}
+                stroke={isOverUser ? accent : 'none'}
                 rx={2}
-                {...(value > userValue && {
+                {...(isOverThreshold && {
                   filter: 'grayscale(1)',
                 })}
               />
