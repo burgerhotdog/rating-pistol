@@ -1,7 +1,6 @@
 import { CHARACTER, MISC } from '@/data';
 import {
   computeActualRotationTime,
-  computeStaminaToUpgradeSkill,
   getCompressed,
   getTotals,
 } from '@/utils';
@@ -10,40 +9,36 @@ import { createMvIndexGetter } from '../cache/actions';
 
 const parts = ['damage', 'healing', 'shield'];
 
-export function testSkillLevels(cache, equipMaps, charId, userDps) {
+export function testSkillLevels(cache, equipMaps, charId) {
   const gameId = cache.gameId;
   const mCache = cache.member[charId];
   const charSkills = CHARACTER[gameId][charId].skills;
+  const { maxSkillLevel } = MISC[gameId];
 
   const getMvIndex = createMvIndexGetter(gameId, mCache);
 
   const results = {};
 
   for (const skillId of MISC[gameId].skillIds) {
-    const { maxSkillLevel } = MISC[gameId];
-    const userSkillLevel = mCache.skillLevels[skillId];
-
-    if (userSkillLevel === maxSkillLevel) {
-      results[skillId] = { skillId, isMax: true };
-      continue;
-    }
+    const userLevel = mCache.skillLevels[skillId];
 
     results[skillId] = {
       skillId,
       dpsArr: [],
-      baseLevel: userSkillLevel,
+      userLevel,
     };
 
-    let prevDps = userDps;
-    let testPlusLevels = 1;
-    while (userSkillLevel + testPlusLevels <= maxSkillLevel) {
-      const mvIndex = getMvIndex(skillId) + testPlusLevels;
+    const getMvIndexForLevel = getMvIndex(skillId) - userLevel;
+
+    for (let testSkillLevel = 1; testSkillLevel <= maxSkillLevel; testSkillLevel++) {
+      const mvIndex = getMvIndexForLevel + testSkillLevel;
 
       const memberOverrides = {
         rotation: structuredClone(mCache.rotation),
         effects: structuredClone(mCache.effects),
       };
 
+      // rotation
       for (const action of memberOverrides.rotation) {
         if (action.category !== skillId) continue;
 
@@ -99,20 +94,8 @@ export function testSkillLevels(cache, equipMaps, charId, userDps) {
       const snapshots = runRotation(testCache, equipMaps);
       const actualRotationTime = computeActualRotationTime(testCache, equipMaps);
       const dps = getTotals(snapshots).damage / actualRotationTime * 1000;
+
       results[skillId].dpsArr.push(dps);
-
-      const upgradeCosts = MISC[gameId].skillLevelUpgradeCosts[userSkillLevel + testPlusLevels - 2];
-      const staminaToUpgrade = computeStaminaToUpgradeSkill(gameId, upgradeCosts);
-      const diff = dps / prevDps - 1;
-      const rate = diff / staminaToUpgrade;
-
-      prevDps = dps;
-
-      if (rate < 0.004) {
-        break;
-      }
-
-      testPlusLevels++;
     }
   }
 

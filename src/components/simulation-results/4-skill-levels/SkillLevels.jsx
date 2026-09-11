@@ -11,20 +11,23 @@ const SkillLevels = ({ results }) => {
   const { userDps, skillLevelResults } = results;
   const { gameId } = useParams();
   const accent = useAccent();
-  const { skillLevelUpgradeCosts } = useData('misc');
+  const { maxSkillLevel, skillLevelUpgradeCosts } = useData('misc');
 
   const improvementData = useMemo(
     () => Object.values(skillLevelResults)
-      .map(({ skillId, isMax, dpsArr, baseLevel }) => ({
+      .map(({ skillId, dpsArr, userLevel }) => ({
         name: formatStr(skillId),
-        newLevel: baseLevel + 1,
-        isMax: Boolean(isMax),
-        dps: isMax ? userDps : dpsArr[0],
-        diff: isMax ? 0 : ((dpsArr[0] / userDps) - 1) * 100,
+        newLevel: userLevel + 1,
+        isMax: userLevel === maxSkillLevel,
+        dps: userLevel === maxSkillLevel ? userDps : dpsArr[userLevel],
+        diff: userLevel === maxSkillLevel ? 0 : ((dpsArr[userLevel] / userDps) - 1) * 100,
         fill: `url(#gradientAccent)`,
-        ...(isMax && { opacity: 0.5, filter: 'grayscale(1)' }),
+        ...(userLevel === maxSkillLevel && {
+          opacity: 0.5,
+          filter: 'grayscale(1)',
+        }),
       })),
-    [skillLevelResults, userDps],
+    [skillLevelResults, maxSkillLevel, userDps],
   );
 
   const rateData = useMemo(
