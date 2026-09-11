@@ -106,16 +106,6 @@ const Overview = ({ results }) => {
               <TextBox label="Benchmark" value={formatNum(benchmarkDps)} />
               <TextBox label="Theoretical Max" value={formatNum(dpsCeiling)} />
             </Stack>
-
-            <Stack
-              direction="row"
-              spacing={2}
-              sx={{ flex: 1 }}
-            >
-              <TextBox label="Team DPS" value={formatNum(userDps)} />
-              <TextBox label="Benchmark" value={formatNum(benchmarkDps)} />
-              <TextBox label="Theoretical Max" value={formatNum(dpsCeiling)} />
-            </Stack>
           </CardContent>
         </Card>
 
