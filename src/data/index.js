@@ -352,3 +352,4 @@ export const TYPE = {
 };
 
 export { default as MISC } from './misc.json';
+export { default as LANG } from './lang.json';

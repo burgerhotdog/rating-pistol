@@ -61,8 +61,22 @@ export function normalizeAction(gameId, rawAction, spec) {
     ...rawAction,
     ownerId, category, index,
     ref: `${category}.${index}`,
-    id: `${ownerId}:${category}.${index}`,
+    key: `${ownerId}:${category}.${index}`,
   };
+
+  if (action.buff) {
+    const baseAttr = action.buff.baseAttr;
+    const baseAttrValue = spec.baseMap[baseAttr] ?? 0;
+
+    const { mv, flat } = action.buff.multipliers[0];
+    const mvBuffValue = mv?.[spec.mvIndex] ?? 0;
+    const flatBuffValue = flat?.[spec.mvIndex] ?? 0;
+    action.buff.value = mvBuffValue * baseAttrValue + flatBuffValue;
+
+    action.buff.mvIndex = spec.mvIndex;
+    action.buff.baseAttrValue = baseAttrValue;
+    return action;
+  }
 
   action.duration ??= DEFAULT_DURATIONS[gameId][action.type] ?? 0;
 
@@ -144,16 +158,22 @@ export function normalizeAction(gameId, rawAction, spec) {
       shiftMode === 'electroFlare' ||
       shiftMode === 'aeroErosion' ||
       shiftMode === 'spectroFrazzle' ||
-      shiftMode === 'havocBane');
+      shiftMode === 'havocBane'
+    );
 
-    const resolve = (id) => {
-      if (id !== '$mode') return id;
-      if (isValid) return shiftMode;
+    const resolveMode = (statusId) => {
+      if (statusId !== '$mode') {
+        return statusId;
+      }
+
+      if (isValid) {
+        return shiftMode;
+      }
     };
 
     const resolved = {};
     for (const status in action.inflict.status) {
-      const resolvedStatus = resolve(status);
+      const resolvedStatus = resolveMode(status);
       if (!resolvedStatus) continue;
       resolved[resolvedStatus] = action.inflict.status[status];
     }

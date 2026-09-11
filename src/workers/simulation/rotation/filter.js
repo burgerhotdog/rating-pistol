@@ -86,9 +86,9 @@ export function createEventFilter(ctx) {
 
         const toEval = [states.globalEffects, ...Object.values(states.memberEffects)];
         for (const store of toEval) {
-          for (const [effectId, { stacks }] of Object.entries(store)) {
-            if (stacks > (value[effectId] ?? 0)) {
-              value[effectId] = stacks;
+          for (const [effectKey, { stacks }] of Object.entries(store)) {
+            if (stacks > (value[effectKey] ?? 0)) {
+              value[effectKey] = stacks;
             }
           }
         }

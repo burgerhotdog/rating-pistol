@@ -48,10 +48,7 @@ export function initMember(gameId, memberId, build, overrides) {
   const preset = charData.memberPreset ?? {};
 
   member.id = Number(memberId);
-  member.rank = Number(
-    build?.rank ??
-    getDefaultCharRank(gameId, member.id)
-  );
+  member.rank = Number(build?.rank ?? getDefaultCharRank(gameId, member.id));
 
   const weaponId =
     build?.weaponId ??
@@ -60,10 +57,7 @@ export function initMember(gameId, memberId, build, overrides) {
 
   if (weaponId) {
     member.weaponId = Number(weaponId);
-    member.weaponRank = Number(
-      build?.weaponRank ??
-      getDefaultWeapRank(gameId, member.weaponId)
-    );
+    member.weaponRank = Number(build?.weaponRank ?? getDefaultWeapRank(gameId, member.weaponId));
   }
 
   member.setCounts = build?.equipList

@@ -1,17 +1,14 @@
+import { LANG } from '@/data';
 import {
-  computeConcertoExtraTime,
-  computeDps,
-  estimateDay,
+  computeActualRotationTime,
   estimateDps,
-  getMainstatConfigKey,
-  sumSubstatRolls,
+  getTotals,
 } from '@/utils';
-import { compileCache } from './cache';
+import { buildCache } from './cache';
 import { runRotation } from './rotation';
-import { runTrials } from './runTrials';
-import { weaponTests } from './weaponTests';
-import { setTests } from './setTests';
-import { skillLevelTests } from './skillLevelTests';
+import { testWeapons, testSets } from './comparison-tests';
+import { runEquipTests } from './equip-tests';
+import { runSkillLevelTests } from './skill-level-tests';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
@@ -27,98 +24,85 @@ async function resolveEquipMaps(cache, allowBlank = false) {
       continue;
     }
 
-    self.postMessage({ status: `Generating trial build for ${member.id}` });
+    self.postMessage({ title: `Generating trial build for ${member.id}` });
 
     const trialEquipMaps = await resolveEquipMaps(cache, true);
-    equipMaps[member.id] = await runTrials(cache, trialEquipMaps, member.id);
+    equipMaps[member.id] = await runEquipTests(cache, trialEquipMaps, member.id);
   }
 
   return equipMaps;
 }
 
 self.onmessage = async ({ data }) => {
-  self.postMessage({ status: 'Compiling cache' });
+  self.postMessage({ title: 'Building cache' });
+  console.time('buildCache');
+  const cache = buildCache(data);
+  console.timeEnd('buildCache');
 
-  console.time('compileCache');
-  const cache = compileCache(data);
-  console.timeEnd('compileCache');
+  const { gameId, charId } = cache;
+  const langData = LANG[gameId];
 
   const equipMaps = await resolveEquipMaps(cache);
 
-  self.postMessage({ status: 'Checking rotation' });
+  self.postMessage({ title: 'Simulating rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
-  const concertoExtraTime = computeConcertoExtraTime(cache.member[cache.charId]);
-  const userDps = computeDps(userSnapshots, cache.rotationDuration + concertoExtraTime);
+  const userDamage = getTotals(userSnapshots).damage;
+  const userRotationTime = computeActualRotationTime(cache, equipMaps);
+  const userDps = userDamage / userRotationTime * 1000;
 
-  console.time('runTrials');
-  const results = await runTrials(cache, equipMaps, cache.charId, true);
-  console.timeEnd('runTrials');
+  self.postMessage({ title: `Running ${langData.Weapon} Tests` });
+  console.time('testWeapons');
+  const weaponResults = testWeapons(cache, equipMaps, charId);
+  console.timeEnd('testWeapons');
 
-  const { benchmarkDay, benchmarkDps } = findBenchmark(results.dpsProgression, results.fit, results.dpsCeiling);
+  self.postMessage({ title: `Running ${langData.Equip} Set Bonus Tests` });
+  console.time('testSets');
+  const setResults = testSets(cache, equipMaps, charId);
+  console.timeEnd('testSets');
 
-  console.time('weaponTests');
-  const weaponResults = weaponTests(cache, equipMaps, cache.charId);
-  console.timeEnd('weaponTests');
+  self.postMessage({ title: `Running ${langData.Equip} Farming Simulations` });
+  console.time('runEquipTests');
+  const results = await runEquipTests(cache, equipMaps, charId, true);
+  console.timeEnd('runEquipTests');
 
-  console.time('setTests');
-  const setResults = setTests(cache, equipMaps, cache.charId);
-  console.timeEnd('setTests');
-
-  console.time('skillLevelTests');
-  const skillLevelResults = skillLevelTests(cache, equipMaps, cache.charId);
-  console.timeEnd('skillLevelTests');
-  
+  self.postMessage({ title: 'Running Skill Level Tests' });
+  console.time('runSkillLevelTests');
+  const skillLevelResults = runSkillLevelTests(cache, equipMaps, charId);
+  console.timeEnd('runSkillLevelTests');
 
   self.postMessage({
-    dpsProgression: results.dpsProgression,
-    dpsCeiling: results.dpsCeiling,
-    fit: results.fit,
-    equipListConfigs: results.equipListConfigs,
-    userSnapshots,
-    userDay: estimateDay(userDps, results.dpsCeiling, results.dpsProgression, results.fit),
-    userDps,
-    benchmarkDay,
-    benchmarkDps,
-    userMainstatConfigKey: getMainstatConfigKey(cache.gameId, cache.member[cache.charId].equipList),
-    userSubstatRolls: sumSubstatRolls(cache.gameId, cache.member[cache.charId].equipList),
+    status: 'done',
     memberIds: cache.memberIds,
+    userMember: { ...cache.member[charId] },
+    userSnapshots,
+    userRotationTime,
+    userDps,
     weaponResults,
     setResults,
+    dpsCeiling: results.dpsCeiling,
+    dpsProgression: results.dpsProgression,
+    fit: results.fit,
+    equipListConfigs: results.equipListConfigs,
+    ...findBenchmark(results.dpsCeiling, results.dpsProgression, results.fit),
     skillLevelResults,
-    userMember: {
-      weaponId: cache.member[cache.charId].weaponId,
-      weaponRank: cache.member[cache.charId].weaponRank,
-      setCounts: cache.member[cache.charId].setCounts,
-    },
   });
 };
 
-function findBenchmark(dpsProgression, fit, dpsCeiling) {
-  let today = 0;
-  let todayDps = dpsProgression[0].mean;
+function findBenchmark(dpsCeiling, dpsProgression, fit) {
+  let benchmarkDay = 0;
+  let benchmarkDps = estimateDps(0, dpsCeiling, dpsProgression, fit);
 
   while (true) {
-    const tomorrowDps = estimateDps(today + 1, dpsCeiling, dpsProgression, fit);
-    if ((tomorrowDps / todayDps) >= 1.01) {
-      today++;
-      todayDps = tomorrowDps;
-      continue;
+    const nextDps = estimateDps(benchmarkDay + 1, dpsCeiling, dpsProgression, fit)
+
+    if (nextDps / benchmarkDps < 1.01) {
+      return {
+        benchmarkDay,
+        benchmarkDps,
+      };
     }
 
-    let daysForMoreThanOnePercentGain = 2;
-    while (true) {
-      const nextDps = estimateDps(today + daysForMoreThanOnePercentGain, dpsCeiling, dpsProgression, fit);
-      if ((nextDps / todayDps) >= 1.05) {
-        break;
-      }
-      daysForMoreThanOnePercentGain++;
-    }
-
-    if (daysForMoreThanOnePercentGain > today) {
-      return { benchmarkDay: today, benchmarkDps: todayDps };
-    }
-
-    today++;
-    todayDps = tomorrowDps;
+    benchmarkDay++;
+    benchmarkDps = nextDps;
   }
 }

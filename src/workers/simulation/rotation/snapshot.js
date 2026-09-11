@@ -1,16 +1,35 @@
-import { toMergedObj } from '@/utils';
-import { resolveStatSpecs, mergeStatMap } from '../utils';
+import { getAttr, toMergedObj } from '@/utils';
 import { runFormula } from './formula';
 import { getBuffMap } from './getStatMap';
 import { getUsedAttrs } from './formula/solver';
 
 const snapshotParts = ['damage', 'healing', 'shield'];
 
+const resolveStatSpecs = (buffSpec, sourceStatMap) => {
+  const resolved = {};
+
+  for (const [statId, statSpec] of Object.entries(buffSpec)) {
+    const {
+      attr, offset = 0, step,
+      value, maxValue = Infinity,
+    } = statSpec;
+
+    const attrValue = getAttr(attr, sourceStatMap);
+    const mult = Math.max((attrValue - offset) / step, 0);
+    resolved[statId] = Math.min(value * mult, maxValue);
+  }
+
+  return resolved;
+};
+
 const toResolvedSpecs = (buffSpecs, sourceMap) => {
   const buffMap = {};
   for (const { specs, buffMult } of buffSpecs) {
     const resolvedStatMap = resolveStatSpecs(specs, sourceMap);
-    mergeStatMap(buffMap, resolvedStatMap, buffMult);
+
+    for (const stat in resolvedStatMap) {
+      buffMap[stat] = (buffMap[stat] ?? 0) + resolvedStatMap[stat] * buffMult;
+    }
   }
   return buffMap;
 };
@@ -20,7 +39,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
   const gameId = ctx.cache.gameId;
 
   const snapshot = {
-    id: action.id,
+    key: action.key,
     name: action.name,
     ownerId: action.ownerId,
     category: action.category,

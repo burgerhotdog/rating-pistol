@@ -8,6 +8,7 @@
     "element": "glacio",
     "type": "sword",
     "energy": 100,
+    "energyMax": 1,
     "tagged": [],
     "stats": {
       "baseHp": 10062,
@@ -722,6 +723,7 @@
     "element": "glacio",
     "type": "rectifier",
     "energy": 175,
+    "energyMin": 2.2,
     "tagged": [
       "healing"
     ],
@@ -782,7 +784,7 @@
         }
       },
       {
-        "key": "concentration",
+        "ref": "concentration",
         "apply": {
           "when": "hit",
           "filter": {
@@ -794,7 +796,7 @@
         "maxStacks": 4
       },
       {
-        "key": "euphonia",
+        "ref": "euphonia",
         "apply": {
           "when": "start",
           "filter": {
@@ -1624,6 +1626,7 @@
     "element": "glacio",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10387,
@@ -2539,6 +2542,7 @@
     "element": "glacio",
     "type": "rectifier",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 12250,
@@ -3123,6 +3127,7 @@
     "element": "glacio",
     "type": "gauntlets",
     "energy": 100,
+    "energyMin": 1,
     "tagged": [
       "healing"
     ],
@@ -4139,6 +4144,7 @@
     "element": "glacio",
     "type": "pistols",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 12450,
@@ -5225,6 +5231,7 @@
     "element": "glacio",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10300,
@@ -6838,7 +6845,7 @@
       },
       {
         "mode": "glacioChafe",
-        "key": "filmRoll",
+        "ref": "filmRoll",
         "apply": {
           "when": "start",
           "filter": {
@@ -6861,7 +6868,7 @@
       },
       {
         "mode": "echo",
-        "key": "zoom",
+        "ref": "zoom",
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -7949,6 +7956,7 @@
     "element": "glacio",
     "type": "rectifier",
     "energy": 175,
+    "energyMin": 2.6,
     "tagged": [
       "healing"
     ],
@@ -7962,7 +7970,7 @@
     },
     "effects": [
       {
-        "key": "enrichment",
+        "ref": "enrichment",
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -7978,7 +7986,7 @@
         }
       },
       {
-        "key": "ceaselessLandscape",
+        "ref": "ceaselessLandscape",
         "apply": {
           "when": "start",
           "filter": {
@@ -7990,7 +7998,7 @@
         }
       },
       {
-        "key": "roamingTranscendent",
+        "ref": "roamingTranscendent",
         "apply": {
           "when": "start",
           "filter": {
@@ -8144,7 +8152,7 @@
         }
       },
       {
-        "key": "reflectingShadows",
+        "ref": "reflectingShadows",
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -9341,6 +9349,7 @@
     "element": "fusion",
     "type": "pistols",
     "energy": 150,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 9087,
@@ -9379,7 +9388,7 @@
         }
       },
       {
-        "key": "numbinglySpicy!",
+        "ref": "numbinglySpicy!",
         "apply": {
           "when": "hit",
           "filter": {
@@ -10004,6 +10013,7 @@
     "element": "fusion",
     "type": "rectifier",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 10512,
@@ -10929,6 +10939,7 @@
     "element": "fusion",
     "type": "pistols",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10025,
@@ -11680,6 +11691,7 @@
     "element": "fusion",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 10387,
@@ -12590,6 +12602,7 @@
     "element": "fusion",
     "type": "sword",
     "energy": 175,
+    "energyMin": 2.5,
     "tagged": [],
     "stats": {
       "baseHp": 11675,
@@ -14054,6 +14067,7 @@
     "element": "fusion",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 11912,
@@ -14076,7 +14090,7 @@
         }
       },
       {
-        "key": "packHunt",
+        "ref": "packHunt",
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -14095,7 +14109,7 @@
         }
       },
       {
-        "key": "packHunt3",
+        "ref": "packHunt3",
         "enable": {
           "team": [
             "lupa",
@@ -14119,7 +14133,7 @@
         }
       },
       {
-        "key": "glory1",
+        "ref": "glory1",
         "enable": {
           "team": [
             "lupa",
@@ -14143,7 +14157,7 @@
         }
       },
       {
-        "key": "glory2",
+        "ref": "glory2",
         "enable": {
           "team": [
             "lupa",
@@ -14167,7 +14181,7 @@
         }
       },
       {
-        "key": "glory3",
+        "ref": "glory3",
         "enable": {
           "team": [
             "lupa",
@@ -15622,6 +15636,7 @@
     "element": "fusion",
     "type": "pistols",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10300,
@@ -15632,7 +15647,7 @@
     },
     "effects": [
       {
-        "key": "demonHypostasis",
+        "ref": "demonHypostasis",
         "apply": {
           "when": "start",
           "filter": {
@@ -15651,7 +15666,7 @@
         }
       },
       {
-        "key": "afterflame",
+        "ref": "afterflame",
         "apply": {
           "by": "$team",
           "when": "start",
@@ -15745,7 +15760,7 @@
         }
       },
       {
-        "key": "burningDrive",
+        "ref": "burningDrive",
         "apply": {
           "when": "start",
           "filter": {
@@ -15769,7 +15784,7 @@
         }
       },
       {
-        "key": "fatedEnd",
+        "ref": "fatedEnd",
         "apply": {
           "when": "hit",
           "filter": {
@@ -17276,6 +17291,7 @@
     "element": "fusion",
     "type": "broadblade",
     "energy": 175,
+    "energyMin": 2.6,
     "tagged": [
       "healing"
     ],
@@ -18524,6 +18540,7 @@
     "element": "fusion",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 11025,
@@ -18539,7 +18556,7 @@
     ],
     "effects": [
       {
-        "key": "stardustResonance",
+        "ref": "stardustResonance",
         "apply": {
           "when": "start",
           "filter": {
@@ -18552,7 +18569,7 @@
       },
       {
         "mode": "tuneRupture",
-        "key": "rupturousTrail",
+        "ref": "rupturousTrail",
         "apply": {
           "by": "$team",
           "when": "tuneResponse",
@@ -18584,7 +18601,7 @@
       },
       {
         "mode": "fusionBurst",
-        "key": "fusionTrail",
+        "ref": "fusionTrail",
         "stores": "global",
         "apply": {
           "by": "$team",
@@ -18681,7 +18698,7 @@
       },
       {
         "mode": "tuneRupture",
-        "key": "betweenTheStars",
+        "ref": "betweenTheStars",
         "apply": {
           "by": "$team",
           "when": "tuneResponse",
@@ -20379,6 +20396,7 @@
     "element": "fusion",
     "type": "rectifier",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 11025,
@@ -20394,7 +20412,7 @@
     ],
     "effects": [
       {
-        "key": "darkCore",
+        "ref": "darkCore",
         "apply": {
           "when": "start",
           "filter": {
@@ -20419,7 +20437,7 @@
         "maxStacks": 3
       },
       {
-        "key": "entropyShiftBreakdownForm",
+        "ref": "entropyShiftBreakdownForm",
         "apply": {
           "when": "start",
           "filter": {
@@ -20448,7 +20466,7 @@
         }
       },
       {
-        "key": "generateDarkCore",
+        "ref": "generateDarkCore",
         "apply": {
           "when": "start",
           "filter": {
@@ -20467,7 +20485,7 @@
         }
       },
       {
-        "key": "erosionField",
+        "ref": "erosionField",
         "apply": {
           "filter": {
             "action": {
@@ -20483,7 +20501,7 @@
         }
       },
       {
-        "key": "voidParticle",
+        "ref": "voidParticle",
         "buff": {
           "filter": {
             "action": {
@@ -20554,7 +20572,7 @@
       },
       {
         "mode": "tuneStrain",
-        "key": "tuneOutro",
+        "ref": "tuneOutro",
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -21839,6 +21857,7 @@
     ]
   },
   "1212": {
+    "disabled": true,
     "name": "Jingran",
     "version": 3.6,
     "id": 1212,
@@ -21847,6 +21866,7 @@
     "element": "fusion",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 15375,
@@ -21857,7 +21877,7 @@
     },
     "effects": [
       {
-        "key": "yingHuo",
+        "ref": "yingHuo",
         "apply": {
           "when": "start",
           "filter": {
@@ -21881,7 +21901,7 @@
         }
       },
       {
-        "key": "netherToLight",
+        "ref": "netherToLight",
         "buff": {
           "specs": {
             "healingReceived%": {
@@ -21900,7 +21920,7 @@
         }
       },
       {
-        "key": "yangChangesYinUnites",
+        "ref": "yangChangesYinUnites",
         "buff": {
           "specs": {
             "atk": {
@@ -21913,7 +21933,7 @@
         }
       },
       {
-        "key": "earthCharm",
+        "ref": "earthCharm",
         "apply": {
           "when": "start",
           "filter": {
@@ -21949,7 +21969,7 @@
         }
       },
       {
-        "key": "earthCharmYingHuo",
+        "ref": "earthCharmYingHuo",
         "use": {
           "when": "hit",
           "filter": {
@@ -23436,6 +23456,7 @@
     "element": "electro",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 10500,
@@ -24596,6 +24617,7 @@
     "element": "electro",
     "type": "rectifier",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 11000,
@@ -25245,6 +25267,7 @@
     "element": "electro",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1,
     "tagged": [],
     "stats": {
       "baseHp": 8525,
@@ -26408,6 +26431,7 @@
     "element": "spectro",
     "type": "broadblade",
     "energy": 150,
+    "energyMin": 1,
     "tagged": [],
     "stats": {
       "baseHp": 10825,
@@ -27670,6 +27694,7 @@
     "element": "electro",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10625,
@@ -28549,6 +28574,7 @@
     "element": "electro",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10300,
@@ -28559,7 +28585,7 @@
     },
     "effects": [
       {
-        "key": "rulersRealm",
+        "ref": "rulersRealm",
         "apply": {
           "when": "start",
           "filter": {
@@ -28602,7 +28628,7 @@
         }
       },
       {
-        "key": "glorysFavor",
+        "ref": "glorysFavor",
         "use": {
           "when": "hit",
           "filter": {
@@ -28625,7 +28651,7 @@
         }
       },
       {
-        "key": "battlesongOfTheUnyielding",
+        "ref": "battlesongOfTheUnyielding",
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -28643,7 +28669,7 @@
         }
       },
       {
-        "key": "crownOfWills",
+        "ref": "crownOfWills",
         "apply": {
           "by": "$next",
           "when": "start",
@@ -29664,6 +29690,7 @@
     "element": "electro",
     "type": "rectifier",
     "energy": 150,
+    "energyMin": 1.3,
     "tagged": [
       "healing"
     ],
@@ -30404,6 +30431,7 @@
     "element": "electro",
     "type": "pistols",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 11600,
@@ -32485,6 +32513,7 @@
     "element": "electro",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10775,
@@ -32554,7 +32583,7 @@
         }
       },
       {
-        "key": "electroCore",
+        "ref": "electroCore",
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -34534,6 +34563,7 @@
     "element": "aero",
     "type": "sword",
     "energy": 100,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 10200,
@@ -35223,6 +35253,7 @@
     "element": "aero",
     "type": "pistols",
     "energy": 150,
+    "energyMin": 1.5,
     "tagged": [],
     "stats": {
       "baseHp": 9850,
@@ -35903,6 +35934,7 @@
     "element": "aero",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10487,
@@ -36705,6 +36737,7 @@
     "element": "aero",
     "type": "gauntlets",
     "energy": 150,
+    "energyMin": 1.6,
     "tagged": [],
     "stats": {
       "baseHp": 14112,
@@ -37863,6 +37896,7 @@
     "element": "aero",
     "type": "sword",
     "energy": 150,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 10775,
@@ -37933,7 +37967,7 @@
         }
       },
       {
-        "key": "aeolianRealm",
+        "ref": "aeolianRealm",
         "apply": {
           "when": "start",
           "filter": {
@@ -38936,6 +38970,7 @@
     "element": "aero",
     "type": "pistols",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 12237,
@@ -39650,6 +39685,7 @@
     "element": "aero",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 14800,
@@ -39660,7 +39696,7 @@
     },
     "effects": [
       {
-        "key": "swordOfDivinitysShadow",
+        "ref": "swordOfDivinitysShadow",
         "apply": {
           "when": "end",
           "filter": {
@@ -39672,7 +39708,7 @@
         }
       },
       {
-        "key": "swordOfDiscordsShadow",
+        "ref": "swordOfDiscordsShadow",
         "apply": {
           "when": "end",
           "filter": {
@@ -39687,7 +39723,7 @@
         }
       },
       {
-        "key": "mandateOfDivinity",
+        "ref": "mandateOfDivinity",
         "stores": "global",
         "apply": {
           "when": "end",
@@ -39714,7 +39750,7 @@
         }
       },
       {
-        "key": "powerOfDiscord",
+        "ref": "powerOfDiscord",
         "stores": "global",
         "apply": {
           "when": "end",
@@ -39735,7 +39771,7 @@
         }
       },
       {
-        "key": "manifest",
+        "ref": "manifest",
         "apply": {
           "action": {
             "ref": "resonanceLiberation.0"
@@ -41642,6 +41678,7 @@
     "element": "aero",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10525,
@@ -41652,7 +41689,7 @@
     },
     "effects": [
       {
-        "key": "fullMoonDomain",
+        "ref": "fullMoonDomain",
         "apply": {
           "when": "start",
           "filter": {
@@ -41671,7 +41708,7 @@
       },
       {
         "stores": "$applier",
-        "key": "blessingOfTheWanLight",
+        "ref": "blessingOfTheWanLight",
         "apply": {
           "by": "$team",
           "when": "start",
@@ -42992,6 +43029,7 @@
     "element": "aero",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 12237,
@@ -43025,7 +43063,7 @@
         }
       },
       {
-        "key": "bamboosShade",
+        "ref": "bamboosShade",
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -43043,7 +43081,7 @@
         }
       },
       {
-        "key": "quietudeWithin",
+        "ref": "quietudeWithin",
         "apply": {
           "when": "start",
           "filter": {
@@ -43076,7 +43114,7 @@
         }
       },
       {
-        "key": "flowingPanaceaReady",
+        "ref": "flowingPanaceaReady",
         "apply": {
           "when": "start",
           "filter": {
@@ -43094,7 +43132,7 @@
         }
       },
       {
-        "key": "flowingPanacea",
+        "ref": "flowingPanacea",
         "apply": {
           "when": "start",
           "filter": {
@@ -44317,6 +44355,7 @@
     "element": "aero",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 10775,
@@ -44327,12 +44366,124 @@
     },
     "effects": [
       {
-        "rank": 6,
+        "ref": "divergent",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "cooldown": 20000
+        }
+      },
+      {
         "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.1",
+                "forteCircuit.2",
+                "forteCircuit.3"
+              ]
+            }
+          },
           "stats": {
-            "dmgBonus%": 0.3
+            "damageMv%": 0.5
           }
         }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.1",
+                "forteCircuit.2",
+                "forteCircuit.3",
+                "forteCircuit.4"
+              ]
+            }
+          },
+          "stats": {
+            "dmgAmp%": 0.6
+          }
+        }
+      },
+      {
+        "ref": "convergent",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          },
+          "cooldown": 20000
+        }
+      },
+      {
+        "ref": "blessingOfRunes",
+        "stores": "$team",
+        "apply": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "echoSkill"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "aeroDmgBonus%": 0.03,
+            "echoSkillDmgBonus%": 0.03
+          }
+        },
+        "maxStacks": 6
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "blessingOfRunes": 6
+            }
+          },
+          "stats": {
+            "aeroDmgBonus%": 0.3,
+            "echoSkillDmgBonus%": 0.3
+          }
+        }
+      },
+      {
+        "buff": {
+          "specs": {
+            "echoSkillDmgBonus%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "offset": 1.25,
+              "value": 0.02,
+              "maxValue": 0.5
+            }
+          }
+        }
+      },
+      {
+        "ref": "encapsulated",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "cooldown": 30000,
+          "stacks": 2
+        },
+        "maxStacks": 2
       }
     ],
     "skills": {
@@ -44612,7 +44763,7 @@
             }
           },
           {
-            "name": "Decipher: Basic Attack - Elucidated",
+            "name": "Decipher: Basic Attack: Elucidated",
             "type": "basicAttack",
             "damage": {
               "type": "echoSkill",
@@ -44815,38 +44966,6 @@
             }
           },
           {
-            "name": "Mid-air Dodge Counter",
-            "type": "dodgeCounter",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.037,
-                    1.1221,
-                    1.2071,
-                    1.3262,
-                    1.4112,
-                    1.509,
-                    1.645,
-                    1.7811,
-                    1.9172,
-                    2.0617,
-                    2.2318,
-                    2.4018,
-                    2.5719,
-                    2.742,
-                    2.912,
-                    3.0821,
-                    3.2522,
-                    3.4223,
-                    3.5923,
-                    3.7624
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Decipher: Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
@@ -44899,6 +45018,38 @@
                     2.0435,
                     2.145,
                     2.2466
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Dodge Counter: Mid-air",
+            "type": "dodgeCounter",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.037,
+                    1.1221,
+                    1.2071,
+                    1.3262,
+                    1.4112,
+                    1.509,
+                    1.645,
+                    1.7811,
+                    1.9172,
+                    2.0617,
+                    2.2318,
+                    2.4018,
+                    2.5719,
+                    2.742,
+                    2.912,
+                    3.0821,
+                    3.2522,
+                    3.4223,
+                    3.5923,
+                    3.7624
                   ]
                 }
               ]
@@ -45173,7 +45324,7 @@
         "name": "Within Infinity's Embrace",
         "actions": [
           {
-            "name": "Schemata of Runes",
+            "name": "Heavy Attack: Schemata of Runes",
             "type": "heavyAttack",
             "damage": {
               "type": "echoSkill",
@@ -45487,7 +45638,7 @@
         "name": "Solsworn Etymology",
         "actions": [
           {
-            "name": "Solsworn Etymology",
+            "name": "Intro Skill",
             "type": "introSkill",
             "damage": {
               "multipliers": [
@@ -45524,7 +45675,7 @@
         "name": "In This Very Moment",
         "actions": [
           {
-            "name": "In This Very Moment",
+            "name": "Outro Skill",
             "type": "outroSkill",
             "damage": {
               "multipliers": [
@@ -45576,6 +45727,7 @@
     "element": "aero",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 10300,
@@ -45604,7 +45756,7 @@
         }
       },
       {
-        "key": "mindlock",
+        "ref": "mindlock",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -45639,7 +45791,7 @@
         "maxStacks": 15
       },
       {
-        "key": "mindlockEarly",
+        "ref": "mindlockEarly",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -45674,7 +45826,7 @@
         "maxStacks": 7
       },
       {
-        "key": "heavensClarity",
+        "ref": "heavensClarity",
         "apply": {
           "when": "start",
           "filter": {
@@ -46895,6 +47047,7 @@
     "element": "spectro",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 11400,
@@ -46922,7 +47075,7 @@
         }
       },
       {
-        "key": "shimmer",
+        "ref": "shimmer",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -47667,6 +47820,7 @@
     "element": "spectro",
     "type": "rectifier",
     "energy": 175,
+    "energyMin": 2.3,
     "tagged": [
       "healing"
     ],
@@ -48912,6 +49066,7 @@
     "element": "electro",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1.4,
     "tagged": [],
     "stats": {
       "baseHp": 8500,
@@ -49956,6 +50111,7 @@
     "element": "spectro",
     "type": "rectifier",
     "energy": 175,
+    "energyMin": 2.5,
     "tagged": [
       "healing"
     ],
@@ -50003,7 +50159,7 @@
         }
       },
       {
-        "key": "stellarealm",
+        "ref": "stellarealm",
         "apply": {
           "when": "start",
           "filter": {
@@ -50020,7 +50176,7 @@
         }
       },
       {
-        "key": "evolved",
+        "ref": "evolved",
         "apply": {
           "by": "$team",
           "when": "start",
@@ -50052,7 +50208,7 @@
         "maxStacks": 2
       },
       {
-        "key": "innerStellarealm",
+        "ref": "innerStellarealm",
         "stores": "$team",
         "buff": {
           "filter": {
@@ -50863,6 +51019,7 @@
     "element": "spectro",
     "type": "rectifier",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10825,
@@ -51760,6 +51917,7 @@
     "element": "spectro",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1.1,
     "tagged": [],
     "stats": {
       "baseHp": 10775,
@@ -51790,7 +51948,7 @@
         }
       },
       {
-        "key": "sunburst",
+        "ref": "sunburst",
         "apply": {
           "when": "end",
           "filter": {
@@ -51810,7 +51968,7 @@
         }
       },
       {
-        "key": "infernoMode",
+        "ref": "infernoMode",
         "apply": {
           "when": "start",
           "filter": {
@@ -51850,7 +52008,7 @@
         "gameRule": "heliacalEmber"
       },
       {
-        "key": "blaze",
+        "ref": "blaze",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -52911,6 +53069,7 @@
     "element": "havoc",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10775,
@@ -52958,7 +53117,7 @@
         }
       },
       {
-        "key": "resonantThreadOfClosure",
+        "ref": "resonantThreadOfClosure",
         "apply": {
           "when": "start",
           "filter": {
@@ -52993,7 +53152,7 @@
         "gameRule": "chisa"
       },
       {
-        "key": "threadOfBane",
+        "ref": "threadOfBane",
         "stores": "$applier",
         "apply": {
           "by": "$team",
@@ -54460,6 +54619,7 @@
     "element": "spectro",
     "type": "pistols",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 12237,
@@ -55847,6 +56007,7 @@
     "element": "spectro",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10300,
@@ -55868,7 +56029,7 @@
         }
       },
       {
-        "key": "aureateJudge",
+        "ref": "aureateJudge",
         "apply": {
           "when": "start",
           "filter": {
@@ -57032,6 +57193,7 @@
     "element": "spectro",
     "type": "pistols",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 11025,
@@ -59445,6 +59607,7 @@
     "element": "havoc",
     "type": "broadblade",
     "energy": 125,
+    "energyMin": 1,
     "tagged": [],
     "stats": {
       "baseHp": 8950,
@@ -60360,6 +60523,7 @@
     "element": "havoc",
     "type": "sword",
     "energy": 100,
+    "energyMin": 1,
     "tagged": [],
     "stats": {
       "baseHp": 9437,
@@ -61224,6 +61388,7 @@
     "element": "havoc",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 10325,
@@ -62066,6 +62231,7 @@
     "element": "havoc",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.4,
     "tagged": [],
     "stats": {
       "baseHp": 10825,
@@ -63085,6 +63251,7 @@
     "element": "havoc",
     "type": "gauntlets",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 12250,
@@ -63699,6 +63866,7 @@
     "element": "havoc",
     "type": "rectifier",
     "energy": 125,
+    "energyMin": 1.3,
     "tagged": [],
     "stats": {
       "baseHp": 11600,
@@ -64720,7 +64888,7 @@
     },
     "effects": [
       {
-        "key": "maestro",
+        "ref": "maestro",
         "apply": {
           "when": "start",
           "filter": {
@@ -64748,7 +64916,7 @@
         }
       },
       {
-        "key": "maestroHecateBasic1",
+        "ref": "maestroHecateBasic1",
         "apply": {
           "when": "start",
           "filter": {
@@ -64777,7 +64945,7 @@
         }
       },
       {
-        "key": "maestroHecateBasic2",
+        "ref": "maestroHecateBasic2",
         "apply": {
           "when": "start",
           "filter": {
@@ -64806,7 +64974,7 @@
         }
       },
       {
-        "key": "maestroHecateEnhanced",
+        "ref": "maestroHecateEnhanced",
         "apply": {
           "when": "start",
           "filter": {
@@ -64834,7 +65002,7 @@
         }
       },
       {
-        "key": "maestroHecateEnhancedFollowUp",
+        "ref": "maestroHecateEnhancedFollowUp",
         "apply": {
           "when": "start",
           "filter": {
@@ -64891,7 +65059,7 @@
         }
       },
       {
-        "key": "aftersound",
+        "ref": "aftersound",
         "apply": {
           "when": "start",
           "filter": {
@@ -64919,7 +65087,7 @@
         "maxStacks": 14
       },
       {
-        "key": "aftersoundStarting",
+        "ref": "aftersoundStarting",
         "buff": {
           "stats": {
             "critDmg%": 0.25
@@ -64927,7 +65095,7 @@
         }
       },
       {
-        "key": "aftersoundOverflow",
+        "ref": "aftersoundOverflow",
         "apply": {
           "when": "start",
           "filter": {
@@ -65880,6 +66048,7 @@
     "element": "havoc",
     "type": "sword",
     "energy": 125,
+    "energyMin": 1.2,
     "tagged": [],
     "stats": {
       "baseHp": 11025,
@@ -65890,7 +66059,7 @@
     },
     "effects": [
       {
-        "key": "voiceUponVoice",
+        "ref": "voiceUponVoice",
         "apply": {
           "when": "start",
           "filter": {
@@ -65914,7 +66083,7 @@
         }
       },
       {
-        "key": "basedBreath",
+        "ref": "basedBreath",
         "buff": {
           "filter": {
             "and": [
@@ -65935,7 +66104,7 @@
         }
       },
       {
-        "key": "streamingStorm",
+        "ref": "streamingStorm",
         "apply": {
           "when": "start",
           "filter": {
@@ -65974,7 +66143,7 @@
         }
       },
       {
-        "key": "featheredOath",
+        "ref": "featheredOath",
         "apply": {
           "by": "$team",
           "when": "inflict",
@@ -66013,7 +66182,7 @@
         "maxStacks": 6
       },
       {
-        "key": "unbrokenVow1",
+        "ref": "unbrokenVow1",
         "buff": {
           "filter": {
             "states": {
@@ -66032,7 +66201,7 @@
         }
       },
       {
-        "key": "unbrokenVow2",
+        "ref": "unbrokenVow2",
         "buff": {
           "filter": {
             "states": {
@@ -66051,7 +66220,7 @@
         }
       },
       {
-        "key": "unbrokenVow3",
+        "ref": "unbrokenVow3",
         "buff": {
           "filter": {
             "states": {
@@ -66070,7 +66239,7 @@
         }
       },
       {
-        "key": "unbrokenVow4",
+        "ref": "unbrokenVow4",
         "buff": {
           "filter": {
             "states": {
@@ -66089,7 +66258,7 @@
         }
       },
       {
-        "key": "unbrokenVow5",
+        "ref": "unbrokenVow5",
         "buff": {
           "filter": {
             "states": {
@@ -66108,7 +66277,7 @@
         }
       },
       {
-        "key": "unbrokenVow6",
+        "ref": "unbrokenVow6",
         "buff": {
           "filter": {
             "states": {
@@ -66127,7 +66296,7 @@
         }
       },
       {
-        "key": "windbound",
+        "ref": "windbound",
         "apply": {
           "by": "$team",
           "when": "start",
@@ -66144,7 +66313,7 @@
         "maxStacks": 6
       },
       {
-        "key": "oneWithTheWind",
+        "ref": "oneWithTheWind",
         "use": {
           "when": "inflict",
           "filter": {
@@ -66177,7 +66346,7 @@
         }
       },
       {
-        "key": "tonalSwitch",
+        "ref": "tonalSwitch",
         "apply": {
           "when": "start",
           "filter": {

@@ -306,7 +306,6 @@
     "effects": []
   },
   "11415": {
-    "disabled": true,
     "name": "Cinnabar Spindle",
     "version": 2.3,
     "id": 11415,
@@ -582,7 +581,6 @@
     "effects": []
   },
   "11502": {
-    "disabled": true,
     "name": "Skyward Blade",
     "version": 1,
     "id": 11502,
@@ -2640,7 +2638,6 @@
     "effects": []
   },
   "14512": {
-    "disabled": true,
     "name": "Tulaytullah's Remembrance",
     "version": 3.3,
     "id": 14512,
@@ -2651,7 +2648,37 @@
       "baseAtk": 674,
       "critDmg%": 0.441
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "attackSpd%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 14000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.48,
+              0.96
+            ]
+          }
+        }
+      }
+    ]
   },
   "14513": {
     "disabled": true,

@@ -1,6 +1,10 @@
 const getEffectStatesForMember = (ctx, memberId) => {
   const { memberEffects } = ctx.states;
-  if (memberId === 'all') return Object.values(memberEffects).flatMap(Object.values);
+
+  if (memberId === 'all') {
+    return Object.values(memberEffects).flatMap(Object.values);
+  }
+
   return Object.values(memberEffects[memberId]);
 };
 

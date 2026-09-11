@@ -3,20 +3,32 @@ import { MISC } from '@/data';
 export function computeStaminaToUpgradeSkill(gameId, upgradeCosts) {
   const { domains } = MISC[gameId];
 
-  let stamina = 0;
+  let staminaUsed = 0;
   let moneyAcc = 0;
 
-  const weeklyDomainTimes = upgradeCosts.weekly / domains.weekly.reward.weekly;
-  stamina += weeklyDomainTimes * domains.weekly.stamina;
-  moneyAcc += weeklyDomainTimes * domains.weekly.reward.money;
+  if (upgradeCosts.weekly) {
+    const { stamina, reward } = domains.weekly;
+    const domainTimes = upgradeCosts.weekly / reward.weekly;
 
-  const materialDomainTimes = upgradeCosts.material / domains.material.reward.material;
-  stamina += materialDomainTimes * domains.material.stamina;
-  moneyAcc += materialDomainTimes * domains.material.reward.money;
+    moneyAcc += domainTimes * (reward.money ?? 0);
+    staminaUsed += domainTimes * stamina;
+  }
+  
+  if (upgradeCosts.material) {
+    const { stamina, reward } = domains.material;
+    const domainTimes = upgradeCosts.material / reward.material;
 
-  const moneyStillNeeded = Math.max(upgradeCosts.money - moneyAcc, 0);
-  const moneyDomainTimes = moneyStillNeeded / domains.money.reward.money;
-  stamina += moneyDomainTimes * domains.money.stamina;
+    moneyAcc += domainTimes * (reward.money ?? 0);
+    staminaUsed += domainTimes * stamina;
+  }
+  
+  if (upgradeCosts.money) {
+    const { stamina, reward } = domains.money;
+    const moneyStillNeeded = Math.max(upgradeCosts.money - moneyAcc, 0);
+    const domainTimes = moneyStillNeeded / reward.money;
 
-  return stamina;
+    staminaUsed += domainTimes * stamina;
+  }
+
+  return staminaUsed;
 }

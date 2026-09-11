@@ -70,7 +70,7 @@ function handleApplyWhen(ctx, action, when) {
       const { apply } = effect;
       if (
         !apply.by.includes(action.ownerId) ||
-        applyCooldowns[effect.id] ||
+        applyCooldowns[effect.key] ||
         apply.when !== when ||
         !ctx.eventFilter(apply.filter, action, effect)
       ) continue;
@@ -83,10 +83,10 @@ function handleApplyWhen(ctx, action, when) {
 
 function advanceCooldowns(ctx, elapsed) {
   const { applyCooldowns } = ctx.states;
-  for (const effectId in applyCooldowns) {
-    applyCooldowns[effectId] -= elapsed;
-    if (applyCooldowns[effectId] <= 0) {
-      delete applyCooldowns[effectId];
+  for (const effectKey in applyCooldowns) {
+    applyCooldowns[effectKey] -= elapsed;
+    if (applyCooldowns[effectKey] <= 0) {
+      delete applyCooldowns[effectKey];
     }
   }
 }
@@ -94,6 +94,7 @@ function advanceCooldowns(ctx, elapsed) {
 function decayBuffStates(ctx, action) {
   for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
     const { store, effect, buffCooldown } = state;
+
     if (
       buffCooldown ||
       !ctx.eventFilter(effect.buff?.filter, action, effect)
@@ -105,15 +106,12 @@ function decayBuffStates(ctx, action) {
 
     if ('usesLeft' in state) {
       state.usesLeft--;
-      if (!state.usesLeft) delete store[effect.id];
+      if (!state.usesLeft) {
+        delete store[effect.key];
+      }
     }
   }
 }
-
-const canSnapshot = (action) =>
-  'damage' in action ||
-  'healing' in action ||
-  'shield' in action;
 
 function runAction(ctx, action, options = {}) {
   const { runtimeOffset, noDuration } = options;
@@ -140,7 +138,7 @@ function runAction(ctx, action, options = {}) {
     handleApplyWhen(ctx, action, when);
   }
 
-  if (action.id === 'other:tuneBreak') {
+  if (action.key === 'other:tuneBreak') {
     runTuneBreak(ctx, action);
     runEffectsWhen('tuneBreak');
     return;
@@ -150,9 +148,16 @@ function runAction(ctx, action, options = {}) {
   runEffectsWhen('start');
   advanceTimeTo(hitOffsets[0]);
 
-  if (canSnapshot(action)) {
-    if (ctx.saveSnapshots) ctx.snapshots.push(buildSnapshot(ctx, action, { runtimeOffset }));
-    if (ctx.cache.gameId === WW && 'damage' in action) applyOffTuneBuildup(ctx, action);
+  if (action.damage || action.healing || action.shield) {
+    if (ctx.saveSnapshots) {
+      const snapshot = buildSnapshot(ctx, action, { runtimeOffset });
+      ctx.snapshots.push(snapshot);
+    }
+
+    if (ctx.cache.gameId === WW && action.damage) {
+      applyOffTuneBuildup(ctx, action);
+    }
+
     decayBuffStates(ctx, action);
   }
 
@@ -177,7 +182,8 @@ function runAction(ctx, action, options = {}) {
 export const runRotation = (cache, equipMaps, specId) => {  
   const buildMaps = {};
   for (const [memberId, equipMap] of Object.entries(equipMaps)) {
-    buildMaps[memberId] = toMergedObj(cache.member[memberId].baseMap, equipMap);
+    const { baseMap, staticMap } = cache.member[memberId];
+    buildMaps[memberId] = toMergedObj(baseMap, staticMap, equipMap);
   }
 
   const ctx = {
@@ -206,7 +212,7 @@ export const runRotation = (cache, equipMaps, specId) => {
   // Init passives into effect states
   for (const mCache of Object.values(cache.member)) {
     for (const effect of Object.values(mCache.effects)) {
-      if (effect.apply?.when) continue;
+      if (effect.apply?.when || effect.static) continue;
       runApplyEffect(ctx, effect);
     }
   }
@@ -214,8 +220,7 @@ export const runRotation = (cache, equipMaps, specId) => {
   // Rotation loop
   const actionOrder = cache.memberIds
     .toReversed()
-    .flatMap((memberId) =>
-      cache.member[memberId].rotation);
+    .flatMap((memberId) => cache.member[memberId].rotation);
 
   for (const action of actionOrder) {
     ctx.states.onFieldId = action.ownerId;

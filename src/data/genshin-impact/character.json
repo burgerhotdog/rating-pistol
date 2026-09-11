@@ -15,10 +15,60 @@
       "baseDef": 784,
       "critDmg%": 0.384
     },
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 5000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 250,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "offset": 5000,
+          "uses": 1
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": 0.3,
+            "chargedAttackDmgBonus%": 0.3
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Kamisato Art: Kabuki",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -266,10 +316,10 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Kamisato Art: Hyouka",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -298,12 +348,16 @@
         ]
       },
       "elementalBurst": {
-        "name": "Cutting DMG",
+        "name": "Kamisato Art: Soumetsu",
         "actions": [
           {
-            "name": "Cutting DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Elemental Burst: Cutting",
             "damage": {
+              "type": "elementalBurst",
               "multipliers": [
                 {
                   "mv": [
@@ -328,9 +382,9 @@
             }
           },
           {
-            "name": "Bloom DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst: Bloom",
             "damage": {
+              "type": "elementalBurst",
               "multipliers": [
                 {
                   "mv": [
@@ -7050,7 +7104,6 @@
     "memberPreset": {}
   },
   "10000032": {
-    "disabled": true,
     "name": "Bennett",
     "version": 1,
     "id": 10000032,
@@ -7065,10 +7118,47 @@
       "baseDef": 771,
       "energyRecharge%": 0.267
     },
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "statRefs": {
+            "atk": "elementalBurst.2"
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Strike of Fortune",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -7335,7 +7425,7 @@
         ]
       },
       "elementalSkill": {
-        "name": "Passion Overload: Press",
+        "name": "Passion Overload",
         "actions": [
           {
             "name": "Passion Overload: Press",
@@ -7489,7 +7579,7 @@
         "name": "Fantastic Voyage",
         "actions": [
           {
-            "name": "Fantastic Voyage",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
               "multipliers": [
@@ -7563,8 +7653,8 @@
           },
           {
             "name": "ATK Bonus Ratio",
-            "type": "buff",
-            "damage": {
+            "buff": {
+              "baseAttr": "baseAtk",
               "multipliers": [
                 {
                   "mv": [
@@ -7591,7 +7681,16 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11502,
+      "setCounts": {
+        "15007": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000033": {
     "disabled": true,
@@ -10221,7 +10320,6 @@
     "memberPreset": {}
   },
   "10000038": {
-    "disabled": true,
     "name": "Albedo",
     "version": 1.2,
     "id": 10000038,
@@ -10567,7 +10665,7 @@
         "name": "Abiogenesis: Solar Isotoma",
         "actions": [
           {
-            "name": "Abiogenesis: Solar Isotoma",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -10627,7 +10725,7 @@
         "name": "Rite of Progeniture: Tectonic Tide",
         "actions": [
           {
-            "name": "Rite of Progeniture: Tectonic Tide",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
               "multipliers": [
@@ -26817,7 +26915,6 @@
     "memberPreset": {}
   },
   "10000075": {
-    "disabled": true,
     "name": "Wanderer",
     "version": 3.3,
     "id": 10000075,
@@ -26832,10 +26929,57 @@
       "baseDef": 607,
       "critRate%": 0.192
     },
-    "effects": [],
+    "effects": [
+      {
+        "ref": "windfavoredNA",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 10000
+        },
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.0",
+                "normalAttack.1",
+                "normalAttack.2"
+              ]
+            }
+          },
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "windfavoredCA",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 10000
+        },
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.3"
+            }
+          },
+          "action": "elementalSkill.2"
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Yuuban Meigen",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -27048,10 +27192,10 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Hanega: Song of the Wind",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -27078,9 +27222,9 @@
             }
           },
           {
-            "name": "Kuugo: Fushoudan DMG",
-            "type": "elementalSkill",
+            "name": "Kuugo: Fushoudan",
             "damage": {
+              "type": "normalAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -27105,9 +27249,9 @@
             }
           },
           {
-            "name": "Kuugo: Toufukai DMG",
-            "type": "elementalSkill",
+            "name": "Kuugo: Toufukai",
             "damage": {
+              "type": "chargedAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -27134,10 +27278,10 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Kyougen: Five Ceremonial Plays",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
               "multipliers": [
@@ -27158,7 +27302,8 @@
                     3.128,
                     3.312,
                     3.496
-                  ]
+                  ],
+                  "times": 5
                 }
               ]
             }
@@ -27166,7 +27311,32 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "rotation": [
+        "elementalSkill.0",
+        "normalAttack.3",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "elementalBurst.0"
+      ],
+      "duration": 13000
+    }
   },
   "10000076": {
     "disabled": true,

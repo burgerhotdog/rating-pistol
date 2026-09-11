@@ -147,8 +147,18 @@ def parse_character(version, id, data):
     }
 
 def parse_weapon(version, id, data):
-    stat = lookup_stat[data["rand_property"]["name"]]
-    value = data["rand_property"]["value"] * 2.5
+    weapon_type = next(iter(data["weapon_type"].values())).lower()
+
+    basestat_id = "baseDef" if weapon_type == "armorer" else "baseAtk"
+    basestat_value = round(data["base_property"]["value"] * 14.85)
+
+    substat_id = lookup_stat[data["rand_property"]["name"]]
+    substat_value = (
+        data["rand_property"]["value"] * 2.5 / 10000
+        if substat_id.endswith("%")
+        else int(data["rand_property"]["value"] * 2.5)
+    )
+
     return {
         "disabled": True,
         "name": str(data["name"]),
@@ -156,10 +166,10 @@ def parse_weapon(version, id, data):
         "id": int(id),
         "icon": f"zenless-zone-zero/weapon/{id}.webp",
         "quality": int(data["rarity"]) + 1,
-        "type": next(iter(data["weapon_type"].values())).lower(),
+        "type": weapon_type,
         "stats": {
-            "baseAtk": round(data["base_property"]["value"] * 104 / 7),
-            stat: value / 10000 if stat.endswith("%") else int(value),
+            basestat_id: basestat_value,
+            substat_id: substat_value,
         },
         "effects": [],
     }

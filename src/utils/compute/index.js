@@ -1,4 +1,3 @@
-export * from './computeConcertoExtraTime';
-export * from './computeDps';
-export * from './computePenalty';
+export * from './computeActualRotationTime';
+export * from './computeDpsCeiling';
 export * from './computeStaminaToUpgradeSkill';

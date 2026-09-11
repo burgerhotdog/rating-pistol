@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { CHARACTER, WEAPON, SET, ECHO, ELEMENT, TYPE, MAINSTAT, SUBSTAT, MISC } from '@/data';
+import { CHARACTER, WEAPON, SET, ECHO, ELEMENT, TYPE, MAINSTAT, SUBSTAT, MISC, LANG } from '@/data';
 
 export function useData(type) {
   const { gameId } = useParams();
@@ -23,5 +23,7 @@ export function useData(type) {
       return SUBSTAT[gameId];
     case 'misc':
       return MISC[gameId];
+    case 'lang':
+      return LANG[gameId];
   }
 }
