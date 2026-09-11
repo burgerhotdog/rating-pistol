@@ -81,7 +81,7 @@ const Overview = ({ results }) => {
   return (
     <Stack spacing={1} sx={{ flex: 1 }}>
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
-        <Card component={Stack} sx={{ flex: 1 }}>
+        <Card component={Stack} sx={{ flex: 2 }}>
           <CardHeader title="Overall Rating" />
           <CardContent
             component={Stack}
@@ -123,51 +123,63 @@ const Overview = ({ results }) => {
           </CardContent>
         </Card>
 
-        <Card component={Stack} sx={{ flex: 1 }}>
-          <CardHeader title="Weapons" />
-          <Button onClick={() => setWeaponOpen(true)}>
-            Open Weapons
-          </Button>
-          <WeaponsDialog
-            results={results}
-            open={weaponOpen}
-            onClose={() => setWeaponOpen(false)}
-          />
-          <Button onClick={() => setSetsOpen(true)}>
-            Open Sets
-          </Button>
-          <SetsDialog
-            results={results}
-            open={setsOpen}
-            onClose={() => setSetsOpen(false)}
-          />
-        </Card>
+        <Stack spacing={1} sx={{ flex: 1 }}>
+          <Card component={Stack} sx={{ flex: 1 }}>
+            <CardHeader title="Weapons" />
+            <Button onClick={() => setWeaponOpen(true)}>
+              Open Weapons
+            </Button>
+            <WeaponsDialog
+              results={results}
+              open={weaponOpen}
+              onClose={() => setWeaponOpen(false)}
+            />
+          </Card>
+
+          <Card component={Stack} sx={{ flex: 1 }}>
+            <CardHeader title="Set Bonuses" />
+            <Button onClick={() => setSetsOpen(true)}>
+              Open Sets
+            </Button>
+            <SetsDialog
+              results={results}
+              open={setsOpen}
+              onClose={() => setSetsOpen(false)}
+            />
+          </Card>
+        </Stack>
       </Stack>
 
-      <Card component={Stack} sx={{ flex: 1 }}>
-        <CardHeader
-          title="Rotation Timeline"
-          action={
-            <FormControlLabel
-              control={
-                <Switch
-                  color={accent}
-                  checked={showHits}
-                  onChange={(e) => setShowHits(e.target.checked)}
-                />
-              }
-              label="Show Damage Ticks"
-            />
-          }
-        />
-        <Stack direction="row" sx={{ flex: 1 }}>
+      <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
+        <Card component={Stack} sx={{ flex: 2 }}>
+          <CardHeader
+            title="Rotation Timeline"
+            action={
+              <FormControlLabel
+                control={
+                  <Switch
+                    color={accent}
+                    checked={showHits}
+                    onChange={(e) => setShowHits(e.target.checked)}
+                  />
+                }
+                label="Show Damage Ticks"
+              />
+            }
+          />
           {!showHits
             ? <AreaView results={results} />
             : <ScatterView results={results} />
           }
+        </Card>
+
+        <Card component={Stack} sx={{ flex: 1 }}>
+          <CardHeader
+            title="Damage Distribution"
+          />
           <DistributionChart results={results} />
-        </Stack>
-      </Card>
+        </Card>
+      </Stack>
     </Stack>
   );
 };

@@ -26,7 +26,7 @@ const SimulationResults = ({ team }) => {
         centered
       >
         <Tab value={1} label="Overview" />
-        <Tab value={2} label="Main/Substats" />
+        <Tab value={2} label="Build Stats" />
         <Tab value={3} label="Skill Levels" />
       </Tabs>
 

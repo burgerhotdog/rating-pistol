@@ -171,7 +171,7 @@ const SetsDialog = ({ results, open, onClose }) => {
       fullWidth
       maxWidth="md"
     >
-      <DialogTitle>Sets</DialogTitle>
+      <DialogTitle>Set Bonus Rankings</DialogTitle>
       <DialogContent
         dividers
         sx={{ overflowY: 'auto', p: 2 }}

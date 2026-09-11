@@ -81,7 +81,7 @@ const WeaponsDialog = ({ results, open, onClose }) => {
       fullWidth
       maxWidth="md"
     >
-      <DialogTitle>Weapons</DialogTitle>
+      <DialogTitle>Weapon Rankings</DialogTitle>
       <DialogContent
         dividers
         sx={{ overflowY: 'auto', p: 2 }}
