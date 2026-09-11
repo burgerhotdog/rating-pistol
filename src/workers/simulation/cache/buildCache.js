@@ -93,21 +93,22 @@ export const buildCache = ({ gameId, charId, team }) => {
   cache.teamSize = fTeam.length;
 
   cache.member = {};
-  cache.effects = {};
 
   for (const member of fTeam) {
-    const actionDefs = getActionDefs(gameId, member, cache.teamSize);
+    const baseMap = buildBaseMap(gameId, member.id, member.weaponId);
+
+    const actionDefs = getActionDefs(gameId, member, cache.teamSize, baseMap);
 
     const mCache = {
       ...member,
+      baseMap,
       ...getConvertedRotation(gameId, member, actionDefs, cache.memberIds),
     };
 
-    mCache.baseMap = buildBaseMap(gameId, member.id, member.weaponId);
     if (member.build?.equipList) {
       mCache.equipList = member.build.equipList;
       mCache.equipMap = buildEquipMap(mCache.equipList);
-      mCache.statMap = toMergedObj(mCache.baseMap, mCache.equipMap);
+      mCache.statMap = toMergedObj(baseMap, mCache.equipMap);
     }
 
     const effectDefs = getEffectDefs(gameId, member, { memberIds: cache.memberIds, actionDefs });
@@ -119,12 +120,20 @@ export const buildCache = ({ gameId, charId, team }) => {
         return toMergedObj(acc, stats);
       }, {});
 
-    mCache.effects = effectDefs;
-    Object.assign(cache.effects, effectDefs);
+    mCache.effects = Object.fromEntries(
+      Object.entries(effectDefs)
+        .filter(([, effect]) => !effect.static)
+    );
 
     const charData = CHARACTER[gameId][member.id];
-    if (charData.tagged.includes('healing')) mCache.healing = true;
-    if (charData.tagged.includes('shield')) mCache.shield = true;
+
+    if (charData.tagged.includes('healing')) {
+      mCache.healing = true;
+    }
+
+    if (charData.tagged.includes('shield')) {
+      mCache.shield = true;
+    }
 
     if (charData.energy) {
       mCache.energy = charData.energy;

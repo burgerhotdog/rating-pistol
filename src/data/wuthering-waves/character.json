@@ -44436,9 +44436,7 @@
         },
         "buff": {
           "filter": {
-            "states": {
-              "field": "onField"
-            }
+            "field": "onField"
           },
           "stats": {
             "aeroDmgBonus%": 0.03,

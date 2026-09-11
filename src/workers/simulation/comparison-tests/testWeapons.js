@@ -30,14 +30,57 @@ function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weapo
   return resolveEffectTokens(normalized);
 }
 
+function renormalizeBaseEffects(nonWeapBaseEffects, baseMap) {
+  const renormalized = structuredClone(nonWeapBaseEffects);
+
+  for (const effect of Object.values(renormalized)) {
+    if (effect.buff.statRefs) {
+      for (const [id, { baseAttr, multipliers, mvIndex }] of Object.entries(effect.buff.statRefsRaw)) {
+        const baseAttrValue = baseMap[baseAttr] ?? 0;
+
+        const { mv, flat } = multipliers[0];
+        const mvBuffValue = mv?.[mvIndex] ?? 0;
+        const flatBuffValue = flat?.[mvIndex] ?? 0;
+        effect.buff.stats[id] = mvBuffValue * baseAttrValue + flatBuffValue;
+      }
+    }
+
+    if (effect.buff.specRefs) {
+      for (const [id, fieldMap] of Object.entries(effect.buff.specRefsRaw)) {
+        for (const [field, { baseAttr, multipliers, mvIndex }] of Object.entries(fieldMap)) {
+          const baseAttrValue = baseMap[baseAttr] ?? 0;
+
+          const { mv, flat } = multipliers[0];
+          const mvBuffValue = mv?.[mvIndex] ?? 0;
+          const flatBuffValue = flat?.[mvIndex] ?? 0;
+          effect.buff.specs[id][field] = mvBuffValue * baseAttrValue + flatBuffValue;
+        }
+      }
+    }
+  }
+
+  return renormalized;
+}
+
 export function testWeapons(cache, equipMaps, charId) {
   const { gameId } = cache;
   const { type: charType, concertoReq } = CHARACTER[gameId][charId];
   const mCache = cache.member[charId];
 
-  const nonWeapEffects = Object.fromEntries(
+  const nonWeapNonBaseEffects = Object.fromEntries(
     Object.entries(mCache.effects)
-      .filter(([, effect]) => effect.sourceId !== mCache.weaponId)
+      .filter(([, effect]) =>
+        effect.sourceId !== mCache.weaponId &&
+        (!effect.buff?.statRefs && !effect.buff?.specRefs)
+      )
+  );
+
+  const nonWeapBaseEffects = Object.fromEntries(
+    Object.entries(mCache.effects)
+      .filter(([, effect]) =>
+        effect.sourceId !== mCache.weaponId &&
+        (effect.buff?.statRefs || effect.buff?.specRefs)
+      )
   );
 
   const weapDatasToTest = Object.values(WEAPON[gameId])
@@ -53,7 +96,8 @@ export function testWeapons(cache, equipMaps, charId) {
       : getDefaultWeapRank(gameId, weapData.id);
 
     const overrideEffects = {
-      ...nonWeapEffects,
+      ...nonWeapNonBaseEffects,
+      ...renormalizeBaseEffects(nonWeapBaseEffects, baseMap),
       ...getNormalizedWeaponEffects(weapData.effects, gameId, charId, weapData.id, testRank, cache.memberIds),
     };
 

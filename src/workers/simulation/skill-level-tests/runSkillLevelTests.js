@@ -55,23 +55,43 @@ export function runSkillLevelTests(cache, equipMaps, charId) {
 
       // effects
       for (const effect of Object.values(memberOverrides.effects)) {
-        if (!effect.use?.action?.length) continue;
+        if (effect.use?.action?.length) {
+          for (const action of effect.use.action) {
+            if (action.category !== skillId) continue;
 
-        for (const action of effect.use.action) {
-          if (action.category !== skillId) continue;
+            for (const part of parts) {
+              const actionPart = action[part];
+              if (!actionPart) continue;
 
-          for (const part of parts) {
-            const actionPart = action[part];
-            if (!actionPart) continue;
+              const rawPartDef = charSkills[skillId].actions[action.index]?.[part];
+              if (!rawPartDef) continue;
 
-            const rawPartDef = charSkills[skillId].actions[action.index]?.[part];
-            if (!rawPartDef) continue;
+              actionPart.compressed = getCompressed(
+                rawPartDef.multipliers,
+                rawPartDef.attr ?? 'atk',
+                { index: mvIndex },
+              );
+            }
+          }
+        }
 
-            actionPart.compressed = getCompressed(
-              rawPartDef.multipliers,
-              rawPartDef.attr ?? 'atk',
-              { index: mvIndex },
-            );
+        if (effect.buff?.statRefsRaw) {
+          for (const [id, { baseAttrValue, multipliers }] of Object.entries(effect.buff.statRefsRaw)) {
+            const { mv, flat } = multipliers[0];
+            const mvBuffValue = mv?.[mvIndex] ?? 0;
+            const flatBuffValue = flat?.[mvIndex] ?? 0;
+            effect.buff.stats[id] = mvBuffValue * baseAttrValue + flatBuffValue;
+          }
+        }
+
+        if (effect.buff?.specRefsRaw) {
+          for (const [id, fieldMap] of Object.entries(effect.buff.specRefsRaw)) {
+            for (const [field, { baseAttrValue, multipliers }] of Object.entries(fieldMap)) {
+              const { mv, flat } = multipliers[0];
+              const mvBuffValue = mv?.[mvIndex] ?? 0;
+              const flatBuffValue = flat?.[mvIndex] ?? 0;
+              effect.buff.specs[id][field] = mvBuffValue * baseAttrValue + flatBuffValue;
+            }
           }
         }
       }

@@ -11,11 +11,11 @@ function doRemove(ctx, ownerId, toRemove = {}) {
     const effect = ctx.cache.member[ownerId].effects[effectKey];
 
     for (const target of effect.stores) {
-      if (target === 'global') {
-        runRemoveEffect(globalEffects[effectKey], stacks);
-      } else {
-        runRemoveEffect(memberEffects[target][effectKey], stacks);
-      }
+      const state = target === 'global'
+        ? globalEffects[effectKey]
+        : memberEffects[target][effectKey];
+
+      runRemoveEffect(state, stacks);
     }
   }
 }
@@ -27,11 +27,11 @@ function doUse(ctx, ownerId, toUse = {}) {
     const effect = ctx.cache.member[ownerId].effects[effectKey];
 
     for (const store of effect.stores) {
-      if (store === 'global') {
-        runUseEffect(ctx, globalEffects[effectKey]);
-      } else {
-        runUseEffect(ctx, memberEffects[store][effectKey]);
-      }
+      const state = store === 'global'
+        ? globalEffects[effectKey]
+        : memberEffects[store][effectKey];
+
+      runUseEffect(ctx, state);
     }
   }
 }
@@ -53,19 +53,43 @@ function doApply(ctx, ownerId, applier, toApply = {}, doApplyType = 'refresh', d
 }
 
 export function onRemoveDoCommand(ctx, effect, applier) {
-  if ('onRemoveDoRemove' in effect) doRemove(ctx, effect.ownerId, effect.onRemoveDoRemove);
-  if ('onRemoveDoUse' in effect) doUse(ctx, effect.ownerId, effect.onRemoveDoUse);
-  if ('onRemoveDoApply' in effect) doApply(ctx, effect.ownerId, applier, effect.onRemoveDoApply, effect.doApplyType, effect.doApplyDuration);
+  if ('onRemoveDoRemove' in effect) {
+    doRemove(ctx, effect.ownerId, effect.onRemoveDoRemove);
+  }
+
+  if ('onRemoveDoUse' in effect) {
+    doUse(ctx, effect.ownerId, effect.onRemoveDoUse);
+  }
+
+  if ('onRemoveDoApply' in effect) {
+    doApply(ctx, effect.ownerId, applier, effect.onRemoveDoApply, effect.doApplyType, effect.doApplyDuration);
+  }
 }
 
 export function onUseDoCommand(ctx, effect, applier) {
-  if ('onUseDoRemove' in effect) doRemove(ctx, effect.ownerId, effect.onUseDoRemove);
-  if ('onUseDoUse' in effect) doUse(ctx, effect.ownerId, effect.onUseDoUse);
-  if ('onUseDoApply' in effect) doApply(ctx, effect.ownerId, applier, effect.onUseDoApply, effect.doApplyType, effect.doApplyDuration);
+  if ('onUseDoRemove' in effect) {
+    doRemove(ctx, effect.ownerId, effect.onUseDoRemove);
+  }
+
+  if ('onUseDoUse' in effect) {
+    doUse(ctx, effect.ownerId, effect.onUseDoUse);
+  }
+
+  if ('onUseDoApply' in effect) {
+    doApply(ctx, effect.ownerId, applier, effect.onUseDoApply, effect.doApplyType, effect.doApplyDuration);
+  }
 }
 
 export function onApplyDoCommand(ctx, effect, applier) {
-  if ('onApplyDoRemove' in effect) doRemove(ctx, effect.ownerId, effect.onApplyDoRemove);
-  if ('onApplyDoUse' in effect) doUse(ctx, effect.ownerId, effect.onApplyDoUse);
-  if ('onApplyDoApply' in effect) doApply(ctx, effect.ownerId, applier, effect.onApplyDoApply, effect.doApplyType, effect.doApplyDuration);
+  if ('onApplyDoRemove' in effect) {
+    doRemove(ctx, effect.ownerId, effect.onApplyDoRemove);
+  }
+
+  if ('onApplyDoUse' in effect) {
+    doUse(ctx, effect.ownerId, effect.onApplyDoUse);
+  }
+
+  if ('onApplyDoApply' in effect) {
+    doApply(ctx, effect.ownerId, applier, effect.onApplyDoApply, effect.doApplyType, effect.doApplyDuration);
+  }
 }

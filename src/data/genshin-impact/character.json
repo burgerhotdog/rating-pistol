@@ -7147,8 +7147,11 @@
           "duration": 12000
         },
         "buff": {
-          "stats": {
-            "atk": 1000
+          "filter": {
+            "field": "onField"
+          },
+          "statRefs": {
+            "atk": "elementalBurst.2"
           }
         }
       }
@@ -7650,7 +7653,8 @@
           },
           {
             "name": "ATK Bonus Ratio",
-            "damage": {
+            "buff": {
+              "baseAttr": "baseAtk",
               "multipliers": [
                 {
                   "mv": [

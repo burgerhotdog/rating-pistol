@@ -99,9 +99,7 @@ export async function runEquipTests(cache, equipMaps, currId, isMainChar = false
   const { snapshots, score: dpsFloor } = evaluateEquipMap();
   const skippable = buildSkippable(cache.gameId, dpsFloor, evaluateEquipMap);
 
-  console.time('dpsCeiling');
   const dpsCeiling = computeDpsCeiling(cache.gameId, evaluateEquipMap, currId, skippable);
-  console.timeEnd('dpsCeiling');
 
   const dpsProgression = [];
 

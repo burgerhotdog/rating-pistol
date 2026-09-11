@@ -15,7 +15,7 @@ export function createMvIndexGetter(gameId, member) {
   return (category) => member.skillLevels[category] - 1 + (addByCategory[category] ?? 0);
 }
 
-export const getActionDefs = (gameId, member, teamSize) => {
+export const getActionDefs = (gameId, member, teamSize, baseMap) => {
   const getMvIndex = createMvIndexGetter(gameId, member);
   const charData = CHARACTER[gameId][member.id];
 
@@ -31,6 +31,7 @@ export const getActionDefs = (gameId, member, teamSize) => {
       charElement: charData.element,
       weaponType: charData.type,
       mode: member.mode,
+      baseMap,
     }
 
     for (const [index, rawAction] of actions.entries()) {

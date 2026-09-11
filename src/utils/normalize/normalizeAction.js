@@ -64,6 +64,20 @@ export function normalizeAction(gameId, rawAction, spec) {
     key: `${ownerId}:${category}.${index}`,
   };
 
+  if (action.buff) {
+    const baseAttr = action.buff.baseAttr;
+    const baseAttrValue = spec.baseMap[baseAttr] ?? 0;
+
+    const { mv, flat } = action.buff.multipliers[0];
+    const mvBuffValue = mv?.[spec.mvIndex] ?? 0;
+    const flatBuffValue = flat?.[spec.mvIndex] ?? 0;
+    action.buff.value = mvBuffValue * baseAttrValue + flatBuffValue;
+
+    action.buff.mvIndex = spec.mvIndex;
+    action.buff.baseAttrValue = baseAttrValue;
+    return action;
+  }
+
   action.duration ??= DEFAULT_DURATIONS[gameId][action.type] ?? 0;
 
   if (action.damage) {

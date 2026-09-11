@@ -258,6 +258,5 @@ export function computeDpsCeiling(gameId, evaluateEquipMap, currId, skippable) {
     }
   }
 
-  console.log(bestScore);
   return bestScore;
 }
