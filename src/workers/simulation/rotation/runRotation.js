@@ -94,6 +94,7 @@ function advanceCooldowns(ctx, elapsed) {
 function decayBuffStates(ctx, action) {
   for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
     const { store, effect, buffCooldown } = state;
+
     if (
       buffCooldown ||
       !ctx.eventFilter(effect.buff?.filter, action, effect)

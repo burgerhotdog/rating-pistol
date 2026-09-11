@@ -42,6 +42,10 @@ self.onmessage = async ({ data }) => {
 
   const equipMaps = await resolveEquipMaps(cache);
 
+  console.time('setTests');
+  const setResults = testSets(cache, equipMaps, cache.charId);
+  console.timeEnd('setTests');
+
   self.postMessage({ status: 'Checking rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
   const userDamage = getTotals(userSnapshots).damage;
@@ -61,12 +65,8 @@ self.onmessage = async ({ data }) => {
   const weaponResults = testWeapons(cache, equipMaps, cache.charId);
   console.timeEnd('weaponTests');
 
-  console.time('setTests');
-  const setResults = testSets(cache, equipMaps, cache.charId);
-  console.timeEnd('setTests');
-
   console.time('skillLevelTests');
-  const skillLevelResults = testSkillLevels(cache, equipMaps, cache.charId, userDps);
+  const skillLevelResults = testSkillLevels(cache, equipMaps, cache.charId);
   console.timeEnd('skillLevelTests');
   
 

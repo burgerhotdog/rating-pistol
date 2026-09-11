@@ -72,7 +72,9 @@ export const resolveEffectTokens = (normalized) => {
     });
   }
 
-  for (const effect of Object.values(normalized)) {
+  const resolved = structuredClone(normalized);
+
+  for (const effect of Object.values(resolved)) {
     const { ownerId, sourceId } = effect;
 
     for (const field in effect) {
@@ -108,5 +110,5 @@ export const resolveEffectTokens = (normalized) => {
     }
   }
 
-  return normalized;
+  return resolved;
 };
