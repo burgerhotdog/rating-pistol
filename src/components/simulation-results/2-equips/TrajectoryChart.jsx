@@ -1,8 +1,4 @@
-import {
-  Paper,
-  Stack,
-  Typography,
-} from '@mui/material';
+import { Paper, Stack, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import {
   Area,
@@ -13,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { useAccent, useData } from '@/hooks';
+import { useAccent } from '@/hooks';
 import { estimateDay, estimateDps, formatDmg, formatNum } from '@/utils';
 
 function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
@@ -60,7 +56,6 @@ const TrajectoryChart = ({ results }) => {
   const { dpsProgression, userDps, dpsCeiling, fit, benchmarkDay } = results;
   const { palette } = useTheme();
   const accent = useAccent();
-  const { staminaPerDay } = useData('misc');
 
   const userDay = estimateDay(userDps, results.dpsCeiling, results.dpsProgression, results.fit);
 
@@ -151,7 +146,6 @@ const TrajectoryChart = ({ results }) => {
           const nextDps = estimateDps(day + 1, dpsCeiling, dpsProgression, fit);
           const diff = nextDps - value;
           const diffPct = diff / value * 100;
-          const diffPctPerStamina = diffPct / staminaPerDay;
 
           return (
             <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
@@ -163,7 +157,7 @@ const TrajectoryChart = ({ results }) => {
                   DPS: {formatNum(value ?? 0)}
                 </Typography>
                 <Typography variant="caption">
-                  Rate: {Math.abs(diffPctPerStamina).toFixed(4)}% per stamina
+                  Rate: {Math.abs(diffPct).toFixed(2)}% per day
                 </Typography>
               </Stack>
             </Paper>

@@ -10,8 +10,8 @@ import {
   YAxis,
   matchByDataKey,
 } from 'recharts';
-import { formatDmg, formatNum } from '@/utils';
 import { useData } from '@/hooks';
+import { formatDmg, formatNum } from '@/utils';
 
 const renderTooltip = ({ payload, label }) => {
   const { empty, dps = 0, pct = 0, isUser } = payload?.[0]?.payload ?? {};
@@ -49,6 +49,7 @@ const WeaponsDialog = ({ results, open, onClose }) => {
   const userWeaponId = userMember.weaponId;
   const { palette, qualityColors } = useTheme();
   const weapDatas = useData('weapon');
+  const langData = useData('lang');
 
   const data = useMemo(
     () => weaponResults
@@ -81,7 +82,7 @@ const WeaponsDialog = ({ results, open, onClose }) => {
       fullWidth
       maxWidth="md"
     >
-      <DialogTitle>Weapon Rankings</DialogTitle>
+      <DialogTitle>{`${langData.Weapon} Rankings`}</DialogTitle>
       <DialogContent
         dividers
         sx={{ overflowY: 'auto', p: 2 }}

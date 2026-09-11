@@ -8,6 +8,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
+import { useData } from '@/hooks';
 import { formatNum } from '@/utils';
 import WeaponsDialog from './WeaponsDialog';
 import SetsDialog from './SetsDialog';
@@ -61,6 +62,7 @@ const TextBox = ({ label, value }) => {
 
 const Overview = ({ results }) => {
   const { userDps, dpsCeiling, benchmarkDps, memberIds, userSnapshots } = results;
+  const langData = useData('lang');
   const [weaponOpen, setWeaponOpen] = useState(false);
   const [setsOpen, setSetsOpen] = useState(false);
 
@@ -119,9 +121,9 @@ const Overview = ({ results }) => {
 
         <Stack spacing={1} sx={{ flex: 1 }}>
           <Card component={Stack} sx={{ flex: 1 }}>
-            <CardHeader title="Weapons" />
+            <CardHeader title={`${langData.Weapon}s`}/>
             <Button onClick={() => setWeaponOpen(true)}>
-              Open Weapons
+              Open
             </Button>
             <WeaponsDialog
               results={results}
@@ -131,9 +133,9 @@ const Overview = ({ results }) => {
           </Card>
 
           <Card component={Stack} sx={{ flex: 1 }}>
-            <CardHeader title="Set Bonuses" />
+            <CardHeader title={`${langData.Equip} Set Bonuses`} />
             <Button onClick={() => setSetsOpen(true)}>
-              Open Sets
+              Open
             </Button>
             <SetsDialog
               results={results}

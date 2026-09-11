@@ -1,0 +1,26 @@
+{
+  "genshin-impact": {
+    "Character": "Character",
+    "Weapon": "Weapon",
+    "Equip": "Artifact",
+    "Stamina": "Resin"
+  },
+  "honkai-star-rail": {
+    "Character": "Character",
+    "Weapon": "Light Cone",
+    "Equip": "Relic",
+    "Stamina": "Trailblaze Power"
+  },
+  "wuthering-waves": {
+    "Character": "Resonator",
+    "Weapon": "Weapon",
+    "Equip": "Echo",
+    "Stamina": "Waveplate"
+  },
+  "zenless-zone-zero": {
+    "Character": "Agent",
+    "Weapon": "W-Engine",
+    "Equip": "Drive Disc",
+    "Stamina": "Battery Charge"
+  }
+}

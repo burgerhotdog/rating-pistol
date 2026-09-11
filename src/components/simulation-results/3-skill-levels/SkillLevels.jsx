@@ -14,6 +14,7 @@ const SkillLevels = ({ results }) => {
   const { palette } = useTheme();
   const accent = useAccent();
   const { maxSkillLevel, skillLevelUpgradeCosts } = useData('misc');
+  const langData = useData('lang');
 
   const improvementData = useMemo(
     () => Object.values(skillLevelResults)
@@ -64,12 +65,12 @@ const SkillLevels = ({ results }) => {
     <Stack spacing={1} sx={{ flex: 1 }}>
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
         <Card component={Stack} sx={{ flex: 1 }}>
-          <CardHeader title="Current rate of improvement per stamina" />
+          <CardHeader title={`Current Improvement Rate per ${langData.Stamina}`} />
           <RatePerStamina data={rateData} />
         </Card>
 
         <Card component={Stack} sx={{ flex: 1 }}>
-          <CardHeader title="Stamina Cost to upgrade skill level" />
+          <CardHeader title={`${langData.Stamina} Cost per Skill Level Upgrade`} />
           <UpgradeCosts data={costData} />
         </Card>
       </Stack>

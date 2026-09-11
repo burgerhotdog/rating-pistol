@@ -1,11 +1,12 @@
 import { Paper, Stack, Typography } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import { Bar, BarChart, Tooltip, XAxis, YAxis } from 'recharts';
-import { useAccent } from '@/hooks';
+import { useAccent, useData } from '@/hooks';
 
 const RatePerStamina = ({ data }) => {
   const { palette } = useTheme();
   const accent = useAccent();
+  const langData = useData('lang');
 
   return (
     <BarChart
@@ -32,10 +33,10 @@ const RatePerStamina = ({ data }) => {
                   Δ DPS: +{Math.abs(diff).toFixed(2)}%
                 </Typography>
                 <Typography variant="body2" gutterBottom>
-                  Cost: {staminaCost.toFixed()} stamina
+                  Cost: {staminaCost.toFixed()} {langData.Stamina}
                 </Typography>
                 <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                  Rate: {rate.toFixed(4)}% per stamina
+                  Rate: {rate.toFixed(4)}% per {langData.Stamina}
                 </Typography>
               </Stack>
             </Paper>

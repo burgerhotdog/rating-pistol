@@ -159,6 +159,7 @@ const SetsDialog = ({ results, open, onClose }) => {
   const { palette } = useTheme();
   const accent = useAccent();
   const setDatas = useData('set');
+  const langData = useData('lang');
 
   const data = buildData(gameId, setResults, userDps, userMember.setCounts);
 
@@ -171,7 +172,7 @@ const SetsDialog = ({ results, open, onClose }) => {
       fullWidth
       maxWidth="md"
     >
-      <DialogTitle>Set Bonus Rankings</DialogTitle>
+      <DialogTitle>{`${langData.Equip} Set Bonus Rankings`}</DialogTitle>
       <DialogContent
         dividers
         sx={{ overflowY: 'auto', p: 2 }}
