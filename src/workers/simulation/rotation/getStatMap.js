@@ -1,7 +1,23 @@
 import { WW } from '@/data';
 import { getAttr, toMergedObj } from '@/utils';
-import { mergeStatMap, resolveStatSpecs } from '../utils';
 import { getEffectStates } from './getEffectStates';
+
+const resolveStatSpecs = (buffSpec, sourceStatMap) => {
+  const resolved = {};
+
+  for (const [statId, statSpec] of Object.entries(buffSpec)) {
+    const {
+      attr, offset = 0, step,
+      value, maxValue = Infinity,
+    } = statSpec;
+
+    const attrValue = getAttr(attr, sourceStatMap);
+    const mult = Math.max((attrValue - offset) / step, 0);
+    resolved[statId] = Math.min(value * mult, maxValue);
+  }
+
+  return resolved;
+};
 
 export const getBuffMap = (ctx, options = {}) => {
   const { memberId, action = {}, ignoreSpecs, resolveNow } = options;
@@ -33,7 +49,9 @@ export const getBuffMap = (ctx, options = {}) => {
     const buffMult = (effect.chance ?? 1) * stacks * linkedStacks;
 
     if (effect.buff?.stats) {
-      mergeStatMap(buffMap, effect.buff.stats, buffMult);
+      for (const stat in effect.buff.stats) {
+        buffMap[stat] = (buffMap[stat] ?? 0) + effect.buff.stats[stat] * buffMult;
+      }
     }
 
     if (effect.buff?.specs && !ignoreSpecs) {
@@ -43,7 +61,10 @@ export const getBuffMap = (ctx, options = {}) => {
       }
 
       const resolvedStatMap = resolveStatSpecs(effect.buff.specs, getSpecsSourceMap(effect.ownerId));
-      mergeStatMap(buffMap, resolvedStatMap, buffMult);
+
+      for (const stat in resolvedStatMap) {
+        buffMap[stat] = (buffMap[stat] ?? 0) + resolvedStatMap[stat] * buffMult;
+      }
     }
   }
 
