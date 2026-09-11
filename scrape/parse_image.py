@@ -18,7 +18,7 @@ lookup_url = {
         "echo": lambda _, data: data["icon"][13:data["icon"].rindex(".")],
     },
     "zzz": {
-        "character": lambda _, data: data["icon"].replace("IconRole", "IconRoleSelect", 1),
+        "character": lambda _, data: data["icon"].replace("IconRole", "IconRoleCircle", 1),
         "weapon": lambda _, data: data["code_name"],
         "set": lambda _, data: data["icon"][41:data["icon"].rindex(".")],
     },

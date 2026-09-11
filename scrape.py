@@ -54,12 +54,13 @@ def main():
     print("Update complete")
 
 def temp():
-    with open("src/data/honkai-star-rail/character.json", "r", encoding="utf-8") as f:
+    with open("src/data/zenless-zone-zero/character.json", "r", encoding="utf-8") as f:
         data = json.load(f)
         for id in data.keys():
             print(id)
-            image = requests.get(f"https://static.nanoka.cc/assets/hsr/avatarroundicon/{id}.webp").content
-            with open(f"public/honkai-star-rail/character/{id}.webp", "wb") as f:
+            data = requests.get(f"https://static.nanoka.cc/zzz/3.2/en/character/{id}.json").json()
+            image = requests.get(f"https://static.nanoka.cc/assets/zzz/{data['icon']}.webp").content
+            with open(f"public/zenless-zone-zero/characterFull/{id}.webp", "wb") as f:
                 f.write(image)
 
 if __name__ == "__main__":
