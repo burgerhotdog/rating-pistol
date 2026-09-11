@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  Button,
   Card,
   CardContent,
   CardHeader,
@@ -11,6 +12,8 @@ import {
 import { Switch } from '@/components/Colored';
 import { useAccent } from '@/hooks';
 import { formatNum } from '@/utils';
+import WeaponsDialog from './WeaponsDialog';
+import SetsDialog from './SetsDialog';
 import DistributionChart from './DistributionChart';
 import AreaView from './RotationTimeline/AreaView';
 import ScatterView from './RotationTimeline/ScatterView';
@@ -64,6 +67,8 @@ const Overview = ({ results }) => {
   const { userDps, dpsCeiling, benchmarkDps, memberIds, userSnapshots } = results;
   const accent = useAccent();
   const [showHits, setShowHits] = useState(false);
+  const [weaponOpen, setWeaponOpen] = useState(false);
+  const [setsOpen, setSetsOpen] = useState(false);
 
   const memberStack = [...memberIds];
   if (userSnapshots.some((snapshot) => snapshot.ownerId === 'other')) {
@@ -119,8 +124,23 @@ const Overview = ({ results }) => {
         </Card>
 
         <Card component={Stack} sx={{ flex: 1 }}>
-          <CardHeader title="Damage Distribution" />
-          <DistributionChart results={results} />
+          <CardHeader title="Weapons" />
+          <Button onClick={() => setWeaponOpen(true)}>
+            Open Weapons
+          </Button>
+          <WeaponsDialog
+            results={results}
+            open={weaponOpen}
+            onClose={() => setWeaponOpen(false)}
+          />
+          <Button onClick={() => setSetsOpen(true)}>
+            Open Sets
+          </Button>
+          <SetsDialog
+            results={results}
+            open={setsOpen}
+            onClose={() => setSetsOpen(false)}
+          />
         </Card>
       </Stack>
 
@@ -140,10 +160,13 @@ const Overview = ({ results }) => {
             />
           }
         />
-        {!showHits
-          ? <AreaView results={results} />
-          : <ScatterView results={results} />
-        }
+        <Stack direction="row" sx={{ flex: 1 }}>
+          {!showHits
+            ? <AreaView results={results} />
+            : <ScatterView results={results} />
+          }
+          <DistributionChart results={results} />
+        </Stack>
       </Card>
     </Stack>
   );

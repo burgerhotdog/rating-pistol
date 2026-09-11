@@ -34,17 +34,14 @@ async function resolveEquipMaps(cache, allowBlank = false) {
 }
 
 self.onmessage = async ({ data }) => {
-  self.postMessage({ status: 'Compiling cache' });
-
+  self.postMessage({ status: 'Building cache' });
   console.time('buildCache');
   const cache = buildCache(data);
   console.timeEnd('buildCache');
 
-  const equipMaps = await resolveEquipMaps(cache);
+  const { gameId, charId } = cache;
 
-  console.time('setTests');
-  const setResults = testSets(cache, equipMaps, cache.charId);
-  console.timeEnd('setTests');
+  const equipMaps = await resolveEquipMaps(cache);
 
   self.postMessage({ status: 'Checking rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
@@ -52,38 +49,38 @@ self.onmessage = async ({ data }) => {
   const userRotationTime = computeActualRotationTime(cache, equipMaps);
   const userDps = userDamage / userRotationTime * 1000;
 
+  self.postMessage({ status: 'Testing weapons' });
+  console.time('testWeapons');
+  const weaponResults = testWeapons(cache, equipMaps, charId);
+  console.timeEnd('testWeapons');
+
+  self.postMessage({ status: 'Testing sets' });
+  console.time('testSets');
+  const setResults = testSets(cache, equipMaps, charId);
+  console.timeEnd('testSets');
+
   console.time('runTrials');
-  const results = await runTrials(cache, equipMaps, cache.charId, true);
+  const results = await runTrials(cache, equipMaps, charId, true);
   console.timeEnd('runTrials');
 
-  const {
-    dps: benchmarkDps,
-    day: benchmarkDay,
-  } = findBenchmark(cache.gameId, results.dpsCeiling, results.dpsProgression, results.fit);
-
-  console.time('weaponTests');
-  const weaponResults = testWeapons(cache, equipMaps, cache.charId);
-  console.timeEnd('weaponTests');
-
+  self.postMessage({ status: 'Testing skill levels' });
   console.time('skillLevelTests');
-  const skillLevelResults = testSkillLevels(cache, equipMaps, cache.charId);
+  const skillLevelResults = testSkillLevels(cache, equipMaps, charId);
   console.timeEnd('skillLevelTests');
-  
 
   self.postMessage({
-    userMember: { ...cache.member[cache.charId] },
+    memberIds: cache.memberIds,
+    userMember: { ...cache.member[charId] },
     userSnapshots,
     userRotationTime,
     userDps,
+    weaponResults,
+    setResults,
     dpsCeiling: results.dpsCeiling,
     dpsProgression: results.dpsProgression,
     fit: results.fit,
-    benchmarkDps,
-    benchmarkDay,
     equipListConfigs: results.equipListConfigs,
-    memberIds: cache.memberIds,
-    weaponResults,
-    setResults,
+    ...findBenchmark(gameId, results.dpsCeiling, results.dpsProgression, results.fit),
     skillLevelResults,
   });
 };
@@ -102,7 +99,10 @@ function findBenchmark(gameId, dpsCeiling, dpsProgression, fit) {
     const diffPctPerStamina = diffPct / staminaPerDay;
 
     if (diffPctPerStamina < 0.004) {
-      return { dps, day };
+      return {
+        benchmarkDps: dps,
+        benchmarkDay: day,
+      };
     }
 
     day++;
