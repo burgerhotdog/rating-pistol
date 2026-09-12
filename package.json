@@ -45,6 +45,6 @@
   "allowScripts": {
     "tesseract.js@7.0.0": true,
     "@firebase/util@1.15.3": true,
-    "protobufjs@7.6.5": true
+    "protobufjs@7.6.6": true
   }
 }
