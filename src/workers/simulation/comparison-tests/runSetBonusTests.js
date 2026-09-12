@@ -146,7 +146,7 @@ function getEchoCandidates(gameId, testSetIds) {
   });
 }
 
-export function testSets(cache, equipMaps, charId) {
+export function runSetBonusTests(cache, equipMaps, charId) {
   const gameId = cache.gameId;
   const mCache = cache.member[charId];
 
@@ -158,11 +158,9 @@ export function testSets(cache, equipMaps, charId) {
       ))
   );
 
-  const nonEchoRotation = mCache.rotation
-    .filter((action) =>
-      action.type !== 'echoSkill' ||
-      action.ownerId !== charId
-    );
+  const nonEchoRotation = mCache.rotation.filter((action) =>
+    action.type !== 'echoSkill' || action.ownerId !== charId
+  );
 
   const runTest = (effectSources, { testEcho = true } = {}) => {
     const setEffects = getNormalizedSetEffects(effectSources, gameId, charId, cache.memberIds);
@@ -253,7 +251,7 @@ function getBonusPartitions(gameId) {
     case HSR:
       return [];
     case WW:
-      return [[5], [3, 2], [2, 2], [2, 2, 1]];
+      return [[5], [3, 2], [2, 2, 1]];
     case ZZZ:
       return [[4, 2], [2, 2, 2]];
   }

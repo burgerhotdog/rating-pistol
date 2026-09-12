@@ -1,2 +1,2 @@
-export * from './testSets';
-export * from './testWeapons';
+export * from './runSetBonusTests';
+export * from './runWeaponTests';

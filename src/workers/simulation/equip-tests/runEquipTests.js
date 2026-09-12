@@ -1,5 +1,5 @@
-import { mean } from 'simple-statistics';
-import { buildSkippable, computeDpsCeiling, fitDecay, mergeEquipListConfigs } from '@/utils';
+import { linearRegression, mean } from 'simple-statistics';
+import { buildSkippable, computeDpsCeiling, mergeEquipListConfigs } from '@/utils';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
 
 async function initWorkers(payload) {
@@ -118,7 +118,12 @@ export async function runEquipTests(cache, equipMaps, currId, isMainChar = false
     return result.meanEquipMap;
   }
 
-  const fit = fitDecay(result.remainingHistory.map(({ day, remaining }) => [day, remaining]));
+  const logPoints = result.remainingHistory.map(({ day, remaining }) => [
+    Math.log(day),
+    Math.log(remaining),
+  ]);
+  const { m, b } = linearRegression(logPoints);
+  const fit = { k: -m, A: Math.exp(b) };
 
   return {
     dpsProgression,
