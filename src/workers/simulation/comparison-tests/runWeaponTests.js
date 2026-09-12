@@ -83,8 +83,9 @@ export function runWeaponTests(cache, equipMaps, charId) {
       )
   );
 
-  const weapDatasToTest = Object.values(WEAPON[gameId])
-    .filter((weapData) => weapData.type === charType);
+  const weapDatasToTest = Object.values(WEAPON[gameId]).filter((weapData) =>
+    !weapData.disabled && weapData.type === charType
+  );
 
   const weaponResults = [];
 
