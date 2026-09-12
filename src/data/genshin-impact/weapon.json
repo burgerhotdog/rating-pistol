@@ -592,7 +592,53 @@
       "baseAtk": 608,
       "energyRecharge%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "critRate%": [
+              0.04,
+              0.08
+            ]
+          }
+        }
+      },
+      {
+        "ref": "skypiercingMight",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalBurst"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "type": [
+                "normalAttack",
+                "chargedAttack"
+              ]
+            }
+          },
+          "stats": {
+            "attackSpd%": 0.1
+          },
+          "specs": {
+            "flat": {
+              "attr": "atk",
+              "step": 1,
+              "value": [
+                0.2,
+                0.4
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11503": {
     "disabled": true,
@@ -1885,7 +1931,6 @@
     "effects": []
   },
   "13502": {
-    "disabled": true,
     "name": "Skyward Spine",
     "version": 1,
     "id": 13502,
@@ -1897,7 +1942,47 @@
       "baseAtk": 674,
       "energyRecharge%": 0.368
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "critRate%": [
+              0.08,
+              0.16
+            ],
+            "attackSpd%": 0.12
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 2000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.4,
+                    1
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "13504": {
     "disabled": true,
@@ -2538,7 +2623,6 @@
     "effects": []
   },
   "14501": {
-    "disabled": true,
     "name": "Skyward Atlas",
     "version": 1,
     "id": 14501,
@@ -2550,7 +2634,43 @@
       "baseAtk": 674,
       "atk%": 0.331
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "elementalDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 30000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.6,
+                    3.2
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "14502": {
     "disabled": true,
@@ -3359,7 +3479,6 @@
     "effects": []
   },
   "15501": {
-    "disabled": true,
     "name": "Skyward Harp",
     "version": 1,
     "id": 15501,
@@ -3371,7 +3490,41 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "critDmg%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": [
+            4000,
+            2000
+          ],
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": 1.25
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "15502": {
     "disabled": true,

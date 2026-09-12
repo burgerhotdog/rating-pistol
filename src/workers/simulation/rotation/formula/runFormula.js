@@ -32,11 +32,15 @@ function runDamageFormula(gameId, action, statMap) {
   const defMult = getDefMult(gameId, statMap);
 
   const vulnMult = 1 + getAttr('vuln%', statMap);
+  const attackSpdMult = action.type === 'normalAttack'
+    ? 1 + getAttr('attackSpd%', statMap)
+    : 1;
 
   return baseValue *
     critMult * dmgBonusMult * dmgAmpMult *
     resMult * defMult *
     vulnMult *
+    attackSpdMult *
     times;
 }
 
