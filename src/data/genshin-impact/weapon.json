@@ -1334,7 +1334,6 @@
     "effects": []
   },
   "12501": {
-    "disabled": true,
     "name": "Skyward Pride",
     "version": 1,
     "id": 12501,
@@ -1346,7 +1345,55 @@
       "baseAtk": 674,
       "energyRecharge%": 0.368
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalBurst"
+            }
+          },
+          "uses": 8,
+          "duration": 20000
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.8,
+                    1.6
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "12502": {
     "disabled": true,
