@@ -1396,7 +1396,6 @@
     ]
   },
   "12502": {
-    "disabled": true,
     "name": "Wolf's Gravestone",
     "version": 1,
     "id": 12502,
@@ -1408,7 +1407,18 @@
       "baseAtk": 608,
       "atk%": 0.496
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "12503": {
     "disabled": true,
@@ -2046,7 +2056,6 @@
     "effects": []
   },
   "13505": {
-    "disabled": true,
     "name": "Primordial Jade Winged-Spear",
     "version": 1,
     "id": 13505,
@@ -2058,7 +2067,42 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "hitStacks",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 300,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.032,
+              0.06
+            ]
+          }
+        },
+        "maxStacks": 7
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "hitStacks": 7
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.12
+          }
+        }
+      }
+    ]
   },
   "13507": {
     "disabled": true,
@@ -2720,7 +2764,6 @@
     ]
   },
   "14502": {
-    "disabled": true,
     "name": "Lost Prayer to the Sacred Winds",
     "version": 1,
     "id": 14502,
@@ -2732,7 +2775,42 @@
       "baseAtk": 608,
       "critRate%": 0.331
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "rampingBuff",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "not": {
+                  "effectStacks": {
+                    "has": "rampingBuff"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "buff": {
+          "elementalDmgBonus%": [
+            0.08,
+            0.16
+          ]
+        },
+        "rampingInterval": 4000,
+        "maxStacks": 4
+      }
+    ]
   },
   "14504": {
     "disabled": true,

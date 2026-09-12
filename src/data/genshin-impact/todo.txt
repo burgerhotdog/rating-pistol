@@ -121,16 +121,16 @@ characters:
     simplified:
 
 weapons:
-    incomplete:
-    simplified:
-        13502 Skyward Spine
-            Vacuum Blade always triggers
-        14501 Skyward Atlas
-            Favor of the Clouds always triggers
-        15501 Skyward Harp
-            Attack always triggers
-        14512 Tulaytullah's Remembrance
-            Buff maxed
+    13502 Skyward Spine
+        Vacuum Blade always triggers
+    14501 Skyward Atlas
+        Favor of the Clouds always triggers
+    15501 Skyward Harp
+        Attack always triggers
+    14512 Tulaytullah's Remembrance
+        Buff maxed
+    12502 Wolf's Gravestone
+        Team buff disabled
 
 sets:
     unchecked:
