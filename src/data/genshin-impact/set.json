@@ -109,7 +109,6 @@
     ]
   },
   "15001": {
-    "disabled": true,
     "name": "Gladiator's Finale",
     "version": 1,
     "id": 15001,
@@ -168,7 +167,6 @@
     ]
   },
   "15003": {
-    "disabled": true,
     "name": "Wanderer's Troupe",
     "version": 1,
     "id": 15003,
@@ -344,7 +342,6 @@
     "effects": []
   },
   "15016": {
-    "disabled": true,
     "name": "Heart of Depth",
     "version": 1.2,
     "id": 15016,
@@ -356,6 +353,7 @@
     "halfStat": "hydroDmgBonus%",
     "effects": [
       {
+        "bonus": 2,
         "buff": {
           "stats": {
             "hydroDmgBonus%": 0.15
@@ -383,7 +381,6 @@
     ]
   },
   "15017": {
-    "disabled": true,
     "name": "Tenacity of the Millelith",
     "version": 1.5,
     "id": 15017,
@@ -419,7 +416,8 @@
         },
         "buff": {
           "stats": {
-            "atk%": 0.2
+            "atk%": 0.2,
+            "shieldStrength%": 0.3
           }
         }
       }
@@ -524,7 +522,6 @@
     ]
   },
   "15020": {
-    "disabled": true,
     "name": "Emblem of Severed Fate",
     "version": 2,
     "id": 15020,
@@ -544,6 +541,7 @@
         }
       },
       {
+        "bonus": 4,
         "buff": {
           "specs": {
             "elementalBurstDmgBonus%": {
@@ -578,11 +576,47 @@
       },
       {
         "bonus": 4,
+        "ref": "curiosity",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "damage": {
+                    "element": "geo"
+                  }
+                }
+              }
+            ]
+          },
+          "cooldown": 300,
+          "duration": 6000
+        },
         "buff": {
           "stats": {
-            "def%": 0.24,
-            "geoDmgBonus%": 0.24
+            "def%": 0.06,
+            "geoDmgBonus%": 0.06
           }
+        },
+        "maxStacks": 4,
+        "decay": true
+      },
+      {
+        "bonus": 4,
+        "use": {
+          "when": "interval",
+          "filter": {
+            "field": "offField"
+          },
+          "cooldown": 3000,
+          "action": []
+        },
+        "onUseDoApply": {
+          "curiosity": 1
         }
       }
     ]
@@ -702,7 +736,6 @@
     ]
   },
   "15025": {
-    "disabled": true,
     "name": "Deepwood Memories",
     "version": 3,
     "id": 15025,
@@ -723,6 +756,7 @@
       },
       {
         "bonus": 4,
+        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -989,10 +1023,20 @@
       },
       {
         "bonus": 4,
-        "buff": {
+        "apply": {
+          "when": "start",
           "filter": {
             "field": "offField"
+          }
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "field": "onField"
           },
+          "offset": 2000
+        },
+        "buff": {
           "stats": {
             "elementalSkillDmgBonus%": 0.25
           }

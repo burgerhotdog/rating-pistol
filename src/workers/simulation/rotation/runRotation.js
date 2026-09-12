@@ -39,6 +39,12 @@ function handleRemoveWhen(ctx, action, when) {
     ) continue;
 
     onRemoveDoCommand(ctx, effect, action.ownerId);
+
+    if (effect.remove.offset) {
+      state.removeTimer ??= effect.remove.offset;
+      continue;
+    }
+
     runRemoveEffect(state);
   }
 }

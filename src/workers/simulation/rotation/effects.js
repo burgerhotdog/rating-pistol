@@ -138,22 +138,42 @@ function advanceEffectState(ctx, state, elapsed) {
 
   if ('timeLeft' in state) {
     state.timeLeft -= elapsed;
-    if (state.timeLeft <= 0) return delete store[effect.key];
+
+    if (!effect.decay) {
+      if (state.timeLeft <= 0) {
+        return delete store[effect.key];
+      }
+    }
+
+    while (state.timeLeft <= 0) {
+      state.timeLeft += effect.apply.duration;
+      state.stacks--;
+
+      if (state.stacks <= 0) {
+        return delete store[effect.key];
+      }
+    }
   }
 
   if ('removeTimer' in state) {
     state.removeTimer -= elapsed;
-    if (state.removeTimer <= 0) return delete store[effect.key];
+    if (state.removeTimer <= 0) {
+      return delete store[effect.key];
+    }
   }
 
   if ('useCooldown' in state) {
     state.useCooldown -= elapsed;
-    if (state.useCooldown <= 0) delete state.useCooldown;
+    if (state.useCooldown <= 0) {
+      delete state.useCooldown;
+    }
   }
 
   if ('buffCooldown' in state) {
     state.buffCooldown -= elapsed;
-    if (state.buffCooldown <= 0) delete state.buffCooldown;
+    if (state.buffCooldown <= 0) {
+      delete state.buffCooldown;
+    }
   }
 
   if ('rampingTimer' in state) {
