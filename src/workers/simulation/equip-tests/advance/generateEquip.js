@@ -1,18 +1,23 @@
 import { GI, WW, ZZZ, SUBSTAT } from '@/data';
-import { randomMainstat } from '@/utils';
+import { randomInt, randomMainstat } from '@/utils';
 import { weightedLottery } from './weightedLottery';
 
-function revealSubStatWuwa(substats) {
-  const existingStatIds = substats.map((line) => line.id);
-  const statPool = Object.values(SUBSTAT[WW]).filter(({ stat }) =>
-    !existingStatIds.includes(stat)
-  );
+function revealSubstatsWW(substats, count) {
+  const prevStats = new Set(substats.map(({ id }) => id));
 
-  const randomIndex = Math.floor(Math.random() * statPool.length);
-  const { stat, rollWeights, rollValues } = statPool[randomIndex];
+  const statPool = Object.values(SUBSTAT[WW])
+    .filter(({ stat }) => !prevStats.has(stat));
 
-  const index = weightedLottery(rollWeights);
-  substats.push({ id: stat, value: rollValues[index] });
+  for (let i = 0; i < count; i++) {
+    const statIndex = randomInt(0, statPool.length - 1);
+    const { stat, rollWeights, rollValues } = statPool[statIndex];
+
+    const rollIndex = weightedLottery(rollWeights);
+    const roll = rollValues[rollIndex];
+
+    substats.push({ id: stat, value: roll });
+    statPool.splice(statIndex, 1);
+  }
 }
 
 const randomRoll = (gameId, stat) => {
@@ -27,49 +32,27 @@ const randomRoll = (gameId, stat) => {
   return value * mult;
 };
 
-function revealSubStatsHoyo(substats, gameId, mainstatId) {
-  const statPool = Object.values(SUBSTAT[gameId]).filter(({ stat }) =>
-    stat !== mainstatId
-  );
+function revealSubstats(substats, gameId, mainstatId) {
+  const statPool = Object.values(SUBSTAT[gameId]).filter(({ stat }) => stat !== mainstatId);
 
   for (let i = 0; i < 4; i++) {
-    const winnerIndex = weightedLottery(statPool.map(({ weight }) => weight));
-    const { stat } = statPool[winnerIndex];
+    const weights = statPool.map(({ weight }) => weight);
+    const statIndex = weightedLottery(weights);
+    const { stat } = statPool[statIndex];
+    const roll = randomRoll(gameId, stat);
 
-    substats.push({ id: stat, value: randomRoll(gameId, stat) });
-    statPool.splice(winnerIndex, 1);
-  }
-}
-
-function upgradeSubStats(substats, gameId) {
-  const upgradeTimes = Math.random() < 0.2 ? 5 : 4;
-
-  for (let i = 0; i < upgradeTimes; i++) {
-    const upgradeIndex = Math.floor(Math.random() * 4);
-    const prev = substats[upgradeIndex];
-
-    substats[upgradeIndex] = {
-      id: prev.id,
-      value: prev.value + randomRoll(gameId, prev.id),
-    };
+    substats.push({ id: stat, value: roll });
+    statPool.splice(statIndex, 1);
   }
 }
 
 export function createEquipGenerator(skippable) {
-  function hasGoodSubs(substats, numGood) {
-    let count = 0;
+  const skipSubstats = skippable.substats;
 
-    for (const { id } of substats) {
-      if (!skippable.substats.has(id)) {
-        count++;
-      }
-    }
-
-    return count >= numGood;
-  }
+  const canSkip = (substats) =>
+    substats.reduce((acc, { id }) => acc + !skipSubstats.has(id), 0) < 2;
 
   return (gameId) => {
-    // Simplified: Return early if wrong set
     const isSetMatch = Math.random() < 0.5;
     if (gameId !== GI && !isSetMatch) return;
 
@@ -79,26 +62,23 @@ export function createEquipGenerator(skippable) {
 
     const substats = [];
     if (gameId === WW) {
-      revealSubStatWuwa(substats);
-      if (!hasGoodSubs(substats, 1)) return; // Sub 1 is bad
+      revealSubstatsWW(substats, 3);
+      if (canSkip(substats)) return; // Sub 2 and 3 are both bad
 
-      revealSubStatWuwa(substats);
-      revealSubStatWuwa(substats);
-      if (!hasGoodSubs(substats, 2)) return; // Sub 2 and 3 are both bad
-
-      revealSubStatWuwa(substats);
-      revealSubStatWuwa(substats);
+      revealSubstatsWW(substats, 2);
     } else {
-      revealSubStatsHoyo(substats, gameId, mainstat.mainstatId);
-      if (!hasGoodSubs(substats, 2)) return; // Bad starting 4 stats
+      revealSubstats(substats, gameId, mainstat.mainstatId);
+      if (canSkip(substats)) return; // Bad starting 4 stats
+      
+      const upgradeTimes = Math.random() < 0.2 ? 5 : 4;
+      for (let i = 0; i < upgradeTimes; i++) {
+        const upgradeIndex = randomInt(0, 3);
+        const substat = substats[upgradeIndex];
 
-      upgradeSubStats(substats, gameId);
+        substat.value += randomRoll(gameId, substat.id);
+      }
     }
 
-    return {
-      [keyId]: keyValue,
-      ...mainstat,
-      substats,
-    };
+    return { [keyId]: keyValue, ...mainstat, substats };
   };
 }
