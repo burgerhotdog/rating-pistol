@@ -109,7 +109,8 @@ export function runSkillLevelTests(cache, equipMaps, charId) {
 
       const snapshots = runRotation(testCache, equipMaps);
       const actualRotationTime = computeActualRotationTime(testCache, equipMaps);
-      const dps = getTotals(snapshots).damage / actualRotationTime * 1000;
+      const totals = getTotals(snapshots);
+      const dps = (totals.damage + totals.healing + totals.shield) / actualRotationTime * 1000;
 
       results[skillId].dpsArr.push(dps);
     }

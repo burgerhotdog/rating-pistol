@@ -185,7 +185,7 @@ function runAction(ctx, action, options = {}) {
   runEffectsWhen('end');
 }
 
-export const runRotation = (cache, equipMaps, specId) => {  
+export const runRotation = (cache, equipMaps, specId) => {
   const buildMaps = {};
   for (const [memberId, equipMap] of Object.entries(equipMaps)) {
     const { baseMap, staticMap } = cache.member[memberId];

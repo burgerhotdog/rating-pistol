@@ -46,7 +46,9 @@ self.onmessage = async ({ data }) => {
 
   self.postMessage({ title: 'Simulating rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
-  const userDps = getTotals(userSnapshots).damage / computeActualRotationTime(cache, equipMaps) * 1000;
+  const userTotals = getTotals(userSnapshots);
+  const userRotationTime = computeActualRotationTime(cache, equipMaps);
+  const userDps = (userTotals.damage + userTotals.healing + userTotals.shield) / userRotationTime * 1000;
 
   self.postMessage({ title: `Running ${langData.Weapon} Tests` });
   console.time('runWeaponTests');

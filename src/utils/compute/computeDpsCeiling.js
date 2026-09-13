@@ -34,8 +34,7 @@ function greedyFillSubstats(
   skippable,
   mainstatIds,
 ) {
-  const substatPool = Object.keys(SUBSTAT[gameId])
-    .filter((statId) => !skippable.has(statId));
+  const substatPool = Object.keys(SUBSTAT[gameId]).filter((stat) => !skippable.has(stat));
 
   const substatsByEquip = mainstatIds.map(() => new Set());
   let currentScore = evaluateEquipMap(equipMap).score;
@@ -46,21 +45,22 @@ function greedyFillSubstats(
     let bestStat;
     let bestEquip;
 
-    for (const statId of substatPool) {
+    for (const stat of substatPool) {
       for (let equipIndex = 0; equipIndex < mainstatIds.length; equipIndex++) {
-        if (mainstatIds[equipIndex] === statId) continue;
-        if (substatsByEquip[equipIndex].has(statId)) continue;
+        if (
+          mainstatIds[equipIndex] === stat ||
+          substatsByEquip[equipIndex].size >= 4 ||
+          substatsByEquip[equipIndex].has(stat)
+        ) continue;
 
-        const trialEquipMap = {
+        const { score } = evaluateEquipMap({
           ...equipMap,
-          [statId]: (equipMap[statId] ?? 0) + SUBSTAT[gameId][statId].value,
-        };
-
-        const { score } = evaluateEquipMap(trialEquipMap);
+          [stat]: (equipMap[stat] ?? 0) + SUBSTAT[gameId][stat].value,
+        });
 
         if (score > bestScore) {
           bestScore = score;
-          bestStat = statId;
+          bestStat = stat;
           bestEquip = equipIndex;
         }
       }
@@ -79,9 +79,9 @@ function greedyFillSubstats(
 
   // Stage 2: add up to 5 upgrade rolls for each existing substat.
   const maxUpgrades = Object.fromEntries(
-    substatPool.map((statId) => [
-      statId,
-      5 * substatsByEquip.filter((substats) => substats.has(statId)).length,
+    substatPool.map((stat) => [
+      stat,
+      5 * substatsByEquip.filter((substats) => substats.has(stat)).length,
     ]),
   );
 
@@ -91,23 +91,26 @@ function greedyFillSubstats(
     let bestScore = currentScore;
     let bestStat;
 
-    for (const statId of substatPool) {
-      if ((rollCounts[statId] ?? 0) >= maxUpgrades[statId]) continue;
+    for (const stat of substatPool) {
+      if ((rollCounts[stat] ?? 0) >= maxUpgrades[stat]) continue;
 
       const trialEquipMap = {
         ...equipMap,
-        [statId]: (equipMap[statId] ?? 0) + SUBSTAT[gameId][statId].value,
+        [stat]: (equipMap[stat] ?? 0) + SUBSTAT[gameId][stat].value,
       };
 
       const { score } = evaluateEquipMap(trialEquipMap);
 
       if (score > bestScore) {
         bestScore = score;
-        bestStat = statId;
+        bestStat = stat;
       }
     }
 
-    if (!bestStat) break;
+    if (!bestStat) {
+      console.log('greedy stuck');
+      break;
+    }
 
     equipMap = {
       ...equipMap,
