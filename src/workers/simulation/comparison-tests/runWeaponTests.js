@@ -122,10 +122,6 @@ export function runWeaponTests(cache, equipMaps, charId) {
       ...(concertoReq && { concertoPenalty: Boolean(!weapData.concerto) }),
     };
 
-    if (weapData.id === mCache.weaponId) {
-      console.log(mCache.staticMap, mCacheOverrides.staticMap);
-    }
-
     weaponResults.push({
       weaponId: weapData.id,
       weaponRank: testRank,

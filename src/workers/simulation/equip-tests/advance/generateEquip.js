@@ -4,37 +4,39 @@ import { weightedLottery } from './weightedLottery';
 
 function revealSubStatWuwa(substats) {
   const existingStatIds = substats.map((line) => line.id);
-  const statPool = Object.values(SUBSTAT[WW])
-    .filter(({ id }) => !existingStatIds.includes(id));
+  const statPool = Object.values(SUBSTAT[WW]).filter(({ stat }) =>
+    !existingStatIds.includes(stat)
+  );
 
   const randomIndex = Math.floor(Math.random() * statPool.length);
-  const { id, rollWeights, rollValues } = statPool[randomIndex];
+  const { stat, rollWeights, rollValues } = statPool[randomIndex];
 
   const index = weightedLottery(rollWeights);
-  substats.push({
-    id,
-    value: rollValues[index],
-  });
+  substats.push({ id: stat, value: rollValues[index] });
 }
 
-const randomRoll = (gameId, statId) => {
-  const numMults = gameId === GI ? 4 : 3;
-  const maxValue = SUBSTAT[gameId][statId].value;
-  if (gameId === ZZZ) return maxValue;
+const randomRoll = (gameId, stat) => {
+  const { value } = SUBSTAT[gameId][stat];
 
+  if (gameId === ZZZ) {
+    return value;
+  }
+
+  const numMults = gameId === GI ? 4 : 3;
   const mult = 1 - (Math.floor(Math.random() * numMults) / 10);
-  return maxValue * mult;
+  return value * mult;
 };
 
 function revealSubStatsHoyo(substats, gameId, mainstatId) {
-  const statPool = Object.values(SUBSTAT[gameId])
-    .filter(({ id }) => id !== mainstatId);
+  const statPool = Object.values(SUBSTAT[gameId]).filter(({ stat }) =>
+    stat !== mainstatId
+  );
 
   for (let i = 0; i < 4; i++) {
     const winnerIndex = weightedLottery(statPool.map(({ weight }) => weight));
-    const { id } = statPool[winnerIndex];
+    const { stat } = statPool[winnerIndex];
 
-    substats.push({ id, value: randomRoll(gameId, id) });
+    substats.push({ id: stat, value: randomRoll(gameId, stat) });
     statPool.splice(winnerIndex, 1);
   }
 }

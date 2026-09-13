@@ -53,9 +53,7 @@ function greedyFillSubstats(
 
         const trialEquipMap = {
           ...equipMap,
-          [statId]:
-            (equipMap[statId] ?? 0) +
-            SUBSTAT[gameId][statId].value,
+          [statId]: (equipMap[statId] ?? 0) + SUBSTAT[gameId][statId].value,
         };
 
         const { score } = evaluateEquipMap(trialEquipMap);
@@ -72,9 +70,7 @@ function greedyFillSubstats(
 
     equipMap = {
       ...equipMap,
-      [bestStat]:
-        (equipMap[bestStat] ?? 0) +
-        SUBSTAT[gameId][bestStat].value,
+      [bestStat]: (equipMap[bestStat] ?? 0) + SUBSTAT[gameId][bestStat].value,
     };
 
     substatsByEquip[bestEquip].add(bestStat);
@@ -100,9 +96,7 @@ function greedyFillSubstats(
 
       const trialEquipMap = {
         ...equipMap,
-        [statId]:
-          (equipMap[statId] ?? 0) +
-          SUBSTAT[gameId][statId].value,
+        [statId]: (equipMap[statId] ?? 0) + SUBSTAT[gameId][statId].value,
       };
 
       const { score } = evaluateEquipMap(trialEquipMap);
@@ -117,9 +111,7 @@ function greedyFillSubstats(
 
     equipMap = {
       ...equipMap,
-      [bestStat]:
-        (equipMap[bestStat] ?? 0) +
-        SUBSTAT[gameId][bestStat].value,
+      [bestStat]: (equipMap[bestStat] ?? 0) + SUBSTAT[gameId][bestStat].value,
     };
 
     rollCounts[bestStat] = (rollCounts[bestStat] ?? 0) + 1;
@@ -145,9 +137,7 @@ function greedyFillSubstatsWW(evaluateEquipMap, equipMap, skippable) {
 
       const trialEquipMap = {
         ...equipMap,
-        [statId]:
-          (equipMap[statId] ?? 0) +
-          SUBSTAT[WW][statId].value,
+        [statId]: (equipMap[statId] ?? 0) + SUBSTAT[WW][statId].value,
       };
 
       const { score } = evaluateEquipMap(trialEquipMap);
@@ -162,9 +152,7 @@ function greedyFillSubstatsWW(evaluateEquipMap, equipMap, skippable) {
 
     equipMap = {
       ...equipMap,
-      [bestSubstat]:
-        (equipMap[bestSubstat] ?? 0) +
-        SUBSTAT[WW][bestSubstat].value,
+      [bestSubstat]: (equipMap[bestSubstat] ?? 0) + SUBSTAT[WW][bestSubstat].value,
     };
 
     counts[bestSubstat] = (counts[bestSubstat] ?? 0) + 1;

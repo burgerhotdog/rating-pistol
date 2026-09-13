@@ -106,7 +106,7 @@ export async function runEquipTests(cache, equipMaps, currId, isMainChar = false
   // Initialize trials
   if (isMainChar) self.postMessage({ message: `Initializing Trials` });
   dpsProgression.push({ day: 0, mean: dpsFloor });
-  const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, snapshots, score: dpsFloor });
+  const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, snapshots, score: dpsFloor, skippable });
 
   if (isMainChar) self.postMessage({ message: `Running Trials` });
   const result = await runContinuous(workers, dpsCeiling, isMainChar);

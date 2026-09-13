@@ -54,8 +54,8 @@ function createIsImportantStat(gameId, userMainstatConfigKey = '', userConfigSub
   return (stat) => {
     const baseChances = mainstatIds.map((mainstatId) => {
       const weights = Object.values(SUBSTAT[gameId])
-        .filter(({ id }) => id !== mainstatId)
-        .map(({ id, weight }) => [id, weight]);
+        .filter(({ stat }) => stat !== mainstatId)
+        .map(({ stat, weight }) => [stat, weight]);
       return chanceOfStat(weights, stat);
     });
 

@@ -1,6 +1,5 @@
 import { WW, MISC } from '@/data';
 import { buildEquipMap } from '@/utils';
-import { getSkippableStats } from './getSkippableStats';
 import { createEquipGenerator } from './generateEquip';
 
 function createEquipEvaluator(gameId, evaluateEquipMap, id) {
@@ -48,10 +47,8 @@ function createEquipEvaluator(gameId, evaluateEquipMap, id) {
   };
 }
 
-export function createAdvanceTrial(cache, evaluateEquipMap, currId) {
+export function createAdvanceTrial(cache, evaluateEquipMap, currId, skippable) {
   const { gameId } = cache;
-  const { score } = evaluateEquipMap();
-  const skippable = getSkippableStats(gameId, score, evaluateEquipMap);
   const generateEquip = createEquipGenerator(skippable);
   const evaluateEquip = createEquipEvaluator(gameId, evaluateEquipMap, currId);
 

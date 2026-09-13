@@ -3,12 +3,12 @@ import { MAINSTAT, SUBSTAT } from '@/data';
 function getSkippable(options, baseScore, evaluateEquipMap) {
   const useless = [];
 
-  for (const { id, value } of options) {
-    const equipMap = { [id]: value };
+  for (const { stat, value } of options) {
+    const equipMap = { [stat]: value };
     const { score } = evaluateEquipMap(equipMap);
 
     if (score <= baseScore) {
-      useless.push(id);
+      useless.push(stat);
     }
   }
 
