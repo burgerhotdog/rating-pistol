@@ -612,7 +612,6 @@
     "effects": []
   },
   "11501": {
-    "disabled": true,
     "name": "Aquila Favonia",
     "version": 1,
     "id": 11501,
@@ -624,7 +623,46 @@
       "baseAtk": 674,
       "physicalDmgBonus%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "interval",
+          "cooldown": 15000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    2,
+                    3.2
+                  ]
+                }
+              ]
+            },
+            "healing": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1,
+                    1.6
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11502": {
     "name": "Skyward Blade",

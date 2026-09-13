@@ -68,9 +68,11 @@ export function createEquipGenerator(skippable) {
 
   return (gameId) => {
     // Simplified: Return early if wrong set
-    if (Math.random() < 0.5) return;
+    const isSetMatch = Math.random() < 0.5;
+    if (gameId !== GI && !isSetMatch) return;
 
     const { keyId, keyValue, mainstat } = randomMainstat(gameId);
+    if (gameId === GI && (!isSetMatch && keyValue !== 3)) return;
     if (skippable.mainstats[keyValue].has(mainstat.mainstatId)) return;
 
     const substats = [];
