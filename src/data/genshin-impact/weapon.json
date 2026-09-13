@@ -8,8 +8,7 @@
     "type": "sword",
     "stats": {
       "baseAtk": 185
-    },
-    "effects": []
+    }
   },
   "11201": {
     "name": "Silver Sword",
@@ -20,8 +19,7 @@
     "type": "sword",
     "stats": {
       "baseAtk": 243
-    },
-    "effects": []
+    }
   },
   "11301": {
     "disabled": true,
@@ -943,8 +941,7 @@
     "type": "claymore",
     "stats": {
       "baseAtk": 185
-    },
-    "effects": []
+    }
   },
   "12201": {
     "name": "Old Merc's Pal",
@@ -955,8 +952,7 @@
     "type": "claymore",
     "stats": {
       "baseAtk": 243
-    },
-    "effects": []
+    }
   },
   "12301": {
     "disabled": true,
@@ -1637,8 +1633,7 @@
     "type": "polearm",
     "stats": {
       "baseAtk": 185
-    },
-    "effects": []
+    }
   },
   "13201": {
     "name": "Iron Point",
@@ -1649,8 +1644,7 @@
     "type": "polearm",
     "stats": {
       "baseAtk": 243
-    },
-    "effects": []
+    }
   },
   "13301": {
     "disabled": true,
@@ -2319,8 +2313,7 @@
     "type": "catalyst",
     "stats": {
       "baseAtk": 185
-    },
-    "effects": []
+    }
   },
   "14201": {
     "name": "Pocket Grimoire",
@@ -2331,8 +2324,7 @@
     "type": "catalyst",
     "stats": {
       "baseAtk": 243
-    },
-    "effects": []
+    }
   },
   "14301": {
     "disabled": true,
@@ -3166,8 +3158,7 @@
     "type": "bow",
     "stats": {
       "baseAtk": 185
-    },
-    "effects": []
+    }
   },
   "15201": {
     "name": "Seasoned Hunter's Bow",
@@ -3178,8 +3169,7 @@
     "type": "bow",
     "stats": {
       "baseAtk": 243
-    },
-    "effects": []
+    }
   },
   "15301": {
     "disabled": true,

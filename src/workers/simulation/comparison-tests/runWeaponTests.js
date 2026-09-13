@@ -100,7 +100,7 @@ export function runWeaponTests(cache, equipMaps, charId) {
       ? mCache.weaponRank
       : getDefaultWeapRank(gameId, weapData.id);
 
-    const normedWeapEffs = getNormalizedWeaponEffects(weapData.effects, gameId, charId, weapData.id, testRank, cache.memberIds);
+    const normedWeapEffs = getNormalizedWeaponEffects(weapData.effects ?? [], gameId, charId, weapData.id, testRank, cache.memberIds);
 
     const overrideEffects = {
       ...nonWeapNonBaseEffects,
