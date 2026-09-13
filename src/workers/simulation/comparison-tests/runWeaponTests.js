@@ -87,6 +87,10 @@ export function runWeaponTests(cache, equipMaps, charId) {
     !weapData.disabled && weapData.type === charType
   );
 
+  const oldStaticMapPart = Object.values(mCache.staticEffects)
+    .filter((effect) => effect.sourceId !== mCache.weaponId)
+    .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
+
   const weaponResults = [];
 
   for (const weapData of weapDatasToTest) {
@@ -96,23 +100,31 @@ export function runWeaponTests(cache, equipMaps, charId) {
       ? mCache.weaponRank
       : getDefaultWeapRank(gameId, weapData.id);
 
+    const normedWeapEffs = getNormalizedWeaponEffects(weapData.effects, gameId, charId, weapData.id, testRank, cache.memberIds);
+
     const overrideEffects = {
       ...nonWeapNonBaseEffects,
       ...renormalizeBaseEffects(nonWeapBaseEffects, baseMap),
-      ...getNormalizedWeaponEffects(weapData.effects, gameId, charId, weapData.id, testRank, cache.memberIds),
+      ...Object.fromEntries(
+        Object.entries(normedWeapEffs).filter(([, effect]) => !effect.static)
+      ),
     };
 
-    const overrideStaticMap = Object.values(overrideEffects)
+    const overrideStaticMap = Object.values(normedWeapEffs)
       .filter((effect) => effect.static)
       .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
 
     const mCacheOverrides = {
       baseMap,
       statMap: toMergedObj(baseMap, mCache.equipMap),
-      staticMap: overrideStaticMap,
+      staticMap: toMergedObj(oldStaticMapPart, overrideStaticMap),
       effects: overrideEffects,
       ...(concertoReq && { concertoPenalty: Boolean(!weapData.concerto) }),
     };
+
+    if (weapData.id === mCache.weaponId) {
+      console.log(mCache.staticMap, mCacheOverrides.staticMap);
+    }
 
     weaponResults.push({
       weaponId: weapData.id,

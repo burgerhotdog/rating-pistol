@@ -1,6 +1,5 @@
 {
   "11101": {
-    "disabled": true,
     "name": "Dull Blade",
     "version": 1,
     "id": 11101,
@@ -13,7 +12,6 @@
     "effects": []
   },
   "11201": {
-    "disabled": true,
     "name": "Silver Sword",
     "version": 1,
     "id": 11201,
@@ -40,7 +38,6 @@
     "effects": []
   },
   "11302": {
-    "disabled": true,
     "name": "Harbinger of Dawn",
     "version": 1,
     "id": 11302,
@@ -65,7 +62,6 @@
     ]
   },
   "11303": {
-    "disabled": true,
     "name": "Traveler's Handy Sword",
     "version": 1,
     "id": 11303,
@@ -93,7 +89,6 @@
     "effects": []
   },
   "11305": {
-    "disabled": true,
     "name": "Fillet Blade",
     "version": 1,
     "id": 11305,
@@ -104,10 +99,36 @@
       "baseAtk": 401,
       "atk%": 0.352
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": [
+            15000,
+            11000
+          ],
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    2.4,
+                    4
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11306": {
-    "disabled": true,
     "name": "Skyrider Sword",
     "version": 1,
     "id": 11306,
@@ -118,7 +139,27 @@
       "baseAtk": 354,
       "energyRecharge%": 0.521
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalBurst"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "11401": {
     "disabled": true,
@@ -851,7 +892,6 @@
     "effects": []
   },
   "12101": {
-    "disabled": true,
     "name": "Waster Greatsword",
     "version": 1,
     "id": 12101,
@@ -864,7 +904,6 @@
     "effects": []
   },
   "12201": {
-    "disabled": true,
     "name": "Old Merc's Pal",
     "version": 1,
     "id": 12201,
@@ -1547,7 +1586,6 @@
     "effects": []
   },
   "13101": {
-    "disabled": true,
     "name": "Beginner's Protector",
     "version": 1,
     "id": 13101,
@@ -1560,7 +1598,6 @@
     "effects": []
   },
   "13201": {
-    "disabled": true,
     "name": "Iron Point",
     "version": 1,
     "id": 13201,
@@ -2231,7 +2268,6 @@
     "effects": []
   },
   "14101": {
-    "disabled": true,
     "name": "Apprentice's Notes",
     "version": 1,
     "id": 14101,
@@ -2244,7 +2280,6 @@
     "effects": []
   },
   "14201": {
-    "disabled": true,
     "name": "Pocket Grimoire",
     "version": 1,
     "id": 14201,
@@ -3080,7 +3115,6 @@
     "effects": []
   },
   "15101": {
-    "disabled": true,
     "name": "Hunter's Bow",
     "version": 1,
     "id": 15101,
@@ -3093,7 +3127,6 @@
     "effects": []
   },
   "15201": {
-    "disabled": true,
     "name": "Seasoned Hunter's Bow",
     "version": 1,
     "id": 15201,

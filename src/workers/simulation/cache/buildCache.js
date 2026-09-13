@@ -115,10 +115,12 @@ export const buildCache = ({ gameId, charId, team }) => {
 
     mCache.staticMap = Object.values(effectDefs)
       .filter((effect) => effect.static)
-      .reduce((acc, effect) => {
-        const { stats } = effect.buff;
-        return toMergedObj(acc, stats);
-      }, {});
+      .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
+
+    mCache.staticEffects = Object.fromEntries(
+      Object.entries(effectDefs)
+        .filter(([, effect]) => effect.static)
+    );
 
     mCache.effects = Object.fromEntries(
       Object.entries(effectDefs)

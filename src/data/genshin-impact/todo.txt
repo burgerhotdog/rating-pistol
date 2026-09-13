@@ -7,6 +7,12 @@ characters:
         Double check
 
 weapons:
+    11302 Harbinger of Dawn
+        Assume buff always up
+    11303 Traveler's Handy Sword
+        No effect
+    11305 Fillet Blade
+        Effect always hits
     13502 Skyward Spine
         Vacuum Blade always triggers
     14501 Skyward Atlas
