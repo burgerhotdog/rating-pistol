@@ -955,7 +955,6 @@
     }
   },
   "12301": {
-    "disabled": true,
     "name": "Ferrous Shadow",
     "version": 1,
     "id": 12301,
@@ -983,7 +982,6 @@
     "effects": []
   },
   "12303": {
-    "disabled": true,
     "name": "White Iron Greatsword",
     "version": 1,
     "id": 12303,
@@ -993,11 +991,9 @@
     "stats": {
       "baseAtk": 401,
       "def%": 0.439
-    },
-    "effects": []
+    }
   },
   "12305": {
-    "disabled": true,
     "name": "Debate Club",
     "version": 1,
     "id": 12305,
@@ -1008,10 +1004,47 @@
       "baseAtk": 401,
       "atk%": 0.352
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 15000
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 3000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6,
+                    1.2
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "12306": {
-    "disabled": true,
     "name": "Skyrider Greatsword",
     "version": 1,
     "id": 12306,
@@ -1022,7 +1055,34 @@
       "baseAtk": 401,
       "physicalDmgBonus%": 0.439
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 500,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.06,
+              0.1
+            ]
+          }
+        },
+        "maxStacks": 4
+      }
+    ]
   },
   "12401": {
     "disabled": true,
@@ -1647,7 +1707,6 @@
     }
   },
   "13301": {
-    "disabled": true,
     "name": "White Tassel",
     "version": 1,
     "id": 13301,
@@ -1658,10 +1717,20 @@
       "baseAtk": 401,
       "critRate%": 0.234
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
   },
   "13302": {
-    "disabled": true,
     "name": "Halberd",
     "version": 1,
     "id": 13302,
@@ -1672,10 +1741,35 @@
       "baseAtk": 448,
       "atk%": 0.235
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 10000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.6,
+                    3.2
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "13303": {
-    "disabled": true,
     "name": "Black Tassel",
     "version": 1,
     "id": 13303,
@@ -1685,8 +1779,7 @@
     "stats": {
       "baseAtk": 354,
       "hp%": 0.469
-    },
-    "effects": []
+    }
   },
   "13401": {
     "disabled": true,
@@ -2383,7 +2476,6 @@
     "effects": []
   },
   "14305": {
-    "disabled": true,
     "name": "Twin Nephrite",
     "version": 1,
     "id": 14305,
@@ -2393,8 +2485,7 @@
     "stats": {
       "baseAtk": 448,
       "critRate%": 0.156
-    },
-    "effects": []
+    }
   },
   "14401": {
     "disabled": true,
@@ -3200,7 +3291,6 @@
     "effects": []
   },
   "15303": {
-    "disabled": true,
     "name": "Recurve Bow",
     "version": 1,
     "id": 15303,
@@ -3210,8 +3300,7 @@
     "stats": {
       "baseAtk": 354,
       "hp%": 0.469
-    },
-    "effects": []
+    }
   },
   "15304": {
     "disabled": true,
