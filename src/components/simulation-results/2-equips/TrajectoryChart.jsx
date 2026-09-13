@@ -12,6 +12,12 @@ import {
 import { useAccent } from '@/hooks';
 import { estimateDay, estimateDps, formatDmg, formatNum } from '@/utils';
 
+const MAX_POINTS = 400;
+
+function getStep(startDay, maxDay) {
+  return Math.max(1, Math.ceil((maxDay - startDay) / MAX_POINTS));
+}
+
 function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
   const data = [];
 
@@ -27,7 +33,8 @@ function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
     }
   }
 
-  for (let day = dpsProgression.length; day <= maxDay; day++) {
+  const step = getStep(dpsProgression.at(-1)?.day ?? 0, maxDay);
+  for (let day = dpsProgression.length; day <= maxDay; day += step) {
     const mean = dpsCeiling - fit.A * day ** -fit.k;
 
     if (day < userDay) {
@@ -74,7 +81,6 @@ const TrajectoryChart = ({ results }) => {
       <XAxis
         dataKey="day"
         domain={[0, maxDay]}
-        ticks={Array.from({ length: maxDay + 1 }, (_, i) => i)}
         tick={{ fontSize: 12 }}
         type="number"
         label={{
