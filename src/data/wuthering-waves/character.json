@@ -57329,6 +57329,23 @@
             "dmgAmp%": 0.2
           }
         }
+      },
+      {
+        "rank": 1,
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          },
+          "duration": 14000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.2
+          }
+        }
       }
     ],
     "skills": {
