@@ -22,10 +22,10 @@ function buildData(snapshots, memberStack) {
     runtimeDamage[time][areaKey] += damage;
   };
 
-  for (const { runtime, ownerId, type, damage, hitOffsets, name } of snapshots) {
+  for (const { runtime, ownerId, damageType, damage, hitOffsets, name } of snapshots) {
     if (!damage) continue;
 
-    const areaKey = ownerId === 'other' ? type : ownerId;
+    const areaKey = ownerId === 'other' ? damageType : ownerId;
 
     if (!hitOffsets?.length) {
       addDamage(runtime, areaKey, damage, name);
@@ -76,10 +76,10 @@ const AreaView = ({ results }) => {
   for (const snapshot of userSnapshots) {
     if (
       snapshot.ownerId !== 'other' ||
-      memberStack.includes(snapshot.type)
+      memberStack.includes(snapshot.damageType)
     ) continue;
 
-    memberStack.push(snapshot.type);
+    memberStack.push(snapshot.damageType);
   }
 
   const memberColors = Object.fromEntries(

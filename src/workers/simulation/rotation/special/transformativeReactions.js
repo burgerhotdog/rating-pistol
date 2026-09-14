@@ -32,14 +32,16 @@ const toResolvedSpecs = (buffSpecs, sourceMap) => {
   return buffMap;
 };
 
-const LEVEL_MULTIPLIER = 1202.81;
+const LEVEL_MULTIPLIER = 1446.85;
 
 const reactionMultiplier = {
   overloaded: 2.75,
+  superconduct: 1.5,
 };
 
 const reactionElement = {
   overloaded: 'pyro',
+  superconduct: 'cryo',
 };
 
 function runFormula(reaction, statMap) {
@@ -57,7 +59,7 @@ function buildSnapshot(ctx, reaction, ownerId) {
     key: `other:${reaction}`,
     name: formatStr(reaction),
     ownerId: 'other',
-    type: 'transformativeReactions',
+    type: 'transformativeReaction',
     runtime: ctx.states.runtime,
     damageType: reaction,
   };
@@ -128,7 +130,24 @@ export function reactOverloaded(ctx, aura, gauge, ownerId) {
     ctx.snapshots.push(snapshot);
   }
 
-  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'overloaded', elements: ['pyro', 'electro'] } })
+  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'overloaded', elements: ['pyro', 'electro'] } });
+
+  aura.gauge -= gauge;
+
+  if (aura.gauge <= 0) {
+    delete ctx.states.aura[aura.element];
+  }
+}
+
+export function reactSuperconduct(ctx, aura, gauge, ownerId) {
+  if (ctx.saveSnapshots) {
+    const snapshot = buildSnapshot(ctx, 'superconduct', ownerId);
+    ctx.snapshots.push(snapshot);
+  }
+
+  ctx.states.aura.superconduct = { reaction: 'superconduct', timer: 12000 };
+
+  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'superconduct', elements: ['cryo', 'electro'] } });
 
   aura.gauge -= gauge;
 

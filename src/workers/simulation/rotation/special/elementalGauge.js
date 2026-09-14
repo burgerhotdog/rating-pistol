@@ -95,3 +95,23 @@ export function inflictGauge(ctx, action) {
       break;
   }
 }
+
+export function advanceAuras(ctx, elapsed) {
+  for (const state of Object.values(ctx.states.aura)) {
+    if (state.reaction) {
+      state.timer -= elapsed;
+
+      if (state.timer <= 0) {
+        delete ctx.states.aura[state.reaction];
+      }
+    }
+
+    if (state.element) {
+      state.gauge -= elapsed / state.decayRate;
+
+      if (state.gauge <= 0) {
+        delete ctx.states.aura[state.element];
+      }
+    }
+  }
+}

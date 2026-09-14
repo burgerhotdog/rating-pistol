@@ -19,6 +19,7 @@ import {
 } from './special/negativeStatuses';
 import {
   inflictGauge,
+  advanceAuras,
 } from './special/elementalGauge';
 import {
   runTuneBreak,
@@ -139,6 +140,10 @@ function runAction(ctx, action, options = {}) {
 
     const elapsed = timestamp - actionRuntime;
     if (elapsed <= 0) return;
+
+    if (ctx.cache.gameId === GI) {
+      advanceAuras(ctx, elapsed);
+    }
 
     if (ctx.cache.gameId === WW) {
       advanceNegativeStatuses(ctx, elapsed);

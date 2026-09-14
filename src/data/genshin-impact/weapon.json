@@ -22,7 +22,6 @@
     }
   },
   "11301": {
-    "disabled": true,
     "name": "Cool Steel",
     "version": 1,
     "id": 11301,
@@ -33,7 +32,28 @@
       "baseAtk": 401,
       "atk%": 0.352
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "hydro",
+                  "cryo"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "11302": {
     "name": "Harbinger of Dawn",
@@ -968,7 +988,6 @@
     "effects": []
   },
   "12302": {
-    "disabled": true,
     "name": "Bloodtainted Greatsword",
     "version": 1,
     "id": 12302,
@@ -979,7 +998,28 @@
       "baseAtk": 354,
       "elementalMastery": 187
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "pyro",
+                  "electro"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "12303": {
     "name": "White Iron Greatsword",
@@ -2420,7 +2460,6 @@
     }
   },
   "14301": {
-    "disabled": true,
     "name": "Magic Guide",
     "version": 1,
     "id": 14301,
@@ -2431,7 +2470,28 @@
       "baseAtk": 354,
       "elementalMastery": 187
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "hydro",
+                  "electro"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "14302": {
     "disabled": true,
@@ -3263,7 +3323,6 @@
     }
   },
   "15301": {
-    "disabled": true,
     "name": "Raven Bow",
     "version": 1,
     "id": 15301,
@@ -3274,7 +3333,28 @@
       "baseAtk": 448,
       "elementalMastery": 94
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "hydro",
+                  "pyro"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "15302": {
     "disabled": true,

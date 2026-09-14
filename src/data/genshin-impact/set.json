@@ -22,7 +22,6 @@
     ]
   },
   "14002": {
-    "disabled": true,
     "name": "Thundersoother",
     "version": 1,
     "id": 14002,
@@ -40,11 +39,25 @@
             "electroRes%": 0.4
           }
         }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": "electro"
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.35
+          }
+        }
       }
     ]
   },
   "14003": {
-    "disabled": true,
     "name": "Lavawalker",
     "version": 1,
     "id": 14003,
@@ -60,6 +73,21 @@
         "buff": {
           "stats": {
             "pyroRes%": 0.4
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": "pyro"
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.35
           }
         }
       }

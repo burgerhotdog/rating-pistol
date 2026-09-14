@@ -1,4 +1,4 @@
-import { WW } from '@/data';
+import { GI, WW } from '@/data';
 import { getAttr, toMergedObj } from '@/utils';
 import { getEffectStates } from './getEffectStates';
 
@@ -65,6 +65,13 @@ export const getBuffMap = (ctx, options = {}) => {
       for (const stat in resolvedStatMap) {
         buffMap[stat] = (buffMap[stat] ?? 0) + resolvedStatMap[stat] * buffMult;
       }
+    }
+  }
+
+  if (ctx.cache.gameId === GI) {
+    // Superconduct
+    if (ctx.states.aura.superconduct) {
+      buffMap['physicalResReduction%'] += (buffMap['physicalResReduction%'] ?? 0) + 0.4;
     }
   }
 
