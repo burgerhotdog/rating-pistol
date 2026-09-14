@@ -12,12 +12,6 @@ import {
 import { useAccent } from '@/hooks';
 import { estimateDay, estimateDps, formatDmg, formatNum } from '@/utils';
 
-const MAX_POINTS = 400;
-
-function getStep(startDay, maxDay) {
-  return Math.max(1, Math.ceil((maxDay - startDay) / MAX_POINTS));
-}
-
 function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
   const data = [];
 
@@ -33,8 +27,13 @@ function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
     }
   }
 
-  const step = getStep(dpsProgression.at(-1)?.day ?? 0, maxDay);
-  for (let day = dpsProgression.length; day <= maxDay; day += step) {
+  const step = maxDay / 100;
+
+  for (let i = step; i <= maxDay; i += step) {
+    const day = Math.round(i);
+
+    if (day <= 100) continue;
+
     const mean = dpsCeiling - fit.A * day ** -fit.k;
 
     if (day < userDay) {
@@ -49,7 +48,7 @@ function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
   if (!Number.isInteger(userDay)) {
     const hiIndex = data.findIndex(({ day }) => day > userDay);
 
-    if (hiIndex) {
+    if (hiIndex !== -1) {
       data.splice(hiIndex, 0, { day: userDay, solidMean: userDps, dottedMean: userDps });
     } else {
       data.push({ day: userDay, solidMean: userDps, dottedMean: userDps });
