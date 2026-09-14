@@ -12,6 +12,7 @@ export * from './estimateTrajectory';
 export * from './getAttr';
 export * from './getDefault';
 export * from './getEnergyLevel';
+export * from './getIcon';
 export * from './getTotals';
 export * from './isEnabledEffect';
 export * from './math';
