@@ -1,13 +1,9 @@
 import { getAttr, toMergedObj } from '@/utils';
-import { getDefMult } from '../formula/enemyDef';
-import { getResMult } from '../formula/enemyRes';
+import { runTuneFormula } from '../formula/tuneFormula';
 import { getBuffMap } from '../getStatMap';
 import { getEffectStates } from '../getEffectStates';
 import { runApplyEffect } from '../effects';
 import { onApplyDoCommand } from '../commands';
-
-const LEVEL_MODIFIER = 716.22;
-const ENEMY_TYPE_MODIFIER = 14;
 
 const tuneBreakAction = {
   id: 'other:tuneBreak',
@@ -19,23 +15,12 @@ const tuneBreakAction = {
   attr: 'tuneAmp',
 };
 
-export const runTuneFormula = (gameId, statMap, tuneAmp, element) => {
-  const tuneAmpMvBonus = 1 + getAttr('tuneMv%', statMap);
-  const defMult = getDefMult(gameId, statMap);
-  const resMult = getResMult(gameId, element, statMap);
-  const tuneBreakBoostMult = 1 + (getAttr('tuneBreakBoost', statMap) / 100);
-  const vulnMult = 1 + getAttr('vuln%', statMap);
-
-  return LEVEL_MODIFIER * (tuneAmp * tuneAmpMvBonus) *
-    ENEMY_TYPE_MODIFIER *
-    defMult * resMult *
-    tuneBreakBoostMult *
-    vulnMult;
-};
-
 const calcTuneBreaksPerRotation = (ctx) => {
   const [offTuneAtFirstBreak, offTuneAfterFullRotation] = ctx.offTuneBuildup;
-  if (offTuneAtFirstBreak === 300) return 1;
+  if (offTuneAtFirstBreak === 300) {
+    return 1;
+  }
+
   return 1 / Math.ceil(300 / offTuneAfterFullRotation);
 };
 
@@ -50,14 +35,12 @@ function recordTuneBreak(ctx) {
 
     const tuneAmp = action?.damage?.compressed?.mvs?.tuneAmp ?? 16;
     const element = action?.damage?.element ?? 'physical';
-    const damage = runTuneFormula(ctx.cache.gameId, statMap, tuneAmp, element);
+    const damage = runTuneFormula(statMap, tuneAmp, element);
 
     return {
       ...(action ?? tuneBreakAction),
-      ...(action && action.damage &&
-        { damageType: action.damage.type }),
-      ...(action &&
-        { field: ctx.states.getField(action.ownerId) }),
+      ...(action && action.damage && { damageType: action.damage.type }),
+      ...(action && { field: ctx.states.getField(action.ownerId) }),
       damage: damage * timesPerRotation,
       runtime: ctx.states.runtime,
     };

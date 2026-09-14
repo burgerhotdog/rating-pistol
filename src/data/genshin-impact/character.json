@@ -6318,7 +6318,7 @@
             }
           },
           "specs": {
-            "flat": {
+            "damageFlat": {
               "attr": "hp",
               "step": 1,
               "value": 0.0139
@@ -6338,7 +6338,7 @@
             }
           },
           "specs": {
-            "flat": {
+            "damageFlat": {
               "attr": "hp",
               "step": 1,
               "value": 0.019
@@ -6354,7 +6354,7 @@
             }
           },
           "specs": {
-            "flat": {
+            "damageFlat": {
               "attr": "hp",
               "step": 1,
               "value": 0.33

@@ -367,7 +367,7 @@
           },
           "cooldown": 1500,
           "specs": {
-            "flat": {
+            "damageFlat": {
               "attr": "def",
               "step": 1,
               "value": [
@@ -709,7 +709,7 @@
             "attackSpd%": 0.1
           },
           "specs": {
-            "flat": {
+            "damageFlat": {
               "attr": "atk",
               "step": 1,
               "value": [
