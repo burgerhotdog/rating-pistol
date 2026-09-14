@@ -209,6 +209,10 @@ export const runRotation = (cache, equipMaps, specId) => {
   for (const [memberId, equipMap] of Object.entries(equipMaps)) {
     const { baseMap, staticMap } = cache.member[memberId];
     buildMaps[memberId] = toMergedObj(baseMap, staticMap, equipMap);
+
+    if (gameId === GI) {
+      buildMaps[memberId] = toMergedObj(buildMaps[memberId], cache.elementalResonance.stats);
+    }
   }
 
   const ctx = {
@@ -226,6 +230,7 @@ export const runRotation = (cache, equipMaps, specId) => {
       memberEffects: Object.fromEntries(cache.memberIds.map((id) => [id, {}])),
       ...(gameId === GI && {
         aura: {},
+        shielded: false,
       }),
       ...(gameId === WW && {
         negativeStatuses: {},

@@ -1,8 +1,13 @@
+import { GI } from '@/data';
 import { getEnergyLevel } from '../getEnergyLevel';
 import { toMergedObj } from '../merge';
 
 export function computeActualRotationTime(cache, equipMaps) {
   let fullTime = 0;
+
+  const resonanceMap = cache.gameId === GI
+    ? cache.elementalResonance.stats
+    : {};
 
   for (const mCache of Object.values(cache.member)) {
     if (mCache.concertoPenalty) {
@@ -14,7 +19,7 @@ export function computeActualRotationTime(cache, equipMaps) {
       continue;
     }
 
-    const statMap = toMergedObj(mCache.baseMap, mCache.staticMap, equipMaps[mCache.id]);
+    const statMap = toMergedObj(mCache.baseMap, mCache.staticMap, equipMaps[mCache.id], resonanceMap);
     const energyLevel = getEnergyLevel(cache.gameId, statMap);
 
     if (energyLevel - mCache.energyReq >= 0) {

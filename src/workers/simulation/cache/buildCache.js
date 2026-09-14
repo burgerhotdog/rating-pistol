@@ -1,4 +1,4 @@
-import { WW, CHARACTER, WEAPON, ECHO } from '@/data';
+import { GI, WW, CHARACTER, WEAPON, ECHO } from '@/data';
 import {
   buildEquipMap,
   buildBaseMap,
@@ -8,6 +8,8 @@ import {
 } from '@/utils';
 import { getActionDefs } from './actions';
 import { getEffectDefs } from './effects';
+import { cacheTeamResonance } from './gi';
+import { cacheTuneResponses } from './ww';
 
 const getConvertedRotation = (gameId, member, actionDefs, memberIds) => {
   const teamSize = memberIds.length;
@@ -158,26 +160,13 @@ export const buildCache = ({ gameId, charId, team }) => {
     cache.member[mCache.id] = mCache;
   }
 
+  if (gameId === GI) {
+    cacheTeamResonance(cache);
+  }
+
   if (gameId === WW) {
     cacheTuneResponses(cache);
   }
 
   return cache;
 };
-
-const alwaysStrain = new Set([1209, 1510, 1413]);
-const onlyStrainIfMode = new Set([1509, 1211]);
-
-function cacheTuneResponses(cache) {
-  cache.tuneStrainMaxStacks = 1;
-
-  for (const mCache of Object.values(cache.member)) {
-    const isStrain =
-      alwaysStrain.has(mCache.id) ||
-      (onlyStrainIfMode.has(mCache.id) && mCache.mode === 'tuneStrain');
-    if (!isStrain) continue;
-
-    mCache.tuneStrainResponse = true;
-    cache.tuneStrainMaxStacks++;
-  }
-}
