@@ -1,4 +1,4 @@
-import { WW } from '@/data';
+import { GI, WW } from '@/data';
 import { toMergedObj } from '@/utils';
 import {
   onRemoveDoCommand,
@@ -17,6 +17,9 @@ import {
   advanceNegativeStatuses,
   replaceNegativeStatuses,
 } from './special/negativeStatuses';
+import {
+  inflictGauge,
+} from './special/elementalGauge';
 import {
   runTuneBreak,
   applyOffTuneBuildup,
@@ -110,8 +113,9 @@ function decayBuffStates(ctx, action) {
       state.buffCooldown = effect.buff.cooldown;
     }
 
-    if ('usesLeft' in state) {
+    if (state.usesLeft) {
       state.usesLeft--;
+
       if (!state.usesLeft) {
         delete store[effect.key];
       }
@@ -174,6 +178,10 @@ function runAction(ctx, action, options = {}) {
     decayBuffStates(ctx, action);
   }
 
+  if (ctx.cache.gameId === GI) {
+    inflictGauge(ctx, action);
+  }
+
   if (ctx.cache.gameId === WW) {
     consumeNegativeStatuses(ctx, action);
     inflictNegativeStatuses(ctx, action);
@@ -214,6 +222,9 @@ export const runRotation = (cache, equipMaps, specId) => {
       applyCooldowns: {},
       globalEffects: {},
       memberEffects: Object.fromEntries(cache.memberIds.map((id) => [id, {}])),
+      ...(gameId === GI && {
+        aura: {},
+      }),
       ...(gameId === WW && {
         negativeStatuses: {},
         tune: { offTune: 0 },
@@ -252,7 +263,9 @@ export const runRotation = (cache, equipMaps, specId) => {
   }
 
   runCycle();
-  ctx.offTuneBuildup.push(ctx.states.tune.offTune);
+  if (gameId === WW) {
+    ctx.offTuneBuildup.push(ctx.states.tune.offTune);
+  }
   ctx.saveSnapshots = true;
   runCycle();
 

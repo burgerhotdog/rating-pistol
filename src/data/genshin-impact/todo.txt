@@ -7,6 +7,8 @@ characters:
         Double check
     10000030 Zhongli
         Something weird happens when levels are 1
+    10000031 Fischl
+        unfinished
 
 weapons:
     11302 Harbinger of Dawn

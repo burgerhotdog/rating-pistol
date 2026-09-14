@@ -6818,7 +6818,6 @@
     }
   },
   "10000031": {
-    "disabled": true,
     "name": "Fischl",
     "version": 1,
     "id": 10000031,
@@ -6838,7 +6837,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Bolts of Downfall",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -7005,8 +7004,11 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "electro",
+            "inflict": {
+              "gauge": 1
+            },
             "damage": {
+              "element": "electro",
               "multipliers": [
                 {
                   "mv": [
@@ -7114,10 +7116,43 @@
         ]
       },
       "elementalSkill": {
-        "name": "Freikugel",
+        "name": "Nightrider",
         "actions": [
           {
+            "name": "Elemental Skill",
+            "type": "elementalSkill",
+            "inflict": {
+              "gauge": 1
+            },
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.1544,
+                    1.241,
+                    1.3276,
+                    1.443,
+                    1.5296,
+                    1.6162,
+                    1.7316,
+                    1.847,
+                    1.9625,
+                    2.0779,
+                    2.1934,
+                    2.3088,
+                    2.4531,
+                    2.5974,
+                    2.7417
+                  ]
+                }
+              ]
+            }
+          },
+          {
             "name": "Freikugel",
+            "inflict": {
+              "gauge": 1
+            },
             "damage": {
               "type": "elementalSkill",
               "multipliers": [
@@ -7142,33 +7177,6 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Nightrider",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.1544,
-                    1.241,
-                    1.3276,
-                    1.443,
-                    1.5296,
-                    1.6162,
-                    1.7316,
-                    1.847,
-                    1.9625,
-                    2.0779,
-                    2.1934,
-                    2.3088,
-                    2.4531,
-                    2.5974,
-                    2.7417
-                  ]
-                }
-              ]
-            }
           }
         ]
       },
@@ -7176,8 +7184,11 @@
         "name": "Midnight Phantasmagoria",
         "actions": [
           {
-            "name": "Midnight Phantasmagoria",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
+            "inflict": {
+              "gauge": 2
+            },
             "damage": {
               "multipliers": [
                 {
@@ -7205,7 +7216,11 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "rotation": [
+        "elementalSkill.0"
+      ]
+    }
   },
   "10000032": {
     "name": "Bennett",
@@ -7534,6 +7549,9 @@
           {
             "name": "Passion Overload: Press",
             "type": "elementalSkill",
+            "inflict": {
+              "gauge": 2
+            },
             "damage": {
               "multipliers": [
                 {
@@ -7685,6 +7703,9 @@
           {
             "name": "Elemental Burst",
             "type": "elementalBurst",
+            "inflict": {
+              "gauge": 2
+            },
             "damage": {
               "multipliers": [
                 {

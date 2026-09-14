@@ -320,7 +320,8 @@ export function consumeNegativeStatuses(ctx, action) {
 }
 
 export function inflictNegativeStatuses(ctx, action) {
-  const toInflict = action.inflict?.status ?? {};
+  const toInflict = action.inflict?.status;
+  if (!toInflict) return;
 
   for (const [id, stacks] of Object.entries(toInflict)) {
     const status = STATUSES[id];
@@ -355,9 +356,9 @@ export function replaceNegativeStatuses(ctx, action) {
 }
 
 export function advanceNegativeStatuses(ctx, elapsed) {
-  const toAdvance = ctx.states.negativeStatuses;
+  const store = ctx.states.negativeStatuses;
 
-  for (const state of Object.values(toAdvance)) {
+  for (const state of Object.values(store)) {
     const { status } = state;
     status.advance(ctx, elapsed);
   }
@@ -365,7 +366,7 @@ export function advanceNegativeStatuses(ctx, elapsed) {
 
 const LEVEL_MODIFIER = 3674;
 
-export const buildSnapshot = (ctx, statusState, runtimeOffset = 0, fixedMv) => {
+const buildSnapshot = (ctx, statusState, runtimeOffset = 0, fixedMv) => {
   const { stacks, rage, status } = statusState;
 
   const { buffMap } = getBuffMap(ctx);
