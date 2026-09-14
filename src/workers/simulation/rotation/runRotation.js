@@ -126,16 +126,23 @@ function runAction(ctx, action, options = {}) {
 
   function advanceTimeTo(timestamp) {
     if (noDuration) return;
+
     const elapsed = timestamp - actionRuntime;
     if (elapsed <= 0) return;
 
-    if (ctx.cache.gameId === WW) advanceNegativeStatuses(ctx, elapsed);
-    if (ctx.cache.gameId === WW) advanceTune(ctx, elapsed);
+    if (ctx.cache.gameId === WW) {
+      advanceNegativeStatuses(ctx, elapsed);
+      advanceTune(ctx, elapsed);
+    }
+
     advanceEffects(ctx, elapsed);
     advanceCooldowns(ctx, elapsed);
 
     actionRuntime += elapsed;
-    if (ctx.saveSnapshots) ctx.states.runtime += elapsed;
+
+    if (ctx.saveSnapshots) {
+      ctx.states.runtime += elapsed;
+    }
   };
 
   function runEffectsWhen(when) {
@@ -171,10 +178,10 @@ function runAction(ctx, action, options = {}) {
     consumeNegativeStatuses(ctx, action);
     inflictNegativeStatuses(ctx, action);
     replaceNegativeStatuses(ctx, action);
-
     inflictTuneShifting(ctx, action);
-    runEffectsWhen('inflict');
   }
+
+  runEffectsWhen('inflict');
 
   for (const offset of hitOffsets) {
     advanceTimeTo(offset);
@@ -186,6 +193,8 @@ function runAction(ctx, action, options = {}) {
 }
 
 export const runRotation = (cache, equipMaps, specId) => {
+  const { gameId } = cache;
+
   const buildMaps = {};
   for (const [memberId, equipMap] of Object.entries(equipMaps)) {
     const { baseMap, staticMap } = cache.member[memberId];
@@ -205,12 +214,17 @@ export const runRotation = (cache, equipMaps, specId) => {
       applyCooldowns: {},
       globalEffects: {},
       memberEffects: Object.fromEntries(cache.memberIds.map((id) => [id, {}])),
-      negativeStatuses: {},
-      tune: { offTune: 0 },
+      ...(gameId === WW && {
+        negativeStatuses: {},
+        tune: { offTune: 0 },
+      }),
     },
     runAction,
     snapshots: [],
-    offTuneBuildup: [],
+    saveSnapshots: false,
+    ...(gameId === WW && {
+      offTuneBuildup: [],
+    }),
   };
 
   ctx.eventFilter = createEventFilter(ctx);
@@ -224,20 +238,23 @@ export const runRotation = (cache, equipMaps, specId) => {
   }
 
   // Rotation loop
-  const actionOrder = cache.memberIds
-    .toReversed()
-    .flatMap((memberId) => cache.member[memberId].rotation);
+  const memberOrder = gameId === WW ? cache.memberIds.toReversed() : cache.memberIds;
 
-  for (const action of actionOrder) {
-    ctx.states.onFieldId = action.ownerId;
-    runAction(ctx, action);
+  function runCycle() {
+    for (const memberId of memberOrder) {
+      ctx.states.onFieldId = memberId;
+
+      const { rotation } = cache.member[memberId];
+      for (const action of rotation) {
+        runAction(ctx, action);
+      }
+    }
   }
+
+  runCycle();
   ctx.offTuneBuildup.push(ctx.states.tune.offTune);
   ctx.saveSnapshots = true;
-  for (const action of actionOrder) {
-    ctx.states.onFieldId = action.ownerId;
-    runAction(ctx, action);
-  }
+  runCycle();
 
   if (!specId) {
     return ctx.snapshots;

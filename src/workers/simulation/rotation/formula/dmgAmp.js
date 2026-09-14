@@ -1,12 +1,11 @@
 import { getAttr } from '@/utils';
 
 export const getDmgAmpMult = (statMap, dmgTypes) => {
-  const dmgAmp = getAttr('dmgAmp%', statMap);
+  let dmgAmpMultiplier = 1 + getAttr('dmgAmp%', statMap);
 
-  const typeDmgAmp = dmgTypes.reduce((acc, type) => (
-    acc +
-    getAttr(`${type}DmgAmp%`, statMap)
-  ), 0);
+  for (const type of dmgTypes) {
+    dmgAmpMultiplier += getAttr(`${type}DmgAmp%`, statMap);
+  }
 
-  return 1 + dmgAmp + typeDmgAmp;
+  return dmgAmpMultiplier;
 };
