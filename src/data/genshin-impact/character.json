@@ -6834,7 +6834,60 @@
       "baseDef": 594,
       "atk%": 0.24
     },
-    "effects": [],
+    "energy": 60,
+    "energyMax": 1.5,
+    "effects": [
+      {
+        "ref": "oz",
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 10000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "use": {
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "oz"
+                }
+              },
+              {
+                "reaction": {
+                  "elements": "electro"
+                }
+              }
+            ]
+          },
+          "action": {
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": 0.8
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Bolts of Downfall",
@@ -7004,11 +7057,9 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "inflict": {
-              "gauge": 1
-            },
             "damage": {
               "element": "electro",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -7121,10 +7172,8 @@
           {
             "name": "Elemental Skill",
             "type": "elementalSkill",
-            "inflict": {
-              "gauge": 1
-            },
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -7150,11 +7199,9 @@
           },
           {
             "name": "Freikugel",
-            "inflict": {
-              "gauge": 1
-            },
             "damage": {
               "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -7186,10 +7233,8 @@
           {
             "name": "Elemental Burst",
             "type": "elementalBurst",
-            "inflict": {
-              "gauge": 2
-            },
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -7217,6 +7262,10 @@
       }
     },
     "memberPreset": {
+      "weaponId": 15501,
+      "setCounts": {
+        "15032": 4
+      },
       "rotation": [
         "elementalSkill.0"
       ]
@@ -7549,10 +7598,8 @@
           {
             "name": "Passion Overload: Press",
             "type": "elementalSkill",
-            "inflict": {
-              "gauge": 2
-            },
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -7703,10 +7750,8 @@
           {
             "name": "Elemental Burst",
             "type": "elementalBurst",
-            "inflict": {
-              "gauge": 2
-            },
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [

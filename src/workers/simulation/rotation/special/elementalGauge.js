@@ -62,8 +62,7 @@ function applyDendro(ctx, gauge, ownerId) {
 }
 
 export function inflictGauge(ctx, action) {
-  const element = action.damage?.element;
-  const gauge = action.inflict?.gauge;
+  const { element, gauge } = action.damage ?? {};
   if (!element || !gauge) return;
 
   switch (element) {

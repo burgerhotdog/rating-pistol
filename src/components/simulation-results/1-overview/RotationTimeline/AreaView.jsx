@@ -9,24 +9,26 @@ import {
   YAxis,
 } from 'recharts';
 import { useData } from '@/hooks';
-import { formatDmg, formatNum } from '@/utils';
+import { formatDmg, formatNum, formatStr } from '@/utils';
 
 function buildData(snapshots, memberStack) {
   const runtimeDamage = {};
 
-  const addDamage = (runtime, ownerId, damage, name) => {
+  const addDamage = (runtime, areaKey, damage, name) => {
     const time = Math.floor(runtime / 1000) * 1000;
 
     runtimeDamage[time] ??= { time, name };
-    runtimeDamage[time][ownerId] ??= 0;
-    runtimeDamage[time][ownerId] += damage;
+    runtimeDamage[time][areaKey] ??= 0;
+    runtimeDamage[time][areaKey] += damage;
   };
 
-  for (const { runtime, ownerId, damage, hitOffsets, name } of snapshots) {
+  for (const { runtime, ownerId, type, damage, hitOffsets, name } of snapshots) {
     if (!damage) continue;
 
+    const areaKey = ownerId === 'other' ? type : ownerId;
+
     if (!hitOffsets?.length) {
-      addDamage(runtime, ownerId, damage, name);
+      addDamage(runtime, areaKey, damage, name);
       continue;
     }
 
@@ -34,7 +36,7 @@ function buildData(snapshots, memberStack) {
     const splitDamage = damage / hitOffsets.length;
 
     for (const offset of hitOffsets) {
-      addDamage(runtime + offset - initOffset, ownerId, splitDamage, name);
+      addDamage(runtime + offset - initOffset, areaKey, splitDamage, name);
     }
   }
 
@@ -71,8 +73,13 @@ const AreaView = ({ results }) => {
   const elementDatas = useData('element');
 
   const memberStack = [...memberIds];
-  if (userSnapshots.some((ss) => ss.ownerId === 'other')) {
-    memberStack.push('other');
+  for (const snapshot of userSnapshots) {
+    if (
+      snapshot.ownerId !== 'other' ||
+      memberStack.includes(snapshot.type)
+    ) continue;
+
+    memberStack.push(snapshot.type);
   }
 
   const memberColors = Object.fromEntries(
@@ -122,13 +129,14 @@ const AreaView = ({ results }) => {
 
       {memberStack.toReversed().map((id) => {
         const color = memberColors[id];
+
         return (
           <Area
             key={id}
             dataKey={id}
             activeDot={false}
             fill={`url(#gradient${color})`}
-            name={charDatas[id]?.name ?? 'Other'}
+            name={charDatas[id]?.name ?? formatStr(id)}
             stackId="members"
             stroke={color}
             strokeOpacity={0}

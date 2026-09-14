@@ -57,6 +57,7 @@ function buildSnapshot(ctx, reaction, ownerId) {
     key: `other:${reaction}`,
     name: formatStr(reaction),
     ownerId: 'other',
+    type: 'transformativeReactions',
     runtime: ctx.states.runtime,
     damageType: reaction,
   };
@@ -126,6 +127,8 @@ export function reactOverloaded(ctx, aura, gauge, ownerId) {
     const snapshot = buildSnapshot(ctx, 'overloaded', ownerId);
     ctx.snapshots.push(snapshot);
   }
+
+  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'overloaded', elements: ['pyro', 'electro'] } })
 
   aura.gauge -= gauge;
 

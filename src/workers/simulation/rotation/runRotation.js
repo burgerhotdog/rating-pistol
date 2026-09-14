@@ -30,21 +30,22 @@ import { buildSnapshot } from './snapshot';
 import { getEffectStates } from './getEffectStates';
 import { createEventFilter } from './filter';
 
-function handleRemoveWhen(ctx, action, when) {
-  for (const state of getEffectStates(ctx, { member: action.ownerId })) {
-    const { effect } = state;
-    if (!effect.remove) continue;
+function handleRemoveWhen(ctx, when, { action, reaction }) {
+  const states = getEffectStates(ctx, { member: action?.ownerId ?? 'all' });
 
+  for (const state of states) {
+    const { effect } = state;
     const { remove } = effect;
+
     if (
-      remove.when !== when ||
-      !ctx.eventFilter(remove.filter, action, effect)
+      remove?.when !== when ||
+      !ctx.eventFilter(remove.filter, action ?? reaction, effect)
     ) continue;
 
-    onRemoveDoCommand(ctx, effect, action.ownerId);
+    onRemoveDoCommand(ctx, effect, action?.ownerId ?? effect.ownerId);
 
-    if (effect.remove.offset) {
-      state.removeTimer ??= effect.remove.offset;
+    if (remove.offset) {
+      state.removeTimer ??= remove.offset;
       continue;
     }
 
@@ -52,48 +53,53 @@ function handleRemoveWhen(ctx, action, when) {
   }
 }
 
-function handleUseWhen(ctx, action, when) {
-  for (const state of getEffectStates(ctx, { member: action.ownerId })) {
-    const { effect } = state;
-    if (!effect.use) continue;
+function handleUseWhen(ctx, when, { action, reaction }) {
+  const states = getEffectStates(ctx, { member: action?.ownerId ?? 'all' });
 
+  for (const state of states) {
+    const { effect } = state;
     const { use } = effect;
+
     if (
+      use?.when !== when ||
       state.isRunning ||
       state.useCooldown ||
-      use.when !== when ||
-      !ctx.eventFilter(use.filter, action, effect)
+      !ctx.eventFilter(use.filter, action ?? reaction, effect)
     ) continue;
 
-    onUseDoCommand(ctx, effect, action.ownerId);
+    onUseDoCommand(ctx, effect, action?.ownerId ?? effect.ownerId);
     runUseEffect(ctx, state);
   }
 }
 
-function handleApplyWhen(ctx, action, when) {
+function handleApplyWhen(ctx, when, { action, reaction }) {
   const { applyCooldowns } = ctx.states;
+
   for (const mCache of Object.values(ctx.cache.member)) {
     for (const effect of Object.values(mCache.effects)) {
-      if (!effect.apply) continue;
-
       const { apply } = effect;
+
+      const applier = action?.ownerId ?? effect.ownerId;
+
       if (
-        !apply.by.includes(action.ownerId) ||
+        apply?.when !== when ||
+        !apply.by.includes(applier) ||
         applyCooldowns[effect.key] ||
-        apply.when !== when ||
-        !ctx.eventFilter(apply.filter, action, effect)
+        !ctx.eventFilter(apply.filter, action ?? reaction, effect)
       ) continue;
 
-      onApplyDoCommand(ctx, effect, action.ownerId);
-      runApplyEffect(ctx, effect, { applier: action.ownerId, inflict: action.inflict });
+      onApplyDoCommand(ctx, effect, applier);
+      runApplyEffect(ctx, effect, { applier, inflict: action.inflict });
     }
   }
 }
 
 function advanceCooldowns(ctx, elapsed) {
   const { applyCooldowns } = ctx.states;
+
   for (const effectKey in applyCooldowns) {
     applyCooldowns[effectKey] -= elapsed;
+
     if (applyCooldowns[effectKey] <= 0) {
       delete applyCooldowns[effectKey];
     }
@@ -149,11 +155,7 @@ function runAction(ctx, action, options = {}) {
     }
   };
 
-  function runEffectsWhen(when) {
-    handleRemoveWhen(ctx, action, when);
-    handleUseWhen(ctx, action, when);
-    handleApplyWhen(ctx, action, when);
-  }
+  const runEffectsWhen = (when) => ctx.runEffectsWhen(when, { action });
 
   if (action.key === 'other:tuneBreak') {
     runTuneBreak(ctx, action);
@@ -178,10 +180,6 @@ function runAction(ctx, action, options = {}) {
     decayBuffStates(ctx, action);
   }
 
-  if (ctx.cache.gameId === GI) {
-    inflictGauge(ctx, action);
-  }
-
   if (ctx.cache.gameId === WW) {
     consumeNegativeStatuses(ctx, action);
     inflictNegativeStatuses(ctx, action);
@@ -194,6 +192,10 @@ function runAction(ctx, action, options = {}) {
   for (const offset of hitOffsets) {
     advanceTimeTo(offset);
     runEffectsWhen('hit');
+
+    if (ctx.cache.gameId === GI) {
+      inflictGauge(ctx, action);
+    }
   }
 
   advanceTimeTo(duration);
@@ -237,6 +239,14 @@ export const runRotation = (cache, equipMaps, specId) => {
       offTuneBuildup: [],
     }),
   };
+
+  function runEffectsWhen(when, spec) {
+    handleRemoveWhen(ctx, when, spec);
+    handleUseWhen(ctx, when, spec);
+    handleApplyWhen(ctx, when, spec);
+  }
+
+  ctx.runEffectsWhen = runEffectsWhen;
 
   ctx.eventFilter = createEventFilter(ctx);
 
