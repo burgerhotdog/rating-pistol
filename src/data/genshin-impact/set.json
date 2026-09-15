@@ -173,7 +173,6 @@
     ]
   },
   "15002": {
-    "disabled": true,
     "name": "Viridescent Venerer",
     "version": 1,
     "id": 15002,
@@ -189,6 +188,150 @@
         "buff": {
           "stats": {
             "anemoDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "stats": {
+            "swirlReactionBonus%": 0.6,
+            "stellarSwirlReactionBonus%": 0.2
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "global",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "reaction": {
+                  "and": [
+                    {
+                      "reaction": "swirl"
+                    },
+                    {
+                      "elements": "pyro"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "pyroResReduction%": 0.4
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "global",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "reaction": {
+                  "and": [
+                    {
+                      "reaction": "swirl"
+                    },
+                    {
+                      "elements": "hydro"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "hydroResReduction%": 0.4
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "global",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "reaction": {
+                  "and": [
+                    {
+                      "reaction": "swirl"
+                    },
+                    {
+                      "elements": "electro"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "electroResReduction%": 0.4
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "global",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "reaction": {
+                  "or": [
+                    {
+                      "and": [
+                        {
+                          "reaction": "swirl"
+                        },
+                        {
+                          "elements": "cryo"
+                        }
+                      ]
+                    },
+                    {
+                      "reaction": "stellarSwirl"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "cryoResReduction%": 0.4
           }
         }
       }

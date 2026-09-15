@@ -93,7 +93,7 @@ function handleApplyWhen(ctx, when, { action, reaction }) {
       ) continue;
 
       onApplyDoCommand(ctx, effect, applier);
-      runApplyEffect(ctx, effect, { applier, inflict: action.inflict });
+      runApplyEffect(ctx, effect, { applier, inflict: action?.inflict });
     }
   }
 }

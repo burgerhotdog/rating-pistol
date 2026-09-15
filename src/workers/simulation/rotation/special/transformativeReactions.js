@@ -37,21 +37,17 @@ const LEVEL_MULTIPLIER = 1446.85;
 const reactionMultiplier = {
   overloaded: 2.75,
   superconduct: 1.5,
+  swirl: 0.6,
 };
 
-const reactionElement = {
-  overloaded: 'pyro',
-  superconduct: 'cryo',
-};
-
-function runFormula(reaction, statMap) {
+function runFormula(reaction, statMap, reactionElement) {
   const em = getAttr('elementalMastery', statMap);
   const reactionBonus = 1 + ((16 * em) / (2000 + em)) + getAttr(`${reaction}ReactionBonus%`, statMap);
-  const resMult = getResMult(GI, reactionElement[reaction], statMap);
+  const resMult = getResMult(GI, reactionElement, statMap);
   return LEVEL_MULTIPLIER * reactionMultiplier[reaction] * reactionBonus * resMult;
 }
 
-function buildSnapshot(ctx, reaction, ownerId) {
+function buildSnapshot(ctx, reaction, ownerId, reactionElement) {
   const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId });
   const isSpecIdAction = ownerId === ctx.specId;
 
@@ -66,14 +62,14 @@ function buildSnapshot(ctx, reaction, ownerId) {
 
   if (!ctx.specId) {
     const statMap = toMergedObj(ctx.buildMaps[ownerId], buffMap);
-    snapshot.damage = runFormula(reaction, statMap);
+    snapshot.damage = runFormula(reaction, statMap, reactionElement);
     return snapshot;
   }
 
   const usedAttrs = new Set([
     'elementalMastery',
     `${reaction}ReactionBonus%`,
-    `${reactionElement[reaction]}ResReduction`,
+    `${reactionElement}ResReduction`,
   ]);
   const usesSpecs = buffSpecs.some(({ specs }) =>
     Object.keys(specs).some((stat) => usedAttrs.has(stat))
@@ -126,7 +122,7 @@ function buildSnapshot(ctx, reaction, ownerId) {
 
 export function reactOverloaded(ctx, ownerId) {
   if (ctx.saveSnapshots) {
-    const snapshot = buildSnapshot(ctx, 'overloaded', ownerId);
+    const snapshot = buildSnapshot(ctx, 'overloaded', ownerId, 'pyro');
     ctx.snapshots.push(snapshot);
   }
 
@@ -135,7 +131,7 @@ export function reactOverloaded(ctx, ownerId) {
 
 export function reactSuperconduct(ctx, ownerId) {
   if (ctx.saveSnapshots) {
-    const snapshot = buildSnapshot(ctx, 'superconduct', ownerId);
+    const snapshot = buildSnapshot(ctx, 'superconduct', ownerId, 'cryo');
     ctx.snapshots.push(snapshot);
   }
 
@@ -144,81 +140,11 @@ export function reactSuperconduct(ctx, ownerId) {
   ctx.runEffectsWhen('reaction', { reaction: { reaction: 'superconduct', elements: ['cryo', 'electro'] } });
 }
 
-// Amplifying reactions (melt/vaporize) multiply the triggering hit's own damage
-// instead of creating an independent damage instance, so this returns a
-// multiplier (number, or a buildMap => number closure in spec mode) rather than
-// pushing a snapshot. Aura consumption is handled by the caller in elementalGauge.js.
-const AMP_EM_CONSTANT = 2.78;
-
-const ampBonusStat = {
-  melt: 'meltDmgBonus%',
-  vaporize: 'vaporizeDmgBonus%',
-};
-
-function runAmpFormula(reaction, base, statMap) {
-  const em = getAttr('elementalMastery', statMap);
-  const reactionBonus = 1 + ((AMP_EM_CONSTANT * em) / (1400 + em)) + getAttr(ampBonusStat[reaction], statMap);
-  return base * reactionBonus;
-}
-
-function getAmpMultiplier(ctx, reaction, ownerId, base) {
-  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId });
-  const isSpecIdAction = ownerId === ctx.specId;
-
-  if (!ctx.specId) {
-    const statMap = toMergedObj(ctx.buildMaps[ownerId], buffMap);
-    return runAmpFormula(reaction, base, statMap);
+export function reactSwirl(ctx, ownerId, auraElement) {
+  if (ctx.saveSnapshots) {
+    const snapshot = buildSnapshot(ctx, 'swirl', ownerId, auraElement);
+    ctx.snapshots.push(snapshot);
   }
 
-  const usedAttrs = new Set(['elementalMastery', ampBonusStat[reaction]]);
-  const usesSpecs = buffSpecs.some(({ specs }) =>
-    Object.keys(specs).some((stat) => usedAttrs.has(stat))
-  );
-
-  if (!isSpecIdAction && !usesSpecs) {
-    const statMap = toMergedObj(ctx.buildMaps[ownerId], buffMap);
-    return runAmpFormula(reaction, base, statMap);
-  }
-
-  // Action is from specId but has no variable buffs from specId
-  if (!usesSpecs) {
-    return (currBuildMap) => {
-      const statMap = toMergedObj(currBuildMap, buffMap);
-      return runAmpFormula(reaction, base, statMap);
-    };
-  }
-
-  const testBuffMap = getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true });
-
-  // Action is not from specId but has variable buffs from specId
-  if (!isSpecIdAction) {
-    const partiallyBuffedMap = toMergedObj(ctx.buildMaps[ownerId], buffMap);
-
-    return (testBuildMap) => {
-      const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
-      const resolvedBuffs = toResolvedSpecs(buffSpecs, testBuffedMap);
-      const statMap = toMergedObj(partiallyBuffedMap, resolvedBuffs);
-
-      return runAmpFormula(reaction, base, statMap);
-    };
-  }
-
-  // Action is from specId and has variable buffs from specId
-  return (testBuildMap) => {
-    const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
-    const resolvedBuffs = toResolvedSpecs(buffSpecs, testBuffedMap);
-    const statMap = toMergedObj(testBuildMap, buffMap, resolvedBuffs);
-
-    return runAmpFormula(reaction, base, statMap);
-  };
-}
-
-export function reactMelt(ctx, ownerId, isForward) {
-  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'melt', elements: ['pyro', 'cryo'] } });
-  return getAmpMultiplier(ctx, 'melt', ownerId, isForward ? 2 : 1.5);
-}
-
-export function reactVaporize(ctx, ownerId, isForward) {
-  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'vaporize', elements: ['pyro', 'hydro'] } });
-  return getAmpMultiplier(ctx, 'vaporize', ownerId, isForward ? 2 : 1.5);
+  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'swirl', elements: ['anemo', auraElement] } });
 }

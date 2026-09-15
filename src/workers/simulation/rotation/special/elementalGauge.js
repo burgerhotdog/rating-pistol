@@ -1,6 +1,7 @@
 import {
   reactOverloaded,
   reactSuperconduct,
+  reactSwirl,
 } from './transformativeReactions';
 import {
   reactMelt,
@@ -16,11 +17,14 @@ function applyAura(ctx, element, gauge) {
 }
 
 function consumeAura(ctx, aura, gauge) {
+  const remaining = Math.max(gauge - aura.gauge, 0);
   aura.gauge -= gauge;
 
   if (aura.gauge <= 0) {
     delete ctx.states.aura[aura.element];
   }
+
+  return remaining;
 }
 
 function applyPyro(ctx, gauge, applier) {
@@ -100,6 +104,30 @@ function applyHydro(ctx, gauge, applier) {
 }
 
 function applyAnemo(ctx, gauge, applier) {
+  const { aura } = ctx.states;
+
+  let remaining = gauge;
+
+  if (aura.pyro && remaining) {
+    reactSwirl(ctx, applier, 'pyro');
+    remaining = consumeAura(ctx, aura.pyro, gauge);
+  }
+
+  if (aura.electro && remaining) {
+    reactSwirl(ctx, applier, 'electro');
+    remaining = consumeAura(ctx, aura.electro, gauge);
+  }
+
+  if (aura.hydro && remaining) {
+    reactSwirl(ctx, applier, 'hydro');
+    remaining = consumeAura(ctx, aura.hydro, gauge);
+  }
+
+  if (aura.cryo && remaining) {
+    reactSwirl(ctx, applier, 'cryo');
+    remaining = consumeAura(ctx, aura.cryo, gauge);
+  }
+
   return 1;
 }
 

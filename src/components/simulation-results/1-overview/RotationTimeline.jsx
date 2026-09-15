@@ -12,7 +12,6 @@ import { useData } from '@/hooks';
 import { formatDmg, formatNum, formatStr } from '@/utils';
 
 function buildData(snapshots, memberStack) {
-  console.log(snapshots);
   const runtimeDamage = {};
 
   const addDamage = (runtime, areaKey, damage, name) => {
@@ -67,7 +66,7 @@ function buildData(snapshots, memberStack) {
   return data;
 }
 
-const AreaView = ({ results }) => {
+const RotationTimeline = ({ results }) => {
   const { userSnapshots, memberIds } = results;
   const { palette } = useTheme();
   const charDatas = useData('character');
@@ -207,4 +206,4 @@ const AreaView = ({ results }) => {
   );
 };
 
-export default AreaView;
+export default RotationTimeline;

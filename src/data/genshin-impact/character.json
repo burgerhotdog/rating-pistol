@@ -4787,7 +4787,6 @@
     "memberPreset": {}
   },
   "10000025": {
-    "disabled": true,
     "name": "Xingqiu",
     "version": 1,
     "id": 10000025,
@@ -4803,10 +4802,47 @@
       "hydroDmgBonus%": 0.2,
       "atk%": 0.24
     },
-    "effects": [],
+    "effects": [
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000
+        },
+        "use": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "type": "normalAttack"
+                }
+              }
+            ]
+          },
+          "action": "elementalBurst.1",
+          "times": 3
+        }
+      },
+      {
+        "buff": {
+          "stats": {
+            "hydroDmgBonus%": 0.2
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Guhua Style",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -5114,9 +5150,10 @@
         "name": "Guhua Sword: Fatal Rainscreen",
         "actions": [
           {
-            "name": "Guhua Sword: Fatal Rainscreen",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -5161,8 +5198,7 @@
           },
           {
             "name": "Damage Reduction Ratio",
-            "type": "buff",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
                   "mv": [
@@ -5192,9 +5228,19 @@
         "name": "Guhua Sword: Raincutter: Sword Rain",
         "actions": [
           {
-            "name": "Guhua Sword: Raincutter: Sword Rain",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Elemental Burst: Sword",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "elementalBurst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -5217,15 +5263,16 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Guhua Sword: Raincutter",
-            "type": "elementalBurst"
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000026": {
     "disabled": true,
@@ -27123,7 +27170,7 @@
       {
         "ref": "windfavoredNA",
         "apply": {
-          "when": "start",
+          "when": "end",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
@@ -27131,8 +27178,7 @@
           },
           "duration": 10000
         },
-        "use": {
-          "when": "end",
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -27142,13 +27188,15 @@
               ]
             }
           },
-          "action": "elementalSkill.1"
+          "statRefs": {
+            "damageMv%": "elementalSkill.1"
+          }
         }
       },
       {
         "ref": "windfavoredCA",
         "apply": {
-          "when": "start",
+          "when": "end",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
@@ -27156,14 +27204,15 @@
           },
           "duration": 10000
         },
-        "use": {
-          "when": "end",
+        "buff": {
           "filter": {
             "action": {
               "ref": "normalAttack.3"
             }
           },
-          "action": "elementalSkill.2"
+          "statRefs": {
+            "damageMv%": "elementalSkill.2"
+          }
         }
       }
     ],
@@ -27175,6 +27224,12 @@
             "name": "Normal Attack 1",
             "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "normalAttack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -27202,6 +27257,12 @@
             "name": "Normal Attack 2",
             "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "normalAttack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -27229,6 +27290,12 @@
             "name": "Normal Attack 3",
             "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "normalAttack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -27275,6 +27342,7 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27329,6 +27397,7 @@
             "name": "Plunge Attack: Low",
             "type": "plungeAttack",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27356,6 +27425,7 @@
             "name": "Plunge Attack: High",
             "type": "plungeAttack",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27388,6 +27458,7 @@
             "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27413,26 +27484,25 @@
           },
           {
             "name": "Kuugo: Fushoudan",
-            "damage": {
-              "type": "normalAttack",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
-                    1.3298,
-                    1.3496,
-                    1.3693,
-                    1.395,
-                    1.4147,
-                    1.4345,
-                    1.4602,
-                    1.4858,
-                    1.5115,
-                    1.5372,
-                    1.5629,
-                    1.5885,
-                    1.6142,
-                    1.6399,
-                    1.6656
+                  "flat": [
+                    0.3298,
+                    0.3496,
+                    0.3693,
+                    0.395,
+                    0.4147,
+                    0.4345,
+                    0.4602,
+                    0.4858,
+                    0.5115,
+                    0.5372,
+                    0.5629,
+                    0.5885,
+                    0.6142,
+                    0.6399,
+                    0.6656
                   ]
                 }
               ]
@@ -27440,26 +27510,25 @@
           },
           {
             "name": "Kuugo: Toufukai",
-            "damage": {
-              "type": "chargedAttack",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
-                    1.2639,
-                    1.2797,
-                    1.2955,
-                    1.316,
-                    1.3318,
-                    1.3476,
-                    1.3681,
-                    1.3887,
-                    1.4092,
-                    1.4298,
-                    1.4503,
-                    1.4708,
-                    1.4914,
-                    1.5119,
-                    1.5325
+                  "flat": [
+                    0.2639,
+                    0.2797,
+                    0.2955,
+                    0.316,
+                    0.3318,
+                    0.3476,
+                    0.3681,
+                    0.3887,
+                    0.4092,
+                    0.4298,
+                    0.4503,
+                    0.4708,
+                    0.4914,
+                    0.5119,
+                    0.5325
                   ]
                 }
               ]
@@ -27474,6 +27543,12 @@
             "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "elementalBurst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [

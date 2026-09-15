@@ -36,14 +36,9 @@ const toResolvedSpecs = (buffSpecs, sourceMap) => {
 // pushing a snapshot. Aura consumption is handled by the caller in elementalGauge.js.
 const AMP_EM_CONSTANT = 2.78;
 
-const ampBonusStat = {
-  melt: 'meltDmgBonus%',
-  vaporize: 'vaporizeDmgBonus%',
-};
-
 function runAmpFormula(reaction, base, statMap) {
   const em = getAttr('elementalMastery', statMap);
-  const reactionBonus = 1 + ((AMP_EM_CONSTANT * em) / (1400 + em)) + getAttr(ampBonusStat[reaction], statMap);
+  const reactionBonus = 1 + ((AMP_EM_CONSTANT * em) / (1400 + em)) + getAttr(`${reaction}ReactionBonus%`, statMap);
   return base * reactionBonus;
 }
 
@@ -56,7 +51,7 @@ function getAmpMultiplier(ctx, reaction, ownerId, base) {
     return runAmpFormula(reaction, base, statMap);
   }
 
-  const usedAttrs = new Set(['elementalMastery', ampBonusStat[reaction]]);
+  const usedAttrs = new Set(['elementalMastery', `${reaction}ReactionBonus%`]);
   const usesSpecs = buffSpecs.some(({ specs }) =>
     Object.keys(specs).some((stat) => usedAttrs.has(stat))
   );

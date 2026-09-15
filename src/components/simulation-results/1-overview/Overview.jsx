@@ -13,7 +13,7 @@ import { formatNum } from '@/utils';
 import WeaponsDialog from './WeaponsDialog';
 import SetsDialog from './SetsDialog';
 import DistributionChart from './DistributionChart';
-import AreaView from './RotationTimeline/AreaView';
+import RotationTimeline from './RotationTimeline';
 
 const GRADE_BANDS = [
   { floor: 90, letter: 'A', color: '#4ade80' },
@@ -141,7 +141,7 @@ const Overview = ({ results }) => {
           <CardHeader
             title="Rotation Timeline"
           />
-          <AreaView results={results} />
+          <RotationTimeline results={results} />
         </Card>
 
         <Card component={Stack} sx={{ flex: 1 }}>
