@@ -46,7 +46,15 @@ function createIsImportantStat(gameId, userMainstatConfigKey = '', userConfigSub
 
   if (gameId === WW) {
     const unbiasedFrequency = 11899 / 128700;
-    return (stat) => getFrequency(stat) > unbiasedFrequency;
+
+    return (stat) => {
+      const rolls = userConfigSubstatRolls[stat];
+
+      return (
+        getFrequency(stat) > unbiasedFrequency ||
+        Math.min(...rolls) > 0
+      );
+    }
   }
 
   const mainstatIds = userMainstatConfigKey.split('|');
@@ -65,7 +73,12 @@ function createIsImportantStat(gameId, userMainstatConfigKey = '', userConfigSub
 
     const unbiasedFrequency = avgRolls / 41;
 
-    return getFrequency(stat) > unbiasedFrequency;
+    const rolls = userConfigSubstatRolls[stat];
+
+    return (
+      getFrequency(stat) > unbiasedFrequency ||
+      Math.min(...rolls) > 0
+    );
   };
 }
 
@@ -226,7 +239,7 @@ const SubstatsChart = ({ results, userMainstatConfigKey, userSubstatRolls }) => 
 
           const gradientStops = violin
             .map(({ v, density }) => ({
-              offset: ((toPixelY(v) - y) / height) * 100,
+              offset: (1 - (v - domainMin) / (domainMax - domainMin)) * 100,
               opacity: density,
             }))
             .sort((a, b) => a.offset - b.offset);

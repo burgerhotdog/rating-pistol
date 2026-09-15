@@ -112,3 +112,42 @@ export const buildSnapshot = (ctx, action, options = {}) => {
 
   return snapshot;
 };
+
+// Divides an already-built snapshot part by hitCount to get a per-hit share.
+// When the part is a spec-mode closure, the result is memoized by buildMap
+// reference so N per-hit snapshots sharing this resolver only pay the cost once
+// per resolve call instead of once per hit.
+export const splitPerHit = (snapshot, part, hitCount) => {
+  const value = snapshot[part];
+
+  if (typeof value !== 'function') {
+    return value / hitCount;
+  }
+
+  let lastArg, lastResult;
+  let hasResult = false;
+
+  return (buildMap) => {
+    if (!hasResult || buildMap !== lastArg) {
+      lastArg = buildMap;
+      lastResult = value(buildMap);
+      hasResult = true;
+    }
+
+    return lastResult / hitCount;
+  };
+};
+
+// Combines a snapshot part with a multiplier, each of which may be a plain
+// number or a spec-mode buildMap => number closure.
+export const scaleResolved = (value, multiplier) => {
+  if (typeof value !== 'function' && typeof multiplier !== 'function') {
+    return value * multiplier;
+  }
+
+  return (buildMap) => {
+    const resolvedValue = typeof value === 'function' ? value(buildMap) : value;
+    const resolvedMultiplier = typeof multiplier === 'function' ? multiplier(buildMap) : multiplier;
+    return resolvedValue * resolvedMultiplier;
+  };
+};

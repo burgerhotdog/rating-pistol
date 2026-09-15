@@ -12,6 +12,7 @@ import { useData } from '@/hooks';
 import { formatDmg, formatNum, formatStr } from '@/utils';
 
 function buildData(snapshots, memberStack) {
+  console.log(snapshots);
   const runtimeDamage = {};
 
   const addDamage = (runtime, areaKey, damage, name) => {

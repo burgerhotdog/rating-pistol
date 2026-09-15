@@ -2,6 +2,10 @@ import {
   reactOverloaded,
   reactSuperconduct,
 } from './transformativeReactions';
+import {
+  reactMelt,
+  reactVaporize,
+} from './amplifyingReactions';
 import { attemptApplyElement } from './icd';
 
 function applyAura(ctx, element, gauge) {
@@ -11,96 +15,136 @@ function applyAura(ctx, element, gauge) {
   aura.gauge = Math.max(aura.gauge ?? 0, gauge * 0.8);
 }
 
+function consumeAura(ctx, aura, gauge) {
+  aura.gauge -= gauge;
+
+  if (aura.gauge <= 0) {
+    delete ctx.states.aura[aura.element];
+  }
+}
+
 function applyPyro(ctx, gauge, applier) {
   const { aura } = ctx.states;
 
   if (aura.electro) {
-    reactOverloaded(ctx, aura.electro, gauge, applier);
-    return;
+    reactOverloaded(ctx, applier);
+    consumeAura(ctx, aura.electro, gauge);
+    return 1;
+  }
+
+  if (aura.cryo) {
+    const multiplier = reactMelt(ctx, applier, true);
+    consumeAura(ctx, aura.cryo, gauge);
+    return multiplier;
+  }
+
+  if (aura.hydro) {
+    const multiplier = reactVaporize(ctx, applier, true);
+    consumeAura(ctx, aura.hydro, gauge);
+    return multiplier;
   }
 
   applyAura(ctx, 'pyro', gauge);
+  return 1;
 }
 
 function applyElectro(ctx, gauge, applier) {
   const { aura } = ctx.states;
 
   if (aura.pyro) {
-    reactOverloaded(ctx, aura.pyro, gauge, applier);
-    return;
+    reactOverloaded(ctx, applier);
+    consumeAura(ctx, aura.pyro, gauge);
+    return 1;
   }
 
   if (aura.cryo) {
-    reactSuperconduct(ctx, aura.cryo, gauge);
-    return;
+    reactSuperconduct(ctx, applier);
+    consumeAura(ctx, aura.cryo, gauge);
+    return 1;
   }
 
   applyAura(ctx, 'electro', gauge);
+  return 1;
 }
 
 function applyCryo(ctx, gauge, applier) {
   const { aura } = ctx.states;
 
   if (aura.electro) {
-    reactSuperconduct(ctx, aura.electro, gauge);
-    return;
+    reactSuperconduct(ctx, applier);
+    consumeAura(ctx, aura.electro, gauge);
+    return 1;
+  }
+
+  if (aura.pyro) {
+    const multiplier = reactMelt(ctx, applier, false);
+    consumeAura(ctx, aura.pyro, gauge);
+    return multiplier;
   }
 
   applyAura(ctx, 'cryo', gauge);
+  return 1;
 }
 
 function applyHydro(ctx, gauge, applier) {
+  const { aura } = ctx.states;
+
+  if (aura.pyro) {
+    const multiplier = reactVaporize(ctx, applier, false);
+    consumeAura(ctx, aura.pyro, gauge);
+    return multiplier;
+  }
+
   applyAura(ctx, 'hydro', gauge);
+  return 1;
 }
 
 function applyAnemo(ctx, gauge, applier) {
+  return 1;
 }
 
 function applyGeo(ctx, gauge, applier) {
+  return 1;
 }
 
 function applyDendro(ctx, gauge, applier) {
   applyAura(ctx, 'dendro', gauge);
+  return 1;
 }
 
 export function applyGauge(ctx, action) {
   const { element, gauge, icd } = action.damage ?? {};
-  if (element === 'physical' || !gauge) return;
+  if (element === 'physical' || !gauge) return 1;
 
   if (icd) {
     const attemptSuccess = attemptApplyElement(ctx, action.ownerId, icd);
-    if (!attemptSuccess) return;
+    if (!attemptSuccess) return 1;
   }
 
   switch (element) {
     case 'pyro':
-      applyPyro(ctx, gauge, action.ownerId);
-      break;
+      return applyPyro(ctx, gauge, action.ownerId);
 
     case 'electro':
-      applyElectro(ctx, gauge, action.ownerId);
-      break;
+      return applyElectro(ctx, gauge, action.ownerId);
 
     case 'cryo':
-      applyCryo(ctx, gauge, action.ownerId);
-      break;
+      return applyCryo(ctx, gauge, action.ownerId);
 
     case 'hydro':
-      applyHydro(ctx, gauge, action.ownerId);
-      break;
+      return applyHydro(ctx, gauge, action.ownerId);
 
     case 'anemo':
-      applyAnemo(ctx, gauge, action.ownerId);
-      break;
+      return applyAnemo(ctx, gauge, action.ownerId);
 
     case 'geo':
-      applyGeo(ctx, gauge, action.ownerId);
-      break;
+      return applyGeo(ctx, gauge, action.ownerId);
 
     case 'dendro':
-      applyDendro(ctx, gauge, action.ownerId);
-      break;
+      return applyDendro(ctx, gauge, action.ownerId);
   }
+
+  return 1;
 }
 
 export function advanceAuras(ctx, elapsed) {

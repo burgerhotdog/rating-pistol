@@ -1696,7 +1696,6 @@
     "memberPreset": {}
   },
   "10000015": {
-    "disabled": true,
     "name": "Kaeya",
     "version": 1,
     "id": 10000015,
@@ -1711,10 +1710,27 @@
       "baseDef": 792,
       "energyRecharge%": 0.267
     },
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 8000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 400,
+          "action": "elementalBurst.1"
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Ceremonial Bladework",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -1984,7 +2000,7 @@
         "name": "Frostgnaw",
         "actions": [
           {
-            "name": "Frostgnaw",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -2013,12 +2029,17 @@
         ]
       },
       "elementalBurst": {
-        "name": "Glacial Waltz: Icicle",
+        "name": "Glacial Waltz",
         "actions": [
           {
-            "name": "Glacial Waltz: Icicle",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Elemental Burst: Icicle",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -2041,15 +2062,16 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Glacial Waltz",
-            "type": "elementalBurst"
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000016": {
     "disabled": true,

@@ -30,7 +30,7 @@ import {
   inflictTuneShifting,
   advanceTune,
 } from './special/tune';
-import { buildSnapshot } from './snapshot';
+import { buildSnapshot, splitPerHit, scaleResolved } from './snapshot';
 import { getEffectStates } from './getEffectStates';
 import { createEventFilter } from './filter';
 
@@ -172,6 +172,14 @@ function runAction(ctx, action, options = {}) {
     return;
   }
 
+  // Melt/vaporize only amplify the specific hit that triggers them, so these
+  // actions can't have their damage batched into one snapshot up front - ICD
+  // determines which hits react only once we're inside the hitOffsets loop.
+  const isAmpReactive = ctx.cache.gameId === GI
+    && action.damage
+    && ['pyro', 'cryo', 'hydro'].includes(action.damage.element);
+  let perHitDamage;
+
   // Action timeline
   runEffectsWhen('start');
   advanceTimeTo(hitOffsets[0]);
@@ -179,7 +187,19 @@ function runAction(ctx, action, options = {}) {
   if (action.damage || action.healing || action.shield) {
     if (ctx.saveSnapshots) {
       const snapshot = buildSnapshot(ctx, action, { runtimeOffset });
-      ctx.snapshots.push(snapshot);
+
+      if (isAmpReactive) {
+        perHitDamage = splitPerHit(snapshot, 'damage', hitOffsets.length);
+        delete snapshot.damage;
+        delete snapshot.damageType;
+
+        // Only push the leftover shell if it still carries healing/shield.
+        if (snapshot.healing !== undefined || snapshot.shield !== undefined) {
+          ctx.snapshots.push(snapshot);
+        }
+      } else {
+        ctx.snapshots.push(snapshot);
+      }
     }
 
     if (ctx.cache.gameId === WW && action.damage) {
@@ -203,7 +223,21 @@ function runAction(ctx, action, options = {}) {
     runEffectsWhen('hit');
 
     if (ctx.cache.gameId === GI) {
-      applyGauge(ctx, action);
+      const multiplier = applyGauge(ctx, action);
+
+      if (isAmpReactive && ctx.saveSnapshots) {
+        ctx.snapshots.push({
+          key: action.key,
+          name: action.name,
+          ownerId: action.ownerId,
+          category: action.category,
+          type: action.type,
+          field: ctx.states.getField(action.ownerId),
+          runtime: ctx.states.runtime + (runtimeOffset ?? 0),
+          damageType: action.damage.type,
+          damage: scaleResolved(perHitDamage, multiplier),
+        });
+      }
     }
   }
 
