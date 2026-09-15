@@ -380,8 +380,8 @@ const buildSnapshot = (ctx, statusState, runtimeOffset = 0, fixedMv) => {
   const resMult = getResMult(ctx.cache.gameId, status.element, buffMap);
 
   return {
-    id: `other:${status.id}`,
-    ownerId: 'other',
+    id: `system:${status.id}`,
+    ownerId: 'system',
     name: formatStr(status.id),
     type: 'negativeStatus',
     damageType: status.id,

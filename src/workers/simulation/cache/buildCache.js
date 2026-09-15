@@ -1,4 +1,4 @@
-import { GI, WW, CHARACTER, WEAPON, ECHO } from '@/data';
+import { GI, WW, CHARACTER, WEAPON } from '@/data';
 import {
   buildEquipMap,
   buildBaseMap,
@@ -8,84 +8,13 @@ import {
 } from '@/utils';
 import { getActionDefs } from './actions';
 import { getEffectDefs } from './effects';
-import { cacheTeamResonance } from './gi';
-import { cacheTuneResponses } from './ww';
-
-const getConvertedRotation = (gameId, member, actionDefs, memberIds) => {
-  const teamSize = memberIds.length;
-
-  const rotation = [];
-  let duration = 0;
-
-  // Convert refs to actions
-  for (const ref of member.rotation) {
-    const action = actionDefs[ref];
-
-    if (
-      teamSize === 1 &&
-      (
-        action.type === 'introSkill' ||
-        action.type === 'outroSkill'
-      )
-    ) continue;
-
-    duration += action.duration ?? 0;
-    rotation.push(action);
-  }
-
-  if (gameId === WW) {
-    // Insert main echo rotation
-    const echoData = ECHO[member.mainEcho] ?? {};
-    if (echoData.action) {
-      let insertAtIndex = rotation.length;
-
-      if (echoData.timing === 'start') {
-        insertAtIndex = rotation[0]?.type === 'introSkill' ? 1 : 0;
-      } else {
-        if (rotation.at(-1)?.type === 'outroSkill') insertAtIndex = -1;
-      }
-
-      rotation.splice(insertAtIndex, 0, actionDefs['echoSkill.0']);
-    }
-
-    // Insert tune break action for first character
-    if (member.id === memberIds[0]) {
-      // Ensure no more than 8000 ms remain after tune break
-      let timeLeft = duration;
-      let insertAtIndex = 0;
-      for (const action of rotation) {
-        if (timeLeft <= 8000) break;
-
-        timeLeft -= action.duration;
-        insertAtIndex++;
-      }
-
-      if (insertAtIndex === 0) insertAtIndex++;
-
-      rotation.splice(insertAtIndex, 0, {
-        key: 'other:tuneBreak',
-        ownerId: member.id,
-      });
-    }
-  }
-
-  if (!member.duration) {
-    return { rotation, duration };
-  }
-
-  const adjustTiming = (time) => Math.round(time * member.duration / duration);
-
-  return {
-    rotation: rotation.map((action) => ({
-      ...action,
-      duration: adjustTiming(action.duration),
-      ...(action.hitOffsets && {
-        hitOffsets: action.hitOffsets.map(adjustTiming),
-      }),
-    })),
-    duration: member.duration,
-  };
-};
+import { getConvertedRotation } from './rotation';
+import {
+  cacheElementalResonance,
+} from './game-specific/genshin-impact';
+import {
+  cacheTuneResponses,
+} from './game-specific/wuthering-waves';
 
 export const buildCache = ({ gameId, charId, team }) => {
   const cache = { gameId, charId };
@@ -105,6 +34,7 @@ export const buildCache = ({ gameId, charId, team }) => {
       ...member,
       baseMap,
       ...getConvertedRotation(gameId, member, actionDefs, cache.memberIds),
+      actions: actionDefs,
     };
 
     if (member.build?.equipList) {
@@ -161,7 +91,7 @@ export const buildCache = ({ gameId, charId, team }) => {
   }
 
   if (gameId === GI) {
-    cacheTeamResonance(cache);
+    cacheElementalResonance(cache);
   }
 
   if (gameId === WW) {

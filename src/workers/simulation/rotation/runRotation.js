@@ -74,22 +74,35 @@ function handleUseWhen(ctx, when, { action, reaction }) {
 
 function handleApplyWhen(ctx, when, { action, reaction }) {
   const { applyCooldowns } = ctx.states;
+  const { gameId } = ctx.cache;
 
-  for (const mCache of Object.values(ctx.cache.member)) {
-    for (const effect of Object.values(mCache.effects)) {
-      const { apply } = effect;
+  function attemptApply(effect) {
+    const { apply } = effect;
+    const applier = action?.ownerId ?? effect.ownerId;
 
-      const applier = action?.ownerId ?? effect.ownerId;
+    if (
+      apply?.when !== when ||
+      !apply.by.includes(applier) ||
+      applyCooldowns[effect.key] ||
+      !ctx.eventFilter(apply.filter, action ?? reaction, effect)
+    ) return;
 
-      if (
-        apply?.when !== when ||
-        !apply.by.includes(applier) ||
-        applyCooldowns[effect.key] ||
-        !ctx.eventFilter(apply.filter, action ?? reaction, effect)
-      ) continue;
+    onApplyDoCommand(ctx, effect, applier);
+    runApplyEffect(ctx, effect, { applier, inflict: action?.inflict });
+  }
 
-      onApplyDoCommand(ctx, effect, applier);
-      runApplyEffect(ctx, effect, { applier, inflict: action?.inflict });
+  for (const memberId in ctx.cache.member) {
+    const mCache = ctx.cache.member[memberId];
+
+    for (const effectKey in mCache.effects) {
+      const effect = mCache.effects[effectKey];
+      attemptApply(effect);
+    }
+  }
+
+  if (gameId === GI) {
+    for (const effect of ctx.cache.elementalResonance.effects) {
+      attemptApply(effect);
     }
   }
 }
@@ -163,7 +176,7 @@ function runAction(ctx, action, options = {}) {
 
   const runEffectsWhen = (when) => ctx.runEffectsWhen(when, { action });
 
-  if (action.key === 'other:tuneBreak') {
+  if (action.key === 'system:tuneBreak') {
     runTuneBreak(ctx, action);
     runEffectsWhen('tuneBreak');
     return;
@@ -303,6 +316,14 @@ export const runRotation = (cache, equipMaps, specId) => {
     for (const effectKey in mCache.effects) {
       const effect = mCache.effects[effectKey];
 
+      if (!effect.static && !effect.apply?.when) {
+        runApplyEffect(ctx, effect);
+      }
+    }
+  }
+
+  if (gameId === GI) {
+    for (const effect of cache.elementalResonance.effects) {
       if (!effect.static && !effect.apply?.when) {
         runApplyEffect(ctx, effect);
       }

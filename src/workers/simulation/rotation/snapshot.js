@@ -7,7 +7,7 @@ const snapshotParts = ['damage', 'healing', 'shield'];
 
 export const buildSnapshot = (ctx, action, options = {}) => {
   const { runtimeOffset = 0 } = options;
-  const gameId = ctx.cache.gameId;
+  const { gameId } = ctx.cache;
 
   const snapshot = {
     key: action.key,

@@ -1,13 +1,12 @@
 import { getAttr, toMergedObj } from '@/utils';
 import { onApplyDoCommand } from '../../commands';
 import { runApplyEffect } from '../../effects';
-import { getEffectStates } from '../../getEffectStates';
 import { getBuffMap } from '../../getStatMap';
 import { runTuneFormula } from '../../formula/tuneFormula';
 
 const tuneBreakAction = {
-  id: 'other:tuneBreak',
-  ownerId: 'other',
+  id: 'system:tuneBreak',
+  ownerId: 'system',
   name: 'Tune Break',
   type: 'tuneBreak',
   damageType: 'tuneBreak',
@@ -52,30 +51,30 @@ function recordTuneBreak(ctx) {
   // Tune response
   const { shifting } = ctx.states.tune;
   if (shifting !== 'tuneRupture' && shifting !== 'hack') return;
-  for (const state of getEffectStates(ctx, { member: 'all', type: 'action' })) {
-    const { effect } = state;
-    const { ownerId: responseOwnerId, use } = effect;
 
-    if (use?.when === 'tuneResponse' && use?.filter?.states?.tune?.interfered === shifting) {
-      ctx.snapshots.push(buildSnapshot(use?.action[0]));
-      state.useCooldown = 8000;
+  for (const responseOwnerId in ctx.cache.member) {
+    const { [`${shifting}Response`]: tuneResponse } = ctx.cache.member[responseOwnerId];
+    if (!tuneResponse) continue;
 
-      const { applyCooldowns } = ctx.states;
-      for (const mCache of Object.values(ctx.cache.member)) {
-        for (const effect of Object.values(mCache.effects)) {
-          if (!effect.apply) continue;
+    const snapshot = buildSnapshot(tuneResponse);
+    ctx.snapshots.push(snapshot);
 
-          const { apply } = effect;
-          if (
-            !apply.by.includes(responseOwnerId) ||
-            applyCooldowns[effect.key] ||
-            apply.when !== 'tuneResponse' ||
-            !use?.filter?.states?.tune?.interfered === shifting
-          ) continue;
+    const { applyCooldowns } = ctx.states;
+    for (const memberId in ctx.cache.member) {
+      const mCache = ctx.cache.member[memberId];
 
-          onApplyDoCommand(ctx, effect, responseOwnerId);
-          runApplyEffect(ctx, effect, { applier: responseOwnerId });
-        }
+      for (const effectKey in mCache.effects) {
+        const effect = mCache.effects[effectKey];
+        const { apply } = effect;
+
+        if (
+          apply?.when !== 'tuneResponse' ||
+          !apply.by.includes(responseOwnerId) ||
+          applyCooldowns[effectKey]
+        ) continue;
+
+        onApplyDoCommand(ctx, effect, responseOwnerId);
+        runApplyEffect(ctx, effect, { applier: responseOwnerId });
       }
     }
   }
@@ -108,8 +107,8 @@ export function runTuneBreak(ctx) {
       delete tune.strainAppliers;
       break;
   }
-  if (ctx.cache.member["1510"]) tune.interferedStacks += 2;
-  if (ctx.cache.member["1413"]) tune.interferedStacks += 1;
+  if (ctx.cache.member['1510']) tune.interferedStacks += 2;
+  if (ctx.cache.member['1413']) tune.interferedStacks += 1;
   delete tune.shifting;
   delete tune.shiftingTimeLeft;
 }

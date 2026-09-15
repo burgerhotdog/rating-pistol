@@ -1,5 +1,5 @@
-import { getEffectStates } from './getEffectStates';
 import { onUseDoCommand } from './commands';
+import { getEffectStates } from './getEffectStates';
 
 export function runRemoveEffect(state, stacks) {
   if (!state) return;
