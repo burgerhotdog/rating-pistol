@@ -1,9 +1,9 @@
 import { formatStr } from '@/utils';
-import { getEffectStates } from '../getEffectStates';
-import { getBuffMap } from '../getStatMap';
-import { getDmgAmpMult } from '../formula/dmgAmp';
-import { getDefMult } from '../formula/enemyDef';
-import { getResMult } from '../formula/enemyRes';
+import { getEffectStates } from '../../getEffectStates';
+import { getBuffMap } from '../../getStatMap';
+import { getDmgAmpMult } from '../../formula/dmgAmp';
+import { getDefMult } from '../../formula/enemyDef';
+import { getResMult } from '../../formula/enemyRes';
 
 const statusMaxStacks = {
   glacioChafe: 10,

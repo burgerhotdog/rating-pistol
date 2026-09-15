@@ -26,7 +26,7 @@ export function runUseEffect(ctx, state, spec = {}) {
 
       for (let i = 0; i < useTimes; i++) {
         for (const action of effect.use.action) {
-          ctx.runAction(ctx, action, runOptions);
+          ctx.runAction(action, runOptions);
         }
       }
 

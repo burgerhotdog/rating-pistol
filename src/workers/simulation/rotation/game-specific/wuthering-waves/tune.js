@@ -1,9 +1,9 @@
 import { getAttr, toMergedObj } from '@/utils';
-import { runTuneFormula } from '../formula/tuneFormula';
-import { getBuffMap } from '../getStatMap';
-import { getEffectStates } from '../getEffectStates';
-import { runApplyEffect } from '../effects';
-import { onApplyDoCommand } from '../commands';
+import { onApplyDoCommand } from '../../commands';
+import { runApplyEffect } from '../../effects';
+import { getEffectStates } from '../../getEffectStates';
+import { getBuffMap } from '../../getStatMap';
+import { runTuneFormula } from '../../formula/tuneFormula';
 
 const tuneBreakAction = {
   id: 'other:tuneBreak',
