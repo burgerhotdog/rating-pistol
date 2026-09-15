@@ -1,4 +1,8 @@
-import { reactOverloaded } from './transformativeReactions';
+import {
+  reactOverloaded,
+  reactSuperconduct,
+} from './transformativeReactions';
+import { attemptApplyElement } from './icd';
 
 function applyAura(ctx, element, gauge) {
   const aura = ctx.states.aura[element] ??= { element };
@@ -7,63 +11,66 @@ function applyAura(ctx, element, gauge) {
   aura.gauge = Math.max(aura.gauge ?? 0, gauge * 0.8);
 }
 
-function reactSuperconduct(ctx, aura, gauge) {
-  aura.gauge -= gauge;
+function applyPyro(ctx, gauge, applier) {
+  const { aura } = ctx.states;
 
-  if (aura.gauge <= 0) {
-    delete ctx.states.aura[aura.element];
-  }
-}
-
-function applyPyro(ctx, gauge, ownerId) {
-  if (ctx.states.aura.electro) {
-    reactOverloaded(ctx, ctx.states.aura.electro, gauge, ownerId);
+  if (aura.electro) {
+    reactOverloaded(ctx, aura.electro, gauge, applier);
     return;
   }
 
   applyAura(ctx, 'pyro', gauge);
 }
 
-function applyElectro(ctx, gauge, ownerId) {
-  if (ctx.states.aura.pyro) {
-    reactOverloaded(ctx, ctx.states.aura.pyro, gauge, ownerId);
+function applyElectro(ctx, gauge, applier) {
+  const { aura } = ctx.states;
+
+  if (aura.pyro) {
+    reactOverloaded(ctx, aura.pyro, gauge, applier);
     return;
   }
 
-  if (ctx.states.aura.cryo) {
-    reactSuperconduct(ctx, ctx.states.aura.cryo, gauge);
+  if (aura.cryo) {
+    reactSuperconduct(ctx, aura.cryo, gauge);
     return;
   }
 
   applyAura(ctx, 'electro', gauge);
 }
 
-function applyCryo(ctx, gauge, ownerId) {
-  if (ctx.states.aura.electro) {
-    reactSuperconduct(ctx, ctx.states.aura.electro, gauge);
+function applyCryo(ctx, gauge, applier) {
+  const { aura } = ctx.states;
+
+  if (aura.electro) {
+    reactSuperconduct(ctx, aura.electro, gauge);
     return;
   }
 
   applyAura(ctx, 'cryo', gauge);
 }
 
-function applyHydro(ctx, gauge, ownerId) {
+function applyHydro(ctx, gauge, applier) {
   applyAura(ctx, 'hydro', gauge);
 }
 
-function applyAnemo(ctx, gauge, ownerId) {
+function applyAnemo(ctx, gauge, applier) {
 }
 
-function applyGeo(ctx, gauge, ownerId) {
+function applyGeo(ctx, gauge, applier) {
 }
 
-function applyDendro(ctx, gauge, ownerId) {
+function applyDendro(ctx, gauge, applier) {
   applyAura(ctx, 'dendro', gauge);
 }
 
-export function inflictGauge(ctx, action) {
-  const { element, gauge } = action.damage ?? {};
-  if (!element || !gauge) return;
+export function applyGauge(ctx, action) {
+  const { element, gauge, icd } = action.damage ?? {};
+  if (element === 'physical' || !gauge) return;
+
+  if (icd) {
+    const attemptSuccess = attemptApplyElement(ctx, action.ownerId, icd);
+    if (!attemptSuccess) return;
+  }
 
   switch (element) {
     case 'pyro':

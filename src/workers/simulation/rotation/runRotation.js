@@ -18,9 +18,12 @@ import {
   replaceNegativeStatuses,
 } from './special/negativeStatuses';
 import {
-  inflictGauge,
+  applyGauge,
   advanceAuras,
 } from './special/elementalGauge';
+import {
+  advanceIcdStates,
+} from './special/icd';
 import {
   runTuneBreak,
   applyOffTuneBuildup,
@@ -143,6 +146,7 @@ function runAction(ctx, action, options = {}) {
 
     if (ctx.cache.gameId === GI) {
       advanceAuras(ctx, elapsed);
+      advanceIcdStates(ctx, elapsed);
     }
 
     if (ctx.cache.gameId === WW) {
@@ -199,7 +203,7 @@ function runAction(ctx, action, options = {}) {
     runEffectsWhen('hit');
 
     if (ctx.cache.gameId === GI) {
-      inflictGauge(ctx, action);
+      applyGauge(ctx, action);
     }
   }
 
@@ -234,6 +238,7 @@ export const runRotation = (cache, equipMaps, specId) => {
       globalEffects: {},
       memberEffects: Object.fromEntries(cache.memberIds.map((id) => [id, {}])),
       ...(gameId === GI && {
+        icd: Object.fromEntries(cache.memberIds.map((id) => [id, {}])),
         aura: {},
         shielded: false,
       }),

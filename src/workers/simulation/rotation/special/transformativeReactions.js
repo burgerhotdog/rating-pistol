@@ -133,7 +133,6 @@ export function reactOverloaded(ctx, aura, gauge, ownerId) {
   ctx.runEffectsWhen('reaction', { reaction: { reaction: 'overloaded', elements: ['pyro', 'electro'] } });
 
   aura.gauge -= gauge;
-
   if (aura.gauge <= 0) {
     delete ctx.states.aura[aura.element];
   }
@@ -150,7 +149,6 @@ export function reactSuperconduct(ctx, aura, gauge, ownerId) {
   ctx.runEffectsWhen('reaction', { reaction: { reaction: 'superconduct', elements: ['cryo', 'electro'] } });
 
   aura.gauge -= gauge;
-
   if (aura.gauge <= 0) {
     delete ctx.states.aura[aura.element];
   }
