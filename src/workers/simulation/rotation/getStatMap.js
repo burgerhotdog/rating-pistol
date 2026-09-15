@@ -1,26 +1,10 @@
 import { GI, WW } from '@/data';
-import { getAttr, toMergedObj } from '@/utils';
+import { getAttr, toMergedObj, resolveSpecs } from '@/utils';
 import { getEffectStates } from './getEffectStates';
-
-const resolveStatSpecs = (buffSpec, sourceStatMap) => {
-  const resolved = {};
-
-  for (const [statId, statSpec] of Object.entries(buffSpec)) {
-    const {
-      attr, offset = 0, step,
-      value, maxValue = Infinity,
-    } = statSpec;
-
-    const attrValue = getAttr(attr, sourceStatMap);
-    const mult = Math.max((attrValue - offset) / step, 0);
-    resolved[statId] = Math.min(value * mult, maxValue);
-  }
-
-  return resolved;
-};
 
 export const getBuffMap = (ctx, options = {}) => {
   const { memberId, action = {}, ignoreSpecs, resolveNow } = options;
+  const { gameId } = ctx.cache;
   const buildMap = ctx.buildMaps[memberId] ?? {};
   const buffMap = {};
   const buffSpecs = [];
@@ -60,7 +44,7 @@ export const getBuffMap = (ctx, options = {}) => {
         continue;
       }
 
-      const resolvedStatMap = resolveStatSpecs(effect.buff.specs, getSpecsSourceMap(effect.ownerId));
+      const resolvedStatMap = resolveSpecs(effect.buff.specs, getSpecsSourceMap(effect.ownerId));
 
       for (const stat in resolvedStatMap) {
         buffMap[stat] = (buffMap[stat] ?? 0) + resolvedStatMap[stat] * buffMult;
@@ -68,27 +52,25 @@ export const getBuffMap = (ctx, options = {}) => {
     }
   }
 
-  if (ctx.cache.gameId === GI) {
-    // Superconduct
-    if (ctx.states.aura.superconduct) {
-      buffMap['physicalResReduction%'] += (buffMap['physicalResReduction%'] ?? 0) + 0.4;
+  if (gameId === GI) {
+    const { superconduct } = ctx.states.aura;
+    if (superconduct) {
+      buffMap['physicalResReduction%'] = (buffMap['physicalResReduction%'] ?? 0) + 0.4;
     }
   }
 
-  if (ctx.cache.gameId === WW) {
-    // Havoc bane
-    const havocBaneStacks = ctx.states.negativeStatuses.havocBane?.stacks;
-    if (havocBaneStacks) {
-      buffMap['defReduction%'] ??= 0;
-      buffMap['defReduction%'] += 0.02 * havocBaneStacks;
+  if (gameId === WW) {
+    const { havocBane } = ctx.states.negativeStatuses;
+    if (havocBane) {
+      const { stacks } = havocBane;
+      buffMap['defReduction%'] = (buffMap['defReduction%'] ?? 0) + 0.02 * stacks;
     }
 
-    // Tune Strain
     const tuneStrainStacks = ctx.states.tune.interferedStacks;
     if (tuneStrainStacks) {
       const tuneBreakBoost = getAttr('tuneBreakBoost', toMergedObj(buildMap, buffMap));
-      buffMap['vuln%'] ??= 0;
-      buffMap['vuln%'] += tuneStrainStacks * tuneBreakBoost * 0.0012;
+
+      buffMap['vuln%'] = (buffMap['vuln%'] ?? 0) + tuneStrainStacks * tuneBreakBoost * 0.0012;
     }
   }
 

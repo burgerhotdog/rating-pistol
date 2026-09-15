@@ -1,38 +1,9 @@
-import { getAttr, toMergedObj } from '@/utils';
+import { toMergedObj, resolveBuffSpecs } from '@/utils';
 import { runFormula } from './formula';
 import { getBuffMap } from './getStatMap';
 import { getUsedAttrs } from './formula/solver';
 
 const snapshotParts = ['damage', 'healing', 'shield'];
-
-const resolveStatSpecs = (buffSpec, sourceStatMap) => {
-  const resolved = {};
-
-  for (const [statId, statSpec] of Object.entries(buffSpec)) {
-    const {
-      attr, offset = 0, step,
-      value, maxValue = Infinity,
-    } = statSpec;
-
-    const attrValue = getAttr(attr, sourceStatMap);
-    const mult = Math.max((attrValue - offset) / step, 0);
-    resolved[statId] = Math.min(value * mult, maxValue);
-  }
-
-  return resolved;
-};
-
-const toResolvedSpecs = (buffSpecs, sourceMap) => {
-  const buffMap = {};
-  for (const { specs, buffMult } of buffSpecs) {
-    const resolvedStatMap = resolveStatSpecs(specs, sourceMap);
-
-    for (const stat in resolvedStatMap) {
-      buffMap[stat] = (buffMap[stat] ?? 0) + resolvedStatMap[stat] * buffMult;
-    }
-  }
-  return buffMap;
-};
 
 export const buildSnapshot = (ctx, action, options = {}) => {
   const { runtimeOffset = 0 } = options;
@@ -94,7 +65,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
       const partiallyBuffedMap = toMergedObj(ctx.buildMaps[action.ownerId], buffMap);
       snapshot[part] = (testBuildMap) => {
         const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
-        const resolvedBuffs = toResolvedSpecs(buffSpecs, testBuffedMap);
+        const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
         const statMap = toMergedObj(partiallyBuffedMap, resolvedBuffs);
         return runFormula(gameId, part, action, statMap);
       };
@@ -104,7 +75,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     // Action is from specId and has variable buffs from specId
     snapshot[part] = (testBuildMap) => {
       const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
-      const resolvedBuffs = toResolvedSpecs(buffSpecs, testBuffedMap);
+      const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
       const statMap = toMergedObj(testBuildMap, buffMap, resolvedBuffs);
       return runFormula(gameId, part, action, statMap);
     };

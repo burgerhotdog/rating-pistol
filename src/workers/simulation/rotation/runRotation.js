@@ -16,20 +16,20 @@ import {
   inflictNegativeStatuses,
   advanceNegativeStatuses,
   replaceNegativeStatuses,
-} from './special/negativeStatuses';
+} from './game-specific/negativeStatuses';
 import {
   applyGauge,
   advanceAuras,
-} from './special/elementalGauge';
+} from './game-specific/genshin-impact/elementalGauge';
 import {
   advanceIcdStates,
-} from './special/icd';
+} from './game-specific/genshin-impact/icd';
 import {
   runTuneBreak,
   applyOffTuneBuildup,
   inflictTuneShifting,
   advanceTune,
-} from './special/tune';
+} from './game-specific/tune';
 import { buildSnapshot, splitPerHit, scaleResolved } from './snapshot';
 import { getEffectStates } from './getEffectStates';
 import { createEventFilter } from './filter';

@@ -1,39 +1,6 @@
-import { getAttr, toMergedObj } from '@/utils';
-import { getBuffMap } from '../getStatMap';
+import { getAttr, toMergedObj, resolveBuffSpecs } from '@/utils';
+import { getBuffMap } from '../../getStatMap';
 
-const resolveStatSpecs = (buffSpec, sourceStatMap) => {
-  const resolved = {};
-
-  for (const [statId, statSpec] of Object.entries(buffSpec)) {
-    const {
-      attr, offset = 0, step,
-      value, maxValue = Infinity,
-    } = statSpec;
-
-    const attrValue = getAttr(attr, sourceStatMap);
-    const mult = Math.max((attrValue - offset) / step, 0);
-    resolved[statId] = Math.min(value * mult, maxValue);
-  }
-
-  return resolved;
-};
-
-const toResolvedSpecs = (buffSpecs, sourceMap) => {
-  const buffMap = {};
-  for (const { specs, buffMult } of buffSpecs) {
-    const resolvedStatMap = resolveStatSpecs(specs, sourceMap);
-
-    for (const stat in resolvedStatMap) {
-      buffMap[stat] = (buffMap[stat] ?? 0) + resolvedStatMap[stat] * buffMult;
-    }
-  }
-  return buffMap;
-};
-
-// Amplifying reactions (melt/vaporize) multiply the triggering hit's own damage
-// instead of creating an independent damage instance, so this returns a
-// multiplier (number, or a buildMap => number closure in spec mode) rather than
-// pushing a snapshot. Aura consumption is handled by the caller in elementalGauge.js.
 const AMP_EM_CONSTANT = 2.78;
 
 function runAmpFormula(reaction, base, statMap) {
@@ -77,7 +44,7 @@ function getAmpMultiplier(ctx, reaction, ownerId, base) {
 
     return (testBuildMap) => {
       const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
-      const resolvedBuffs = toResolvedSpecs(buffSpecs, testBuffedMap);
+      const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
       const statMap = toMergedObj(partiallyBuffedMap, resolvedBuffs);
 
       return runAmpFormula(reaction, base, statMap);
@@ -87,7 +54,7 @@ function getAmpMultiplier(ctx, reaction, ownerId, base) {
   // Action is from specId and has variable buffs from specId
   return (testBuildMap) => {
     const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
-    const resolvedBuffs = toResolvedSpecs(buffSpecs, testBuffedMap);
+    const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
     const statMap = toMergedObj(testBuildMap, buffMap, resolvedBuffs);
 
     return runAmpFormula(reaction, base, statMap);
