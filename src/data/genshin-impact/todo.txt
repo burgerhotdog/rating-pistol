@@ -11,6 +11,8 @@ characters:
         unfinished
     Kaeya
         unfinished
+    Faruzan
+        unfinished
 
 weapons:
     11302 Harbinger of Dawn
@@ -19,6 +21,8 @@ weapons:
         No effect
     11305 Fillet Blade
         Effect always hits
+    11403 Sacrificial Sword
+        Effect disabled
     11501 Aquila Favonia
         Effect always hits
     12301 Ferrous Shadow
@@ -34,4 +38,10 @@ weapons:
     15501 Skyward Harp
         Attack always triggers
 
+    Fav weapons dont do anything
+
 sets:
+    15008 Bloodstained Chivalry
+        4pc not active
+    15019 Shimenawa's Reminiscence
+        4pc energy simplified

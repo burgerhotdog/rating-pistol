@@ -93,7 +93,6 @@
     "effects": []
   },
   "11304": {
-    "disabled": true,
     "name": "Dark Iron Sword",
     "version": 1,
     "id": 11304,
@@ -104,7 +103,50 @@
       "baseAtk": 401,
       "elementalMastery": 141
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "or": [
+                {
+                  "reaction": [
+                    "overloaded",
+                    "superconduct",
+                    "stellarConduct",
+                    "electroCharged",
+                    "quicken",
+                    "aggravate",
+                    "hyperbloom",
+                    "lunarCharged"
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "reaction": "swirl"
+                    },
+                    {
+                      "elements": "electro"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "11305": {
     "name": "Fillet Blade",
@@ -180,7 +222,6 @@
     ]
   },
   "11401": {
-    "disabled": true,
     "name": "Favonius Sword",
     "version": 1,
     "id": 11401,
@@ -208,7 +249,6 @@
     "effects": []
   },
   "11403": {
-    "disabled": true,
     "name": "Sacrificial Sword",
     "version": 1,
     "id": 11403,
@@ -218,8 +258,7 @@
     "stats": {
       "baseAtk": 454,
       "energyRecharge%": 0.613
-    },
-    "effects": []
+    }
   },
   "11404": {
     "disabled": true,
@@ -1125,7 +1164,6 @@
     ]
   },
   "12401": {
-    "disabled": true,
     "name": "Favonius Greatsword",
     "version": 1,
     "id": 12401,
@@ -1153,7 +1191,6 @@
     "effects": []
   },
   "12403": {
-    "disabled": true,
     "name": "Sacrificial Greatsword",
     "version": 1,
     "id": 12403,
@@ -1163,8 +1200,7 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    },
-    "effects": []
+    }
   },
   "12404": {
     "disabled": true,
@@ -1908,7 +1944,6 @@
     "effects": []
   },
   "13407": {
-    "disabled": true,
     "name": "Favonius Lance",
     "version": 1,
     "id": 13407,
@@ -2522,7 +2557,6 @@
     "effects": []
   },
   "14304": {
-    "disabled": true,
     "name": "Emerald Orb",
     "version": 1,
     "id": 14304,
@@ -2533,7 +2567,48 @@
       "baseAtk": 448,
       "elementalMastery": 94
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "or": [
+                {
+                  "reaction": [
+                    "vaporize",
+                    "electroCharged",
+                    "frozen",
+                    "bloom",
+                    "lunarCharged",
+                    "lunarBloom"
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "reaction": "swirl"
+                    },
+                    {
+                      "elements": "hydro"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "14305": {
     "name": "Twin Nephrite",
@@ -2548,7 +2623,6 @@
     }
   },
   "14401": {
-    "disabled": true,
     "name": "Favonius Codex",
     "version": 1,
     "id": 14401,
@@ -2576,7 +2650,6 @@
     "effects": []
   },
   "14403": {
-    "disabled": true,
     "name": "Sacrificial Fragments",
     "version": 1,
     "id": 14403,
@@ -2586,8 +2659,7 @@
     "stats": {
       "baseAtk": 454,
       "elementalMastery": 221
-    },
-    "effects": []
+    }
   },
   "14404": {
     "disabled": true,
@@ -2604,7 +2676,6 @@
     "effects": []
   },
   "14405": {
-    "disabled": true,
     "name": "Solar Pearl",
     "version": 1,
     "id": 14405,
@@ -2615,7 +2686,57 @@
       "baseAtk": 510,
       "critRate%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.2,
+              0.4
+            ],
+            "elementalBurstDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "elementalSkill",
+                  "elementalBurst"
+                ]
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "14406": {
     "disabled": true,
@@ -2633,7 +2754,6 @@
     "effects": []
   },
   "14407": {
-    "disabled": true,
     "name": "Mappa Mare",
     "version": 1,
     "id": 14407,
@@ -2645,7 +2765,23 @@
       "baseAtk": 565,
       "elementalMastery": 110
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "elementalDmgBonus%": [
+              0.08,
+              0.16
+            ]
+          }
+        },
+        "maxStacks": 2
+      }
+    ]
   },
   "14408": {
     "disabled": true,
@@ -3411,7 +3547,6 @@
     "effects": []
   },
   "15401": {
-    "disabled": true,
     "name": "Favonius Warbow",
     "version": 1,
     "id": 15401,
@@ -3439,7 +3574,6 @@
     "effects": []
   },
   "15403": {
-    "disabled": true,
     "name": "Sacrificial Bow",
     "version": 1,
     "id": 15403,
@@ -3449,8 +3583,7 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    },
-    "effects": []
+    }
   },
   "15404": {
     "disabled": true,

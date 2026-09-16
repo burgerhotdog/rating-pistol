@@ -1,6 +1,5 @@
 {
   "14001": {
-    "disabled": true,
     "name": "Blizzard Strayer",
     "version": 1.2,
     "id": 14001,
@@ -16,6 +15,39 @@
         "buff": {
           "stats": {
             "cryoDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "cryo",
+                  "frozen"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "critRate%": 0.2
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": "frozen"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": 0.2
           }
         }
       }
@@ -373,7 +405,6 @@
     ]
   },
   "15005": {
-    "disabled": true,
     "name": "Thundering Fury",
     "version": 1,
     "id": 15005,
@@ -391,11 +422,24 @@
             "electroDmgBonus%": 0.15
           }
         }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "stats": {
+            "overloadedReactionBonus%": 0.4,
+            "electroChargedReactionBonus%": 0.4,
+            "superconductReactionBonus%": 0.4,
+            "hyperbloomReactionBonus%": 0.4,
+            "aggravateReactionBonus%": 0.2,
+            "lunarChargedReactionBonus%": 0.2,
+            "stellarConductReactionBonus%": 0.2
+          }
+        }
       }
     ]
   },
   "15006": {
-    "disabled": true,
     "name": "Crimson Witch of Flames",
     "version": 1,
     "id": 15006,
@@ -413,6 +457,36 @@
             "pyroDmgBonus%": 0.15
           }
         }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "stats": {
+            "overloadedReactionBonus%": 0.4,
+            "burningReactionBonus%": 0.4,
+            "burgeonReactionBonus%": 0.4,
+            "vaporizeReactionBonus%": 0.15,
+            "meltReactionBonus%": 0.15
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "pyroDmgBonus%": 0.075
+          }
+        },
+        "maxStacks": 3
       }
     ]
   },
@@ -456,7 +530,6 @@
     ]
   },
   "15008": {
-    "disabled": true,
     "name": "Bloodstained Chivalry",
     "version": 1,
     "id": 15008,
@@ -651,7 +724,6 @@
     ]
   },
   "15019": {
-    "disabled": true,
     "name": "Shimenawa's Reminiscence",
     "version": 2,
     "id": 15019,
@@ -672,6 +744,9 @@
       },
       {
         "bonus": 4,
+        "enable": {
+          "energy": 15
+        },
         "apply": {
           "when": "start",
           "filter": {

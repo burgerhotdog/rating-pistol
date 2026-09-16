@@ -5268,6 +5268,10 @@
       }
     },
     "memberPreset": {
+      "weaponId": 11403,
+      "setCounts": {
+        "15020": 4
+      },
       "rotation": [
         "elementalSkill.0",
         "elementalBurst.0"
@@ -27604,7 +27608,6 @@
     }
   },
   "10000076": {
-    "disabled": true,
     "name": "Faruzan",
     "version": 3.3,
     "id": 10000076,
@@ -27612,17 +27615,53 @@
     "quality": 4,
     "element": "anemo",
     "type": "bow",
-    "tagged": [],
     "stats": {
       "baseHp": 9570,
       "baseAtk": 196,
       "baseDef": 628,
       "atk%": 0.24
     },
-    "effects": [],
+    "energy": 80,
+    "tagged": [],
+    "effects": [
+      {
+        "stores": "global",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "anemoResReduction%": 0.3
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "statRefs": {
+            "anemoDmgBonus%": "elementalBurst.1"
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Parthian Shot",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -27762,8 +27801,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "anemo",
             "damage": {
+              "element": "anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -27871,12 +27910,13 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Wind Realm of Nasamjnin",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27901,9 +27941,10 @@
             }
           },
           {
-            "name": "Pressurized Collapse Vortex DMG",
-            "type": "elementalSkill",
+            "name": "Pressurized Collapse Vortex",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27930,12 +27971,13 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "The Wind's Secret Ways",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27961,11 +28003,10 @@
           },
           {
             "name": "Anemo DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.18,
                     0.1935,
                     0.207,
@@ -27989,7 +28030,15 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15401,
+      "setCounts": {
+        "15007": 4
+      },
+      "rotation": [
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000077": {
     "disabled": true,
