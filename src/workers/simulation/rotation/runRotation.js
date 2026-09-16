@@ -242,7 +242,7 @@ function runAction(ctx, action, options = {}) {
           ownerId: action.ownerId,
           category: action.category,
           type: action.type,
-          field: ctx.states.getField(action.ownerId),
+          onFieldId: ctx.states.onFieldId,
           runtime: ctx.states.runtime + (runtimeOffset ?? 0),
           damageType: action.damage.type,
           damage: scaleResolved(perHitDamage, multiplier),

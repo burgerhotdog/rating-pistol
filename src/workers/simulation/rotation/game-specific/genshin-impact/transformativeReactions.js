@@ -29,8 +29,9 @@ function buildSnapshot(ctx, reaction, ownerId, reactionElement) {
     name: formatStr(reaction),
     ownerId: 'system',
     type: 'transformativeReaction',
-    runtime: ctx.states.runtime,
     damageType: reaction,
+    onFieldId: ctx.states.onFieldId,
+    runtime: ctx.states.runtime,
   };
 
   if (!ctx.specId) {

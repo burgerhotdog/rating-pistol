@@ -15,7 +15,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     ownerId: action.ownerId,
     category: action.category,
     type: action.type,
-    field: ctx.states.getField(action.ownerId),
+    onFieldId: ctx.states.onFieldId,
     runtime: ctx.states.runtime + runtimeOffset,
     ...(action.damage && { damageType: action.damage.type }),
     ...(action.hitOffsets && { hitOffsets: action.hitOffsets }),

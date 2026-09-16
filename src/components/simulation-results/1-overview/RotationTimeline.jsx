@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Avatar, Divider, Paper, Stack, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import {
@@ -11,24 +12,48 @@ import {
 import { useData } from '@/hooks';
 import { formatDmg, formatNum, formatStr } from '@/utils';
 
-function buildData(snapshots, memberStack) {
+function buildData(snapshots, dataStack, userRotationTime, userRotationTimeSource) {
   const runtimeDamage = {};
 
-  const addDamage = (runtime, areaKey, damage, name) => {
-    const time = Math.floor(runtime / 1000) * 1000;
+  const sorted = snapshots.toSorted((a, b) => a.runtime - b.runtime);
 
-    runtimeDamage[time] ??= { time, name };
-    runtimeDamage[time][areaKey] ??= 0;
-    runtimeDamage[time][areaKey] += damage;
+  const adjustmentRatios = Object.fromEntries(
+    Object.entries(userRotationTimeSource)
+      .map(([id, { duration, added }]) => {
+        const ratio = (duration + added) / duration;
+        return [id, ratio];
+      })
+  );
+
+  let prevOnFieldId = sorted[0].onFieldId;
+  let rawOnFieldOffset = 0;
+  let adjustedOnFieldOffset = 0;
+
+  const addDamage = (onFieldId, runtime, dataKey, damage) => {
+    const adjustmentRatio = adjustmentRatios[onFieldId];
+    const partToAdjust = runtime - rawOnFieldOffset;
+    const adjustedRuntime = adjustedOnFieldOffset + partToAdjust * adjustmentRatio;
+
+    const time = Math.min((Math.floor(adjustedRuntime / 1000) + 1) * 1000, userRotationTime);
+
+    runtimeDamage[time] ??= { time };
+    runtimeDamage[time][dataKey] = (runtimeDamage[time][dataKey] ?? 0) + damage;
   };
 
-  for (const { runtime, ownerId, damageType, damage, hitOffsets, name } of snapshots) {
+  for (const { onFieldId, runtime, ownerId, damageType, damage, hitOffsets } of sorted) {
+    if (onFieldId !== prevOnFieldId) {
+      const { duration, added } = userRotationTimeSource[prevOnFieldId];
+      prevOnFieldId = onFieldId;
+      rawOnFieldOffset += duration;
+      adjustedOnFieldOffset += duration + added;
+    }
+
     if (!damage) continue;
 
-    const areaKey = ownerId === 'system' ? damageType : ownerId;
+    const dataKey = ownerId === 'system' ? damageType : ownerId;
 
     if (!hitOffsets?.length) {
-      addDamage(runtime, areaKey, damage, name);
+      addDamage(onFieldId, runtime, dataKey, damage);
       continue;
     }
 
@@ -36,89 +61,162 @@ function buildData(snapshots, memberStack) {
     const splitDamage = damage / hitOffsets.length;
 
     for (const offset of hitOffsets) {
-      addDamage(runtime + offset - initOffset, areaKey, splitDamage, name);
+      addDamage(onFieldId, runtime + offset - initOffset, dataKey, splitDamage);
     }
   }
 
   runtimeDamage[0] ??= { time: 0 };
-  for (const id of memberStack) {
-    runtimeDamage[0][id] ??= 0;
+  for (const { dataKey } of dataStack) {
+    runtimeDamage[0][dataKey] ??= 0;
   }
 
-  const data = Object.values(runtimeDamage).sort((a, b) => a.time - b.time);;
+  const data = Object.values(runtimeDamage).sort((a, b) => a.time - b.time);
 
   for (let i = 0; i < data.length; i++) {
     const curr = data[i];
 
-    for (const id of memberStack) {
-      curr[id] ??= 0;
+    for (const { dataKey } of dataStack) {
+      curr[dataKey] ??= 0;
     }
 
     if (i === 0) continue;
 
     const prev = data[i - 1];
 
-    for (const id of memberStack) {
-      curr[id] += prev[id];
+    for (const { dataKey } of dataStack) {
+      curr[dataKey] += prev[dataKey];
     }
   }
 
   return data;
 }
 
+const tooltipContent = ({ payload }) => {
+  if (!payload?.[0]?.payload) return;
+
+  const { icon, time } = payload[0].payload;
+  const rows = payload.toReversed();
+  const total = rows.reduce((acc, { value }) => acc + value, 0);
+
+  return (
+    <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
+      <Typography variant="subtitle2" color="textSecondary">
+        Time: {parseFloat((time / 1000).toFixed(1))}s
+      </Typography>
+
+      {rows.map(({ dataKey, name, value }) => (
+        <Stack
+          key={dataKey}
+          direction="row"
+          spacing={1}
+          sx={{ alignItems: 'center', justifyContent: 'space-between' }}
+        >
+          <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
+            <Avatar
+              src={icon}
+              sx={{ width: 20, height: 20 }}
+            />
+            <Typography variant="body2" color="textSecondary">
+              {name}:
+            </Typography>
+          </Stack>
+
+          <Typography variant="body2">
+            {formatNum(value)}
+          </Typography>
+        </Stack>
+      ))}
+
+      {rows.length > 1 && (
+        <>
+          <Divider />
+          <Stack
+            direction="row"
+            spacing={1}
+            sx={{ alignItems: 'center', justifyContent: 'space-between' }}
+          >
+            <Typography variant="subtitle2">
+              Total:
+            </Typography>
+            <Typography variant="subtitle2">
+              {formatNum(total)}
+            </Typography>
+          </Stack>
+        </>
+      )}
+    </Paper>
+  );
+};
+
 const RotationTimeline = ({ results }) => {
-  const { userSnapshots, memberIds } = results;
+  const { userSnapshots, userRotationTime, userRotationTimeSource, memberIds } = results;
   const { palette } = useTheme();
   const charDatas = useData('character');
   const elementDatas = useData('element');
 
-  const memberStack = [...memberIds];
-  for (const snapshot of userSnapshots) {
-    if (
-      snapshot.ownerId !== 'system' ||
-      memberStack.includes(snapshot.damageType)
-    ) continue;
+  const dataStack = useMemo(() => [
+    ...memberIds.map((id) => {
+      const { name, element, icon } = charDatas[id];
+      const { color } = elementDatas[element];
+      return {
+        dataKey: id,
+        name,
+        color,
+        icon,
+      };
+    }),
+    ...Object.entries(userSnapshots
+      .reduce((acc, { ownerId, damageType, damage }) => {
+        if (ownerId === 'system') {
+          acc[damageType] = damage;
+        }
+        return acc;
+      }, {}))
+      .sort(([, a], [, b]) => b - a)
+      .map(([damageType]) => ({
+        dataKey: damageType,
+        name: formatStr(damageType),
+        color: '#ffffff',
+      })),
+  ], [memberIds, userSnapshots, charDatas, elementDatas]);
 
-    memberStack.push(snapshot.damageType);
-  }
+  const data = buildData(userSnapshots, dataStack, userRotationTime, userRotationTimeSource);
 
-  const memberColors = Object.fromEntries(
-    memberStack.map((id) => {
-      const element = charDatas[id]?.element;
-      return [id, elementDatas[element]?.color ?? '#ffffff'];
-    })
-  );
+  const ticks = useMemo(() => {
+    const maxSecond = Math.floor(userRotationTime / 1000);
+    const interval = Math.max(1, Math.ceil(maxSecond / 6));
 
-  const data = buildData(userSnapshots, memberStack);
-  const duration = userSnapshots.reduce((max, { runtime = 0 }) => Math.max(max, runtime), 0);
+    const ticks = [];
+
+    for (let second = 0; second < maxSecond; second += interval) {
+      ticks.push(second * 1000);
+    }
+
+    if (ticks.at(-1) !== userRotationTime) {
+      ticks.push(userRotationTime);
+    }
+
+    return ticks;
+  }, [userRotationTime]);
 
   return (
     <AreaChart
       data={data}
-      style={{ width: '100%', height: '100%' }}
       responsive
+      style={{ width: '100%', height: '100%' }}
     >
-      <defs>
-        {[...(new Set(Object.values(memberColors)))].map((color) => (
-          <linearGradient key={color} id={`gradient${color}`} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor={color} stopOpacity={1} />
-            <stop offset="100%" stopColor={color} stopOpacity={0.2} />
-          </linearGradient>
-        ))}
-      </defs>
-
       <CartesianGrid
-        strokeDasharray="3 3"
         stroke={palette.divider}
+        strokeDasharray="3 3"
       />
 
       <XAxis
         type="number"
         dataKey="time"
-        domain={[0, 'dataMax']}
-        ticks={Array.from({ length: Math.floor(duration / 1000) + 1 }, (_, i) => i * 1000)}
+        domain={[0, userRotationTime]}
         tick={{ fontSize: 12 }}
-        tickFormatter={(time) => `${(time / 1000).toFixed()}s`}
+        ticks={ticks}
+        tickFormatter={(time) => `${parseFloat((time / 1000).toFixed(1))}s`}
       />
 
       <YAxis
@@ -127,17 +225,15 @@ const RotationTimeline = ({ results }) => {
         tickFormatter={formatDmg}
       />
 
-      {memberStack.toReversed().map((id) => {
-        const color = memberColors[id];
-
+      {dataStack.toReversed().map(({ dataKey, name, color }) => {
         return (
           <Area
-            key={id}
-            dataKey={id}
+            key={dataKey}
+            dataKey={dataKey}
             activeDot={false}
             fill={`url(#gradient${color})`}
-            name={charDatas[id]?.name ?? formatStr(id)}
-            stackId="members"
+            name={name}
+            stackId="stack"
             stroke={color}
             strokeOpacity={0}
             type="monotone"
@@ -146,62 +242,18 @@ const RotationTimeline = ({ results }) => {
       })}
 
       <Tooltip
-        content={({ payload }) => {
-          const time = payload[0]?.payload?.time;
-          const rows = payload.toReversed();
-          const total = rows.reduce((acc, { value }) => acc + value, 0);
-
-          return (
-            <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
-              <Typography variant="subtitle2" color="textSecondary">
-                Time: {(time / 1000).toFixed()}s
-              </Typography>
-
-              {rows.map(({ dataKey, name, value }) => (
-                <Stack
-                  key={dataKey}
-                  direction="row"
-                  spacing={1}
-                  sx={{ alignItems: 'center', justifyContent: 'space-between' }}
-                >
-                  <Stack direction="row" spacing={0.5} sx={{ alignItems: 'center' }}>
-                    <Avatar
-                      src={charDatas[dataKey]?.icon}
-                      sx={{ width: 20, height: 20 }}
-                    />
-                    <Typography variant="body2" color="textSecondary">
-                      {name}:
-                    </Typography>
-                  </Stack>
-
-                  <Typography variant="body2">
-                    {formatNum(value)}
-                  </Typography>
-                </Stack>
-              ))}
-
-              {rows.length > 1 && (
-                <>
-                  <Divider />
-                  <Stack
-                    direction="row"
-                    spacing={1}
-                    sx={{ alignItems: 'center', justifyContent: 'space-between' }}
-                  >
-                    <Typography variant="subtitle2">
-                      Total:
-                    </Typography>
-                    <Typography variant="subtitle2">
-                      {formatNum(total)}
-                    </Typography>
-                  </Stack>
-                </>
-              )}
-            </Paper>
-          );
-        }}
+        content={tooltipContent}
         isAnimationActive={false}
       />
+
+      <defs>
+        {[...(new Set(dataStack.map(({ color }) => color)))].map((color) => (
+          <linearGradient key={color} id={`gradient${color}`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor={color} stopOpacity={1} />
+            <stop offset="100%" stopColor={color} stopOpacity={0.2} />
+          </linearGradient>
+        ))}
+      </defs>
     </AreaChart>
   );
 };

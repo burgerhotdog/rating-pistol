@@ -386,6 +386,7 @@ const buildSnapshot = (ctx, statusState, runtimeOffset = 0, fixedMv) => {
     type: 'negativeStatus',
     damageType: status.id,
     damage: baseDmg * dmgAmpMult * defMult * resMult,
+    onFieldId: ctx.states.onFieldId,
     runtime: ctx.states.runtime + runtimeOffset,
   };
 };
