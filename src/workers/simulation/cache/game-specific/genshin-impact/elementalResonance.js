@@ -1,4 +1,4 @@
-import { GI, CHARACTER } from '@/data';
+import { GI } from '@/data';
 import { normalizeEffect, toMergedObj } from '@/utils';
 
 const RESONANCE_DATAS = {
@@ -46,7 +46,16 @@ const RESONANCE_DATAS = {
         buff: {
           filter: {
             states: {
-              shielded: true,
+              or: [
+                {
+                  shielded: true,
+                },
+                {
+                  aura: {
+                    has: "moondrifts",
+                  },
+                },
+              ],
             },
           },
           stats: {
@@ -63,7 +72,16 @@ const RESONANCE_DATAS = {
             and: [
               {
                 states: {
-                  shielded: true,
+                  or: [
+                    {
+                      shielded: true,
+                    },
+                    {
+                      aura: {
+                        has: "moondrifts",
+                      },
+                    },
+                  ],
                 },
               },
               {
@@ -87,17 +105,59 @@ const RESONANCE_DATAS = {
     stats: {
       'elementalMastery': 50,
     },
+    effects: [
+      {
+        stores: '$team',
+        apply: {
+          by: '$team',
+          when: 'reaction',
+          filter: {
+            reaction: {
+              reaction: [
+                'burning',
+                'quicken',
+                'bloom',
+                'lunarBloom',
+              ],
+            },
+          },
+          duration: 6000,
+        },
+        buff: {
+          stats: {
+            'elementalMastery': 30,
+          },
+        },
+      },
+      {
+        stores: '$team',
+        apply: {
+          by: '$team',
+          when: 'reaction',
+          filter: {
+            reaction: {
+              reaction: [
+                'aggravate',
+                'spread',
+                'hyperbloom',
+                'burgeon',
+              ],
+            },
+          },
+          duration: 6000,
+        },
+        buff: {
+          stats: {
+            'elementalMastery': 20,
+          },
+        },
+      },
+    ],
   },
 };
 
 export function cacheElementalResonance(cache) {
-  const elementCounts = {};
-
-  for (const memberId of cache.memberIds) {
-    const { element } = CHARACTER[GI][memberId];
-    elementCounts[element] = (elementCounts[element] ?? 0) + 1;
-  }
-
+  const elementCounts = cache.counts.element;
   const elementalResonance = cache.elementalResonance = { stats: {}, effects: [] };
 
   if (Object.keys(elementCounts).length === 4) {

@@ -67,8 +67,8 @@ const Overview = ({ results }) => {
   const [setsOpen, setSetsOpen] = useState(false);
 
   const memberStack = [...memberIds];
-  if (userSnapshots.some((snapshot) => snapshot.ownerId === 'other')) {
-    memberStack.push('other');
+  if (userSnapshots.some((snapshot) => snapshot.ownerId === 'system')) {
+    memberStack.push('system');
   }
 
   const benchmarkPct = userDps / benchmarkDps * 100;

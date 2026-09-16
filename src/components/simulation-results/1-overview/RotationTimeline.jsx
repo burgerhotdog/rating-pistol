@@ -25,7 +25,7 @@ function buildData(snapshots, memberStack) {
   for (const { runtime, ownerId, damageType, damage, hitOffsets, name } of snapshots) {
     if (!damage) continue;
 
-    const areaKey = ownerId === 'other' ? damageType : ownerId;
+    const areaKey = ownerId === 'system' ? damageType : ownerId;
 
     if (!hitOffsets?.length) {
       addDamage(runtime, areaKey, damage, name);
@@ -75,7 +75,7 @@ const RotationTimeline = ({ results }) => {
   const memberStack = [...memberIds];
   for (const snapshot of userSnapshots) {
     if (
-      snapshot.ownerId !== 'other' ||
+      snapshot.ownerId !== 'system' ||
       memberStack.includes(snapshot.damageType)
     ) continue;
 

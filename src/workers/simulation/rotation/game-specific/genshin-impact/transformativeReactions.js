@@ -2,6 +2,7 @@ import { GI } from '@/data';
 import { getAttr, formatStr, toMergedObj, resolveBuffSpecs } from '@/utils';
 import { getBuffMap } from '../../getStatMap';
 import { getResMult } from '../../formula/enemyRes';
+import { consumeAura } from './aura';
 
 const LEVEL_MULTIPLIER = 1446.85;
 
@@ -9,6 +10,7 @@ const reactionMultiplier = {
   overloaded: 2.75,
   superconduct: 1.5,
   swirl: 0.6,
+  electroCharged: 2,
 };
 
 function runFormula(reaction, statMap, reactionElement) {
@@ -23,9 +25,9 @@ function buildSnapshot(ctx, reaction, ownerId, reactionElement) {
   const isSpecIdAction = ownerId === ctx.specId;
 
   const snapshot = {
-    key: `other:${reaction}`,
+    key: `system:${reaction}`,
     name: formatStr(reaction),
-    ownerId: 'other',
+    ownerId: 'system',
     type: 'transformativeReaction',
     runtime: ctx.states.runtime,
     damageType: reaction,
@@ -118,4 +120,49 @@ export function reactSwirl(ctx, ownerId, auraElement) {
   }
 
   ctx.runEffectsWhen('reaction', { reaction: { reaction: 'swirl', elements: ['anemo', auraElement] } });
+}
+
+export function reactCrystallize(ctx, ownerId, auraElement) {
+  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'crystallize', elements: ['geo', auraElement] } });
+}
+
+export function reactFrozen(ctx, originGauge, gauge) {
+  const frozenAuraGauge = 2 * Math.min(originGauge, gauge);
+  const freezeDuration = (2 * Math.sqrt(5 * frozenAuraGauge + 4) - 4) * 1000;
+
+  ctx.states.aura.frozen = { reaction: 'frozen', timer: freezeDuration };
+
+  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'frozen', elements: ['hydro', 'cryo'] } });
+}
+
+export function reactElectroCharged(ctx, applier) {
+  const state = ctx.states.aura.electroCharged ??= { reaction: 'electroCharged', timer: 0 };
+  state.applier = applier;
+
+  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'electroCharged', elements: ['hydro', 'electro'] } });
+}
+
+export function tickElectroCharged(ctx, applier, offset = 0) {
+  const { aura } = ctx.states;
+
+  if (!aura.electro || !aura.hydro) {
+    delete aura.electroCharged;
+    return true;
+  }
+
+  if (ctx.saveSnapshots) {
+    const snapshot = buildSnapshot(ctx, 'electroCharged', applier, 'electro');
+    ctx.snapshots.push({ ...snapshot, runtime: snapshot.runtime + offset });
+  }
+
+  consumeAura(ctx, aura.electro, 0.5);
+  consumeAura(ctx, aura.hydro, 0.5);
+
+  if (!aura.electro || !aura.hydro) {
+    delete aura.electroCharged;
+    return true;
+  }
+
+  aura.electroCharged.timer = 500;
+  return false;
 }
