@@ -60,13 +60,11 @@ const toAttr = (stat) =>
 export function createEventFilter(ctx) {
   const { states, buildMaps } = ctx;
 
-  return (filter, event, effect) => {
-    const isReaction = Boolean(event.reaction);
-    const applier = isReaction ? effect.ownerId : event.ownerId;
-    const field = applier === states.onFieldId ? 'onField' : 'offField';
+  return (filter, effect, spec = {}) => {
+    const field = spec.fieldId === states.onFieldId ? 'onField' : 'offField';
 
     return evaluateNode(filter, {
-      ...(isReaction ? { reaction: event } : { action: event }),
+      ...spec,
       states,
       field,
       get attrMap() {

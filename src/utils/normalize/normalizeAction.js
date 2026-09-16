@@ -84,15 +84,20 @@ export function normalizeAction(gameId, rawAction, spec) {
     const damage = action.damage = { ...action.damage };
 
     if (action.type) {
-      if (action.type === 'mid-airAttack' || action.type === 'dodgeCounter') {
+      if (
+        gameId === WW && (
+          action.type === 'mid-airAttack' ||
+          action.type === 'dodgeCounter'
+        )
+      ) {
         damage.type ??= 'basicAttack';
       } else {
         damage.type ??= action.type;
       }
     }
 
-    if (Array.isArray(damage.type)) {
-      const modeIndex = CHARACTER[gameId][spec.ownerId].modes.indexOf(spec.mode);
+    if (gameId === WW && Array.isArray(damage.type)) {
+      const modeIndex = CHARACTER[WW][spec.ownerId].modes.indexOf(spec.mode);
       damage.type = damage.type[modeIndex];
     }
 
@@ -118,6 +123,34 @@ export function normalizeAction(gameId, rawAction, spec) {
       }
       hitOffsets.push(Math.round(offset));
       hitsLeft--;
+    }
+
+    if (gameId === GI && category === 'normalAttack') {
+      // Gauge
+      if (spec.weaponType !== 'bow') {
+        damage.gauge ??= 1;
+      }
+
+      // Icd
+      if (damage.type !== 'plunge') {
+        if (spec.weaponType === 'sword' || spec.weaponType === 'claymore') {
+          damage.icd = { tag: 'normalAttack', time: 2500, hits: 3 };
+        }
+
+        if (spec.weaponType === 'polearm') {
+          if (damage.type === 'normalAttack') {
+            damage.icd = { tag: 'normalAttack', time: 2500, hits: 3 };
+          } else {
+            damage.icd = { tag: 'chargedAttack', time: 500 };
+          }
+        }
+
+        if (spec.weaponType === 'catalyst') {
+          if (damage.type === 'normalAttack') {
+            damage.icd = { tag: 'normalAttack', time: 2500, hits: 3 };
+          }
+        }
+      }
     }
   }
 

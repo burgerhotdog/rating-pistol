@@ -2580,15 +2580,7 @@
           },
           "cooldown": 1000,
           "action": "resonanceLiberation.0"
-        },
-        "rankMods": [
-          {
-            "rank": 2,
-            "apply": {
-              "uses": 6
-            }
-          }
-        ]
+        }
       },
       {
         "apply": {

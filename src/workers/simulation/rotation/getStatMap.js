@@ -23,10 +23,9 @@ export const getBuffMap = (ctx, options = {}) => {
   }
 
   for (const { effect, stacks, buffCooldown } of getEffectStates(ctx, { member: memberId, type: 'buff' })) {
-    if (
-      buffCooldown ||
-      !ctx.eventFilter(effect.buff?.filter, action, effect)
-    ) continue;
+    if (buffCooldown) continue;
+    if (!ctx.eventFilter(effect.buff?.filter, effect, { action, fieldId: action.ownerId })) continue;
+
     const linkedStacks = effect.buff?.statusStacks
       ? ctx.states.negativeStatuses[effect.buff.statusStacks]?.stacks ?? 0
       : 1;

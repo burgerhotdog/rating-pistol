@@ -30,65 +30,91 @@ import { buildSnapshot, splitPerHit, scaleResolved } from './snapshot';
 import { getEffectStates } from './getEffectStates';
 import { createEventFilter } from './filter';
 
-function handleRemoveWhen(ctx, when, { action, reaction }) {
-  const states = getEffectStates(ctx, { member: action?.ownerId ?? 'all' });
-
-  for (const state of states) {
+function handleRemoveWhen(ctx, when, spec = {}) {
+  function tryRemove(state, storeOwnerId) {
     const { effect } = state;
     const { remove } = effect;
 
-    if (
-      remove?.when !== when ||
-      !ctx.eventFilter(remove.filter, action ?? reaction, effect)
-    ) continue;
+    if (remove?.when !== when) return;
+    if (!ctx.eventFilter(remove.filter, effect, { ...spec, fieldId: storeOwnerId ?? spec.action?.ownerId })) return;
 
-    onRemoveDoCommand(ctx, effect, action?.ownerId ?? effect.ownerId);
+    onRemoveDoCommand(ctx, effect, spec.action?.ownerId ?? effect.ownerId);
 
     if (remove.offset) {
       state.removeTimer ??= remove.offset;
-      continue;
+      return;
     }
 
     runRemoveEffect(state);
   }
-}
 
-function handleUseWhen(ctx, when, { action, reaction }) {
-  const states = getEffectStates(ctx, { member: action?.ownerId ?? 'all' });
+  function updateStore(store, storeOwnerId) {
+    for (const state of Object.values(store)) {
+      tryRemove(state, storeOwnerId);
+    }
+  }
 
-  for (const state of states) {
-    const { effect } = state;
-    const { use } = effect;
+  const { globalEffects, memberEffects } = ctx.states;
+  updateStore(globalEffects);
 
-    if (
-      use?.when !== when ||
-      state.isRunning ||
-      state.useCooldown ||
-      !ctx.eventFilter(use.filter, action ?? reaction, effect)
-    ) continue;
+  const actionOwnerId = spec.action?.ownerId;
+  if (actionOwnerId) {
+    updateStore(memberEffects[actionOwnerId], actionOwnerId);
+    return;
+  }
 
-    onUseDoCommand(ctx, effect, action?.ownerId ?? effect.ownerId);
-    runUseEffect(ctx, state);
+  for (const memberId in memberEffects) {
+    updateStore(memberEffects[memberId], memberId);
   }
 }
 
-function handleApplyWhen(ctx, when, { action, reaction }) {
-  const { applyCooldowns } = ctx.states;
+function handleUseWhen(ctx, when, spec = {}) {
+  function tryUse(state, storeOwnerId) {
+    const { effect } = state;
+    const { use } = effect;
+
+    if (use?.when !== when) return;
+    if (state.isRunning || state.useCooldown) return;
+    if (!ctx.eventFilter(use.filter, effect, { ...spec, fieldId: storeOwnerId ?? spec.action?.ownerId })) return;
+
+    onUseDoCommand(ctx, effect, spec.action?.ownerId ?? effect.ownerId);
+    runUseEffect(ctx, state);
+  }
+
+  function updateStore(store, storeOwnerId) {
+    for (const state of Object.values(store)) {
+      tryUse(state, storeOwnerId);
+    }
+  }
+
+  const { globalEffects, memberEffects } = ctx.states;
+  updateStore(globalEffects);
+
+  const actionOwnerId = spec.action?.ownerId;
+  if (actionOwnerId) {
+    updateStore(memberEffects[actionOwnerId], actionOwnerId);
+    return;
+  }
+
+  for (const memberId in memberEffects) {
+    updateStore(memberEffects[memberId], memberId);
+  }
+}
+
+function handleApplyWhen(ctx, when, spec = {}) {
   const { gameId } = ctx.cache;
+  const { applyCooldowns } = ctx.states;
 
-  function attemptApply(effect) {
+  function tryApply(effect) {
     const { apply } = effect;
-    const applier = action?.ownerId ?? effect.ownerId;
+    if (apply?.when !== when) return;
 
-    if (
-      apply?.when !== when ||
-      !apply.by.includes(applier) ||
-      applyCooldowns[effect.key] ||
-      !ctx.eventFilter(apply.filter, action ?? reaction, effect)
-    ) return;
+    const applier = spec.action?.ownerId ?? effect.ownerId;
+    if (!apply.by.includes(applier) || applyCooldowns[effect.key]) return;
+    if (!ctx.eventFilter(apply.filter, effect, { ...spec, fieldId: applier })) return;
 
     onApplyDoCommand(ctx, effect, applier);
-    runApplyEffect(ctx, effect, { applier, inflict: action?.inflict });
+    runApplyEffect(ctx, effect, { applier, inflict: spec.action?.inflict });
   }
 
   for (const memberId in ctx.cache.member) {
@@ -96,13 +122,13 @@ function handleApplyWhen(ctx, when, { action, reaction }) {
 
     for (const effectKey in mCache.effects) {
       const effect = mCache.effects[effectKey];
-      attemptApply(effect);
+      tryApply(effect);
     }
   }
 
   if (gameId === GI) {
     for (const effect of ctx.cache.elementalResonance.effects) {
-      attemptApply(effect);
+      tryApply(effect);
     }
   }
 }
@@ -123,10 +149,8 @@ function decayBuffStates(ctx, action) {
   for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
     const { store, effect, buffCooldown } = state;
 
-    if (
-      buffCooldown ||
-      !ctx.eventFilter(effect.buff?.filter, action, effect)
-    ) continue;
+    if (buffCooldown) continue;
+    if (!ctx.eventFilter(effect.buff?.filter, effect, { action, fieldId: action.ownerId })) continue;
 
     if (effect.buff?.cooldown) {
       state.buffCooldown = effect.buff.cooldown;
@@ -134,7 +158,6 @@ function decayBuffStates(ctx, action) {
 
     if (state.usesLeft) {
       state.usesLeft--;
-
       if (!state.usesLeft) {
         delete store[effect.key];
       }
@@ -245,7 +268,7 @@ function runAction(ctx, action, options = {}) {
           onFieldId: ctx.states.onFieldId,
           runtime: ctx.states.runtime + (runtimeOffset ?? 0),
           damageType: action.damage.type,
-          damage: scaleResolved(perHitDamage, multiplier),
+          damage: scaleResolved(perHitDamage, multiplier ?? 1),
         });
       }
     }
@@ -335,8 +358,10 @@ export const runRotation = (cache, equipMaps, specId) => {
   function runCycle() {
     for (const memberId of memberOrder) {
       ctx.states.onFieldId = memberId;
+      ctx.runEffectsWhen('swap');
 
-      for (const action of cache.member[memberId].rotation) {
+      const { rotation } = cache.member[memberId];
+      for (const action of rotation) {
         ctx.runAction(action);
       }
     }

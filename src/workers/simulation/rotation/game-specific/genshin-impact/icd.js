@@ -1,35 +1,37 @@
-export function checkApplyElement(ctx, applier, icd) {
-  const { tag } = icd;
+function getIcdState(ctx, memberId, icdData) {
+  const store = ctx.states.icd[memberId];
+  const { tag, time } = icdData;
 
-  return !ctx.states.icd[applier][tag]?.hitsLeft;
+  return store[tag] ??= { tag, timeLeft: time };
 }
 
-export function attemptApplyElement(ctx, applier, icd) {
-  const { tag, time, hits } = icd;
+export function tryApplyElement(ctx, memberId, icdData) {
+  if (!icdData) return true;
 
-  const icdState = ctx.states.icd[applier][tag] ??= { tag };
-  const attemptBlocked = Boolean(icdState.hitsLeft);
+  const state = getIcdState(ctx, memberId, icdData);
 
-  if (attemptBlocked) {
-    icdState.hitsLeft--;
-    if (icdState.hitsLeft <= 0) {
-      delete icdState.hitsLeft;
-    }
-  } else {
-    icdState.timeLeft ??= time;
-    icdState.hitsLeft = hits - 1;
+  if (!state.hitsLeft) {
+    state.hitsLeft = (icdData.hits ?? Infinity) - 1;
+    return true;
   }
 
-  return !attemptBlocked;
+  state.hitsLeft--;
+  if (state.hitsLeft <= 0) {
+    delete state.hitsLeft;
+  }
 }
 
 export function advanceIcdStates(ctx, elapsed) {
-  for (const memberStore of Object.values(ctx.states.icd)) {
-    for (const icdState of Object.values(memberStore)) {
-      icdState.timeLeft -= elapsed;
+  const { states } = ctx;
 
-      if (icdState.timeLeft <= 0) {
-        delete memberStore[icdState.tag];
+  for (const memberId in states.icd) {
+    const store = states.icd[memberId];
+
+    for (const state of Object.values(store)) {
+      state.timeLeft -= elapsed;
+
+      if (state.timeLeft <= 0) {
+        delete store[state.tag];
       }
     }
   }

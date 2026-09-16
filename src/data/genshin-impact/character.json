@@ -27228,12 +27228,6 @@
             "name": "Normal Attack 1",
             "type": "normalAttack",
             "damage": {
-              "gauge": 1,
-              "icd": {
-                "tag": "normalAttack",
-                "time": 2500,
-                "hits": 3
-              },
               "multipliers": [
                 {
                   "mv": [
@@ -27261,12 +27255,6 @@
             "name": "Normal Attack 2",
             "type": "normalAttack",
             "damage": {
-              "gauge": 1,
-              "icd": {
-                "tag": "normalAttack",
-                "time": 2500,
-                "hits": 3
-              },
               "multipliers": [
                 {
                   "mv": [
@@ -27294,12 +27282,6 @@
             "name": "Normal Attack 3",
             "type": "normalAttack",
             "damage": {
-              "gauge": 1,
-              "icd": {
-                "tag": "normalAttack",
-                "time": 2500,
-                "hits": 3
-              },
               "multipliers": [
                 {
                   "mv": [
@@ -27346,7 +27328,6 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27401,7 +27382,6 @@
             "name": "Plunge Attack: Low",
             "type": "plungeAttack",
             "damage": {
-              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27429,7 +27409,6 @@
             "name": "Plunge Attack: High",
             "type": "plungeAttack",
             "damage": {
-              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -32350,7 +32329,6 @@
     "memberPreset": {}
   },
   "10000086": {
-    "disabled": true,
     "name": "Wriothesley",
     "version": 4.1,
     "id": 10000086,
@@ -32358,17 +32336,99 @@
     "quality": 5,
     "element": "cryo",
     "type": "catalyst",
-    "tagged": [],
     "stats": {
       "baseHp": 13593,
       "baseAtk": 311,
       "baseDef": 763,
       "critDmg%": 0.384
     },
-    "effects": [],
+    "energy": 60,
+    "tagged": [],
+    "effects": [
+      {
+        "ref": "chillingPenalty",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 10000
+        },
+        "remove": {
+          "when": "swap",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "statRefs": {
+            "damageMv%": "elementalSkill.1"
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "cooldown": 10000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "normalAttack.5"
+            }
+          },
+          "stats": {
+            "damageBonus%": 0.5
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hpChange",
+          "filter": {
+            "effectStacks": {
+              "has": "chillingPenalty"
+            }
+          }
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "chillingPenalty"
+              }
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.06
+          }
+        },
+        "maxStacks": 5
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Forceful Fists of Frost",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -32635,15 +32695,18 @@
         ]
       },
       "elementalSkill": {
-        "name": "Enhanced Repelling Fist DMG",
+        "name": "Icefang Rush",
         "actions": [
           {
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
             "name": "Enhanced Repelling Fist DMG",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     1.4317,
                     1.4575,
                     1.4834,
@@ -32667,12 +32730,18 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Darkgold Wolfbite",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "elementalBurst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -32691,15 +32760,16 @@
                     2.703,
                     2.862,
                     3.021
-                  ]
+                  ],
+                  "times": 5
                 }
               ]
             }
           },
           {
-            "name": "Surging Blade DMG",
-            "type": "elementalBurst",
+            "name": "Surging Blade",
             "damage": {
+              "type": "elementalBurst",
               "multipliers": [
                 {
                   "mv": [
@@ -32726,7 +32796,32 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14513,
+      "setCounts": {
+        "15031": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "normalAttack.5",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "normalAttack.5",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "normalAttack.5"
+      ],
+      "duration": 11000
+    }
   },
   "10000087": {
     "disabled": true,

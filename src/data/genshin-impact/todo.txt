@@ -13,6 +13,7 @@ characters:
         unfinished
     Faruzan
         unfinished
+    Wriothesley
 
 weapons:
     11302 Harbinger of Dawn
