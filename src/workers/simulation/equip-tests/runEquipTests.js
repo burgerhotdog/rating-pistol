@@ -3,6 +3,20 @@ import { buildSkippable } from '@/utils';
 import { runTrials } from './runTrials';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
 import { computeCeiling } from './computeCeiling';
+import { testExtraSubstat } from './testExtraSubstat';
+
+const getFit = (mpsProgression, mpsCeiling) => {
+  const logPoints = mpsProgression
+    .slice(-5)
+    .map(({ day, mean }) => [
+      Math.log(day),
+      Math.log(mpsCeiling - mean),
+    ]);
+
+  const { m, b } = linearRegression(logPoints);
+
+  return { k: -m, A: Math.exp(b) };
+};
 
 export async function runEquipTests(cache, equipMaps, currId) {
   const { gameId } = cache;
@@ -16,20 +30,11 @@ export async function runEquipTests(cache, equipMaps, currId) {
 
   const mpsProgression = [{ day: 0, mean: score }, ...mpsUpdates];
 
-  const logPoints = mpsProgression
-    .slice(-5)
-    .map(({ day, mean }) => [
-      Math.log(day),
-      Math.log(mpsCeiling - mean),
-    ]);
-
-  const { m, b } = linearRegression(logPoints);
-  const fit = { k: -m, A: Math.exp(b) };
-
   return {
     dpsProgression: mpsProgression,
     dpsCeiling: mpsCeiling,
-    fit,
+    fit: getFit(mpsProgression, mpsCeiling),
     equipListConfigs,
+    extraSubstats: testExtraSubstat(cache, equipMaps, currId, evaluateEquipMap),
   };
 }

@@ -4,9 +4,10 @@ import {
   CardContent,
   CardHeader,
   Stack,
+  Typography,
 } from '@mui/material';
 import { useAccent } from '@/hooks';
-import { getMainstatConfigKey, sumSubstatRolls } from '@/utils';
+import { getMainstatConfigKey, sumSubstatRolls, formatStr } from '@/utils';
 import Mainstats from './Mainstats';
 import SubstatsChart from './SubstatsChart';
 import TrajectoryChart from './TrajectoryChart';
@@ -40,6 +41,28 @@ const Equips = ({ results }) => {
             userMainstatConfigKey={userMainstatConfigKey}
             userSubstatRolls={userSubstatRolls}
           />
+        </Card>
+
+        <Card component={Stack} sx={{ flex: 1 }}>
+          <CardHeader title="Improvement w/ extra substat" />
+          <CardContent component={Stack} sx={{ flex: 1, overflow: 'hidden' }}>
+            {Object.entries(results.extraSubstats)
+              .map(([stat, mps]) => ({ stat, diff: mps / results.userDps - 1 }))
+              .filter(({ diff }) => diff >= 0.0005)
+              .toSorted((a, b) => b.diff - a.diff)
+              .map(({ stat, diff }, i) => {
+                return (
+                  <Stack key={i} direction="row" sx={{ justifyContent: 'space-between' }}>
+                    <Typography>
+                      {formatStr(stat)}:
+                    </Typography>
+                    <Typography>
+                      +{(diff * 100).toFixed(1)}%
+                    </Typography>
+                  </Stack>
+                );
+              })}
+          </CardContent>
         </Card>
       </Stack>
 

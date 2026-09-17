@@ -87,6 +87,7 @@ self.onmessage = async ({ data }) => {
     fit: results.fit,
     equipListConfigs: results.equipListConfigs,
     ...findBenchmark(results.dpsCeiling, results.dpsProgression, results.fit),
+    extraSubstats: results.extraSubstats,
     skillLevelResults,
   });
 };
