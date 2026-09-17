@@ -1,5 +1,5 @@
 import { WW, MAINSTAT, SUBSTAT } from '@/data';
-import { buildEquipMap } from '../buildMap';
+import { buildEquipMap } from '@/utils';
 
 const FLAT_STAT_BY_COST = {
   4: { mainstatSubId: 'atk', mainstatSubValue: 150 },
@@ -207,7 +207,7 @@ function getOptionsPerSlot(gameId, evalId, skippable) {
   );
 }
 
-export function computeDpsCeiling(gameId, evaluateEquipMap, currId, skippable) {
+export function computeCeiling(gameId, evaluateEquipMap, currId, skippable) {
   const costPattern = currId === 1409
     ? [4, 4, 1, 1, 1]
     : [4, 3, 3, 1, 1];

@@ -25,26 +25,3 @@ export function buildEquipListConfigs(gameId, trials) {
 
   return equipListConfigs;
 }
-
-export function mergeEquipListConfigs(partialEquipListConfigsList) {
-  const equipListConfigs = {};
-
-  for (const partialEquipListConfigs of partialEquipListConfigsList) {
-    for (const [mainstatConfigKey, sourceConfig] of Object.entries(partialEquipListConfigs)) {
-      const config = equipListConfigs[mainstatConfigKey];
-
-      if (!config) {
-        equipListConfigs[mainstatConfigKey] = structuredClone(sourceConfig);
-        continue;
-      }
-
-      config.trialCount += sourceConfig.trialCount;
-      for (const [stat, rolls] of Object.entries(sourceConfig.substatRolls)) {
-        config.substatRolls[stat].push(...rolls);
-      }
-    }
-  }
-
-  return equipListConfigs;
-}
-
