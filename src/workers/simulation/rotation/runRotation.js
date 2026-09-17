@@ -1,5 +1,5 @@
 import { GI, WW } from '@/data';
-import { toMergedObj } from '@/utils';
+import { toMergedObj, clamp } from '@/utils';
 import {
   onRemoveDoCommand,
   onUseDoCommand,
@@ -260,20 +260,6 @@ function runAction(ctx, action, options = {}) {
     decayBuffStates(ctx, action);
   }
 
-  if (action.drain) {
-    const { targets, value } = action.drain;
-    const { memberHealth } = ctx.states;
-    for (const targetId of targets) {
-      const prev = memberHealth[targetId];
-      const next = Math.max(prev - value, 0);
-
-      if (next !== prev) {
-        memberHealth[targetId] = next;
-        runEffectsWhen('hpChange');
-      }
-    }
-  }
-
   if (gameId === WW) {
     consumeNegativeStatuses(ctx, action);
     inflictNegativeStatuses(ctx, action);
@@ -286,6 +272,21 @@ function runAction(ctx, action, options = {}) {
   for (const offset of hitOffsets) {
     advanceTimeTo(offset);
     runEffectsWhen('hit');
+
+    if (action.drain) {
+      const { targets, value } = action.drain;
+      const { memberHealth } = ctx.states;
+
+      for (const targetId of targets) {
+        const prev = memberHealth[targetId];
+        const next = clamp(prev - value, 0, 1);
+
+        if (next !== prev) {
+          memberHealth[targetId] = next;
+          runEffectsWhen('healthChange');
+        }
+      }
+    }
 
     if (gameId === GI) {
       const multiplier = applyGauge(ctx, action);

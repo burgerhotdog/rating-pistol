@@ -3307,7 +3307,7 @@
       {
         "ref": "selfBuff",
         "apply": {
-          "when": "hpChange",
+          "when": "healthChange",
           "cooldown": 300,
           "duration": 4000
         },

@@ -1231,7 +1231,7 @@
       {
         "bonus": 4,
         "apply": {
-          "when": "hpChange",
+          "when": "healthChange",
           "duration": 5000
         },
         "buff": {

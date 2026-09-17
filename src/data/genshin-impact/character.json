@@ -32415,13 +32415,47 @@
             "field": "offField"
           }
         },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "health": {
+                  ">": 0.5
+                }
+              }
+            ]
+          },
+          "cooldown": 100,
+          "action": {
+            "drain": {
+              "value": 0.045
+            }
+          }
+        },
         "buff": {
           "filter": {
-            "action": {
-              "damage": {
-                "type": "normalAttack"
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "health": {
+                  ">": 0.5
+                }
               }
-            }
+            ]
           },
           "statRefs": {
             "damageMv%": "elementalSkill.1"
@@ -32441,6 +32475,19 @@
         }
       },
       {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.5"
+            }
+          },
+          "action": {
+            "drain": {
+              "value": -0.3
+            }
+          }
+        },
         "buff": {
           "filter": {
             "action": {
@@ -32454,7 +32501,7 @@
       },
       {
         "apply": {
-          "when": "hpChange",
+          "when": "healthChange",
           "filter": {
             "effectStacks": {
               "has": "chillingPenalty"

@@ -62,11 +62,13 @@ export function createEventFilter(ctx) {
 
   return (filter, effect, spec = {}) => {
     const field = spec.fieldId === states.onFieldId ? 'onField' : 'offField';
+    const health = ctx.states.memberHealth[spec.fieldId];
 
     return evaluateNode(filter, {
       ...spec,
       states,
       field,
+      health,
       get attrMap() {
         const value = {};
 
