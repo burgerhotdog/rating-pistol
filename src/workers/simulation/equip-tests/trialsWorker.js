@@ -11,14 +11,14 @@ let gameId;
 self.onmessage = ({ data }) => {
   switch (data.type) {
     case 'init': {
-      const { cache, equipMaps, currId, snapshots, score } = data;
+      const { cache, equipMaps, currId, snapshots, score, skippable } = data;
 
       gameId = cache.gameId;
 
       const equipListLength = MISC[gameId].maxEquips;
       const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
 
-      advanceTrial = createAdvanceTrial(cache, evaluateEquipMap, currId);
+      advanceTrial = createAdvanceTrial(cache, evaluateEquipMap, currId, skippable);
 
       trials = Array.from({ length: 250 }, () => ({
         equipList: new Array(equipListLength).fill(null),

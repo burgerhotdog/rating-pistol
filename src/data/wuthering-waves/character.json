@@ -2580,15 +2580,7 @@
           },
           "cooldown": 1000,
           "action": "resonanceLiberation.0"
-        },
-        "rankMods": [
-          {
-            "rank": 2,
-            "apply": {
-              "uses": 6
-            }
-          }
-        ]
+        }
       },
       {
         "apply": {
@@ -17450,19 +17442,6 @@
         }
       },
       {
-        "use": {
-          "when": "tuneResponse",
-          "filter": {
-            "states": {
-              "tune": {
-                "interfered": "tuneRupture"
-              }
-            }
-          },
-          "action": "forteCircuit.4"
-        }
-      },
-      {
         "buff": {
           "stats": {
             "energyRegen%": 0.1
@@ -18427,6 +18406,7 @@
           },
           {
             "name": "Particle Jet",
+            "type": "tuneResponse",
             "damage": {
               "type": "tuneRupture",
               "attr": "tuneAmp",
@@ -18663,20 +18643,6 @@
           },
           "action": "forteCircuit.3",
           "times": 10
-        }
-      },
-      {
-        "mode": "tuneRupture",
-        "use": {
-          "when": "tuneResponse",
-          "filter": {
-            "states": {
-              "tune": {
-                "interfered": "tuneRupture"
-              }
-            }
-          },
-          "action": "forteCircuit.2"
         }
       },
       {
@@ -20149,6 +20115,7 @@
           },
           {
             "name": "Starburst",
+            "type": "tuneResponse",
             "damage": {
               "type": "tuneRupture",
               "attr": "tuneAmp",
@@ -30461,19 +30428,6 @@
         }
       },
       {
-        "use": {
-          "when": "tuneResponse",
-          "filter": {
-            "states": {
-              "tune": {
-                "interfered": "hack"
-              }
-            }
-          },
-          "action": "forteCircuit.0"
-        }
-      },
-      {
         "apply": {
           "when": "start",
           "filter": {
@@ -31880,6 +31834,7 @@
         "actions": [
           {
             "name": "Meltdown",
+            "type": "tuneResponse",
             "damage": {
               "type": "hack",
               "attr": "tuneAmp",
@@ -54635,19 +54590,6 @@
     ],
     "effects": [
       {
-        "use": {
-          "when": "tuneResponse",
-          "filter": {
-            "states": {
-              "tune": {
-                "interfered": "tuneRupture"
-              }
-            }
-          },
-          "action": "forteCircuit.5"
-        }
-      },
-      {
         "stores": "$team",
         "apply": {
           "when": "start",
@@ -55882,6 +55824,7 @@
           },
           {
             "name": "Spectral Analysis",
+            "type": "tuneResponse",
             "damage": {
               "type": "tuneRupture",
               "attr": "tuneAmp",
@@ -57284,19 +57227,6 @@
         }
       },
       {
-        "use": {
-          "when": "tuneResponse",
-          "filter": {
-            "states": {
-              "tune": {
-                "interfered": "hack"
-              }
-            }
-          },
-          "action": "forteCircuit.0"
-        }
-      },
-      {
         "stores": "$next",
         "apply": {
           "when": "start",
@@ -57327,6 +57257,23 @@
         "buff": {
           "stats": {
             "dmgAmp%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "introSkill.0"
+            }
+          },
+          "duration": 14000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.2
           }
         }
       }
@@ -59429,6 +59376,7 @@
         "actions": [
           {
             "name": "Data Crash",
+            "type": "tuneResponse",
             "damage": {
               "type": "hack",
               "attr": "tuneAmp",

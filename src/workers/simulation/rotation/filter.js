@@ -59,15 +59,16 @@ const toAttr = (stat) =>
 
 export function createEventFilter(ctx) {
   const { states, buildMaps } = ctx;
-  return (filter, action, effect) => {
+
+  return (filter, effect, spec = {}) => {
+    const field = spec.fieldId === states.onFieldId ? 'onField' : 'offField';
+    const health = ctx.states.memberHealth[spec.fieldId];
+
     return evaluateNode(filter, {
-      action,
+      ...spec,
       states,
-      get field() {
-        const value = action.ownerId === states.onFieldId ? 'onField' : 'offField';
-        Object.defineProperty(this, 'field', { value, enumerable: true });
-        return value;
-      },
+      field,
+      health,
       get attrMap() {
         const value = {};
 

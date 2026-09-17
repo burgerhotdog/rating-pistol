@@ -1,6 +1,5 @@
 {
   "11101": {
-    "disabled": true,
     "name": "Dull Blade",
     "version": 1,
     "id": 11101,
@@ -9,11 +8,9 @@
     "type": "sword",
     "stats": {
       "baseAtk": 185
-    },
-    "effects": []
+    }
   },
   "11201": {
-    "disabled": true,
     "name": "Silver Sword",
     "version": 1,
     "id": 11201,
@@ -22,11 +19,9 @@
     "type": "sword",
     "stats": {
       "baseAtk": 243
-    },
-    "effects": []
+    }
   },
   "11301": {
-    "disabled": true,
     "name": "Cool Steel",
     "version": 1,
     "id": 11301,
@@ -37,10 +32,30 @@
       "baseAtk": 401,
       "atk%": 0.352
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "hydro",
+                  "cryo"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "11302": {
-    "disabled": true,
     "name": "Harbinger of Dawn",
     "version": 1,
     "id": 11302,
@@ -65,7 +80,6 @@
     ]
   },
   "11303": {
-    "disabled": true,
     "name": "Traveler's Handy Sword",
     "version": 1,
     "id": 11303,
@@ -79,7 +93,6 @@
     "effects": []
   },
   "11304": {
-    "disabled": true,
     "name": "Dark Iron Sword",
     "version": 1,
     "id": 11304,
@@ -90,10 +103,52 @@
       "baseAtk": 401,
       "elementalMastery": 141
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "or": [
+                {
+                  "reaction": [
+                    "overloaded",
+                    "superconduct",
+                    "stellarConduct",
+                    "electroCharged",
+                    "quicken",
+                    "aggravate",
+                    "hyperbloom",
+                    "lunarCharged"
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "reaction": "swirl"
+                    },
+                    {
+                      "elements": "electro"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "11305": {
-    "disabled": true,
     "name": "Fillet Blade",
     "version": 1,
     "id": 11305,
@@ -104,10 +159,36 @@
       "baseAtk": 401,
       "atk%": 0.352
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": [
+            15000,
+            11000
+          ],
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    2.4,
+                    4
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11306": {
-    "disabled": true,
     "name": "Skyrider Sword",
     "version": 1,
     "id": 11306,
@@ -118,10 +199,29 @@
       "baseAtk": 354,
       "energyRecharge%": 0.521
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalBurst"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "11401": {
-    "disabled": true,
     "name": "Favonius Sword",
     "version": 1,
     "id": 11401,
@@ -149,7 +249,6 @@
     "effects": []
   },
   "11403": {
-    "disabled": true,
     "name": "Sacrificial Sword",
     "version": 1,
     "id": 11403,
@@ -159,8 +258,7 @@
     "stats": {
       "baseAtk": 454,
       "energyRecharge%": 0.613
-    },
-    "effects": []
+    }
   },
   "11404": {
     "disabled": true,
@@ -321,15 +419,20 @@
         "buff": {
           "filter": {
             "action": {
-              "type": "elementalSkill"
+              "damage": {
+                "type": "elementalSkill"
+              }
             }
           },
           "cooldown": 1500,
           "specs": {
-            "flat": {
+            "damageFlat": {
               "attr": "def",
               "step": 1,
-              "value": 0.4
+              "value": [
+                0.4,
+                0.8
+              ]
             }
           }
         }
@@ -566,7 +669,6 @@
     "effects": []
   },
   "11501": {
-    "disabled": true,
     "name": "Aquila Favonia",
     "version": 1,
     "id": 11501,
@@ -578,7 +680,46 @@
       "baseAtk": 674,
       "physicalDmgBonus%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "interval",
+          "cooldown": 15000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    2,
+                    3.2
+                  ]
+                }
+              ]
+            },
+            "healing": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1,
+                    1.6
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11502": {
     "name": "Skyward Blade",
@@ -592,7 +733,53 @@
       "baseAtk": 608,
       "energyRecharge%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "critRate%": [
+              0.04,
+              0.08
+            ]
+          }
+        }
+      },
+      {
+        "ref": "skypiercingMight",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalBurst"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "type": [
+                "normalAttack",
+                "chargedAttack"
+              ]
+            }
+          },
+          "stats": {
+            "attackSpd%": 0.1
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": [
+                0.2,
+                0.4
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11503": {
     "disabled": true,
@@ -805,7 +992,6 @@
     "effects": []
   },
   "12101": {
-    "disabled": true,
     "name": "Waster Greatsword",
     "version": 1,
     "id": 12101,
@@ -814,11 +1000,9 @@
     "type": "claymore",
     "stats": {
       "baseAtk": 185
-    },
-    "effects": []
+    }
   },
   "12201": {
-    "disabled": true,
     "name": "Old Merc's Pal",
     "version": 1,
     "id": 12201,
@@ -827,11 +1011,9 @@
     "type": "claymore",
     "stats": {
       "baseAtk": 243
-    },
-    "effects": []
+    }
   },
   "12301": {
-    "disabled": true,
     "name": "Ferrous Shadow",
     "version": 1,
     "id": 12301,
@@ -845,7 +1027,6 @@
     "effects": []
   },
   "12302": {
-    "disabled": true,
     "name": "Bloodtainted Greatsword",
     "version": 1,
     "id": 12302,
@@ -856,10 +1037,30 @@
       "baseAtk": 354,
       "elementalMastery": 187
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "pyro",
+                  "electro"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "12303": {
-    "disabled": true,
     "name": "White Iron Greatsword",
     "version": 1,
     "id": 12303,
@@ -869,11 +1070,9 @@
     "stats": {
       "baseAtk": 401,
       "def%": 0.439
-    },
-    "effects": []
+    }
   },
   "12305": {
-    "disabled": true,
     "name": "Debate Club",
     "version": 1,
     "id": 12305,
@@ -884,10 +1083,47 @@
       "baseAtk": 401,
       "atk%": 0.352
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 15000
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 3000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6,
+                    1.2
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "12306": {
-    "disabled": true,
     "name": "Skyrider Greatsword",
     "version": 1,
     "id": 12306,
@@ -898,10 +1134,36 @@
       "baseAtk": 401,
       "physicalDmgBonus%": 0.439
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 500,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.06,
+              0.1
+            ]
+          }
+        },
+        "maxStacks": 4
+      }
+    ]
   },
   "12401": {
-    "disabled": true,
     "name": "Favonius Greatsword",
     "version": 1,
     "id": 12401,
@@ -929,7 +1191,6 @@
     "effects": []
   },
   "12403": {
-    "disabled": true,
     "name": "Sacrificial Greatsword",
     "version": 1,
     "id": 12403,
@@ -939,8 +1200,7 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    },
-    "effects": []
+    }
   },
   "12404": {
     "disabled": true,
@@ -1288,7 +1548,6 @@
     "effects": []
   },
   "12501": {
-    "disabled": true,
     "name": "Skyward Pride",
     "version": 1,
     "id": 12501,
@@ -1300,10 +1559,57 @@
       "baseAtk": 674,
       "energyRecharge%": 0.368
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalBurst"
+            }
+          },
+          "uses": 8,
+          "duration": 20000
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.8,
+                    1.6
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "12502": {
-    "disabled": true,
     "name": "Wolf's Gravestone",
     "version": 1,
     "id": 12502,
@@ -1315,7 +1621,18 @@
       "baseAtk": 608,
       "atk%": 0.496
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "12503": {
     "disabled": true,
@@ -1444,7 +1761,6 @@
     "effects": []
   },
   "13101": {
-    "disabled": true,
     "name": "Beginner's Protector",
     "version": 1,
     "id": 13101,
@@ -1453,11 +1769,9 @@
     "type": "polearm",
     "stats": {
       "baseAtk": 185
-    },
-    "effects": []
+    }
   },
   "13201": {
-    "disabled": true,
     "name": "Iron Point",
     "version": 1,
     "id": 13201,
@@ -1466,11 +1780,9 @@
     "type": "polearm",
     "stats": {
       "baseAtk": 243
-    },
-    "effects": []
+    }
   },
   "13301": {
-    "disabled": true,
     "name": "White Tassel",
     "version": 1,
     "id": 13301,
@@ -1481,10 +1793,20 @@
       "baseAtk": 401,
       "critRate%": 0.234
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
   },
   "13302": {
-    "disabled": true,
     "name": "Halberd",
     "version": 1,
     "id": 13302,
@@ -1495,10 +1817,35 @@
       "baseAtk": 448,
       "atk%": 0.235
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 10000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.6,
+                    3.2
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "13303": {
-    "disabled": true,
     "name": "Black Tassel",
     "version": 1,
     "id": 13303,
@@ -1508,8 +1855,7 @@
     "stats": {
       "baseAtk": 354,
       "hp%": 0.469
-    },
-    "effects": []
+    }
   },
   "13401": {
     "disabled": true,
@@ -1598,7 +1944,6 @@
     "effects": []
   },
   "13407": {
-    "disabled": true,
     "name": "Favonius Lance",
     "version": 1,
     "id": 13407,
@@ -1885,7 +2230,6 @@
     "effects": []
   },
   "13502": {
-    "disabled": true,
     "name": "Skyward Spine",
     "version": 1,
     "id": 13502,
@@ -1897,7 +2241,47 @@
       "baseAtk": 674,
       "energyRecharge%": 0.368
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "critRate%": [
+              0.08,
+              0.16
+            ],
+            "attackSpd%": 0.12
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 2000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.4,
+                    1
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "13504": {
     "disabled": true,
@@ -1914,7 +2298,6 @@
     "effects": []
   },
   "13505": {
-    "disabled": true,
     "name": "Primordial Jade Winged-Spear",
     "version": 1,
     "id": 13505,
@@ -1926,7 +2309,42 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "hitStacks",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 300,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.032,
+              0.06
+            ]
+          }
+        },
+        "maxStacks": 7
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "hitStacks": 7
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.12
+          }
+        }
+      }
+    ]
   },
   "13507": {
     "disabled": true,
@@ -2055,7 +2473,6 @@
     "effects": []
   },
   "14101": {
-    "disabled": true,
     "name": "Apprentice's Notes",
     "version": 1,
     "id": 14101,
@@ -2064,11 +2481,9 @@
     "type": "catalyst",
     "stats": {
       "baseAtk": 185
-    },
-    "effects": []
+    }
   },
   "14201": {
-    "disabled": true,
     "name": "Pocket Grimoire",
     "version": 1,
     "id": 14201,
@@ -2077,11 +2492,9 @@
     "type": "catalyst",
     "stats": {
       "baseAtk": 243
-    },
-    "effects": []
+    }
   },
   "14301": {
-    "disabled": true,
     "name": "Magic Guide",
     "version": 1,
     "id": 14301,
@@ -2092,7 +2505,28 @@
       "baseAtk": 354,
       "elementalMastery": 187
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "hydro",
+                  "electro"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "14302": {
     "disabled": true,
@@ -2123,7 +2557,6 @@
     "effects": []
   },
   "14304": {
-    "disabled": true,
     "name": "Emerald Orb",
     "version": 1,
     "id": 14304,
@@ -2134,10 +2567,50 @@
       "baseAtk": 448,
       "elementalMastery": 94
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "or": [
+                {
+                  "reaction": [
+                    "vaporize",
+                    "electroCharged",
+                    "frozen",
+                    "bloom",
+                    "lunarCharged",
+                    "lunarBloom"
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "reaction": "swirl"
+                    },
+                    {
+                      "elements": "hydro"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "14305": {
-    "disabled": true,
     "name": "Twin Nephrite",
     "version": 1,
     "id": 14305,
@@ -2147,11 +2620,9 @@
     "stats": {
       "baseAtk": 448,
       "critRate%": 0.156
-    },
-    "effects": []
+    }
   },
   "14401": {
-    "disabled": true,
     "name": "Favonius Codex",
     "version": 1,
     "id": 14401,
@@ -2179,7 +2650,6 @@
     "effects": []
   },
   "14403": {
-    "disabled": true,
     "name": "Sacrificial Fragments",
     "version": 1,
     "id": 14403,
@@ -2189,8 +2659,7 @@
     "stats": {
       "baseAtk": 454,
       "elementalMastery": 221
-    },
-    "effects": []
+    }
   },
   "14404": {
     "disabled": true,
@@ -2207,7 +2676,6 @@
     "effects": []
   },
   "14405": {
-    "disabled": true,
     "name": "Solar Pearl",
     "version": 1,
     "id": 14405,
@@ -2218,7 +2686,57 @@
       "baseAtk": 510,
       "critRate%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.2,
+              0.4
+            ],
+            "elementalBurstDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "elementalSkill",
+                  "elementalBurst"
+                ]
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "14406": {
     "disabled": true,
@@ -2236,7 +2754,6 @@
     "effects": []
   },
   "14407": {
-    "disabled": true,
     "name": "Mappa Mare",
     "version": 1,
     "id": 14407,
@@ -2248,7 +2765,23 @@
       "baseAtk": 565,
       "elementalMastery": 110
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "elementalDmgBonus%": [
+              0.08,
+              0.16
+            ]
+          }
+        },
+        "maxStacks": 2
+      }
+    ]
   },
   "14408": {
     "disabled": true,
@@ -2538,7 +3071,6 @@
     "effects": []
   },
   "14501": {
-    "disabled": true,
     "name": "Skyward Atlas",
     "version": 1,
     "id": 14501,
@@ -2550,10 +3082,45 @@
       "baseAtk": 674,
       "atk%": 0.331
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "elementalDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 30000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.6,
+                    3.2
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "14502": {
-    "disabled": true,
     "name": "Lost Prayer to the Sacred Winds",
     "version": 1,
     "id": 14502,
@@ -2565,7 +3132,42 @@
       "baseAtk": 608,
       "critRate%": 0.331
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "rampingBuff",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "not": {
+                  "effectStacks": {
+                    "has": "rampingBuff"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "buff": {
+          "elementalDmgBonus%": [
+            0.08,
+            0.16
+          ]
+        },
+        "rampingInterval": 4000,
+        "maxStacks": 4
+      }
+    ]
   },
   "14504": {
     "disabled": true,
@@ -2681,7 +3283,6 @@
     ]
   },
   "14513": {
-    "disabled": true,
     "name": "Cashflow Supervision",
     "version": 4.1,
     "id": 14513,
@@ -2692,7 +3293,58 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "ref": "selfBuff",
+        "apply": {
+          "when": "healthChange",
+          "cooldown": 300,
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "chargedAttackDmgBonus%": [
+              0.14,
+              0.28
+            ],
+            "stellarConductReactionBonus%": [
+              0.14,
+              0.28
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "selfBuff": 3
+            }
+          },
+          "stats": {
+            "attackSpd%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      }
+    ]
   },
   "14514": {
     "disabled": true,
@@ -2835,7 +3487,6 @@
     "effects": []
   },
   "15101": {
-    "disabled": true,
     "name": "Hunter's Bow",
     "version": 1,
     "id": 15101,
@@ -2844,11 +3495,9 @@
     "type": "bow",
     "stats": {
       "baseAtk": 185
-    },
-    "effects": []
+    }
   },
   "15201": {
-    "disabled": true,
     "name": "Seasoned Hunter's Bow",
     "version": 1,
     "id": 15201,
@@ -2857,11 +3506,9 @@
     "type": "bow",
     "stats": {
       "baseAtk": 243
-    },
-    "effects": []
+    }
   },
   "15301": {
-    "disabled": true,
     "name": "Raven Bow",
     "version": 1,
     "id": 15301,
@@ -2872,7 +3519,28 @@
       "baseAtk": 448,
       "elementalMastery": 94
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "hydro",
+                  "pyro"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "15302": {
     "disabled": true,
@@ -2889,7 +3557,6 @@
     "effects": []
   },
   "15303": {
-    "disabled": true,
     "name": "Recurve Bow",
     "version": 1,
     "id": 15303,
@@ -2899,8 +3566,7 @@
     "stats": {
       "baseAtk": 354,
       "hp%": 0.469
-    },
-    "effects": []
+    }
   },
   "15304": {
     "disabled": true,
@@ -2931,7 +3597,6 @@
     "effects": []
   },
   "15401": {
-    "disabled": true,
     "name": "Favonius Warbow",
     "version": 1,
     "id": 15401,
@@ -2959,7 +3624,6 @@
     "effects": []
   },
   "15403": {
-    "disabled": true,
     "name": "Sacrificial Bow",
     "version": 1,
     "id": 15403,
@@ -2969,8 +3633,7 @@
     "stats": {
       "baseAtk": 565,
       "energyRecharge%": 0.306
-    },
-    "effects": []
+    }
   },
   "15404": {
     "disabled": true,
@@ -3359,7 +4022,6 @@
     "effects": []
   },
   "15501": {
-    "disabled": true,
     "name": "Skyward Harp",
     "version": 1,
     "id": 15501,
@@ -3371,7 +4033,41 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "critDmg%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": [
+            4000,
+            2000
+          ],
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": 1.25
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "15502": {
     "disabled": true,

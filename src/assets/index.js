@@ -8,13 +8,6 @@ const short = (assets) =>
     ])
   );
 
-export const ATTR_ASSETS = { 
-  [GI]: short(import.meta.glob('./attr/genshin-impact/*.webp', { eager: true })),
-  [HSR]: short(import.meta.glob('./attr/honkai-star-rail/*.webp', { eager: true })),
-  [WW]: short(import.meta.glob('./attr/wuthering-waves/*.webp', { eager: true })),
-  [ZZZ]: short(import.meta.glob('./attr/zenless-zone-zero/*.webp', { eager: true })),
-};
-
 export const EQUIP_ASSETS = { 
   [GI]: short(import.meta.glob('./equip/gi/*.webp', { eager: true })),
   [HSR]: short(import.meta.glob('./equip/hsr/*.webp', { eager: true })),

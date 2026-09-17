@@ -10,8 +10,7 @@ export function buildEquipListConfigs(gameId, trials) {
     equipListConfigs[mainstatConfigKey] ??= {
       trialCount: 0,
       substatRolls: Object.fromEntries(
-        Object.keys(SUBSTAT[gameId])
-          .map((id) => [id, []])
+        Object.keys(SUBSTAT[gameId]).map((stat) => [stat, []])
       ),
     };
     const config = equipListConfigs[mainstatConfigKey];
@@ -19,8 +18,8 @@ export function buildEquipListConfigs(gameId, trials) {
     config.trialCount++;
 
     const substatRolls = sumSubstatRolls(gameId, trial.equipList, true);
-    for (const [id, rolls] of Object.entries(config.substatRolls)) {
-      rolls.push(substatRolls[id] ?? 0);
+    for (const [stat, rolls] of Object.entries(config.substatRolls)) {
+      rolls.push(substatRolls[stat] ?? 0);
     }
   }
 
@@ -40,8 +39,8 @@ export function mergeEquipListConfigs(partialEquipListConfigsList) {
       }
 
       config.trialCount += sourceConfig.trialCount;
-      for (const [id, rolls] of Object.entries(sourceConfig.substatRolls)) {
-        config.substatRolls[id].push(...rolls);
+      for (const [stat, rolls] of Object.entries(sourceConfig.substatRolls)) {
+        config.substatRolls[stat].push(...rolls);
       }
     }
   }

@@ -1,5 +1,5 @@
-import { mean } from 'simple-statistics';
-import { buildSkippable, computeDpsCeiling, fitDecay, mergeEquipListConfigs } from '@/utils';
+import { linearRegression, mean } from 'simple-statistics';
+import { buildSkippable, computeDpsCeiling, mergeEquipListConfigs } from '@/utils';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
 
 async function initWorkers(payload) {
@@ -106,7 +106,7 @@ export async function runEquipTests(cache, equipMaps, currId, isMainChar = false
   // Initialize trials
   if (isMainChar) self.postMessage({ message: `Initializing Trials` });
   dpsProgression.push({ day: 0, mean: dpsFloor });
-  const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, snapshots, score: dpsFloor });
+  const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, snapshots, score: dpsFloor, skippable });
 
   if (isMainChar) self.postMessage({ message: `Running Trials` });
   const result = await runContinuous(workers, dpsCeiling, isMainChar);
@@ -118,7 +118,12 @@ export async function runEquipTests(cache, equipMaps, currId, isMainChar = false
     return result.meanEquipMap;
   }
 
-  const fit = fitDecay(result.remainingHistory.map(({ day, remaining }) => [day, remaining]));
+  const logPoints = result.remainingHistory.map(({ day, remaining }) => [
+    Math.log(day),
+    Math.log(remaining),
+  ]);
+  const { m, b } = linearRegression(logPoints);
+  const fit = { k: -m, A: Math.exp(b) };
 
   return {
     dpsProgression,

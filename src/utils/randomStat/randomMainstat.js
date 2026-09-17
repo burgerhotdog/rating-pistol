@@ -27,7 +27,7 @@ export function randomMainstat(gameId) {
   const weights = mainstatDataList.map((mainstatData) => mainstatData.weight);
 
   const winnerIndex = weightedLottery(weights);
-  const { id: mainstatId, value: mainstatValue} = mainstatDataList[winnerIndex];
+  const { stat: mainstatId, value: mainstatValue} = mainstatDataList[winnerIndex];
 
   return {
     keyId,

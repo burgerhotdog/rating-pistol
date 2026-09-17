@@ -45,6 +45,7 @@ export function getUsedAttrs(gameId, action, part) {
           usedAttrs.add('defIgnore%');
         }
         usedAttrs.add('vuln%');
+        usedAttrs.add('attackSpd%');
       }
       break;
     case 'healing':

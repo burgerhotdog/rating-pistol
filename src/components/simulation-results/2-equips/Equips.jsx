@@ -1,15 +1,12 @@
-import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
   Card,
   CardContent,
   CardHeader,
-  FormControlLabel,
   Stack,
 } from '@mui/material';
 import { useAccent } from '@/hooks';
 import { getMainstatConfigKey, sumSubstatRolls } from '@/utils';
-import { Switch } from '@/components/Colored';
 import Mainstats from './Mainstats';
 import SubstatsChart from './SubstatsChart';
 import TrajectoryChart from './TrajectoryChart';
@@ -17,7 +14,6 @@ import TrajectoryChart from './TrajectoryChart';
 const Equips = ({ results }) => {
   const { gameId } = useParams();
   const accent = useAccent();
-  const [substatsAll, setSubstatsAll] = useState(false);
 
   const userMainstatConfigKey = getMainstatConfigKey(gameId, results.userMember.equipList);
   const userSubstatRolls = sumSubstatRolls(gameId, results.userMember.equipList);
@@ -38,24 +34,11 @@ const Equips = ({ results }) => {
         <Card component={Stack} sx={{ flex: 2 }}>
           <CardHeader
             title="Substat Distribution"
-            action={
-              <FormControlLabel
-                control={
-                  <Switch
-                    color={accent}
-                    checked={substatsAll}
-                    onChange={(e) => setSubstatsAll(e.target.checked)}
-                  />
-                }
-                label="Show all"
-              />
-            }
           />
           <SubstatsChart
             results={results}
             userMainstatConfigKey={userMainstatConfigKey}
             userSubstatRolls={userSubstatRolls}
-            substatsAll={substatsAll}
           />
         </Card>
       </Stack>

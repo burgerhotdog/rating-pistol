@@ -27,7 +27,13 @@ function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
     }
   }
 
-  for (let day = dpsProgression.length; day <= maxDay; day++) {
+  const step = maxDay / 100;
+
+  for (let i = step; i <= maxDay; i += step) {
+    const day = Math.round(i);
+
+    if (day <= 100) continue;
+
     const mean = dpsCeiling - fit.A * day ** -fit.k;
 
     if (day < userDay) {
@@ -42,7 +48,7 @@ function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
   if (!Number.isInteger(userDay)) {
     const hiIndex = data.findIndex(({ day }) => day > userDay);
 
-    if (hiIndex) {
+    if (hiIndex !== -1) {
       data.splice(hiIndex, 0, { day: userDay, solidMean: userDps, dottedMean: userDps });
     } else {
       data.push({ day: userDay, solidMean: userDps, dottedMean: userDps });
@@ -74,7 +80,6 @@ const TrajectoryChart = ({ results }) => {
       <XAxis
         dataKey="day"
         domain={[0, maxDay]}
-        ticks={Array.from({ length: maxDay + 1 }, (_, i) => i)}
         tick={{ fontSize: 12 }}
         type="number"
         label={{

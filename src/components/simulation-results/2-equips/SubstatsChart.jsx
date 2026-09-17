@@ -9,7 +9,7 @@ import { alpha, useTheme } from '@mui/material/styles';
 import { Bar, BarChart, Scatter, Tooltip, XAxis, YAxis } from 'recharts';
 import { WW, SUBSTAT } from '@/data';
 import { useAccent } from '@/hooks';
-import { formatStr } from '@/utils';
+import { formatStr, getStatIcon } from '@/utils';
 
 const chanceOfStat = (weights, stat) => {
   const dfs = (pool, remainingDraws, prob) => {
@@ -46,7 +46,15 @@ function createIsImportantStat(gameId, userMainstatConfigKey = '', userConfigSub
 
   if (gameId === WW) {
     const unbiasedFrequency = 11899 / 128700;
-    return (stat) => getFrequency(stat) > unbiasedFrequency;
+
+    return (stat) => {
+      const rolls = userConfigSubstatRolls[stat];
+
+      return (
+        getFrequency(stat) > unbiasedFrequency ||
+        Math.min(...rolls) > 0
+      );
+    }
   }
 
   const mainstatIds = userMainstatConfigKey.split('|');
@@ -54,8 +62,8 @@ function createIsImportantStat(gameId, userMainstatConfigKey = '', userConfigSub
   return (stat) => {
     const baseChances = mainstatIds.map((mainstatId) => {
       const weights = Object.values(SUBSTAT[gameId])
-        .filter(({ id }) => id !== mainstatId)
-        .map(({ id, weight }) => [id, weight]);
+        .filter(({ stat }) => stat !== mainstatId)
+        .map(({ stat, weight }) => [stat, weight]);
       return chanceOfStat(weights, stat);
     });
 
@@ -65,7 +73,12 @@ function createIsImportantStat(gameId, userMainstatConfigKey = '', userConfigSub
 
     const unbiasedFrequency = avgRolls / 41;
 
-    return getFrequency(stat) > unbiasedFrequency;
+    const rolls = userConfigSubstatRolls[stat];
+
+    return (
+      getFrequency(stat) > unbiasedFrequency ||
+      Math.min(...rolls) > 0
+    );
   };
 }
 
@@ -130,7 +143,7 @@ const classifyRoll = (user, { min, q1, q3, max }) => {
   return 'off';
 };
 
-const SubstatsChart = ({ results, userMainstatConfigKey, userSubstatRolls, substatsAll }) => {
+const SubstatsChart = ({ results, userMainstatConfigKey, userSubstatRolls }) => {
   const { equipListConfigs } = results;
   const { gameId } = useParams();
   const { palette } = useTheme();
@@ -142,15 +155,19 @@ const SubstatsChart = ({ results, userMainstatConfigKey, userSubstatRolls, subst
   const isImportantStat = createIsImportantStat(gameId, userMainstatConfigKey, userConfig.substatRolls);
 
   const data = Object.entries(userConfig.substatRolls)
-    .filter(([id]) => substatsAll || isImportantStat(id))
-    .map(([id, rolls]) => {
+    .map(([stat, rolls]) => {
       const { min, q1, median, q3, max } = getQuantiles(rolls);
       const violin = gaussianKDE(rolls);
-      const user = userSubstatRolls[id] ?? 0;
-      const label = formatStr(id);
+      const user = userSubstatRolls[stat] ?? 0;
       const zone = classifyRoll(user, { min, q1, q3, max });
+      const isImportant = isImportantStat(stat);
 
-      return { stat: label, min, q1, median, q3, max, user, violin, zone };
+      return {
+        stat,
+        min, q1, median, q3, max,
+        user, violin, zone,
+        isImportant,
+      };
     })
     .sort((a, b) => b.median - a.median);
 
@@ -167,15 +184,26 @@ const SubstatsChart = ({ results, userMainstatConfigKey, userSubstatRolls, subst
       responsive
     >
       <XAxis
-        type="category"
         dataKey="stat"
-        tick={{ fontSize: 11 }}
-        tickFormatter={(label) => label.length > 12 ? `${label.slice(0, 11)}…` : label}
+        interval={0}
+        tick={({ x, y, payload }) => {
+          const icon = getStatIcon(gameId, payload.value);
+          const size = 20;
+
+          return (
+            <image
+              href={icon}
+              x={x - size / 2}
+              y={y}
+              width={size}
+              height={size}
+            />
+          );
+        }}
         allowDuplicatedCategory={false}
       />
 
       <YAxis
-        type="number"
         tickCount={6}
         domain={AXIS_DOMAIN}
       />
@@ -186,34 +214,44 @@ const SubstatsChart = ({ results, userMainstatConfigKey, userSubstatRolls, subst
         shape={(props) => {
           const entry = data.find((d) => d.stat === props.stat) ?? props;
           const { x, y, width, height, violin } = { ...props, violin: entry.violin };
-          if (!violin) return null;
 
           const halfWidth = (width / 2) * 0.9;
           const cx = x + width / 2;
           const [domainMin, domainMax] = AXIS_DOMAIN;
 
-          const toPixelY = (v) =>
-            y + height * (1 - (v - domainMin) / (domainMax - domainMin));
+          const toPixelY = (v) => y + height * (1 - (v - domainMin) / (domainMax - domainMin));
 
-          const rightSide = violin.map(({ v, density }) => `${cx + density * halfWidth},${toPixelY(v)}`);
+          const rightSide = violin
+            .map(({ v, density }) => `${cx + density * halfWidth},${toPixelY(v)}`);
+
           const leftSide = violin
             .slice()
             .reverse()
             .map(({ v, density }) => `${cx - density * halfWidth},${toPixelY(v)}`);
+
           const pathD = `M ${rightSide.join(' L ')} L ${leftSide.join(' L ')} Z`;
 
           const q1Y = toPixelY(entry.q1);
           const q3Y = toPixelY(entry.q3);
           const medianY = toPixelY(entry.median);
 
+          const gradientId = `violin-gradient-${entry.stat}`;
+
+          const gradientStops = violin
+            .map(({ v, density }) => ({
+              offset: (1 - (v - domainMin) / (domainMax - domainMin)) * 100,
+              opacity: density,
+            }))
+            .sort((a, b) => a.offset - b.offset);
+
           return (
-            <g>
+            <g filter={!entry.isImportant ? 'grayscale(1)' : undefined}>
               <path
                 d={pathD}
-                fill={alpha(accent, 0.55)}
+                fill={`url(#${gradientId})`}
                 stroke={accent}
-                strokeWidth={1}
               />
+
               <line
                 x1={cx}
                 x2={cx}
@@ -223,6 +261,7 @@ const SubstatsChart = ({ results, userMainstatConfigKey, userSubstatRolls, subst
                 strokeWidth={3}
                 strokeOpacity={0.6}
               />
+
               <line
                 x1={cx - halfWidth * 0.25}
                 x2={cx + halfWidth * 0.25}
@@ -231,6 +270,22 @@ const SubstatsChart = ({ results, userMainstatConfigKey, userSubstatRolls, subst
                 stroke={palette.background.paper}
                 strokeWidth={2}
               />
+
+              <defs>
+                <linearGradient
+                  id={gradientId}
+                  gradientUnits="userSpaceOnUse"
+                  x1={cx} y1={y} x2={cx} y2={y + height}
+                >
+                  {gradientStops.map(({ offset, opacity }, i) => (
+                    <stop
+                      key={i}
+                      offset={`${offset}%`}
+                      stopColor={alpha(accent, opacity)}
+                    />
+                  ))}
+                </linearGradient>
+              </defs>
             </g>
           );
         }}
@@ -266,12 +321,14 @@ const SubstatsChart = ({ results, userMainstatConfigKey, userSubstatRolls, subst
 
       <Tooltip
         content={({ payload, label }) => {
-          const violinPayload = payload?.find((p) => p.dataKey === violinDataKey || p.name === 'Rolls');
+          if (!payload?.[0]?.payload) return;
+
+          const violinPayload = payload.find((p) => p.dataKey === violinDataKey || p.name === 'Rolls');
           const entry = violinPayload?.payload;
           return (
             <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
               <Typography variant="subtitle2">
-                {label}
+                {formatStr(label)}
               </Typography>
               {entry && (
                 <Stack>

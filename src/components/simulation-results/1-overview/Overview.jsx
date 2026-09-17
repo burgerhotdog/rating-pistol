@@ -13,7 +13,7 @@ import { formatNum } from '@/utils';
 import WeaponsDialog from './WeaponsDialog';
 import SetsDialog from './SetsDialog';
 import DistributionChart from './DistributionChart';
-import AreaView from './RotationTimeline/AreaView';
+import TimelineChart from './TimelineChart';
 
 const GRADE_BANDS = [
   { floor: 90, letter: 'A', color: '#4ade80' },
@@ -67,8 +67,8 @@ const Overview = ({ results }) => {
   const [setsOpen, setSetsOpen] = useState(false);
 
   const memberStack = [...memberIds];
-  if (userSnapshots.some((snapshot) => snapshot.ownerId === 'other')) {
-    memberStack.push('other');
+  if (userSnapshots.some((snapshot) => snapshot.ownerId === 'system')) {
+    memberStack.push('system');
   }
 
   const benchmarkPct = userDps / benchmarkDps * 100;
@@ -141,7 +141,7 @@ const Overview = ({ results }) => {
           <CardHeader
             title="Rotation Timeline"
           />
-          <AreaView results={results} />
+          <TimelineChart results={results} />
         </Card>
 
         <Card component={Stack} sx={{ flex: 1 }}>

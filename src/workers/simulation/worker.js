@@ -6,7 +6,7 @@ import {
 } from '@/utils';
 import { buildCache } from './cache';
 import { runRotation } from './rotation';
-import { testWeapons, testSets } from './comparison-tests';
+import { runWeaponTests, runSetBonusTests } from './comparison-tests';
 import { runEquipTests } from './equip-tests';
 import { runSkillLevelTests } from './skill-level-tests';
 
@@ -46,19 +46,19 @@ self.onmessage = async ({ data }) => {
 
   self.postMessage({ title: 'Simulating rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
-  const userDamage = getTotals(userSnapshots).damage;
-  const userRotationTime = computeActualRotationTime(cache, equipMaps);
-  const userDps = userDamage / userRotationTime * 1000;
+  const userTotals = getTotals(userSnapshots);
+  const { time: userRotationTime, source: userRotationTimeSource } = computeActualRotationTime(cache, equipMaps, true);
+  const userDps = (userTotals.damage + userTotals.healing + userTotals.shield) / userRotationTime * 1000;
 
   self.postMessage({ title: `Running ${langData.Weapon} Tests` });
-  console.time('testWeapons');
-  const weaponResults = testWeapons(cache, equipMaps, charId);
-  console.timeEnd('testWeapons');
+  console.time('runWeaponTests');
+  const weaponResults = runWeaponTests(cache, equipMaps, charId);
+  console.timeEnd('runWeaponTests');
 
   self.postMessage({ title: `Running ${langData.Equip} Set Bonus Tests` });
-  console.time('testSets');
-  const setResults = testSets(cache, equipMaps, charId);
-  console.timeEnd('testSets');
+  console.time('runSetBonusTests');
+  const setResults = runSetBonusTests(cache, equipMaps, charId);
+  console.timeEnd('runSetBonusTests');
 
   self.postMessage({ title: `Running ${langData.Equip} Farming Simulations` });
   console.time('runEquipTests');
@@ -76,6 +76,7 @@ self.onmessage = async ({ data }) => {
     userMember: { ...cache.member[charId] },
     userSnapshots,
     userRotationTime,
+    userRotationTimeSource,
     userDps,
     weaponResults,
     setResults,

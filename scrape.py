@@ -54,13 +54,15 @@ def main():
     print("Update complete")
 
 def temp():
-    with open("src/data/honkai-star-rail/character.json", "r", encoding="utf-8") as f:
+    with open("src/data/wuthering-waves/character.json", "r", encoding="utf-8") as f:
         data = json.load(f)
         for id in data.keys():
             print(id)
-            image = requests.get(f"https://static.nanoka.cc/assets/hsr/avatarroundicon/{id}.webp").content
-            with open(f"public/honkai-star-rail/character/{id}.webp", "wb") as f:
+            data = requests.get(f"https://static.nanoka.cc/ww/3.7.1/en/character/{id}.json").json()
+            urlpart = f"{data['background'][13:data['background'].index('.')]}"
+            image = requests.get(f"https://static.nanoka.cc/assets/ww/{urlpart}.webp").content
+            with open(f"public/wuthering-waves/characterFull/{id}.webp", "wb") as f:
                 f.write(image)
 
 if __name__ == "__main__":
-    main()
+    temp()

@@ -733,7 +733,6 @@
           "when": "maxStacks",
           "offset": 6000
         },
-        "rampingInterval": 2000,
         "buff": {
           "stats": {
             "atk%": [
@@ -742,6 +741,7 @@
             ]
           }
         },
+        "rampingInterval": 2000,
         "maxStacks": 4
       }
     ]

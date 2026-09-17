@@ -1523,7 +1523,7 @@
             "name": "Let the Show Begin: Healing per hit",
             "times": "$teamSize",
             "healing": {
-              "attr": "HP",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -1567,7 +1567,7 @@
           {
             "name": "Let the Show Begin: Continuous Healing",
             "healing": {
-              "attr": "HP",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -1649,7 +1649,7 @@
             "type": "elementalBurst",
             "times": "$teamSize",
             "healing": {
-              "attr": "HP",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -1696,7 +1696,6 @@
     "memberPreset": {}
   },
   "10000015": {
-    "disabled": true,
     "name": "Kaeya",
     "version": 1,
     "id": 10000015,
@@ -1711,10 +1710,27 @@
       "baseDef": 792,
       "energyRecharge%": 0.267
     },
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 8000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 400,
+          "action": "elementalBurst.1"
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Ceremonial Bladework",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -1984,7 +2000,7 @@
         "name": "Frostgnaw",
         "actions": [
           {
-            "name": "Frostgnaw",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -2013,12 +2029,17 @@
         ]
       },
       "elementalBurst": {
-        "name": "Glacial Waltz: Icicle",
+        "name": "Glacial Waltz",
         "actions": [
           {
-            "name": "Glacial Waltz: Icicle",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Elemental Burst: Icicle",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -2041,15 +2062,16 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Glacial Waltz",
-            "type": "elementalBurst"
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000016": {
     "disabled": true,
@@ -4765,7 +4787,6 @@
     "memberPreset": {}
   },
   "10000025": {
-    "disabled": true,
     "name": "Xingqiu",
     "version": 1,
     "id": 10000025,
@@ -4781,10 +4802,47 @@
       "hydroDmgBonus%": 0.2,
       "atk%": 0.24
     },
-    "effects": [],
+    "effects": [
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000
+        },
+        "use": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "type": "normalAttack"
+                }
+              }
+            ]
+          },
+          "action": "elementalBurst.1",
+          "times": 3
+        }
+      },
+      {
+        "buff": {
+          "stats": {
+            "hydroDmgBonus%": 0.2
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Guhua Style",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -5092,9 +5150,10 @@
         "name": "Guhua Sword: Fatal Rainscreen",
         "actions": [
           {
-            "name": "Guhua Sword: Fatal Rainscreen",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -5139,8 +5198,7 @@
           },
           {
             "name": "Damage Reduction Ratio",
-            "type": "buff",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
                   "mv": [
@@ -5170,9 +5228,19 @@
         "name": "Guhua Sword: Raincutter: Sword Rain",
         "actions": [
           {
-            "name": "Guhua Sword: Raincutter: Sword Rain",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Elemental Burst: Sword",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "elementalBurst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -5195,15 +5263,20 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Guhua Sword: Raincutter",
-            "type": "elementalBurst"
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11403,
+      "setCounts": {
+        "15020": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000026": {
     "disabled": true,
@@ -6227,7 +6300,6 @@
     "memberPreset": {}
   },
   "10000030": {
-    "disabled": true,
     "name": "Zhongli",
     "version": 1.1,
     "id": 10000030,
@@ -6235,17 +6307,138 @@
     "quality": 5,
     "element": "geo",
     "type": "polearm",
-    "tagged": [],
+    "tagged": [
+      "shield"
+    ],
+    "energy": 40,
+    "energyMax": 1,
     "stats": {
       "baseHp": 14695,
       "baseAtk": 251,
       "baseDef": 738,
       "geoDmgBonus%": 0.288
     },
-    "effects": [],
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "action": [
+            "elementalSkill.2",
+            "elementalSkill.4"
+          ]
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          },
+          "duration": 30000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalSkill.3"
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.4"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "resReduction%": 0.2
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack",
+                  "plungeAttack"
+                ]
+              }
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "hp",
+              "step": 1,
+              "value": 0.0139
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.2",
+                "elementalSkill.3",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "hp",
+              "step": 1,
+              "value": 0.019
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "hp",
+              "step": 1,
+              "value": 0.33
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Rain of Stone",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -6377,7 +6570,8 @@
                     0.2701,
                     0.2903,
                     0.3124
-                  ]
+                  ],
+                  "times": 4
                 }
               ]
             }
@@ -6520,56 +6714,14 @@
         ]
       },
       "elementalSkill": {
-        "name": "Stone Stele/Resonance DMG",
+        "name": "Dominus Lapidis",
         "actions": [
           {
-            "name": "Stone Stele/Resonance DMG",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.16,
-                    0.172,
-                    0.184,
-                    0.2,
-                    0.212,
-                    0.224,
-                    0.24,
-                    0.256,
-                    0.272,
-                    0.288,
-                    0.304,
-                    0.32,
-                    0.34,
-                    0.36,
-                    0.38
-                  ]
-                },
-                {
-                  "mv": [
-                    0.32,
-                    0.344,
-                    0.368,
-                    0.4,
-                    0.424,
-                    0.448,
-                    0.48,
-                    0.512,
-                    0.544,
-                    0.576,
-                    0.608,
-                    0.64,
-                    0.68,
-                    0.72,
-                    0.76
-                  ]
-                }
-              ]
-            }
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
           },
           {
-            "name": "Hold DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -6596,12 +6748,83 @@
             }
           },
           {
-            "name": "Shield Base Absorption",
-            "type": "elementalSkill",
+            "name": "Stone Stele",
             "damage": {
+              "type": "elementalSkill",
               "multipliers": [
                 {
                   "mv": [
+                    0.16,
+                    0.172,
+                    0.184,
+                    0.2,
+                    0.212,
+                    0.224,
+                    0.24,
+                    0.256,
+                    0.272,
+                    0.288,
+                    0.304,
+                    0.32,
+                    0.34,
+                    0.36,
+                    0.38
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Stone Stele: Resonance",
+            "damage": {
+              "type": "elementalSkill",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.32,
+                    0.344,
+                    0.368,
+                    0.4,
+                    0.424,
+                    0.448,
+                    0.48,
+                    0.512,
+                    0.544,
+                    0.576,
+                    0.608,
+                    0.64,
+                    0.68,
+                    0.72,
+                    0.76
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Jade Shield",
+            "shield": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.128,
+                    0.1376,
+                    0.1472,
+                    0.16,
+                    0.1696,
+                    0.1792,
+                    0.192,
+                    0.2048,
+                    0.2176,
+                    0.2304,
+                    0.2432,
+                    0.256,
+                    0.272,
+                    0.288,
+                    0.304
+                  ],
+                  "flat": [
                     1232.4108,
                     1355.6691,
                     1489.1987,
@@ -6621,41 +6844,14 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Additional Shield Absorption",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.128,
-                    0.1376,
-                    0.1472,
-                    0.16,
-                    0.1696,
-                    0.1792,
-                    0.192,
-                    0.2048,
-                    0.2176,
-                    0.2304,
-                    0.2432,
-                    0.256,
-                    0.272,
-                    0.288,
-                    0.304
-                  ]
-                }
-              ]
-            }
           }
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Planet Befall",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
               "multipliers": [
@@ -6680,41 +6876,21 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Petrification Duration",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    3.1,
-                    3.2,
-                    3.3,
-                    3.4,
-                    3.5,
-                    3.6,
-                    3.7,
-                    3.8,
-                    3.9,
-                    4,
-                    4,
-                    4,
-                    4,
-                    4,
-                    4
-                  ]
-                }
-              ]
-            }
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13303,
+      "setCounts": {
+        "15017": 4
+      },
+      "rotation": [
+        "elementalSkill.1"
+      ]
+    }
   },
   "10000031": {
-    "disabled": true,
     "name": "Fischl",
     "version": 1,
     "id": 10000031,
@@ -6731,10 +6907,63 @@
       "baseDef": 594,
       "atk%": 0.24
     },
-    "effects": [],
+    "energy": 60,
+    "energyMax": 1.5,
+    "effects": [
+      {
+        "ref": "oz",
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 10000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "use": {
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "oz"
+                }
+              },
+              {
+                "reaction": {
+                  "elements": "electro"
+                }
+              }
+            ]
+          },
+          "action": {
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": 0.8
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Bolts of Downfall",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -6901,8 +7130,9 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "electro",
             "damage": {
+              "element": "electro",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -7010,39 +7240,13 @@
         ]
       },
       "elementalSkill": {
-        "name": "Freikugel",
+        "name": "Nightrider",
         "actions": [
           {
-            "name": "Freikugel",
-            "damage": {
-              "type": "elementalSkill",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.888,
-                    0.9546,
-                    1.0212,
-                    1.11,
-                    1.1766,
-                    1.2432,
-                    1.332,
-                    1.4208,
-                    1.5096,
-                    1.5984,
-                    1.6872,
-                    1.776,
-                    1.887,
-                    1.998,
-                    2.109
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Nightrider",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -7065,6 +7269,34 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Freikugel",
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": [
+                    0.888,
+                    0.9546,
+                    1.0212,
+                    1.11,
+                    1.1766,
+                    1.2432,
+                    1.332,
+                    1.4208,
+                    1.5096,
+                    1.5984,
+                    1.6872,
+                    1.776,
+                    1.887,
+                    1.998,
+                    2.109
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -7072,9 +7304,10 @@
         "name": "Midnight Phantasmagoria",
         "actions": [
           {
-            "name": "Midnight Phantasmagoria",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -7101,7 +7334,15 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15501,
+      "setCounts": {
+        "15032": 4
+      },
+      "rotation": [
+        "elementalSkill.0"
+      ]
+    }
   },
   "10000032": {
     "name": "Bennett",
@@ -7431,6 +7672,7 @@
             "name": "Passion Overload: Press",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -7582,6 +7824,7 @@
             "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -7606,7 +7849,7 @@
             }
           },
           {
-            "name": "Continuous Regeneration Per Sec",
+            "name": "Healing",
             "healing": {
               "attr": "hp",
               "multipliers": [
@@ -7627,10 +7870,8 @@
                     0.1275,
                     0.135,
                     0.1425
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     577.3388,
                     635.0807,
                     697.6345,
@@ -12171,7 +12412,6 @@
     "memberPreset": {}
   },
   "10000043": {
-    "disabled": true,
     "name": "Sucrose",
     "version": 1,
     "id": 10000043,
@@ -12179,19 +12419,61 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
-    "tagged": [
-      "hexerei"
-    ],
     "stats": {
       "baseHp": 9244,
       "baseAtk": 170,
       "baseDef": 703,
       "anemoDmgBonus%": 0.24
     },
-    "effects": [],
+    "energy": 80,
+    "tagged": [
+      "hexerei"
+    ],
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 6000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "stores": "$ally",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "specs": {
+            "elementalMastery": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.2
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Wind Spirit Creation",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -12415,9 +12697,10 @@
         "name": "Astable Anemohypostasis Creation - 6308",
         "actions": [
           {
-            "name": "Astable Anemohypostasis Creation - 6308",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -12444,12 +12727,17 @@
         ]
       },
       "elementalBurst": {
-        "name": "DoT",
+        "name": "Forbidden Creation - Isomer 75 / Type II",
         "actions": [
+          {
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
           {
             "name": "DoT",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -12477,6 +12765,7 @@
             "name": "Additional Elemental DMG",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -12499,15 +12788,20 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Forbidden Creation - Isomer 75 / Type II",
-            "type": "elementalBurst"
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14403,
+      "setCounts": {
+        "15002": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000044": {
     "disabled": true,
@@ -26933,7 +27227,7 @@
       {
         "ref": "windfavoredNA",
         "apply": {
-          "when": "start",
+          "when": "end",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
@@ -26941,8 +27235,7 @@
           },
           "duration": 10000
         },
-        "use": {
-          "when": "end",
+        "buff": {
           "filter": {
             "action": {
               "ref": [
@@ -26952,13 +27245,15 @@
               ]
             }
           },
-          "action": "elementalSkill.1"
+          "statRefs": {
+            "damageMv%": "elementalSkill.1"
+          }
         }
       },
       {
         "ref": "windfavoredCA",
         "apply": {
-          "when": "start",
+          "when": "end",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
@@ -26966,14 +27261,15 @@
           },
           "duration": 10000
         },
-        "use": {
-          "when": "end",
+        "buff": {
           "filter": {
             "action": {
               "ref": "normalAttack.3"
             }
           },
-          "action": "elementalSkill.2"
+          "statRefs": {
+            "damageMv%": "elementalSkill.2"
+          }
         }
       }
     ],
@@ -27198,6 +27494,7 @@
             "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27223,26 +27520,25 @@
           },
           {
             "name": "Kuugo: Fushoudan",
-            "damage": {
-              "type": "normalAttack",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
-                    1.3298,
-                    1.3496,
-                    1.3693,
-                    1.395,
-                    1.4147,
-                    1.4345,
-                    1.4602,
-                    1.4858,
-                    1.5115,
-                    1.5372,
-                    1.5629,
-                    1.5885,
-                    1.6142,
-                    1.6399,
-                    1.6656
+                  "flat": [
+                    0.3298,
+                    0.3496,
+                    0.3693,
+                    0.395,
+                    0.4147,
+                    0.4345,
+                    0.4602,
+                    0.4858,
+                    0.5115,
+                    0.5372,
+                    0.5629,
+                    0.5885,
+                    0.6142,
+                    0.6399,
+                    0.6656
                   ]
                 }
               ]
@@ -27250,26 +27546,25 @@
           },
           {
             "name": "Kuugo: Toufukai",
-            "damage": {
-              "type": "chargedAttack",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
-                    1.2639,
-                    1.2797,
-                    1.2955,
-                    1.316,
-                    1.3318,
-                    1.3476,
-                    1.3681,
-                    1.3887,
-                    1.4092,
-                    1.4298,
-                    1.4503,
-                    1.4708,
-                    1.4914,
-                    1.5119,
-                    1.5325
+                  "flat": [
+                    0.2639,
+                    0.2797,
+                    0.2955,
+                    0.316,
+                    0.3318,
+                    0.3476,
+                    0.3681,
+                    0.3887,
+                    0.4092,
+                    0.4298,
+                    0.4503,
+                    0.4708,
+                    0.4914,
+                    0.5119,
+                    0.5325
                   ]
                 }
               ]
@@ -27284,6 +27579,12 @@
             "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "elementalBurst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -27339,7 +27640,6 @@
     }
   },
   "10000076": {
-    "disabled": true,
     "name": "Faruzan",
     "version": 3.3,
     "id": 10000076,
@@ -27347,17 +27647,53 @@
     "quality": 4,
     "element": "anemo",
     "type": "bow",
-    "tagged": [],
     "stats": {
       "baseHp": 9570,
       "baseAtk": 196,
       "baseDef": 628,
       "atk%": 0.24
     },
-    "effects": [],
+    "energy": 80,
+    "tagged": [],
+    "effects": [
+      {
+        "stores": "global",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "anemoResReduction%": 0.3
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "statRefs": {
+            "anemoDmgBonus%": "elementalBurst.1"
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Parthian Shot",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -27497,8 +27833,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "anemo",
             "damage": {
+              "element": "anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -27606,12 +27942,13 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Wind Realm of Nasamjnin",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27636,9 +27973,10 @@
             }
           },
           {
-            "name": "Pressurized Collapse Vortex DMG",
-            "type": "elementalSkill",
+            "name": "Pressurized Collapse Vortex",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27665,12 +28003,13 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "The Wind's Secret Ways",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27696,11 +28035,10 @@
           },
           {
             "name": "Anemo DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.18,
                     0.1935,
                     0.207,
@@ -27724,7 +28062,15 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15401,
+      "setCounts": {
+        "15007": 4
+      },
+      "rotation": [
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000077": {
     "disabled": true,
@@ -32036,7 +32382,6 @@
     "memberPreset": {}
   },
   "10000086": {
-    "disabled": true,
     "name": "Wriothesley",
     "version": 4.1,
     "id": 10000086,
@@ -32044,17 +32389,146 @@
     "quality": 5,
     "element": "cryo",
     "type": "catalyst",
-    "tagged": [],
     "stats": {
       "baseHp": 13593,
       "baseAtk": 311,
       "baseDef": 763,
       "critDmg%": 0.384
     },
-    "effects": [],
+    "energy": 60,
+    "tagged": [],
+    "effects": [
+      {
+        "ref": "chillingPenalty",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 10000
+        },
+        "remove": {
+          "when": "swap",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "health": {
+                  ">": 0.5
+                }
+              }
+            ]
+          },
+          "cooldown": 100,
+          "action": {
+            "drain": {
+              "value": 0.045
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "health": {
+                  ">": 0.5
+                }
+              }
+            ]
+          },
+          "statRefs": {
+            "damageMv%": "elementalSkill.1"
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "cooldown": 10000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.5"
+            }
+          },
+          "action": {
+            "drain": {
+              "value": -0.3
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "normalAttack.5"
+            }
+          },
+          "stats": {
+            "damageBonus%": 0.5
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "healthChange",
+          "filter": {
+            "effectStacks": {
+              "has": "chillingPenalty"
+            }
+          }
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "chillingPenalty"
+              }
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.06
+          }
+        },
+        "maxStacks": 5
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Forceful Fists of Frost",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -32321,15 +32795,18 @@
         ]
       },
       "elementalSkill": {
-        "name": "Enhanced Repelling Fist DMG",
+        "name": "Icefang Rush",
         "actions": [
           {
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
             "name": "Enhanced Repelling Fist DMG",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     1.4317,
                     1.4575,
                     1.4834,
@@ -32353,12 +32830,18 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Darkgold Wolfbite",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "elementalBurst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -32377,15 +32860,16 @@
                     2.703,
                     2.862,
                     3.021
-                  ]
+                  ],
+                  "times": 5
                 }
               ]
             }
           },
           {
-            "name": "Surging Blade DMG",
-            "type": "elementalBurst",
+            "name": "Surging Blade",
             "damage": {
+              "type": "elementalBurst",
               "multipliers": [
                 {
                   "mv": [
@@ -32412,7 +32896,32 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14513,
+      "setCounts": {
+        "15031": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "normalAttack.5",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "normalAttack.5",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "normalAttack.5"
+      ],
+      "duration": 11000
+    }
   },
   "10000087": {
     "disabled": true,

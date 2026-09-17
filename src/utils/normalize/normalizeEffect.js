@@ -98,7 +98,7 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     });
   }
 
-  // Resolve indexed buff stats/specs
+  // Resolve indexed buff stats
   if (effect.buff?.statRefs && spec.sourceType === 'character') {
     const buff = effect.buff = { ...effect.buff };
     const buffStatRefsRaw = buff.statRefsRaw = {};
@@ -111,6 +111,7 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     }
   }
 
+  // Resolve indexed buff specs
   if (effect.buff?.specRefs && spec.sourceType === 'character') {
     const buff = effect.buff = { ...effect.buff };
     const buffSpecRefsRaw = buff.specRefsRaw = {};
@@ -129,20 +130,22 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     }
   }
 
-  // Resolve ranked buff stats/specs
-  if (effect.buff && spec.sourceType === 'weapon') {
-    const buff = effect.buff = { ...effect.buff };
+  // Resolve ranked values
+  if (spec.sourceType === 'weapon') {
+    const resolveValue = (value) => resolveRankedValue(value, spec.weaponRank);
 
-    if (buff.stats) {
+    if (effect.buff?.stats) {
+      const buff = effect.buff = { ...effect.buff };
       const buffStats = buff.stats = { ...buff.stats };
 
       for (const [id, valueRange] of Object.entries(buffStats)) {
         if (!Array.isArray(valueRange)) continue;
-        buffStats[id] = resolveRankedValue(valueRange, spec.weaponRank);
+        buffStats[id] = resolveValue(valueRange);
       }
     }
 
-    if (buff.specs) {
+    if (effect.buff?.specs) {
+      const buff = effect.buff = { ...effect.buff };
       const buffSpecs = buff.specs = { ...buff.specs };
 
       for (const [id, rankedSpec] of Object.entries(buffSpecs)) {
@@ -150,9 +153,29 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
 
         for (const [field, valueRange] of Object.entries(buffSpec)) {
           if (!Array.isArray(valueRange)) continue;
-          buffSpec[field] = resolveRankedValue(valueRange, spec.weaponRank);
+          buffSpec[field] = resolveValue(valueRange);
         }
       }
+    }
+
+    if (effect.apply?.cooldown && Array.isArray(effect.apply.cooldown)) {
+      const apply = effect.apply = { ...effect.apply };
+      apply.cooldown = resolveValue(apply.cooldown);
+    }
+
+    if (effect.remove?.cooldown && Array.isArray(effect.remove.cooldown)) {
+      const remove = effect.remove = { ...effect.remove };
+      remove.cooldown = resolveValue(remove.cooldown);
+    }
+
+    if (effect.use?.cooldown && Array.isArray(effect.use.cooldown)) {
+      const use = effect.use = { ...effect.use };
+      use.cooldown = resolveValue(use.cooldown);
+    }
+
+    if (effect.buff?.cooldown && Array.isArray(effect.buff.cooldown)) {
+      const buff = effect.buff = { ...effect.buff };
+      buff.cooldown = resolveValue(buff.cooldown);
     }
   }
 

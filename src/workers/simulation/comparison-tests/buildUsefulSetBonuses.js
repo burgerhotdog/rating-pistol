@@ -2,7 +2,7 @@ import { SET, MISC } from '@/data';
 
 export function buildUsefulSetBonuses(gameId, baselineDps, runTest) {
   const { maxEquips } = MISC[gameId];
-  const setDatasList = Object.values(SET[gameId]);
+  const setDatasList = Object.values(SET[gameId]).filter((setData) => !setData.disabled);
 
   const setBonusDpsIfUseful = {};
   const usefulSetBonuses = {};

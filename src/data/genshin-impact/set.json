@@ -1,6 +1,5 @@
 {
   "14001": {
-    "disabled": true,
     "name": "Blizzard Strayer",
     "version": 1.2,
     "id": 14001,
@@ -18,11 +17,43 @@
             "cryoDmgBonus%": 0.15
           }
         }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "cryo",
+                  "frozen"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "critRate%": 0.2
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": "frozen"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": 0.2
+          }
+        }
       }
     ]
   },
   "14002": {
-    "disabled": true,
     "name": "Thundersoother",
     "version": 1,
     "id": 14002,
@@ -40,11 +71,25 @@
             "electroRes%": 0.4
           }
         }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": "electro"
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.35
+          }
+        }
       }
     ]
   },
   "14003": {
-    "disabled": true,
     "name": "Lavawalker",
     "version": 1,
     "id": 14003,
@@ -60,6 +105,21 @@
         "buff": {
           "stats": {
             "pyroRes%": 0.4
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": "pyro"
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.35
           }
         }
       }
@@ -109,7 +169,6 @@
     ]
   },
   "15001": {
-    "disabled": true,
     "name": "Gladiator's Finale",
     "version": 1,
     "id": 15001,
@@ -146,7 +205,6 @@
     ]
   },
   "15002": {
-    "disabled": true,
     "name": "Viridescent Venerer",
     "version": 1,
     "id": 15002,
@@ -164,11 +222,154 @@
             "anemoDmgBonus%": 0.15
           }
         }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "stats": {
+            "swirlReactionBonus%": 0.6,
+            "stellarSwirlReactionBonus%": 0.2
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "global",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "reaction": {
+                  "and": [
+                    {
+                      "reaction": "swirl"
+                    },
+                    {
+                      "elements": "pyro"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "pyroResReduction%": 0.4
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "global",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "reaction": {
+                  "and": [
+                    {
+                      "reaction": "swirl"
+                    },
+                    {
+                      "elements": "hydro"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "hydroResReduction%": 0.4
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "global",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "reaction": {
+                  "and": [
+                    {
+                      "reaction": "swirl"
+                    },
+                    {
+                      "elements": "electro"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "electroResReduction%": 0.4
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "global",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "reaction": {
+                  "or": [
+                    {
+                      "and": [
+                        {
+                          "reaction": "swirl"
+                        },
+                        {
+                          "elements": "cryo"
+                        }
+                      ]
+                    },
+                    {
+                      "reaction": "stellarSwirl"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "cryoResReduction%": 0.4
+          }
+        }
       }
     ]
   },
   "15003": {
-    "disabled": true,
     "name": "Wanderer's Troupe",
     "version": 1,
     "id": 15003,
@@ -204,7 +405,6 @@
     ]
   },
   "15005": {
-    "disabled": true,
     "name": "Thundering Fury",
     "version": 1,
     "id": 15005,
@@ -222,11 +422,24 @@
             "electroDmgBonus%": 0.15
           }
         }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "stats": {
+            "overloadedReactionBonus%": 0.4,
+            "electroChargedReactionBonus%": 0.4,
+            "superconductReactionBonus%": 0.4,
+            "hyperbloomReactionBonus%": 0.4,
+            "aggravateReactionBonus%": 0.2,
+            "lunarChargedReactionBonus%": 0.2,
+            "stellarConductReactionBonus%": 0.2
+          }
+        }
       }
     ]
   },
   "15006": {
-    "disabled": true,
     "name": "Crimson Witch of Flames",
     "version": 1,
     "id": 15006,
@@ -244,6 +457,36 @@
             "pyroDmgBonus%": 0.15
           }
         }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "stats": {
+            "overloadedReactionBonus%": 0.4,
+            "burningReactionBonus%": 0.4,
+            "burgeonReactionBonus%": 0.4,
+            "vaporizeReactionBonus%": 0.15,
+            "meltReactionBonus%": 0.15
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "pyroDmgBonus%": 0.075
+          }
+        },
+        "maxStacks": 3
       }
     ]
   },
@@ -287,7 +530,6 @@
     ]
   },
   "15008": {
-    "disabled": true,
     "name": "Bloodstained Chivalry",
     "version": 1,
     "id": 15008,
@@ -344,7 +586,6 @@
     "effects": []
   },
   "15016": {
-    "disabled": true,
     "name": "Heart of Depth",
     "version": 1.2,
     "id": 15016,
@@ -356,6 +597,7 @@
     "halfStat": "hydroDmgBonus%",
     "effects": [
       {
+        "bonus": 2,
         "buff": {
           "stats": {
             "hydroDmgBonus%": 0.15
@@ -383,7 +625,6 @@
     ]
   },
   "15017": {
-    "disabled": true,
     "name": "Tenacity of the Millelith",
     "version": 1.5,
     "id": 15017,
@@ -419,7 +660,8 @@
         },
         "buff": {
           "stats": {
-            "atk%": 0.2
+            "atk%": 0.2,
+            "shieldStrength%": 0.3
           }
         }
       }
@@ -482,7 +724,6 @@
     ]
   },
   "15019": {
-    "disabled": true,
     "name": "Shimenawa's Reminiscence",
     "version": 2,
     "id": 15019,
@@ -503,6 +744,9 @@
       },
       {
         "bonus": 4,
+        "enable": {
+          "energy": 15
+        },
         "apply": {
           "when": "start",
           "filter": {
@@ -524,7 +768,6 @@
     ]
   },
   "15020": {
-    "disabled": true,
     "name": "Emblem of Severed Fate",
     "version": 2,
     "id": 15020,
@@ -544,6 +787,7 @@
         }
       },
       {
+        "bonus": 4,
         "buff": {
           "specs": {
             "elementalBurstDmgBonus%": {
@@ -578,11 +822,47 @@
       },
       {
         "bonus": 4,
+        "ref": "curiosity",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "damage": {
+                    "element": "geo"
+                  }
+                }
+              }
+            ]
+          },
+          "cooldown": 300,
+          "duration": 6000
+        },
         "buff": {
           "stats": {
-            "def%": 0.24,
-            "geoDmgBonus%": 0.24
+            "def%": 0.06,
+            "geoDmgBonus%": 0.06
           }
+        },
+        "maxStacks": 4,
+        "decay": true
+      },
+      {
+        "bonus": 4,
+        "use": {
+          "when": "interval",
+          "filter": {
+            "field": "offField"
+          },
+          "cooldown": 3000,
+          "action": []
+        },
+        "onUseDoApply": {
+          "curiosity": 1
         }
       }
     ]
@@ -702,7 +982,6 @@
     ]
   },
   "15025": {
-    "disabled": true,
     "name": "Deepwood Memories",
     "version": 3,
     "id": 15025,
@@ -723,6 +1002,7 @@
       },
       {
         "bonus": 4,
+        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -929,7 +1209,6 @@
     ]
   },
   "15031": {
-    "disabled": true,
     "name": "Marechaussee Hunter",
     "version": 4,
     "id": 15031,
@@ -951,16 +1230,20 @@
       },
       {
         "bonus": 4,
+        "apply": {
+          "when": "healthChange",
+          "duration": 5000
+        },
         "buff": {
           "stats": {
-            "critRate%": 0.36
+            "critRate%": 0.12
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },
   "15032": {
-    "disabled": true,
     "name": "Golden Troupe",
     "version": 4,
     "id": 15032,
@@ -989,10 +1272,20 @@
       },
       {
         "bonus": 4,
-        "buff": {
+        "apply": {
+          "when": "start",
           "filter": {
             "field": "offField"
+          }
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "field": "onField"
           },
+          "offset": 2000
+        },
+        "buff": {
           "stats": {
             "elementalSkillDmgBonus%": 0.25
           }

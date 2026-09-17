@@ -1765,7 +1765,7 @@
         "bonus": 2,
         "buff": {
           "stats": {
-            "aeroDmg%": 0.1
+            "aeroDmgBonus%": 0.1
           }
         }
       },

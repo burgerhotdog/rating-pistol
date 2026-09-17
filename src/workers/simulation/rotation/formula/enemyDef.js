@@ -1,37 +1,31 @@
-import { GI, HSR, WW, ZZZ } from '@/data';
+import { GI, HSR, WW, ZZZ, MISC } from '@/data';
 import { getAttr } from '@/utils';
 
 const CONFIG = {
   [GI]: {
-    charLevel: 90,
-    getCharLevelFactor: (charLevel) => charLevel + 100,
-    enemyLevel: 90,
-    getEnemyBaseDef: (enemyLevel) => enemyLevel + 100,
+    getCharLevelFactor: (level) => level + 100,
+    getEnemyBaseDef: (level) => level + 100,
   },
   [HSR]: {
-    charLevel: 80,
-    getCharLevelFactor: (charLevel) => charLevel + 20,
-    enemyLevel: 80,
-    getEnemyBaseDef: (enemyLevel) => enemyLevel + 20,
+    getCharLevelFactor: (level) => level + 20,
+    getEnemyBaseDef: (level) => level + 20,
   },
   [WW]: {
-    charLevel: 90,
-    getCharLevelFactor: (charLevel) => 8 * charLevel + 800,
-    enemyLevel: 90,
-    getEnemyBaseDef: (enemyLevel) => 8 * enemyLevel + 792,
+    getCharLevelFactor: (level) => 8 * level + 800,
+    getEnemyBaseDef: (level) => 8 * level + 792,
   },
   [ZZZ]: {
-    charLevel: 60,
-    getCharLevelFactor: (_) => 794,
-    enemyLevel: 60,
-    getEnemyBaseDef: (_) => 794,
+    getCharLevelFactor: () => 794,
+    getEnemyBaseDef: () => 794,
   },
 };
 
 export const getDefMult = (gameId, statMap) => {
-  const { charLevel, getCharLevelFactor, enemyLevel, getEnemyBaseDef } = CONFIG[gameId];
-  const charLevelFactor = getCharLevelFactor(charLevel);
-  const enemyBaseDef = getEnemyBaseDef(enemyLevel);
+  const { getCharLevelFactor, getEnemyBaseDef } = CONFIG[gameId];
+  const { maxLevel } = MISC[gameId];
+
+  const charLevelFactor = getCharLevelFactor(maxLevel);
+  const enemyBaseDef = getEnemyBaseDef(maxLevel);
 
   const getEnemyDef = (statMap) => {
     const defReduction = getAttr('defReduction%', statMap);

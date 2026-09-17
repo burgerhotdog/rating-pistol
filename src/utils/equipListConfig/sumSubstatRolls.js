@@ -1,8 +1,6 @@
 import { SUBSTAT } from '@/data';
 
-const normalizeValue = (id, value) => id.endsWith('%')
-  ? value / 10000
-  : value;
+const normalizeValue = (stat, value) => stat.endsWith('%') ? value / 10000 : value;
 
 export const sumSubstatRolls = (gameId, equipList, isTrialBuild = false) => {
   const substatRolls = {};
@@ -12,9 +10,9 @@ export const sumSubstatRolls = (gameId, equipList, isTrialBuild = false) => {
 
     for (const { id, value } of equip.substats) {
       const normalizedValue = isTrialBuild ? value : normalizeValue(id, value);
-      const rollValue = normalizedValue / SUBSTAT[gameId][id].value;
+      const rollMult = normalizedValue / SUBSTAT[gameId][id].value;
 
-      substatRolls[id] = (substatRolls[id] ?? 0) + rollValue;
+      substatRolls[id] = (substatRolls[id] ?? 0) + rollMult;
     }
   }
 

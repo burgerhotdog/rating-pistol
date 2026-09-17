@@ -1,5 +1,5 @@
-import { WW } from '@/data';
-import { toMergedObj } from '@/utils';
+import { GI, WW } from '@/data';
+import { toMergedObj, clamp } from '@/utils';
 import {
   onRemoveDoCommand,
   onUseDoCommand,
@@ -12,79 +12,147 @@ import {
   advanceEffects,
 } from './effects';
 import {
+  applyGauge,
+  advanceAuras,
+  advanceIcdStates,
+} from './game-specific/genshin-impact';
+import {
   consumeNegativeStatuses,
   inflictNegativeStatuses,
   advanceNegativeStatuses,
   replaceNegativeStatuses,
-} from './special/negativeStatuses';
-import {
   runTuneBreak,
   applyOffTuneBuildup,
   inflictTuneShifting,
   advanceTune,
-} from './special/tune';
-import { buildSnapshot } from './snapshot';
+} from './game-specific/wuthering-waves';
+import { buildSnapshot, splitPerHit, scaleResolved } from './snapshot';
 import { getEffectStates } from './getEffectStates';
 import { createEventFilter } from './filter';
 
-function handleRemoveWhen(ctx, action, when) {
-  for (const state of getEffectStates(ctx, { member: action.ownerId })) {
+function handleRemoveWhen(ctx, when, event) {
+  function tryRemove(state, storeOwnerId) {
     const { effect } = state;
-    if (!effect.remove) continue;
-
     const { remove } = effect;
-    if (
-      remove.when !== when ||
-      !ctx.eventFilter(remove.filter, action, effect)
-    ) continue;
 
-    onRemoveDoCommand(ctx, effect, action.ownerId);
+    if (remove?.when !== when) return;
+    const spec = {
+      ...(event.reaction ? { reaction: event } : { action: event }),
+      fieldId: storeOwnerId ?? event?.ownerId,
+    };
+    if (!ctx.eventFilter(remove.filter, effect, spec)) return;
+
+    onRemoveDoCommand(ctx, effect, event?.ownerId ?? effect.ownerId);
+
+    if (remove.offset) {
+      state.removeTimer ??= remove.offset;
+      return;
+    }
+
     runRemoveEffect(state);
   }
-}
 
-function handleUseWhen(ctx, action, when) {
-  for (const state of getEffectStates(ctx, { member: action.ownerId })) {
-    const { effect } = state;
-    if (!effect.use) continue;
+  function updateStore(store, storeOwnerId) {
+    for (const state of Object.values(store)) {
+      tryRemove(state, storeOwnerId);
+    }
+  }
 
-    const { use } = effect;
-    if (
-      state.isRunning ||
-      state.useCooldown ||
-      use.when !== when ||
-      !ctx.eventFilter(use.filter, action, effect)
-    ) continue;
+  const { globalEffects, memberEffects } = ctx.states;
+  updateStore(globalEffects);
 
-    onUseDoCommand(ctx, effect, action.ownerId);
-    runUseEffect(ctx, state);
+  const actionOwnerId = event?.ownerId;
+  if (actionOwnerId) {
+    updateStore(memberEffects[actionOwnerId], actionOwnerId);
+    return;
+  }
+
+  for (const memberId in memberEffects) {
+    updateStore(memberEffects[memberId], memberId);
   }
 }
 
-function handleApplyWhen(ctx, action, when) {
+function handleUseWhen(ctx, when, event) {
+  function tryUse(state, storeOwnerId) {
+    const { effect } = state;
+    const { use } = effect;
+
+    if (use?.when !== when) return;
+    if (state.isRunning || state.useCooldown) return;
+
+    const spec = {
+      ...(event.reaction ? { reaction: event } : { action: event }),
+      fieldId: storeOwnerId ?? event?.ownerId,
+    };
+    if (!ctx.eventFilter(use.filter, effect, spec)) return;
+
+    onUseDoCommand(ctx, effect, spec.action?.ownerId ?? effect.ownerId);
+    runUseEffect(ctx, state);
+  }
+
+  function updateStore(store, storeOwnerId) {
+    for (const state of Object.values(store)) {
+      tryUse(state, storeOwnerId);
+    }
+  }
+
+  const { globalEffects, memberEffects } = ctx.states;
+  updateStore(globalEffects);
+
+  const actionOwnerId = event?.ownerId;
+  if (actionOwnerId) {
+    updateStore(memberEffects[actionOwnerId], actionOwnerId);
+    return;
+  }
+
+  for (const memberId in memberEffects) {
+    updateStore(memberEffects[memberId], memberId);
+  }
+}
+
+function handleApplyWhen(ctx, when, event) {
+  const { gameId } = ctx.cache;
   const { applyCooldowns } = ctx.states;
-  for (const mCache of Object.values(ctx.cache.member)) {
-    for (const effect of Object.values(mCache.effects)) {
-      if (!effect.apply) continue;
 
-      const { apply } = effect;
-      if (
-        !apply.by.includes(action.ownerId) ||
-        applyCooldowns[effect.key] ||
-        apply.when !== when ||
-        !ctx.eventFilter(apply.filter, action, effect)
-      ) continue;
+  function tryApply(effect) {
+    const { apply } = effect;
+    if (apply?.when !== when) return;
 
-      onApplyDoCommand(ctx, effect, action.ownerId);
-      runApplyEffect(ctx, effect, { applier: action.ownerId, inflict: action.inflict });
+    const applier = event?.ownerId ?? effect.ownerId;
+    if (!apply.by.includes(applier) || applyCooldowns[effect.key]) return;
+
+    const spec = {
+      ...(event.reaction ? { reaction: event } : { action: event }),
+      fieldId: applier,
+    };
+    if (!ctx.eventFilter(apply.filter, effect, spec)) return;
+
+    onApplyDoCommand(ctx, effect, applier);
+    runApplyEffect(ctx, effect, { applier, inflict: event?.inflict });
+  }
+
+  for (const memberId in ctx.cache.member) {
+    const mCache = ctx.cache.member[memberId];
+
+    for (const effectKey in mCache.effects) {
+      const effect = mCache.effects[effectKey];
+      tryApply(effect);
+    }
+  }
+
+  if (gameId === GI) {
+    for (const effect of ctx.cache.elementalResonance.effects) {
+      tryApply(effect);
     }
   }
 }
 
 function advanceCooldowns(ctx, elapsed) {
   const { applyCooldowns } = ctx.states;
+
   for (const effectKey in applyCooldowns) {
     applyCooldowns[effectKey] -= elapsed;
+
     if (applyCooldowns[effectKey] <= 0) {
       delete applyCooldowns[effectKey];
     }
@@ -95,16 +163,18 @@ function decayBuffStates(ctx, action) {
   for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
     const { store, effect, buffCooldown } = state;
 
-    if (
-      buffCooldown ||
-      !ctx.eventFilter(effect.buff?.filter, action, effect)
-    ) continue;
+    if (buffCooldown) continue;
+    const spec = {
+      action,
+      fieldId: action.ownerId,
+    };
+    if (!ctx.eventFilter(effect.buff?.filter, effect, spec)) continue;
 
     if (effect.buff?.cooldown) {
       state.buffCooldown = effect.buff.cooldown;
     }
 
-    if ('usesLeft' in state) {
+    if (state.usesLeft) {
       state.usesLeft--;
       if (!state.usesLeft) {
         delete store[effect.key];
@@ -115,34 +185,51 @@ function decayBuffStates(ctx, action) {
 
 function runAction(ctx, action, options = {}) {
   const { runtimeOffset, noDuration } = options;
+  const { gameId } = ctx.cache;
   const { duration = 0, hitOffsets = [0] } = action;
   let actionRuntime = 0;
 
   function advanceTimeTo(timestamp) {
     if (noDuration) return;
+
     const elapsed = timestamp - actionRuntime;
     if (elapsed <= 0) return;
 
-    if (ctx.cache.gameId === WW) advanceNegativeStatuses(ctx, elapsed);
-    if (ctx.cache.gameId === WW) advanceTune(ctx, elapsed);
+    if (gameId === GI) {
+      advanceAuras(ctx, elapsed);
+      advanceIcdStates(ctx, elapsed);
+    }
+
+    if (gameId === WW) {
+      advanceNegativeStatuses(ctx, elapsed);
+      advanceTune(ctx, elapsed);
+    }
+
     advanceEffects(ctx, elapsed);
     advanceCooldowns(ctx, elapsed);
 
     actionRuntime += elapsed;
-    if (ctx.saveSnapshots) ctx.states.runtime += elapsed;
+
+    if (ctx.saveSnapshots) {
+      ctx.states.runtime += elapsed;
+    }
   };
 
-  function runEffectsWhen(when) {
-    handleRemoveWhen(ctx, action, when);
-    handleUseWhen(ctx, action, when);
-    handleApplyWhen(ctx, action, when);
-  }
+  const runEffectsWhen = (when) => ctx.runEffectsWhen(when, action);
 
-  if (action.key === 'other:tuneBreak') {
+  if (action.key === 'system:tuneBreak') {
     runTuneBreak(ctx, action);
     runEffectsWhen('tuneBreak');
     return;
   }
+
+  // Melt/vaporize only amplify the specific hit that triggers them, so these
+  // actions can't have their damage batched into one snapshot up front - ICD
+  // determines which hits react only once we're inside the hitOffsets loop.
+  const isAmpReactive = gameId === GI
+    && action.damage
+    && ['pyro', 'cryo', 'hydro'].includes(action.damage.element);
+  let perHitDamage;
 
   // Action timeline
   runEffectsWhen('start');
@@ -151,45 +238,103 @@ function runAction(ctx, action, options = {}) {
   if (action.damage || action.healing || action.shield) {
     if (ctx.saveSnapshots) {
       const snapshot = buildSnapshot(ctx, action, { runtimeOffset });
-      ctx.snapshots.push(snapshot);
+
+      if (isAmpReactive) {
+        perHitDamage = splitPerHit(snapshot, 'damage', hitOffsets.length);
+        delete snapshot.damage;
+        delete snapshot.damageType;
+
+        // Only push the leftover shell if it still carries healing/shield.
+        if (snapshot.healing !== undefined || snapshot.shield !== undefined) {
+          ctx.snapshots.push(snapshot);
+        }
+      } else {
+        ctx.snapshots.push(snapshot);
+      }
     }
 
-    if (ctx.cache.gameId === WW && action.damage) {
+    if (gameId === WW && action.damage) {
       applyOffTuneBuildup(ctx, action);
     }
 
     decayBuffStates(ctx, action);
   }
 
-  if (ctx.cache.gameId === WW) {
+  if (gameId === WW) {
     consumeNegativeStatuses(ctx, action);
     inflictNegativeStatuses(ctx, action);
     replaceNegativeStatuses(ctx, action);
-
     inflictTuneShifting(ctx, action);
-    runEffectsWhen('inflict');
   }
+
+  runEffectsWhen('inflict');
 
   for (const offset of hitOffsets) {
     advanceTimeTo(offset);
     runEffectsWhen('hit');
+
+    if (action.drain) {
+      const { targets, value } = action.drain;
+      const { memberHealth } = ctx.states;
+
+      for (const targetId of targets) {
+        const prev = memberHealth[targetId];
+        const next = clamp(prev - value, 0, 1);
+
+        if (next !== prev) {
+          memberHealth[targetId] = next;
+          runEffectsWhen('healthChange');
+        }
+      }
+    }
+
+    if (gameId === GI) {
+      const multiplier = applyGauge(ctx, action);
+
+      if (isAmpReactive && ctx.saveSnapshots) {
+        ctx.snapshots.push({
+          key: action.key,
+          name: action.name,
+          ownerId: action.ownerId,
+          category: action.category,
+          type: action.type,
+          onFieldId: ctx.states.onFieldId,
+          runtime: ctx.states.runtime + (runtimeOffset ?? 0),
+          damageType: action.damage.type,
+          damage: scaleResolved(perHitDamage, multiplier ?? 1),
+        });
+      }
+    }
   }
 
   advanceTimeTo(duration);
   runEffectsWhen('end');
 }
 
-export const runRotation = (cache, equipMaps, specId) => {  
-  const buildMaps = {};
-  for (const [memberId, equipMap] of Object.entries(equipMaps)) {
-    const { baseMap, staticMap } = cache.member[memberId];
-    buildMaps[memberId] = toMergedObj(baseMap, staticMap, equipMap);
-  }
+function runEffectsWhen(ctx, when, event) {
+  handleRemoveWhen(ctx, when, event);
+  handleUseWhen(ctx, when, event);
+  handleApplyWhen(ctx, when, event);
+}
+
+export const runRotation = (cache, equipMaps, specId) => {
+  const { gameId, memberIds } = cache;
 
   const ctx = {
     cache,
-    buildMaps,
     specId,
+    buildMaps: Object.fromEntries(
+      Object.entries(equipMaps).map(([memberId, equipMap]) => {
+        const { baseMap, staticMap } = cache.member[memberId];
+        const sources = [baseMap, staticMap, equipMap];
+
+        if (gameId === GI) {
+          sources.push(cache.elementalResonance.stats);
+        }
+
+        return [memberId, toMergedObj(...sources)];
+      })
+    ),
     states: {
       runtime: 0,
       onFieldId: null,
@@ -198,58 +343,89 @@ export const runRotation = (cache, equipMaps, specId) => {
       },
       applyCooldowns: {},
       globalEffects: {},
-      memberEffects: Object.fromEntries(cache.memberIds.map((id) => [id, {}])),
-      negativeStatuses: {},
-      tune: { offTune: 0 },
+      memberEffects: Object.fromEntries(memberIds.map((id) => [id, {}])),
+      memberHealth: Object.fromEntries(memberIds.map((id) => [id, 1])),
+      ...(gameId === GI && {
+        icd: Object.fromEntries(memberIds.map((id) => [id, {}])),
+        aura: {},
+        shielded: false,
+      }),
+      ...(gameId === WW && {
+        negativeStatuses: {},
+        tune: { offTune: 0 },
+      }),
     },
-    runAction,
     snapshots: [],
-    offTuneBuildup: [],
+    saveSnapshots: false,
+    ...(gameId === WW && {
+      offTuneBuildup: [],
+    }),
   };
 
   ctx.eventFilter = createEventFilter(ctx);
+  ctx.runAction = (action, options) => runAction(ctx, action, options);
+  ctx.runEffectsWhen = (when, event) => runEffectsWhen(ctx, when, event);
 
-  // Init passives into effect states
-  for (const mCache of Object.values(cache.member)) {
-    for (const effect of Object.values(mCache.effects)) {
-      if (effect.apply?.when || effect.static) continue;
-      runApplyEffect(ctx, effect);
+  // Apply passive effects into states
+  for (const memberId in cache.member) {
+    const mCache = cache.member[memberId];
+
+    for (const effectKey in mCache.effects) {
+      const effect = mCache.effects[effectKey];
+
+      if (!effect.static && !effect.apply?.when) {
+        runApplyEffect(ctx, effect);
+      }
+    }
+  }
+
+  if (gameId === GI) {
+    for (const effect of cache.elementalResonance.effects) {
+      if (!effect.static && !effect.apply?.when) {
+        runApplyEffect(ctx, effect);
+      }
     }
   }
 
   // Rotation loop
-  const actionOrder = cache.memberIds
-    .toReversed()
-    .flatMap((memberId) => cache.member[memberId].rotation);
+  const memberOrder = memberIds.toReversed();
+  function runCycle() {
+    for (const memberId of memberOrder) {
+      ctx.states.onFieldId = memberId;
+      ctx.runEffectsWhen('swap');
 
-  for (const action of actionOrder) {
-    ctx.states.onFieldId = action.ownerId;
-    runAction(ctx, action);
+      const { rotation } = cache.member[memberId];
+      for (const action of rotation) {
+        ctx.runAction(action);
+      }
+    }
   }
-  ctx.offTuneBuildup.push(ctx.states.tune.offTune);
+
+  // First pass to initialize states
+  runCycle();
+  if (gameId === WW) {
+    ctx.offTuneBuildup.push(ctx.states.tune.offTune);
+  }
+
+  // Second pass to record snapshots
   ctx.saveSnapshots = true;
-  for (const action of actionOrder) {
-    ctx.states.onFieldId = action.ownerId;
-    runAction(ctx, action);
-  }
+  runCycle();
 
   if (!specId) {
     return ctx.snapshots;
   }
 
   return (buildMap) => ctx.snapshots.map((snapshot) => {
-    const toResolve = [];
-    for (const part of ['damage', 'healing', 'shield']) {
-      if (part in snapshot && typeof snapshot[part] === 'function') {
-        toResolve.push(part);
-      }
-    }
-
     const resolved = { ...snapshot };
-    for (const type of toResolve) {
-      resolved[type] = snapshot[type](buildMap);
+
+    for (const part of SNAPSHOT_PARTS) {
+      if (typeof snapshot[part] === 'function') {
+        resolved[part] = snapshot[part](buildMap);
+      }
     }
 
     return resolved;
   });
 };
+
+const SNAPSHOT_PARTS = ['damage', 'healing', 'shield'];

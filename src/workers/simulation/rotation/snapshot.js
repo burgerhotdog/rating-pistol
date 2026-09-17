@@ -1,42 +1,13 @@
-import { getAttr, toMergedObj } from '@/utils';
+import { toMergedObj, resolveBuffSpecs } from '@/utils';
 import { runFormula } from './formula';
 import { getBuffMap } from './getStatMap';
 import { getUsedAttrs } from './formula/solver';
 
 const snapshotParts = ['damage', 'healing', 'shield'];
 
-const resolveStatSpecs = (buffSpec, sourceStatMap) => {
-  const resolved = {};
-
-  for (const [statId, statSpec] of Object.entries(buffSpec)) {
-    const {
-      attr, offset = 0, step,
-      value, maxValue = Infinity,
-    } = statSpec;
-
-    const attrValue = getAttr(attr, sourceStatMap);
-    const mult = Math.max((attrValue - offset) / step, 0);
-    resolved[statId] = Math.min(value * mult, maxValue);
-  }
-
-  return resolved;
-};
-
-const toResolvedSpecs = (buffSpecs, sourceMap) => {
-  const buffMap = {};
-  for (const { specs, buffMult } of buffSpecs) {
-    const resolvedStatMap = resolveStatSpecs(specs, sourceMap);
-
-    for (const stat in resolvedStatMap) {
-      buffMap[stat] = (buffMap[stat] ?? 0) + resolvedStatMap[stat] * buffMult;
-    }
-  }
-  return buffMap;
-};
-
 export const buildSnapshot = (ctx, action, options = {}) => {
   const { runtimeOffset = 0 } = options;
-  const gameId = ctx.cache.gameId;
+  const { gameId } = ctx.cache;
 
   const snapshot = {
     key: action.key,
@@ -44,7 +15,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     ownerId: action.ownerId,
     category: action.category,
     type: action.type,
-    field: ctx.states.getField(action.ownerId),
+    onFieldId: ctx.states.onFieldId,
     runtime: ctx.states.runtime + runtimeOffset,
     ...(action.damage && { damageType: action.damage.type }),
     ...(action.hitOffsets && { hitOffsets: action.hitOffsets }),
@@ -94,7 +65,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
       const partiallyBuffedMap = toMergedObj(ctx.buildMaps[action.ownerId], buffMap);
       snapshot[part] = (testBuildMap) => {
         const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
-        const resolvedBuffs = toResolvedSpecs(buffSpecs, testBuffedMap);
+        const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
         const statMap = toMergedObj(partiallyBuffedMap, resolvedBuffs);
         return runFormula(gameId, part, action, statMap);
       };
@@ -104,11 +75,50 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     // Action is from specId and has variable buffs from specId
     snapshot[part] = (testBuildMap) => {
       const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
-      const resolvedBuffs = toResolvedSpecs(buffSpecs, testBuffedMap);
+      const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
       const statMap = toMergedObj(testBuildMap, buffMap, resolvedBuffs);
       return runFormula(gameId, part, action, statMap);
     };
   }
 
   return snapshot;
+};
+
+// Divides an already-built snapshot part by hitCount to get a per-hit share.
+// When the part is a spec-mode closure, the result is memoized by buildMap
+// reference so N per-hit snapshots sharing this resolver only pay the cost once
+// per resolve call instead of once per hit.
+export const splitPerHit = (snapshot, part, hitCount) => {
+  const value = snapshot[part];
+
+  if (typeof value !== 'function') {
+    return value / hitCount;
+  }
+
+  let lastArg, lastResult;
+  let hasResult = false;
+
+  return (buildMap) => {
+    if (!hasResult || buildMap !== lastArg) {
+      lastArg = buildMap;
+      lastResult = value(buildMap);
+      hasResult = true;
+    }
+
+    return lastResult / hitCount;
+  };
+};
+
+// Combines a snapshot part with a multiplier, each of which may be a plain
+// number or a spec-mode buildMap => number closure.
+export const scaleResolved = (value, multiplier) => {
+  if (typeof value !== 'function' && typeof multiplier !== 'function') {
+    return value * multiplier;
+  }
+
+  return (buildMap) => {
+    const resolvedValue = typeof value === 'function' ? value(buildMap) : value;
+    const resolvedMultiplier = typeof multiplier === 'function' ? multiplier(buildMap) : multiplier;
+    return resolvedValue * resolvedMultiplier;
+  };
 };

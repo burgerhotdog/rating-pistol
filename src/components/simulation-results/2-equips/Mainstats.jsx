@@ -9,9 +9,8 @@ import {
   Typography,
 } from '@mui/material';
 import { alpha } from '@mui/material/styles';
-import { ATTR_ASSETS } from '@/assets';
 import { useAccent } from '@/hooks';
-import { formatStr } from '@/utils';
+import { formatStr, getStatIcon } from '@/utils';
 
 const Mainstats = ({ results, userMainstatConfigKey }) => {
   const { equipListConfigs } = results;
@@ -51,16 +50,18 @@ const Mainstats = ({ results, userMainstatConfigKey }) => {
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
               <Box sx={{ display: 'flex', flex: 1, flexWrap: 'wrap' }}>
                 <Card>
-                  {slots.map((statId, i) =>
-                    <Tooltip key={i} title={formatStr(statId)}>
-                      <IconButton>
-                        <Avatar
-                          src={ATTR_ASSETS[gameId][statId.replace('%', '')]}
-                          alt={formatStr(statId)}
-                          sx={{ width: 32, height: 32 }}
-                        />
-                      </IconButton>
-                    </Tooltip>
+                  {slots.map((stat, i) => {
+                    const label = formatStr(stat);
+                    const icon = getStatIcon(gameId, stat);
+
+                    return (
+                      <Tooltip key={i} title={label}>
+                        <IconButton>
+                          <Avatar src={icon} alt={label} sx={{ width: 32, height: 32 }} />
+                        </IconButton>
+                      </Tooltip>
+                    );
+                  }
                   )}
                 </Card>
               </Box>
