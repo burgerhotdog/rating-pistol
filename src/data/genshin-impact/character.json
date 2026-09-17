@@ -14234,7 +14234,6 @@
     "memberPreset": {}
   },
   "10000047": {
-    "disabled": true,
     "name": "Kaedehara Kazuha",
     "version": 1.6,
     "id": 10000047,
@@ -14242,17 +14241,147 @@
     "quality": 5,
     "element": "anemo",
     "type": "sword",
-    "tagged": [],
     "stats": {
       "baseHp": 13348,
       "baseAtk": 297,
       "baseDef": 807,
       "elementalMastery": 115
     },
-    "effects": [],
+    "energy": 60,
+    "tagged": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 8000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "pyro"
+                }
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "specs": {
+            "pyroDmgBonus%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.0004
+            }
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "electro"
+                }
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "specs": {
+            "electroDmgBonus%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.0004
+            }
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "cryo"
+                }
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "specs": {
+            "cryoDmgBonus%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.0004
+            }
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "hydro"
+                }
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "specs": {
+            "hydroDmgBonus%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.0004
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Garyuu Bladework",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -14538,12 +14667,13 @@
         ]
       },
       "elementalSkill": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} Skill DMG",
+        "name": "Chihayaburu",
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -14568,9 +14698,10 @@
             }
           },
           {
-            "name": "Hold Skill DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -14597,12 +14728,13 @@
         ]
       },
       "elementalBurst": {
-        "name": "Slashing DMG",
+        "name": "Kazuha Slash",
         "actions": [
           {
-            "name": "Slashing DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -14628,8 +14760,9 @@
           },
           {
             "name": "DoT",
-            "type": "elementalBurst",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -14655,8 +14788,9 @@
           },
           {
             "name": "Additional Elemental DMG",
-            "type": "elementalBurst",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -14683,7 +14817,16 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11503,
+      "setCounts": {
+        "15002": 4
+      },
+      "rotation": [
+        "elementalSkill.1",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000048": {
     "disabled": true,

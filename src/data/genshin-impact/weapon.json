@@ -782,7 +782,6 @@
     ]
   },
   "11503": {
-    "disabled": true,
     "name": "Freedom-Sworn",
     "version": 1.6,
     "id": 11503,
@@ -793,7 +792,76 @@
       "baseAtk": 608,
       "elementalMastery": 198
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "ref": "sigil",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "blockSigils"
+              }
+            }
+          },
+          "cooldown": 500
+        },
+        "remove": {
+          "when": "maxStacks"
+        },
+        "onRemoveDoApply": {
+          "songOfResistance": 1
+        }
+      },
+      {
+        "ref": "songOfResistance",
+        "stores": "$team",
+        "apply": {
+          "when": "command",
+          "duration": 12000
+        },
+        "onApplyDoApply": {
+          "blockSigils": 1
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "chargedAttackDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "plungeAttackDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "ref": "blockSigils",
+        "apply": {
+          "when": "command",
+          "duration": 20000
+        }
+      }
+    ]
   },
   "11504": {
     "disabled": true,
