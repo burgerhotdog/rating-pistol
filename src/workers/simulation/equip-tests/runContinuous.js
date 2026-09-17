@@ -1,10 +1,9 @@
 import { mean } from 'simple-statistics';
 
-export function runContinuous(workers, mpsCeiling, isMainChar) {
+export function runContinuous(workers, isMainChar) {
   return new Promise((resolve) => {
     const pending = new Map();
-    const dpsUpdates = [];
-    const remainingHistory = [];
+    const mpsUpdates = [];
     const partialMeanEquipMaps = [];
     const partialEquipListConfigsList = [];
 
@@ -21,16 +20,9 @@ export function runContinuous(workers, mpsCeiling, isMainChar) {
           bucket.push(partialMeanMps);
 
           if (bucket.length === workers.length) {
-            const meanMps = mean(bucket);
-            dpsUpdates.push({ day, mean: meanMps });
+            mpsUpdates.push({ day, mean: mean(bucket) });
 
             if (isMainChar) {
-              const remaining = mpsCeiling - meanMps;
-
-              if (day >= 95) {
-                remainingHistory.push({ day, remaining });
-              }
-
               self.postMessage({ message: `Day ${day}`, progressDay: day });
             }
 
@@ -53,7 +45,7 @@ export function runContinuous(workers, mpsCeiling, isMainChar) {
               }
             }
 
-            resolve({ dpsUpdates, meanEquipMap });
+            resolve({ meanEquipMap });
           }
 
           break;
@@ -71,7 +63,6 @@ export function runContinuous(workers, mpsCeiling, isMainChar) {
                 const config = equipListConfigs[configKey] ??= { trialCount: 0, substatRolls: {} };
 
                 config.trialCount += partialConfig.trialCount;
-
                 for (const stat in partialConfig.substatRolls) {
                   const partialRolls = partialConfig.substatRolls[stat];
                   const rolls = config.substatRolls[stat] ??= [];
@@ -81,7 +72,7 @@ export function runContinuous(workers, mpsCeiling, isMainChar) {
               }
             }
 
-            resolve({ dpsUpdates, remainingHistory, equipListConfigs });
+            resolve({ mpsUpdates, equipListConfigs });
           }
 
           break;
@@ -91,7 +82,7 @@ export function runContinuous(workers, mpsCeiling, isMainChar) {
 
     workers.forEach((worker) => {
       worker.onmessage = handleMessage;
-      worker.postMessage({ type: 'run', maxDay: isMainChar ? 100 : 30 });
+      worker.postMessage({ type: 'run' });
     });
   });
 }

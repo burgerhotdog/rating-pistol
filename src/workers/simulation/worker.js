@@ -7,7 +7,7 @@ import {
 import { buildCache } from './cache';
 import { runRotation } from './rotation';
 import { runWeaponTests, runSetBonusTests } from './comparison-tests';
-import { runEquipTests } from './equip-tests';
+import { runEquipTests, runTrials } from './equip-tests';
 import { runSkillLevelTests } from './skill-level-tests';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
@@ -27,7 +27,9 @@ async function resolveEquipMaps(cache, allowBlank = false) {
     self.postMessage({ title: `Generating trial build for ${member.id}` });
 
     const trialEquipMaps = await resolveEquipMaps(cache, true);
-    equipMaps[member.id] = await runEquipTests(cache, trialEquipMaps, member.id);
+    const { meanEquipMap } = await runTrials(cache, trialEquipMaps, member.id);
+
+    equipMaps[member.id] = meanEquipMap;
   }
 
   return equipMaps;

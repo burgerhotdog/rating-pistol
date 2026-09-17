@@ -1,41 +1,37 @@
 import { mean } from 'simple-statistics';
-import { MISC } from '@/data';
-import { buildEquipListConfigs, buildEquipMap } from '@/utils';
+import { MISC, SUBSTAT } from '@/data';
+import { buildEquipMap, buildSkippable, getMainstatConfigKey, sumSubstatRolls } from '@/utils';
 import { createEvaluateEquipMap } from '../evaluateEquipMap';
 import { createAdvanceTrial } from './advance';
 
 const NUM_TRIALS = 250;
 const NUM_TRIALS_QUICK = 75;
 
+const NUM_DAYS = 100;
+const NUM_DAYS_QUICK = 30;
+
+let cache;
 let gameId;
+let evaluateEquipMap;
 let trials;
-let advanceTrial;
 
-function handleInit(data) {
-  const { cache, equipMaps, currId, snapshots, score, skippable, quick } = data;
+function initTrials(numTrials) {
+  const { maxEquips } = MISC[cache.gameId];
+  const { snapshots, score } = evaluateEquipMap();
 
-  gameId = cache.gameId;
-
-  const { maxEquips } = MISC[gameId];
-
-  trials = Array.from(
-    { length: quick ? NUM_TRIALS_QUICK : NUM_TRIALS },
-    () => ({
-      equipList: new Array(maxEquips).fill(null),
-      snapshots,
-      score,
-    }),
-  );
-
-  const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
-
-  advanceTrial = createAdvanceTrial(cache, evaluateEquipMap, currId, skippable);
-
-  self.postMessage({ type: 'ready' });
+  return Array.from({ length: numTrials }, () => ({
+    equipList: new Array(maxEquips).fill(null),
+    snapshots,
+    score,
+  }));
 }
 
-function handleRun(maxDay) {
-  for (let day = 1; day <= maxDay; day++) {
+function runTrials(numDays, currId) {
+  const { score } = evaluateEquipMap();
+  const skippable = buildSkippable(gameId, score, evaluateEquipMap);
+  const advanceTrial = createAdvanceTrial(cache, evaluateEquipMap, currId, skippable);
+
+  for (let day = 1; day <= numDays; day++) {
     for (const trial of trials) {
       advanceTrial(trial);
     }
@@ -48,7 +44,7 @@ function handleRun(maxDay) {
   }
 }
 
-function handleEquipMap() {
+function reportMeanEquipMap() {
   const meanEquipMap = {};
 
   for (const trial of trials) {
@@ -63,25 +59,49 @@ function handleEquipMap() {
   self.postMessage({ type: 'meanEquipMap', meanEquipMap });
 }
 
-function handlePartialConfigs() {
-  const equipListConfigs = buildEquipListConfigs(gameId, trials);
+function reportEquipListConfigs() {
+  const substatKeys = Object.keys(SUBSTAT[gameId]);
+
+  const initConfig = () => ({
+    trialCount: 0,
+    substatRolls: Object.fromEntries(
+      substatKeys.map((stat) => [stat, []])
+    ),
+  });
+
+  const equipListConfigs = {};
+
+  for (const trial of trials) {
+    const configKey = getMainstatConfigKey(gameId, trial.equipList);
+    const config = equipListConfigs[configKey] ??= initConfig();
+
+    config.trialCount++;
+    const substatRolls = sumSubstatRolls(gameId, trial.equipList, true);
+    for (const stat in config.substatRolls) {
+      const rolls = config.substatRolls[stat];
+      rolls.push(substatRolls[stat] ?? 0);
+    }
+  }
+
   self.postMessage({ type: 'equipListConfigs', equipListConfigs });
 }
 
 self.onmessage = ({ data }) => {
-  const { type, maxDay } = data;
+  const { equipMaps, currId, quick } = data;
 
-  if (type === 'init') {
-    handleInit(data);
-  }
+  const numTrials = quick ? NUM_TRIALS_QUICK : NUM_TRIALS;
+  const numDays = quick ? NUM_DAYS_QUICK : NUM_DAYS;
 
-  if (type === 'run') {
-    handleRun(maxDay);
+  cache = data.cache;
+  gameId = cache.gameId;
+  evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
+  trials = initTrials(numTrials);
 
-    if (maxDay === 30) {
-      handleEquipMap();
-    } else {
-      handlePartialConfigs();
-    }
+  runTrials(numDays, currId);
+
+  if (quick) {
+    reportMeanEquipMap();
+  } else {
+    reportEquipListConfigs();
   }
 };
