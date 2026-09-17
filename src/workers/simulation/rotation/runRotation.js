@@ -30,15 +30,19 @@ import { buildSnapshot, splitPerHit, scaleResolved } from './snapshot';
 import { getEffectStates } from './getEffectStates';
 import { createEventFilter } from './filter';
 
-function handleRemoveWhen(ctx, when, spec = {}) {
+function handleRemoveWhen(ctx, when, event) {
   function tryRemove(state, storeOwnerId) {
     const { effect } = state;
     const { remove } = effect;
 
     if (remove?.when !== when) return;
-    if (!ctx.eventFilter(remove.filter, effect, { ...spec, fieldId: storeOwnerId ?? spec.action?.ownerId })) return;
+    const spec = {
+      ...(event.reaction ? { reaction: event } : { action: event }),
+      fieldId: storeOwnerId ?? event?.ownerId,
+    };
+    if (!ctx.eventFilter(remove.filter, effect, spec)) return;
 
-    onRemoveDoCommand(ctx, effect, spec.action?.ownerId ?? effect.ownerId);
+    onRemoveDoCommand(ctx, effect, event?.ownerId ?? effect.ownerId);
 
     if (remove.offset) {
       state.removeTimer ??= remove.offset;
@@ -57,7 +61,7 @@ function handleRemoveWhen(ctx, when, spec = {}) {
   const { globalEffects, memberEffects } = ctx.states;
   updateStore(globalEffects);
 
-  const actionOwnerId = spec.action?.ownerId;
+  const actionOwnerId = event?.ownerId;
   if (actionOwnerId) {
     updateStore(memberEffects[actionOwnerId], actionOwnerId);
     return;
@@ -68,14 +72,19 @@ function handleRemoveWhen(ctx, when, spec = {}) {
   }
 }
 
-function handleUseWhen(ctx, when, spec = {}) {
+function handleUseWhen(ctx, when, event) {
   function tryUse(state, storeOwnerId) {
     const { effect } = state;
     const { use } = effect;
 
     if (use?.when !== when) return;
     if (state.isRunning || state.useCooldown) return;
-    if (!ctx.eventFilter(use.filter, effect, { ...spec, fieldId: storeOwnerId ?? spec.action?.ownerId })) return;
+
+    const spec = {
+      ...(event.reaction ? { reaction: event } : { action: event }),
+      fieldId: storeOwnerId ?? event?.ownerId,
+    };
+    if (!ctx.eventFilter(use.filter, effect, spec)) return;
 
     onUseDoCommand(ctx, effect, spec.action?.ownerId ?? effect.ownerId);
     runUseEffect(ctx, state);
@@ -90,7 +99,7 @@ function handleUseWhen(ctx, when, spec = {}) {
   const { globalEffects, memberEffects } = ctx.states;
   updateStore(globalEffects);
 
-  const actionOwnerId = spec.action?.ownerId;
+  const actionOwnerId = event?.ownerId;
   if (actionOwnerId) {
     updateStore(memberEffects[actionOwnerId], actionOwnerId);
     return;
@@ -101,7 +110,7 @@ function handleUseWhen(ctx, when, spec = {}) {
   }
 }
 
-function handleApplyWhen(ctx, when, spec = {}) {
+function handleApplyWhen(ctx, when, event) {
   const { gameId } = ctx.cache;
   const { applyCooldowns } = ctx.states;
 
@@ -109,12 +118,17 @@ function handleApplyWhen(ctx, when, spec = {}) {
     const { apply } = effect;
     if (apply?.when !== when) return;
 
-    const applier = spec.action?.ownerId ?? effect.ownerId;
+    const applier = event?.ownerId ?? effect.ownerId;
     if (!apply.by.includes(applier) || applyCooldowns[effect.key]) return;
-    if (!ctx.eventFilter(apply.filter, effect, { ...spec, fieldId: applier })) return;
+
+    const spec = {
+      ...(event.reaction ? { reaction: event } : { action: event }),
+      fieldId: applier,
+    };
+    if (!ctx.eventFilter(apply.filter, effect, spec)) return;
 
     onApplyDoCommand(ctx, effect, applier);
-    runApplyEffect(ctx, effect, { applier, inflict: spec.action?.inflict });
+    runApplyEffect(ctx, effect, { applier, inflict: event?.inflict });
   }
 
   for (const memberId in ctx.cache.member) {
@@ -150,7 +164,11 @@ function decayBuffStates(ctx, action) {
     const { store, effect, buffCooldown } = state;
 
     if (buffCooldown) continue;
-    if (!ctx.eventFilter(effect.buff?.filter, effect, { action, fieldId: action.ownerId })) continue;
+    const spec = {
+      action,
+      fieldId: action.ownerId,
+    };
+    if (!ctx.eventFilter(effect.buff?.filter, effect, spec)) continue;
 
     if (effect.buff?.cooldown) {
       state.buffCooldown = effect.buff.cooldown;
@@ -197,7 +215,7 @@ function runAction(ctx, action, options = {}) {
     }
   };
 
-  const runEffectsWhen = (when) => ctx.runEffectsWhen(when, { action });
+  const runEffectsWhen = (when) => ctx.runEffectsWhen(when, action);
 
   if (action.key === 'system:tuneBreak') {
     runTuneBreak(ctx, action);
@@ -242,6 +260,20 @@ function runAction(ctx, action, options = {}) {
     decayBuffStates(ctx, action);
   }
 
+  if (action.drain) {
+    const { targets, value } = action.drain;
+    const { memberHealth } = ctx.states;
+    for (const targetId of targets) {
+      const prev = memberHealth[targetId];
+      const next = Math.max(prev - value, 0);
+
+      if (next !== prev) {
+        memberHealth[targetId] = next;
+        runEffectsWhen('hpChange');
+      }
+    }
+  }
+
   if (gameId === WW) {
     consumeNegativeStatuses(ctx, action);
     inflictNegativeStatuses(ctx, action);
@@ -278,10 +310,10 @@ function runAction(ctx, action, options = {}) {
   runEffectsWhen('end');
 }
 
-function runEffectsWhen(ctx, when, spec) {
-  handleRemoveWhen(ctx, when, spec);
-  handleUseWhen(ctx, when, spec);
-  handleApplyWhen(ctx, when, spec);
+function runEffectsWhen(ctx, when, event) {
+  handleRemoveWhen(ctx, when, event);
+  handleUseWhen(ctx, when, event);
+  handleApplyWhen(ctx, when, event);
 }
 
 export const runRotation = (cache, equipMaps, specId) => {
@@ -311,6 +343,7 @@ export const runRotation = (cache, equipMaps, specId) => {
       applyCooldowns: {},
       globalEffects: {},
       memberEffects: Object.fromEntries(memberIds.map((id) => [id, {}])),
+      memberHealth: Object.fromEntries(memberIds.map((id) => [id, 1])),
       ...(gameId === GI && {
         icd: Object.fromEntries(memberIds.map((id) => [id, {}])),
         aura: {},
@@ -330,7 +363,7 @@ export const runRotation = (cache, equipMaps, specId) => {
 
   ctx.eventFilter = createEventFilter(ctx);
   ctx.runAction = (action, options) => runAction(ctx, action, options);
-  ctx.runEffectsWhen = (when, spec) => runEffectsWhen(ctx, when, spec);
+  ctx.runEffectsWhen = (when, event) => runEffectsWhen(ctx, when, event);
 
   // Apply passive effects into states
   for (const memberId in cache.member) {

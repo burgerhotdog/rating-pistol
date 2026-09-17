@@ -12412,7 +12412,6 @@
     "memberPreset": {}
   },
   "10000043": {
-    "disabled": true,
     "name": "Sucrose",
     "version": 1,
     "id": 10000043,
@@ -12420,19 +12419,61 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
-    "tagged": [
-      "hexerei"
-    ],
     "stats": {
       "baseHp": 9244,
       "baseAtk": 170,
       "baseDef": 703,
       "anemoDmgBonus%": 0.24
     },
-    "effects": [],
+    "energy": 80,
+    "tagged": [
+      "hexerei"
+    ],
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 6000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "stores": "$ally",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "specs": {
+            "elementalMastery": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.2
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Wind Spirit Creation",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -12656,9 +12697,10 @@
         "name": "Astable Anemohypostasis Creation - 6308",
         "actions": [
           {
-            "name": "Astable Anemohypostasis Creation - 6308",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -12685,12 +12727,17 @@
         ]
       },
       "elementalBurst": {
-        "name": "DoT",
+        "name": "Forbidden Creation - Isomer 75 / Type II",
         "actions": [
+          {
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
           {
             "name": "DoT",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -12718,6 +12765,7 @@
             "name": "Additional Elemental DMG",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -12740,15 +12788,20 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Forbidden Creation - Isomer 75 / Type II",
-            "type": "elementalBurst"
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14403,
+      "setCounts": {
+        "15002": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000044": {
     "disabled": true,

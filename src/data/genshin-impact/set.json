@@ -1209,7 +1209,6 @@
     ]
   },
   "15031": {
-    "disabled": true,
     "name": "Marechaussee Hunter",
     "version": 4,
     "id": 15031,
@@ -1231,11 +1230,16 @@
       },
       {
         "bonus": 4,
+        "apply": {
+          "when": "hpChange",
+          "duration": 5000
+        },
         "buff": {
           "stats": {
-            "critRate%": 0.36
+            "critRate%": 0.12
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },

@@ -3283,7 +3283,6 @@
     ]
   },
   "14513": {
-    "disabled": true,
     "name": "Cashflow Supervision",
     "version": 4.1,
     "id": 14513,
@@ -3294,7 +3293,58 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "ref": "selfBuff",
+        "apply": {
+          "when": "hpChange",
+          "cooldown": 300,
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "chargedAttackDmgBonus%": [
+              0.14,
+              0.28
+            ],
+            "stellarConductReactionBonus%": [
+              0.14,
+              0.28
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "selfBuff": 3
+            }
+          },
+          "stats": {
+            "attackSpd%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      }
+    ]
   },
   "14514": {
     "disabled": true,

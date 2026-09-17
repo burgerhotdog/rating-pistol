@@ -1,5 +1,5 @@
 import { GI, WW, ZZZ, CHARACTER } from '@/data';
-import { resolveRankedValue } from '@/utils';
+import { resolveRankedValue } from '../resolve';
 
 const DEFAULT_DURATIONS = {
   [GI]: {
@@ -231,6 +231,11 @@ export function normalizeAction(gameId, rawAction, spec) {
     } else {
       delete action.inflict.shifting;
     }
+  }
+
+  if (action.drain) {
+    const drain = action.drain = { ...action.drain };
+    drain.targets ??= [spec.ownerId];
   }
 
   return action;

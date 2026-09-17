@@ -6,18 +6,42 @@ import { consumeAura } from './aura';
 
 const LEVEL_MULTIPLIER = 1446.85;
 
-const reactionMultiplier = {
-  overloaded: 2.75,
-  superconduct: 1.5,
-  swirl: 0.6,
-  electroCharged: 2,
+const REACTION_DEFS = {
+  overloaded: {
+    reaction: 'overloaded',
+    elements: ['pyro', 'electro'],
+    multiplier: 2.75,
+  },
+  superconduct: {
+    reaction: 'superconduct',
+    elements: ['cryo', 'electro'],
+    multiplier: 1.5,
+  },
+  swirl: {
+    reaction: 'swirl',
+    elements: ['anemo'],
+    multiplier: 0.6,
+  },
+  crystallize: {
+    reaction: 'crystallize',
+    elements: ['geo'],
+  },
+  frozen: {
+    reaction: 'frozen',
+    elements: ['cryo', 'hydro'],
+  },
+  electroCharged: {
+    reaction: 'electroCharged',
+    elements: ['electro', 'hydro'],
+    multiplier: 2,
+  },
 };
 
 function runFormula(reaction, statMap, reactionElement) {
   const em = getAttr('elementalMastery', statMap);
   const reactionBonus = 1 + ((16 * em) / (2000 + em)) + getAttr(`${reaction}ReactionBonus%`, statMap);
   const resMult = getResMult(GI, reactionElement, statMap);
-  return LEVEL_MULTIPLIER * reactionMultiplier[reaction] * reactionBonus * resMult;
+  return LEVEL_MULTIPLIER * REACTION_DEFS[reaction].multiplier * reactionBonus * resMult;
 }
 
 function buildSnapshot(ctx, reaction, ownerId, reactionElement) {
@@ -100,7 +124,10 @@ export function reactOverloaded(ctx, ownerId) {
     ctx.snapshots.push(snapshot);
   }
 
-  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'overloaded', elements: ['pyro', 'electro'] } });
+  ctx.runEffectsWhen('reaction', {
+    ...REACTION_DEFS.overloaded,
+    ownerId,
+  });
 }
 
 export function reactSuperconduct(ctx, ownerId) {
@@ -111,7 +138,10 @@ export function reactSuperconduct(ctx, ownerId) {
 
   ctx.states.aura.superconduct = { reaction: 'superconduct', timer: 12000 };
 
-  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'superconduct', elements: ['cryo', 'electro'] } });
+  ctx.runEffectsWhen('reaction', {
+    ...REACTION_DEFS.superconduct,
+    ownerId,
+  });
 }
 
 export function reactSwirl(ctx, ownerId, auraElement) {
@@ -120,27 +150,41 @@ export function reactSwirl(ctx, ownerId, auraElement) {
     ctx.snapshots.push(snapshot);
   }
 
-  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'swirl', elements: ['anemo', auraElement] } });
+  ctx.runEffectsWhen('reaction', {
+    ...REACTION_DEFS.swirl,
+    ownerId,
+    elements: ['anemo', auraElement],
+  });
 }
 
 export function reactCrystallize(ctx, ownerId, auraElement) {
-  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'crystallize', elements: ['geo', auraElement] } });
+  ctx.runEffectsWhen('reaction', {
+    ...REACTION_DEFS.crystallize,
+    ownerId,
+    elements: ['geo', auraElement],
+  });
 }
 
-export function reactFrozen(ctx, originGauge, gauge) {
+export function reactFrozen(ctx, ownerId, originGauge, gauge) {
   const frozenAuraGauge = 2 * Math.min(originGauge, gauge);
   const freezeDuration = (2 * Math.sqrt(5 * frozenAuraGauge + 4) - 4) * 1000;
 
   ctx.states.aura.frozen = { reaction: 'frozen', timer: freezeDuration };
 
-  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'frozen', elements: ['hydro', 'cryo'] } });
+  ctx.runEffectsWhen('reaction', {
+    ...REACTION_DEFS.frozen,
+    ownerId,
+  });
 }
 
 export function reactElectroCharged(ctx, applier) {
   const state = ctx.states.aura.electroCharged ??= { reaction: 'electroCharged', timer: 0 };
   state.applier = applier;
 
-  ctx.runEffectsWhen('reaction', { reaction: { reaction: 'electroCharged', elements: ['hydro', 'electro'] } });
+  ctx.runEffectsWhen('reaction', {
+    ...REACTION_DEFS.electroCharged,
+    ownerId: applier,
+  });
 }
 
 export function tickElectroCharged(ctx, applier, offset = 0) {

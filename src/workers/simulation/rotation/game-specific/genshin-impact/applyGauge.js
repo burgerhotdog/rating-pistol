@@ -70,7 +70,7 @@ function applyCryo(ctx, gauge, applier) {
   let remaining = gauge;
 
   if (aura.hydro && remaining) {
-    reactFrozen(ctx, aura.hydro.gauge, remaining);
+    reactFrozen(ctx, applier, aura.hydro.gauge, remaining);
     remaining = consumeAura(ctx, aura.hydro, remaining);
   }
 
@@ -96,7 +96,7 @@ function applyHydro(ctx, gauge, applier) {
   let remaining = gauge;
 
   if (aura.cryo && remaining) {
-    reactFrozen(ctx, aura.cryo.gauge, remaining);
+    reactFrozen(ctx, applier, aura.cryo.gauge, remaining);
     remaining = consumeAura(ctx, aura.cryo, remaining);
   }
 
