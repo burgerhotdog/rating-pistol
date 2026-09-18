@@ -315,7 +315,7 @@ function runAction(ctx, action, options = {}) {
           onFieldId: ctx.states.onFieldId,
           runtime: ctx.states.runtime + (runtimeOffset ?? 0),
           damageType: action.damage.type,
-          damage: scaleResolved(perHitDamage, scaleMult),
+          damage: scaleResolved(perHitDamage, scaleMult ?? 1),
         });
       }
     }

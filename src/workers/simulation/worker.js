@@ -49,7 +49,7 @@ self.onmessage = async ({ data }) => {
   self.postMessage({ title: 'Simulating rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
   const userTotals = getTotals(userSnapshots);
-  const { time: userRotationTime, source: userRotationTimeSource } = computeActualRotationTime(cache, equipMaps, true);
+  const { time: userRotationTime, source: userRotationTimeSource } = computeActualRotationTime(cache, equipMaps);
   const userDps = (userTotals.damage + userTotals.healing + userTotals.shield) / userRotationTime * 1000;
 
   self.postMessage({ title: `Running ${langData.Weapon} Tests` });
@@ -71,8 +71,6 @@ self.onmessage = async ({ data }) => {
   console.time('runSkillLevelTests');
   const skillLevelResults = runSkillLevelTests(cache, equipMaps, charId);
   console.timeEnd('runSkillLevelTests');
-
-  console.log(userSnapshots.length);
 
   self.postMessage({
     status: 'done',

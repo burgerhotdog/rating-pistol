@@ -13,6 +13,7 @@ import { useData } from '@/hooks';
 import { formatDmg, formatNum, formatStr } from '@/utils';
 
 function buildData(snapshots, areaStack, userRotationTime, userRotationTimeSource) {
+  const roundedUserRotationTime = Math.round(userRotationTime);
   const runtimeDamage = {};
 
   const sorted = snapshots.toSorted((a, b) => a.runtime - b.runtime);
@@ -29,18 +30,7 @@ function buildData(snapshots, areaStack, userRotationTime, userRotationTimeSourc
   let rawOnFieldOffset = 0;
   let adjustedOnFieldOffset = 0;
 
-  const addDamage = (onFieldId, runtime, dataKey, damage) => {
-    const adjustmentRatio = adjustmentRatios[onFieldId];
-    const partToAdjust = runtime - rawOnFieldOffset;
-    const adjustedRuntime = adjustedOnFieldOffset + partToAdjust * adjustmentRatio;
-
-    const time = Math.min((Math.floor(adjustedRuntime / 1000) + 1) * 1000, userRotationTime);
-
-    runtimeDamage[time] ??= { time };
-    runtimeDamage[time][dataKey] = (runtimeDamage[time][dataKey] ?? 0) + damage;
-  };
-
-  for (const { onFieldId, runtime, ownerId, damageType, damage, hitOffsets } of sorted) {
+  for (const { onFieldId, runtime, ownerId, damageType, damage } of sorted) {
     if (onFieldId !== prevOnFieldId) {
       const { duration, added } = userRotationTimeSource[prevOnFieldId];
       prevOnFieldId = onFieldId;
@@ -52,20 +42,18 @@ function buildData(snapshots, areaStack, userRotationTime, userRotationTimeSourc
 
     const dataKey = ownerId === 'system' ? damageType : ownerId;
 
-    if (!hitOffsets?.length) {
-      addDamage(onFieldId, runtime, dataKey, damage);
-      continue;
-    }
+    const adjustmentRatio = adjustmentRatios[onFieldId];
+    const partToAdjust = runtime - rawOnFieldOffset;
+    const adjustedRuntime = adjustedOnFieldOffset + partToAdjust * adjustmentRatio;
 
-    const initOffset = hitOffsets[0];
-    const splitDamage = damage / hitOffsets.length;
+    const time = Math.min((Math.floor(adjustedRuntime / 1000) + 1) * 1000, roundedUserRotationTime);
 
-    for (const offset of hitOffsets) {
-      addDamage(onFieldId, runtime + offset - initOffset, dataKey, splitDamage);
-    }
+    runtimeDamage[time] ??= { time };
+    runtimeDamage[time][dataKey] = (runtimeDamage[time][dataKey] ?? 0) + damage;
   }
 
   runtimeDamage[0] ??= { time: 0 };
+  runtimeDamage[roundedUserRotationTime] ??= { time: roundedUserRotationTime };
   for (const { dataKey } of areaStack) {
     runtimeDamage[0][dataKey] ??= 0;
   }

@@ -113,9 +113,9 @@ export function runSkillLevelTests(cache, equipMaps, charId) {
       };
 
       const snapshots = runRotation(testCache, equipMaps);
-      const actualRotationTime = computeActualRotationTime(testCache, equipMaps);
+      const { time } = computeActualRotationTime(testCache, equipMaps);
       const totals = getTotals(snapshots);
-      const dps = (totals.damage + totals.healing + totals.shield) / actualRotationTime * 1000;
+      const dps = (totals.damage + totals.healing + totals.shield) / time * 1000;
 
       results[skillId].dpsArr.push(dps);
     }

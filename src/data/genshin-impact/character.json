@@ -4990,6 +4990,7 @@
       "hydroDmgBonus%": 0.2,
       "atk%": 0.24
     },
+    "energy": 80,
     "tagged": [],
     "effects": [
       {

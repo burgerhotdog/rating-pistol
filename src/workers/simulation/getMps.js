@@ -12,5 +12,7 @@ export function getMps(cache, equipMaps, snapshots, include = ['damage']) {
     motion += totals[part];
   }
 
-  return motion / computeActualRotationTime(cache, equipMaps) * 1000;
+  const { time } = computeActualRotationTime(cache, equipMaps);
+
+  return motion / time * 1000;
 }
