@@ -75,7 +75,7 @@ function buildSnapshot(ctx, reaction, ownerId, reactionElement) {
 
   if (!isSpecIdAction && !usesSpecs) {
     const statMap = toMergedObj(ctx.buildMaps[ownerId], buffMap);
-    snapshot.damage = runFormula(reaction, statMap);
+    snapshot.damage = runFormula(reaction, statMap, reactionElement);
     return snapshot;
   }
 
@@ -83,7 +83,7 @@ function buildSnapshot(ctx, reaction, ownerId, reactionElement) {
   if (!usesSpecs) {
     snapshot.damage = (currBuildMap) => {
       const statMap = toMergedObj(currBuildMap, buffMap);
-      return runFormula(reaction, statMap);
+      return runFormula(reaction, statMap, reactionElement);
     };
 
     return snapshot;
@@ -100,7 +100,7 @@ function buildSnapshot(ctx, reaction, ownerId, reactionElement) {
       const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
       const statMap = toMergedObj(partiallyBuffedMap, resolvedBuffs);
 
-      return runFormula(reaction, statMap);
+      return runFormula(reaction, statMap, reactionElement);
     };
 
     return snapshot;
@@ -112,7 +112,7 @@ function buildSnapshot(ctx, reaction, ownerId, reactionElement) {
     const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
     const statMap = toMergedObj(testBuildMap, buffMap, resolvedBuffs);
 
-    return runFormula(reaction, statMap);
+    return runFormula(reaction, statMap, reactionElement);
   };
 
   return snapshot;

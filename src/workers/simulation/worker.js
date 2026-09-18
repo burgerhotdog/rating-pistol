@@ -64,7 +64,7 @@ self.onmessage = async ({ data }) => {
 
   self.postMessage({ title: `Running ${langData.Equip} Farming Simulations` });
   console.time('runEquipTests');
-  const results = await runEquipTests(cache, equipMaps, charId, true);
+  const results = await runEquipTests(cache, equipMaps, charId);
   console.timeEnd('runEquipTests');
 
   self.postMessage({ title: 'Running Skill Level Tests' });

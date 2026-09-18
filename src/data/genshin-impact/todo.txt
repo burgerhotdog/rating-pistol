@@ -11,6 +11,7 @@ characters:
         No pyro infusion
     Klee
         No constellations
+        Also had weird bug like zhongli
     10000038 Albedo
         Double check
     10000075 Wanderer

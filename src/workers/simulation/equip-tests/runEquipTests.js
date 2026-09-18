@@ -18,7 +18,7 @@ const getFit = (mpsProgression, mpsCeiling) => {
   return { k: -m, A: Math.exp(b) };
 };
 
-export async function runEquipTests(cache, equipMaps, currId) {
+export async function runEquipTests(cache, equipMaps, currId, userDps) {
   const { gameId } = cache;
 
   const { mpsUpdates, equipListConfigs } = await runTrials(cache, equipMaps, currId, true);
@@ -35,6 +35,6 @@ export async function runEquipTests(cache, equipMaps, currId) {
     dpsCeiling: mpsCeiling,
     fit: getFit(mpsProgression, mpsCeiling),
     equipListConfigs,
-    extraSubstats: testExtraSubstat(cache, equipMaps, currId, evaluateEquipMap),
+    extraSubstats: testExtraSubstat(cache, equipMaps, currId, evaluateEquipMap, userDps),
   };
 }
