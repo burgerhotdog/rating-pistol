@@ -15,6 +15,7 @@ import {
   applyGauge,
   advanceAuras,
   advanceIcdStates,
+  checkInfusion,
 } from './game-specific/genshin-impact';
 import {
   consumeNegativeStatuses,
@@ -226,9 +227,11 @@ function runAction(ctx, action, options = {}) {
   // Melt/vaporize only amplify the specific hit that triggers them, so these
   // actions can't have their damage batched into one snapshot up front - ICD
   // determines which hits react only once we're inside the hitOffsets loop.
+
+  const reactiveElement = checkInfusion(ctx, action);
   const isAmpReactive = gameId === GI
     && action.damage
-    && ['pyro', 'cryo', 'hydro'].includes(action.damage.element);
+    && ['pyro', 'cryo', 'hydro'].includes(reactiveElement ?? action.damage.element);
   let perHitDamage;
 
   // Action timeline
@@ -237,7 +240,19 @@ function runAction(ctx, action, options = {}) {
 
   if (action.damage || action.healing || action.shield) {
     if (ctx.saveSnapshots) {
-      const snapshot = buildSnapshot(ctx, action, { runtimeOffset });
+      const snapshotElement = checkInfusion(ctx, action);
+      const infusedAction = gameId === GI
+        ? {
+          ...action,
+          ...(action.damage && {
+            damage: {
+              ...action.damage,
+              element: snapshotElement ?? action.damage.element,
+            },
+          }),
+        } 
+        : action;
+      const snapshot = buildSnapshot(ctx, infusedAction, { runtimeOffset });
 
       if (isAmpReactive) {
         perHitDamage = splitPerHit(snapshot, 'damage', hitOffsets.length);
@@ -289,7 +304,8 @@ function runAction(ctx, action, options = {}) {
     }
 
     if (gameId === GI) {
-      const multiplier = applyGauge(ctx, action);
+      const infusionElement = checkInfusion(ctx, action);
+      const multiplier = applyGauge(ctx, action, infusionElement);
 
       if (isAmpReactive && ctx.saveSnapshots) {
         ctx.snapshots.push({

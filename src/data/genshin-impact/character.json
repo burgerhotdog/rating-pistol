@@ -2130,6 +2130,7 @@
           "duration": 12000
         },
         "buff": {
+          "infusion": "pyro",
           "stats": {
             "pyroDmgBonus%": 0.2
           }
