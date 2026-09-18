@@ -48,8 +48,8 @@ const Equips = ({ results }) => {
           />
         </Card>
 
-        <Card component={Stack} sx={{ flex: 1 }}>
-          <CardHeader title="Improvement w/ extra substat" />
+        <Card component={Stack} sx={{ flex: 0.75 }}>
+          <CardHeader title="Diff w/ extra substat" />
           <CardContent component={Stack} sx={{ flex: 1, overflow: 'hidden' }}>
             {extraSubstatsList.map(({ stat, diff }, i) => {
               return (

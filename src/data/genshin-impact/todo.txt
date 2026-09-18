@@ -30,6 +30,8 @@ characters:
         unfinished
 
 weapons:
+    Alley Hunter
+        buff doesnt ramp
     Sapwood Blade
         Leaf buff applied to $first instantly
     11302 Harbinger of Dawn

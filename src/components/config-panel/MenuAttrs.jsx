@@ -74,7 +74,6 @@ const appliesToCharId = (effect, charId) =>
 
 
 function buildMenuMap(gameId, charId, team, spec = {}) {
-
   const member = team.find((member) => member?.id === charId);
 
   const baseMap = spec.baseMap ?? buildBaseMap(gameId, charId, member.weaponId);
@@ -106,19 +105,19 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
       ) continue;
       const resolvedMap = {};
       for (const [stat, value] of Object.entries(effect.buff.stats)) {
-        resolvedMap[stat] = resolveRankedValue(value, member.weaponRank);
+        resolvedMap[stat] = Array.isArray(value)
+          ? resolveRankedValue(value, member.weaponRank)
+          : value;
       }
       effectMaps.push(resolvedMap);
     }
   }
 
-  const allSetEffects =
-    Object.entries(member.setCounts)
-      .flatMap(([setId, pcCount]) =>
-        SET[gameId][setId].effects.filter((effect) =>
-          isEnabledSet(effect, pcCount, character)
-        )
-      );
+  const allSetEffects = Object.entries(member.setCounts).flatMap(([setId, pcCount]) =>
+    SET[gameId][setId].effects.filter((effect) =>
+      isEnabledSet(effect, pcCount, character)
+    )
+  );
   for (const effect of allSetEffects) {
     if (
       !isStaticBuff(effect) ||

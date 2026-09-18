@@ -138,9 +138,10 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
       const buff = effect.buff = { ...effect.buff };
       const buffStats = buff.stats = { ...buff.stats };
 
-      for (const [id, valueRange] of Object.entries(buffStats)) {
-        if (!Array.isArray(valueRange)) continue;
-        buffStats[id] = resolveValue(valueRange);
+      for (const [stat, valueRange] of Object.entries(buffStats)) {
+        buffStats[stat] = Array.isArray(valueRange)
+          ? resolveValue(valueRange)
+          : valueRange;
       }
     }
 
@@ -152,8 +153,9 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
         const buffSpec = buffSpecs[id] = { ...rankedSpec };
 
         for (const [field, valueRange] of Object.entries(buffSpec)) {
-          if (!Array.isArray(valueRange)) continue;
-          buffSpec[field] = resolveValue(valueRange);
+          buffSpec[field] = Array.isArray(valueRange)
+            ? resolveValue(valueRange)
+            : valueRange;
         }
       }
     }

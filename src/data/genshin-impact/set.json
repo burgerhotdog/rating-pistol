@@ -703,7 +703,7 @@
         },
         "buff": {
           "stats": {
-            "atk%": 0.9
+            "atk%": 0.09
           }
         },
         "maxStacks": 2

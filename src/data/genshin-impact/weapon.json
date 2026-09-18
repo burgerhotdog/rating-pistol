@@ -3862,7 +3862,6 @@
     "effects": []
   },
   "15410": {
-    "disabled": true,
     "name": "Alley Hunter",
     "version": 1.4,
     "id": 15410,
@@ -3873,7 +3872,21 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "field": "offField"
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "15411": {
     "disabled": true,
