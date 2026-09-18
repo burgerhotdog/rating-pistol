@@ -5,6 +5,22 @@ import { getDmgAmpMult } from './dmgAmp';
 import { getDefMult } from './enemyDef';
 import { getResMult } from './enemyRes';
 
+export const getBonusTypes = (gameId, damage) => {
+  const { element, type } = damage;
+
+  const bonusTypes = [element, type];
+
+  if (damage.extraType) {
+    bonusTypes.push(damage.extraType);
+  }
+
+  if (gameId === GI && element !== 'physical') {
+    bonusTypes.push('elemental');
+  }
+
+  return bonusTypes;
+}
+
 const critMultiplier = (statMap) => {
   const critRate = clamp(getAttr('critRate%', statMap), 0, 1);
   const critDamage = getAttr('critDmg%', statMap);
@@ -24,11 +40,8 @@ const dmgBonusMultiplier = (statMap, dmgTypes) => {
 
 export function runDamageFormula(gameId, action, statMap) {
   const { damage, times = 1 } = action;
-  const { type, extraType, element, compressed } = damage;
-  const bonusTypes = [element, type, ...(extraType ? [extraType] : [])];
-  if (gameId === GI && element !== 'physical') {
-    bonusTypes.push('elemental');
-  }
+  const { element, compressed } = damage;
+  const bonusTypes = getBonusTypes(gameId, damage);
 
   let damageValue = computeBase('damage', compressed, statMap);
 

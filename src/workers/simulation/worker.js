@@ -72,6 +72,8 @@ self.onmessage = async ({ data }) => {
   const skillLevelResults = runSkillLevelTests(cache, equipMaps, charId);
   console.timeEnd('runSkillLevelTests');
 
+  console.log(userSnapshots.length);
+
   self.postMessage({
     status: 'done',
     memberIds: cache.memberIds,

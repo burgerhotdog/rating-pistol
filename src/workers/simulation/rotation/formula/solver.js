@@ -1,4 +1,5 @@
 import { HSR, ZZZ } from '@/data';
+import { getBonusTypes } from './damageFormula';
 
 export function getUsedAttrs(gameId, action, part) {
   const usedAttrs = new Set();
@@ -18,12 +19,8 @@ export function getUsedAttrs(gameId, action, part) {
       if (action.damage.attr === 'tuneAmp') {
         usedAttrs.add('tuneBreakBoost');
       } else {
-        const { type, extraType, element } = action.damage;
-        const bonusTypes = [
-          element,
-          type,
-          ...(extraType ? [extraType] : []),
-        ];
+        const { element } = action.damage;
+        const bonusTypes = getBonusTypes(gameId, action.damage);
         usedAttrs.add('critRate%');
         usedAttrs.add('critDmg%');
         usedAttrs.add('dmgBonus%');

@@ -227,11 +227,6 @@ function runAction(ctx, action, options = {}) {
   // Melt/vaporize only amplify the specific hit that triggers them, so these
   // actions can't have their damage batched into one snapshot up front - ICD
   // determines which hits react only once we're inside the hitOffsets loop.
-
-  const reactiveElement = checkInfusion(ctx, action);
-  const isAmpReactive = gameId === GI
-    && action.damage
-    && ['pyro', 'cryo', 'hydro'].includes(reactiveElement ?? action.damage.element);
   let perHitDamage;
 
   // Action timeline
@@ -254,7 +249,7 @@ function runAction(ctx, action, options = {}) {
         : action;
       const snapshot = buildSnapshot(ctx, infusedAction, { runtimeOffset });
 
-      if (isAmpReactive) {
+      if (snapshot.damage) {
         perHitDamage = splitPerHit(snapshot, 'damage', hitOffsets.length);
         delete snapshot.damage;
         delete snapshot.damageType;
@@ -303,11 +298,14 @@ function runAction(ctx, action, options = {}) {
       }
     }
 
-    if (gameId === GI) {
-      const infusionElement = checkInfusion(ctx, action);
-      const multiplier = applyGauge(ctx, action, infusionElement);
+    if (action.damage) {
+      let scaleMult = 1;
+      if (gameId === GI) {
+        const infusionElement = checkInfusion(ctx, action);
+        scaleMult = applyGauge(ctx, action, infusionElement);
+      }
 
-      if (isAmpReactive && ctx.saveSnapshots) {
+      if (ctx.saveSnapshots) {
         ctx.snapshots.push({
           key: action.key,
           name: action.name,
@@ -317,7 +315,7 @@ function runAction(ctx, action, options = {}) {
           onFieldId: ctx.states.onFieldId,
           runtime: ctx.states.runtime + (runtimeOffset ?? 0),
           damageType: action.damage.type,
-          damage: scaleResolved(perHitDamage, multiplier ?? 1),
+          damage: scaleResolved(perHitDamage, scaleMult),
         });
       }
     }
