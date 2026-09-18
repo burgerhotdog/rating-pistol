@@ -25,7 +25,7 @@ export const getEffectDefs = (gameId, member, spec) => {
   const charData = CHARACTER[gameId][member.id];
   const charEffects = charData.effects ?? [];
   for (const [index, rawEffect] of charEffects.entries()) {
-    if (!isEnabledChar(rawEffect, member, gameId, spec.memberIds)) continue;
+    if (!isEnabledChar(rawEffect, member, gameId, { memberIds: spec.memberIds, counts: spec.counts })) continue;
 
     const effect = normalizeEffect(gameId, rawEffect, {
       ...sharedCtx,

@@ -454,7 +454,6 @@
     "effects": []
   },
   "11417": {
-    "disabled": true,
     "name": "Sapwood Blade",
     "version": 3,
     "id": 11417,
@@ -466,7 +465,38 @@
       "baseAtk": 565,
       "energyRecharge%": 0.306
     },
-    "effects": []
+    "effects": [
+      {
+        "stores": "$first",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "burning",
+                "quicken",
+                "aggravate",
+                "spread",
+                "bloom",
+                "lunarBloom",
+                "hyperbloom",
+                "burgeon"
+              ]
+            }
+          },
+          "cooldown": 20000,
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              60,
+              120
+            ]
+          }
+        }
+      }
+    ]
   },
   "11418": {
     "disabled": true,
@@ -2909,7 +2939,6 @@
     "effects": []
   },
   "14413": {
-    "disabled": true,
     "name": "Dodoco Tales",
     "version": 1.6,
     "id": 14413,
@@ -2920,7 +2949,50 @@
       "baseAtk": 454,
       "atk%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "chargedAttackDmgBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      }
+    ]
   },
   "14414": {
     "disabled": true,

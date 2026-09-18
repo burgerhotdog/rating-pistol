@@ -1,6 +1,16 @@
 characters:
-    10000032 Bennett
-        Double check
+    Amber
+        C1 arrow damage hard coded at level 10 skill
+        C2 popping baron bunny doesnt do 200% extra dmgBonus
+        C3 None
+        C5 None
+    Bennett
+        No constellations
+    Diluc
+        No constellations
+        No pyro infusion
+    Klee
+        No constellations
     10000038 Albedo
         Double check
     10000075 Wanderer
@@ -19,6 +29,8 @@ characters:
         unfinished
 
 weapons:
+    Sapwood Blade
+        Leaf buff applied to $first instantly
     11302 Harbinger of Dawn
         Assume buff always up
     11303 Traveler's Handy Sword

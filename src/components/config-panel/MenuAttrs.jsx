@@ -88,7 +88,7 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
     const memberIds = team.filter((member) => member?.id).map((member) => member.id);
     for (const effect of character.effects) {
       if (
-        !isEnabledChar(effect, member, gameId, memberIds) ||
+        !isEnabledChar(effect, member, gameId, { memberIds }) ||
         !isStaticBuff(effect) ||
         !appliesToCharId(effect, charId)
       ) continue;
