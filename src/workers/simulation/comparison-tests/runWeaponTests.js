@@ -83,9 +83,8 @@ export function runWeaponTests(cache, equipMaps, charId) {
       )
   );
 
-  const weapDatasToTest = Object.values(WEAPON[gameId]).filter((weapData) =>
-    !weapData.disabled && weapData.type === charType
-  );
+  const weapDatasToTest = Object.values(WEAPON[gameId])
+    .filter((weapData) => !weapData.disabled && weapData.type === charType);
 
   const oldStaticMapPart = Object.values(mCache.staticEffects)
     .filter((effect) => effect.sourceId !== mCache.weaponId)

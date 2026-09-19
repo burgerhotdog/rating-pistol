@@ -158,6 +158,13 @@ export function runSetBonusTests(cache, equipMaps, charId) {
       ))
   );
 
+  const oldStaticMapPart = Object.values(mCache.staticEffects)
+    .filter((effect) => !(
+      mCache.setCounts[effect.sourceId] ||
+      effect.sourceId === mCache.mainEcho
+    ))
+    .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
+
   const nonEchoRotation = mCache.rotation.filter((action) =>
     action.type !== 'echoSkill' || action.ownerId !== charId
   );
@@ -171,16 +178,25 @@ export function runSetBonusTests(cache, equipMaps, charId) {
       const echoEffects = echoId != null
         ? getNormalizedEchoEffects(gameId, charId, echoId, cache.memberIds, mCache.weaponRank)
         : {};
-      const effects = { ...nonSetEffects, ...setEffects, ...echoEffects };
 
-      const staticMap = Object.values(effects)
+      const effects = {
+        ...nonSetEffects,
+        ...setEffects,
+        ...echoEffects,
+      };
+
+      const newStaticMap = Object.values({ ...setEffects, ...echoEffects })
         .filter((effect) => effect.static)
         .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
 
       const echoAction = echoId != null ? buildEchoAction(gameId, echoId, charId, cache.teamSize) : undefined;
       const rotation = withEchoAction(nonEchoRotation, echoAction, ECHO[echoId]?.timing);
 
-      return runVariantDps(cache, equipMaps, charId, { staticMap, effects, rotation });
+      return runVariantDps(cache, equipMaps, charId, {
+        staticMap: toMergedObj(newStaticMap, oldStaticMapPart),
+        effects,
+        rotation,
+      });
     };
 
     if (!echoCandidates.length) {
