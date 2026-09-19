@@ -21824,7 +21824,6 @@
     ]
   },
   "1212": {
-    "disabled": true,
     "name": "Jingran",
     "version": 3.6,
     "id": 1212,
@@ -22897,7 +22896,7 @@
         "name": "Burial of Thousand Souls",
         "actions": [
           {
-            "name": "Burial of Thousand Souls",
+            "name": "Resonance Liberation",
             "type": "resonanceLiberation",
             "damage": {
               "type": "heavyAttack",
@@ -23405,8 +23404,21 @@
       "mainEcho": 6000217,
       "rotation": [
         "introSkill.0",
+        "resonanceLiberation.0",
+        "forteCircuit.1",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "forteCircuit.0",
+        "resonanceSkill.1",
+        "resonanceSkill.3",
+        "forteCircuit.1",
+        "resonanceSkill.0",
+        "resonanceSkill.2",
+        "forteCircuit.0",
         "outroSkill.0"
-      ]
+      ],
+      "duration": 13370
     },
     "teamPreset": [
       1212,

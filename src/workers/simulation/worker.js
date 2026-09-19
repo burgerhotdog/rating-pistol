@@ -1,4 +1,4 @@
-import { LANG } from '@/data';
+import { CHARACTER, LANG } from '@/data';
 import {
   computeActualRotationTime,
   estimateDps,
@@ -24,7 +24,8 @@ async function resolveEquipMaps(cache, allowBlank = false) {
       continue;
     }
 
-    self.postMessage({ title: `Generating trial build for ${member.id}` });
+    const memberName = CHARACTER[cache.gameId][member.id].name;
+    self.postMessage({ title: `Generating trial build for ${memberName}` });
 
     const trialEquipMaps = await resolveEquipMaps(cache, true);
     const { meanEquipMap } = await runTrials(cache, trialEquipMaps, member.id);
