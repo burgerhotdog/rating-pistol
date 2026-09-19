@@ -27,7 +27,10 @@ import {
   inflictTuneShifting,
   advanceTune,
 } from './game-specific/wuthering-waves';
-import { buildSnapshot, splitPerHit, scaleResolved } from './snapshot';
+import {
+  buildSnapshot,
+  resolveSnapshot,
+} from './snapshot';
 import { getEffectStates } from './getEffectStates';
 import { createEventFilter } from './filter';
 
@@ -227,7 +230,7 @@ function runAction(ctx, action, options = {}) {
   // Melt/vaporize only amplify the specific hit that triggers them, so these
   // actions can't have their damage batched into one snapshot up front - ICD
   // determines which hits react only once we're inside the hitOffsets loop.
-  let perHitDamage;
+  let sharedSnapshot;
 
   // Action timeline
   runEffectsWhen('start');
@@ -247,20 +250,8 @@ function runAction(ctx, action, options = {}) {
           }),
         } 
         : action;
-      const snapshot = buildSnapshot(ctx, infusedAction, { runtimeOffset });
 
-      if (snapshot.damage) {
-        perHitDamage = splitPerHit(snapshot, 'damage', hitOffsets.length);
-        delete snapshot.damage;
-        delete snapshot.damageType;
-
-        // Only push the leftover shell if it still carries healing/shield.
-        if (snapshot.healing !== undefined || snapshot.shield !== undefined) {
-          ctx.snapshots.push(snapshot);
-        }
-      } else {
-        ctx.snapshots.push(snapshot);
-      }
+      sharedSnapshot = buildSnapshot(ctx, infusedAction, { runtimeOffset });
     }
 
     if (gameId === WW && action.damage) {
@@ -298,26 +289,21 @@ function runAction(ctx, action, options = {}) {
       }
     }
 
-    if (action.damage) {
-      let scaleMult = 1;
-      if (gameId === GI) {
-        const infusionElement = checkInfusion(ctx, action);
-        scaleMult = applyGauge(ctx, action, infusionElement);
-      }
+    let scaleMult = 1;
+    if (gameId === GI) {
+      const infusionElement = checkInfusion(ctx, action);
+      scaleMult = applyGauge(ctx, action, infusionElement);
+    }
 
-      if (ctx.saveSnapshots) {
-        ctx.snapshots.push({
-          key: action.key,
-          name: action.name,
-          ownerId: action.ownerId,
-          category: action.category,
-          type: action.type,
-          onFieldId: ctx.states.onFieldId,
-          runtime: ctx.states.runtime + (runtimeOffset ?? 0),
-          damageType: action.damage.type,
-          damage: scaleResolved(perHitDamage, scaleMult ?? 1),
-        });
-      }
+    if (sharedSnapshot) {
+      ctx.snapshots.push({
+        ...sharedSnapshot,
+        runtime: sharedSnapshot.runtime + actionRuntime - hitOffsets[0],
+        unresolved: {
+          ...sharedSnapshot.unresolved,
+          scale: scaleMult,
+        },
+      });
     }
   }
 
@@ -425,8 +411,13 @@ export const runRotation = (cache, equipMaps, specId) => {
   ctx.saveSnapshots = true;
   runCycle();
 
+  // Resolve snapshots
+  for (const snapshot of ctx.snapshots) {
+    resolveSnapshot(ctx, snapshot);
+  }
+
   if (!specId) {
-    return ctx.snapshots;
+    return ctx.snapshots.map(({ unresolved: _, ...snapshot }) => snapshot);
   }
 
   return (buildMap) => ctx.snapshots.map((snapshot) => {

@@ -3,11 +3,13 @@ import { runFormula } from './formula';
 import { getBuffMap } from './getStatMap';
 import { getUsedAttrs } from './formula/solver';
 
-const snapshotParts = ['damage', 'healing', 'shield'];
-
 export const buildSnapshot = (ctx, action, options = {}) => {
-  const { runtimeOffset = 0 } = options;
   const { gameId } = ctx.cache;
+  const { runtimeOffset = 0 } = options;
+
+  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: action.ownerId, action });
+
+  const memo = {};
 
   const snapshot = {
     key: action.key,
@@ -17,47 +19,89 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     type: action.type,
     onFieldId: ctx.states.onFieldId,
     runtime: ctx.states.runtime + runtimeOffset,
-    ...(action.damage && {
-      damageType: action.damage.type,
-    }),
-    ...(action.hitOffsets && {
-      hitOffsets: action.hitOffsets,
-    }),
+    damageType: action.damage?.type,
+    unresolved: {
+      memo,
+      action,
+      buffMap,
+      buffSpecs,
+      formula: (statMap, part) => runFormula(gameId, part, action, statMap),
+      splitScale: 1 / (action.hitOffsets?.length ?? 1),
+      parts: [
+        ...(action.damage ? ['damage'] : []),
+        ...(action.healing ? ['healing'] : []),
+        ...(action.shield ? ['shield'] : []),
+      ],
+    },
   };
 
-  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: action.ownerId, action });
-  const isSpecIdAction = action.ownerId === ctx.specId;
+  return snapshot;
+}
+
+export const resolveSnapshot = (ctx, snapshot) => {
+  const { gameId } = ctx.cache;
+  const { unresolved } = snapshot;
+  if (!unresolved) return;
+
+  const { memo, ownerId, action, buffMap, buffSpecs, formula, splitScale } = unresolved;
+  const scale = unresolved.scale ?? 1;
+
+  const statMapOwnerId = action?.ownerId ?? ownerId;
+  const statMapOwnerIdBuildMap = ctx.buildMaps[statMapOwnerId];
+
+  const isSpecIdAction = statMapOwnerId === ctx.specId;
   let testBuffMap;
 
-  for (const part of snapshotParts) {
-    if (!action[part]) continue;
-
+  for (const part of unresolved.parts) {
     // Can be resolved now
     // Not in spec mode
     if (!ctx.specId) {
-      const statMap = toMergedObj(ctx.buildMaps[action.ownerId], buffMap);
-      snapshot[part] = runFormula(gameId, part, action, statMap);
+      const statMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
+      const formulaOutput = memo[part] ??= formula(statMap, part);
+      snapshot[part] = applyScale(formulaOutput, scale) * splitScale;
       continue;
     }
 
-    const usedAttrs = getUsedAttrs(gameId, action, part);
+    const usedAttrs = action
+      ? getUsedAttrs(gameId, action, part)
+      : new Set([
+        'elementalMastery',
+        `${snapshot.damageType}ReactionBonus%`,
+        `${unresolved.reactionElement}ResReduction%`,
+      ]);
+
     const usesSpecs = buffSpecs.some(({ specs }) =>
-      Object.keys(specs).some((statId) => usedAttrs.has(statId))
+      Object.keys(specs).some((stat) => usedAttrs.has(stat))
     );
 
     // Can be resolved now
     // Action is not from specId and uses no variable buffs from specId
     if (!isSpecIdAction && !usesSpecs) {
-      const statMap = toMergedObj(ctx.buildMaps[action.ownerId], buffMap);
-      snapshot[part] = runFormula(gameId, part, action, statMap);
+      const statMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
+      const formulaOutput = memo[part] ??= formula(statMap, part);
+      snapshot[part] = applyScale(formulaOutput, scale) * splitScale;
       continue;
     }
 
     // Action is from specId but has no variable buffs from specId
     if (!usesSpecs) {
       snapshot[part] = (currBuildMap) => {
-        const statMap = toMergedObj(currBuildMap, buffMap);
-        return runFormula(gameId, part, action, statMap);
+        const cached = memo[part];
+
+        if (!cached || cached.buildMap !== currBuildMap) {
+          memo[part] = {
+            buildMap: currBuildMap,
+            value: formula(toMergedObj(currBuildMap, buffMap), part) * splitScale,
+          };
+        }
+
+        const value = memo[part].value;
+
+        if (typeof scale !== 'function') {
+          return value * scale;
+        }
+
+        return value * scale(currBuildMap);
       };
       continue;
     }
@@ -66,63 +110,62 @@ export const buildSnapshot = (ctx, action, options = {}) => {
 
     // Action is not from specId but has variable buffs from specId
     if (!isSpecIdAction) {
-      const partiallyBuffedMap = toMergedObj(ctx.buildMaps[action.ownerId], buffMap);
+      const partiallyBuffedMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
       snapshot[part] = (testBuildMap) => {
-        const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
-        const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
-        const statMap = toMergedObj(partiallyBuffedMap, resolvedBuffs);
-        return runFormula(gameId, part, action, statMap);
+        const cached = memo[part];
+
+        if (!cached || cached.buildMap !== testBuildMap) {
+          const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
+          const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
+          const statMap = toMergedObj(partiallyBuffedMap, resolvedBuffs);
+
+          memo[part] = {
+            buildMap: testBuildMap,
+            value: formula(statMap, part) * splitScale,
+          };
+        }
+
+        const value = memo[part].value;
+
+        if (typeof scale !== 'function') {
+          return value * scale;
+        }
+
+        return value * scale(testBuildMap);
       };
       continue;
     }
 
     // Action is from specId and has variable buffs from specId
     snapshot[part] = (testBuildMap) => {
-      const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
-      const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
-      const statMap = toMergedObj(testBuildMap, buffMap, resolvedBuffs);
-      return runFormula(gameId, part, action, statMap);
+      const cached = memo[part];
+
+      if (!cached || cached.buildMap !== testBuildMap) {
+        const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
+        const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
+        const statMap = toMergedObj(testBuildMap, buffMap, resolvedBuffs);
+
+        memo[part] = {
+          buildMap: testBuildMap,
+          value: formula(statMap, part) * splitScale,
+        };
+      }
+
+      const value = memo[part].value;
+
+      if (typeof scale !== 'function') {
+        return value * scale;
+      }
+
+      return value * scale(testBuildMap);
     };
   }
-
-  return snapshot;
 };
 
-// Divides an already-built snapshot part by hitCount to get a per-hit share.
-// When the part is a spec-mode closure, the result is memoized by buildMap
-// reference so N per-hit snapshots sharing this resolver only pay the cost once
-// per resolve call instead of once per hit.
-export const splitPerHit = (snapshot, part, hitCount) => {
-  const value = snapshot[part];
-
-  if (typeof value !== 'function') {
-    return value / hitCount;
+function applyScale(value, scale) {
+  if (typeof scale !== 'function') {
+    return value * scale;
   }
 
-  let lastArg, lastResult;
-  let hasResult = false;
-
-  return (buildMap) => {
-    if (!hasResult || buildMap !== lastArg) {
-      lastArg = buildMap;
-      lastResult = value(buildMap);
-      hasResult = true;
-    }
-
-    return lastResult / hitCount;
-  };
-};
-
-// Combines a snapshot part with a multiplier, each of which may be a plain
-// number or a spec-mode buildMap => number closure.
-export const scaleResolved = (value, multiplier) => {
-  if (typeof value !== 'function' && typeof multiplier !== 'function') {
-    return value * multiplier;
-  }
-
-  return (buildMap) => {
-    const resolvedValue = typeof value === 'function' ? value(buildMap) : value;
-    const resolvedMultiplier = typeof multiplier === 'function' ? multiplier(buildMap) : multiplier;
-    return resolvedValue * resolvedMultiplier;
-  };
-};
+  return (buildMap) => value * scale(buildMap);
+}

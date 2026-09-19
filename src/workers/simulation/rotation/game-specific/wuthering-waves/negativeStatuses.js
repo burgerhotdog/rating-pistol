@@ -1,3 +1,4 @@
+import { WW } from '@/data';
 import { formatStr } from '@/utils';
 import { getEffectStates } from '../../getEffectStates';
 import { getBuffMap } from '../../getStatMap';
@@ -376,17 +377,17 @@ const buildSnapshot = (ctx, statusState, runtimeOffset = 0, fixedMv) => {
   const baseDmg = LEVEL_MODIFIER * ((mv + rageMv) / 10000);
 
   const dmgAmpMult = getDmgAmpMult(buffMap, [status.id]);
-  const defMult = getDefMult(ctx.cache.gameId, buffMap);
-  const resMult = getResMult(ctx.cache.gameId, status.element, buffMap);
+  const defMult = getDefMult(WW, buffMap);
+  const resMult = getResMult(WW, status.element, buffMap);
 
   return {
     id: `system:${status.id}`,
     ownerId: 'system',
     name: formatStr(status.id),
     type: 'negativeStatus',
-    damageType: status.id,
-    damage: baseDmg * dmgAmpMult * defMult * resMult,
     onFieldId: ctx.states.onFieldId,
     runtime: ctx.states.runtime + runtimeOffset,
+    damageType: status.id,
+    damage: baseDmg * dmgAmpMult * defMult * resMult,
   };
 };
