@@ -238,23 +238,16 @@
         "apply": {
           "when": "reaction",
           "filter": {
-            "and": [
-              {
-                "field": "onField"
-              },
-              {
-                "reaction": {
-                  "and": [
-                    {
-                      "reaction": "swirl"
-                    },
-                    {
-                      "elements": "pyro"
-                    }
-                  ]
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "pyro"
                 }
-              }
-            ]
+              ]
+            }
           },
           "duration": 10000
         },
@@ -270,23 +263,16 @@
         "apply": {
           "when": "reaction",
           "filter": {
-            "and": [
-              {
-                "field": "onField"
-              },
-              {
-                "reaction": {
-                  "and": [
-                    {
-                      "reaction": "swirl"
-                    },
-                    {
-                      "elements": "hydro"
-                    }
-                  ]
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "hydro"
                 }
-              }
-            ]
+              ]
+            }
           },
           "duration": 10000
         },
@@ -302,23 +288,16 @@
         "apply": {
           "when": "reaction",
           "filter": {
-            "and": [
-              {
-                "field": "onField"
-              },
-              {
-                "reaction": {
-                  "and": [
-                    {
-                      "reaction": "swirl"
-                    },
-                    {
-                      "elements": "electro"
-                    }
-                  ]
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "electro"
                 }
-              }
-            ]
+              ]
+            }
           },
           "duration": 10000
         },
@@ -334,30 +313,23 @@
         "apply": {
           "when": "reaction",
           "filter": {
-            "and": [
-              {
-                "field": "onField"
-              },
-              {
-                "reaction": {
-                  "or": [
+            "reaction": {
+              "or": [
+                {
+                  "and": [
                     {
-                      "and": [
-                        {
-                          "reaction": "swirl"
-                        },
-                        {
-                          "elements": "cryo"
-                        }
-                      ]
+                      "reaction": "swirl"
                     },
                     {
-                      "reaction": "stellarSwirl"
+                      "elements": "cryo"
                     }
                   ]
+                },
+                {
+                  "reaction": "stellarSwirl"
                 }
-              }
-            ]
+              ]
+            }
           },
           "duration": 10000
         },
@@ -648,6 +620,7 @@
         "stores": "$team",
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "damage": {
@@ -1005,6 +978,7 @@
         "stores": "global",
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "damage": {
@@ -1274,6 +1248,7 @@
         "bonus": 4,
         "apply": {
           "when": "start",
+          "field": "offField",
           "filter": {
             "field": "offField"
           }
@@ -1633,6 +1608,7 @@
         "bonus": 4,
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "damage": {
@@ -1660,6 +1636,7 @@
         },
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "damage": {
@@ -1709,6 +1686,7 @@
         "stores": "$team",
         "apply": {
           "when": "start",
+          "field": "*",
           "filter": {
             "action": {
               "type": "elementalSkill"
@@ -1733,6 +1711,7 @@
         "stores": "$team",
         "apply": {
           "when": "start",
+          "field": "*",
           "filter": {
             "action": {
               "type": "elementalSkill"

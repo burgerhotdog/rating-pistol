@@ -470,6 +470,7 @@
         "stores": "$first",
         "apply": {
           "when": "reaction",
+          "field": "*",
           "filter": {
             "reaction": {
               "reaction": [
@@ -837,6 +838,7 @@
         "ref": "sigil",
         "apply": {
           "when": "reaction",
+          "field": "*",
           "filter": {
             "effectStacks": {
               "not": {
@@ -3667,6 +3669,7 @@
         "stores": "$team",
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "has": "shield"

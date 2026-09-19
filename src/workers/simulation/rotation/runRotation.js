@@ -126,6 +126,11 @@ function handleApplyWhen(ctx, when, event) {
     const applier = event?.ownerId ?? effect.ownerId;
     if (!apply.by.includes(applier) || applyCooldowns[effect.key]) return;
 
+    if (
+      apply.field &&
+      apply.field !== (applier === ctx.states.onFieldId ? 'onField' : 'offField')
+    ) return;
+
     const spec = {
       ...(event.reaction ? { reaction: event } : { action: event }),
       fieldId: applier,

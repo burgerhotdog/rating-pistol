@@ -276,6 +276,7 @@
         "stores": "$team",
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "has": "healing"
@@ -1180,6 +1181,7 @@
         "stores": "$team",
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "has": "healing"

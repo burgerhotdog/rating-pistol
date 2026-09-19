@@ -665,6 +665,7 @@
         "apply": {
           "by": "$team",
           "when": "inflict",
+          "field": "*",
           "filter": {
             "and": [
               {
@@ -773,6 +774,7 @@
         "stores": "$team",
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "has": "healing"
@@ -2969,6 +2971,7 @@
       {
         "apply": {
           "when": "tuneBreak",
+          "field": "*",
           "duration": 14000
         },
         "buff": {
@@ -4727,16 +4730,9 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
-              {
-                "action": {
-                  "type": "resonanceSkill"
-                }
-              },
-              {
-                "field": "onField"
-              }
-            ]
+            "action": {
+              "type": "resonanceSkill"
+            }
           },
           "duration": 6000
         },
@@ -4994,6 +4990,7 @@
       {
         "apply": {
           "when": "tuneBreak",
+          "field": "*",
           "duration": 14000
         },
         "buff": {
@@ -5627,6 +5624,7 @@
         "ref": "snowTaint",
         "apply": {
           "when": "inflict",
+          "field": "*",
           "filter": {
             "action": {
               "inflict": {
@@ -5643,6 +5641,7 @@
         "ref": "ripples",
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "has": "healing"

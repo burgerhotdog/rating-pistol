@@ -96,6 +96,14 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
       ownerId,
       memberIds: spec.memberIds,
     });
+
+    if (spec.sourceType === 'weapon' || spec.sourceType === 'set') {
+      apply.field ??= 'onField';
+    }
+
+    if (apply.field === '*') {
+      apply.field = null;
+    }
   }
 
   // Resolve indexed buff stats
