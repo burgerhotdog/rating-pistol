@@ -59,7 +59,7 @@ function buildData(snapshots, areaStack, userRotationTime, userRotationTimeSourc
   }
 
   const data = Object.values(runtimeDamage).sort((a, b) => a.time - b.time);
-
+  
   for (let i = 0; i < data.length; i++) {
     const curr = data[i];
 
@@ -76,7 +76,23 @@ function buildData(snapshots, areaStack, userRotationTime, userRotationTimeSourc
     }
   }
 
-  return data;
+  let currTime = 0;
+  const filled = [data[0]];
+
+  for (const point of data.slice(1)) {
+    while (currTime < point.time - 1000) {
+      currTime += 1000;
+      filled.push({
+        ...filled.at(-1),
+        time: currTime,
+      });
+    }
+
+    filled.push(point);
+    currTime = point.time;
+  }
+
+  return filled;
 }
 
 const tooltipContent = ({ payload }, areaStack) => {

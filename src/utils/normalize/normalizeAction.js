@@ -7,7 +7,7 @@ const DEFAULT_DURATIONS = {
     'chargedAttack': 1000,
     'plungeAttack': 1000,
     'elementalSkill': 1000,
-    'elementalBurst': 2000,
+    'elementalBurst': 1500,
   },
   [WW]: {
     'basicAttack': 500,
@@ -81,6 +81,9 @@ export function normalizeAction(gameId, rawAction, spec) {
     return action;
   }
 
+  if (action.type === 'elementalBurst' && CHARACTER[GI][ownerId]?.quality === 5) {
+    action.duration ??= 2000;
+  }
   action.duration ??= DEFAULT_DURATIONS[gameId][action.type] ?? 0;
 
   if (action.damage) {

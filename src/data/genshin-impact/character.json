@@ -5464,8 +5464,8 @@
         "15020": 4
       },
       "rotation": [
-        "elementalSkill.0",
-        "elementalBurst.0"
+        "elementalBurst.0",
+        "elementalSkill.0"
       ]
     }
   },
