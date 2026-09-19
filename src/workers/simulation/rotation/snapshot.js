@@ -3,34 +3,51 @@ import { runFormula } from './formula';
 import { getBuffMap } from './getStatMap';
 import { getUsedAttrs } from './formula/solver';
 
+export const canSnapshot = (action = {}) =>
+  action.damage ||
+  action.healing ||
+  action.shield;
+
 export const buildSnapshot = (ctx, action, options = {}) => {
   const { gameId } = ctx.cache;
-  const { runtimeOffset = 0 } = options;
+  const { runtimeOffset = 0, infusedElement } = options;
+  const snapshotOwnerId = action.ownerId;
 
-  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: action.ownerId, action });
+  let snapshotAction = action;
+  if (action?.damage && infusedElement) {
+    snapshotAction = {
+      ...action,
+      damage: {
+        ...action.damage,
+        element: infusedElement,
+      },
+    };
+  }
+
+  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: snapshotOwnerId, action: snapshotAction });
 
   const memo = {};
 
   const snapshot = {
-    key: action.key,
-    name: action.name,
-    ownerId: action.ownerId,
-    category: action.category,
-    type: action.type,
+    key: snapshotAction.key,
+    name: snapshotAction.name,
+    ownerId: snapshotAction.ownerId,
+    category: snapshotAction.category,
+    type: snapshotAction.type,
     onFieldId: ctx.states.onFieldId,
     runtime: ctx.states.runtime + runtimeOffset,
-    damageType: action.damage?.type,
+    damageType: snapshotAction.damage?.type,
     unresolved: {
       memo,
-      action,
+      action: snapshotAction,
       buffMap,
       buffSpecs,
-      formula: (statMap, part) => runFormula(gameId, part, action, statMap),
       splitScale: 1 / (action.hitOffsets?.length ?? 1),
+      formula: (statMap, part) => runFormula(gameId, part, snapshotAction, statMap),
       parts: [
-        ...(action.damage ? ['damage'] : []),
-        ...(action.healing ? ['healing'] : []),
-        ...(action.shield ? ['shield'] : []),
+        ...(snapshotAction.damage ? ['damage'] : []),
+        ...(snapshotAction.healing ? ['healing'] : []),
+        ...(snapshotAction.shield ? ['shield'] : []),
       ],
     },
   };
@@ -57,8 +74,8 @@ export const resolveSnapshot = (ctx, snapshot) => {
     // Not in spec mode
     if (!ctx.specId) {
       const statMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
-      const formulaOutput = memo[part] ??= formula(statMap, part);
-      snapshot[part] = applyScale(formulaOutput, scale) * splitScale;
+      const value = memo[part] ??= formula(statMap, part);
+      snapshot[part] = applyScale(value * splitScale, scale);
       continue;
     }
 
@@ -78,30 +95,27 @@ export const resolveSnapshot = (ctx, snapshot) => {
     // Action is not from specId and uses no variable buffs from specId
     if (!isSpecIdAction && !usesSpecs) {
       const statMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
-      const formulaOutput = memo[part] ??= formula(statMap, part);
-      snapshot[part] = applyScale(formulaOutput, scale) * splitScale;
+      const value = memo[part] ??= formula(statMap, part);
+      snapshot[part] = applyScale(value * splitScale, scale);
       continue;
     }
 
     // Action is from specId but has no variable buffs from specId
     if (!usesSpecs) {
-      snapshot[part] = (currBuildMap) => {
-        const cached = memo[part];
-
-        if (!cached || cached.buildMap !== currBuildMap) {
+      snapshot[part] = (testBuildMap) => {
+        if (memo[part]?.buildMap !== testBuildMap) {
+          const statMap = toMergedObj(testBuildMap, buffMap);
           memo[part] = {
-            buildMap: currBuildMap,
-            value: formula(toMergedObj(currBuildMap, buffMap), part) * splitScale,
+            buildMap: testBuildMap,
+            value: formula(statMap, part) * splitScale,
           };
         }
 
         const value = memo[part].value;
-
         if (typeof scale !== 'function') {
           return value * scale;
         }
-
-        return value * scale(currBuildMap);
+        return value * scale(testBuildMap);
       };
       continue;
     }
@@ -112,13 +126,10 @@ export const resolveSnapshot = (ctx, snapshot) => {
     if (!isSpecIdAction) {
       const partiallyBuffedMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
       snapshot[part] = (testBuildMap) => {
-        const cached = memo[part];
-
-        if (!cached || cached.buildMap !== testBuildMap) {
+        if (memo[part]?.buildMap !== testBuildMap) {
           const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
           const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
           const statMap = toMergedObj(partiallyBuffedMap, resolvedBuffs);
-
           memo[part] = {
             buildMap: testBuildMap,
             value: formula(statMap, part) * splitScale,
@@ -126,11 +137,9 @@ export const resolveSnapshot = (ctx, snapshot) => {
         }
 
         const value = memo[part].value;
-
         if (typeof scale !== 'function') {
           return value * scale;
         }
-
         return value * scale(testBuildMap);
       };
       continue;
@@ -138,13 +147,10 @@ export const resolveSnapshot = (ctx, snapshot) => {
 
     // Action is from specId and has variable buffs from specId
     snapshot[part] = (testBuildMap) => {
-      const cached = memo[part];
-
-      if (!cached || cached.buildMap !== testBuildMap) {
+      if (memo[part]?.buildMap !== testBuildMap) {
         const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
         const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
         const statMap = toMergedObj(testBuildMap, buffMap, resolvedBuffs);
-
         memo[part] = {
           buildMap: testBuildMap,
           value: formula(statMap, part) * splitScale,
@@ -152,11 +158,9 @@ export const resolveSnapshot = (ctx, snapshot) => {
       }
 
       const value = memo[part].value;
-
       if (typeof scale !== 'function') {
         return value * scale;
       }
-
       return value * scale(testBuildMap);
     };
   }
@@ -166,6 +170,5 @@ function applyScale(value, scale) {
   if (typeof scale !== 'function') {
     return value * scale;
   }
-
   return (buildMap) => value * scale(buildMap);
 }

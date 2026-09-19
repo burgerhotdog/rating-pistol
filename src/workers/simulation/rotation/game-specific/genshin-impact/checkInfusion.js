@@ -4,9 +4,7 @@ export function checkInfusion(ctx, action) {
 
   const store = ctx.states.memberEffects[ownerId];
   for (const effectKey in store) {
-    const state = store[effectKey];
-    const { effect } = state;
-    const { buff } = effect;
+    const { buff } = store[effectKey].effect;
 
     // SIMPLIFIED
     const infusionElement = buff?.infusion;

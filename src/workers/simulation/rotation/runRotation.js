@@ -28,6 +28,7 @@ import {
   advanceTune,
 } from './game-specific/wuthering-waves';
 import {
+  canSnapshot,
   buildSnapshot,
   resolveSnapshot,
 } from './snapshot';
@@ -227,31 +228,17 @@ function runAction(ctx, action, options = {}) {
     return;
   }
 
-  // Melt/vaporize only amplify the specific hit that triggers them, so these
-  // actions can't have their damage batched into one snapshot up front - ICD
-  // determines which hits react only once we're inside the hitOffsets loop.
-  let sharedSnapshot;
-
   // Action timeline
   runEffectsWhen('start');
   advanceTimeTo(hitOffsets[0]);
 
-  if (action.damage || action.healing || action.shield) {
+  let sharedSnapshot;
+  if (canSnapshot(action)) {
     if (ctx.saveSnapshots) {
-      const snapshotElement = checkInfusion(ctx, action);
-      const infusedAction = gameId === GI
-        ? {
-          ...action,
-          ...(action.damage && {
-            damage: {
-              ...action.damage,
-              element: snapshotElement ?? action.damage.element,
-            },
-          }),
-        } 
-        : action;
-
-      sharedSnapshot = buildSnapshot(ctx, infusedAction, { runtimeOffset });
+      sharedSnapshot = buildSnapshot(ctx, action, {
+        runtimeOffset,
+        infusedElement: checkInfusion(ctx, action),
+      });
     }
 
     if (gameId === WW && action.damage) {
