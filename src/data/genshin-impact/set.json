@@ -1683,7 +1683,6 @@
     ]
   },
   "15045": {
-    "disabled": true,
     "name": "Celestial Gift",
     "version": 6.6,
     "id": 15045,
@@ -1719,7 +1718,31 @@
         },
         "buff": {
           "stats": {
-            "dmgBonus%": 0.4
+            "dmgBonus%": 0.2
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "team": [
+            "hexerei",
+            2
+          ]
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.2
           }
         }
       }

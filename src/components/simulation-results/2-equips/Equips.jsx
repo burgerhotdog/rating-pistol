@@ -23,6 +23,8 @@ const Equips = ({ results }) => {
     .map(([stat, mps]) => ({ stat, diff: mps / results.userDps - 1 }))
     .filter(({ diff }) => diff >= 0.0005)
     .toSorted((a, b) => b.diff - a.diff);
+  
+  const extraSubstatsControl = results.extraSubstatsControl;
 
   return (
     <Stack spacing={1} sx={{ flex: 1 }}>
@@ -63,6 +65,14 @@ const Equips = ({ results }) => {
                 </Stack>
               );
             })}
+            <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
+                <Typography>
+                  Control:
+                </Typography>
+                <Typography>
+                  {extraSubstatsControl.toFixed()}
+                </Typography>
+              </Stack>
           </CardContent>
         </Card>
       </Stack>

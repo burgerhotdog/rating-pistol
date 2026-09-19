@@ -5,6 +5,8 @@ export function testExtraSubstat(cache, equipMaps, currId, evaluateEquipMap) {
   const { gameId } = cache;
   const currMap = equipMaps[currId];
 
+  const control = evaluateEquipMap(currMap).score;
+
   const results = {};
 
   for (const { stat, value } of Object.values(SUBSTAT[gameId])) {
@@ -13,5 +15,5 @@ export function testExtraSubstat(cache, equipMaps, currId, evaluateEquipMap) {
     results[stat] = score;
   }
 
-  return results;
+  return { control, results };
 }

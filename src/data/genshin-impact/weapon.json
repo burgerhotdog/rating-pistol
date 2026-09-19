@@ -3024,7 +3024,6 @@
     "effects": []
   },
   "14416": {
-    "disabled": true,
     "name": "Wandering Evenstar",
     "version": 3.1,
     "id": 14416,
@@ -3035,7 +3034,37 @@
       "baseAtk": 510,
       "elementalMastery": 165
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "specs": {
+            "atk": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                0.24,
+                0.48
+              ]
+            }
+          }
+        }
+      },
+      {
+        "stores": "$ally",
+        "buff": {
+          "specs": {
+            "atk": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                0.072,
+                0.144
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "14417": {
     "disabled": true,
@@ -3613,7 +3642,6 @@
     "effects": []
   },
   "14523": {
-    "disabled": true,
     "name": "Angelos' Heptades",
     "version": 6.6,
     "id": 14523,
@@ -3624,7 +3652,85 @@
       "baseAtk": 741,
       "atk%": 0.165
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "shield"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "specs": {
+            "dmgBonus%": {
+              "attr": "atk",
+              "step": 1000,
+              "value": [
+                0.1,
+                0.22
+              ],
+              "maxValue": [
+                0.26,
+                0.58
+              ]
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "team": [
+            "hexerei",
+            2
+          ]
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "character": {
+                  "tagged": "hexerei"
+                }
+              },
+              {
+                "field": "offField"
+              }
+            ]
+          },
+          "specs": {
+            "dmgBonus%": {
+              "attr": "atk",
+              "step": 1000,
+              "value": [
+                0.05,
+                0.11
+              ],
+              "maxValue": [
+                0.13,
+                0.29
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "15101": {
     "name": "Hunter's Bow",

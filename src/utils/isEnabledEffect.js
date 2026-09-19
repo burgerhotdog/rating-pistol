@@ -66,7 +66,7 @@ export const isEnabledChar = (effect, member, gameId, { memberIds, counts }) => 
   return true;
 };
 
-export const isEnabledWeap = (effect, charData, weapData) => {
+export const isEnabledWeap = (effect, charData, weapData, { counts } = {}) => {
   if (weapData.type !== charData.type) {
     return false;
   }
@@ -74,10 +74,20 @@ export const isEnabledWeap = (effect, charData, weapData) => {
   const { enable } = effect;
   if (!enable) return true;
 
-  if ('id' in enable) {
+  if (enable.id) {
     const allowed = toArray(enable.id);
     if (!allowed.includes(charData.id)) {
       return false;
+    }
+  }
+
+  if (enable.team) {
+    const [specialKey, countReq] = effect.enable.team;
+
+    if (specialKey === 'hexerei') {
+      if (counts?.hexerei < countReq) {
+        return false;
+      }
     }
   }
 

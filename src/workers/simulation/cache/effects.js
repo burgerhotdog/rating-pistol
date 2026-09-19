@@ -40,7 +40,7 @@ export const getEffectDefs = (gameId, member, spec) => {
   const weapData = WEAPON[gameId][member.weaponId];
   const weapEffects = weapData.effects ?? [];
   for (const [index, rawEffect] of weapEffects.entries()) {
-    if (!isEnabledWeap(rawEffect, charData, weapData)) continue;
+    if (!isEnabledWeap(rawEffect, charData, weapData, { counts: spec.counts })) continue;
 
     const effect = normalizeEffect(gameId, rawEffect, {
       ...sharedCtx,

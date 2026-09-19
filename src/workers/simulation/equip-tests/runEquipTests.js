@@ -30,11 +30,14 @@ export async function runEquipTests(cache, equipMaps, currId, userDps) {
 
   const mpsProgression = [{ day: 0, mean: score }, ...mpsUpdates];
 
+  const extraSubstatsResults = testExtraSubstat(cache, equipMaps, currId, evaluateEquipMap, userDps);
+
   return {
     dpsProgression: mpsProgression,
     dpsCeiling: mpsCeiling,
     fit: getFit(mpsProgression, mpsCeiling),
     equipListConfigs,
-    extraSubstats: testExtraSubstat(cache, equipMaps, currId, evaluateEquipMap, userDps),
+    extraSubstats: extraSubstatsResults.results,
+    extraSubstatsControl: extraSubstatsResults.control,
   };
 }

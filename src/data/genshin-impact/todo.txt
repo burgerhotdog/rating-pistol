@@ -12,21 +12,17 @@ characters:
     Klee
         No constellations
     Albedo
-        Double check
     Wanderer
-        Double check
     Zhongli
-        unfinished
     Fischl
-        unfinished
     Kaeya
-        unfinished
     Faruzan
-        unfinished
     Wriothesley
-        unfinished
     Kazuha
-        unfinished
+    Nicole
+        no constellations
+        onField character must be hexerei to get buff upgrade
+        coordinated attack uses own atk
 
 weapons:
     Alley Hunter
@@ -55,6 +51,10 @@ weapons:
         Buff maxed
     Skyward Harp
         Attack always triggers
+    Angelos' Heptades
+        energy effect disabled
+    Wandering Evenstar
+        buff is constant instead of snapshotting
 
     Fav weapons don't generate particles
 
@@ -63,3 +63,5 @@ sets:
         4pc not active
     Shimenawa's Reminiscence
         4pc energy simplified
+    Celestial Gift
+        4pc dmg bonus is for all elements

@@ -74,7 +74,7 @@ def parse_skills(data):
             })
 
         skills[skill_id] = {
-            "name": "",
+            "name": value["name"],
             "actions": actions,
         }
 

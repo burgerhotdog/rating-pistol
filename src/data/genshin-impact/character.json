@@ -12870,7 +12870,7 @@
             "action": {
               "ref": [
                 "elementalSkill.0",
-                "elementalBurst.0"
+                "elementalBurst.1"
               ]
             }
           },
@@ -52868,7 +52868,6 @@
     "memberPreset": {}
   },
   "10000131": {
-    "disabled": true,
     "name": "Nicole",
     "version": 6.6,
     "id": 10000131,
@@ -52882,13 +52881,175 @@
       "baseDef": 563,
       "atk%": 0.288
     },
+    "energy": 60,
     "tagged": [
       "hexerei"
     ],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "graceOfKenosis",
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "specRefs": {
+            "atk": {
+              "attr": "atk",
+              "step": 1,
+              "value": "elementalSkill.1",
+              "maxValue": "elementalSkill.2"
+            }
+          }
+        }
+      },
+      {
+        "ref": "guidanceUpgrade",
+        "stores": "$ally",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "character": {
+                  "tagged": "hexerei"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "atk": 300
+          }
+        }
+      },
+      {
+        "ref": "selfGuidanceUpgrade",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "filter": {
+            "or": [
+              {
+                "field": "onField"
+              },
+              {
+                "effectStacks": {
+                  "has": "selfGuidanceCanUpgrade"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "atk": 300
+          }
+        }
+      },
+      {
+        "ref": "selfGuidanceCanUpgrade",
+        "apply": {
+          "by": "$team",
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "effectStacks": {
+                  "has": "selfGuidanceUpgrade"
+                }
+              },
+              {
+                "action": {
+                  "damage": {
+                    "not": {
+                      "element": "physical"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 8000
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 4,
+          "duration": 20000
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "field": "onField"
+              }
+            ]
+          },
+          "cooldown": 3000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "enable": {
+          "team": [
+            "hexerei",
+            2
+          ]
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": 3
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Allegoria",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -52999,33 +53160,6 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
-            "damage": {
-              "type": "plungeAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunge Attack: Low",
             "type": "plungeAttack",
             "damage": {
@@ -53078,16 +53212,44 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Attack: Collision",
+            "damage": {
+              "type": "plungeAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Revelation: Uncreated Light",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -53109,12 +53271,8 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Shield DMG Absorption",
-            "type": "elementalSkill",
-            "damage": {
+            },
+            "shield": {
               "multipliers": [
                 {
                   "mv": [
@@ -53133,10 +53291,8 @@
                     4.7002,
                     4.9766,
                     5.2531
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     1386.6697,
                     1525.356,
                     1675.5994,
@@ -53158,12 +53314,11 @@
             }
           },
           {
-            "name": "Grace of Kenosis ATK Bonus Ratio",
-            "type": "elementalSkill",
-            "damage": {
+            "name": "Grace of Kenosis: ATK Bonus Ratio",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.0825,
                     0.09,
                     0.0975,
@@ -53185,12 +53340,11 @@
             }
           },
           {
-            "name": "Grace of Kenosis Max ATK Bonus",
-            "type": "elementalSkill",
-            "damage": {
+            "name": "Grace of Kenosis: Max ATK Bonus",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     330,
                     360,
                     390,
@@ -53214,12 +53368,13 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Revelation: Ladder of Divine Ascent",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -53244,9 +53399,9 @@
             }
           },
           {
-            "name": "Arcane Projection DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst: Arcane Projection",
             "damage": {
+              "type": "elementalBurst",
               "multipliers": [
                 {
                   "mv": [
@@ -53273,7 +53428,16 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14523,
+      "setCounts": {
+        "15045": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000132": {
     "disabled": true,
