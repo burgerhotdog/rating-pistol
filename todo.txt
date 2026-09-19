@@ -1,3 +1,0 @@
-also batch hits that have same buffmaps but different hit times for chart
-buff saturation index
-improve speed of healing chars

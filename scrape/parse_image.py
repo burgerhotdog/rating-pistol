@@ -9,7 +9,7 @@ lookup_url = {
     },
     "hsr": {
         "character": lambda id, _: f"avataricon/avatar/{id}",
-        "characteFull": lambda id, _: f"avatardrawcard/{id}",
+        "characterFull": lambda id, _: f"avatardrawcard/{id}",
         "weapon": lambda id, _: f"lightconemediumicon/{id}",
         "set": lambda _, data: f"itemfigures/{data["icon"][22:data["icon"].rindex(".")]}",
     },

@@ -112,6 +112,7 @@ def parse_character(version, id, data):
         "element": data["element"].lower(),
         "type": lookup_type[data["weapon"]],
         "stats": stats,
+        "tagged": [],
         "effects": [],
         "skills": parse_skills(data),
         "memberPreset": {},

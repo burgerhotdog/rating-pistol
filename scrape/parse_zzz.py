@@ -141,6 +141,7 @@ def parse_character(version, id, data):
         "element": next(iter(data["element_type"].values())).lower(),
         "type": next(iter(data["weapon_type"].values())).lower(),
         "stats": stats,
+        "tagged": [],
         "effects": [],
         "skills": parse_skills(data),
         "memberPreset": {},

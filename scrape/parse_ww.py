@@ -190,6 +190,7 @@ def parse_character(version, id, data):
         "element": list_element[int(data["element"]) - 1],
         "type": list_type[int(data["weapon"]) - 1],
         "stats": stats,
+        "tagged": [],
         "effects": [],
         "skills": parse_skills(data),
         "memberPreset": {},

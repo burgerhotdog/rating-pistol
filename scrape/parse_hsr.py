@@ -132,6 +132,7 @@ def parse_character(version, id, data):
         "element": "lightning" if data["damage_type"] == "Thunder" else data["damage_type"].lower(),
         "type": lookup_type[data["base_type"]],
         "stats": stats,
+        "tagged": [],
         "effects": [],
         "skills": parse_skills(data),
         "memberPreset": {},

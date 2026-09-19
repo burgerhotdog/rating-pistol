@@ -1,4 +1,4 @@
-characters:
+Characters:
     Amber
         C1 arrow damage hard coded at level 10 skill
         C2 popping baron bunny doesnt do 200% extra dmgBonus
@@ -24,7 +24,7 @@ characters:
         onField character must be hexerei to get buff upgrade
         coordinated attack uses own atk
 
-weapons:
+Weapons:
     Alley Hunter
         buff doesnt ramp slowly
     Sapwood Blade
@@ -58,7 +58,7 @@ weapons:
 
     Fav weapons don't generate particles
 
-sets:
+Sets:
     Bloodstained Chivalry
         4pc not active
     Shimenawa's Reminiscence
