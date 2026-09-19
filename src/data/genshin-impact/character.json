@@ -1709,6 +1709,7 @@
       "baseDef": 792,
       "energyRecharge%": 0.267
     },
+    "energy": 60,
     "tagged": [],
     "effects": [
       {
@@ -10998,6 +10999,8 @@
       "baseDef": 876,
       "geoDmgBonus%": 0.288
     },
+    "energy": 40,
+    "energyMax": 1.5,
     "tagged": [
       "hexerei"
     ],
@@ -27781,6 +27784,8 @@
       "baseDef": 607,
       "critRate%": 0.192
     },
+    "energy": 60,
+    "energyMax": 1.3,
     "tagged": [],
     "effects": [
       {
@@ -28213,6 +28218,7 @@
       "atk%": 0.24
     },
     "energy": 80,
+    "energyMin": 1.8,
     "tagged": [],
     "effects": [
       {
@@ -32955,6 +32961,7 @@
       "critDmg%": 0.384
     },
     "energy": 60,
+    "energyMax": 1.2,
     "tagged": [],
     "effects": [
       {
@@ -48435,7 +48442,6 @@
     "memberPreset": {}
   },
   "10000123": {
-    "disabled": true,
     "name": "Durin",
     "version": 6.2,
     "id": 10000123,
@@ -48449,13 +48455,339 @@
       "baseDef": 822,
       "critDmg%": 0.384
     },
+    "energy": 70,
+    "energyMax": 1.5,
     "tagged": [
       "hexerei"
     ],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "confirmationOfPurity",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "duration": 30000
+        },
+        "onApplyDoRemove": {
+          "denialOfDarkness": 1
+        }
+      },
+      {
+        "ref": "denialOfDarkness",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          },
+          "duration": 30000
+        },
+        "onApplyDoRemove": {
+          "confirmationOfPurity": 1
+        },
+        "buff": {
+          "stats": {
+            "vaporizeReactionBonus%": 0.4,
+            "meltReactionBonus%": 0.4
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 20000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalBurst.2"
+        }
+      },
+      {
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "duration": 20000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1250,
+          "action": "elementalBurst.3"
+        }
+      },
+      {
+        "ref": "pyroResDown",
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "or": [
+                    {
+                      "reaction": [
+                        "burning",
+                        "overloaded"
+                      ]
+                    },
+                    {
+                      "and": [
+                        {
+                          "reaction": "swirl"
+                        },
+                        {
+                          "elements": "pyro"
+                        }
+                      ]
+                    },
+                    {
+                      "and": [
+                        {
+                          "reaction": "crystallize"
+                        },
+                        {
+                          "elements": "pyro"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "confirmationOfPurity"
+                }
+              }
+            ]
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "pyroResReduction%": 0.2
+          }
+        }
+      },
+      {
+        "ref": "dendroResDown",
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "reaction": "burning"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "confirmationOfPurity"
+                }
+              }
+            ]
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "dendroResReduction%": 0.2
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "reaction": "overloaded"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "confirmationOfPurity"
+                }
+              }
+            ]
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "electroResReduction%": 0.2
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "and": [
+                    {
+                      "reaction": "swirl"
+                    },
+                    {
+                      "elements": "pyro"
+                    }
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "confirmationOfPurity"
+                }
+              }
+            ]
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "anemoResReduction%": 0.2
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "and": [
+                    {
+                      "reaction": "crystallize"
+                    },
+                    {
+                      "elements": "pyro"
+                    }
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "confirmationOfPurity"
+                }
+              }
+            ]
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "geoResReduction%": 0.2
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "element": [
+                      "pyro",
+                      "dendro"
+                    ]
+                  }
+                }
+              },
+              {
+                "states": {
+                  "aura": {
+                    "has": "burning"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "confirmationOfPurity"
+                }
+              }
+            ]
+          }
+        },
+        "onUseDoApply": {
+          "pyroResDown": 1,
+          "dendroResDown": 1
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalBurst.0",
+                "elementalBurst.1"
+              ]
+            }
+          },
+          "duration": 20000,
+          "uses": 10
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalBurst.2",
+                "elementalBurst.3"
+              ]
+            }
+          },
+          "specs": {
+            "damageMv%": {
+              "attr": "atk",
+              "step": 100,
+              "value": 0.03,
+              "maxValue": 0.75
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "team": [
+            "hexerei",
+            2
+          ]
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Radiant Wingslash",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -48612,33 +48944,6 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
-            "damage": {
-              "type": "plungeAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6393,
-                    0.6914,
-                    0.7434,
-                    0.8177,
-                    0.8698,
-                    0.9293,
-                    1.011,
-                    1.0928,
-                    1.1746,
-                    1.2638,
-                    1.353,
-                    1.4422,
-                    1.5314,
-                    1.6206,
-                    1.7098
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunge Attack: Low",
             "type": "plungeAttack",
             "damage": {
@@ -48691,16 +48996,48 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Attack: Collision",
+            "damage": {
+              "type": "plungeAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6393,
+                    0.6914,
+                    0.7434,
+                    0.8177,
+                    0.8698,
+                    0.9293,
+                    1.011,
+                    1.0928,
+                    1.1746,
+                    1.2638,
+                    1.353,
+                    1.4422,
+                    1.5314,
+                    1.6206,
+                    1.7098
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "Transmutation: Confirmation of Purity DMG",
+        "name": "Binary Form: Convergence and Division",
         "actions": [
           {
-            "name": "Transmutation: Confirmation of Purity DMG",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Elemental Skill: Transmutation: Confirmation of Purity",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -48725,9 +49062,15 @@
             }
           },
           {
-            "name": "Transmutation: Denial of Darkness DMG",
+            "name": "Elemental Skill: Transmutation: Denial of Darkness",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "elementalSkill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -48790,12 +49133,11 @@
             }
           },
           {
-            "name": "Energy Regeneration",
-            "type": "elementalSkill",
-            "damage": {
+            "name": "Flat Energy",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     6,
                     9,
                     12,
@@ -48819,12 +49161,18 @@
         ]
       },
       "elementalBurst": {
-        "name": "Principle of Purity: As the Light Shifts DMG",
+        "name": "Principle of Purity: As the Light Shifts",
         "actions": [
           {
-            "name": "Principle of Purity: As the Light Shifts DMG",
+            "name": "Elemental Burst: Principle of Purity: As the Light Shifts",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst A",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -48887,9 +49235,15 @@
             }
           },
           {
-            "name": "Principle of Darkness: As the Stars Smolder DMG",
+            "name": "Elemental Burst: Principle of Darkness: As the Stars Smolder",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst B",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -48952,9 +49306,14 @@
             }
           },
           {
-            "name": "Dragon of White Flame DMG",
-            "type": "elementalBurst",
+            "name": "Dragon of White Flame",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst C",
+                "time": 1500
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -48979,9 +49338,14 @@
             }
           },
           {
-            "name": "Dragon of Dark Decay DMG",
-            "type": "elementalBurst",
+            "name": "Dragon of Dark Decay",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst D",
+                "time": 2000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -49008,7 +49372,17 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11518,
+      "setCounts": {
+        "15045": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "elementalSkill.1"
+      ]
+    }
   },
   "10000124": {
     "disabled": true,
@@ -52882,6 +53256,7 @@
       "atk%": 0.288
     },
     "energy": 60,
+    "energyMax": 2,
     "tagged": [
       "hexerei"
     ],

@@ -7,7 +7,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useAccent } from '@/hooks';
-import { getMainstatConfigKey, sumSubstatRolls, formatStr } from '@/utils';
+import { getMainstatConfigKey, sumSubstatRolls, formatNum, formatStr } from '@/utils';
 import Mainstats from './Mainstats';
 import SubstatsChart from './SubstatsChart';
 import TrajectoryChart from './TrajectoryChart';
@@ -50,29 +50,29 @@ const Equips = ({ results }) => {
           />
         </Card>
 
-        <Card component={Stack} sx={{ flex: 0.75 }}>
-          <CardHeader title="Diff w/ extra substat" />
+        <Card component={Stack} sx={{ flex: 0.5 }}>
+          <CardHeader title="Diff w/ extra substat" subheader={`Control: ${formatNum(extraSubstatsControl)}`} />
           <CardContent component={Stack} sx={{ flex: 1, overflow: 'hidden' }}>
             {extraSubstatsList.map(({ stat, diff }, i) => {
               return (
-                <Stack key={i} direction="row" sx={{ justifyContent: 'space-between' }}>
-                  <Typography>
+                <Stack key={i} direction="row" spacing={1} sx={{ justifyContent: 'space-between' }}>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      minWidth: 0,
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
                     {formatStr(stat)}:
                   </Typography>
-                  <Typography>
+                  <Typography variant="body2">
                     +{(diff * 100).toFixed(1)}%
                   </Typography>
                 </Stack>
               );
             })}
-            <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
-                <Typography>
-                  Control:
-                </Typography>
-                <Typography>
-                  {extraSubstatsControl.toFixed()}
-                </Typography>
-              </Stack>
           </CardContent>
         </Card>
       </Stack>

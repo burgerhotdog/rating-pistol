@@ -23,6 +23,9 @@ Characters:
         no constellations
         onField character must be hexerei to get buff upgrade
         coordinated attack uses own atk
+    Durin
+        no constellations
+        no secret rite
 
 Weapons:
     Alley Hunter

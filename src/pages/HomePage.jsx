@@ -39,6 +39,8 @@ const HomePage = () => (
       sx={{
         display: { xs: 'none', md: 'flex' },
         justifyContent: 'center',
+        alignItems: 'center',
+        height: '100dvh',
         gap: 2,
       }}
     >
@@ -51,6 +53,8 @@ const HomePage = () => (
     <Stack
       sx={{
         display: { xs: 'flex', md: 'none' },
+        justifyContent: 'center',
+        height: '100dvh',
         gap: 2,
       }}
     >

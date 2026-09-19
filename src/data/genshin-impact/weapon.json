@@ -1050,7 +1050,6 @@
     "effects": []
   },
   "11518": {
-    "disabled": true,
     "name": "Athame Artis",
     "version": 6.2,
     "id": 11518,
@@ -1061,7 +1060,127 @@
       "baseAtk": 608,
       "critRate%": 0.331
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "stats": {
+            "critDmg%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "duration": 3000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$ally",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "duration": 3000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "team": [
+            "hexerei",
+            2
+          ]
+        },
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "duration": 3000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.15,
+              0.3
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "team": [
+            "hexerei",
+            2
+          ]
+        },
+        "stores": "$ally",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "duration": 3000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "11519": {
     "disabled": true,

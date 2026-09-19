@@ -3,7 +3,7 @@ import { resolveRankedValue } from '../resolve';
 
 const DEFAULT_DURATIONS = {
   [GI]: {
-    'normalAttack': 1000,
+    'normalAttack': 750,
     'chargedAttack': 1000,
     'plungeAttack': 1000,
     'elementalSkill': 1000,
@@ -18,7 +18,7 @@ const DEFAULT_DURATIONS = {
     'introSkill': 1000,
   },
   [ZZZ]: {
-    'basicAttack': 1000,
+    'basicAttack': 750,
     'dodgeCounter': 1000,
     'dashAttack': 1000,
     'assistAttack': 1000,
