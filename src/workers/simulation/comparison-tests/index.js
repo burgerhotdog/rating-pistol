@@ -1,2 +1,1 @@
-export * from './runSetBonusTests';
-export * from './runWeaponTests';
+export * from './runComparisonTests';

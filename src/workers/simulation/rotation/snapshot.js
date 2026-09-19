@@ -60,7 +60,7 @@ export const resolveSnapshot = (ctx, snapshot) => {
   const { unresolved } = snapshot;
   if (!unresolved) return;
 
-  const { memo, ownerId, action, buffMap, buffSpecs, formula, splitScale } = unresolved;
+  const { memo, ownerId, action, buffMap, buffSpecs, formula, splitScale = 1 } = unresolved;
   const scale = unresolved.scale ?? 1;
 
   const statMapOwnerId = action?.ownerId ?? ownerId;
