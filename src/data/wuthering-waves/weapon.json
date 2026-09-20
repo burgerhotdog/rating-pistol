@@ -1,7 +1,7 @@
 {
   "21010011": {
     "name": "Training Broadblade",
-    "version": 1,
+    "version": 1.0,
     "id": 21010011,
     "icon": "wuthering-waves/weapon/21010011.webp",
     "quality": 1,
@@ -25,7 +25,7 @@
   },
   "21010012": {
     "name": "Tyro Broadblade",
-    "version": 1,
+    "version": 1.0,
     "id": 21010012,
     "icon": "wuthering-waves/weapon/21010012.webp",
     "quality": 2,
@@ -49,7 +49,7 @@
   },
   "21010013": {
     "name": "Broadblade of Night",
-    "version": 1,
+    "version": 1.0,
     "id": 21010013,
     "icon": "wuthering-waves/weapon/21010013.webp",
     "quality": 3,
@@ -82,7 +82,7 @@
   },
   "21010015": {
     "name": "Lustrous Razor",
-    "version": 1,
+    "version": 1.0,
     "id": 21010015,
     "icon": "wuthering-waves/weapon/21010015.webp",
     "quality": 5,
@@ -127,7 +127,7 @@
   },
   "21010016": {
     "name": "Verdant Summit",
-    "version": 1,
+    "version": 1.0,
     "id": 21010016,
     "icon": "wuthering-waves/weapon/21010016.webp",
     "quality": 5,
@@ -174,7 +174,7 @@
   },
   "21010023": {
     "name": "Originite: Type I",
-    "version": 1,
+    "version": 1.0,
     "id": 21010023,
     "icon": "wuthering-waves/weapon/21010023.webp",
     "quality": 3,
@@ -212,7 +212,7 @@
   },
   "21010024": {
     "name": "Discord",
-    "version": 1,
+    "version": 1.0,
     "id": 21010024,
     "icon": "wuthering-waves/weapon/21010024.webp",
     "quality": 4,
@@ -288,7 +288,7 @@
   },
   "21010034": {
     "name": "Broadblade#41",
-    "version": 1,
+    "version": 1.0,
     "id": 21010034,
     "icon": "wuthering-waves/weapon/21010034.webp",
     "quality": 4,
@@ -397,7 +397,7 @@
   },
   "21010043": {
     "name": "Broadblade of Voyager",
-    "version": 1,
+    "version": 1.0,
     "id": 21010043,
     "icon": "wuthering-waves/weapon/21010043.webp",
     "quality": 3,
@@ -410,7 +410,7 @@
   },
   "21010044": {
     "name": "Dauntless Evernight",
-    "version": 1,
+    "version": 1.0,
     "id": 21010044,
     "icon": "wuthering-waves/weapon/21010044.webp",
     "quality": 4,
@@ -447,7 +447,7 @@
   },
   "21010045": {
     "name": "Radiance Cleaver",
-    "version": 3,
+    "version": 3.0,
     "id": 21010045,
     "icon": "wuthering-waves/weapon/21010045.webp",
     "quality": 5,
@@ -576,7 +576,7 @@
   },
   "21010053": {
     "name": "Guardian Broadblade",
-    "version": 1,
+    "version": 1.0,
     "id": 21010053,
     "icon": "wuthering-waves/weapon/21010053.webp",
     "quality": 3,
@@ -710,7 +710,7 @@
   },
   "21010064": {
     "name": "Helios Cleaver",
-    "version": 1,
+    "version": 1.0,
     "id": 21010064,
     "icon": "wuthering-waves/weapon/21010064.webp",
     "quality": 4,
@@ -749,7 +749,7 @@
   },
   "21010066": {
     "name": "Starfield Calibrator",
-    "version": 3,
+    "version": 3.0,
     "id": 21010066,
     "icon": "wuthering-waves/weapon/21010066.webp",
     "quality": 5,
@@ -795,7 +795,7 @@
   },
   "21010074": {
     "name": "Autumntrace",
-    "version": 1,
+    "version": 1.0,
     "id": 21010074,
     "icon": "wuthering-waves/weapon/21010074.webp",
     "quality": 4,
@@ -1045,7 +1045,7 @@
   },
   "21010094": {
     "name": "Meditations on Mercy",
-    "version": 2,
+    "version": 2.0,
     "id": 21010094,
     "icon": "wuthering-waves/weapon/21010094.webp",
     "quality": 4,
@@ -1129,7 +1129,7 @@
   },
   "21020011": {
     "name": "Training Sword",
-    "version": 1,
+    "version": 1.0,
     "id": 21020011,
     "icon": "wuthering-waves/weapon/21020011.webp",
     "quality": 1,
@@ -1153,7 +1153,7 @@
   },
   "21020012": {
     "name": "Tyro Sword",
-    "version": 1,
+    "version": 1.0,
     "id": 21020012,
     "icon": "wuthering-waves/weapon/21020012.webp",
     "quality": 2,
@@ -1177,7 +1177,7 @@
   },
   "21020013": {
     "name": "Sword of Night",
-    "version": 1,
+    "version": 1.0,
     "id": 21020013,
     "icon": "wuthering-waves/weapon/21020013.webp",
     "quality": 3,
@@ -1210,7 +1210,7 @@
   },
   "21020015": {
     "name": "Emerald of Genesis",
-    "version": 1,
+    "version": 1.0,
     "id": 21020015,
     "icon": "wuthering-waves/weapon/21020015.webp",
     "quality": 5,
@@ -1374,7 +1374,7 @@
   },
   "21020023": {
     "name": "Originite: Type II",
-    "version": 1,
+    "version": 1.0,
     "id": 21020023,
     "icon": "wuthering-waves/weapon/21020023.webp",
     "quality": 3,
@@ -1412,7 +1412,7 @@
   },
   "21020024": {
     "name": "Overture",
-    "version": 1,
+    "version": 1.0,
     "id": 21020024,
     "icon": "wuthering-waves/weapon/21020024.webp",
     "quality": 4,
@@ -1502,7 +1502,7 @@
   },
   "21020034": {
     "name": "Sword#18",
-    "version": 1,
+    "version": 1.0,
     "id": 21020034,
     "icon": "wuthering-waves/weapon/21020034.webp",
     "quality": 4,
@@ -1618,7 +1618,7 @@
   },
   "21020043": {
     "name": "Sword of Voyager",
-    "version": 1,
+    "version": 1.0,
     "id": 21020043,
     "icon": "wuthering-waves/weapon/21020043.webp",
     "quality": 3,
@@ -1631,7 +1631,7 @@
   },
   "21020044": {
     "name": "Commando of Conviction",
-    "version": 1,
+    "version": 1.0,
     "id": 21020044,
     "icon": "wuthering-waves/weapon/21020044.webp",
     "quality": 4,
@@ -1664,7 +1664,7 @@
   },
   "21020045": {
     "name": "Laser Shearer",
-    "version": 3,
+    "version": 3.0,
     "id": 21020045,
     "icon": "wuthering-waves/weapon/21020045.webp",
     "quality": 5,
@@ -1782,7 +1782,7 @@
   },
   "21020053": {
     "name": "Guardian Sword",
-    "version": 1,
+    "version": 1.0,
     "id": 21020053,
     "icon": "wuthering-waves/weapon/21020053.webp",
     "quality": 3,
@@ -1870,7 +1870,7 @@
   },
   "21020064": {
     "name": "Lunar Cutter",
-    "version": 1,
+    "version": 1.0,
     "id": 21020064,
     "icon": "wuthering-waves/weapon/21020064.webp",
     "quality": 4,
@@ -2006,7 +2006,7 @@
   },
   "21020074": {
     "name": "Lumingloss",
-    "version": 1,
+    "version": 1.0,
     "id": 21020074,
     "icon": "wuthering-waves/weapon/21020074.webp",
     "quality": 4,
@@ -2241,7 +2241,7 @@
   },
   "21020094": {
     "name": "Fables of Wisdom",
-    "version": 2,
+    "version": 2.0,
     "id": 21020094,
     "icon": "wuthering-waves/weapon/21020094.webp",
     "quality": 4,
@@ -2484,7 +2484,7 @@
   },
   "21030011": {
     "name": "Training Pistols",
-    "version": 1,
+    "version": 1.0,
     "id": 21030011,
     "icon": "wuthering-waves/weapon/21030011.webp",
     "quality": 1,
@@ -2508,7 +2508,7 @@
   },
   "21030012": {
     "name": "Tyro Pistols",
-    "version": 1,
+    "version": 1.0,
     "id": 21030012,
     "icon": "wuthering-waves/weapon/21030012.webp",
     "quality": 2,
@@ -2532,7 +2532,7 @@
   },
   "21030013": {
     "name": "Pistols of Night",
-    "version": 1,
+    "version": 1.0,
     "id": 21030013,
     "icon": "wuthering-waves/weapon/21030013.webp",
     "quality": 3,
@@ -2565,7 +2565,7 @@
   },
   "21030015": {
     "name": "Static Mist",
-    "version": 1,
+    "version": 1.0,
     "id": 21030015,
     "icon": "wuthering-waves/weapon/21030015.webp",
     "quality": 5,
@@ -2610,7 +2610,7 @@
   },
   "21030016": {
     "name": "The Last Dance",
-    "version": 2,
+    "version": 2.0,
     "id": 21030016,
     "icon": "wuthering-waves/weapon/21030016.webp",
     "quality": 5,
@@ -2656,7 +2656,7 @@
   },
   "21030023": {
     "name": "Originite: Type III",
-    "version": 1,
+    "version": 1.0,
     "id": 21030023,
     "icon": "wuthering-waves/weapon/21030023.webp",
     "quality": 3,
@@ -2694,7 +2694,7 @@
   },
   "21030024": {
     "name": "Cadenza",
-    "version": 1,
+    "version": 1.0,
     "id": 21030024,
     "icon": "wuthering-waves/weapon/21030024.webp",
     "quality": 4,
@@ -2786,7 +2786,7 @@
   },
   "21030034": {
     "name": "Pistols#26",
-    "version": 1,
+    "version": 1.0,
     "id": 21030034,
     "icon": "wuthering-waves/weapon/21030034.webp",
     "quality": 4,
@@ -2901,7 +2901,7 @@
   },
   "21030043": {
     "name": "Pistols of Voyager",
-    "version": 1,
+    "version": 1.0,
     "id": 21030043,
     "icon": "wuthering-waves/weapon/21030043.webp",
     "quality": 3,
@@ -2914,7 +2914,7 @@
   },
   "21030044": {
     "name": "Undying Flame",
-    "version": 1,
+    "version": 1.0,
     "id": 21030044,
     "icon": "wuthering-waves/weapon/21030044.webp",
     "quality": 4,
@@ -2947,7 +2947,7 @@
   },
   "21030045": {
     "name": "Phasic Homogenizer",
-    "version": 3,
+    "version": 3.0,
     "id": 21030045,
     "icon": "wuthering-waves/weapon/21030045.webp",
     "quality": 5,
@@ -2987,7 +2987,7 @@
   },
   "21030046": {
     "name": "Spectrum Blaster",
-    "version": 3,
+    "version": 3.0,
     "id": 21030046,
     "icon": "wuthering-waves/weapon/21030046.webp",
     "quality": 5,
@@ -3072,7 +3072,7 @@
   },
   "21030053": {
     "name": "Guardian Pistols",
-    "version": 1,
+    "version": 1.0,
     "id": 21030053,
     "icon": "wuthering-waves/weapon/21030053.webp",
     "quality": 3,
@@ -3172,7 +3172,7 @@
   },
   "21030064": {
     "name": "Novaburst",
-    "version": 1,
+    "version": 1.0,
     "id": 21030064,
     "icon": "wuthering-waves/weapon/21030064.webp",
     "quality": 4,
@@ -3282,7 +3282,7 @@
   },
   "21030074": {
     "name": "Thunderbolt",
-    "version": 1,
+    "version": 1.0,
     "id": 21030074,
     "icon": "wuthering-waves/weapon/21030074.webp",
     "quality": 4,
@@ -3354,7 +3354,7 @@
   },
   "21030094": {
     "name": "Romance in Farewell",
-    "version": 2,
+    "version": 2.0,
     "id": 21030094,
     "icon": "wuthering-waves/weapon/21030094.webp",
     "quality": 4,
@@ -3445,7 +3445,7 @@
   },
   "21040011": {
     "name": "Training Gauntlets",
-    "version": 1,
+    "version": 1.0,
     "id": 21040011,
     "icon": "wuthering-waves/weapon/21040011.webp",
     "quality": 1,
@@ -3469,7 +3469,7 @@
   },
   "21040012": {
     "name": "Tyro Gauntlets",
-    "version": 1,
+    "version": 1.0,
     "id": 21040012,
     "icon": "wuthering-waves/weapon/21040012.webp",
     "quality": 2,
@@ -3493,7 +3493,7 @@
   },
   "21040013": {
     "name": "Gauntlets of Night",
-    "version": 1,
+    "version": 1.0,
     "id": 21040013,
     "icon": "wuthering-waves/weapon/21040013.webp",
     "quality": 3,
@@ -3526,7 +3526,7 @@
   },
   "21040015": {
     "name": "Abyss Surges",
-    "version": 1,
+    "version": 1.0,
     "id": 21040015,
     "icon": "wuthering-waves/weapon/21040015.webp",
     "quality": 5,
@@ -3649,7 +3649,7 @@
   },
   "21040023": {
     "name": "Originite: Type IV",
-    "version": 1,
+    "version": 1.0,
     "id": 21040023,
     "icon": "wuthering-waves/weapon/21040023.webp",
     "quality": 3,
@@ -3689,7 +3689,7 @@
   },
   "21040024": {
     "name": "Marcato",
-    "version": 1,
+    "version": 1.0,
     "id": 21040024,
     "icon": "wuthering-waves/weapon/21040024.webp",
     "quality": 4,
@@ -3703,7 +3703,7 @@
   },
   "21040026": {
     "name": "Tragicomedy",
-    "version": 2,
+    "version": 2.0,
     "id": 21040026,
     "icon": "wuthering-waves/weapon/21040026.webp",
     "quality": 5,
@@ -3749,7 +3749,7 @@
   },
   "21040034": {
     "name": "Gauntlets#21D",
-    "version": 1,
+    "version": 1.0,
     "id": 21040034,
     "icon": "wuthering-waves/weapon/21040034.webp",
     "quality": 4,
@@ -3878,7 +3878,7 @@
   },
   "21040043": {
     "name": "Gauntlets of Voyager",
-    "version": 1,
+    "version": 1.0,
     "id": 21040043,
     "icon": "wuthering-waves/weapon/21040043.webp",
     "quality": 3,
@@ -3891,7 +3891,7 @@
   },
   "21040044": {
     "name": "Amity Accord",
-    "version": 1,
+    "version": 1.0,
     "id": 21040044,
     "icon": "wuthering-waves/weapon/21040044.webp",
     "quality": 4,
@@ -3924,7 +3924,7 @@
   },
   "21040045": {
     "name": "Pulsation Bracer",
-    "version": 3,
+    "version": 3.0,
     "id": 21040045,
     "icon": "wuthering-waves/weapon/21040045.webp",
     "quality": 5,
@@ -4069,7 +4069,7 @@
   },
   "21040053": {
     "name": "Guardian Gauntlets",
-    "version": 1,
+    "version": 1.0,
     "id": 21040053,
     "icon": "wuthering-waves/weapon/21040053.webp",
     "quality": 3,
@@ -4170,7 +4170,7 @@
   },
   "21040064": {
     "name": "Hollow Mirage",
-    "version": 1,
+    "version": 1.0,
     "id": 21040064,
     "icon": "wuthering-waves/weapon/21040064.webp",
     "quality": 4,
@@ -4280,7 +4280,7 @@
   },
   "21040074": {
     "name": "Stonard",
-    "version": 1,
+    "version": 1.0,
     "id": 21040074,
     "icon": "wuthering-waves/weapon/21040074.webp",
     "quality": 4,
@@ -4347,7 +4347,7 @@
   },
   "21040094": {
     "name": "Legend of Drunken Hero",
-    "version": 2,
+    "version": 2.0,
     "id": 21040094,
     "icon": "wuthering-waves/weapon/21040094.webp",
     "quality": 4,
@@ -4431,7 +4431,7 @@
   },
   "21050011": {
     "name": "Training Rectifier",
-    "version": 1,
+    "version": 1.0,
     "id": 21050011,
     "icon": "wuthering-waves/weapon/21050011.webp",
     "quality": 1,
@@ -4455,7 +4455,7 @@
   },
   "21050012": {
     "name": "Tyro Rectifier",
-    "version": 1,
+    "version": 1.0,
     "id": 21050012,
     "icon": "wuthering-waves/weapon/21050012.webp",
     "quality": 2,
@@ -4479,7 +4479,7 @@
   },
   "21050013": {
     "name": "Rectifier of Night",
-    "version": 1,
+    "version": 1.0,
     "id": 21050013,
     "icon": "wuthering-waves/weapon/21050013.webp",
     "quality": 3,
@@ -4512,7 +4512,7 @@
   },
   "21050015": {
     "name": "Cosmic Ripples",
-    "version": 1,
+    "version": 1.0,
     "id": 21050015,
     "icon": "wuthering-waves/weapon/21050015.webp",
     "quality": 5,
@@ -4560,7 +4560,7 @@
   },
   "21050016": {
     "name": "Stringmaster",
-    "version": 1,
+    "version": 1.0,
     "id": 21050016,
     "icon": "wuthering-waves/weapon/21050016.webp",
     "quality": 5,
@@ -4619,7 +4619,7 @@
   },
   "21050017": {
     "name": "Call of the Abyss",
-    "version": 2,
+    "version": 2.0,
     "id": 21050017,
     "icon": "wuthering-waves/weapon/21050017.webp",
     "quality": 4,
@@ -4653,7 +4653,7 @@
   },
   "21050023": {
     "name": "Originite: Type V",
-    "version": 1,
+    "version": 1.0,
     "id": 21050023,
     "icon": "wuthering-waves/weapon/21050023.webp",
     "quality": 3,
@@ -4691,7 +4691,7 @@
   },
   "21050024": {
     "name": "Variation",
-    "version": 1,
+    "version": 1.0,
     "id": 21050024,
     "icon": "wuthering-waves/weapon/21050024.webp",
     "quality": 4,
@@ -4830,7 +4830,7 @@
   },
   "21050034": {
     "name": "Rectifier#25",
-    "version": 1,
+    "version": 1.0,
     "id": 21050034,
     "icon": "wuthering-waves/weapon/21050034.webp",
     "quality": 4,
@@ -4916,7 +4916,7 @@
   },
   "21050043": {
     "name": "Rectifier of Voyager",
-    "version": 1,
+    "version": 1.0,
     "id": 21050043,
     "icon": "wuthering-waves/weapon/21050043.webp",
     "quality": 3,
@@ -4929,7 +4929,7 @@
   },
   "21050044": {
     "name": "Jinzhou Keeper",
-    "version": 1,
+    "version": 1.0,
     "id": 21050044,
     "icon": "wuthering-waves/weapon/21050044.webp",
     "quality": 4,
@@ -4966,7 +4966,7 @@
   },
   "21050045": {
     "name": "Boson Astrolabe",
-    "version": 3,
+    "version": 3.0,
     "id": 21050045,
     "icon": "wuthering-waves/weapon/21050045.webp",
     "quality": 5,
@@ -5089,7 +5089,7 @@
   },
   "21050053": {
     "name": "Guardian Rectifier",
-    "version": 1,
+    "version": 1.0,
     "id": 21050053,
     "icon": "wuthering-waves/weapon/21050053.webp",
     "quality": 3,
@@ -5221,7 +5221,7 @@
   },
   "21050064": {
     "name": "Comet Flare",
-    "version": 1,
+    "version": 1.0,
     "id": 21050064,
     "icon": "wuthering-waves/weapon/21050064.webp",
     "quality": 4,
@@ -5314,7 +5314,7 @@
   },
   "21050074": {
     "name": "Augment",
-    "version": 1,
+    "version": 1.0,
     "id": 21050074,
     "icon": "wuthering-waves/weapon/21050074.webp",
     "quality": 4,
@@ -5552,7 +5552,7 @@
   },
   "21050094": {
     "name": "Waltz in Masquerade",
-    "version": 2,
+    "version": 2.0,
     "id": 21050094,
     "icon": "wuthering-waves/weapon/21050094.webp",
     "quality": 4,

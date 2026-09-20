@@ -1,17 +1,4 @@
 import { toArray, resolveRankedValue, normalizeAction } from '@/utils';
-import { modifyEffect } from './modifyEffect';
-
-function resolveRankMods(effect, memberRank) {
-  let moddedEffect = effect;
-  const { rankMods } = effect;
-
-  for (const { rank, ...modSpec } of rankMods) {
-    if (rank > memberRank) continue;
-    moddedEffect = modifyEffect(moddedEffect, modSpec);
-  }
-
-  return moddedEffect;
-}
 
 function normalizeScope(rawScope, { ownerId, memberIds }) {
   switch (rawScope) {
@@ -199,10 +186,6 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     !rawEffect.stores
   ) {
     effect.static = true;
-  }
-
-  if (effect.rankMods) {
-    return resolveRankMods(effect, spec.memberRank);
   }
 
   return effect;

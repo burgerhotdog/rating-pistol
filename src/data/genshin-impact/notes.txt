@@ -25,6 +25,10 @@ Characters:
         coordinated attack uses own atk
     Durin
         no constellations
+    Xingqiu
+        no energy recovery
+        3 sword always
+        no orbitals from skill
 
 Weapons:
     Alley Hunter

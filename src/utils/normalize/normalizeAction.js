@@ -109,26 +109,29 @@ export function normalizeAction(gameId, rawAction, spec) {
 
     const isGiPhysNa = gameId === GI && category === 'normalAttack' && spec.weaponType !== 'catalyst';
     damage.element ??= isGiPhysNa ? 'physical' : spec.charElement;
-    damage.attr ??= 'atk';
-    damage.compressed = getCompressed(
-      damage.multipliers,
-      damage.attr,
-      { index: spec.mvIndex, weaponRank: spec.weaponRank },
-    );
 
-    // hitOffsets
-    let offset = action.duration * 0.65;
-    const hitOffsets = action.hitOffsets = [Math.round(offset)];
-    let hitsLeft = damage.compressed.hitCount - 1;
-    while (hitsLeft) {
-      if (action.duration) {
-        offset += 100;
-        if (action.duration - offset <= 100) {
-          action.duration += 100;
+    if (damage.multipliers) {
+      damage.attr ??= 'atk';
+      damage.compressed = getCompressed(
+        damage.multipliers,
+        damage.attr,
+        { index: spec.mvIndex, weaponRank: spec.weaponRank },
+      );
+
+      // hitOffsets
+      let offset = action.duration * 0.65;
+      const hitOffsets = action.hitOffsets = [Math.round(offset)];
+      let hitsLeft = damage.compressed.hitCount - 1;
+      while (hitsLeft) {
+        if (action.duration) {
+          offset += 100;
+          if (action.duration - offset <= 100) {
+            action.duration += 100;
+          }
         }
+        hitOffsets.push(Math.round(offset));
+        hitsLeft--;
       }
-      hitOffsets.push(Math.round(offset));
-      hitsLeft--;
     }
 
     if (gameId === GI && category === 'normalAttack') {

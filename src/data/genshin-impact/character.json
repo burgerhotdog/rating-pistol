@@ -2,7 +2,7 @@
   "10000002": {
     "disabled": true,
     "name": "Kamisato Ayaka",
-    "version": 2,
+    "version": 2.0,
     "id": 10000002,
     "icon": "genshin-impact/character/10000002.webp",
     "quality": 5,
@@ -416,7 +416,7 @@
   "10000003": {
     "disabled": true,
     "name": "Jean",
-    "version": 1,
+    "version": 1.0,
     "id": 10000003,
     "icon": "genshin-impact/character/10000003.webp",
     "quality": 5,
@@ -862,7 +862,7 @@
   "10000006": {
     "disabled": true,
     "name": "Lisa",
-    "version": 1,
+    "version": 1.0,
     "id": 10000006,
     "icon": "genshin-impact/character/10000006.webp",
     "quality": 4,
@@ -1280,7 +1280,7 @@
   "10000014": {
     "disabled": true,
     "name": "Barbara",
-    "version": 1,
+    "version": 1.0,
     "id": 10000014,
     "icon": "genshin-impact/character/10000014.webp",
     "quality": 4,
@@ -1697,7 +1697,7 @@
   },
   "10000015": {
     "name": "Kaeya",
-    "version": 1,
+    "version": 1.0,
     "id": 10000015,
     "icon": "genshin-impact/character/10000015.webp",
     "quality": 4,
@@ -2076,7 +2076,7 @@
   },
   "10000016": {
     "name": "Diluc",
-    "version": 1,
+    "version": 1.0,
     "id": 10000016,
     "icon": "genshin-impact/character/10000016.webp",
     "quality": 5,
@@ -2605,7 +2605,7 @@
   "10000020": {
     "disabled": true,
     "name": "Razor",
-    "version": 1,
+    "version": 1.0,
     "id": 10000020,
     "icon": "genshin-impact/character/10000020.webp",
     "quality": 4,
@@ -3020,7 +3020,7 @@
   },
   "10000021": {
     "name": "Amber",
-    "version": 1,
+    "version": 1.0,
     "id": 10000021,
     "icon": "genshin-impact/character/10000021.webp",
     "quality": 4,
@@ -3542,7 +3542,7 @@
   "10000022": {
     "disabled": true,
     "name": "Venti",
-    "version": 1,
+    "version": 1.0,
     "id": 10000022,
     "icon": "genshin-impact/character/10000022.webp",
     "quality": 5,
@@ -4056,7 +4056,7 @@
   "10000023": {
     "disabled": true,
     "name": "Xiangling",
-    "version": 1,
+    "version": 1.0,
     "id": 10000023,
     "icon": "genshin-impact/character/10000023.webp",
     "quality": 4,
@@ -4493,7 +4493,7 @@
   "10000024": {
     "disabled": true,
     "name": "Beidou",
-    "version": 1,
+    "version": 1.0,
     "id": 10000024,
     "icon": "genshin-impact/character/10000024.webp",
     "quality": 4,
@@ -4978,7 +4978,7 @@
   },
   "10000025": {
     "name": "Xingqiu",
-    "version": 1,
+    "version": 1.0,
     "id": 10000025,
     "icon": "genshin-impact/character/10000025.webp",
     "quality": 4,
@@ -4995,9 +4995,10 @@
     "tagged": [],
     "effects": [
       {
-        "stores": "$team",
+        "ref": "rainbowBladework",
+        "stores": "global",
         "apply": {
-          "when": "start",
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
@@ -5024,9 +5025,92 @@
         }
       },
       {
+        "ref": "orbitalSwords",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2250,
+          "action": {
+            "damage": {
+              "gauge": 1
+            }
+          }
+        }
+      },
+      {
         "buff": {
           "stats": {
             "hydroDmgBonus%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "modify": {
+          "ref": "rainbowBladework",
+          "spec": {
+            "apply": {
+              "duration": 3000
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "modify": {
+          "ref": "orbitalSwords",
+          "spec": {
+            "apply": {
+              "duration": 3000
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "hydroResReduction%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "rainbowBladework"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "dmgBonus%": 0.5
           }
         }
       }
@@ -5392,7 +5476,7 @@
             "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.2,
                     0.21,
                     0.22,
@@ -5423,7 +5507,7 @@
             "type": "elementalBurst"
           },
           {
-            "name": "Elemental Burst: Sword",
+            "name": "Rain Sword",
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
@@ -5897,7 +5981,7 @@
   "10000027": {
     "disabled": true,
     "name": "Ningguang",
-    "version": 1,
+    "version": 1.0,
     "id": 10000027,
     "icon": "genshin-impact/character/10000027.webp",
     "quality": 4,
@@ -6180,7 +6264,7 @@
   },
   "10000029": {
     "name": "Klee",
-    "version": 1,
+    "version": 1.0,
     "id": 10000029,
     "icon": "genshin-impact/character/10000029.webp",
     "quality": 5,
@@ -7313,7 +7397,7 @@
   },
   "10000031": {
     "name": "Fischl",
-    "version": 1,
+    "version": 1.0,
     "id": 10000031,
     "icon": "genshin-impact/character/10000031.webp",
     "quality": 4,
@@ -7767,7 +7851,7 @@
   },
   "10000032": {
     "name": "Bennett",
-    "version": 1,
+    "version": 1.0,
     "id": 10000032,
     "icon": "genshin-impact/character/10000032.webp",
     "quality": 4,
@@ -9111,7 +9195,7 @@
   "10000034": {
     "disabled": true,
     "name": "Noelle",
-    "version": 1,
+    "version": 1.0,
     "id": 10000034,
     "icon": "genshin-impact/character/10000034.webp",
     "quality": 4,
@@ -9614,7 +9698,7 @@
   "10000035": {
     "disabled": true,
     "name": "Qiqi",
-    "version": 1,
+    "version": 1.0,
     "id": 10000035,
     "icon": "genshin-impact/character/10000035.webp",
     "quality": 5,
@@ -10160,7 +10244,7 @@
   "10000036": {
     "disabled": true,
     "name": "Chongyun",
-    "version": 1,
+    "version": 1.0,
     "id": 10000036,
     "icon": "genshin-impact/character/10000036.webp",
     "quality": 4,
@@ -11961,7 +12045,7 @@
   "10000041": {
     "disabled": true,
     "name": "Mona",
-    "version": 1,
+    "version": 1.0,
     "id": 10000041,
     "icon": "genshin-impact/character/10000041.webp",
     "quality": 5,
@@ -12354,7 +12438,7 @@
   "10000042": {
     "disabled": true,
     "name": "Keqing",
-    "version": 1,
+    "version": 1.0,
     "id": 10000042,
     "icon": "genshin-impact/character/10000042.webp",
     "quality": 5,
@@ -12832,7 +12916,7 @@
   },
   "10000043": {
     "name": "Sucrose",
-    "version": 1,
+    "version": 1.0,
     "id": 10000043,
     "icon": "genshin-impact/character/10000043.webp",
     "quality": 4,
@@ -15632,7 +15716,7 @@
   "10000049": {
     "disabled": true,
     "name": "Yoimiya",
-    "version": 2,
+    "version": 2.0,
     "id": 10000049,
     "icon": "genshin-impact/character/10000049.webp",
     "quality": 5,
@@ -17865,7 +17949,7 @@
   "10000053": {
     "disabled": true,
     "name": "Sayu",
-    "version": 2,
+    "version": 2.0,
     "id": 10000053,
     "icon": "genshin-impact/character/10000053.webp",
     "quality": 4,
@@ -24212,7 +24296,7 @@
   "10000067": {
     "disabled": true,
     "name": "Collei",
-    "version": 3,
+    "version": 3.0,
     "id": 10000067,
     "icon": "genshin-impact/character/10000067.webp",
     "quality": 4,
@@ -24573,7 +24657,7 @@
   "10000068": {
     "disabled": true,
     "name": "Dori",
-    "version": 3,
+    "version": 3.0,
     "id": 10000068,
     "icon": "genshin-impact/character/10000068.webp",
     "quality": 4,
@@ -24998,7 +25082,7 @@
   "10000069": {
     "disabled": true,
     "name": "Tighnari",
-    "version": 3,
+    "version": 3.0,
     "id": 10000069,
     "icon": "genshin-impact/character/10000069.webp",
     "quality": 5,
@@ -31431,7 +31515,7 @@
   "10000083": {
     "disabled": true,
     "name": "Lynette",
-    "version": 4,
+    "version": 4.0,
     "id": 10000083,
     "icon": "genshin-impact/character/10000083.webp",
     "quality": 4,
@@ -31856,7 +31940,7 @@
   "10000084": {
     "disabled": true,
     "name": "Lyney",
-    "version": 4,
+    "version": 4.0,
     "id": 10000084,
     "icon": "genshin-impact/character/10000084.webp",
     "quality": 5,
@@ -32370,7 +32454,7 @@
   "10000085": {
     "disabled": true,
     "name": "Freminet",
-    "version": 4,
+    "version": 4.0,
     "id": 10000085,
     "icon": "genshin-impact/character/10000085.webp",
     "quality": 4,
@@ -39142,7 +39226,7 @@
   "10000100": {
     "disabled": true,
     "name": "Kachina",
-    "version": 5,
+    "version": 5.0,
     "id": 10000100,
     "icon": "genshin-impact/character/10000100.webp",
     "quality": 4,
@@ -39494,7 +39578,7 @@
   "10000101": {
     "disabled": true,
     "name": "Kinich",
-    "version": 5,
+    "version": 5.0,
     "id": 10000101,
     "icon": "genshin-impact/character/10000101.webp",
     "quality": 5,
@@ -39854,7 +39938,7 @@
   "10000102": {
     "disabled": true,
     "name": "Mualani",
-    "version": 5,
+    "version": 5.0,
     "id": 10000102,
     "icon": "genshin-impact/character/10000102.webp",
     "quality": 5,
@@ -46484,7 +46568,7 @@
   "10000119": {
     "disabled": true,
     "name": "Lauma",
-    "version": 6,
+    "version": 6.0,
     "id": 10000119,
     "icon": "genshin-impact/character/10000119.webp",
     "quality": 5,
@@ -46917,7 +47001,7 @@
   "10000120": {
     "disabled": true,
     "name": "Flins",
-    "version": 6,
+    "version": 6.0,
     "id": 10000120,
     "icon": "genshin-impact/character/10000120.webp",
     "quality": 5,
@@ -47520,7 +47604,7 @@
   "10000121": {
     "disabled": true,
     "name": "Aino",
-    "version": 6,
+    "version": 6.0,
     "id": 10000121,
     "icon": "genshin-impact/character/10000121.webp",
     "quality": 4,

@@ -2,7 +2,7 @@
   "101": {
     "disabled": true,
     "name": "Passerby of Wandering Cloud",
-    "version": 1,
+    "version": 1.0,
     "id": 101,
     "icon": "honkai-star-rail/set/101.webp",
     "bonuses": [
@@ -24,7 +24,7 @@
   "102": {
     "disabled": true,
     "name": "Musketeer of Wild Wheat",
-    "version": 1,
+    "version": 1.0,
     "id": 102,
     "icon": "honkai-star-rail/set/102.webp",
     "bonuses": [
@@ -55,7 +55,7 @@
   "103": {
     "disabled": true,
     "name": "Knight of Purity Palace",
-    "version": 1,
+    "version": 1.0,
     "id": 103,
     "icon": "honkai-star-rail/set/103.webp",
     "bonuses": [
@@ -85,7 +85,7 @@
   "104": {
     "disabled": true,
     "name": "Hunter of Glacial Forest",
-    "version": 1,
+    "version": 1.0,
     "id": 104,
     "icon": "honkai-star-rail/set/104.webp",
     "bonuses": [
@@ -123,7 +123,7 @@
   "105": {
     "disabled": true,
     "name": "Champion of Streetwise Boxing",
-    "version": 1,
+    "version": 1.0,
     "id": 105,
     "icon": "honkai-star-rail/set/105.webp",
     "bonuses": [
@@ -162,7 +162,7 @@
   "106": {
     "disabled": true,
     "name": "Guard of Wuthering Snow",
-    "version": 1,
+    "version": 1.0,
     "id": 106,
     "icon": "honkai-star-rail/set/106.webp",
     "bonuses": [
@@ -175,7 +175,7 @@
   "107": {
     "disabled": true,
     "name": "Firesmith of Lava-Forging",
-    "version": 1,
+    "version": 1.0,
     "id": 107,
     "icon": "honkai-star-rail/set/107.webp",
     "bonuses": [
@@ -227,7 +227,7 @@
   "108": {
     "disabled": true,
     "name": "Genius of Brilliant Stars",
-    "version": 1,
+    "version": 1.0,
     "id": 108,
     "icon": "honkai-star-rail/set/108.webp",
     "bonuses": [
@@ -257,7 +257,7 @@
   "109": {
     "disabled": true,
     "name": "Band of Sizzling Thunder",
-    "version": 1,
+    "version": 1.0,
     "id": 109,
     "icon": "honkai-star-rail/set/109.webp",
     "bonuses": [
@@ -296,7 +296,7 @@
   "110": {
     "disabled": true,
     "name": "Eagle of Twilight Line",
-    "version": 1,
+    "version": 1.0,
     "id": 110,
     "icon": "honkai-star-rail/set/110.webp",
     "bonuses": [
@@ -318,7 +318,7 @@
   "111": {
     "disabled": true,
     "name": "Thief of Shooting Meteor",
-    "version": 1,
+    "version": 1.0,
     "id": 111,
     "icon": "honkai-star-rail/set/111.webp",
     "bonuses": [
@@ -348,7 +348,7 @@
   "112": {
     "disabled": true,
     "name": "Wastelander of Banditry Desert",
-    "version": 1,
+    "version": 1.0,
     "id": 112,
     "icon": "honkai-star-rail/set/112.webp",
     "bonuses": [
@@ -491,7 +491,7 @@
   "117": {
     "disabled": true,
     "name": "Pioneer Diver of Dead Waters",
-    "version": 2,
+    "version": 2.0,
     "id": 117,
     "icon": "honkai-star-rail/set/117.webp",
     "bonuses": [
@@ -530,7 +530,7 @@
   "118": {
     "disabled": true,
     "name": "Watchmaker, Master of Dream Machinations",
-    "version": 2,
+    "version": 2.0,
     "id": 118,
     "icon": "honkai-star-rail/set/118.webp",
     "bonuses": [
@@ -707,7 +707,7 @@
   "123": {
     "disabled": true,
     "name": "Hero of Triumphant Song",
-    "version": 3,
+    "version": 3.0,
     "id": 123,
     "icon": "honkai-star-rail/set/123.webp",
     "bonuses": [
@@ -738,7 +738,7 @@
   "124": {
     "disabled": true,
     "name": "Poet of Mourning Collapse",
-    "version": 3,
+    "version": 3.0,
     "id": 124,
     "icon": "honkai-star-rail/set/124.webp",
     "bonuses": [
@@ -961,7 +961,7 @@
   "129": {
     "disabled": true,
     "name": "Ever-Glorious Magical Girl",
-    "version": 4,
+    "version": 4.0,
     "id": 129,
     "icon": "honkai-star-rail/set/129.webp",
     "bonuses": [
@@ -991,7 +991,7 @@
   "130": {
     "disabled": true,
     "name": "Diviner of Distant Reach",
-    "version": 4,
+    "version": 4.0,
     "id": 130,
     "icon": "honkai-star-rail/set/130.webp",
     "bonuses": [
@@ -1122,7 +1122,7 @@
   "301": {
     "disabled": true,
     "name": "Space Sealing Station",
-    "version": 1,
+    "version": 1.0,
     "id": 301,
     "icon": "honkai-star-rail/set/301.webp",
     "bonuses": [
@@ -1158,7 +1158,7 @@
   "302": {
     "disabled": true,
     "name": "Fleet of the Ageless",
-    "version": 1,
+    "version": 1.0,
     "id": 302,
     "icon": "honkai-star-rail/set/302.webp",
     "bonuses": [
@@ -1195,7 +1195,7 @@
   "303": {
     "disabled": true,
     "name": "Pan-Cosmic Commercial Enterprise",
-    "version": 1,
+    "version": 1.0,
     "id": 303,
     "icon": "honkai-star-rail/set/303.webp",
     "bonuses": [
@@ -1229,7 +1229,7 @@
   "304": {
     "disabled": true,
     "name": "Belobog of the Architects",
-    "version": 1,
+    "version": 1.0,
     "id": 304,
     "icon": "honkai-star-rail/set/304.webp",
     "bonuses": [
@@ -1265,7 +1265,7 @@
   "305": {
     "disabled": true,
     "name": "Celestial Differentiator",
-    "version": 1,
+    "version": 1.0,
     "id": 305,
     "icon": "honkai-star-rail/set/305.webp",
     "bonuses": [
@@ -1286,7 +1286,7 @@
   "306": {
     "disabled": true,
     "name": "Inert Salsotto",
-    "version": 1,
+    "version": 1.0,
     "id": 306,
     "icon": "honkai-star-rail/set/306.webp",
     "bonuses": [
@@ -1323,7 +1323,7 @@
   "307": {
     "disabled": true,
     "name": "Talia: Kingdom of Banditry",
-    "version": 1,
+    "version": 1.0,
     "id": 307,
     "icon": "honkai-star-rail/set/307.webp",
     "bonuses": [
@@ -1359,7 +1359,7 @@
   "308": {
     "disabled": true,
     "name": "Sprightly Vonwacq",
-    "version": 1,
+    "version": 1.0,
     "id": 308,
     "icon": "honkai-star-rail/set/308.webp",
     "bonuses": [

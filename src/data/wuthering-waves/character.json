@@ -1,7 +1,7 @@
 {
   "1102": {
     "name": "Sanhua",
-    "version": 1,
+    "version": 1.0,
     "id": 1102,
     "icon": "wuthering-waves/character/1102.webp",
     "quality": 4,
@@ -716,7 +716,7 @@
   },
   "1103": {
     "name": "Baizhi",
-    "version": 1,
+    "version": 1.0,
     "id": 1103,
     "icon": "wuthering-waves/character/1103.webp",
     "quality": 4,
@@ -737,6 +737,7 @@
     ],
     "effects": [
       {
+        "ref": "ultCoord",
         "apply": {
           "when": "start",
           "filter": {
@@ -750,15 +751,7 @@
           "when": "interval",
           "cooldown": 2500,
           "action": "resonanceLiberation.1"
-        },
-        "rankMods": [
-          {
-            "rank": 4,
-            "apply": {
-              "uses": 2
-            }
-          }
-        ]
+        }
       },
       {
         "apply": {
@@ -931,6 +924,17 @@
         "buff": {
           "stats": {
             "hp%": 0.12
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "modify": {
+          "ref": "ultCoord",
+          "spec": {
+            "apply": {
+              "uses": 2
+            }
           }
         }
       },
@@ -1619,7 +1623,7 @@
   },
   "1104": {
     "name": "Lingyang",
-    "version": 1,
+    "version": 1.0,
     "id": 1104,
     "icon": "wuthering-waves/character/1104.webp",
     "quality": 5,
@@ -4129,7 +4133,7 @@
   },
   "1107": {
     "name": "Carlotta",
-    "version": 2,
+    "version": 2.0,
     "id": 1107,
     "icon": "wuthering-waves/character/1107.webp",
     "quality": 5,
@@ -9334,7 +9338,7 @@
   },
   "1202": {
     "name": "Chixia",
-    "version": 1,
+    "version": 1.0,
     "id": 1202,
     "icon": "wuthering-waves/character/1202.webp",
     "quality": 4,
@@ -9998,7 +10002,7 @@
   },
   "1203": {
     "name": "Encore",
-    "version": 1,
+    "version": 1.0,
     "id": 1203,
     "icon": "wuthering-waves/character/1203.webp",
     "quality": 5,
@@ -10924,7 +10928,7 @@
   },
   "1204": {
     "name": "Mortefi",
-    "version": 1,
+    "version": 1.0,
     "id": 1204,
     "icon": "wuthering-waves/character/1204.webp",
     "quality": 4,
@@ -10942,6 +10946,7 @@
     "tagged": [],
     "effects": [
       {
+        "ref": "basicCoord",
         "stores": "global",
         "apply": {
           "when": "start",
@@ -10968,17 +10973,10 @@
           },
           "cooldown": 350,
           "action": "resonanceLiberation.1"
-        },
-        "rankMods": [
-          {
-            "rank": 4,
-            "apply": {
-              "duration": 7000
-            }
-          }
-        ]
+        }
       },
       {
+        "ref": "heavyCoord",
         "stores": "global",
         "apply": {
           "when": "start",
@@ -10992,33 +10990,25 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "or": [
               {
-                "action": {
-                  "type": "heavyAttack"
-                }
-              },
-              {
-                "field": "onField"
+                "and": [
+                  {
+                    "action": {
+                      "type": "heavyAttack"
+                    }
+                  },
+                  {
+                    "field": "onField"
+                  }
+                ]
               }
             ]
           },
           "cooldown": 350,
-          "action": "resonanceLiberation.1"
-        },
-        "times": 2,
-        "rankMods": [
-          {
-            "rank": 1,
-            "useOnType": "resonanceSkill"
-          },
-          {
-            "rank": 4,
-            "apply": {
-              "duration": 7000
-            }
-          }
-        ]
+          "action": "resonanceLiberation.1",
+          "times": 2
+        }
       },
       {
         "apply": {
@@ -11042,6 +11032,7 @@
         }
       },
       {
+        "ref": "coordBuff",
         "apply": {
           "when": "hit",
           "filter": {
@@ -11062,15 +11053,7 @@
             "dmgBonus%": 0.015
           }
         },
-        "maxStacks": 50,
-        "rankMods": [
-          {
-            "rank": 4,
-            "apply": {
-              "duration": 7000
-            }
-          }
-        ]
+        "maxStacks": 50
       },
       {
         "stores": "$next",
@@ -11090,6 +11073,32 @@
         }
       },
       {
+        "rank": 1,
+        "modify": {
+          "ref": "heavyCoord",
+          "spec": {
+            "use": {
+              "filter": {
+                "or": [
+                  {
+                    "and": [
+                      {
+                        "action": {
+                          "type": "resonanceSkill"
+                        }
+                      },
+                      {
+                        "field": "onField"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
         "rank": 3,
         "buff": {
           "filter": {
@@ -11099,6 +11108,39 @@
           },
           "stats": {
             "critDmg%": 0.3
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "modify": {
+          "ref": "basicCoord",
+          "spec": {
+            "apply": {
+              "duration": 7000
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "modify": {
+          "ref": "heavyCoord",
+          "spec": {
+            "apply": {
+              "duration": 7000
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "modify": {
+          "ref": "coordBuff",
+          "spec": {
+            "apply": {
+              "duration": 7000
+            }
           }
         }
       },
@@ -17276,7 +17318,7 @@
   },
   "1209": {
     "name": "Mornye",
-    "version": 3,
+    "version": 3.0,
     "id": 1209,
     "icon": "wuthering-waves/character/1209.webp",
     "quality": 5,
@@ -23429,7 +23471,7 @@
   },
   "1301": {
     "name": "Calcharo",
-    "version": 1,
+    "version": 1.0,
     "id": 1301,
     "icon": "wuthering-waves/character/1301.webp",
     "quality": 5,
@@ -24590,7 +24632,7 @@
   },
   "1302": {
     "name": "Yinlin",
-    "version": 1,
+    "version": 1.0,
     "id": 1302,
     "icon": "wuthering-waves/character/1302.webp",
     "quality": 5,
@@ -25240,7 +25282,7 @@
   },
   "1303": {
     "name": "Yuanwu",
-    "version": 1,
+    "version": 1.0,
     "id": 1303,
     "icon": "wuthering-waves/character/1303.webp",
     "quality": 4,
@@ -34524,7 +34566,7 @@
   },
   "1402": {
     "name": "Yangyang",
-    "version": 1,
+    "version": 1.0,
     "id": 1402,
     "icon": "wuthering-waves/character/1402.webp",
     "quality": 4,
@@ -35214,7 +35256,7 @@
   },
   "1403": {
     "name": "Aalto",
-    "version": 1,
+    "version": 1.0,
     "id": 1403,
     "icon": "wuthering-waves/character/1403.webp",
     "quality": 4,
@@ -35895,7 +35937,7 @@
   },
   "1404": {
     "name": "Jiyan",
-    "version": 1,
+    "version": 1.0,
     "id": 1404,
     "icon": "wuthering-waves/character/1404.webp",
     "quality": 5,
@@ -36698,7 +36740,7 @@
   },
   "1405": {
     "name": "Jianxin",
-    "version": 1,
+    "version": 1.0,
     "id": 1405,
     "icon": "wuthering-waves/character/1405.webp",
     "quality": 5,
@@ -47009,7 +47051,7 @@
   },
   "1501": {
     "name": "Rover: Spectro",
-    "version": 1,
+    "version": 1.0,
     "id": 1501,
     "icon": "wuthering-waves/character/1501.webp",
     "quality": 5,
@@ -47782,7 +47824,7 @@
   },
   "1503": {
     "name": "Verina",
-    "version": 1,
+    "version": 1.0,
     "id": 1503,
     "icon": "wuthering-waves/character/1503.webp",
     "quality": 5,
@@ -54581,7 +54623,7 @@
   },
   "1509": {
     "name": "Lynae",
-    "version": 3,
+    "version": 3.0,
     "id": 1509,
     "icon": "wuthering-waves/character/1509.webp",
     "quality": 5,
@@ -57214,15 +57256,7 @@
           "stats": {
             "damageMv%": 2.7
           }
-        },
-        "rankMods": [
-          {
-            "rank": 2,
-            "stats": {
-              "damageMv%": 2.9
-            }
-          }
-        ]
+        }
       },
       {
         "apply": {
@@ -59562,7 +59596,7 @@
   },
   "1601": {
     "name": "Taoqi",
-    "version": 1,
+    "version": 1.0,
     "id": 1601,
     "icon": "wuthering-waves/character/1601.webp",
     "quality": 4,
@@ -59580,6 +59614,7 @@
     "tagged": [],
     "effects": [
       {
+        "ref": "defUp",
         "stores": "global",
         "apply": {
           "when": "start",
@@ -59605,15 +59640,7 @@
               "ref": "normalAttack.3"
             }
           }
-        },
-        "rankMods": [
-          {
-            "rank": 3,
-            "apply": {
-              "duration": 15000
-            }
-          }
-        ]
+        }
       },
       {
         "stores": "$next",
@@ -59660,6 +59687,17 @@
           "stats": {
             "critRate%": 0.2,
             "critDmg%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 3,
+        "modify": {
+          "ref": "defUp",
+          "spec": {
+            "apply": {
+              "duration": 15000
+            }
           }
         }
       },
@@ -60478,7 +60516,7 @@
   },
   "1602": {
     "name": "Danjin",
-    "version": 1,
+    "version": 1.0,
     "id": 1602,
     "icon": "wuthering-waves/character/1602.webp",
     "quality": 4,
@@ -60496,6 +60534,7 @@
     "tagged": [],
     "effects": [
       {
+        "ref": "incineratingWill",
         "apply": {
           "when": "start",
           "filter": {
@@ -60509,15 +60548,7 @@
           "stats": {
             "dmgBonus%": 0.2
           }
-        },
-        "rankMods": [
-          {
-            "rank": 2,
-            "stats": {
-              "dmgBonus%": 0.2
-            }
-          }
-        ]
+        }
       },
       {
         "apply": {
@@ -60598,6 +60629,19 @@
           }
         },
         "maxStacks": 6
+      },
+      {
+        "rank": 2,
+        "modify": {
+          "ref": "incineratingWill",
+          "spec": {
+            "buff": {
+              "stats": {
+                "dmgBonus%": 0.2
+              }
+            }
+          }
+        }
       },
       {
         "rank": 3,
@@ -62186,7 +62230,7 @@
   },
   "1605": {
     "name": "Rover: Havoc",
-    "version": 1,
+    "version": 1.0,
     "id": 1605,
     "icon": "wuthering-waves/character/1605.webp",
     "quality": 5,
@@ -63206,7 +63250,7 @@
   },
   "1606": {
     "name": "Roccia",
-    "version": 2,
+    "version": 2.0,
     "id": 1606,
     "icon": "wuthering-waves/character/1606.webp",
     "quality": 5,
@@ -63857,15 +63901,7 @@
           },
           "cooldown": 1000,
           "action": "resonanceLiberation.1"
-        },
-        "rankMods": [
-          {
-            "rank": 5,
-            "apply": {
-              "uses": 5
-            }
-          }
-        ]
+        }
       },
       {
         "buff": {

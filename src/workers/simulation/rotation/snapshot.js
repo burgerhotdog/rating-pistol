@@ -4,9 +4,9 @@ import { getBuffMap } from './getStatMap';
 import { getUsedAttrs } from './formula/solver';
 
 export const canSnapshot = (action = {}) =>
-  action.damage ||
-  action.healing ||
-  action.shield;
+  action.damage?.compressed ||
+  action.healing?.compressed ||
+  action.shield?.compressed;
 
 export const buildSnapshot = (ctx, action, options = {}) => {
   const { gameId } = ctx.cache;

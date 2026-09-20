@@ -2,7 +2,7 @@
   "1001": {
     "disabled": true,
     "name": "March 7th",
-    "version": 1,
+    "version": 1.0,
     "id": 1001,
     "icon": "honkai-star-rail/character/1001.webp",
     "quality": 4,
@@ -187,7 +187,7 @@
   "1002": {
     "disabled": true,
     "name": "Dan Heng",
-    "version": 1,
+    "version": 1.0,
     "id": 1002,
     "icon": "honkai-star-rail/character/1002.webp",
     "quality": 4,
@@ -353,7 +353,7 @@
   "1003": {
     "disabled": true,
     "name": "Himeko",
-    "version": 1,
+    "version": 1.0,
     "id": 1003,
     "icon": "honkai-star-rail/character/1003.webp",
     "quality": 5,
@@ -519,7 +519,7 @@
   "1004": {
     "disabled": true,
     "name": "Welt",
-    "version": 1,
+    "version": 1.0,
     "id": 1004,
     "icon": "honkai-star-rail/character/1004.webp",
     "quality": 5,
@@ -1207,7 +1207,7 @@
   "1008": {
     "disabled": true,
     "name": "Arlan",
-    "version": 1,
+    "version": 1.0,
     "id": 1008,
     "icon": "honkai-star-rail/character/1008.webp",
     "quality": 4,
@@ -1373,7 +1373,7 @@
   "1009": {
     "disabled": true,
     "name": "Asta",
-    "version": 1,
+    "version": 1.0,
     "id": 1009,
     "icon": "honkai-star-rail/character/1009.webp",
     "quality": 4,
@@ -1520,7 +1520,7 @@
   "1013": {
     "disabled": true,
     "name": "Herta",
-    "version": 1,
+    "version": 1.0,
     "id": 1013,
     "icon": "honkai-star-rail/character/1013.webp",
     "quality": 4,
@@ -2112,7 +2112,7 @@
   "1101": {
     "disabled": true,
     "name": "Bronya",
-    "version": 1,
+    "version": 1.0,
     "id": 1101,
     "icon": "honkai-star-rail/character/1101.webp",
     "quality": 5,
@@ -2297,7 +2297,7 @@
   "1102": {
     "disabled": true,
     "name": "Seele",
-    "version": 1,
+    "version": 1.0,
     "id": 1102,
     "icon": "honkai-star-rail/character/1102.webp",
     "quality": 5,
@@ -2444,7 +2444,7 @@
   "1103": {
     "disabled": true,
     "name": "Serval",
-    "version": 1,
+    "version": 1.0,
     "id": 1103,
     "icon": "honkai-star-rail/character/1103.webp",
     "quality": 4,
@@ -2629,7 +2629,7 @@
   "1104": {
     "disabled": true,
     "name": "Gepard",
-    "version": 1,
+    "version": 1.0,
     "id": 1104,
     "icon": "honkai-star-rail/character/1104.webp",
     "quality": 5,
@@ -2814,7 +2814,7 @@
   "1105": {
     "disabled": true,
     "name": "Natasha",
-    "version": 1,
+    "version": 1.0,
     "id": 1105,
     "icon": "honkai-star-rail/character/1105.webp",
     "quality": 4,
@@ -3037,7 +3037,7 @@
   "1106": {
     "disabled": true,
     "name": "Pela",
-    "version": 1,
+    "version": 1.0,
     "id": 1106,
     "icon": "honkai-star-rail/character/1106.webp",
     "quality": 4,
@@ -3203,7 +3203,7 @@
   "1107": {
     "disabled": true,
     "name": "Clara",
-    "version": 1,
+    "version": 1.0,
     "id": 1107,
     "icon": "honkai-star-rail/character/1107.webp",
     "quality": 5,
@@ -3388,7 +3388,7 @@
   "1108": {
     "disabled": true,
     "name": "Sampo",
-    "version": 1,
+    "version": 1.0,
     "id": 1108,
     "icon": "honkai-star-rail/character/1108.webp",
     "quality": 4,
@@ -3554,7 +3554,7 @@
   "1109": {
     "disabled": true,
     "name": "Hook",
-    "version": 1,
+    "version": 1.0,
     "id": 1109,
     "icon": "honkai-star-rail/character/1109.webp",
     "quality": 4,
@@ -4471,7 +4471,7 @@
   "1201": {
     "disabled": true,
     "name": "Qingque",
-    "version": 1,
+    "version": 1.0,
     "id": 1201,
     "icon": "honkai-star-rail/character/1201.webp",
     "quality": 4,
@@ -4654,7 +4654,7 @@
   "1202": {
     "disabled": true,
     "name": "Tingyun",
-    "version": 1,
+    "version": 1.0,
     "id": 1202,
     "icon": "honkai-star-rail/character/1202.webp",
     "quality": 4,
@@ -5024,7 +5024,7 @@
   "1204": {
     "disabled": true,
     "name": "Jing Yuan",
-    "version": 1,
+    "version": 1.0,
     "id": 1204,
     "icon": "honkai-star-rail/character/1204.webp",
     "quality": 5,
@@ -5496,7 +5496,7 @@
   "1206": {
     "disabled": true,
     "name": "Sushang",
-    "version": 1,
+    "version": 1.0,
     "id": 1206,
     "icon": "honkai-star-rail/character/1206.webp",
     "quality": 4,
@@ -6051,7 +6051,7 @@
   "1209": {
     "disabled": true,
     "name": "Yanqing",
-    "version": 1,
+    "version": 1.0,
     "id": 1209,
     "icon": "honkai-star-rail/character/1209.webp",
     "quality": 5,
@@ -6497,7 +6497,7 @@
   "1211": {
     "disabled": true,
     "name": "Bailu",
-    "version": 1,
+    "version": 1.0,
     "id": 1211,
     "icon": "honkai-star-rail/character/1211.webp",
     "quality": 5,
@@ -10480,7 +10480,7 @@
   "1306": {
     "disabled": true,
     "name": "Sparkle",
-    "version": 2,
+    "version": 2.0,
     "id": 1306,
     "icon": "honkai-star-rail/character/1306.webp",
     "quality": 5,
@@ -10646,7 +10646,7 @@
   "1307": {
     "disabled": true,
     "name": "Black Swan",
-    "version": 2,
+    "version": 2.0,
     "id": 1307,
     "icon": "honkai-star-rail/character/1307.webp",
     "quality": 5,
@@ -11856,7 +11856,7 @@
   "1312": {
     "disabled": true,
     "name": "Misha",
-    "version": 2,
+    "version": 2.0,
     "id": 1312,
     "icon": "honkai-star-rail/character/1312.webp",
     "quality": 4,
@@ -13198,7 +13198,7 @@
   "1401": {
     "disabled": true,
     "name": "The Herta",
-    "version": 3,
+    "version": 3.0,
     "id": 1401,
     "icon": "honkai-star-rail/character/1401.webp",
     "quality": 5,
@@ -13429,7 +13429,7 @@
   "1402": {
     "disabled": true,
     "name": "Aglaea",
-    "version": 3,
+    "version": 3.0,
     "id": 1402,
     "icon": "honkai-star-rail/character/1402.webp",
     "quality": 5,
@@ -17619,7 +17619,7 @@
   "1501": {
     "disabled": true,
     "name": "Sparxie",
-    "version": 4,
+    "version": 4.0,
     "id": 1501,
     "icon": "honkai-star-rail/character/1501.webp",
     "quality": 5,
@@ -17973,7 +17973,7 @@
   "1502": {
     "disabled": true,
     "name": "Yao Guang",
-    "version": 4,
+    "version": 4.0,
     "id": 1502,
     "icon": "honkai-star-rail/character/1502.webp",
     "quality": 5,

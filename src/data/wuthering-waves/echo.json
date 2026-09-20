@@ -1,7 +1,7 @@
 {
   "6000038": {
     "name": "Hooscamp",
-    "version": 1,
+    "version": 1.0,
     "id": 6000038,
     "icon": "wuthering-waves/echo/6000038.webp",
     "sets": [
@@ -12,7 +12,7 @@
   },
   "6000039": {
     "name": "Tempest Mephis",
-    "version": 1,
+    "version": 1.0,
     "id": 6000039,
     "icon": "wuthering-waves/echo/6000039.webp",
     "sets": [
@@ -34,7 +34,7 @@
   },
   "6000040": {
     "name": "Hoochief",
-    "version": 1,
+    "version": 1.0,
     "id": 6000040,
     "icon": "wuthering-waves/echo/6000040.webp",
     "sets": [
@@ -45,7 +45,7 @@
   },
   "6000041": {
     "name": "Diamondclaw",
-    "version": 1,
+    "version": 1.0,
     "id": 6000041,
     "icon": "wuthering-waves/echo/6000041.webp",
     "sets": [
@@ -56,7 +56,7 @@
   },
   "6000042": {
     "name": "Crownless",
-    "version": 1,
+    "version": 1.0,
     "id": 6000042,
     "icon": "wuthering-waves/echo/6000042.webp",
     "sets": [
@@ -98,7 +98,7 @@
   },
   "6000043": {
     "name": "Feilian Beringal",
-    "version": 1,
+    "version": 1.0,
     "id": 6000043,
     "icon": "wuthering-waves/echo/6000043.webp",
     "sets": [
@@ -120,7 +120,7 @@
   },
   "6000044": {
     "name": "Lampylumen Myriad",
-    "version": 1,
+    "version": 1.0,
     "id": 6000044,
     "icon": "wuthering-waves/echo/6000044.webp",
     "sets": [
@@ -162,7 +162,7 @@
   },
   "6000045": {
     "name": "Mourning Aix",
-    "version": 1,
+    "version": 1.0,
     "id": 6000045,
     "icon": "wuthering-waves/echo/6000045.webp",
     "sets": [
@@ -184,7 +184,7 @@
   },
   "6000046": {
     "name": "Carapace",
-    "version": 1,
+    "version": 1.0,
     "id": 6000046,
     "icon": "wuthering-waves/echo/6000046.webp",
     "sets": [
@@ -195,7 +195,7 @@
   },
   "6000047": {
     "name": "Chirpuff",
-    "version": 1,
+    "version": 1.0,
     "id": 6000047,
     "icon": "wuthering-waves/echo/6000047.webp",
     "sets": [
@@ -206,7 +206,7 @@
   },
   "6000048": {
     "name": "Mech Abomination",
-    "version": 1,
+    "version": 1.0,
     "id": 6000048,
     "icon": "wuthering-waves/echo/6000048.webp",
     "sets": [
@@ -254,7 +254,7 @@
   },
   "6000049": {
     "name": "Autopuppet Scout",
-    "version": 1,
+    "version": 1.0,
     "id": 6000049,
     "icon": "wuthering-waves/echo/6000049.webp",
     "sets": [
@@ -265,7 +265,7 @@
   },
   "6000050": {
     "name": "Traffic Illuminator",
-    "version": 1,
+    "version": 1.0,
     "id": 6000050,
     "icon": "wuthering-waves/echo/6000050.webp",
     "sets": [
@@ -288,7 +288,7 @@
   },
   "6000052": {
     "name": "Impermanence Heron",
-    "version": 1,
+    "version": 1.0,
     "id": 6000052,
     "icon": "wuthering-waves/echo/6000052.webp",
     "sets": [
@@ -353,7 +353,7 @@
   },
   "6000053": {
     "name": "Dreamless",
-    "version": 1,
+    "version": 1.0,
     "id": 6000053,
     "icon": "wuthering-waves/echo/6000053.webp",
     "sets": [
@@ -617,7 +617,7 @@
   },
   "6000061": {
     "name": "Galescourge Stalker",
-    "version": 2,
+    "version": 2.0,
     "id": 6000061,
     "icon": "wuthering-waves/echo/6000061.webp",
     "sets": [
@@ -628,7 +628,7 @@
   },
   "6000062": {
     "name": "Voltscourge Stalker",
-    "version": 2,
+    "version": 2.0,
     "id": 6000062,
     "icon": "wuthering-waves/echo/6000062.webp",
     "sets": [
@@ -639,7 +639,7 @@
   },
   "6000063": {
     "name": "Frostscourge Stalker",
-    "version": 2,
+    "version": 2.0,
     "id": 6000063,
     "icon": "wuthering-waves/echo/6000063.webp",
     "sets": [
@@ -650,7 +650,7 @@
   },
   "6000064": {
     "name": "Chop Chop: Headless",
-    "version": 2,
+    "version": 2.0,
     "id": 6000064,
     "icon": "wuthering-waves/echo/6000064.webp",
     "sets": [
@@ -661,7 +661,7 @@
   },
   "6000065": {
     "name": "Chop Chop: Leftless",
-    "version": 2,
+    "version": 2.0,
     "id": 6000065,
     "icon": "wuthering-waves/echo/6000065.webp",
     "sets": [
@@ -672,7 +672,7 @@
   },
   "6000066": {
     "name": "Chop Chop: Rightless",
-    "version": 2,
+    "version": 2.0,
     "id": 6000066,
     "icon": "wuthering-waves/echo/6000066.webp",
     "sets": [
@@ -683,7 +683,7 @@
   },
   "6000067": {
     "name": "Fae Ignis",
-    "version": 2,
+    "version": 2.0,
     "id": 6000067,
     "icon": "wuthering-waves/echo/6000067.webp",
     "sets": [
@@ -695,7 +695,7 @@
   },
   "6000068": {
     "name": "Nimbus Wraith",
-    "version": 2,
+    "version": 2.0,
     "id": 6000068,
     "icon": "wuthering-waves/echo/6000068.webp",
     "sets": [
@@ -707,7 +707,7 @@
   },
   "6000069": {
     "name": "Hocus Pocus",
-    "version": 2,
+    "version": 2.0,
     "id": 6000069,
     "icon": "wuthering-waves/echo/6000069.webp",
     "sets": [
@@ -718,7 +718,7 @@
   },
   "6000070": {
     "name": "Lottie Lost",
-    "version": 2,
+    "version": 2.0,
     "id": 6000070,
     "icon": "wuthering-waves/echo/6000070.webp",
     "sets": [
@@ -729,7 +729,7 @@
   },
   "6000071": {
     "name": "Diggy Duggy",
-    "version": 2,
+    "version": 2.0,
     "id": 6000071,
     "icon": "wuthering-waves/echo/6000071.webp",
     "sets": [
@@ -740,7 +740,7 @@
   },
   "6000072": {
     "name": "Chest Mimic",
-    "version": 2,
+    "version": 2.0,
     "id": 6000072,
     "icon": "wuthering-waves/echo/6000072.webp",
     "sets": [
@@ -752,7 +752,7 @@
   },
   "6000073": {
     "name": "Questless Knight",
-    "version": 2,
+    "version": 2.0,
     "id": 6000073,
     "icon": "wuthering-waves/echo/6000073.webp",
     "sets": [
@@ -763,7 +763,7 @@
   },
   "6000074": {
     "name": "Diurnus Knight",
-    "version": 2,
+    "version": 2.0,
     "id": 6000074,
     "icon": "wuthering-waves/echo/6000074.webp",
     "sets": [
@@ -774,7 +774,7 @@
   },
   "6000075": {
     "name": "Nocturnus Knight",
-    "version": 2,
+    "version": 2.0,
     "id": 6000075,
     "icon": "wuthering-waves/echo/6000075.webp",
     "sets": [
@@ -785,7 +785,7 @@
   },
   "6000076": {
     "name": "Abyssal Patricius",
-    "version": 2,
+    "version": 2.0,
     "id": 6000076,
     "icon": "wuthering-waves/echo/6000076.webp",
     "sets": [
@@ -805,7 +805,7 @@
   },
   "6000077": {
     "name": "Abyssal Gladius",
-    "version": 2,
+    "version": 2.0,
     "id": 6000077,
     "icon": "wuthering-waves/echo/6000077.webp",
     "sets": [
@@ -817,7 +817,7 @@
   },
   "6000078": {
     "name": "Abyssal Mercator",
-    "version": 2,
+    "version": 2.0,
     "id": 6000078,
     "icon": "wuthering-waves/echo/6000078.webp",
     "sets": [
@@ -828,7 +828,7 @@
   },
   "6000079": {
     "name": "Chop Chop",
-    "version": 2,
+    "version": 2.0,
     "id": 6000079,
     "icon": "wuthering-waves/echo/6000079.webp",
     "sets": [
@@ -840,7 +840,7 @@
   },
   "6000080": {
     "name": "Vitreum Dancer",
-    "version": 2,
+    "version": 2.0,
     "id": 6000080,
     "icon": "wuthering-waves/echo/6000080.webp",
     "sets": [
@@ -860,7 +860,7 @@
   },
   "6000081": {
     "name": "Cuddle Wuddle",
-    "version": 2,
+    "version": 2.0,
     "id": 6000081,
     "icon": "wuthering-waves/echo/6000081.webp",
     "sets": [
@@ -871,7 +871,7 @@
   },
   "6000082": {
     "name": "Lorelei",
-    "version": 2,
+    "version": 2.0,
     "id": 6000082,
     "icon": "wuthering-waves/echo/6000082.webp",
     "sets": [
@@ -903,7 +903,7 @@
   },
   "6000083": {
     "name": "Sentry Construct",
-    "version": 2,
+    "version": 2.0,
     "id": 6000083,
     "icon": "wuthering-waves/echo/6000083.webp",
     "sets": [
@@ -935,7 +935,7 @@
   },
   "6000084": {
     "name": "Dragon of Dirge",
-    "version": 2,
+    "version": 2.0,
     "id": 6000084,
     "icon": "wuthering-waves/echo/6000084.webp",
     "sets": [
@@ -968,7 +968,7 @@
   },
   "6000085": {
     "name": "Hecate",
-    "version": 2,
+    "version": 2.0,
     "id": 6000085,
     "icon": "wuthering-waves/echo/6000085.webp",
     "sets": [
@@ -1011,7 +1011,7 @@
   },
   "6000086": {
     "name": "Nightmare: Feilian Beringal",
-    "version": 2,
+    "version": 2.0,
     "id": 6000086,
     "icon": "wuthering-waves/echo/6000086.webp",
     "sets": [
@@ -1047,7 +1047,7 @@
   },
   "6000087": {
     "name": "Nightmare: Impermanence Heron",
-    "version": 2,
+    "version": 2.0,
     "id": 6000087,
     "icon": "wuthering-waves/echo/6000087.webp",
     "sets": [
@@ -1080,7 +1080,7 @@
   },
   "6000088": {
     "name": "Nightmare: Thundering Mephis",
-    "version": 2,
+    "version": 2.0,
     "id": 6000088,
     "icon": "wuthering-waves/echo/6000088.webp",
     "sets": [
@@ -1112,7 +1112,7 @@
   },
   "6000089": {
     "name": "Nightmare: Tempest Mephis",
-    "version": 2,
+    "version": 2.0,
     "id": 6000089,
     "icon": "wuthering-waves/echo/6000089.webp",
     "sets": [
@@ -1145,7 +1145,7 @@
   },
   "6000090": {
     "name": "Nightmare: Crownless",
-    "version": 2,
+    "version": 2.0,
     "id": 6000090,
     "icon": "wuthering-waves/echo/6000090.webp",
     "sets": [
@@ -1198,7 +1198,7 @@
   },
   "6000091": {
     "name": "Nightmare: Inferno Rider",
-    "version": 2,
+    "version": 2.0,
     "id": 6000091,
     "icon": "wuthering-waves/echo/6000091.webp",
     "sets": [
@@ -1230,7 +1230,7 @@
   },
   "6000092": {
     "name": "Nightmare: Mourning Aix",
-    "version": 2,
+    "version": 2.0,
     "id": 6000092,
     "icon": "wuthering-waves/echo/6000092.webp",
     "sets": [
@@ -2124,7 +2124,7 @@
   },
   "6000174": {
     "name": "Tremor Warrior",
-    "version": 3,
+    "version": 3.0,
     "id": 6000174,
     "icon": "wuthering-waves/echo/6000174.webp",
     "sets": [
@@ -2136,7 +2136,7 @@
   },
   "6000175": {
     "name": "Flora Drone",
-    "version": 3,
+    "version": 3.0,
     "id": 6000175,
     "icon": "wuthering-waves/echo/6000175.webp",
     "sets": [
@@ -2149,7 +2149,7 @@
   },
   "6000176": {
     "name": "Mining Drone",
-    "version": 3,
+    "version": 3.0,
     "id": 6000176,
     "icon": "wuthering-waves/echo/6000176.webp",
     "sets": [
@@ -2162,7 +2162,7 @@
   },
   "6000177": {
     "name": "Geospider S4",
-    "version": 3,
+    "version": 3.0,
     "id": 6000177,
     "icon": "wuthering-waves/echo/6000177.webp",
     "sets": [
@@ -2174,7 +2174,7 @@
   },
   "6000178": {
     "name": "Zip Zap",
-    "version": 3,
+    "version": 3.0,
     "id": 6000178,
     "icon": "wuthering-waves/echo/6000178.webp",
     "sets": [
@@ -2187,7 +2187,7 @@
   },
   "6000179": {
     "name": "Twin Nova: Nebulous Cannon",
-    "version": 3,
+    "version": 3.0,
     "id": 6000179,
     "icon": "wuthering-waves/echo/6000179.webp",
     "sets": [
@@ -2220,7 +2220,7 @@
   },
   "6000180": {
     "name": "Twin Nova: Collapsar Blade",
-    "version": 3,
+    "version": 3.0,
     "id": 6000180,
     "icon": "wuthering-waves/echo/6000180.webp",
     "sets": [
@@ -2244,7 +2244,7 @@
   },
   "6000181": {
     "name": "Flora Reindeer",
-    "version": 3,
+    "version": 3.0,
     "id": 6000181,
     "icon": "wuthering-waves/echo/6000181.webp",
     "sets": [
@@ -2255,7 +2255,7 @@
   },
   "6000182": {
     "name": "Mining Reindeer",
-    "version": 3,
+    "version": 3.0,
     "id": 6000182,
     "icon": "wuthering-waves/echo/6000182.webp",
     "sets": [
@@ -2266,7 +2266,7 @@
   },
   "6000183": {
     "name": "Ironhoof",
-    "version": 3,
+    "version": 3.0,
     "id": 6000183,
     "icon": "wuthering-waves/echo/6000183.webp",
     "sets": [
@@ -2278,7 +2278,7 @@
   },
   "6000184": {
     "name": "Spacetrek Explorer",
-    "version": 3,
+    "version": 3.0,
     "id": 6000184,
     "icon": "wuthering-waves/echo/6000184.webp",
     "sets": [
@@ -2290,7 +2290,7 @@
   },
   "6000185": {
     "name": "Sabercat Reaver",
-    "version": 3,
+    "version": 3.0,
     "id": 6000185,
     "icon": "wuthering-waves/echo/6000185.webp",
     "sets": [
@@ -2302,7 +2302,7 @@
   },
   "6000186": {
     "name": "Sabercat Prowler",
-    "version": 3,
+    "version": 3.0,
     "id": 6000186,
     "icon": "wuthering-waves/echo/6000186.webp",
     "sets": [
@@ -2314,7 +2314,7 @@
   },
   "6000187": {
     "name": "Frostbite Coleoid",
-    "version": 3,
+    "version": 3.0,
     "id": 6000187,
     "icon": "wuthering-waves/echo/6000187.webp",
     "sets": [
@@ -2325,7 +2325,7 @@
   },
   "6000188": {
     "name": "Windlash Coleoid",
-    "version": 3,
+    "version": 3.0,
     "id": 6000188,
     "icon": "wuthering-waves/echo/6000188.webp",
     "sets": [
@@ -2336,7 +2336,7 @@
   },
   "6000189": {
     "name": "Hyvatia",
-    "version": 3,
+    "version": 3.0,
     "id": 6000189,
     "icon": "wuthering-waves/echo/6000189.webp",
     "sets": [
@@ -2403,7 +2403,7 @@
   },
   "6000190": {
     "name": "Reactor Husk",
-    "version": 3,
+    "version": 3.0,
     "id": 6000190,
     "icon": "wuthering-waves/echo/6000190.webp",
     "sets": [
@@ -3145,7 +3145,7 @@
   },
   "390070051": {
     "name": "Vanguard Junrock",
-    "version": 1,
+    "version": 1.0,
     "id": 390070051,
     "icon": "wuthering-waves/echo/390070051.webp",
     "sets": [
@@ -3157,7 +3157,7 @@
   },
   "390070052": {
     "name": "Fission Junrock",
-    "version": 1,
+    "version": 1.0,
     "id": 390070052,
     "icon": "wuthering-waves/echo/390070052.webp",
     "sets": [
@@ -3169,7 +3169,7 @@
   },
   "390070053": {
     "name": "Electro Predator",
-    "version": 1,
+    "version": 1.0,
     "id": 390070053,
     "icon": "wuthering-waves/echo/390070053.webp",
     "sets": [
@@ -3180,7 +3180,7 @@
   },
   "390070064": {
     "name": "Fusion Warrior",
-    "version": 1,
+    "version": 1.0,
     "id": 390070064,
     "icon": "wuthering-waves/echo/390070064.webp",
     "sets": [
@@ -3192,7 +3192,7 @@
   },
   "390070065": {
     "name": "Havoc Warrior",
-    "version": 1,
+    "version": 1.0,
     "id": 390070065,
     "icon": "wuthering-waves/echo/390070065.webp",
     "sets": [
@@ -3203,7 +3203,7 @@
   },
   "390070066": {
     "name": "Snip Snap",
-    "version": 1,
+    "version": 1.0,
     "id": 390070066,
     "icon": "wuthering-waves/echo/390070066.webp",
     "sets": [
@@ -3215,7 +3215,7 @@
   },
   "390070067": {
     "name": "Zig Zag",
-    "version": 1,
+    "version": 1.0,
     "id": 390070067,
     "icon": "wuthering-waves/echo/390070067.webp",
     "sets": [
@@ -3227,7 +3227,7 @@
   },
   "390070068": {
     "name": "Whiff Whaff",
-    "version": 1,
+    "version": 1.0,
     "id": 390070068,
     "icon": "wuthering-waves/echo/390070068.webp",
     "sets": [
@@ -3239,7 +3239,7 @@
   },
   "390070069": {
     "name": "Tick Tack",
-    "version": 1,
+    "version": 1.0,
     "id": 390070069,
     "icon": "wuthering-waves/echo/390070069.webp",
     "sets": [
@@ -3251,7 +3251,7 @@
   },
   "390070070": {
     "name": "Glacio Predator",
-    "version": 1,
+    "version": 1.0,
     "id": 390070070,
     "icon": "wuthering-waves/echo/390070070.webp",
     "sets": [
@@ -3262,7 +3262,7 @@
   },
   "390070071": {
     "name": "Aero Predator",
-    "version": 1,
+    "version": 1.0,
     "id": 390070071,
     "icon": "wuthering-waves/echo/390070071.webp",
     "sets": [
@@ -3273,7 +3273,7 @@
   },
   "390070074": {
     "name": "Cruisewing",
-    "version": 1,
+    "version": 1.0,
     "id": 390070074,
     "icon": "wuthering-waves/echo/390070074.webp",
     "sets": [
@@ -3285,7 +3285,7 @@
   },
   "390070075": {
     "name": "Sabyr Boar",
-    "version": 1,
+    "version": 1.0,
     "id": 390070075,
     "icon": "wuthering-waves/echo/390070075.webp",
     "sets": [
@@ -3297,7 +3297,7 @@
   },
   "390070076": {
     "name": "Gulpuff",
-    "version": 1,
+    "version": 1.0,
     "id": 390070076,
     "icon": "wuthering-waves/echo/390070076.webp",
     "sets": [
@@ -3308,7 +3308,7 @@
   },
   "390070077": {
     "name": "Excarat",
-    "version": 1,
+    "version": 1.0,
     "id": 390070077,
     "icon": "wuthering-waves/echo/390070077.webp",
     "sets": [
@@ -3319,7 +3319,7 @@
   },
   "390070078": {
     "name": "Baby Viridblaze Saurian",
-    "version": 1,
+    "version": 1.0,
     "id": 390070078,
     "icon": "wuthering-waves/echo/390070078.webp",
     "sets": [
@@ -3331,7 +3331,7 @@
   },
   "390070079": {
     "name": "Baby Roseshroom",
-    "version": 1,
+    "version": 1.0,
     "id": 390070079,
     "icon": "wuthering-waves/echo/390070079.webp",
     "sets": [
@@ -3342,7 +3342,7 @@
   },
   "390070100": {
     "name": "Fusion Dreadmane",
-    "version": 1,
+    "version": 1.0,
     "id": 390070100,
     "icon": "wuthering-waves/echo/390070100.webp",
     "sets": [
@@ -3353,7 +3353,7 @@
   },
   "390070105": {
     "name": "Hoartoise",
-    "version": 1,
+    "version": 1.0,
     "id": 390070105,
     "icon": "wuthering-waves/echo/390070105.webp",
     "sets": [
@@ -3364,7 +3364,7 @@
   },
   "390077004": {
     "name": "Violet-Feathered Heron",
-    "version": 1,
+    "version": 1.0,
     "id": 390077004,
     "icon": "wuthering-waves/echo/390077004.webp",
     "sets": [
@@ -3375,7 +3375,7 @@
   },
   "390077005": {
     "name": "Cyan-Feathered Heron",
-    "version": 1,
+    "version": 1.0,
     "id": 390077005,
     "icon": "wuthering-waves/echo/390077005.webp",
     "sets": [
@@ -3386,7 +3386,7 @@
   },
   "390077012": {
     "name": "Fusion Prism",
-    "version": 1,
+    "version": 1.0,
     "id": 390077012,
     "icon": "wuthering-waves/echo/390077012.webp",
     "sets": [
@@ -3398,7 +3398,7 @@
   },
   "390077013": {
     "name": "Glacio Prism",
-    "version": 1,
+    "version": 1.0,
     "id": 390077013,
     "icon": "wuthering-waves/echo/390077013.webp",
     "sets": [
@@ -3410,7 +3410,7 @@
   },
   "390077016": {
     "name": "Spectro Prism",
-    "version": 1,
+    "version": 1.0,
     "id": 390077016,
     "icon": "wuthering-waves/echo/390077016.webp",
     "sets": [
@@ -3422,7 +3422,7 @@
   },
   "390077017": {
     "name": "Havoc Prism",
-    "version": 1,
+    "version": 1.0,
     "id": 390077017,
     "icon": "wuthering-waves/echo/390077017.webp",
     "sets": [
@@ -3434,7 +3434,7 @@
   },
   "390077021": {
     "name": "Stonewall Bracer",
-    "version": 1,
+    "version": 1.0,
     "id": 390077021,
     "icon": "wuthering-waves/echo/390077021.webp",
     "sets": [
@@ -3445,7 +3445,7 @@
   },
   "390077022": {
     "name": "Flautist",
-    "version": 1,
+    "version": 1.0,
     "id": 390077022,
     "icon": "wuthering-waves/echo/390077022.webp",
     "sets": [
@@ -3456,7 +3456,7 @@
   },
   "390077023": {
     "name": "Tambourinist",
-    "version": 1,
+    "version": 1.0,
     "id": 390077023,
     "icon": "wuthering-waves/echo/390077023.webp",
     "sets": [
@@ -3467,7 +3467,7 @@
   },
   "390077024": {
     "name": "Rocksteady Guardian",
-    "version": 1,
+    "version": 1.0,
     "id": 390077024,
     "icon": "wuthering-waves/echo/390077024.webp",
     "sets": [
@@ -3478,7 +3478,7 @@
   },
   "390077025": {
     "name": "Chasm Guardian",
-    "version": 1,
+    "version": 1.0,
     "id": 390077025,
     "icon": "wuthering-waves/echo/390077025.webp",
     "sets": [
@@ -3489,7 +3489,7 @@
   },
   "390077028": {
     "name": "Viridblaze Saurian",
-    "version": 1,
+    "version": 1.0,
     "id": 390077028,
     "icon": "wuthering-waves/echo/390077028.webp",
     "sets": [
@@ -3500,7 +3500,7 @@
   },
   "390077029": {
     "name": "Roseshroom",
-    "version": 1,
+    "version": 1.0,
     "id": 390077029,
     "icon": "wuthering-waves/echo/390077029.webp",
     "sets": [
@@ -3511,7 +3511,7 @@
   },
   "390077033": {
     "name": "Havoc Dreadmane",
-    "version": 1,
+    "version": 1.0,
     "id": 390077033,
     "icon": "wuthering-waves/echo/390077033.webp",
     "sets": [
@@ -3522,7 +3522,7 @@
   },
   "390077038": {
     "name": "Spearback",
-    "version": 1,
+    "version": 1.0,
     "id": 390077038,
     "icon": "wuthering-waves/echo/390077038.webp",
     "sets": [
@@ -3533,7 +3533,7 @@
   },
   "390080003": {
     "name": "Thundering Mephis",
-    "version": 1,
+    "version": 1.0,
     "id": 390080003,
     "icon": "wuthering-waves/echo/390080003.webp",
     "sets": [
@@ -3555,7 +3555,7 @@
   },
   "390080005": {
     "name": "Bell-Borne Geochelone",
-    "version": 1,
+    "version": 1.0,
     "id": 390080005,
     "icon": "wuthering-waves/echo/390080005.webp",
     "sets": [
@@ -3598,7 +3598,7 @@
   },
   "390080007": {
     "name": "Inferno Rider",
-    "version": 1,
+    "version": 1.0,
     "id": 390080007,
     "icon": "wuthering-waves/echo/390080007.webp",
     "sets": [

@@ -2,7 +2,7 @@
   "1011": {
     "disabled": true,
     "name": "Anby",
-    "version": 1,
+    "version": 1.0,
     "id": 1011,
     "icon": "zenless-zone-zero/character/1011.webp",
     "quality": 4,
@@ -869,7 +869,7 @@
   "1021": {
     "disabled": true,
     "name": "Nekomata",
-    "version": 1,
+    "version": 1.0,
     "id": 1021,
     "icon": "zenless-zone-zero/character/1021.webp",
     "quality": 5,
@@ -1798,7 +1798,7 @@
   "1031": {
     "disabled": true,
     "name": "Nicole",
-    "version": 1,
+    "version": 1.0,
     "id": 1031,
     "icon": "zenless-zone-zero/character/1031.webp",
     "quality": 4,
@@ -3061,7 +3061,7 @@
   "1041": {
     "disabled": true,
     "name": "Soldier 11",
-    "version": 1,
+    "version": 1.0,
     "id": 1041,
     "icon": "zenless-zone-zero/character/1041.webp",
     "quality": 5,
@@ -5655,7 +5655,7 @@
   "1061": {
     "disabled": true,
     "name": "Corin",
-    "version": 1,
+    "version": 1.0,
     "id": 1061,
     "icon": "zenless-zone-zero/character/1061.webp",
     "quality": 4,
@@ -8103,7 +8103,7 @@
   "1081": {
     "disabled": true,
     "name": "Billy",
-    "version": 1,
+    "version": 1.0,
     "id": 1081,
     "icon": "zenless-zone-zero/character/1081.webp",
     "quality": 4,
@@ -10212,7 +10212,7 @@
   "1101": {
     "disabled": true,
     "name": "Koleda",
-    "version": 1,
+    "version": 1.0,
     "id": 1101,
     "icon": "zenless-zone-zero/character/1101.webp",
     "quality": 5,
@@ -11475,7 +11475,7 @@
   "1111": {
     "disabled": true,
     "name": "Anton",
-    "version": 1,
+    "version": 1.0,
     "id": 1111,
     "icon": "zenless-zone-zero/character/1111.webp",
     "quality": 4,
@@ -12625,7 +12625,7 @@
   "1121": {
     "disabled": true,
     "name": "Ben",
-    "version": 1,
+    "version": 1.0,
     "id": 1121,
     "icon": "zenless-zone-zero/character/1121.webp",
     "quality": 4,
@@ -13606,7 +13606,7 @@
   "1131": {
     "disabled": true,
     "name": "Soukaku",
-    "version": 1,
+    "version": 1.0,
     "id": 1131,
     "icon": "zenless-zone-zero/character/1131.webp",
     "quality": 4,
@@ -14870,7 +14870,7 @@
   "1141": {
     "disabled": true,
     "name": "Lycaon",
-    "version": 1,
+    "version": 1.0,
     "id": 1141,
     "icon": "zenless-zone-zero/character/1141.webp",
     "quality": 5,
@@ -16247,7 +16247,7 @@
   "1151": {
     "disabled": true,
     "name": "Lucy",
-    "version": 1,
+    "version": 1.0,
     "id": 1151,
     "icon": "zenless-zone-zero/character/1151.webp",
     "quality": 4,
@@ -20292,7 +20292,7 @@
   "1181": {
     "disabled": true,
     "name": "Grace",
-    "version": 1,
+    "version": 1.0,
     "id": 1181,
     "icon": "zenless-zone-zero/character/1181.webp",
     "quality": 5,
@@ -21187,7 +21187,7 @@
   "1191": {
     "disabled": true,
     "name": "Ellen",
-    "version": 1,
+    "version": 1.0,
     "id": 1191,
     "icon": "zenless-zone-zero/character/1191.webp",
     "quality": 5,
@@ -24003,7 +24003,7 @@
   "1211": {
     "disabled": true,
     "name": "Rina",
-    "version": 1,
+    "version": 1.0,
     "id": 1211,
     "icon": "zenless-zone-zero/character/1211.webp",
     "quality": 5,
@@ -26048,7 +26048,7 @@
   "1241": {
     "disabled": true,
     "name": "Zhu Yuan",
-    "version": 1,
+    "version": 1.0,
     "id": 1241,
     "icon": "zenless-zone-zero/character/1241.webp",
     "quality": 5,
@@ -30688,7 +30688,7 @@
   "1281": {
     "disabled": true,
     "name": "Piper",
-    "version": 1,
+    "version": 1.0,
     "id": 1281,
     "icon": "zenless-zone-zero/character/1281.webp",
     "quality": 4,
@@ -40754,7 +40754,7 @@
   "1371": {
     "disabled": true,
     "name": "Yixuan",
-    "version": 2,
+    "version": 2.0,
     "id": 1371,
     "icon": "zenless-zone-zero/character/1371.webp",
     "quality": 5,
@@ -43297,7 +43297,7 @@
   "1391": {
     "disabled": true,
     "name": "Ju Fufu",
-    "version": 2,
+    "version": 2.0,
     "id": 1391,
     "icon": "zenless-zone-zero/character/1391.webp",
     "quality": 5,
@@ -46835,7 +46835,7 @@
   "1421": {
     "disabled": true,
     "name": "Pan Yinhu",
-    "version": 2,
+    "version": 2.0,
     "id": 1421,
     "icon": "zenless-zone-zero/character/1421.webp",
     "quality": 4,
@@ -62735,7 +62735,7 @@
   "1551": {
     "disabled": true,
     "name": "Pyrois",
-    "version": 3,
+    "version": 3.0,
     "id": 1551,
     "icon": "zenless-zone-zero/character/1551.webp",
     "quality": 5,
@@ -63922,7 +63922,7 @@
   "1561": {
     "disabled": true,
     "name": "Velina",
-    "version": 3,
+    "version": 3.0,
     "id": 1561,
     "icon": "zenless-zone-zero/character/1561.webp",
     "quality": 5,
@@ -65052,7 +65052,7 @@
   "1571": {
     "disabled": true,
     "name": "Norma",
-    "version": 3,
+    "version": 3.0,
     "id": 1571,
     "icon": "zenless-zone-zero/character/1571.webp",
     "quality": 5,
