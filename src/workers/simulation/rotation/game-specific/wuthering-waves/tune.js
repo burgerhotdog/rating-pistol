@@ -1,5 +1,5 @@
 import { getAttr, toMergedObj } from '@/utils';
-import { onApplyDoCommand } from '../../commands';
+import { runCommands } from '../../commands';
 import { runApplyEffect } from '../../effects';
 import { getBuffMap } from '../../getStatMap';
 import { runTuneFormula } from '../../formula/tuneFormula';
@@ -73,8 +73,11 @@ function recordTuneBreak(ctx) {
           applyCooldowns[effectKey]
         ) continue;
 
-        onApplyDoCommand(ctx, effect, responseOwnerId);
-        runApplyEffect(ctx, effect, { applier: responseOwnerId });
+        runApplyEffect(ctx, effect, apply, { applier: responseOwnerId });
+
+        if (apply.commands) {
+          runCommands(ctx, effect, apply.commands);
+        }
       }
     }
   }

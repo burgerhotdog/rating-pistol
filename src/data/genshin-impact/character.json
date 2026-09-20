@@ -3140,10 +3140,13 @@
               }
             ]
           },
-          "action": "elementalSkill.1"
-        },
-        "onUseDoRemove": {
-          "baronBunny": 1
+          "action": "elementalSkill.1",
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "baronBunny"
+            }
+          ]
         }
       },
       {
@@ -48554,10 +48557,13 @@
               "ref": "elementalSkill.1"
             }
           },
-          "duration": 30000
-        },
-        "onApplyDoRemove": {
-          "denialOfDarkness": 1
+          "duration": 30000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "denialOfDarkness"
+            }
+          ]
         }
       },
       {
@@ -48569,10 +48575,13 @@
               "ref": "elementalSkill.2"
             }
           },
-          "duration": 30000
-        },
-        "onApplyDoRemove": {
-          "confirmationOfPurity": 1
+          "duration": 30000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "confirmationOfPurity"
+            }
+          ]
         },
         "buff": {
           "stats": {
@@ -48823,11 +48832,23 @@
                 }
               }
             ]
-          }
-        },
-        "onUseDoApply": {
-          "pyroResDown": 1,
-          "dendroResDown": 1
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "pyroResDown",
+              "spec": {
+                "duration": 6000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "dendroResDown",
+              "spec": {
+                "duration": 6000
+              }
+            }
+          ]
         }
       },
       {

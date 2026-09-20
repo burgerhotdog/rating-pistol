@@ -848,22 +848,32 @@
           },
           "cooldown": 500
         },
-        "remove": {
-          "when": "maxStacks"
-        },
-        "onRemoveDoApply": {
-          "songOfResistance": 1
-        }
+        "removeWhenMaxStacks": true,
+        "removeWhenMaxStacksCommands": [
+          {
+            "type": "apply",
+            "ref": "songOfResistance",
+            "spec": {
+              "duration": 12000
+            }
+          }
+        ]
       },
       {
         "ref": "songOfResistance",
         "stores": "$team",
         "apply": {
           "when": "command",
-          "duration": 12000
-        },
-        "onApplyDoApply": {
-          "blockSigils": 1
+          "duration": 12000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "blockSigils",
+              "spec": {
+                "duration": 20000
+              }
+            }
+          ]
         },
         "buff": {
           "stats": {
@@ -889,8 +899,7 @@
       {
         "ref": "blockSigils",
         "apply": {
-          "when": "command",
-          "duration": 20000
+          "when": "command"
         }
       }
     ]

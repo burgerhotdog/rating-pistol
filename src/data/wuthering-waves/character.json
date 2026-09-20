@@ -819,10 +819,13 @@
               }
             ]
           },
-          "duration": 20000
-        },
-        "onApplyDoRemove": {
-          "euphonia": 1
+          "duration": 20000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "euphonia"
+            }
+          ]
         },
         "buff": {
           "stats": {
@@ -6921,10 +6924,13 @@
           "uses": 1
         },
         "use": {
-          "when": "interval"
-        },
-        "onUseDoUse": {
-          "filmRoll": 1
+          "when": "interval",
+          "commands": [
+            {
+              "type": "use",
+              "ref": "filmRoll"
+            }
+          ]
         }
       },
       {
@@ -20454,12 +20460,17 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "duration": 12000
+          "duration": 12000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "generateDarkCore",
+              "spec": {
+                "duration": 12000
+              }
+            }
+          ]
         },
-        "onApplyDoApply": {
-          "generateDarkCore": 1
-        },
-        "doApplyDuration": 12000,
         "remove": {
           "when": "start",
           "filter": {
@@ -20487,10 +20498,13 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 12000
-        },
-        "onUseDoApply": {
-          "darkCore": 1
+          "cooldown": 12000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "darkCore"
+            }
+          ]
         }
       },
       {
@@ -41782,10 +41796,17 @@
                 "resonanceLiberation"
               ]
             }
-          }
-        },
-        "onUseDoApply": {
-          "blessingOfTheWanLight": 5
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "blessingOfTheWanLight",
+              "spec": {
+                "duration": 10000,
+                "stacks": 5
+              }
+            }
+          ]
         }
       },
       {
@@ -43167,10 +43188,13 @@
               }
             ]
           },
-          "duration": 20000
-        },
-        "onApplyDoRemove": {
-          "flowingPanaceaReady": 1
+          "duration": 20000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "flowingPanaceaReady"
+            }
+          ]
         },
         "buff": {
           "stats": {
@@ -45748,7 +45772,6 @@
     "tagged": [],
     "effects": [
       {
-        "ref": "wee",
         "buff": {
           "filter": {
             "action": {
@@ -45845,11 +45868,23 @@
               "ref": "normalAttack.4"
             }
           },
-          "uses": 1
-        },
-        "onApplyDoApply": {
-          "mindlock": 3,
-          "mindlockEarly": 3
+          "uses": 1,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "mindlock",
+              "spec": {
+                "stacks": 3
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "mindlockEarly",
+              "spec": {
+                "stacks": 3
+              }
+            }
+          ]
         },
         "buff": {
           "filter": {
@@ -50282,10 +50317,13 @@
             "action": {
               "ref": "introSkill.1"
             }
-          }
-        },
-        "onUseDoRemove": {
-          "stellarealm": 1
+          },
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "stellarealm"
+            }
+          ]
         }
       },
       {
@@ -65050,10 +65088,13 @@
                 }
               }
             ]
-          }
-        },
-        "onUseDoUse": {
-          "maestroHecateEnhancedFollowUp": 1
+          },
+          "commands": [
+            {
+              "type": "use",
+              "ref": "maestroHecateEnhancedFollowUp"
+            }
+          ]
         }
       },
       {
@@ -66337,10 +66378,13 @@
                 "havocBane": 6
               }
             }
-          }
-        },
-        "onUseDoRemove": {
-          "windbound": 6
+          },
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "windbound"
+            }
+          ]
         }
       },
       {

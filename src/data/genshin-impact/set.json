@@ -832,10 +832,15 @@
             "field": "offField"
           },
           "cooldown": 3000,
-          "action": []
-        },
-        "onUseDoApply": {
-          "curiosity": 1
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "curiosity",
+              "spec": {
+                "duration": 6000
+              }
+            }
+          ]
         }
       }
     ]

@@ -1,60 +1,62 @@
 import { GI } from '@/data';
-import {
-  onRemoveDoCommand,
-  onUseDoCommand,
-  onApplyDoCommand,
-} from './commands';
+import { runCommands } from './commands';
 import {
   runRemoveEffect,
   runUseEffect,
   runApplyEffect,
 } from './effects';
 
-export function runEffects(ctx, when, event) {
+export function runEffects(ctx, when, event = {}) {
   const { cache, states } = ctx;
   const { gameId } = cache;
   const { globalEffects, memberEffects, applyCooldowns } = states;
-  const eventOwnerId = event?.ownerId;
+  const eventOwnerId = event.ownerId;
 
   function tryRemove(state) {
     const { effect } = state;
-    const { remove } = effect;
+    if (!effect.remove) return;
 
-    if (remove?.when !== when) return;
-    if (!remove.by.includes(eventOwnerId)) return;
+    for (const remove of effect.remove) {
+      if (remove.when !== when) continue;
+      if (!remove.by.includes(eventOwnerId)) continue;
 
-    const spec = {
-      ...(event.reaction ? { reaction: event } : { action: event }),
-      fieldId: eventOwnerId,
-    };
-    if (!ctx.eventFilter(remove.filter, effect, spec)) return;
+      const spec = {
+        ...(event.reaction ? { reaction: event } : { action: event }),
+        fieldId: eventOwnerId,
+      };
+      if (!ctx.eventFilter(remove.filter, effect, spec)) continue;
 
-    onRemoveDoCommand(ctx, effect, eventOwnerId ?? effect.ownerId);
+      runRemoveEffect(state, remove);
 
-    if (remove.offset) {
-      state.removeTimer ??= remove.offset;
+      if (remove.commands) {
+        runCommands(ctx, effect, remove.commands, eventOwnerId ?? effect.ownerId);
+      }
+
       return;
     }
-
-    runRemoveEffect(state);
   }
 
   function tryUse(state) {
     const { effect } = state;
-    const { use } = effect;
+    if (!effect.use) return;
 
-    if (use?.when !== when) return;
-    if (!use.by.includes(eventOwnerId)) return;
-    if (state.isRunning || state.useCooldown) return;
+    for (const use of effect.use) {
+      if (use.when !== when) continue;
+      if (!use.by.includes(eventOwnerId)) continue;
+      if (state.isRunning || state.useCooldown) continue;
 
-    const spec = {
-      ...(event.reaction ? { reaction: event } : { action: event }),
-      fieldId: eventOwnerId,
-    };
-    if (!ctx.eventFilter(use.filter, effect, spec)) return;
+      const spec = {
+        ...(event.reaction ? { reaction: event } : { action: event }),
+        fieldId: eventOwnerId,
+      };
+      if (!ctx.eventFilter(use.filter, effect, spec)) continue;
 
-    onUseDoCommand(ctx, effect, eventOwnerId ?? effect.ownerId);
-    runUseEffect(ctx, state);
+      runUseEffect(ctx, state, use);
+
+      if (use.commands) {
+        runCommands(ctx, effect, use.commands, eventOwnerId ?? effect.ownerId);
+      }
+    }
   }
 
   Object.values(globalEffects).forEach(tryRemove);
@@ -68,33 +70,36 @@ export function runEffects(ctx, when, event) {
   }
 
   function tryApply(effect) {
-    const { apply } = effect;
-    if (apply?.when !== when) return;
+    if (!effect.apply) return;
 
-    const applier = eventOwnerId ?? effect.ownerId;
-    if (!apply.by.includes(applier) || applyCooldowns[effect.key]) return;
+    for (const apply of effect.apply) {
+      if (apply.when !== when) continue;
 
-    if (
-      apply.field &&
-      apply.field !== (applier === states.onFieldId ? 'onField' : 'offField')
-    ) return;
+      const applier = eventOwnerId ?? effect.ownerId;
+      if (!apply.by.includes(applier) || applyCooldowns[effect.key]) continue;
 
-    const spec = {
-      ...(event.reaction ? { reaction: event } : { action: event }),
-      fieldId: applier,
-    };
-    if (!ctx.eventFilter(apply.filter, effect, spec)) return;
+      const applierField = applier === states.onFieldId ? 'onField' : 'offField';
+      if (apply.field && apply.field !== applierField) continue;
 
-    onApplyDoCommand(ctx, effect, applier);
-    runApplyEffect(ctx, effect, { applier, inflict: event?.inflict });
+      const spec = {
+        ...(event.reaction ? { reaction: event } : { action: event }),
+        fieldId: applier,
+      };
+      if (!ctx.eventFilter(apply.filter, effect, spec)) continue;
+
+      runApplyEffect(ctx, effect, apply, { applier, inflict: event.inflict });
+
+      if (apply.commands) {
+        runCommands(ctx, effect, apply.commands, applier);
+      }
+    }
   }
 
-  for (const memberId in cache.member) {
-    const mCache = cache.member[memberId];
+  for (const id in cache.member) {
+    const memberEffectDefs = cache.member[id].effects;
 
-    for (const effectKey in mCache.effects) {
-      const effect = mCache.effects[effectKey];
-      tryApply(effect);
+    for (const effectKey in memberEffectDefs) {
+      tryApply(memberEffectDefs[effectKey]);
     }
   }
 

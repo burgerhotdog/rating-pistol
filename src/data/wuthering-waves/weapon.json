@@ -347,7 +347,6 @@
           },
           "duration": 6000
         },
-        "maxExtensions": 1,
         "buff": {
           "stats": {
             "resonanceLiberationDmgBonus%": [
@@ -355,7 +354,8 @@
               0.48
             ]
           }
-        }
+        },
+        "maxExtensions": 1
       },
       {
         "stores": "$team",
@@ -377,13 +377,18 @@
               }
             ]
           },
-          "duration": 30000
+          "duration": 30000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "resonanceLiberationDmgIncreased",
+              "spec": {
+                "duration": 4000,
+                "extend": true
+              }
+            }
+          ]
         },
-        "onApplyDoApply": {
-          "resonanceLiberationDmgIncreased": 1
-        },
-        "doApplyType": "extend",
-        "doApplyDuration": 4000,
         "buff": {
           "stats": {
             "fusionDmgBonus%": [
@@ -654,10 +659,16 @@
                 "has": "status"
               }
             }
-          }
-        },
-        "onUseDoApply": {
-          "resonanceLiberationDmgIncreased": 1
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "resonanceLiberationDmgIncreased",
+              "spec": {
+                "duration": 15000
+              }
+            }
+          ]
         }
       },
       {
@@ -730,10 +741,6 @@
           },
           "cooldown": 12000
         },
-        "remove": {
-          "when": "maxStacks",
-          "offset": 6000
-        },
         "buff": {
           "stats": {
             "atk%": [
@@ -742,6 +749,8 @@
             ]
           }
         },
+        "removeWhenMaxStacks": true,
+        "removeWhenMaxStacksOffset": 6000,
         "rampingInterval": 2000,
         "maxStacks": 4
       }
@@ -948,10 +957,13 @@
               }
             ]
           },
-          "duration": 2000
-        },
-        "onApplyDoRemove": {
-          "cradleOfLife": 1
+          "duration": 2000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "cradleOfLife"
+            }
+          ]
         },
         "buff": {
           "filter": {
@@ -986,10 +998,13 @@
               }
             ]
           },
-          "duration": 2000
-        },
-        "onApplyDoRemove": {
-          "cradleOfLife": 1
+          "duration": 2000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "cradleOfLife"
+            }
+          ]
         },
         "buff": {
           "filter": {
@@ -1286,10 +1301,6 @@
           },
           "cooldown": 500
         },
-        "remove": {
-          "when": "maxStacks",
-          "offset": 12000
-        },
         "buff": {
           "stats": {
             "resonanceSkillDmgBonus%": [
@@ -1298,6 +1309,8 @@
             ]
           }
         },
+        "removeWhenMaxStacks": true,
+        "removeWhenMaxStacksOffset": 12000,
         "maxStacks": 14
       },
       {
@@ -1307,10 +1320,16 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
-        },
-        "onUseDoApply": {
-          "searingFeather": 5
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "searingFeather",
+              "spec": {
+                "stacks": 5
+              }
+            }
+          ]
         }
       }
     ]
@@ -2447,12 +2466,17 @@
                 }
               }
             ]
-          }
-        },
-        "onUseDoApply": {
-          "aeroBonus": 1
-        },
-        "doApplyDuration": 30000
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "aeroBonus",
+              "spec": {
+                "duration": 30000
+              }
+            }
+          ]
+        }
       },
       {
         "buff": {
@@ -3637,13 +3661,18 @@
             "action": {
               "type": "resonanceSkill"
             }
-          }
-        },
-        "onUseDoApply": {
-          "adVeritatem": 1
-        },
-        "doApplyType": "extend",
-        "doApplyDuration": 5000
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "adVeritatem",
+              "spec": {
+                "duration": 5000,
+                "extend": true
+              }
+            }
+          ]
+        }
       }
     ]
   },
@@ -4059,10 +4088,17 @@
             "action": {
               "type": "introSkill"
             }
-          }
-        },
-        "onUseDoApply": {
-          "resLibDmgInc": 5
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "resLibDmgInc",
+              "spec": {
+                "duration": 3000,
+                "stacks": 5
+              }
+            }
+          ]
         }
       }
     ]
@@ -4763,10 +4799,13 @@
               }
             ]
           },
-          "duration": 27000
-        },
-        "onApplyDoRemove": {
-          "basicAttackDmgIncreased": 3
+          "duration": 27000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "basicAttackDmgIncreased"
+            }
+          ]
         },
         "buff": {
           "filter": {
@@ -5656,11 +5695,23 @@
             "action": {
               "type": "outroSkill"
             }
-          }
-        },
-        "onUseDoApply": {
-          "snowTaint": 1,
-          "ripples": 1
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "snowTaint",
+              "spec": {
+                "duration": 6000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "ripples",
+              "spec": {
+                "duration": 6000
+              }
+            }
+          ]
         }
       },
       {

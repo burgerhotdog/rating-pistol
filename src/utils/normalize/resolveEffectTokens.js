@@ -77,31 +77,70 @@ export const resolveEffectTokens = (normalized) => {
   for (const effect of Object.values(resolved)) {
     const { ownerId, sourceId } = effect;
 
-    for (const field in effect) {
-      if (/^on[A-Z]\w*Do[A-Z]\w*$/.test(field)) {
-        const doEvent = effect[field] = { ...effect[field] };
+    if (effect.apply) {
+      effect.apply = effect.apply.map((rawApply) => {
+        const { filter, commands } = rawApply;
+        if (!filter && !commands) return rawApply;
+        const apply = { ...rawApply };
 
-        for (const effectRef of Object.keys(doEvent)) {
-          const effectKey = resolveEffectRef(effectRef, ownerId, sourceId);
-          doEvent[effectKey] = doEvent[effectRef];
-          delete doEvent[effectRef];
+        if (filter) {
+          apply.filter = structuredClone(filter);
+          traverseFilter(apply.filter, ownerId, sourceId);
         }
-      }
+
+        if (commands) {
+          apply.commands = commands.map((command) => ({
+            ...command,
+            key: resolveEffectRef(command.ref, ownerId, sourceId),
+          }));
+        }
+
+        return apply;
+      });
     }
 
-    if (effect.apply?.filter) {
-      effect.apply.filter = structuredClone(effect.apply.filter);
-      traverseFilter(effect.apply.filter, ownerId, sourceId);
+    if (effect.remove) {
+      effect.remove = effect.remove.map((rawRemove) => {
+        const { filter, commands } = rawRemove;
+        if (!filter && !commands) return rawRemove;
+        const remove = { ...rawRemove };
+
+        if (filter) {
+          remove.filter = structuredClone(filter);
+          traverseFilter(remove.filter, ownerId, sourceId);
+        }
+
+        if (commands) {
+          remove.commands = commands.map((command) => ({
+            ...command,
+            key: resolveEffectRef(command.ref, ownerId, sourceId),
+          }));
+        }
+
+        return remove;
+      });
     }
 
-    if (effect.remove?.filter) {
-      effect.remove.filter = structuredClone(effect.remove.filter);
-      traverseFilter(effect.remove.filter, ownerId, sourceId);
-    }
+    if (effect.use) {
+      effect.use = effect.use.map((rawUse) => {
+        const { filter, commands } = rawUse;
+        if (!filter && !commands) return rawUse;
+        const use = { ...rawUse };
 
-    if (effect.use?.filter) {
-      effect.use.filter = structuredClone(effect.use.filter);
-      traverseFilter(effect.use.filter, ownerId, sourceId);
+        if (filter) {
+          use.filter = structuredClone(filter);
+          traverseFilter(use.filter, ownerId, sourceId);
+        }
+
+        if (commands) {
+          use.commands = commands.map((command) => ({
+            ...command,
+            key: resolveEffectRef(command.ref, ownerId, sourceId),
+          }));
+        }
+
+        return use;
+      });
     }
 
     if (effect.buff?.filter) {
@@ -110,8 +149,8 @@ export const resolveEffectTokens = (normalized) => {
     }
 
     if (effect.modify) {
-      effect.modify = structuredClone(effect.modify);
-      effect.modify.key = resolveEffectRef(effect.modify.ref, ownerId, sourceId);
+      const modify = effect.modify = { ...effect.modify };
+      modify.key = resolveEffectRef(modify.ref, ownerId, sourceId);
     }
   }
 

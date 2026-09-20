@@ -1533,10 +1533,13 @@
               }
             ]
           },
-          "duration": 6000
-        },
-        "onApplyDoRemove": {
-          "snowfall": 1
+          "duration": 6000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "snowfall"
+            }
+          ]
         },
         "maxExtensions": 6,
         "buff": {
@@ -1565,13 +1568,18 @@
               }
             ]
           },
-          "cooldown": 500
-        },
-        "onUseDoApply": {
-          "critRateIncreased": 1
-        },
-        "doApplyType": "extend",
-        "doApplyDuration": 4000
+          "cooldown": 500,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "critRateIncreased",
+              "spec": {
+                "duration": 4000,
+                "extend": true
+              }
+            }
+          ]
+        }
       },
       {
         "bonus": 5,
@@ -1592,10 +1600,13 @@
               }
             ]
           },
-          "duration": 15000
-        },
-        "onApplyDoRemove": {
-          "snowfall": 1
+          "duration": 15000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "snowfall"
+            }
+          ]
         },
         "buff": {
           "stats": {

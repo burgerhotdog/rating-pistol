@@ -1,22 +1,21 @@
-import { onUseDoCommand } from './commands';
+import { runCommands } from './commands';
 import { getEffectStates } from './getEffectStates';
 
-export function runRemoveEffect(state, stacks) {
-  if (!state) return;
-  const { effect } = state;
+export function runRemoveEffect(state, remove = {}) {
+  const { store, effect } = state;
 
-  state.stacks -= stacks ?? effect.maxStacks ?? 1;
+  if (remove.offset) {
+    state.removeTimer ??= remove.offset;
+    return;
+  }
 
+  state.stacks -= remove.stacks ?? state.stacks;
   if (state.stacks <= 0) {
-    const { store } = state;
     delete store[effect.key];
   }
 }
 
-export function runUseEffect(ctx, state, spec = {}) {
-  const use = state?.effect?.use;
-  if (!use) return;
-
+export function runUseEffect(ctx, state, use = {}, spec = {}) {
   if (use.action) {
     const useTimes = use.times ?? 1;
     state.isRunning = true;
@@ -41,79 +40,95 @@ export function runUseEffect(ctx, state, spec = {}) {
 
   if (state.usesLeft) {
     state.usesLeft--;
-    if (!state.usesLeft) {
+    if (state.usesLeft <= 0) {
       const { store, effect } = state;
       return delete store[effect.key];
     }
   }
 }
 
-export function runApplyEffect(ctx, effect, spec = {}) {
+export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
   const { applyCooldowns, memberEffects, globalEffects } = ctx.states;
   const { maxStacks = 1 } = effect;
-  const isExt = spec.type === 'extend';
-  const isDurationExt = isExt && spec.duration;
-  const isUsesExt = isExt && spec.uses;
 
   function updateState(store) {
-    const prevState = store[effect.key] ?? {};
-    const prevStacks = prevState.stacks ?? 0;
+    const prev = store[effect.key];
+    if (prev && effect.maxExtensions && !prev.extensionsLeft && apply.extend) {
+      return;
+    }
 
-    const statusInflictMult = effect?.apply?.perStatusInflict
-      ? spec.inflict?.status?.[effect.apply.perStatusInflict] ?? 0
-      : 1;
-    const stacksToApply = (spec.stacks ?? effect?.apply?.stacks ?? 1) * statusInflictMult;
-    const nextStacks = prevStacks + stacksToApply;
-
-    if (isExt && !prevState.extensionsLeft) return;
-
-    store[effect.key] = {
+    const state = store[effect.key] ??= {
       store,
       effect,
-      stacks: Math.min(nextStacks, maxStacks),
-      ...(effect.apply?.duration && {
-        timeLeft: isDurationExt
-          ? prevState.timeLeft + spec.duration
-          : prevState.timeLeft > effect.apply.duration
-            ? prevState.timeLeft
-            : effect.apply.duration,
-      }),
-      ...(effect.apply?.uses && {
-        usesLeft: isUsesExt
-          ? prevState.usesLeft + spec.uses
-          : effect.apply.uses,
+      stacks: 0,
+      ...(apply.offset && {
+        useCooldown: apply.offset,
       }),
       ...(effect.maxExtensions && {
-        extensionsLeft: isExt
-          ? prevState.extensionsLeft - 1
-          : effect.maxExtensions,
-      }),
-      ...(effect.apply?.offset && {
-        useCooldown: isExt
-          ? prevState.useCooldown
-          : effect.apply.offset,
+        extensionsLeft: effect.maxExtensions,
       }),
       ...(effect.rampingInterval && {
-        rampingTimer: isExt
-          ? prevState.rampingTimer
-          : effect.rampingOffset ?? 0,
+        rampingTimer: effect.rampingOffset ?? 0,
       }),
     };
 
-    if ( // If effect should be removed when reaching max stacks
-      effect.remove?.when === 'maxStacks' &&
-      store[effect.key].stacks === maxStacks
-    ) {
-      if (effect.remove?.offset) {
-        store[effect.key].removeTimer ??= effect.remove.offset;
+    let stackMult = 1;
+    if (apply.perStatusInflict) {
+      stackMult = spec.inflict?.status?.[apply.perStatusInflict] ?? 0;
+    }
+    const stacksToApply = (apply.stacks ?? 1) * stackMult;
+    state.stacks = Math.min(state.stacks + stacksToApply, maxStacks);
+
+    if (apply.duration) {
+      state.timeLeft ??= 0;
+
+      if (apply.extend) {
+        state.timeLeft += apply.duration;
+      } else {
+        state.timeLeft = Math.max(apply.duration, state.timeLeft);
+      }
+    }
+
+    if (apply.uses) {
+      state.applyUses ??= 0;
+
+      if (apply.extend) {
+        state.usesLeft += apply.uses;
+      } else {
+        state.usesLeft = Math.max(apply.uses, state.usesLeft);
+      }
+    }
+
+    if (effect.maxExtensions) {
+      if (apply.extend) {
+        state.extensionsLeft--;
+      } else {
+        state.extensionsLeft = effect.maxExtensions;
+      }
+    }
+
+    if (apply.offset && !apply.extend) {
+      state.useCooldown = apply.offset;
+    }
+
+    if (effect.rampingInterval && !apply.extend) {
+      state.rampingTimer = effect.rampingOffset ?? 0;
+    }
+
+    // If effect should be removed when reaching max stacks
+    if (effect.removeWhenMaxStacks && state.stacks === maxStacks) {
+      if (effect.removeWhenMaxStacksOffset) {
+        state.removeTimer ??= effect.removeWhenMaxStacksOffset;
       } else {
         delete store[effect.key];
       }
     }
+    // TODO handle commands
 
     // If same effect was already applied by another member
     if (!effect.stackable) {
-      for (const member of Object.values(ctx.cache.member)) {
+      for (const id in ctx.cache.member) {
+        const member = ctx.cache.member[id];
         if (member.id === effect.ownerId) continue;
 
         const otherEffectId = `${member.id}.${effect.category}`;
@@ -130,8 +145,8 @@ export function runApplyEffect(ctx, effect, spec = {}) {
     else if (target in memberEffects) updateState(memberEffects[target]);
   }
 
-  if (effect.apply?.cooldown) {
-    applyCooldowns[effect.key] = effect.apply.cooldown;
+  if (apply.cooldown) {
+    applyCooldowns[effect.key] = apply.cooldown;
   }
 }
 
@@ -197,21 +212,51 @@ export function advanceEffects(ctx, elapsed) {
 
   for (const state of getEffectStates(ctx, { member: 'all' })) {
     const { effect } = state;
+    const uses = effect.use;
 
-    if (effect.use?.when !== 'interval') {
+    if (!uses) {
+      advanceEffectState(ctx, state, elapsed);
+      continue;
+    }
+
+    let hasInterval = false;
+    for (const use of uses) {
+      if (use.when === 'interval') {
+        hasInterval = true;
+        break;
+      }
+    }
+
+    if (!hasInterval) {
       advanceEffectState(ctx, state, elapsed);
       continue;
     }
 
     let remaining = elapsed;
+
     while (remaining) {
       const diff = Math.min(state.useCooldown ?? 0, remaining);
+
       if (advanceEffectState(ctx, state, diff)) break;
       remaining -= diff;
 
       if (!state.useCooldown) {
-        onUseDoCommand(ctx, effect, effect.ownerId);
-        if (runUseEffect(ctx, state, { runtimeOffset: elapsed - remaining })) break;
+        const runtimeOffset = elapsed - remaining;
+
+        for (const use of uses) {
+          if (use.when !== 'interval') continue;
+
+          if (runUseEffect(ctx, state, use, { runtimeOffset })) {
+            remaining = 0;
+            break;
+          }
+
+          if (use.commands) {
+            runCommands(ctx, effect, use.commands);
+          }
+        }
+
+        if (!state.useCooldown) break;
       }
     }
   }

@@ -45,17 +45,75 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
   effect.stores = normalizeScope(rawEffect.stores, { ownerId, memberIds });
 
   if (effect.apply) {
-    const apply = effect.apply = { ...effect.apply };
+    effect.apply = toArray(effect.apply).map((rawApply) => {
+      const apply = { ...rawApply };
 
-    apply.by = normalizeScope(apply.by, { ownerId, memberIds });
+      apply.by = normalizeScope(apply.by, { ownerId, memberIds });
 
-    if (spec.sourceType === 'weapon' || spec.sourceType === 'set') {
-      apply.field ??= 'onField';
-    }
+      if (spec.sourceType !== 'character') {
+        apply.field ??= 'onField';
+      }
+      if (apply.field === '*') {
+        apply.field = null;
+      }
 
-    if (apply.field === '*') {
-      apply.field = null;
-    }
+      const cooldown = apply.cooldown;
+      const hasRankedCooldown = cooldown && Array.isArray(cooldown);
+      if (hasRankedCooldown) {
+        apply.cooldown = resolveRankedValue(cooldown, spec.weaponRank)
+      }
+
+      return apply;
+    });
+  }
+
+  if (effect.remove) {
+    effect.remove = toArray(effect.remove).map((rawRemove) => {
+      const remove = { ...rawRemove };
+
+      remove.by = normalizeScope(remove.by, { ownerId, memberIds });
+
+      const cooldown = remove.cooldown;
+      const hasRankedCooldown = cooldown && Array.isArray(cooldown);
+      if (hasRankedCooldown) {
+        remove.cooldown = resolveRankedValue(cooldown, spec.weaponRank)
+      }
+
+      return remove;
+    });
+  }
+
+  if (effect.use) {
+    effect.use = toArray(effect.use).map((rawUse) => {
+      const use = { ...rawUse };
+
+      use.by = normalizeScope(use.by, { ownerId, memberIds });
+
+      const cooldown = use.cooldown;
+      const hasRankedCooldown = cooldown && Array.isArray(cooldown);
+      if (hasRankedCooldown) {
+        use.cooldown = resolveRankedValue(cooldown, spec.weaponRank)
+      }
+
+      if (use.action) {
+        use.action = toArray(use.action).map((rawAction, i) => {
+          if (typeof rawAction === 'string') {
+            return spec.actionDefs[rawAction];
+          }
+
+          return normalizeAction(gameId, rawAction, {
+            ownerId,
+            category: effect.category,
+            index: i,
+            teamSize: memberIds.length,
+            weaponRank: spec.weaponRank,
+            mode: spec.memberMode,
+          });
+        });
+      }
+
+      return use;
+    });
   }
 
   // Resolve indexed buff stats
@@ -130,56 +188,9 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
       }
     }
 
-    if (effect.apply?.cooldown && Array.isArray(effect.apply.cooldown)) {
-      const apply = effect.apply = { ...effect.apply };
-      apply.cooldown = resolveValue(apply.cooldown);
-    }
-
-    if (effect.remove?.cooldown && Array.isArray(effect.remove.cooldown)) {
-      const remove = effect.remove = { ...effect.remove };
-      remove.cooldown = resolveValue(remove.cooldown);
-    }
-
-    if (effect.use?.cooldown && Array.isArray(effect.use.cooldown)) {
-      const use = effect.use = { ...effect.use };
-      use.cooldown = resolveValue(use.cooldown);
-    }
-
     if (effect.buff?.cooldown && Array.isArray(effect.buff.cooldown)) {
       const buff = effect.buff = { ...effect.buff };
       buff.cooldown = resolveValue(buff.cooldown);
-    }
-  }
-
-  if (effect.remove) {
-    const remove = effect.remove = { ...effect.remove };
-
-    remove.by = normalizeScope(remove.by, { ownerId, memberIds });
-  }
-
-  if (effect.use) {
-    const use = effect.use = { ...effect.use };
-
-    use.by = normalizeScope(use.by, { ownerId, memberIds });
-
-    if (use.action) {
-      const useActions = use.action = toArray(use.action);
-
-      for (const [i, rawUseAction] of useActions.entries()) {
-        if (typeof rawUseAction === 'string') {
-          useActions[i] = spec.actionDefs[rawUseAction];
-          continue;
-        }
-
-        useActions[i] = normalizeAction(gameId, rawUseAction, {
-          ownerId,
-          category: effect.category,
-          index: i,
-          teamSize: memberIds.length,
-          weaponRank: spec.weaponRank,
-          mode: spec.memberMode,
-        });
-      }
     }
   }
 

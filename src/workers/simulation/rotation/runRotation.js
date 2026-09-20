@@ -62,18 +62,15 @@ export const runRotation = (cache, equipMaps, specId) => {
 
     for (const effectKey in mCache.effects) {
       const effect = mCache.effects[effectKey];
-
-      if (!effect.static && !effect.apply?.when) {
-        runApplyEffect(ctx, effect);
-      }
+      if (effect.static || effect.apply) continue;
+      runApplyEffect(ctx, effect);
     }
   }
 
   if (gameId === GI) {
     for (const effect of cache.elementalResonance.effects) {
-      if (!effect.static && !effect.apply?.when) {
-        runApplyEffect(ctx, effect);
-      }
+      if (effect.static || effect.apply) continue;
+      runApplyEffect(ctx, effect, effect.apply);
     }
   }
 

@@ -326,10 +326,13 @@
               }
             ]
           },
-          "duration": 15000
-        },
-        "onApplyDoRemove": {
-          "heronReady": 1
+          "duration": 15000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "heronReady"
+            }
+          ]
         },
         "buff": {
           "stats": {
@@ -2375,10 +2378,13 @@
               }
             ]
           },
-          "duration": 15000
-        },
-        "onApplyDoRemove": {
-          "hyvatiaSummoned": 1
+          "duration": 15000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "hyvatiaSummoned"
+            }
+          ]
         },
         "buff": {
           "stats": {

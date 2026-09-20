@@ -34,11 +34,18 @@ export function modifyEffect(effect, spec) {
   const modified = structuredClone(effect);
 
   for (const [field, add] of Object.entries(spec)) {
-    if (field in modified) {
-      modified[field] = mergeValues(modified[field], add);
-    } else {
-      modified[field] = add;
+    if (
+      field === 'apply' ||
+      field === 'remove' ||
+      field === 'use'
+    ) {
+      modified[field] = modified[field].map((fieldValue) =>
+        mergeValues(fieldValue, add)
+      );
+      continue;
     }
+
+    modified[field] = mergeValues(modified[field], add);
   }
 
   return modified;
