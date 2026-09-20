@@ -29,7 +29,10 @@ function normalizeScope(rawScope, { ownerId, memberIds }) {
 }
 
 export const normalizeEffect = (gameId, rawEffect, spec) => {
-  const { ownerId, sourceId, index } = spec;
+  const {
+    ownerId, sourceId, index,
+    memberIds,
+  } = spec;
 
   const effect = {
     ...rawEffect,
@@ -39,18 +42,12 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
   };
 
   // Scope
-  effect.stores = normalizeScope(rawEffect.stores, {
-    ownerId, 
-    memberIds: spec.memberIds,
-  });
+  effect.stores = normalizeScope(rawEffect.stores, { ownerId, memberIds });
 
   if (effect.apply) {
     const apply = effect.apply = { ...effect.apply };
 
-    apply.by = normalizeScope(apply.by, {
-      ownerId,
-      memberIds: spec.memberIds,
-    });
+    apply.by = normalizeScope(apply.by, { ownerId, memberIds });
 
     if (spec.sourceType === 'weapon' || spec.sourceType === 'set') {
       apply.field ??= 'onField';
@@ -154,8 +151,16 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     }
   }
 
+  if (effect.remove) {
+    const remove = effect.remove = { ...effect.remove };
+
+    remove.by = normalizeScope(remove.by, { ownerId, memberIds });
+  }
+
   if (effect.use) {
     const use = effect.use = { ...effect.use };
+
+    use.by = normalizeScope(use.by, { ownerId, memberIds });
 
     if (use.action) {
       const useActions = use.action = toArray(use.action);
@@ -170,7 +175,7 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
           ownerId,
           category: effect.category,
           index: i,
-          teamSize: spec.memberIds.length,
+          teamSize: memberIds.length,
           weaponRank: spec.weaponRank,
           mode: spec.memberMode,
         });

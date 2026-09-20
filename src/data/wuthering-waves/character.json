@@ -2557,7 +2557,6 @@
     "tagged": [],
     "effects": [
       {
-        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -2569,6 +2568,7 @@
           "uses": 21
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "and": [
@@ -10947,7 +10947,6 @@
     "effects": [
       {
         "ref": "basicCoord",
-        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -10958,6 +10957,7 @@
           "duration": 10000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "and": [
@@ -10977,7 +10977,6 @@
       },
       {
         "ref": "heavyCoord",
-        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -10988,6 +10987,7 @@
           "duration": 10000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "or": [
@@ -24674,7 +24674,6 @@
         }
       },
       {
-        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -24685,6 +24684,7 @@
           "duration": 18000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "action": {
@@ -25300,7 +25300,6 @@
     "tagged": [],
     "effects": [
       {
-        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -25311,6 +25310,7 @@
           "duration": 12000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "and": [
@@ -47845,7 +47845,6 @@
     ],
     "effects": [
       {
-        "stores": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -47856,6 +47855,7 @@
           "duration": 12000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "cooldown": 1000,
           "action": "resonanceLiberation.1"
@@ -53091,7 +53091,6 @@
     "tagged": [],
     "effects": [
       {
-        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -53111,6 +53110,7 @@
           "duration": 30000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "action": {
@@ -63883,7 +63883,6 @@
     "tagged": [],
     "effects": [
       {
-        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -63895,6 +63894,7 @@
           "uses": 21
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "field": "onField"

@@ -1068,12 +1068,12 @@
           },
           "duration": 25000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "dmgBonus%": 0.06
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },

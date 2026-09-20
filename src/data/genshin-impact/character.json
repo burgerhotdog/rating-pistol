@@ -4996,7 +4996,6 @@
     "effects": [
       {
         "ref": "rainbowBladework",
-        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -5007,6 +5006,7 @@
           "duration": 15000
         },
         "use": {
+          "by": "$team",
           "when": "start",
           "filter": {
             "and": [
@@ -11090,7 +11090,6 @@
     ],
     "effects": [
       {
-        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -11101,6 +11100,7 @@
           "duration": 30000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "cooldown": 2000,
           "action": "elementalSkill.1"
@@ -48795,8 +48795,8 @@
         }
       },
       {
-        "stores": "$team",
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "and": [
@@ -53558,7 +53558,6 @@
         }
       },
       {
-        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -53570,6 +53569,7 @@
           "duration": 20000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "and": [

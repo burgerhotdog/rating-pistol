@@ -14,34 +14,36 @@ export function runRemoveEffect(state, stacks) {
 }
 
 export function runUseEffect(ctx, state, spec = {}) {
-  if (!state) return;
-  const { runtimeOffset } = spec;
-  const { store, effect } = state;
-  const runOptions = { runtimeOffset, noDuration: true };
+  const use = state?.effect?.use;
+  if (!use) return;
 
-  if (effect.use) {
-    if (effect.use.action) {
-      const useTimes = effect.use.times ?? 1;
-      state.isRunning = true;
+  if (use.action) {
+    const useTimes = use.times ?? 1;
+    state.isRunning = true;
 
-      for (let i = 0; i < useTimes; i++) {
-        for (const action of effect.use.action) {
-          ctx.runAction(action, runOptions);
-        }
+    const runOptions = {
+      runtimeOffset: spec.runtimeOffset,
+      noDuration: true,
+    };
+
+    for (let i = 0; i < useTimes; i++) {
+      for (const action of use.action) {
+        ctx.runAction(action, runOptions);
       }
-
-      delete state.isRunning;
     }
 
-    if (effect.use.cooldown) {
-      state.useCooldown = effect.use.cooldown;
-    }
+    delete state.isRunning;
+  }
 
-    if (state.usesLeft) {
-      state.usesLeft--;
-      if (!state.usesLeft) {
-        return delete store[effect.key];
-      }
+  if (use.cooldown) {
+    state.useCooldown = use.cooldown;
+  }
+
+  if (state.usesLeft) {
+    state.usesLeft--;
+    if (!state.usesLeft) {
+      const { store, effect } = state;
+      return delete store[effect.key];
     }
   }
 }

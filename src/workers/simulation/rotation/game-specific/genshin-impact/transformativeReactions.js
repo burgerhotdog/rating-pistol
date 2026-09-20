@@ -78,7 +78,7 @@ export function reactOverloaded(ctx, ownerId) {
     ctx.snapshots.push(snapshot);
   }
 
-  ctx.runEffectsWhen('reaction', {
+  ctx.runEffects('reaction', {
     ...REACTION_DEFS.overloaded,
     ownerId,
   });
@@ -92,7 +92,7 @@ export function reactSuperconduct(ctx, ownerId) {
 
   ctx.states.aura.superconduct = { reaction: 'superconduct', timer: 12000 };
 
-  ctx.runEffectsWhen('reaction', {
+  ctx.runEffects('reaction', {
     ...REACTION_DEFS.superconduct,
     ownerId,
   });
@@ -104,7 +104,7 @@ export function reactSwirl(ctx, ownerId, auraElement) {
     ctx.snapshots.push(snapshot);
   }
 
-  ctx.runEffectsWhen('reaction', {
+  ctx.runEffects('reaction', {
     ...REACTION_DEFS.swirl,
     ownerId,
     elements: ['anemo', auraElement],
@@ -112,7 +112,7 @@ export function reactSwirl(ctx, ownerId, auraElement) {
 }
 
 export function reactCrystallize(ctx, ownerId, auraElement) {
-  ctx.runEffectsWhen('reaction', {
+  ctx.runEffects('reaction', {
     ...REACTION_DEFS.crystallize,
     ownerId,
     elements: ['geo', auraElement],
@@ -125,7 +125,7 @@ export function reactFrozen(ctx, ownerId, originGauge, gauge) {
 
   ctx.states.aura.frozen = { reaction: 'frozen', timer: freezeDuration };
 
-  ctx.runEffectsWhen('reaction', {
+  ctx.runEffects('reaction', {
     ...REACTION_DEFS.frozen,
     ownerId,
   });
@@ -135,7 +135,7 @@ export function reactElectroCharged(ctx, applier) {
   const state = ctx.states.aura.electroCharged ??= { reaction: 'electroCharged', timer: 0 };
   state.applier = applier;
 
-  ctx.runEffectsWhen('reaction', {
+  ctx.runEffects('reaction', {
     ...REACTION_DEFS.electroCharged,
     ownerId: applier,
   });
