@@ -25,7 +25,6 @@ Characters:
         coordinated attack uses own atk
     Durin
         no constellations
-        no secret rite
 
 Weapons:
     Alley Hunter

@@ -108,6 +108,11 @@ export const resolveEffectTokens = (normalized) => {
       effect.buff.filter = structuredClone(effect.buff.filter);
       traverseFilter(effect.buff.filter, ownerId, sourceId);
     }
+
+    if (effect.modify) {
+      effect.modify = structuredClone(effect.modify);
+      effect.modify.key = resolveEffectRef(effect.modify.ref, ownerId, sourceId);
+    }
   }
 
   return resolved;

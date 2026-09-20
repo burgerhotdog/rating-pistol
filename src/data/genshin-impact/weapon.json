@@ -1079,6 +1079,7 @@
         }
       },
       {
+        "ref": "selfBuff",
         "apply": {
           "when": "hit",
           "field": "*",
@@ -1101,6 +1102,7 @@
         }
       },
       {
+        "ref": "allyBuff",
         "stores": "$ally",
         "apply": {
           "when": "hit",
@@ -1130,24 +1132,17 @@
             2
           ]
         },
-        "apply": {
-          "when": "hit",
-          "field": "*",
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "elementalBurst"
+        "modify": {
+          "ref": "selfBuff",
+          "spec": {
+            "buff": {
+              "stats": {
+                "atk%": [
+                  0.15,
+                  0.3
+                ]
               }
             }
-          },
-          "duration": 3000
-        },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.15,
-              0.3
-            ]
           }
         }
       },
@@ -1158,25 +1153,17 @@
             2
           ]
         },
-        "stores": "$ally",
-        "apply": {
-          "when": "hit",
-          "field": "*",
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "elementalBurst"
+        "modify": {
+          "ref": "allyBuff",
+          "spec": {
+            "buff": {
+              "stats": {
+                "atk%": [
+                  0.12,
+                  0.24
+                ]
               }
             }
-          },
-          "duration": 3000
-        },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.12,
-              0.24
-            ]
           }
         }
       }

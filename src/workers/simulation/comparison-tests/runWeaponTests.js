@@ -5,6 +5,7 @@ import {
   isEnabledWeap,
   normalizeEffect,
   resolveEffectTokens,
+  resolveModifyEffects,
   toMergedObj,
 } from '@/utils';
 import { runVariantDps } from './variantDps';
@@ -31,7 +32,8 @@ function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weapo
     normalized[effect.key] = effect;
   }
 
-  return resolveEffectTokens(normalized);
+  const tokenResolved = resolveEffectTokens(normalized);
+  return resolveModifyEffects(tokenResolved);
 }
 
 function renormalizeBaseEffects(nonWeapBaseEffects, baseMap) {
@@ -122,7 +124,9 @@ export function runWeaponTests(cache, equipMaps, charId) {
       statMap: toMergedObj(baseMap, mCache.equipMap),
       staticMap: toMergedObj(oldStaticMapPart, overrideStaticMap),
       effects: overrideEffects,
-      ...(concertoReq && { concertoPenalty: Boolean(!weapData.concerto) }),
+      ...(concertoReq && {
+        concertoPenalty: Boolean(!weapData.concerto),
+      }),
     };
 
     weaponResults.push({

@@ -1,48 +1,16 @@
 import { toArray, resolveRankedValue, normalizeAction } from '@/utils';
-
-function mergeValues(a, b) {
-  if (typeof a === 'number' && typeof b === 'number') {
-    return a + b;
-  }
-
-  if (typeof a === 'string' && typeof b === 'string') {
-    return [a, b];
-  }
-
-  if (Array.isArray(a) || Array.isArray(b)) {
-    return [
-      ...toArray(a),
-      ...toArray(b),
-    ];
-  }
-
-  if (a && typeof a === 'object' && b && typeof b === 'object') {
-    const merged = { ...a };
-
-    for (const [key, value] of Object.entries(b)) {
-      merged[key] = key in merged
-        ? mergeValues(merged[key], value)
-        : value;
-    }
-
-    return merged;
-  }
-
-  return b;
-}
+import { modifyEffect } from './modifyEffect';
 
 function resolveRankMods(effect, memberRank) {
+  let moddedEffect = effect;
   const { rankMods } = effect;
 
   for (const { rank, ...modSpec } of rankMods) {
     if (rank > memberRank) continue;
-
-    for (const [field, add] of Object.entries(modSpec)) {
-      effect[field] = field in effect
-        ? mergeValues(effect[field], add)
-        : add;
-    }
+    moddedEffect = modifyEffect(moddedEffect, modSpec);
   }
+
+  return moddedEffect;
 }
 
 function normalizeScope(rawScope, { ownerId, memberIds }) {
@@ -142,6 +110,16 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
   if (spec.sourceType === 'weapon') {
     const resolveValue = (value) => resolveRankedValue(value, spec.weaponRank);
 
+    if (effect.modify?.spec?.buff?.stats) {
+      effect.modify = structuredClone(effect.modify);
+      const buffStats = effect.modify.spec.buff.stats;
+      for (const [stat, valueRange] of Object.entries(buffStats)) {
+        buffStats[stat] = Array.isArray(valueRange)
+          ? resolveValue(valueRange)
+          : valueRange;
+      }
+    }
+
     if (effect.buff?.stats) {
       const buff = effect.buff = { ...effect.buff };
       const buffStats = buff.stats = { ...buff.stats };
@@ -213,10 +191,6 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     }
   }
 
-  if (effect.rankMods) {
-    resolveRankMods(effect, spec.memberRank);
-  }
-
   if (
     effect.buff?.stats &&
     !effect.buff?.filter &&
@@ -225,6 +199,10 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     !rawEffect.stores
   ) {
     effect.static = true;
+  }
+
+  if (effect.rankMods) {
+    return resolveRankMods(effect, spec.memberRank);
   }
 
   return effect;

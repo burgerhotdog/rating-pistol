@@ -48613,6 +48613,7 @@
         }
       },
       {
+        "ref": "electroResDown",
         "stores": "global",
         "apply": {
           "by": "$team",
@@ -48640,6 +48641,7 @@
         }
       },
       {
+        "ref": "anemoResDown",
         "stores": "global",
         "apply": {
           "by": "$team",
@@ -48674,6 +48676,7 @@
         }
       },
       {
+        "ref": "geoResDown",
         "stores": "global",
         "apply": {
           "by": "$team",
@@ -48782,6 +48785,107 @@
             "hexerei",
             2
           ]
+        },
+        "modify": {
+          "ref": "pyroResDown",
+          "spec": {
+            "buff": {
+              "stats": {
+                "pyroResReduction%": 0.15
+              }
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "team": [
+            "hexerei",
+            2
+          ]
+        },
+        "modify": {
+          "ref": "dendroResDown",
+          "spec": {
+            "buff": {
+              "stats": {
+                "dendroResReduction%": 0.15
+              }
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "team": [
+            "hexerei",
+            2
+          ]
+        },
+        "modify": {
+          "ref": "electroResDown",
+          "spec": {
+            "buff": {
+              "stats": {
+                "electroResReduction%": 0.15
+              }
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "team": [
+            "hexerei",
+            2
+          ]
+        },
+        "modify": {
+          "ref": "anemoResDown",
+          "spec": {
+            "buff": {
+              "stats": {
+                "anemoResReduction%": 0.15
+              }
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "team": [
+            "hexerei",
+            2
+          ]
+        },
+        "modify": {
+          "ref": "geoResDown",
+          "spec": {
+            "buff": {
+              "stats": {
+                "geoResReduction%": 0.15
+              }
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "team": [
+            "hexerei",
+            2
+          ]
+        },
+        "modify": {
+          "ref": "denialOfDarkness",
+          "spec": {
+            "buff": {
+              "stats": {
+                "vaporizeReactionBonus%": 0.3,
+                "meltReactionBonus%": 0.3
+              }
+            }
+          }
         }
       }
     ],
