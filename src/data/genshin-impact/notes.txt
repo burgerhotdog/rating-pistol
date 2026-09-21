@@ -32,6 +32,8 @@ Characters:
     Lohen
         no level increase
         no 60 will to win gain
+    Xiangling
+        no C2
 
 Weapons:
     Alley Hunter

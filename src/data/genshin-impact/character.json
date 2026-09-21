@@ -4071,6 +4071,7 @@
       "elementalMastery": 96
     },
     "energy": 80,
+    "energyMin": 2,
     "tagged": [],
     "effects": [
       {
@@ -4121,6 +4122,28 @@
         "buff": {
           "stats": {
             "pyroResReduction%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.4"
+            }
+          },
+          "offset": 2000,
+          "action": {
+            "damage": {
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": 0.75
+                }
+              ]
+            }
           }
         }
       },
@@ -4425,6 +4448,7 @@
       },
       "elementalSkill": {
         "name": "Guoba Attack",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -4462,6 +4486,7 @@
       },
       "elementalBurst": {
         "name": "Pyronado",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Burst",

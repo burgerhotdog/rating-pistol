@@ -1,7 +1,6 @@
 import { CHARACTER, MISC } from '@/data';
-import { computeActualRotationTime, getCompressed, getTotals } from '@/utils';
+import { computeActualRotationTime, getCompressed, getTotals, getMvIndex } from '@/utils';
 import { runRotation } from '../rotation';
-import { createMvIndexGetter } from '../cache/actions';
 
 const parts = ['damage', 'healing', 'shield'];
 
@@ -9,33 +8,21 @@ export function runSkillLevelTests(cache, equipMaps, charId) {
   const gameId = cache.gameId;
   const mCache = cache.member[charId];
   const charSkills = CHARACTER[gameId][charId].skills;
-  const { maxSkillLevel } = MISC[gameId];
-
-  const getMvIndex = createMvIndexGetter(gameId, mCache);
+  const { skillIds, maxSkillLevel } = MISC[gameId];
 
   const results = {};
 
-  for (const skillId of MISC[gameId].skillIds) {
+  for (const skillId of skillIds) {
     const userLevel = mCache.skillLevels[skillId];
-
-    results[skillId] = {
-      skillId,
-      dpsArr: [],
-      userLevel,
-    };
-
-    const getMvIndexForLevel = getMvIndex(skillId) - userLevel;
+    results[skillId] = { skillId, userLevel, dpsArr: [] };
 
     for (let testSkillLevel = 1; testSkillLevel <= maxSkillLevel; testSkillLevel++) {
-      const mvIndex = getMvIndexForLevel + testSkillLevel;
-
-      const memberOverrides = {
-        rotation: structuredClone(mCache.rotation),
-        effects: structuredClone(mCache.effects),
-      };
+      const mvIndex = getMvIndex(gameId, charId, mCache.rank, skillId, testSkillLevel);
+      const rotation = structuredClone(mCache.rotation);
+      const effects = structuredClone(mCache.effects);
 
       // rotation
-      for (const action of memberOverrides.rotation) {
+      for (const action of rotation) {
         if (action.category !== skillId) continue;
 
         for (const part of parts) {
@@ -54,7 +41,7 @@ export function runSkillLevelTests(cache, equipMaps, charId) {
       }
 
       // effects
-      for (const effect of Object.values(memberOverrides.effects)) {
+      for (const effect of Object.values(effects)) {
         if (effect.use) {
           for (const use of effect.use) {
             if (!use.action) continue;
@@ -110,7 +97,8 @@ export function runSkillLevelTests(cache, equipMaps, charId) {
           ...cache.member,
           [charId]: {
             ...cache.member[charId],
-            ...memberOverrides,
+            rotation,
+            effects,
           },
         },
       };
