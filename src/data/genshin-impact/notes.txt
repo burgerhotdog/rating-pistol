@@ -2,8 +2,6 @@ Characters:
     Amber
         C1 arrow damage hard coded at level 10 skill
         C2 popping baron bunny doesnt do 200% extra dmgBonus
-        C3 None
-        C5 None
     Bennett
         No constellations
     Diluc
@@ -32,8 +30,6 @@ Characters:
     Lohen
         no level increase
         no 60 will to win gain
-    Xiangling
-        no C2
 
 Weapons:
     Alley Hunter

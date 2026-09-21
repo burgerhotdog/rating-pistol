@@ -1999,6 +1999,7 @@
       },
       "elementalSkill": {
         "name": "Frostgnaw",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -2031,6 +2032,7 @@
       },
       "elementalBurst": {
         "name": "Glacial Waltz",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -2389,6 +2391,7 @@
       },
       "elementalSkill": {
         "name": "Searing Onslaught",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill 1",
@@ -2478,6 +2481,7 @@
       },
       "elementalBurst": {
         "name": "Dawn",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -3453,6 +3457,7 @@
       },
       "elementalSkill": {
         "name": "Explosive Puppet",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -3490,6 +3495,7 @@
       },
       "elementalBurst": {
         "name": "Fiery Rain",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -4089,6 +4095,34 @@
           "when": "interval",
           "cooldown": 1500,
           "action": "elementalSkill.1"
+        },
+        "snapshot": true
+      },
+      {
+        "ref": "pepper",
+        "stores": "$first",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.1
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "offset": 7000,
+          "commands": {
+            "type": "apply",
+            "ref": "pepper"
+          }
         }
       },
       {
@@ -4106,7 +4140,8 @@
           "when": "interval",
           "cooldown": 1200,
           "action": "elementalBurst.1"
-        }
+        },
+        "snapshot": true
       },
       {
         "rank": 1,
@@ -4599,7 +4634,13 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000033,
+      10000023,
+      10000032,
+      10000047
+    ]
   },
   "10000024": {
     "disabled": true,
@@ -5534,6 +5575,7 @@
       },
       "elementalSkill": {
         "name": "Guhua Sword: Fatal Rainscreen",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -5611,7 +5653,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Guhua Sword: Raincutter: Sword Rain",
+        "name": "Guhua Sword: Raincutter",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -6767,6 +6810,7 @@
       },
       "elementalSkill": {
         "name": "Jumpy Dumpty",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -6842,6 +6886,7 @@
       },
       "elementalBurst": {
         "name": "Sparks 'n' Splash",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -7337,6 +7382,7 @@
       },
       "elementalSkill": {
         "name": "Dominus Lapidis",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -7471,6 +7517,7 @@
       },
       "elementalBurst": {
         "name": "Planet Befall",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -7863,6 +7910,7 @@
       },
       "elementalSkill": {
         "name": "Nightrider",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -7924,6 +7972,7 @@
       },
       "elementalBurst": {
         "name": "Midnight Phantasmagoria",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -8290,6 +8339,7 @@
       },
       "elementalSkill": {
         "name": "Passion Overload",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -8445,6 +8495,7 @@
       },
       "elementalBurst": {
         "name": "Fantastic Voyage",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -11524,6 +11575,7 @@
       },
       "elementalSkill": {
         "name": "Abiogenesis: Solar Isotoma",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -11584,6 +11636,7 @@
       },
       "elementalBurst": {
         "name": "Rite of Progeniture: Tectonic Tide",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -15288,6 +15341,7 @@
       },
       "elementalSkill": {
         "name": "Chihayaburu",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -15349,6 +15403,7 @@
       },
       "elementalBurst": {
         "name": "Kazuha Slash",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -28254,6 +28309,7 @@
       },
       "elementalSkill": {
         "name": "Hanega: Song of the Wind",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -28339,6 +28395,7 @@
       },
       "elementalBurst": {
         "name": "Kyougen: Five Ceremonial Plays",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -28709,6 +28766,7 @@
       },
       "elementalSkill": {
         "name": "Wind Realm of Nasamjnin",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -28770,6 +28828,7 @@
       },
       "elementalBurst": {
         "name": "The Wind's Secret Ways",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -33296,6 +33355,7 @@
     "skills": {
       "normalAttack": {
         "name": "Forceful Fists of Frost",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -33598,6 +33658,7 @@
       },
       "elementalBurst": {
         "name": "Darkgold Wolfbite",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -49351,6 +49412,7 @@
       },
       "elementalSkill": {
         "name": "Binary Form: Convergence and Division",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -49485,6 +49547,7 @@
       },
       "elementalBurst": {
         "name": "Principle of Purity: As the Light Shifts",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Burst: Principle of Purity: As the Light Shifts",
@@ -52985,6 +53048,7 @@
       },
       "elementalSkill": {
         "name": "Unforeseen Strike",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -53328,6 +53392,7 @@
       },
       "elementalBurst": {
         "name": "Manifest Judgment",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -53986,12 +54051,12 @@
           "filter": {
             "and": [
               {
+                "field": "onField"
+              },
+              {
                 "action": {
                   "has": "damage"
                 }
-              },
-              {
-                "field": "onField"
               }
             ]
           },
@@ -54219,6 +54284,7 @@
       },
       "elementalSkill": {
         "name": "Revelation: Uncreated Light",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -54344,6 +54410,7 @@
       },
       "elementalBurst": {
         "name": "Revelation: Ladder of Divine Ascent",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",

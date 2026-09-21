@@ -1,4 +1,5 @@
 import { runCommands } from './commands';
+import { getBuffMap } from './getStatMap';
 
 export function runRemoveEffect(state, remove = {}) {
   const { store, effect } = state;
@@ -16,17 +17,23 @@ export function runRemoveEffect(state, remove = {}) {
 }
 
 export function runUseEffect(ctx, state, use = {}, spec = {}) {
+  const { store, effect } = state;
+
   if (use.action) {
     const useTimes = use.times ?? 1;
     state.isRunning = true;
 
-    const runOptions = {
-      runtimeOffset: spec.runtimeOffset,
-      noDuration: true,
-    };
+    for (const [index, action] of use.action.entries()) {
+      const runOptions = {
+        runtimeOffset: spec.runtimeOffset,
+        noDuration: true,
+      };
 
-    for (let i = 0; i < useTimes; i++) {
-      for (const action of use.action) {
+      if (effect.snapshot) {
+        runOptions.snapshotMaps = spec.snapshotMaps[index];
+      }
+
+      for (let i = 0; i < useTimes; i++) {
         ctx.runAction(action, runOptions);
       }
     }
@@ -42,7 +49,6 @@ export function runUseEffect(ctx, state, use = {}, spec = {}) {
     state.usesLeft--;
 
     if (state.usesLeft <= 0) {
-      const { store, effect } = state;
       delete store[effect.key];
       return true;
     }
@@ -115,6 +121,14 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
 
     if (effect.rampingInterval && !apply.extend) {
       state.rampingTimer = effect.rampingOffset ?? 0;
+    }
+
+    if (effect.snapshot) {
+      state.snapshotMaps = effect.use.map((use) =>
+        use.action.map((action) =>
+          getBuffMap(ctx, { memberId: effect.ownerId, action })
+        )
+      );
     }
 
     // If same effect was already applied by another member

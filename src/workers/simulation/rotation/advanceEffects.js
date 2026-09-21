@@ -95,10 +95,15 @@ export function advanceEffects(ctx, elapsed) {
       if (!state.useCooldown) {
         const runtimeOffset = elapsed - remaining;
 
-        for (const use of uses) {
+        for (const [index, use] of uses.entries()) {
           if (use.when !== 'interval') continue;
 
-          if (runUseEffect(ctx, state, use, { runtimeOffset })) {
+          const spec = { runtimeOffset };
+          if (effect.snapshot) {
+            spec.snapshotMaps = state.snapshotMaps[index];
+          }
+
+          if (runUseEffect(ctx, state, use, spec)) {
             remaining = 0;
             break;
           }

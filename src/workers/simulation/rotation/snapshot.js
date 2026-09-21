@@ -10,7 +10,7 @@ export const canSnapshot = (action = {}) =>
 
 export const buildSnapshot = (ctx, action, options = {}) => {
   const { gameId } = ctx.cache;
-  const { runtimeOffset = 0, infusedElement } = options;
+  const { runtimeOffset = 0, snapshotMaps, infusedElement } = options;
   const snapshotOwnerId = action.ownerId;
 
   let snapshotAction = action;
@@ -24,7 +24,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     };
   }
 
-  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: snapshotOwnerId, action: snapshotAction });
+  const { buffMap, buffSpecs } = snapshotMaps ?? getBuffMap(ctx, { memberId: snapshotOwnerId, action: snapshotAction });
 
   const memo = {};
 

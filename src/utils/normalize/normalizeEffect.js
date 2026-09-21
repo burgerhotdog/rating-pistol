@@ -63,6 +63,10 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
         apply.cooldown = resolveRankedValue(cooldown, spec.weaponRank)
       }
 
+      if (apply.commands) {
+        apply.commands = toArray(apply.commands);
+      }
+
       return apply;
     });
   }
@@ -77,6 +81,10 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
       const hasRankedCooldown = cooldown && Array.isArray(cooldown);
       if (hasRankedCooldown) {
         remove.cooldown = resolveRankedValue(cooldown, spec.weaponRank)
+      }
+
+      if (remove.commands) {
+        remove.commands = toArray(remove.commands);
       }
 
       return remove;
@@ -110,6 +118,10 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
             mode: spec.memberMode,
           });
         });
+      }
+
+      if (use.commands) {
+        use.commands = toArray(use.commands);
       }
 
       return use;

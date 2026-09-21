@@ -60,7 +60,7 @@ function decayBuffStates(ctx, action) {
 }
 
 export function runAction(ctx, action, options = {}) {
-  const { runtimeOffset, noDuration } = options;
+  const { noDuration } = options;
   const { gameId } = ctx.cache;
   const { duration = 0, hitOffsets = [0] } = action;
   let actionRuntime = 0;
@@ -107,7 +107,7 @@ export function runAction(ctx, action, options = {}) {
   if (canSnapshot(action)) {
     if (ctx.saveSnapshots) {
       sharedSnapshot = buildSnapshot(ctx, action, {
-        runtimeOffset,
+        ...options,
         infusedElement: checkInfusion(ctx, action),
       });
     }
