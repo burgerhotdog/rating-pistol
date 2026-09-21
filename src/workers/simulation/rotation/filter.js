@@ -1,3 +1,4 @@
+import { CHARACTER } from '@/data';
 import { toArray, getAttr } from '@/utils';
 
 const ops = new Set(['>', '<', '>=', '<=']);
@@ -58,15 +59,20 @@ const toAttr = (stat) =>
     : stat;
 
 export function createEventFilter(ctx) {
-  const { states, buildMaps } = ctx;
+  const { cache, states, buildMaps } = ctx;
+  const { gameId } = cache;
 
   return (filter, effect, spec = {}) => {
-    const field = spec.fieldId === states.onFieldId ? 'onField' : 'offField';
-    const health = ctx.states.memberHealth[spec.fieldId];
+    const { fieldId } = spec;
+
+    const character = CHARACTER[gameId][fieldId];
+    const field = fieldId === states.onFieldId ? 'onField' : 'offField';
+    const health = ctx.states.memberHealth[fieldId];
 
     return evaluateNode(filter, {
       ...spec,
       states,
+      character,
       field,
       health,
       get attrMap() {

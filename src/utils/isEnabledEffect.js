@@ -1,7 +1,7 @@
 import { CHARACTER } from '@/data';
 import { toArray } from './toArray';
 
-export const isEnabledChar = (effect, member, gameId, memberIds) => {
+export const isEnabledChar = (effect, member, gameId, { memberIds, counts }) => {
   if (effect.rank && effect.rank > member.rank) {
     return false;
   }
@@ -16,6 +16,12 @@ export const isEnabledChar = (effect, member, gameId, memberIds) => {
 
   if (effect.enable.team) {
     const [specialKey, countReq] = effect.enable.team;
+
+    if (specialKey === 'hexerei') {
+      if (counts?.hexerei < countReq) {
+        return false;
+      }
+    }
 
     if (specialKey === 'lupa') {
       // Count fusion members
@@ -60,48 +66,74 @@ export const isEnabledChar = (effect, member, gameId, memberIds) => {
   return true;
 };
 
-export const isEnabledWeap = (effect, charData, weapData) => {
-  if (weapData.type !== charData.type) return false;
+export const isEnabledWeap = (effect, charData, weapData, { counts } = {}) => {
+  if (weapData.type !== charData.type) {
+    return false;
+  }
 
   const { enable } = effect;
   if (!enable) return true;
 
-  if ('id' in enable) {
+  if (enable.id) {
     const allowed = toArray(enable.id);
-    if (!allowed.includes(charData.id)) return false;
+    if (!allowed.includes(charData.id)) {
+      return false;
+    }
+  }
+
+  if (enable.team) {
+    const [specialKey, countReq] = effect.enable.team;
+
+    if (specialKey === 'hexerei') {
+      if (counts?.hexerei < countReq) {
+        return false;
+      }
+    }
   }
 
   return true;
 };
 
 export const isEnabledSet = (effect, pcCount, charData) => {
-  if (effect.bonus > pcCount) return false;
+  if (effect.bonus > pcCount) {
+    return false;
+  }
 
   const { enable } = effect;
   if (!enable) return true;
 
   if ('type' in enable) {
     const allowed = toArray(enable.type);
-    if (!allowed.includes(charData.type)) return false;
+    if (!allowed.includes(charData.type)) {
+      return false;
+    }
   }
 
   if ('element' in enable) {
     const allowed = toArray(enable.element);
-    if (!allowed.includes(charData.element)) return false;
+    if (!allowed.includes(charData.element)) {
+      return false;
+    }
   }
 
   if ('tagged' in enable) {
     const allowed = toArray(enable.tagged);
     const charTagged = toArray(charData.tagged);
-    if (!allowed.some((tag) => charTagged.includes(tag))) return false;
+    if (!allowed.some((tag) => charTagged.includes(tag))) {
+      return false;
+    }
   }
 
   if ('energy' in enable) {
     if (enable.energy === -1) {
-      if (charData.energy) return false;
+      if (charData.energy) {
+        return false;
+      }
     } else {
       const reqEnergy = enable.energy;
-      if (reqEnergy > charData.energy) return false;
+      if (reqEnergy > charData.energy) {
+        return false;
+      }
     }
   }
 
@@ -114,7 +146,9 @@ export const isEnabledEcho = (effect, charData) => {
 
   if ('id' in enable) {
     const allowed = toArray(enable.id);
-    if (!allowed.includes(charData.id)) return false;
+    if (!allowed.includes(charData.id)) {
+      return false;
+    }
   }
 
   return true;

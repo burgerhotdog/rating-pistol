@@ -83,7 +83,7 @@ export function initMember(gameId, memberId, build, overrides) {
     ...(build?.skillLevels ?? {}),
   };
 
-  member.rotation = [...(preset.rotation ?? [])];
+  member.rotation = [...(overrides?.rotation ?? preset.rotation ?? [])];
   member.duration = preset.duration ?? null;
 
   if (gameId === WW && charData.modes) {

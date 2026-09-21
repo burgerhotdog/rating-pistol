@@ -5,6 +5,7 @@ import {
   normalizeAction,
   normalizeEffect,
   resolveEffectTokens,
+  resolveModifyEffects,
   toMergedObj,
 } from '@/utils';
 import { runVariantDps } from './variantDps';
@@ -87,7 +88,8 @@ function getNormalizedSetEffects(effectSources, gameId, ownerId, memberIds) {
     }
   }
 
-  return resolveEffectTokens(normalized);
+  const tokenResolved = resolveEffectTokens(normalized);
+  return resolveModifyEffects(tokenResolved);
 }
 
 function getNormalizedEchoEffects(gameId, ownerId, echoId, memberIds, weaponRank) {
@@ -104,7 +106,8 @@ function getNormalizedEchoEffects(gameId, ownerId, echoId, memberIds, weaponRank
     normalized[effect.key] = effect;
   }
 
-  return resolveEffectTokens(normalized);
+  const tokenResolved = resolveEffectTokens(normalized);
+  return resolveModifyEffects(tokenResolved);
 }
 
 function buildEchoAction(gameId, echoId, ownerId, teamSize) {
@@ -132,13 +135,14 @@ function withEchoAction(rotation, echoAction, timing) {
 function getEchoCandidates(gameId, testSetIds) {
   if (gameId !== WW || !testSetIds.length) return [];
   const includesSet32 = testSetIds.includes(32);
-  return Object.values(ECHO).filter((echo) => {
-    if (!echo.action && !echo.effects?.length) return false;
-    if (!echo.sets.some((setId) => testSetIds.includes(setId))) return false;
+  return Object.values(ECHO).filter((echoData) => {
+    if (echoData.disabled) return false;
+    if (!echoData.action && !echoData.effects?.length) return false;
+    if (!echoData.sets.some((setId) => testSetIds.includes(setId))) return false;
 
     // Exception: when set 32 is part of this test, disallow 4-cost echoes
     // that come from any of the *other* sets being tested (i.e. not set 32 itself)
-    if (includesSet32 && echo.cost === 4 && !echo.sets.includes(32)) {
+    if (includesSet32 && echoData.cost === 4 && !echoData.sets.includes(32)) {
       return false;
     }
 
@@ -158,6 +162,13 @@ export function runSetBonusTests(cache, equipMaps, charId) {
       ))
   );
 
+  const oldStaticMapPart = Object.values(mCache.staticEffects)
+    .filter((effect) => !(
+      mCache.setCounts[effect.sourceId] ||
+      effect.sourceId === mCache.mainEcho
+    ))
+    .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
+
   const nonEchoRotation = mCache.rotation.filter((action) =>
     action.type !== 'echoSkill' || action.ownerId !== charId
   );
@@ -171,16 +182,25 @@ export function runSetBonusTests(cache, equipMaps, charId) {
       const echoEffects = echoId != null
         ? getNormalizedEchoEffects(gameId, charId, echoId, cache.memberIds, mCache.weaponRank)
         : {};
-      const effects = { ...nonSetEffects, ...setEffects, ...echoEffects };
 
-      const staticMap = Object.values(effects)
+      const effects = {
+        ...nonSetEffects,
+        ...setEffects,
+        ...echoEffects,
+      };
+
+      const newStaticMap = Object.values({ ...setEffects, ...echoEffects })
         .filter((effect) => effect.static)
         .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
 
       const echoAction = echoId != null ? buildEchoAction(gameId, echoId, charId, cache.teamSize) : undefined;
       const rotation = withEchoAction(nonEchoRotation, echoAction, ECHO[echoId]?.timing);
 
-      return runVariantDps(cache, equipMaps, charId, { staticMap, effects, rotation });
+      return runVariantDps(cache, equipMaps, charId, {
+        staticMap: toMergedObj(newStaticMap, oldStaticMapPart),
+        effects,
+        rotation,
+      });
     };
 
     if (!echoCandidates.length) {

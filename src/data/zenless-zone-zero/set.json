@@ -2,7 +2,7 @@
   "31000": {
     "disabled": true,
     "name": "Woodpecker Electro",
-    "version": 1,
+    "version": 1.0,
     "id": 31000,
     "icon": "zenless-zone-zero/set/31000.webp",
     "bonuses": [
@@ -81,7 +81,7 @@
   "31100": {
     "disabled": true,
     "name": "Puffer Electro",
-    "version": 1,
+    "version": 1.0,
     "id": 31100,
     "icon": "zenless-zone-zero/set/31100.webp",
     "bonuses": [
@@ -128,7 +128,7 @@
   "31200": {
     "disabled": true,
     "name": "Shockstar Disco",
-    "version": 1,
+    "version": 1.0,
     "id": 31200,
     "icon": "zenless-zone-zero/set/31200.webp",
     "bonuses": [
@@ -169,7 +169,7 @@
   "31300": {
     "disabled": true,
     "name": "Freedom Blues",
-    "version": 1,
+    "version": 1.0,
     "id": 31300,
     "icon": "zenless-zone-zero/set/31300.webp",
     "bonuses": [
@@ -191,7 +191,7 @@
   "31400": {
     "disabled": true,
     "name": "Hormone Punk",
-    "version": 1,
+    "version": 1.0,
     "id": 31400,
     "icon": "zenless-zone-zero/set/31400.webp",
     "bonuses": [
@@ -229,7 +229,7 @@
   "31500": {
     "disabled": true,
     "name": "Soul Rock",
-    "version": 1,
+    "version": 1.0,
     "id": 31500,
     "icon": "zenless-zone-zero/set/31500.webp",
     "bonuses": [
@@ -251,7 +251,7 @@
   "31600": {
     "disabled": true,
     "name": "Swing Jazz",
-    "version": 1,
+    "version": 1.0,
     "id": 31600,
     "icon": "zenless-zone-zero/set/31600.webp",
     "bonuses": [
@@ -400,7 +400,7 @@
   "32200": {
     "disabled": true,
     "name": "Inferno Metal",
-    "version": 1,
+    "version": 1.0,
     "id": 32200,
     "icon": "zenless-zone-zero/set/32200.webp",
     "bonuses": [
@@ -439,7 +439,7 @@
   "32300": {
     "disabled": true,
     "name": "Chaotic Metal",
-    "version": 1,
+    "version": 1.0,
     "id": 32300,
     "icon": "zenless-zone-zero/set/32300.webp",
     "bonuses": [
@@ -477,7 +477,7 @@
   "32400": {
     "disabled": true,
     "name": "Thunder Metal",
-    "version": 1,
+    "version": 1.0,
     "id": 32400,
     "icon": "zenless-zone-zero/set/32400.webp",
     "bonuses": [
@@ -507,7 +507,7 @@
   "32500": {
     "disabled": true,
     "name": "Polar Metal",
-    "version": 1,
+    "version": 1.0,
     "id": 32500,
     "icon": "zenless-zone-zero/set/32500.webp",
     "bonuses": [
@@ -547,7 +547,7 @@
   "32600": {
     "disabled": true,
     "name": "Fanged Metal",
-    "version": 1,
+    "version": 1.0,
     "id": 32600,
     "icon": "zenless-zone-zero/set/32600.webp",
     "bonuses": [
@@ -731,7 +731,7 @@
   "33100": {
     "disabled": true,
     "name": "Yunkui Tales",
-    "version": 2,
+    "version": 2.0,
     "id": 33100,
     "icon": "zenless-zone-zero/set/33100.webp",
     "bonuses": [
@@ -783,7 +783,7 @@
   "33200": {
     "disabled": true,
     "name": "King of the Summit",
-    "version": 2,
+    "version": 2.0,
     "id": 33200,
     "icon": "zenless-zone-zero/set/33200.webp",
     "bonuses": [
@@ -1068,12 +1068,12 @@
           },
           "duration": 25000
         },
-        "maxStacks": 3,
         "buff": {
           "stats": {
             "dmgBonus%": 0.06
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },
@@ -1102,7 +1102,7 @@
   "33900": {
     "disabled": true,
     "name": "Wuthering Salon",
-    "version": 3,
+    "version": 3.0,
     "id": 33900,
     "icon": "zenless-zone-zero/set/33900.webp",
     "bonuses": [
@@ -1150,7 +1150,7 @@
   "34000": {
     "disabled": true,
     "name": "The Sky Ablaze",
-    "version": 3,
+    "version": 3.0,
     "id": 34000,
     "icon": "zenless-zone-zero/set/34000.webp",
     "bonuses": [

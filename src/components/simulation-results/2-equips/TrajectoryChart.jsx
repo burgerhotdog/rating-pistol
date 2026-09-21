@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Paper, Stack, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import {
@@ -68,6 +69,21 @@ const TrajectoryChart = ({ results }) => {
   const maxDay = Math.ceil(Math.max(userDay, benchmarkDay, 1) * 1.25);
   const data = buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit);
 
+  const ticks = useMemo(() => {
+    const interval = Math.max(1, Math.ceil(maxDay / 6));
+    const ticks = [];
+
+    for (let day = 0; day < maxDay; day += interval) {
+      ticks.push(day);
+    }
+
+    if (ticks.at(-1) !== maxDay) {
+      ticks.push(maxDay);
+    }
+
+    return ticks;
+  }, [maxDay]);
+
   return (
     <ComposedChart
       data={data}
@@ -81,6 +97,7 @@ const TrajectoryChart = ({ results }) => {
         dataKey="day"
         domain={[0, maxDay]}
         tick={{ fontSize: 12 }}
+        ticks={ticks}
         type="number"
         label={{
           value: 'Days',

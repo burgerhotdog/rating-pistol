@@ -1,35 +1,23 @@
 import { WW, CHARACTER, ECHO } from '@/data';
-import { normalizeAction } from '@/utils';
-
-export function createMvIndexGetter(gameId, member) {
-  const { rankMods = {} } = CHARACTER[gameId][member.id];
-  const addByCategory = {};
-  for (const [rank, mod] of Object.entries(rankMods)) {
-    if (Number(rank) > member.rank) continue;
-    for (const [category, offset] of Object.entries(mod)) {
-      addByCategory[category] ??= 0;
-      addByCategory[category] += offset;
-    }
-  }
-
-  return (category) => member.skillLevels[category] - 1 + (addByCategory[category] ?? 0);
-}
+import { getMvIndex, normalizeAction } from '@/utils';
 
 export const getActionDefs = (gameId, member, teamSize, baseMap) => {
-  const getMvIndex = createMvIndexGetter(gameId, member);
-  const charData = CHARACTER[gameId][member.id];
+  const { id: ownerId, skillLevels } = member;
+  const { element: charElement, type: weaponType, skills } = CHARACTER[gameId][ownerId];
 
   const actionDefs = {};
 
-  // Character actions
-  for (const [category, { actions }] of Object.entries(charData.skills)) {
+  for (const [category, { actions }] of Object.entries(skills)) {
+    const userLevel = skillLevels[category];
+    const mvIndex = getMvIndex(gameId, ownerId, member.rank, category, userLevel);
+
     const sharedSpec = {
-      ownerId: member.id,
+      ownerId,
       category,
       teamSize,
-      mvIndex: getMvIndex(category),
-      charElement: charData.element,
-      weaponType: charData.type,
+      mvIndex,
+      charElement,
+      weaponType,
       mode: member.mode,
       baseMap,
     }
@@ -43,9 +31,10 @@ export const getActionDefs = (gameId, member, teamSize, baseMap) => {
   // Echo action
   if (gameId === WW) {
     const echoAction = ECHO[member.mainEcho]?.action;
+
     if (echoAction) {
       const action = normalizeAction(WW, echoAction, {
-        ownerId: member.id,
+        ownerId,
         category: 'echoSkill',
         index: 0,
         teamSize,

@@ -1,0 +1,76 @@
+Characters:
+    Amber
+        C1 arrow damage hard coded at level 10 skill
+        C2 popping baron bunny doesnt do 200% extra dmgBonus
+    Bennett
+        No constellations
+    Diluc
+        No constellations
+        No pyro infusion
+    Klee
+        No constellations
+    Albedo
+    Wanderer
+    Zhongli
+    Fischl
+    Kaeya
+    Faruzan
+    Wriothesley
+    Kazuha
+    Nicole
+        no constellations
+        onField character must be hexerei to get buff upgrade
+        coordinated attack uses own atk
+    Durin
+        no constellations
+    Xingqiu
+        no energy recovery
+        3 sword always
+        no orbitals from skill
+    Lohen
+        no level increase
+        no 60 will to win gain
+
+Weapons:
+    Alley Hunter
+        buff doesnt ramp slowly
+    Sapwood Blade
+        Leaf buff applied to $first instantly
+    Harbinger of Dawn
+        Assume buff always up
+    Traveler's Handy Sword
+        No effect
+    Fillet Blade
+        Effect always hits
+    Sacrificial Sword
+        Effect disabled
+    Aquila Favonia
+        Effect always hits
+    Ferrous Shadow
+        No effect
+    Wolf's Gravestone
+        Team buff disabled
+    Skyward Spine
+        Vacuum Blade always triggers
+    Skyward Atlas
+        Favor of the Clouds always triggers
+    Tulaytullah's Remembrance
+        Buff maxed
+    Skyward Harp
+        Attack always triggers
+    Angelos' Heptades
+        energy effect disabled
+    Wandering Evenstar
+        buff is constant instead of snapshotting
+    Moonweaver's Dawn
+        energy part not done
+
+    Fav weapons don't generate particles
+
+Sets:
+    Bloodstained Chivalry
+        4pc not active
+    Shimenawa's Reminiscence
+        4pc energy simplified
+    Celestial Gift
+        4pc dmg bonus is for all elements

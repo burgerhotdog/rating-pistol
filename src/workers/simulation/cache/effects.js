@@ -6,10 +6,11 @@ import {
   isEnabledEcho,
   normalizeEffect,
   resolveEffectTokens,
+  resolveModifyEffects,
 } from '@/utils';
 
 export const getEffectDefs = (gameId, member, spec) => {
-  const normalized = {};
+  const { memberIds } = spec;
 
   const sharedCtx = {
     gameId,
@@ -17,15 +18,17 @@ export const getEffectDefs = (gameId, member, spec) => {
     memberRank: member.rank,
     weaponRank: member.weaponRank,
     memberMode: member.mode,
-    memberIds: spec.memberIds,
+    memberIds,
     actionDefs: spec.actionDefs,
   };
 
   // Character effects
   const charData = CHARACTER[gameId][member.id];
   const charEffects = charData.effects ?? [];
+  const normalizedCharEffects = {};
+
   for (const [index, rawEffect] of charEffects.entries()) {
-    if (!isEnabledChar(rawEffect, member, gameId, spec.memberIds)) continue;
+    if (!isEnabledChar(rawEffect, member, gameId, { memberIds, counts: spec.counts })) continue;
 
     const effect = normalizeEffect(gameId, rawEffect, {
       ...sharedCtx,
@@ -33,14 +36,17 @@ export const getEffectDefs = (gameId, member, spec) => {
       sourceType: 'character',
       index,
     });
-    normalized[effect.key] = effect;
+    normalizedCharEffects[effect.key] = effect;
   }
+  const resolvedNormalizedCharEffects = resolveEffectTokens(normalizedCharEffects);
+  const modifiedCharEffects = resolveModifyEffects(resolvedNormalizedCharEffects);
 
   // Weapon effects
   const weapData = WEAPON[gameId][member.weaponId];
   const weapEffects = weapData.effects ?? [];
+  const normalizedWeapEffects = {};
   for (const [index, rawEffect] of weapEffects.entries()) {
-    if (!isEnabledWeap(rawEffect, charData, weapData)) continue;
+    if (!isEnabledWeap(rawEffect, charData, weapData, { counts: spec.counts })) continue;
 
     const effect = normalizeEffect(gameId, rawEffect, {
       ...sharedCtx,
@@ -48,10 +54,13 @@ export const getEffectDefs = (gameId, member, spec) => {
       sourceType: 'weapon',
       index,
     });
-    normalized[effect.key] = effect;
+    normalizedWeapEffects[effect.key] = effect;
   }
+  const resolvedNormalizedWeapEffects = resolveEffectTokens(normalizedWeapEffects);
+  const modifiedWeapEffects = resolveModifyEffects(resolvedNormalizedWeapEffects);
 
   // Set effects
+  const normalizedSetEffects = {};
   for (const [setId, pcCount] of Object.entries(member.setCounts)) {
     const setEffects = SET[gameId][setId]?.effects ?? [];
 
@@ -64,7 +73,7 @@ export const getEffectDefs = (gameId, member, spec) => {
         sourceType: 'set',
         index,
       });
-      normalized[effect.key] = effect;
+      normalizedSetEffects[effect.key] = effect;
     }
   }
 
@@ -80,11 +89,17 @@ export const getEffectDefs = (gameId, member, spec) => {
         sourceType: 'echo',
         index,
       });
-      normalized[effect.key] = effect;
+      normalizedSetEffects[effect.key] = effect;
     }
   }
+  const resolvedNormalizedSetEffects = resolveEffectTokens(normalizedSetEffects);
+  const modifiedSetEffects = resolveModifyEffects(resolvedNormalizedSetEffects);
 
   // Resolve tokens
-  return resolveEffectTokens(normalized);
+  return {
+    charEffectDefs: modifiedCharEffects,
+    weapEffectDefs: modifiedWeapEffects,
+    setEffectDefs: modifiedSetEffects,
+  };
 };
 

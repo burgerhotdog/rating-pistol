@@ -4,9 +4,10 @@ import {
   CardContent,
   CardHeader,
   Stack,
+  Typography,
 } from '@mui/material';
 import { useAccent } from '@/hooks';
-import { getMainstatConfigKey, sumSubstatRolls } from '@/utils';
+import { getMainstatConfigKey, sumSubstatRolls, formatNum, formatStr } from '@/utils';
 import Mainstats from './Mainstats';
 import SubstatsChart from './SubstatsChart';
 import TrajectoryChart from './TrajectoryChart';
@@ -17,6 +18,13 @@ const Equips = ({ results }) => {
 
   const userMainstatConfigKey = getMainstatConfigKey(gameId, results.userMember.equipList);
   const userSubstatRolls = sumSubstatRolls(gameId, results.userMember.equipList);
+
+  const extraSubstatsList = Object.entries(results.extraSubstats)
+    .map(([stat, mps]) => ({ stat, diff: mps / results.userDps - 1 }))
+    .filter(({ diff }) => diff >= 0.0005)
+    .toSorted((a, b) => b.diff - a.diff);
+  
+  const extraSubstatsControl = results.extraSubstatsControl;
 
   return (
     <Stack spacing={1} sx={{ flex: 1 }}>
@@ -40,6 +48,32 @@ const Equips = ({ results }) => {
             userMainstatConfigKey={userMainstatConfigKey}
             userSubstatRolls={userSubstatRolls}
           />
+        </Card>
+
+        <Card component={Stack} sx={{ flex: 0.5 }}>
+          <CardHeader title="Diff w/ extra substat" subheader={`Control: ${formatNum(extraSubstatsControl)}`} />
+          <CardContent component={Stack} sx={{ flex: 1, overflow: 'hidden' }}>
+            {extraSubstatsList.map(({ stat, diff }, i) => {
+              return (
+                <Stack key={i} direction="row" spacing={1} sx={{ justifyContent: 'space-between' }}>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      minWidth: 0,
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {formatStr(stat)}:
+                  </Typography>
+                  <Typography variant="body2">
+                    +{(diff * 100).toFixed(1)}%
+                  </Typography>
+                </Stack>
+              );
+            })}
+          </CardContent>
         </Card>
       </Stack>
 

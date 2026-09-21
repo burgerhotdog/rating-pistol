@@ -1,7 +1,7 @@
 {
   "1": {
     "name": "Freezing Frost",
-    "version": 1,
+    "version": 1.0,
     "id": 1,
     "icon": "wuthering-waves/set/1.webp",
     "bonuses": [
@@ -43,7 +43,7 @@
   },
   "2": {
     "name": "Molten Rift",
-    "version": 1,
+    "version": 1.0,
     "id": 2,
     "icon": "wuthering-waves/set/2.webp",
     "bonuses": [
@@ -81,7 +81,7 @@
   },
   "3": {
     "name": "Void Thunder",
-    "version": 1,
+    "version": 1.0,
     "id": 3,
     "icon": "wuthering-waves/set/3.webp",
     "bonuses": [
@@ -136,7 +136,7 @@
   },
   "4": {
     "name": "Sierra Gale",
-    "version": 1,
+    "version": 1.0,
     "id": 4,
     "icon": "wuthering-waves/set/4.webp",
     "bonuses": [
@@ -174,7 +174,7 @@
   },
   "5": {
     "name": "Celestial Light",
-    "version": 1,
+    "version": 1.0,
     "id": 5,
     "icon": "wuthering-waves/set/5.webp",
     "bonuses": [
@@ -212,7 +212,7 @@
   },
   "6": {
     "name": "Havoc Eclipse",
-    "version": 1,
+    "version": 1.0,
     "id": 6,
     "icon": "wuthering-waves/set/6.webp",
     "bonuses": [
@@ -254,7 +254,7 @@
   },
   "7": {
     "name": "Rejuvenating Glow",
-    "version": 1,
+    "version": 1.0,
     "id": 7,
     "icon": "wuthering-waves/set/7.webp",
     "bonuses": [
@@ -276,6 +276,7 @@
         "stores": "$team",
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "has": "healing"
@@ -293,7 +294,7 @@
   },
   "8": {
     "name": "Moonlit Clouds",
-    "version": 1,
+    "version": 1.0,
     "id": 8,
     "icon": "wuthering-waves/set/8.webp",
     "bonuses": [
@@ -332,7 +333,7 @@
   },
   "9": {
     "name": "Lingering Tunes",
-    "version": 1,
+    "version": 1.0,
     "id": 9,
     "icon": "wuthering-waves/set/9.webp",
     "bonuses": [
@@ -390,7 +391,7 @@
   },
   "10": {
     "name": "Frosty Resolve",
-    "version": 2,
+    "version": 2.0,
     "id": 10,
     "icon": "wuthering-waves/set/10.webp",
     "bonuses": [
@@ -447,7 +448,7 @@
   },
   "11": {
     "name": "Eternal Radiance",
-    "version": 2,
+    "version": 2.0,
     "id": 11,
     "icon": "wuthering-waves/set/11.webp",
     "bonuses": [
@@ -521,7 +522,7 @@
   },
   "12": {
     "name": "Midnight Veil",
-    "version": 2,
+    "version": 2.0,
     "id": 12,
     "icon": "wuthering-waves/set/12.webp",
     "bonuses": [
@@ -582,7 +583,7 @@
   },
   "13": {
     "name": "Empyrean Anthem",
-    "version": 2,
+    "version": 2.0,
     "id": 13,
     "icon": "wuthering-waves/set/13.webp",
     "bonuses": [
@@ -637,7 +638,7 @@
   },
   "14": {
     "name": "Tidebreaking Courage",
-    "version": 2,
+    "version": 2.0,
     "id": 14,
     "icon": "wuthering-waves/set/14.webp",
     "bonuses": [
@@ -1084,7 +1085,7 @@
   },
   "24": {
     "name": "Pact of Neonlight Leap",
-    "version": 3,
+    "version": 3.0,
     "id": 24,
     "icon": "wuthering-waves/set/24.webp",
     "bonuses": [
@@ -1158,7 +1159,7 @@
   },
   "25": {
     "name": "Halo of Starry Radiance",
-    "version": 3,
+    "version": 3.0,
     "id": 25,
     "icon": "wuthering-waves/set/25.webp",
     "bonuses": [
@@ -1180,6 +1181,7 @@
         "stores": "$team",
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "has": "healing"
@@ -1202,7 +1204,7 @@
   },
   "26": {
     "name": "Rite of Gilded Revelation",
-    "version": 3,
+    "version": 3.0,
     "id": 26,
     "icon": "wuthering-waves/set/26.webp",
     "bonuses": [
@@ -1531,10 +1533,13 @@
               }
             ]
           },
-          "duration": 6000
-        },
-        "onApplyDoRemove": {
-          "snowfall": 1
+          "duration": 6000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "snowfall"
+            }
+          ]
         },
         "maxExtensions": 6,
         "buff": {
@@ -1563,13 +1568,18 @@
               }
             ]
           },
-          "cooldown": 500
-        },
-        "onUseDoApply": {
-          "critRateIncreased": 1
-        },
-        "doApplyType": "extend",
-        "doApplyDuration": 4000
+          "cooldown": 500,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "critRateIncreased",
+              "spec": {
+                "duration": 4000,
+                "extend": true
+              }
+            }
+          ]
+        }
       },
       {
         "bonus": 5,
@@ -1590,10 +1600,13 @@
               }
             ]
           },
-          "duration": 15000
-        },
-        "onApplyDoRemove": {
-          "snowfall": 1
+          "duration": 15000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "snowfall"
+            }
+          ]
         },
         "buff": {
           "stats": {

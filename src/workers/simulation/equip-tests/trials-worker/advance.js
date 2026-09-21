@@ -8,7 +8,8 @@ function createEquipEvaluator(gameId, evaluateEquipMap, id) {
 
     for (const equipIndex of slots) {
       const equipList = prev.equipList.with(equipIndex, equip);
-      const { snapshots, score } = evaluateEquipMap(buildEquipMap(equipList, true));
+      const equipMap = buildEquipMap(equipList, true);
+      const { snapshots, score } = evaluateEquipMap(equipMap);
 
       if (score > next.score) {
         Object.assign(next, { equipList, snapshots, score });

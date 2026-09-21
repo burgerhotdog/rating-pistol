@@ -169,15 +169,16 @@ function applyDendro(ctx, gauge, applier) {
   applyAura(ctx, 'dendro', gauge);
 }
 
-export function applyGauge(ctx, action) {
+export function applyGauge(ctx, action, infusionElement) {
   const { damage, ownerId } = action;
   if (!damage) return;
 
   const { element, gauge, icd } = damage;
-  if (element === 'physical' || !gauge) return;
+  const usedElement = infusionElement ?? element;
+  if (usedElement === 'physical' || !gauge) return;
   if (!tryApplyElement(ctx, ownerId, icd)) return;
 
-  switch (element) {
+  switch (usedElement) {
     case 'pyro':
       return applyPyro(ctx, gauge, ownerId);
 

@@ -1,15 +1,12 @@
 {
   "1102": {
     "name": "Sanhua",
-    "version": 1,
+    "version": 1.0,
     "id": 1102,
     "icon": "wuthering-waves/character/1102.webp",
     "quality": 4,
     "element": "glacio",
     "type": "sword",
-    "energy": 100,
-    "energyMax": 1,
-    "tagged": [],
     "stats": {
       "baseHp": 10062,
       "baseAtk": 275,
@@ -17,6 +14,9 @@
       "atk%": 0.12,
       "glacioDmgBonus%": 0.12
     },
+    "energy": 100,
+    "energyMax": 1,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -716,18 +716,12 @@
   },
   "1103": {
     "name": "Baizhi",
-    "version": 1,
+    "version": 1.0,
     "id": 1103,
     "icon": "wuthering-waves/character/1103.webp",
     "quality": 4,
     "element": "glacio",
     "type": "rectifier",
-    "energy": 175,
-    "energyMin": 2.2,
-    "tagged": [
-      "healing"
-    ],
-    "concertoReq": true,
     "stats": {
       "baseHp": 12812,
       "baseAtk": 212,
@@ -735,8 +729,15 @@
       "hp%": 0.12,
       "healingBonus%": 0.12
     },
+    "energy": 175,
+    "energyMin": 2.2,
+    "concertoReq": true,
+    "tagged": [
+      "healing"
+    ],
     "effects": [
       {
+        "ref": "ultCoord",
         "apply": {
           "when": "start",
           "filter": {
@@ -750,15 +751,7 @@
           "when": "interval",
           "cooldown": 2500,
           "action": "resonanceLiberation.1"
-        },
-        "rankMods": [
-          {
-            "rank": 4,
-            "apply": {
-              "uses": 2
-            }
-          }
-        ]
+        }
       },
       {
         "apply": {
@@ -826,10 +819,13 @@
               }
             ]
           },
-          "duration": 20000
-        },
-        "onApplyDoRemove": {
-          "euphonia": 1
+          "duration": 20000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "euphonia"
+            }
+          ]
         },
         "buff": {
           "stats": {
@@ -931,6 +927,17 @@
         "buff": {
           "stats": {
             "hp%": 0.12
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "modify": {
+          "ref": "ultCoord",
+          "spec": {
+            "apply": {
+              "uses": 2
+            }
           }
         }
       },
@@ -1619,15 +1626,12 @@
   },
   "1104": {
     "name": "Lingyang",
-    "version": 1,
+    "version": 1.0,
     "id": 1104,
     "icon": "wuthering-waves/character/1104.webp",
     "quality": 5,
     "element": "glacio",
     "type": "gauntlets",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 10387,
       "baseAtk": 437,
@@ -1635,6 +1639,9 @@
       "atk%": 0.12,
       "glacioDmgBonus%": 0.12
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -2541,9 +2548,6 @@
     "quality": 5,
     "element": "glacio",
     "type": "rectifier",
-    "energy": 125,
-    "energyMin": 1.3,
-    "tagged": [],
     "stats": {
       "baseHp": 12250,
       "baseAtk": 375,
@@ -2551,9 +2555,11 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.3,
+    "tagged": [],
     "effects": [
       {
-        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -2565,6 +2571,7 @@
           "uses": 21
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "and": [
@@ -3118,11 +3125,6 @@
     "quality": 4,
     "element": "glacio",
     "type": "gauntlets",
-    "energy": 100,
-    "energyMin": 1,
-    "tagged": [
-      "healing"
-    ],
     "stats": {
       "baseHp": 9975,
       "baseAtk": 262,
@@ -3130,6 +3132,11 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 100,
+    "energyMin": 1,
+    "tagged": [
+      "healing"
+    ],
     "effects": [
       {
         "buff": {
@@ -4129,15 +4136,12 @@
   },
   "1107": {
     "name": "Carlotta",
-    "version": 2,
+    "version": 2.0,
     "id": 1107,
     "icon": "wuthering-waves/character/1107.webp",
     "quality": 5,
     "element": "glacio",
     "type": "pistols",
-    "energy": 125,
-    "energyMin": 1.1,
-    "tagged": [],
     "stats": {
       "baseHp": 12450,
       "baseAtk": 462,
@@ -4145,6 +4149,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.1,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -5222,9 +5229,6 @@
     "quality": 5,
     "element": "glacio",
     "type": "sword",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 10300,
       "baseAtk": 462,
@@ -5232,6 +5236,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "stores": "global",
@@ -6788,7 +6795,6 @@
     "quality": 5,
     "element": "glacio",
     "type": "rectifier",
-    "tagged": [],
     "stats": {
       "baseHp": 12237,
       "baseAtk": 375,
@@ -6796,6 +6802,7 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "tagged": [],
     "modes": [
       "glacioChafe",
       "echo"
@@ -6917,10 +6924,13 @@
           "uses": 1
         },
         "use": {
-          "when": "interval"
-        },
-        "onUseDoUse": {
-          "filmRoll": 1
+          "when": "interval",
+          "commands": [
+            {
+              "type": "use",
+              "ref": "filmRoll"
+            }
+          ]
         }
       },
       {
@@ -7947,12 +7957,6 @@
     "quality": 5,
     "element": "glacio",
     "type": "rectifier",
-    "energy": 175,
-    "energyMin": 2.6,
-    "tagged": [
-      "healing"
-    ],
-    "concertoReq": true,
     "stats": {
       "baseHp": 16712,
       "baseAtk": 287,
@@ -7960,6 +7964,12 @@
       "hp%": 0.12,
       "healingBonus%": 0.12
     },
+    "energy": 175,
+    "energyMin": 2.6,
+    "concertoReq": true,
+    "tagged": [
+      "healing"
+    ],
     "effects": [
       {
         "ref": "enrichment",
@@ -9334,15 +9344,12 @@
   },
   "1202": {
     "name": "Chixia",
-    "version": 1,
+    "version": 1.0,
     "id": 1202,
     "icon": "wuthering-waves/character/1202.webp",
     "quality": 4,
     "element": "fusion",
     "type": "pistols",
-    "energy": 150,
-    "energyMin": 1.1,
-    "tagged": [],
     "stats": {
       "baseHp": 9087,
       "baseAtk": 300,
@@ -9350,6 +9357,9 @@
       "atk%": 0.12,
       "fusionDmgBonus%": 0.12
     },
+    "energy": 150,
+    "energyMin": 1.1,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -9998,15 +10008,12 @@
   },
   "1203": {
     "name": "Encore",
-    "version": 1,
+    "version": 1.0,
     "id": 1203,
     "icon": "wuthering-waves/character/1203.webp",
     "quality": 5,
     "element": "fusion",
     "type": "rectifier",
-    "energy": 125,
-    "energyMin": 1.3,
-    "tagged": [],
     "stats": {
       "baseHp": 10512,
       "baseAtk": 425,
@@ -10014,6 +10021,9 @@
       "atk%": 0.12,
       "fusionDmgBonus%": 0.12
     },
+    "energy": 125,
+    "energyMin": 1.3,
+    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -10924,15 +10934,12 @@
   },
   "1204": {
     "name": "Mortefi",
-    "version": 1,
+    "version": 1.0,
     "id": 1204,
     "icon": "wuthering-waves/character/1204.webp",
     "quality": 4,
     "element": "fusion",
     "type": "pistols",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 10025,
       "baseAtk": 250,
@@ -10940,9 +10947,12 @@
       "atk%": 0.12,
       "fusionDmgBonus%": 0.12
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
-        "stores": "global",
+        "ref": "basicCoord",
         "apply": {
           "when": "start",
           "filter": {
@@ -10953,6 +10963,7 @@
           "duration": 10000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "and": [
@@ -10968,18 +10979,10 @@
           },
           "cooldown": 350,
           "action": "resonanceLiberation.1"
-        },
-        "rankMods": [
-          {
-            "rank": 4,
-            "apply": {
-              "duration": 7000
-            }
-          }
-        ]
+        }
       },
       {
-        "stores": "global",
+        "ref": "heavyCoord",
         "apply": {
           "when": "start",
           "filter": {
@@ -10990,35 +10993,28 @@
           "duration": 10000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "or": [
               {
-                "action": {
-                  "type": "heavyAttack"
-                }
-              },
-              {
-                "field": "onField"
+                "and": [
+                  {
+                    "action": {
+                      "type": "heavyAttack"
+                    }
+                  },
+                  {
+                    "field": "onField"
+                  }
+                ]
               }
             ]
           },
           "cooldown": 350,
-          "action": "resonanceLiberation.1"
-        },
-        "times": 2,
-        "rankMods": [
-          {
-            "rank": 1,
-            "useOnType": "resonanceSkill"
-          },
-          {
-            "rank": 4,
-            "apply": {
-              "duration": 7000
-            }
-          }
-        ]
+          "action": "resonanceLiberation.1",
+          "times": 2
+        }
       },
       {
         "apply": {
@@ -11042,6 +11038,7 @@
         }
       },
       {
+        "ref": "coordBuff",
         "apply": {
           "when": "hit",
           "filter": {
@@ -11062,15 +11059,7 @@
             "dmgBonus%": 0.015
           }
         },
-        "maxStacks": 50,
-        "rankMods": [
-          {
-            "rank": 4,
-            "apply": {
-              "duration": 7000
-            }
-          }
-        ]
+        "maxStacks": 50
       },
       {
         "stores": "$next",
@@ -11090,6 +11079,32 @@
         }
       },
       {
+        "rank": 1,
+        "modify": {
+          "ref": "heavyCoord",
+          "spec": {
+            "use": {
+              "filter": {
+                "or": [
+                  {
+                    "and": [
+                      {
+                        "action": {
+                          "type": "resonanceSkill"
+                        }
+                      },
+                      {
+                        "field": "onField"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
         "rank": 3,
         "buff": {
           "filter": {
@@ -11099,6 +11114,39 @@
           },
           "stats": {
             "critDmg%": 0.3
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "modify": {
+          "ref": "basicCoord",
+          "spec": {
+            "apply": {
+              "duration": 7000
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "modify": {
+          "ref": "heavyCoord",
+          "spec": {
+            "apply": {
+              "duration": 7000
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "modify": {
+          "ref": "coordBuff",
+          "spec": {
+            "apply": {
+              "duration": 7000
+            }
           }
         }
       },
@@ -11682,9 +11730,6 @@
     "quality": 5,
     "element": "fusion",
     "type": "sword",
-    "energy": 125,
-    "energyMin": 1.1,
-    "tagged": [],
     "stats": {
       "baseHp": 10387,
       "baseAtk": 462,
@@ -11692,6 +11737,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.1,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -12593,9 +12641,6 @@
     "quality": 5,
     "element": "fusion",
     "type": "sword",
-    "energy": 175,
-    "energyMin": 2.5,
-    "tagged": [],
     "stats": {
       "baseHp": 11675,
       "baseAtk": 375,
@@ -12603,6 +12648,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 175,
+    "energyMin": 2.5,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -14058,9 +14106,6 @@
     "quality": 5,
     "element": "fusion",
     "type": "broadblade",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 11912,
       "baseAtk": 387,
@@ -14068,6 +14113,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -15627,9 +15675,6 @@
     "quality": 5,
     "element": "fusion",
     "type": "pistols",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 10300,
       "baseAtk": 462,
@@ -15637,6 +15682,9 @@
       "atk%": 0.12,
       "critDmg%": 0.16
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "ref": "demonHypostasis",
@@ -17276,18 +17324,12 @@
   },
   "1209": {
     "name": "Mornye",
-    "version": 3,
+    "version": 3.0,
     "id": 1209,
     "icon": "wuthering-waves/character/1209.webp",
     "quality": 5,
     "element": "fusion",
     "type": "broadblade",
-    "energy": 175,
-    "energyMin": 2.6,
-    "tagged": [
-      "healing"
-    ],
-    "concertoReq": true,
     "stats": {
       "baseHp": 15375,
       "baseAtk": 287,
@@ -17296,6 +17338,12 @@
       "healingBonus%": 0.12,
       "tuneBreakBoost": 10
     },
+    "energy": 175,
+    "energyMin": 2.6,
+    "concertoReq": true,
+    "tagged": [
+      "healing"
+    ],
     "effects": [
       {
         "buff": {
@@ -18519,9 +18567,6 @@
     "quality": 5,
     "element": "fusion",
     "type": "sword",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 11025,
       "baseAtk": 425,
@@ -18530,6 +18575,9 @@
       "critRate%": 0.08,
       "tuneBreakBoost": 10
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "modes": [
       "tuneRupture",
       "fusionBurst"
@@ -20362,9 +20410,6 @@
     "quality": 5,
     "element": "fusion",
     "type": "rectifier",
-    "energy": 125,
-    "energyMin": 1.1,
-    "tagged": [],
     "stats": {
       "baseHp": 11025,
       "baseAtk": 425,
@@ -20373,6 +20418,9 @@
       "critDmg%": 0.16,
       "tuneBreakBoost": 10
     },
+    "energy": 125,
+    "energyMin": 1.1,
+    "tagged": [],
     "modes": [
       "fusionBurst",
       "tuneStrain"
@@ -20412,12 +20460,17 @@
               "ref": "resonanceLiberation.0"
             }
           },
-          "duration": 12000
+          "duration": 12000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "generateDarkCore",
+              "spec": {
+                "duration": 12000
+              }
+            }
+          ]
         },
-        "onApplyDoApply": {
-          "generateDarkCore": 1
-        },
-        "doApplyDuration": 12000,
         "remove": {
           "when": "start",
           "filter": {
@@ -20445,10 +20498,13 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 12000
-        },
-        "onUseDoApply": {
-          "darkCore": 1
+          "cooldown": 12000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "darkCore"
+            }
+          ]
         }
       },
       {
@@ -21824,7 +21880,6 @@
     ]
   },
   "1212": {
-    "disabled": true,
     "name": "Jingran",
     "version": 3.6,
     "id": 1212,
@@ -21832,9 +21887,6 @@
     "quality": 5,
     "element": "fusion",
     "type": "broadblade",
-    "energy": 125,
-    "energyMin": 1.1,
-    "tagged": [],
     "stats": {
       "baseHp": 15375,
       "baseAtk": 312,
@@ -21842,6 +21894,9 @@
       "hp%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.1,
+    "tagged": [],
     "effects": [
       {
         "ref": "yingHuo",
@@ -22591,7 +22646,8 @@
             }
           },
           {
-            "name": "Shadow Step",
+            "name": "Dodge: Shadow Step",
+            "type": "dodge",
             "damage": {
               "type": "basicAttack",
               "multipliers": [
@@ -22897,7 +22953,7 @@
         "name": "Burial of Thousand Souls",
         "actions": [
           {
-            "name": "Burial of Thousand Souls",
+            "name": "Resonance Liberation",
             "type": "resonanceLiberation",
             "damage": {
               "type": "heavyAttack",
@@ -23405,8 +23461,21 @@
       "mainEcho": 6000217,
       "rotation": [
         "introSkill.0",
+        "resonanceLiberation.0",
+        "forteCircuit.1",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "forteCircuit.0",
+        "resonanceSkill.1",
+        "resonanceSkill.3",
+        "forteCircuit.1",
+        "resonanceSkill.0",
+        "resonanceSkill.2",
+        "forteCircuit.0",
         "outroSkill.0"
-      ]
+      ],
+      "duration": 13370
     },
     "teamPreset": [
       1212,
@@ -23416,15 +23485,12 @@
   },
   "1301": {
     "name": "Calcharo",
-    "version": 1,
+    "version": 1.0,
     "id": 1301,
     "icon": "wuthering-waves/character/1301.webp",
     "quality": 5,
     "element": "electro",
     "type": "broadblade",
-    "energy": 125,
-    "energyMin": 1.3,
-    "tagged": [],
     "stats": {
       "baseHp": 10500,
       "baseAtk": 437,
@@ -23432,6 +23498,9 @@
       "atk%": 0.12,
       "critDmg%": 0.16
     },
+    "energy": 125,
+    "energyMin": 1.3,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -24577,15 +24646,12 @@
   },
   "1302": {
     "name": "Yinlin",
-    "version": 1,
+    "version": 1.0,
     "id": 1302,
     "icon": "wuthering-waves/character/1302.webp",
     "quality": 5,
     "element": "electro",
     "type": "rectifier",
-    "energy": 125,
-    "energyMin": 1.3,
-    "tagged": [],
     "stats": {
       "baseHp": 11000,
       "baseAtk": 400,
@@ -24593,6 +24659,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.3,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -24619,7 +24688,6 @@
         }
       },
       {
-        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -24630,6 +24698,7 @@
           "duration": 18000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "action": {
@@ -25227,15 +25296,12 @@
   },
   "1303": {
     "name": "Yuanwu",
-    "version": 1,
+    "version": 1.0,
     "id": 1303,
     "icon": "wuthering-waves/character/1303.webp",
     "quality": 4,
     "element": "electro",
     "type": "gauntlets",
-    "energy": 125,
-    "energyMin": 1,
-    "tagged": [],
     "stats": {
       "baseHp": 8525,
       "baseAtk": 225,
@@ -25243,9 +25309,11 @@
       "def%": 0.152,
       "electroDmgBonus%": 0.12
     },
+    "energy": 125,
+    "energyMin": 1,
+    "tagged": [],
     "effects": [
       {
-        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -25256,6 +25324,7 @@
           "duration": 12000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "and": [
@@ -26397,9 +26466,6 @@
     "quality": 5,
     "element": "spectro",
     "type": "broadblade",
-    "energy": 150,
-    "energyMin": 1,
-    "tagged": [],
     "stats": {
       "baseHp": 10825,
       "baseAtk": 412,
@@ -26407,6 +26473,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 150,
+    "energyMin": 1,
+    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -27660,9 +27729,6 @@
     "quality": 5,
     "element": "electro",
     "type": "gauntlets",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 10625,
       "baseAtk": 425,
@@ -27670,6 +27736,9 @@
       "atk%": 0.12,
       "critDmg%": 0.16
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -28540,9 +28609,6 @@
     "quality": 5,
     "element": "electro",
     "type": "broadblade",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 10300,
       "baseAtk": 462,
@@ -28550,6 +28616,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "ref": "rulersRealm",
@@ -29656,11 +29725,6 @@
     "quality": 4,
     "element": "electro",
     "type": "rectifier",
-    "energy": 150,
-    "energyMin": 1.3,
-    "tagged": [
-      "healing"
-    ],
     "stats": {
       "baseHp": 10625,
       "baseAtk": 225,
@@ -29668,6 +29732,11 @@
       "atk%": 0.12,
       "healingBonus%": 0.12
     },
+    "energy": 150,
+    "energyMin": 1.3,
+    "tagged": [
+      "healing"
+    ],
     "effects": [
       {
         "apply": {
@@ -30397,9 +30466,6 @@
     "quality": 5,
     "element": "electro",
     "type": "pistols",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 11600,
       "baseAtk": 400,
@@ -30408,6 +30474,9 @@
       "critRate%": 0.08,
       "tuneBreakBoost": 10
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -32467,9 +32536,6 @@
     "quality": 5,
     "element": "electro",
     "type": "sword",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -32477,6 +32543,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "stores": "$team",
@@ -34511,15 +34580,12 @@
   },
   "1402": {
     "name": "Yangyang",
-    "version": 1,
+    "version": 1.0,
     "id": 1402,
     "icon": "wuthering-waves/character/1402.webp",
     "quality": 4,
     "element": "aero",
     "type": "sword",
-    "energy": 100,
-    "energyMin": 1.1,
-    "tagged": [],
     "stats": {
       "baseHp": 10200,
       "baseAtk": 250,
@@ -34527,6 +34593,9 @@
       "atk%": 0.12,
       "aeroDmgBonus%": 0.12
     },
+    "energy": 100,
+    "energyMin": 1.1,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -35201,15 +35270,12 @@
   },
   "1403": {
     "name": "Aalto",
-    "version": 1,
+    "version": 1.0,
     "id": 1403,
     "icon": "wuthering-waves/character/1403.webp",
     "quality": 4,
     "element": "aero",
     "type": "pistols",
-    "energy": 150,
-    "energyMin": 1.5,
-    "tagged": [],
     "stats": {
       "baseHp": 9850,
       "baseAtk": 262,
@@ -35217,6 +35283,9 @@
       "atk%": 0.12,
       "aeroDmgBonus%": 0.12
     },
+    "energy": 150,
+    "energyMin": 1.5,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -35882,15 +35951,12 @@
   },
   "1404": {
     "name": "Jiyan",
-    "version": 1,
+    "version": 1.0,
     "id": 1404,
     "icon": "wuthering-waves/character/1404.webp",
     "quality": 5,
     "element": "aero",
     "type": "broadblade",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 10487,
       "baseAtk": 437,
@@ -35898,6 +35964,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -36685,15 +36754,12 @@
   },
   "1405": {
     "name": "Jianxin",
-    "version": 1,
+    "version": 1.0,
     "id": 1405,
     "icon": "wuthering-waves/character/1405.webp",
     "quality": 5,
     "element": "aero",
     "type": "gauntlets",
-    "energy": 150,
-    "energyMin": 1.6,
-    "tagged": [],
     "stats": {
       "baseHp": 14112,
       "baseAtk": 337,
@@ -36701,6 +36767,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 150,
+    "energyMin": 1.6,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -37850,9 +37919,6 @@
     "quality": 5,
     "element": "aero",
     "type": "sword",
-    "energy": 150,
-    "energyMin": 1.3,
-    "tagged": [],
     "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -37860,6 +37926,9 @@
       "atk%": 0.12,
       "healingBonus%": 0.12
     },
+    "energy": 150,
+    "energyMin": 1.3,
+    "tagged": [],
     "effects": [
       {
         "use": {
@@ -38924,9 +38993,6 @@
     "quality": 5,
     "element": "aero",
     "type": "pistols",
-    "energy": 125,
-    "energyMin": 1.3,
-    "tagged": [],
     "stats": {
       "baseHp": 12237,
       "baseAtk": 375,
@@ -38934,6 +39000,9 @@
       "atk%": 0.12,
       "critDmg%": 0.16
     },
+    "energy": 125,
+    "energyMin": 1.3,
+    "tagged": [],
     "effects": [
       {
         "stores": "$team",
@@ -39639,9 +39708,6 @@
     "quality": 5,
     "element": "aero",
     "type": "sword",
-    "energy": 125,
-    "energyMin": 1.1,
-    "tagged": [],
     "stats": {
       "baseHp": 14800,
       "baseAtk": 312,
@@ -39649,6 +39715,9 @@
       "hp%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.1,
+    "tagged": [],
     "effects": [
       {
         "ref": "swordOfDivinitysShadow",
@@ -41632,9 +41701,6 @@
     "quality": 5,
     "element": "aero",
     "type": "gauntlets",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 10525,
       "baseAtk": 450,
@@ -41642,6 +41708,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "ref": "fullMoonDomain",
@@ -41727,10 +41796,17 @@
                 "resonanceLiberation"
               ]
             }
-          }
-        },
-        "onUseDoApply": {
-          "blessingOfTheWanLight": 5
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "blessingOfTheWanLight",
+              "spec": {
+                "duration": 10000,
+                "stacks": 5
+              }
+            }
+          ]
         }
       },
       {
@@ -42983,9 +43059,6 @@
     "quality": 5,
     "element": "aero",
     "type": "sword",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 12237,
       "baseAtk": 375,
@@ -42993,6 +43066,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "stores": "$team",
@@ -43112,10 +43188,13 @@
               }
             ]
           },
-          "duration": 20000
-        },
-        "onApplyDoRemove": {
-          "flowingPanaceaReady": 1
+          "duration": 20000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "flowingPanaceaReady"
+            }
+          ]
         },
         "buff": {
           "stats": {
@@ -44309,9 +44388,6 @@
     "quality": 5,
     "element": "aero",
     "type": "gauntlets",
-    "energy": 125,
-    "energyMin": 1.1,
-    "tagged": [],
     "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -44319,6 +44395,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.1,
+    "tagged": [],
     "effects": [
       {
         "ref": "divergent",
@@ -45681,9 +45760,6 @@
     "quality": 5,
     "element": "aero",
     "type": "sword",
-    "energy": 125,
-    "energyMin": 1.1,
-    "tagged": [],
     "stats": {
       "baseHp": 10300,
       "baseAtk": 462,
@@ -45691,6 +45767,9 @@
       "atk%": 0.12,
       "critDmg%": 0.16
     },
+    "energy": 125,
+    "energyMin": 1.1,
+    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -45789,11 +45868,23 @@
               "ref": "normalAttack.4"
             }
           },
-          "uses": 1
-        },
-        "onApplyDoApply": {
-          "mindlock": 3,
-          "mindlockEarly": 3
+          "uses": 1,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "mindlock",
+              "spec": {
+                "stacks": 3
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "mindlockEarly",
+              "spec": {
+                "stacks": 3
+              }
+            }
+          ]
         },
         "buff": {
           "filter": {
@@ -46995,15 +47086,12 @@
   },
   "1501": {
     "name": "Rover: Spectro",
-    "version": 1,
+    "version": 1.0,
     "id": 1501,
     "icon": "wuthering-waves/character/1501.webp",
     "quality": 5,
     "element": "spectro",
     "type": "sword",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 11400,
       "baseAtk": 375,
@@ -47011,6 +47099,9 @@
       "atk%": 0.12,
       "spectroDmgBonus%": 0.12
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -47768,18 +47859,12 @@
   },
   "1503": {
     "name": "Verina",
-    "version": 1,
+    "version": 1.0,
     "id": 1503,
     "icon": "wuthering-waves/character/1503.webp",
     "quality": 5,
     "element": "spectro",
     "type": "rectifier",
-    "energy": 175,
-    "energyMin": 2.3,
-    "tagged": [
-      "healing"
-    ],
-    "concertoReq": true,
     "stats": {
       "baseHp": 14237,
       "baseAtk": 337,
@@ -47787,9 +47872,14 @@
       "atk%": 0.12,
       "healingBonus%": 0.12
     },
+    "energy": 175,
+    "energyMin": 2.3,
+    "concertoReq": true,
+    "tagged": [
+      "healing"
+    ],
     "effects": [
       {
-        "stores": "$team",
         "apply": {
           "when": "hit",
           "filter": {
@@ -47800,6 +47890,7 @@
           "duration": 12000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "cooldown": 1000,
           "action": "resonanceLiberation.1"
@@ -49020,9 +49111,6 @@
     "quality": 4,
     "element": "electro",
     "type": "broadblade",
-    "energy": 125,
-    "energyMin": 1.4,
-    "tagged": [],
     "stats": {
       "baseHp": 8500,
       "baseAtk": 337,
@@ -49030,6 +49118,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.4,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -50065,12 +50156,6 @@
     "quality": 5,
     "element": "spectro",
     "type": "rectifier",
-    "energy": 175,
-    "energyMin": 2.5,
-    "tagged": [
-      "healing"
-    ],
-    "concertoReq": true,
     "stats": {
       "baseHp": 16712,
       "baseAtk": 287,
@@ -50078,6 +50163,12 @@
       "hp%": 0.12,
       "healingBonus%": 0.12
     },
+    "energy": 175,
+    "energyMin": 2.5,
+    "concertoReq": true,
+    "tagged": [
+      "healing"
+    ],
     "effects": [
       {
         "use": {
@@ -50226,10 +50317,13 @@
             "action": {
               "ref": "introSkill.1"
             }
-          }
-        },
-        "onUseDoRemove": {
-          "stellarealm": 1
+          },
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "stellarealm"
+            }
+          ]
         }
       },
       {
@@ -50973,9 +51067,6 @@
     "quality": 5,
     "element": "spectro",
     "type": "rectifier",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 10825,
       "baseAtk": 412,
@@ -50983,6 +51074,9 @@
       "atk%": 0.12,
       "critDmg%": 0.16
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -51871,9 +51965,6 @@
     "quality": 5,
     "element": "spectro",
     "type": "gauntlets",
-    "energy": 125,
-    "energyMin": 1.1,
-    "tagged": [],
     "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -51881,6 +51972,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.1,
+    "tagged": [],
     "effects": [
       {
         "use": {
@@ -53023,9 +53117,6 @@
     "quality": 5,
     "element": "havoc",
     "type": "broadblade",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -53033,9 +53124,11 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
-        "stores": "global",
         "apply": {
           "when": "hit",
           "filter": {
@@ -53055,6 +53148,7 @@
           "duration": 30000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "action": {
@@ -54567,15 +54661,12 @@
   },
   "1509": {
     "name": "Lynae",
-    "version": 3,
+    "version": 3.0,
     "id": 1509,
     "icon": "wuthering-waves/character/1509.webp",
     "quality": 5,
     "element": "spectro",
     "type": "pistols",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 12237,
       "baseAtk": 375,
@@ -54584,6 +54675,9 @@
       "critRate%": 0.08,
       "tuneBreakBoost": 10
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "modes": [
       "tuneRupture",
       "tuneStrain"
@@ -55949,9 +56043,6 @@
     "quality": 5,
     "element": "spectro",
     "type": "gauntlets",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 10300,
       "baseAtk": 462,
@@ -55960,6 +56051,9 @@
       "critRate%": 0.08,
       "tuneBreakBoost": 10
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "use": {
@@ -57135,9 +57229,6 @@
     "quality": 5,
     "element": "spectro",
     "type": "pistols",
-    "energy": 125,
-    "energyMin": 1.3,
-    "tagged": [],
     "stats": {
       "baseHp": 11025,
       "baseAtk": 425,
@@ -57146,6 +57237,9 @@
       "critRate%": 0.08,
       "tuneBreakBoost": 10
     },
+    "energy": 125,
+    "energyMin": 1.3,
+    "tagged": [],
     "effects": [
       {
         "stores": "global",
@@ -57200,15 +57294,7 @@
           "stats": {
             "damageMv%": 2.7
           }
-        },
-        "rankMods": [
-          {
-            "rank": 2,
-            "stats": {
-              "damageMv%": 2.9
-            }
-          }
-        ]
+        }
       },
       {
         "apply": {
@@ -59548,15 +59634,12 @@
   },
   "1601": {
     "name": "Taoqi",
-    "version": 1,
+    "version": 1.0,
     "id": 1601,
     "icon": "wuthering-waves/character/1601.webp",
     "quality": 4,
     "element": "havoc",
     "type": "broadblade",
-    "energy": 125,
-    "energyMin": 1,
-    "tagged": [],
     "stats": {
       "baseHp": 8950,
       "baseAtk": 225,
@@ -59564,8 +59647,12 @@
       "def%": 0.152,
       "havocDmgBonus%": 0.12
     },
+    "energy": 125,
+    "energyMin": 1,
+    "tagged": [],
     "effects": [
       {
+        "ref": "defUp",
         "stores": "global",
         "apply": {
           "when": "start",
@@ -59591,15 +59678,7 @@
               "ref": "normalAttack.3"
             }
           }
-        },
-        "rankMods": [
-          {
-            "rank": 3,
-            "apply": {
-              "duration": 15000
-            }
-          }
-        ]
+        }
       },
       {
         "stores": "$next",
@@ -59646,6 +59725,17 @@
           "stats": {
             "critRate%": 0.2,
             "critDmg%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 3,
+        "modify": {
+          "ref": "defUp",
+          "spec": {
+            "apply": {
+              "duration": 15000
+            }
           }
         }
       },
@@ -60464,15 +60554,12 @@
   },
   "1602": {
     "name": "Danjin",
-    "version": 1,
+    "version": 1.0,
     "id": 1602,
     "icon": "wuthering-waves/character/1602.webp",
     "quality": 4,
     "element": "havoc",
     "type": "sword",
-    "energy": 100,
-    "energyMin": 1,
-    "tagged": [],
     "stats": {
       "baseHp": 9437,
       "baseAtk": 262,
@@ -60480,8 +60567,12 @@
       "atk%": 0.12,
       "havocDmgBonus%": 0.12
     },
+    "energy": 100,
+    "energyMin": 1,
+    "tagged": [],
     "effects": [
       {
+        "ref": "incineratingWill",
         "apply": {
           "when": "start",
           "filter": {
@@ -60495,15 +60586,7 @@
           "stats": {
             "dmgBonus%": 0.2
           }
-        },
-        "rankMods": [
-          {
-            "rank": 2,
-            "stats": {
-              "dmgBonus%": 0.2
-            }
-          }
-        ]
+        }
       },
       {
         "apply": {
@@ -60584,6 +60667,19 @@
           }
         },
         "maxStacks": 6
+      },
+      {
+        "rank": 2,
+        "modify": {
+          "ref": "incineratingWill",
+          "spec": {
+            "buff": {
+              "stats": {
+                "dmgBonus%": 0.2
+              }
+            }
+          }
+        }
       },
       {
         "rank": 3,
@@ -61335,9 +61431,6 @@
     "quality": 5,
     "element": "havoc",
     "type": "sword",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 10325,
       "baseAtk": 450,
@@ -61345,6 +61438,9 @@
       "atk%": 0.12,
       "critDmg%": 0.16
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -62172,15 +62268,12 @@
   },
   "1605": {
     "name": "Rover: Havoc",
-    "version": 1,
+    "version": 1.0,
     "id": 1605,
     "icon": "wuthering-waves/character/1605.webp",
     "quality": 5,
     "element": "havoc",
     "type": "sword",
-    "energy": 125,
-    "energyMin": 1.4,
-    "tagged": [],
     "stats": {
       "baseHp": 10825,
       "baseAtk": 412,
@@ -62188,6 +62281,9 @@
       "atk%": 0.12,
       "havocDmgBonus%": 0.12
     },
+    "energy": 125,
+    "energyMin": 1.4,
+    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -63192,15 +63288,12 @@
   },
   "1606": {
     "name": "Roccia",
-    "version": 2,
+    "version": 2.0,
     "id": 1606,
     "icon": "wuthering-waves/character/1606.webp",
     "quality": 5,
     "element": "havoc",
     "type": "gauntlets",
-    "energy": 125,
-    "energyMin": 1.3,
-    "tagged": [],
     "stats": {
       "baseHp": 12250,
       "baseAtk": 375,
@@ -63208,6 +63301,9 @@
       "atk%": 0.12,
       "critDmg%": 0.16
     },
+    "energy": 125,
+    "energyMin": 1.3,
+    "tagged": [],
     "effects": [
       {
         "stores": "$team",
@@ -63813,9 +63909,6 @@
     "quality": 5,
     "element": "havoc",
     "type": "rectifier",
-    "energy": 125,
-    "energyMin": 1.3,
-    "tagged": [],
     "stats": {
       "baseHp": 11600,
       "baseAtk": 400,
@@ -63823,9 +63916,11 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.3,
+    "tagged": [],
     "effects": [
       {
-        "stores": "global",
         "apply": {
           "when": "start",
           "filter": {
@@ -63837,21 +63932,14 @@
           "uses": 21
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
             "field": "onField"
           },
           "cooldown": 1000,
           "action": "resonanceLiberation.1"
-        },
-        "rankMods": [
-          {
-            "rank": 5,
-            "apply": {
-              "uses": 5
-            }
-          }
-        ]
+        }
       },
       {
         "buff": {
@@ -64826,7 +64914,6 @@
     "quality": 5,
     "element": "havoc",
     "type": "rectifier",
-    "tagged": [],
     "stats": {
       "baseHp": 10775,
       "baseAtk": 437,
@@ -64834,6 +64921,7 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "tagged": [],
     "effects": [
       {
         "ref": "maestro",
@@ -65000,10 +65088,13 @@
                 }
               }
             ]
-          }
-        },
-        "onUseDoUse": {
-          "maestroHecateEnhancedFollowUp": 1
+          },
+          "commands": [
+            {
+              "type": "use",
+              "ref": "maestroHecateEnhancedFollowUp"
+            }
+          ]
         }
       },
       {
@@ -65995,9 +66086,6 @@
     "quality": 5,
     "element": "havoc",
     "type": "sword",
-    "energy": 125,
-    "energyMin": 1.2,
-    "tagged": [],
     "stats": {
       "baseHp": 11025,
       "baseAtk": 425,
@@ -66005,6 +66093,9 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
+    "energy": 125,
+    "energyMin": 1.2,
+    "tagged": [],
     "effects": [
       {
         "ref": "voiceUponVoice",
@@ -66287,10 +66378,13 @@
                 "havocBane": 6
               }
             }
-          }
-        },
-        "onUseDoRemove": {
-          "windbound": 6
+          },
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "windbound"
+            }
+          ]
         }
       },
       {

@@ -2,7 +2,7 @@ import { GI } from '@/data';
 import { getEnergyLevel } from '../getEnergyLevel';
 import { toMergedObj } from '../merge';
 
-export function computeActualRotationTime(cache, equipMaps, showSource = false) {
+export function computeActualRotationTime(cache, equipMaps) {
   const { gameId } = cache;
   const source = {};
   let fullTime = 0;
@@ -11,8 +11,8 @@ export function computeActualRotationTime(cache, equipMaps, showSource = false) 
     const mSource = source[mCache.id] = { duration: mCache.duration, added: 0 };
 
     if (mCache.concertoPenalty) {
-      mSource.added += 2000;
-      fullTime += 2000;
+      mSource.added += 3000;
+      fullTime += 3000;
     }
 
     if (!mCache.energy) {
@@ -26,19 +26,19 @@ export function computeActualRotationTime(cache, equipMaps, showSource = false) 
     }
 
     const statMap = toMergedObj(...toMerge);
-    const energyLevel = getEnergyLevel(gameId, statMap);
+    const testErValue = getEnergyLevel(gameId, statMap);
+    const reqErValue = mCache.energyReq;
 
-    if (energyLevel - mCache.energyReq >= 0) {
+    if (testErValue >= reqErValue) {
       fullTime += mCache.duration;
       continue;
     }
 
-    const deficit = 1 - energyLevel / mCache.energyReq;
-    fullTime += mCache.duration * Math.exp(deficit);
-    mSource.added += mCache.duration * Math.exp(deficit) - mCache.duration;
-  }
+    const addedTime = (1 - (testErValue / reqErValue)) * mCache.energy * 150;
 
-  if (!showSource) return fullTime;
+    fullTime += mCache.duration + addedTime;
+    mSource.added += addedTime;
+  }
 
   return { time: fullTime, source };
 }

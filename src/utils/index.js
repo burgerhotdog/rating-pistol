@@ -17,4 +17,5 @@ export * from './getTotals';
 export * from './isEnabledEffect';
 export * from './math';
 export * from './merge';
+export * from './mvIndex';
 export * from './toArray';

@@ -13,7 +13,9 @@ export function countMembersGI(memberIds) {
     counts.element[element] = (counts.element[element] ?? 0) + 1;
 
     // Hexerei
-    if (tagged.includes('hexerei')) counts.hexerei++;
+    if (tagged.includes('hexerei')) {
+      counts.hexerei++;
+    }
   }
 
   return counts;

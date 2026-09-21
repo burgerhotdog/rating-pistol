@@ -31,6 +31,7 @@ const LoadingBar = ({ results }) => {
           sx={{
             visibility: !isIdle ? 'visible' : 'hidden',
             backgroundColor: 'action.hover',
+            borderRadius: 2,
             '& .MuiLinearProgress-bar': { backgroundColor: accent },
           }}
         />

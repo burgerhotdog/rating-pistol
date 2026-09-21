@@ -18,9 +18,9 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
 
     const snapshots = snapshotSpecs(evalStatMap);
     const totals = getTotals(snapshots);
-    const actualRotationTime = computeActualRotationTime(cache, { ...equipMaps, [evalId]: evalEquipMap });
-    const score = (totals.damage + totals.healing + totals.shield) / actualRotationTime * 1000;
+    const { time } = computeActualRotationTime(cache, { ...equipMaps, [evalId]: evalEquipMap });
+    const score = (totals.damage + totals.healing + totals.shield) / time * 1000;
 
-    return { snapshots, totals, score, actualRotationTime };
+    return { snapshots, totals, score, actualRotationTime: time };
   };
 }

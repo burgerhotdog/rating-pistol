@@ -3,11 +3,11 @@ import { resolveRankedValue } from '../resolve';
 
 const DEFAULT_DURATIONS = {
   [GI]: {
-    'normalAttack': 1000,
+    'normalAttack': 750,
     'chargedAttack': 1000,
     'plungeAttack': 1000,
     'elementalSkill': 1000,
-    'elementalBurst': 2000,
+    'elementalBurst': 1500,
   },
   [WW]: {
     'basicAttack': 500,
@@ -18,7 +18,7 @@ const DEFAULT_DURATIONS = {
     'introSkill': 1000,
   },
   [ZZZ]: {
-    'basicAttack': 1000,
+    'basicAttack': 750,
     'dodgeCounter': 1000,
     'dashAttack': 1000,
     'assistAttack': 1000,
@@ -37,7 +37,10 @@ export const getCompressed = (multipliers, attr, { index, weaponRank }) => {
 
   const compressed = { flat: 0, mvs: {}, hitCount: 0 };
   for (const { flat, mv, times = 1 } of multipliers) {
-    if (flat) compressed.flat += resolveScaling(flat) * times;
+    if (flat) {
+      compressed.flat += resolveScaling(flat) * times;
+    }
+
     if (mv) {
       if (typeof mv === 'object' && !Array.isArray(mv)) { // dual attr scaling
         for (const [attrKey, scaling] of Object.entries(mv)) {
@@ -78,6 +81,9 @@ export function normalizeAction(gameId, rawAction, spec) {
     return action;
   }
 
+  if (action.type === 'elementalBurst' && CHARACTER[GI][ownerId]?.quality === 5) {
+    action.duration ??= 2000;
+  }
   action.duration ??= DEFAULT_DURATIONS[gameId][action.type] ?? 0;
 
   if (action.damage) {
@@ -103,26 +109,29 @@ export function normalizeAction(gameId, rawAction, spec) {
 
     const isGiPhysNa = gameId === GI && category === 'normalAttack' && spec.weaponType !== 'catalyst';
     damage.element ??= isGiPhysNa ? 'physical' : spec.charElement;
-    damage.attr ??= 'atk';
-    damage.compressed = getCompressed(
-      damage.multipliers,
-      damage.attr,
-      { index: spec.mvIndex, weaponRank: spec.weaponRank },
-    );
 
-    // hitOffsets
-    let offset = action.duration * 0.65;
-    const hitOffsets = action.hitOffsets = [Math.round(offset)];
-    let hitsLeft = damage.compressed.hitCount - 1;
-    while (hitsLeft) {
-      if (action.duration) {
-        offset += 100;
-        if (action.duration - offset <= 100) {
-          action.duration += 100;
+    if (damage.multipliers) {
+      damage.attr ??= 'atk';
+      damage.compressed = getCompressed(
+        damage.multipliers,
+        damage.attr,
+        { index: spec.mvIndex, weaponRank: spec.weaponRank },
+      );
+
+      // hitOffsets
+      let offset = action.duration * 0.65;
+      const hitOffsets = action.hitOffsets = [Math.round(offset)];
+      let hitsLeft = damage.compressed.hitCount - 1;
+      while (hitsLeft) {
+        if (action.duration) {
+          offset += 100;
+          if (action.duration - offset <= 100) {
+            action.duration += 100;
+          }
         }
+        hitOffsets.push(Math.round(offset));
+        hitsLeft--;
       }
-      hitOffsets.push(Math.round(offset));
-      hitsLeft--;
     }
 
     if (gameId === GI && category === 'normalAttack') {

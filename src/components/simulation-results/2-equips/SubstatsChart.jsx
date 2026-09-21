@@ -137,9 +137,9 @@ const gaussianKDE = (values = [], steps = 48) => {
   return points.map((p) => ({ v: p.v, density: p.density / maxDensity }));
 };
 
-const classifyRoll = (user, { min, q1, q3, max }) => {
-  if (user >= q1 && user <= q3) return 'ideal';
-  if (user >= min && user <= max) return 'acceptable';
+const classifyRoll = (user, { min, q1 }) => {
+  if (user >= q1) return 'ideal';
+  if (user >= min) return 'acceptable';
   return 'off';
 };
 
@@ -159,7 +159,7 @@ const SubstatsChart = ({ results, userMainstatConfigKey, userSubstatRolls }) => 
       const { min, q1, median, q3, max } = getQuantiles(rolls);
       const violin = gaussianKDE(rolls);
       const user = userSubstatRolls[stat] ?? 0;
-      const zone = classifyRoll(user, { min, q1, q3, max });
+      const zone = classifyRoll(user, { min, q1 });
       const isImportant = isImportantStat(stat);
 
       return {
@@ -314,6 +314,7 @@ const SubstatsChart = ({ results, userMainstatConfigKey, userSubstatRolls }) => 
               fill={fill}
               stroke={palette.background.paper}
               strokeWidth={1}
+              style={!payload.isImportant ? { filter: 'grayscale(1)' } : undefined}
             />
           );
         }}

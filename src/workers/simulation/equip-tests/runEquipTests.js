@@ -1,134 +1,43 @@
-import { linearRegression, mean } from 'simple-statistics';
-import { buildSkippable, computeDpsCeiling, mergeEquipListConfigs } from '@/utils';
+import { linearRegression } from 'simple-statistics';
+import { buildSkippable } from '@/utils';
+import { runTrials } from './runTrials';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
+import { computeCeiling } from './computeCeiling';
+import { testExtraSubstat } from './testExtraSubstat';
 
-async function initWorkers(payload) {
-  const workers = Array.from({ length: 4 }, () => new Worker(
-    new URL('./trialsWorker.js', import.meta.url),
-    { type: 'module' },
-  ));
+const getFit = (mpsProgression, mpsCeiling) => {
+  const logPoints = mpsProgression
+    .slice(-5)
+    .map(({ day, mean }) => [
+      Math.log(day),
+      Math.log(mpsCeiling - mean),
+    ]);
 
-  const readyPromises = workers.map((worker) => new Promise((resolve) => {
-    worker.onmessage = ({ data }) => {
-      if (data.type === 'ready') resolve();
-    };
-  }));
-
-  for (const worker of workers) {
-    worker.postMessage(payload);
-  }
-
-  await Promise.all(readyPromises);
-  return workers;
-}
-
-function runContinuous(workers, dpsCeiling, isMainChar) {
-  return new Promise((resolve) => {
-    const pending = new Map(); // day -> meanDps values collected so far
-    const dpsUpdates = [];
-    const remainingHistory = [];
-    let doneCount = 0;
-    let meanEquipMap = null;
-    const partialEquipListConfigsList = [];
-
-    const mergeMeanEquipMap = (partial) => {
-      meanEquipMap ??= {};
-      for (const id in partial) {
-        meanEquipMap[id] = (meanEquipMap[id] ?? 0) + partial[id] / workers.length;
-      }
-    };
-
-    const handleMessage = ({ data }) => {
-      switch (data.type) {
-        case 'progress': {
-          const { day, meanDps } = data;
-
-          if (!pending.has(day)) pending.set(day, []);
-          const bucket = pending.get(day);
-          bucket.push(meanDps);
-
-          if (bucket.length === workers.length) {
-            const avgDps = mean(bucket);
-            dpsUpdates.push({ day, mean: avgDps });
-
-            if (isMainChar) {
-              const remaining = dpsCeiling - avgDps;
-              if (day >= 95) remainingHistory.push({ day, remaining });
-              if (isMainChar) self.postMessage({ message: `Day ${day}`, progressDay: day });
-            }
-
-            pending.delete(day);
-          }
-
-          break;
-        }
-
-        case 'meanEquipMap': {
-          mergeMeanEquipMap(data.meanEquipMap);
-          doneCount++;
-
-          if (doneCount === workers.length) {
-            resolve({ dpsUpdates, meanEquipMap });
-          }
-
-          break;
-        }
-
-        case 'partialEquipListConfigs': {
-          partialEquipListConfigsList.push(data.partialEquipListConfigs);
-
-          if (partialEquipListConfigsList.length === workers.length) {
-            const equipListConfigs = mergeEquipListConfigs(partialEquipListConfigsList);
-            resolve({ dpsUpdates, remainingHistory, equipListConfigs });
-          }
-
-          break;
-        }
-      }
-    };
-
-    workers.forEach((worker) => {
-      worker.onmessage = handleMessage;
-      worker.postMessage({ type: 'run', maxDay: isMainChar ? 100 : 30 });
-    });
-  });
-}
-
-export async function runEquipTests(cache, equipMaps, currId, isMainChar = false) {
-  const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
-  const { snapshots, score: dpsFloor } = evaluateEquipMap();
-  const skippable = buildSkippable(cache.gameId, dpsFloor, evaluateEquipMap);
-
-  const dpsCeiling = computeDpsCeiling(cache.gameId, evaluateEquipMap, currId, skippable);
-
-  const dpsProgression = [];
-
-  // Initialize trials
-  if (isMainChar) self.postMessage({ message: `Initializing Trials` });
-  dpsProgression.push({ day: 0, mean: dpsFloor });
-  const workers = await initWorkers({ type: 'init', cache, equipMaps, currId, snapshots, score: dpsFloor, skippable });
-
-  if (isMainChar) self.postMessage({ message: `Running Trials` });
-  const result = await runContinuous(workers, dpsCeiling, isMainChar);
-
-  dpsProgression.push(...result.dpsUpdates);
-  workers.forEach((worker) => worker.terminate());
-
-  if (!isMainChar) {
-    return result.meanEquipMap;
-  }
-
-  const logPoints = result.remainingHistory.map(({ day, remaining }) => [
-    Math.log(day),
-    Math.log(remaining),
-  ]);
   const { m, b } = linearRegression(logPoints);
-  const fit = { k: -m, A: Math.exp(b) };
+
+  return { k: -m, A: Math.exp(b) };
+};
+
+export async function runEquipTests(cache, equipMaps, currId, userDps) {
+  const { gameId } = cache;
+
+  const { mpsUpdates, equipListConfigs } = await runTrials(cache, equipMaps, currId, true);
+
+  const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
+  const { score } = evaluateEquipMap();
+  const skippable = buildSkippable(gameId, score, evaluateEquipMap);
+  const mpsCeiling = computeCeiling(gameId, evaluateEquipMap, currId, skippable);
+
+  const mpsProgression = [{ day: 0, mean: score }, ...mpsUpdates];
+
+  const extraSubstatsResults = testExtraSubstat(cache, equipMaps, currId, evaluateEquipMap, userDps);
 
   return {
-    dpsProgression,
-    dpsCeiling,
-    fit,
-    equipListConfigs: result.equipListConfigs,
+    dpsProgression: mpsProgression,
+    dpsCeiling: mpsCeiling,
+    fit: getFit(mpsProgression, mpsCeiling),
+    equipListConfigs,
+    extraSubstats: extraSubstatsResults.results,
+    extraSubstatsControl: extraSubstatsResults.control,
   };
 }

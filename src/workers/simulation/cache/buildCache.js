@@ -44,7 +44,21 @@ function buildCacheMember(cache, member) {
     mCache.statMap = toMergedObj(baseMap, mCache.equipMap);
   }
 
-  const effectDefs = getEffectDefs(gameId, member, { memberIds, actionDefs, counts });
+  const {
+    charEffectDefs,
+    weapEffectDefs,
+    setEffectDefs,
+  } = getEffectDefs(gameId, member, { memberIds, actionDefs, counts });
+
+  mCache.charEffectDefs = charEffectDefs;
+  mCache.weapEffectDefs = weapEffectDefs;
+  mCache.setEffectDefs = setEffectDefs;
+
+  const effectDefs = {
+    ...charEffectDefs,
+    ...weapEffectDefs,
+    ...setEffectDefs,
+  };
 
   mCache.staticMap = Object.values(effectDefs)
     .filter((effect) => effect.static)

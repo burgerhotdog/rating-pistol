@@ -2,7 +2,7 @@
   "12001": {
     "disabled": true,
     "name": "[Lunar] Pleniluna",
-    "version": 1,
+    "version": 1.0,
     "id": 12001,
     "icon": "zenless-zone-zero/weapon/12001.webp",
     "quality": 3,
@@ -16,7 +16,7 @@
   "12002": {
     "disabled": true,
     "name": "[Lunar] Decrescent",
-    "version": 1,
+    "version": 1.0,
     "id": 12002,
     "icon": "zenless-zone-zero/weapon/12002.webp",
     "quality": 3,
@@ -30,7 +30,7 @@
   "12003": {
     "disabled": true,
     "name": "[Lunar] Noviluna",
-    "version": 1,
+    "version": 1.0,
     "id": 12003,
     "icon": "zenless-zone-zero/weapon/12003.webp",
     "quality": 3,
@@ -44,7 +44,7 @@
   "12004": {
     "disabled": true,
     "name": "[Reverb] Mark I",
-    "version": 1,
+    "version": 1.0,
     "id": 12004,
     "icon": "zenless-zone-zero/weapon/12004.webp",
     "quality": 3,
@@ -58,7 +58,7 @@
   "12005": {
     "disabled": true,
     "name": "[Reverb] Mark II",
-    "version": 1,
+    "version": 1.0,
     "id": 12005,
     "icon": "zenless-zone-zero/weapon/12005.webp",
     "quality": 3,
@@ -72,7 +72,7 @@
   "12006": {
     "disabled": true,
     "name": "[Reverb] Mark III",
-    "version": 1,
+    "version": 1.0,
     "id": 12006,
     "icon": "zenless-zone-zero/weapon/12006.webp",
     "quality": 3,
@@ -86,7 +86,7 @@
   "12007": {
     "disabled": true,
     "name": "[Vortex] Revolver",
-    "version": 1,
+    "version": 1.0,
     "id": 12007,
     "icon": "zenless-zone-zero/weapon/12007.webp",
     "quality": 3,
@@ -100,7 +100,7 @@
   "12008": {
     "disabled": true,
     "name": "[Vortex] Arrow",
-    "version": 1,
+    "version": 1.0,
     "id": 12008,
     "icon": "zenless-zone-zero/weapon/12008.webp",
     "quality": 3,
@@ -114,7 +114,7 @@
   "12009": {
     "disabled": true,
     "name": "[Vortex] Hatchet",
-    "version": 1,
+    "version": 1.0,
     "id": 12009,
     "icon": "zenless-zone-zero/weapon/12009.webp",
     "quality": 3,
@@ -128,7 +128,7 @@
   "12010": {
     "disabled": true,
     "name": "[Magnetic Storm] Alpha",
-    "version": 1,
+    "version": 1.0,
     "id": 12010,
     "icon": "zenless-zone-zero/weapon/12010.webp",
     "quality": 3,
@@ -142,7 +142,7 @@
   "12011": {
     "disabled": true,
     "name": "[Magnetic Storm] Bravo",
-    "version": 1,
+    "version": 1.0,
     "id": 12011,
     "icon": "zenless-zone-zero/weapon/12011.webp",
     "quality": 3,
@@ -156,7 +156,7 @@
   "12012": {
     "disabled": true,
     "name": "[Magnetic Storm] Charlie",
-    "version": 1,
+    "version": 1.0,
     "id": 12012,
     "icon": "zenless-zone-zero/weapon/12012.webp",
     "quality": 3,
@@ -170,7 +170,7 @@
   "12013": {
     "disabled": true,
     "name": "[Identity] Base",
-    "version": 1,
+    "version": 1.0,
     "id": 12013,
     "icon": "zenless-zone-zero/weapon/12013.webp",
     "quality": 3,
@@ -184,7 +184,7 @@
   "12014": {
     "disabled": true,
     "name": "[Identity] Inflection",
-    "version": 1,
+    "version": 1.0,
     "id": 12014,
     "icon": "zenless-zone-zero/weapon/12014.webp",
     "quality": 3,
@@ -198,7 +198,7 @@
   "12015": {
     "disabled": true,
     "name": "[Cinder] Cobalt",
-    "version": 2,
+    "version": 2.0,
     "id": 12015,
     "icon": "zenless-zone-zero/weapon/12015.webp",
     "quality": 3,
@@ -226,7 +226,7 @@
   "13001": {
     "disabled": true,
     "name": "Street Superstar",
-    "version": 1,
+    "version": 1.0,
     "id": 13001,
     "icon": "zenless-zone-zero/weapon/13001.webp",
     "quality": 4,
@@ -241,7 +241,7 @@
   "13002": {
     "disabled": true,
     "name": "Slice of Time",
-    "version": 1,
+    "version": 1.0,
     "id": 13002,
     "icon": "zenless-zone-zero/weapon/13002.webp",
     "quality": 4,
@@ -256,7 +256,7 @@
   "13003": {
     "disabled": true,
     "name": "Rainforest Gourmet",
-    "version": 1,
+    "version": 1.0,
     "id": 13003,
     "icon": "zenless-zone-zero/weapon/13003.webp",
     "quality": 4,
@@ -271,7 +271,7 @@
   "13004": {
     "disabled": true,
     "name": "Starlight Engine",
-    "version": 1,
+    "version": 1.0,
     "id": 13004,
     "icon": "zenless-zone-zero/weapon/13004.webp",
     "quality": 4,
@@ -286,7 +286,7 @@
   "13005": {
     "disabled": true,
     "name": "Steam Oven",
-    "version": 1,
+    "version": 1.0,
     "id": 13005,
     "icon": "zenless-zone-zero/weapon/13005.webp",
     "quality": 4,
@@ -301,7 +301,7 @@
   "13006": {
     "disabled": true,
     "name": "Precious Fossilized Core",
-    "version": 1,
+    "version": 1.0,
     "id": 13006,
     "icon": "zenless-zone-zero/weapon/13006.webp",
     "quality": 4,
@@ -316,7 +316,7 @@
   "13007": {
     "disabled": true,
     "name": "Original Transmorpher",
-    "version": 1,
+    "version": 1.0,
     "id": 13007,
     "icon": "zenless-zone-zero/weapon/13007.webp",
     "quality": 4,
@@ -331,7 +331,7 @@
   "13008": {
     "disabled": true,
     "name": "Weeping Gemini",
-    "version": 1,
+    "version": 1.0,
     "id": 13008,
     "icon": "zenless-zone-zero/weapon/13008.webp",
     "quality": 4,
@@ -346,7 +346,7 @@
   "13009": {
     "disabled": true,
     "name": "Electro-Lip Gloss",
-    "version": 1,
+    "version": 1.0,
     "id": 13009,
     "icon": "zenless-zone-zero/weapon/13009.webp",
     "quality": 4,
@@ -360,7 +360,7 @@
   "13010": {
     "disabled": true,
     "name": "Bunny Band",
-    "version": 1,
+    "version": 1.0,
     "id": 13010,
     "icon": "zenless-zone-zero/weapon/13010.webp",
     "quality": 4,
@@ -375,7 +375,7 @@
   "13011": {
     "disabled": true,
     "name": "Spring Embrace",
-    "version": 1,
+    "version": 1.0,
     "id": 13011,
     "icon": "zenless-zone-zero/weapon/13011.webp",
     "quality": 4,
@@ -389,7 +389,7 @@
   "13012": {
     "disabled": true,
     "name": "Puzzle Sphere",
-    "version": 2,
+    "version": 2.0,
     "id": 13012,
     "icon": "zenless-zone-zero/weapon/13012.webp",
     "quality": 4,
@@ -418,7 +418,7 @@
   "13014": {
     "disabled": true,
     "name": "Radiowave Journey",
-    "version": 2,
+    "version": 2.0,
     "id": 13014,
     "icon": "zenless-zone-zero/weapon/13014.webp",
     "quality": 4,
@@ -446,7 +446,7 @@
   "13016": {
     "disabled": true,
     "name": "Reel Projector",
-    "version": 2,
+    "version": 2.0,
     "id": 13016,
     "icon": "zenless-zone-zero/weapon/13016.webp",
     "quality": 4,
@@ -530,7 +530,7 @@
   "13101": {
     "disabled": true,
     "name": "Demara Battery Mark II",
-    "version": 1,
+    "version": 1.0,
     "id": 13101,
     "icon": "zenless-zone-zero/weapon/13101.webp",
     "quality": 4,
@@ -544,7 +544,7 @@
   "13103": {
     "disabled": true,
     "name": "The Vault",
-    "version": 1,
+    "version": 1.0,
     "id": 13103,
     "icon": "zenless-zone-zero/weapon/13103.webp",
     "quality": 4,
@@ -558,7 +558,7 @@
   "13106": {
     "disabled": true,
     "name": "Housekeeper",
-    "version": 1,
+    "version": 1.0,
     "id": 13106,
     "icon": "zenless-zone-zero/weapon/13106.webp",
     "quality": 4,
@@ -572,7 +572,7 @@
   "13108": {
     "disabled": true,
     "name": "Starlight Engine Replica",
-    "version": 1,
+    "version": 1.0,
     "id": 13108,
     "icon": "zenless-zone-zero/weapon/13108.webp",
     "quality": 4,
@@ -586,7 +586,7 @@
   "13111": {
     "disabled": true,
     "name": "Drill Rig - Red Axis",
-    "version": 1,
+    "version": 1.0,
     "id": 13111,
     "icon": "zenless-zone-zero/weapon/13111.webp",
     "quality": 4,
@@ -600,7 +600,7 @@
   "13112": {
     "disabled": true,
     "name": "Big Cylinder",
-    "version": 1,
+    "version": 1.0,
     "id": 13112,
     "icon": "zenless-zone-zero/weapon/13112.webp",
     "quality": 4,
@@ -614,7 +614,7 @@
   "13113": {
     "disabled": true,
     "name": "Bashful Demon",
-    "version": 1,
+    "version": 1.0,
     "id": 13113,
     "icon": "zenless-zone-zero/weapon/13113.webp",
     "quality": 4,
@@ -628,7 +628,7 @@
   "13115": {
     "disabled": true,
     "name": "Kaboom the Cannon",
-    "version": 1,
+    "version": 1.0,
     "id": 13115,
     "icon": "zenless-zone-zero/weapon/13115.webp",
     "quality": 4,
@@ -656,7 +656,7 @@
   "13128": {
     "disabled": true,
     "name": "Roaring Ride",
-    "version": 1,
+    "version": 1.0,
     "id": 13128,
     "icon": "zenless-zone-zero/weapon/13128.webp",
     "quality": 4,
@@ -684,7 +684,7 @@
   "13142": {
     "disabled": true,
     "name": "Tremor Trigram Vessel",
-    "version": 2,
+    "version": 2.0,
     "id": 13142,
     "icon": "zenless-zone-zero/weapon/13142.webp",
     "quality": 4,
@@ -712,7 +712,7 @@
   "14001": {
     "disabled": true,
     "name": "Cannon Rotor",
-    "version": 1,
+    "version": 1.0,
     "id": 14001,
     "icon": "zenless-zone-zero/weapon/14001.webp",
     "quality": 4,
@@ -726,7 +726,7 @@
   "14002": {
     "disabled": true,
     "name": "Unfettered Game Ball",
-    "version": 1,
+    "version": 1.0,
     "id": 14002,
     "icon": "zenless-zone-zero/weapon/14002.webp",
     "quality": 4,
@@ -740,7 +740,7 @@
   "14003": {
     "disabled": true,
     "name": "Six Shooter",
-    "version": 1,
+    "version": 1.0,
     "id": 14003,
     "icon": "zenless-zone-zero/weapon/14003.webp",
     "quality": 4,
@@ -754,7 +754,7 @@
   "14102": {
     "disabled": true,
     "name": "Steel Cushion",
-    "version": 1,
+    "version": 1.0,
     "id": 14102,
     "icon": "zenless-zone-zero/weapon/14102.webp",
     "quality": 5,
@@ -769,7 +769,7 @@
   "14104": {
     "disabled": true,
     "name": "The Brimstone",
-    "version": 1,
+    "version": 1.0,
     "id": 14104,
     "icon": "zenless-zone-zero/weapon/14104.webp",
     "quality": 5,
@@ -826,7 +826,7 @@
   "14110": {
     "disabled": true,
     "name": "Hellfire Gears",
-    "version": 1,
+    "version": 1.0,
     "id": 14110,
     "icon": "zenless-zone-zero/weapon/14110.webp",
     "quality": 5,
@@ -841,7 +841,7 @@
   "14114": {
     "disabled": true,
     "name": "The Restrained",
-    "version": 1,
+    "version": 1.0,
     "id": 14114,
     "icon": "zenless-zone-zero/weapon/14114.webp",
     "quality": 5,
@@ -884,7 +884,7 @@
   "14118": {
     "disabled": true,
     "name": "Fusion Compiler",
-    "version": 1,
+    "version": 1.0,
     "id": 14118,
     "icon": "zenless-zone-zero/weapon/14118.webp",
     "quality": 5,
@@ -899,7 +899,7 @@
   "14119": {
     "disabled": true,
     "name": "Deep Sea Visitor",
-    "version": 1,
+    "version": 1.0,
     "id": 14119,
     "icon": "zenless-zone-zero/weapon/14119.webp",
     "quality": 5,
@@ -927,7 +927,7 @@
   "14121": {
     "disabled": true,
     "name": "Weeping Cradle",
-    "version": 1,
+    "version": 1.0,
     "id": 14121,
     "icon": "zenless-zone-zero/weapon/14121.webp",
     "quality": 5,
@@ -956,7 +956,7 @@
   "14124": {
     "disabled": true,
     "name": "Riot Suppressor Mark VI",
-    "version": 1,
+    "version": 1.0,
     "id": 14124,
     "icon": "zenless-zone-zero/weapon/14124.webp",
     "quality": 5,
@@ -1096,7 +1096,7 @@
   "14137": {
     "disabled": true,
     "name": "Qingming Birdcage",
-    "version": 2,
+    "version": 2.0,
     "id": 14137,
     "icon": "zenless-zone-zero/weapon/14137.webp",
     "quality": 5,
@@ -1124,7 +1124,7 @@
   "14139": {
     "disabled": true,
     "name": "Roaring Fur-nace",
-    "version": 2,
+    "version": 2.0,
     "id": 14139,
     "icon": "zenless-zone-zero/weapon/14139.webp",
     "quality": 5,
@@ -1320,7 +1320,7 @@
   "14155": {
     "disabled": true,
     "name": "Sol Exuvia",
-    "version": 3,
+    "version": 3.0,
     "id": 14155,
     "icon": "zenless-zone-zero/weapon/14155.webp",
     "quality": 5,
@@ -1334,7 +1334,7 @@
   "14156": {
     "disabled": true,
     "name": "Joyau Dore",
-    "version": 3,
+    "version": 3.0,
     "id": 14156,
     "icon": "zenless-zone-zero/weapon/14156.webp",
     "quality": 5,
@@ -1348,7 +1348,7 @@
   "14157": {
     "disabled": true,
     "name": "Chief Sidekick",
-    "version": 3,
+    "version": 3.0,
     "id": 14157,
     "icon": "zenless-zone-zero/weapon/14157.webp",
     "quality": 5,

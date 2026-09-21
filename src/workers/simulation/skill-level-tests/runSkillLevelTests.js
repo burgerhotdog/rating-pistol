@@ -1,7 +1,6 @@
 import { CHARACTER, MISC } from '@/data';
-import { computeActualRotationTime, getCompressed, getTotals } from '@/utils';
+import { computeActualRotationTime, getCompressed, getTotals, getMvIndex } from '@/utils';
 import { runRotation } from '../rotation';
-import { createMvIndexGetter } from '../cache/actions';
 
 const parts = ['damage', 'healing', 'shield'];
 
@@ -9,33 +8,21 @@ export function runSkillLevelTests(cache, equipMaps, charId) {
   const gameId = cache.gameId;
   const mCache = cache.member[charId];
   const charSkills = CHARACTER[gameId][charId].skills;
-  const { maxSkillLevel } = MISC[gameId];
-
-  const getMvIndex = createMvIndexGetter(gameId, mCache);
+  const { skillIds, maxSkillLevel } = MISC[gameId];
 
   const results = {};
 
-  for (const skillId of MISC[gameId].skillIds) {
+  for (const skillId of skillIds) {
     const userLevel = mCache.skillLevels[skillId];
-
-    results[skillId] = {
-      skillId,
-      dpsArr: [],
-      userLevel,
-    };
-
-    const getMvIndexForLevel = getMvIndex(skillId) - userLevel;
+    results[skillId] = { skillId, userLevel, dpsArr: [] };
 
     for (let testSkillLevel = 1; testSkillLevel <= maxSkillLevel; testSkillLevel++) {
-      const mvIndex = getMvIndexForLevel + testSkillLevel;
-
-      const memberOverrides = {
-        rotation: structuredClone(mCache.rotation),
-        effects: structuredClone(mCache.effects),
-      };
+      const mvIndex = getMvIndex(gameId, charId, mCache.rank, skillId, testSkillLevel);
+      const rotation = structuredClone(mCache.rotation);
+      const effects = structuredClone(mCache.effects);
 
       // rotation
-      for (const action of memberOverrides.rotation) {
+      for (const action of rotation) {
         if (action.category !== skillId) continue;
 
         for (const part of parts) {
@@ -54,23 +41,26 @@ export function runSkillLevelTests(cache, equipMaps, charId) {
       }
 
       // effects
-      for (const effect of Object.values(memberOverrides.effects)) {
-        if (effect.use?.action?.length) {
-          for (const action of effect.use.action) {
-            if (action.category !== skillId) continue;
+      for (const effect of Object.values(effects)) {
+        if (effect.use) {
+          for (const use of effect.use) {
+            if (!use.action) continue;
+            for (const action of use.action) {
+              if (action.category !== skillId) continue;
 
-            for (const part of parts) {
-              const actionPart = action[part];
-              if (!actionPart) continue;
+              for (const part of parts) {
+                const actionPart = action[part];
+                if (!actionPart) continue;
 
-              const rawPartDef = charSkills[skillId].actions[action.index]?.[part];
-              if (!rawPartDef) continue;
+                const rawPartDef = charSkills[skillId].actions[action.index]?.[part];
+                if (!rawPartDef) continue;
 
-              actionPart.compressed = getCompressed(
-                rawPartDef.multipliers,
-                rawPartDef.attr ?? 'atk',
-                { index: mvIndex },
-              );
+                actionPart.compressed = getCompressed(
+                  rawPartDef.multipliers,
+                  rawPartDef.attr ?? 'atk',
+                  { index: mvIndex },
+                );
+              }
             }
           }
         }
@@ -107,15 +97,16 @@ export function runSkillLevelTests(cache, equipMaps, charId) {
           ...cache.member,
           [charId]: {
             ...cache.member[charId],
-            ...memberOverrides,
+            rotation,
+            effects,
           },
         },
       };
 
       const snapshots = runRotation(testCache, equipMaps);
-      const actualRotationTime = computeActualRotationTime(testCache, equipMaps);
+      const { time } = computeActualRotationTime(testCache, equipMaps);
       const totals = getTotals(snapshots);
-      const dps = (totals.damage + totals.healing + totals.shield) / actualRotationTime * 1000;
+      const dps = (totals.damage + totals.healing + totals.shield) / time * 1000;
 
       results[skillId].dpsArr.push(dps);
     }

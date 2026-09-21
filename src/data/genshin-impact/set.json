@@ -55,7 +55,7 @@
   },
   "14002": {
     "name": "Thundersoother",
-    "version": 1,
+    "version": 1.0,
     "id": 14002,
     "icon": "genshin-impact/set/14002.webp",
     "bonuses": [
@@ -91,7 +91,7 @@
   },
   "14003": {
     "name": "Lavawalker",
-    "version": 1,
+    "version": 1.0,
     "id": 14003,
     "icon": "genshin-impact/set/14003.webp",
     "bonuses": [
@@ -128,7 +128,7 @@
   "14004": {
     "disabled": true,
     "name": "Maiden Beloved",
-    "version": 1,
+    "version": 1.0,
     "id": 14004,
     "icon": "genshin-impact/set/14004.webp",
     "bonuses": [
@@ -170,7 +170,7 @@
   },
   "15001": {
     "name": "Gladiator's Finale",
-    "version": 1,
+    "version": 1.0,
     "id": 15001,
     "icon": "genshin-impact/set/15001.webp",
     "bonuses": [
@@ -206,7 +206,7 @@
   },
   "15002": {
     "name": "Viridescent Venerer",
-    "version": 1,
+    "version": 1.0,
     "id": 15002,
     "icon": "genshin-impact/set/15002.webp",
     "bonuses": [
@@ -238,23 +238,16 @@
         "apply": {
           "when": "reaction",
           "filter": {
-            "and": [
-              {
-                "field": "onField"
-              },
-              {
-                "reaction": {
-                  "and": [
-                    {
-                      "reaction": "swirl"
-                    },
-                    {
-                      "elements": "pyro"
-                    }
-                  ]
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "pyro"
                 }
-              }
-            ]
+              ]
+            }
           },
           "duration": 10000
         },
@@ -270,23 +263,16 @@
         "apply": {
           "when": "reaction",
           "filter": {
-            "and": [
-              {
-                "field": "onField"
-              },
-              {
-                "reaction": {
-                  "and": [
-                    {
-                      "reaction": "swirl"
-                    },
-                    {
-                      "elements": "hydro"
-                    }
-                  ]
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "hydro"
                 }
-              }
-            ]
+              ]
+            }
           },
           "duration": 10000
         },
@@ -302,23 +288,16 @@
         "apply": {
           "when": "reaction",
           "filter": {
-            "and": [
-              {
-                "field": "onField"
-              },
-              {
-                "reaction": {
-                  "and": [
-                    {
-                      "reaction": "swirl"
-                    },
-                    {
-                      "elements": "electro"
-                    }
-                  ]
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "electro"
                 }
-              }
-            ]
+              ]
+            }
           },
           "duration": 10000
         },
@@ -334,30 +313,23 @@
         "apply": {
           "when": "reaction",
           "filter": {
-            "and": [
-              {
-                "field": "onField"
-              },
-              {
-                "reaction": {
-                  "or": [
+            "reaction": {
+              "or": [
+                {
+                  "and": [
                     {
-                      "and": [
-                        {
-                          "reaction": "swirl"
-                        },
-                        {
-                          "elements": "cryo"
-                        }
-                      ]
+                      "reaction": "swirl"
                     },
                     {
-                      "reaction": "stellarSwirl"
+                      "elements": "cryo"
                     }
                   ]
+                },
+                {
+                  "reaction": "stellarSwirl"
                 }
-              }
-            ]
+              ]
+            }
           },
           "duration": 10000
         },
@@ -371,7 +343,7 @@
   },
   "15003": {
     "name": "Wanderer's Troupe",
-    "version": 1,
+    "version": 1.0,
     "id": 15003,
     "icon": "genshin-impact/set/15003.webp",
     "bonuses": [
@@ -406,7 +378,7 @@
   },
   "15005": {
     "name": "Thundering Fury",
-    "version": 1,
+    "version": 1.0,
     "id": 15005,
     "icon": "genshin-impact/set/15005.webp",
     "bonuses": [
@@ -441,7 +413,7 @@
   },
   "15006": {
     "name": "Crimson Witch of Flames",
-    "version": 1,
+    "version": 1.0,
     "id": 15006,
     "icon": "genshin-impact/set/15006.webp",
     "bonuses": [
@@ -492,7 +464,7 @@
   },
   "15007": {
     "name": "Noblesse Oblige",
-    "version": 1,
+    "version": 1.0,
     "id": 15007,
     "icon": "genshin-impact/set/15007.webp",
     "bonuses": [
@@ -531,7 +503,7 @@
   },
   "15008": {
     "name": "Bloodstained Chivalry",
-    "version": 1,
+    "version": 1.0,
     "id": 15008,
     "icon": "genshin-impact/set/15008.webp",
     "bonuses": [
@@ -553,7 +525,7 @@
   "15014": {
     "disabled": true,
     "name": "Archaic Petra",
-    "version": 1,
+    "version": 1.0,
     "id": 15014,
     "icon": "genshin-impact/set/15014.webp",
     "bonuses": [
@@ -575,7 +547,7 @@
   "15015": {
     "disabled": true,
     "name": "Retracing Bolide",
-    "version": 1,
+    "version": 1.0,
     "id": 15015,
     "icon": "genshin-impact/set/15015.webp",
     "bonuses": [
@@ -648,6 +620,7 @@
         "stores": "$team",
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "damage": {
@@ -703,7 +676,7 @@
         },
         "buff": {
           "stats": {
-            "atk%": 0.9
+            "atk%": 0.09
           }
         },
         "maxStacks": 2
@@ -725,7 +698,7 @@
   },
   "15019": {
     "name": "Shimenawa's Reminiscence",
-    "version": 2,
+    "version": 2.0,
     "id": 15019,
     "icon": "genshin-impact/set/15019.webp",
     "bonuses": [
@@ -769,7 +742,7 @@
   },
   "15020": {
     "name": "Emblem of Severed Fate",
-    "version": 2,
+    "version": 2.0,
     "id": 15020,
     "icon": "genshin-impact/set/15020.webp",
     "bonuses": [
@@ -859,10 +832,15 @@
             "field": "offField"
           },
           "cooldown": 3000,
-          "action": []
-        },
-        "onUseDoApply": {
-          "curiosity": 1
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "curiosity",
+              "spec": {
+                "duration": 6000
+              }
+            }
+          ]
         }
       }
     ]
@@ -983,7 +961,7 @@
   },
   "15025": {
     "name": "Deepwood Memories",
-    "version": 3,
+    "version": 3.0,
     "id": 15025,
     "icon": "genshin-impact/set/15025.webp",
     "bonuses": [
@@ -1005,6 +983,7 @@
         "stores": "global",
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "damage": {
@@ -1028,7 +1007,7 @@
   "15026": {
     "disabled": true,
     "name": "Gilded Dreams",
-    "version": 3,
+    "version": 3.0,
     "id": 15026,
     "icon": "genshin-impact/set/15026.webp",
     "bonuses": [
@@ -1210,7 +1189,7 @@
   },
   "15031": {
     "name": "Marechaussee Hunter",
-    "version": 4,
+    "version": 4.0,
     "id": 15031,
     "icon": "genshin-impact/set/15031.webp",
     "bonuses": [
@@ -1245,7 +1224,7 @@
   },
   "15032": {
     "name": "Golden Troupe",
-    "version": 4,
+    "version": 4.0,
     "id": 15032,
     "icon": "genshin-impact/set/15032.webp",
     "bonuses": [
@@ -1274,6 +1253,7 @@
         "bonus": 4,
         "apply": {
           "when": "start",
+          "field": "offField",
           "filter": {
             "field": "offField"
           }
@@ -1408,7 +1388,7 @@
   "15037": {
     "disabled": true,
     "name": "Scroll of the Hero of Cinder City",
-    "version": 5,
+    "version": 5.0,
     "id": 15037,
     "icon": "genshin-impact/set/15037.webp",
     "bonuses": [
@@ -1421,7 +1401,7 @@
   "15038": {
     "disabled": true,
     "name": "Obsidian Codex",
-    "version": 5,
+    "version": 5.0,
     "id": 15038,
     "icon": "genshin-impact/set/15038.webp",
     "bonuses": [
@@ -1482,7 +1462,6 @@
     ]
   },
   "15040": {
-    "disabled": true,
     "name": "Finale of the Deep Galleries",
     "version": 5.5,
     "id": 15040,
@@ -1507,10 +1486,64 @@
           "energy": -1
         },
         "buff": {
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "normalBuffDisabled"
+              }
+            }
+          },
           "stats": {
-            "normalAttackDmgBonus%": 0.6,
+            "normalAttackDmgBonus%": 0.6
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "energy": -1
+        },
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "burstBuffDisabled"
+              }
+            }
+          },
+          "stats": {
             "elementalBurstDmgBonus%": 0.6
           }
+        }
+      },
+      {
+        "ref": "burstBuffDisabled",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "duration": 6000
+        }
+      },
+      {
+        "ref": "normalBuffDisabled",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "duration": 6000
         }
       }
     ]
@@ -1518,7 +1551,7 @@
   "15041": {
     "disabled": true,
     "name": "Night of the Sky's Unveiling",
-    "version": 6,
+    "version": 6.0,
     "id": 15041,
     "icon": "genshin-impact/set/15041.webp",
     "bonuses": [
@@ -1551,7 +1584,7 @@
   "15042": {
     "disabled": true,
     "name": "Silken Moon's Serenade",
-    "version": 6,
+    "version": 6.0,
     "id": 15042,
     "icon": "genshin-impact/set/15042.webp",
     "bonuses": [
@@ -1611,7 +1644,6 @@
     ]
   },
   "15044": {
-    "disabled": true,
     "name": "A Day Carved From Rising Winds",
     "version": 6.3,
     "id": 15044,
@@ -1634,6 +1666,7 @@
         "bonus": 4,
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "damage": {
@@ -1661,6 +1694,7 @@
         },
         "apply": {
           "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "damage": {
@@ -1684,7 +1718,6 @@
     ]
   },
   "15045": {
-    "disabled": true,
     "name": "Celestial Gift",
     "version": 6.6,
     "id": 15045,
@@ -1711,6 +1744,7 @@
         "stores": "$team",
         "apply": {
           "when": "start",
+          "field": "*",
           "filter": {
             "action": {
               "type": "elementalSkill"
@@ -1720,7 +1754,32 @@
         },
         "buff": {
           "stats": {
-            "dmgBonus%": 0.4
+            "dmgBonus%": 0.2
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "team": [
+            "hexerei",
+            2
+          ]
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "field": "*",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.2
           }
         }
       }

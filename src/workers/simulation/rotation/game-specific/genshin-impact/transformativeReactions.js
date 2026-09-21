@@ -1,5 +1,5 @@
 import { GI } from '@/data';
-import { getAttr, formatStr, toMergedObj, resolveBuffSpecs } from '@/utils';
+import { getAttr, formatStr } from '@/utils';
 import { getBuffMap } from '../../getStatMap';
 import { getResMult } from '../../formula/enemyRes';
 import { consumeAura } from './aura';
@@ -46,7 +46,8 @@ function runFormula(reaction, statMap, reactionElement) {
 
 function buildSnapshot(ctx, reaction, ownerId, reactionElement) {
   const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId });
-  const isSpecIdAction = ownerId === ctx.specId;
+
+  const memo = {};
 
   const snapshot = {
     key: `system:${reaction}`,
@@ -56,63 +57,16 @@ function buildSnapshot(ctx, reaction, ownerId, reactionElement) {
     damageType: reaction,
     onFieldId: ctx.states.onFieldId,
     runtime: ctx.states.runtime,
-  };
-
-  if (!ctx.specId) {
-    const statMap = toMergedObj(ctx.buildMaps[ownerId], buffMap);
-    snapshot.damage = runFormula(reaction, statMap, reactionElement);
-    return snapshot;
-  }
-
-  const usedAttrs = new Set([
-    'elementalMastery',
-    `${reaction}ReactionBonus%`,
-    `${reactionElement}ResReduction`,
-  ]);
-  const usesSpecs = buffSpecs.some(({ specs }) =>
-    Object.keys(specs).some((stat) => usedAttrs.has(stat))
-  );
-
-  if (!isSpecIdAction && !usesSpecs) {
-    const statMap = toMergedObj(ctx.buildMaps[ownerId], buffMap);
-    snapshot.damage = runFormula(reaction, statMap);
-    return snapshot;
-  }
-
-  // Action is from specId but has no variable buffs from specId
-  if (!usesSpecs) {
-    snapshot.damage = (currBuildMap) => {
-      const statMap = toMergedObj(currBuildMap, buffMap);
-      return runFormula(reaction, statMap);
-    };
-
-    return snapshot;
-  }
-
-  const testBuffMap = getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true });
-
-  // Action is not from specId but has variable buffs from specId
-  if (!isSpecIdAction) {
-    const partiallyBuffedMap = toMergedObj(ctx.buildMaps[ownerId], buffMap);
-
-    snapshot.damage = (testBuildMap) => {
-      const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
-      const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
-      const statMap = toMergedObj(partiallyBuffedMap, resolvedBuffs);
-
-      return runFormula(reaction, statMap);
-    };
-
-    return snapshot;
-  }
-
-  // Action is from specId and has variable buffs from specId
-  snapshot.damage = (testBuildMap) => {
-    const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
-    const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
-    const statMap = toMergedObj(testBuildMap, buffMap, resolvedBuffs);
-
-    return runFormula(reaction, statMap);
+    unresolved: {
+      memo,
+      ownerId,
+      buffMap,
+      buffSpecs,
+      formula: (statMap) => runFormula(reaction, statMap, reactionElement),
+      scale: 1,
+      parts: ['damage'],
+      reactionElement,
+    },
   };
 
   return snapshot;
@@ -124,7 +78,7 @@ export function reactOverloaded(ctx, ownerId) {
     ctx.snapshots.push(snapshot);
   }
 
-  ctx.runEffectsWhen('reaction', {
+  ctx.runEffects('reaction', {
     ...REACTION_DEFS.overloaded,
     ownerId,
   });
@@ -138,7 +92,7 @@ export function reactSuperconduct(ctx, ownerId) {
 
   ctx.states.aura.superconduct = { reaction: 'superconduct', timer: 12000 };
 
-  ctx.runEffectsWhen('reaction', {
+  ctx.runEffects('reaction', {
     ...REACTION_DEFS.superconduct,
     ownerId,
   });
@@ -150,7 +104,7 @@ export function reactSwirl(ctx, ownerId, auraElement) {
     ctx.snapshots.push(snapshot);
   }
 
-  ctx.runEffectsWhen('reaction', {
+  ctx.runEffects('reaction', {
     ...REACTION_DEFS.swirl,
     ownerId,
     elements: ['anemo', auraElement],
@@ -158,7 +112,7 @@ export function reactSwirl(ctx, ownerId, auraElement) {
 }
 
 export function reactCrystallize(ctx, ownerId, auraElement) {
-  ctx.runEffectsWhen('reaction', {
+  ctx.runEffects('reaction', {
     ...REACTION_DEFS.crystallize,
     ownerId,
     elements: ['geo', auraElement],
@@ -171,7 +125,7 @@ export function reactFrozen(ctx, ownerId, originGauge, gauge) {
 
   ctx.states.aura.frozen = { reaction: 'frozen', timer: freezeDuration };
 
-  ctx.runEffectsWhen('reaction', {
+  ctx.runEffects('reaction', {
     ...REACTION_DEFS.frozen,
     ownerId,
   });
@@ -181,7 +135,7 @@ export function reactElectroCharged(ctx, applier) {
   const state = ctx.states.aura.electroCharged ??= { reaction: 'electroCharged', timer: 0 };
   state.applier = applier;
 
-  ctx.runEffectsWhen('reaction', {
+  ctx.runEffects('reaction', {
     ...REACTION_DEFS.electroCharged,
     ownerId: applier,
   });

@@ -5,11 +5,13 @@ import {
   isEnabledWeap,
   normalizeEffect,
   resolveEffectTokens,
+  resolveModifyEffects,
   toMergedObj,
 } from '@/utils';
 import { runVariantDps } from './variantDps';
 
-function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weaponRank, memberIds) {
+function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weaponRank, cache) {
+  const { memberIds, counts } = cache;
   const normalized = {};
   const sharedNormCtx = {
     gameId,
@@ -20,14 +22,18 @@ function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weapo
     memberIds,
   };
 
+  const charData = CHARACTER[gameId][ownerId];
+  const weapData = WEAPON[gameId][sourceId];
+
   for (const [index, rawEffect] of rawEffects.entries()) {
-    if (!isEnabledWeap(rawEffect, CHARACTER[gameId][ownerId], WEAPON[gameId][sourceId])) continue;
+    if (!isEnabledWeap(rawEffect, charData, weapData, { counts })) continue;
 
     const effect = normalizeEffect(gameId, rawEffect, { ...sharedNormCtx, index });
     normalized[effect.key] = effect;
   }
 
-  return resolveEffectTokens(normalized);
+  const tokenResolved = resolveEffectTokens(normalized);
+  return resolveModifyEffects(tokenResolved);
 }
 
 function renormalizeBaseEffects(nonWeapBaseEffects, baseMap) {
@@ -83,9 +89,8 @@ export function runWeaponTests(cache, equipMaps, charId) {
       )
   );
 
-  const weapDatasToTest = Object.values(WEAPON[gameId]).filter((weapData) =>
-    !weapData.disabled && weapData.type === charType
-  );
+  const weapDatasToTest = Object.values(WEAPON[gameId])
+    .filter((weapData) => !weapData.disabled && weapData.type === charType);
 
   const oldStaticMapPart = Object.values(mCache.staticEffects)
     .filter((effect) => effect.sourceId !== mCache.weaponId)
@@ -100,7 +105,7 @@ export function runWeaponTests(cache, equipMaps, charId) {
       ? mCache.weaponRank
       : getDefaultWeapRank(gameId, weapData.id);
 
-    const normedWeapEffs = getNormalizedWeaponEffects(weapData.effects ?? [], gameId, charId, weapData.id, testRank, cache.memberIds);
+    const normedWeapEffs = getNormalizedWeaponEffects(weapData.effects ?? [], gameId, charId, weapData.id, testRank, cache);
 
     const overrideEffects = {
       ...nonWeapNonBaseEffects,
@@ -119,7 +124,9 @@ export function runWeaponTests(cache, equipMaps, charId) {
       statMap: toMergedObj(baseMap, mCache.equipMap),
       staticMap: toMergedObj(oldStaticMapPart, overrideStaticMap),
       effects: overrideEffects,
-      ...(concertoReq && { concertoPenalty: Boolean(!weapData.concerto) }),
+      ...(concertoReq && {
+        concertoPenalty: Boolean(!weapData.concerto),
+      }),
     };
 
     weaponResults.push({
