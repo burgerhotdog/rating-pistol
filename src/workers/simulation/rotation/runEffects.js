@@ -2,7 +2,7 @@ import { GI } from '@/data';
 import { runCommands } from './commands';
 import { runRemoveEffect, runUseEffect, runApplyEffect } from './effects';
 
-function tryEffectRemove(ctx, when, state, spec) {
+function tryRemove(ctx, when, state, spec) {
   const { effect } = state;
   if (!effect.remove) return;
   const eventOwnerId = spec.fieldId;
@@ -23,7 +23,7 @@ function tryEffectRemove(ctx, when, state, spec) {
   }
 }
 
-function tryEffectUse(ctx, when, state, spec) {
+function tryUse(ctx, when, state, spec) {
   const { effect } = state;
   if (!effect.use) return;
   const eventOwnerId = spec.fieldId;
@@ -45,7 +45,7 @@ function tryEffectUse(ctx, when, state, spec) {
   }
 }
 
-function tryEffectApply(ctx, when, effect, spec) {
+function tryApply(ctx, when, effect, spec) {
   const { states } = ctx;
   const { applyCooldowns } = states;
   if (!effect.apply) return;
@@ -88,22 +88,22 @@ export function runEffects(ctx, when, event = {}) {
   };
 
   Object.values(globalEffects).forEach((state) =>
-    tryEffectRemove(ctx, when, state, spec)
+    tryRemove(ctx, when, state, spec)
   );
 
   for (const memberId in memberEffects) {
     Object.values(memberEffects[memberId]).forEach((state) =>
-      tryEffectRemove(ctx, when, state, spec)
+      tryRemove(ctx, when, state, spec)
     );
   }
 
   Object.values(globalEffects).forEach((state) =>
-    tryEffectUse(ctx, when, state, spec)
+    tryUse(ctx, when, state, spec)
   );
 
   for (const memberId in memberEffects) {
     Object.values(memberEffects[memberId]).forEach((state) =>
-      tryEffectUse(ctx, when, state, spec)
+      tryUse(ctx, when, state, spec)
     );
   }
 
@@ -111,13 +111,13 @@ export function runEffects(ctx, when, event = {}) {
     const memberEffectDefs = cache.member[id].effects;
     for (const effectKey in memberEffectDefs) {
       const effect = memberEffectDefs[effectKey];
-      tryEffectApply(ctx, when, effect, spec);
+      tryApply(ctx, when, effect, spec);
     }
   }
 
   if (gameId === GI) {
     for (const effect of cache.elementalResonance.effects) {
-      tryEffectApply(ctx, when, effect, spec);
+      tryApply(ctx, when, effect, spec);
     }
   }
 }

@@ -4057,7 +4057,6 @@
     "memberPreset": {}
   },
   "10000023": {
-    "disabled": true,
     "name": "Xiangling",
     "version": 1.0,
     "id": 10000023,
@@ -4071,8 +4070,90 @@
       "baseDef": 669,
       "elementalMastery": 96
     },
+    "energy": 80,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "offset": 2000,
+          "uses": 4
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1500,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "pyronado",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 10000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1200,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "rank": 1,
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "pyroResReduction%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "modify": {
+          "ref": "pyronado",
+          "spec": {
+            "apply": {
+              "duration": 4000
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "stores": "$team",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 14000
+        },
+        "buff": {
+          "stats": {
+            "pyroDmgBonus%": 0.15
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Normal Attack 1",
@@ -4199,7 +4280,8 @@
                     0.3544,
                     0.3809,
                     0.4098
-                  ]
+                  ],
+                  "times": 4
                 }
               ]
             }
@@ -4259,33 +4341,6 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
-            "damage": {
-              "type": "plungeAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6393,
-                    0.6914,
-                    0.7434,
-                    0.8177,
-                    0.8698,
-                    0.9293,
-                    1.011,
-                    1.0928,
-                    1.1746,
-                    1.2638,
-                    1.353,
-                    1.4422,
-                    1.5314,
-                    1.6206,
-                    1.7098
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunge Attack: Low",
             "type": "plungeAttack",
             "damage": {
@@ -4338,16 +4393,48 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Attack: Collision",
+            "damage": {
+              "type": "plungeAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6393,
+                    0.6914,
+                    0.7434,
+                    0.8177,
+                    0.8698,
+                    0.9293,
+                    1.011,
+                    1.0928,
+                    1.1746,
+                    1.2638,
+                    1.353,
+                    1.4422,
+                    1.5314,
+                    1.6206,
+                    1.7098
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "Flame",
+        "name": "Guoba Attack",
         "actions": [
           {
-            "name": "Flame",
-            "skillDmg": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Guoba",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -4370,20 +4457,22 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Guoba Attack",
-            "type": "elementalSkill"
           }
         ]
       },
       "elementalBurst": {
-        "name": "Pyronado Swing 1",
+        "name": "Pyronado",
         "actions": [
           {
-            "name": "Pyronado Swing 1",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "elementalBurst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -4403,15 +4492,7 @@
                     1.62,
                     1.71
                   ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Pyronado Swing 2",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
+                },
                 {
                   "mv": [
                     0.88,
@@ -4430,15 +4511,7 @@
                     1.98,
                     2.09
                   ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Pyronado Swing 3",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
+                },
                 {
                   "mv": [
                     1.096,
@@ -4463,8 +4536,9 @@
           },
           {
             "name": "Pyronado",
-            "skillDmg": "elementalBurst",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -4491,7 +4565,16 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13415,
+      "setCounts": {
+        "15020": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000024": {
     "disabled": true,

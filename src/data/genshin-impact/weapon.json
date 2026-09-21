@@ -2228,7 +2228,6 @@
     "effects": []
   },
   "13415": {
-    "disabled": true,
     "name": "\"The Catch\"",
     "version": 2.1,
     "id": 13415,
@@ -2239,7 +2238,29 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "stats": {
+            "elementalBurstDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "critRate%": [
+              0.06,
+              0.12
+            ]
+          }
+        }
+      }
+    ]
   },
   "13416": {
     "disabled": true,
