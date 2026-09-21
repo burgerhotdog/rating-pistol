@@ -1,5 +1,5 @@
 import { GI, WW, ZZZ, CHARACTER } from '@/data';
-import { resolveRankedValue } from '../resolve';
+import { lerp } from '../math';
 
 const DEFAULT_DURATIONS = {
   [GI]: {
@@ -28,12 +28,18 @@ const DEFAULT_DURATIONS = {
 };
 
 export const getCompressed = (multipliers, attr, { index, weaponRank }) => {
-  const resolveScaling = (scaling) =>
-    typeof scaling === 'number'
-      ? scaling // fixed
-      : scaling.length === 2
-        ? resolveRankedValue(scaling, weaponRank) // ranked
-        : scaling[index]; // indexed
+  const resolveScaling = (scaling) => {
+    if (typeof scaling === 'number') {
+      return scaling;
+    }
+
+    if (scaling.length === 2) {
+      const [r1, r5] = scaling;
+      return lerp(r1, r5, (weaponRank - 1) / 4);
+    }
+
+    return scaling[index];
+  }
 
   const compressed = { flat: 0, mvs: {}, hitCount: 0 };
   for (const { flat, mv, times = 1 } of multipliers) {

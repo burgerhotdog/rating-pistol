@@ -235,7 +235,6 @@
     "effects": []
   },
   "11402": {
-    "disabled": true,
     "name": "The Flute",
     "version": 1.0,
     "id": 11402,
@@ -246,7 +245,50 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "harmonic",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": [
+                "normalAttack",
+                "chargedAttack"
+              ]
+            }
+          },
+          "cooldown": 500,
+          "duration": 30000
+        },
+        "remove": {
+          "when": "maxStacks",
+          "commands": {
+            "type": "use",
+            "ref": "damageTick"
+          }
+        },
+        "maxStacks": 5
+      },
+      {
+        "ref": "damageTick",
+        "use": {
+          "when": "command",
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1,
+                    2
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11403": {
     "name": "Sacrificial Sword",
@@ -261,7 +303,6 @@
     }
   },
   "11404": {
-    "disabled": true,
     "name": "Royal Longsword",
     "version": 1.0,
     "id": 11404,
@@ -272,10 +313,37 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "critRate%": [
+              0.21720,
+              0.39848
+            ]
+          },
+          "specs": {
+            "critRate%": {
+              "attr": "critRate%",
+              "step": 0.01,
+              "offset": [
+                0.21720,
+                0.39848
+              ],
+              "value": [
+                -0.0015196,
+                -0.0026086
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11405": {
-    "disabled": true,
     "name": "Lion's Roar",
     "version": 1.0,
     "id": 11405,
@@ -286,10 +354,30 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "pyro",
+                  "electro"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.2,
+              0.36
+            ]
+          }
+        }
+      }
+    ]
   },
   "11406": {
-    "disabled": true,
     "name": "Prototype Rancour",
     "version": 1.0,
     "id": 11406,
@@ -301,10 +389,38 @@
       "baseAtk": 565,
       "physicalDmgBonus%": 0.345
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": [
+                "normalAttack",
+                "chargedAttack"
+              ]
+            }
+          },
+          "cooldown": 300,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.04,
+              0.08
+            ],
+            "def%": [
+              0.04,
+              0.08
+            ]
+          }
+        },
+        "maxStacks": 4
+      }
+    ]
   },
   "11407": {
-    "disabled": true,
     "name": "Iron Sting",
     "version": 1.0,
     "id": 11407,
@@ -316,7 +432,40 @@
       "baseAtk": 510,
       "elementalMastery": 165
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "and": [
+                {
+                  "has": "damage"
+                },
+                {
+                  "damage": {
+                    "not": {
+                      "element": "physical"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "cooldown": 1000,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.06,
+              0.12
+            ]
+          }
+        },
+        "maxStacks": 2
+      }
+    ]
   },
   "11408": {
     "disabled": true,
@@ -1430,7 +1579,6 @@
     }
   },
   "12404": {
-    "disabled": true,
     "name": "Royal Greatsword",
     "version": 1.0,
     "id": 12404,
@@ -1441,7 +1589,35 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "critRate%": [
+              0.21720,
+              0.39848
+            ]
+          },
+          "specs": {
+            "critRate%": {
+              "attr": "critRate%",
+              "step": 0.01,
+              "offset": [
+                0.21720,
+                0.39848
+              ],
+              "value": [
+                -0.0015196,
+                -0.0026086
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "12405": {
     "disabled": true,
@@ -2184,7 +2360,6 @@
     "effects": []
   },
   "13408": {
-    "disabled": true,
     "name": "Royal Spear",
     "version": 1.1,
     "id": 13408,
@@ -2195,7 +2370,35 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "critRate%": [
+              0.21720,
+              0.39848
+            ]
+          },
+          "specs": {
+            "critRate%": {
+              "attr": "critRate%",
+              "step": 0.01,
+              "offset": [
+                0.21720,
+                0.39848
+              ],
+              "value": [
+                -0.0015196,
+                -0.0026086
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "13409": {
     "disabled": true,
@@ -2910,7 +3113,6 @@
     }
   },
   "14404": {
-    "disabled": true,
     "name": "Royal Grimoire",
     "version": 1.0,
     "id": 14404,
@@ -2921,7 +3123,35 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "critRate%": [
+              0.21720,
+              0.39848
+            ]
+          },
+          "specs": {
+            "critRate%": {
+              "attr": "critRate%",
+              "step": 0.01,
+              "offset": [
+                0.21720,
+                0.39848
+              ],
+              "value": [
+                -0.0015196,
+                -0.0026086
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "14405": {
     "name": "Solar Pearl",
@@ -4033,7 +4263,6 @@
     }
   },
   "15404": {
-    "disabled": true,
     "name": "Royal Bow",
     "version": 1.0,
     "id": 15404,
@@ -4044,7 +4273,35 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "critRate%": [
+              0.21720,
+              0.39848
+            ]
+          },
+          "specs": {
+            "critRate%": {
+              "attr": "critRate%",
+              "step": 0.01,
+              "offset": [
+                0.21720,
+                0.39848
+              ],
+              "value": [
+                -0.0015196,
+                -0.0026086
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "15405": {
     "disabled": true,
