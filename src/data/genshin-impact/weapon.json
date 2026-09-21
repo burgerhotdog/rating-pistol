@@ -657,7 +657,6 @@
     "effects": []
   },
   "11434": {
-    "disabled": true,
     "name": "Moonweaver's Dawn",
     "version": 6.0,
     "id": 11434,
@@ -668,7 +667,18 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "elementalBurstDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "11435": {
     "disabled": true,

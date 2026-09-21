@@ -29,6 +29,9 @@ Characters:
         no energy recovery
         3 sword always
         no orbitals from skill
+    Lohen
+        no level increase
+        no 60 will to win gain
 
 Weapons:
     Alley Hunter
@@ -61,6 +64,8 @@ Weapons:
         energy effect disabled
     Wandering Evenstar
         buff is constant instead of snapshotting
+    Moonweaver's Dawn
+        energy part not done
 
     Fav weapons don't generate particles
 

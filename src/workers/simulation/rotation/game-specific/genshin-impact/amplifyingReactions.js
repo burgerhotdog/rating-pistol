@@ -70,13 +70,13 @@ function getAmpMultiplier(ctx, reaction, ownerId, isForward) {
 }
 
 export function reactMelt(ctx, ownerId, isForward) {
-  ctx.runEffects('reaction', { reaction: 'melt', elements: ['pyro', 'cryo'] });
+  ctx.runEffects('reaction', { reaction: 'melt', ownerId, elements: ['pyro', 'cryo'] });
 
   return getAmpMultiplier(ctx, 'melt', ownerId, isForward);
 }
 
 export function reactVaporize(ctx, ownerId, isForward) {
-  ctx.runEffects('reaction', { reaction: 'vaporize', elements: ['pyro', 'hydro'] });
+  ctx.runEffects('reaction', { reaction: 'vaporize', ownerId, elements: ['pyro', 'hydro'] });
 
   return getAmpMultiplier(ctx, 'vaporize', ownerId, isForward);
 }

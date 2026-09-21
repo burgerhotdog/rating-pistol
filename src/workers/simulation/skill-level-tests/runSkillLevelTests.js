@@ -55,22 +55,25 @@ export function runSkillLevelTests(cache, equipMaps, charId) {
 
       // effects
       for (const effect of Object.values(memberOverrides.effects)) {
-        if (effect.use?.action?.length) {
-          for (const action of effect.use.action) {
-            if (action.category !== skillId) continue;
+        if (effect.use) {
+          for (const use of effect.use) {
+            if (!use.action) continue;
+            for (const action of use.action) {
+              if (action.category !== skillId) continue;
 
-            for (const part of parts) {
-              const actionPart = action[part];
-              if (!actionPart) continue;
+              for (const part of parts) {
+                const actionPart = action[part];
+                if (!actionPart) continue;
 
-              const rawPartDef = charSkills[skillId].actions[action.index]?.[part];
-              if (!rawPartDef) continue;
+                const rawPartDef = charSkills[skillId].actions[action.index]?.[part];
+                if (!rawPartDef) continue;
 
-              actionPart.compressed = getCompressed(
-                rawPartDef.multipliers,
-                rawPartDef.attr ?? 'atk',
-                { index: mvIndex },
-              );
+                actionPart.compressed = getCompressed(
+                  rawPartDef.multipliers,
+                  rawPartDef.attr ?? 'atk',
+                  { index: mvIndex },
+                );
+              }
             }
           }
         }

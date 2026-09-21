@@ -6805,7 +6805,13 @@
         "normalAttack.2"
       ],
       "duration": 11000
-    }
+    },
+    "teamPreset": [
+      10000029,
+      10000123,
+      10000131,
+      10000047
+    ]
   },
   "10000030": {
     "name": "Zhongli",
@@ -52409,7 +52415,6 @@
     "memberPreset": {}
   },
   "10000129": {
-    "disabled": true,
     "name": "Lohen",
     "version": 6.6,
     "id": 10000129,
@@ -52423,18 +52428,166 @@
       "baseDef": 784,
       "critDmg%": 0.384
     },
+    "energy": 60,
+    "energyMax": 1.1,
     "tagged": [
       "hexerei"
     ],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "masterstroke",
+        "apply": [
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              }
+            },
+            "duration": 13000
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "has": "masterstroke"
+                  }
+                }
+              ]
+            },
+            "duration": 1650,
+            "extend": true
+          }
+        ],
+        "maxExtensions": 1
+      },
+      {
+        "ref": "willToWin",
+        "apply": {
+          "by": "$ally",
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "masterstroke"
+                }
+              }
+            ]
+          },
+          "cooldown": 100
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.10",
+                "elementalBurst.0"
+              ]
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.004
+          }
+        },
+        "maxStacks": 100
+      },
+      {
+        "stores": [
+          "$applier",
+          10000129
+        ],
+        "apply": {
+          "by": "$ally",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "elements": "cryo"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "masterstroke"
+                }
+              }
+            ]
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.15
+          }
+        }
+      },
+      {
+        "enable": {
+          "team": [
+            "hexerei",
+            2
+          ]
+        },
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": [
+                    "elementalSkill.10",
+                    "elementalBurst.0"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "willToWin": {
+                    ">=": 50
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": 0.4,
+            "chargedAttackDmgBonus%": 0.4
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Spear of Favonius — Broken Oath",
         "actions": [
           {
             "name": "Normal Attack 1",
             "type": "normalAttack",
             "damage": {
+              "icd": {
+                "tag": "normalAttack",
+                "time": 5000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52462,6 +52615,11 @@
             "name": "Normal Attack 2",
             "type": "normalAttack",
             "damage": {
+              "icd": {
+                "tag": "normalAttack",
+                "time": 5000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52489,6 +52647,11 @@
             "name": "Normal Attack 3",
             "type": "normalAttack",
             "damage": {
+              "icd": {
+                "tag": "normalAttack",
+                "time": 5000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52507,7 +52670,8 @@
                     0.6089,
                     0.6444,
                     0.6798
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
@@ -52516,6 +52680,11 @@
             "name": "Normal Attack 4",
             "type": "normalAttack",
             "damage": {
+              "icd": {
+                "tag": "normalAttack",
+                "time": 5000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52543,6 +52712,11 @@
             "name": "Normal Attack 5",
             "type": "normalAttack",
             "damage": {
+              "icd": {
+                "tag": "normalAttack",
+                "time": 5000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52589,6 +52763,11 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
+              "icd": {
+                "tag": "normalAttack",
+                "time": 5000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52607,34 +52786,8 @@
                     1.578,
                     1.6699,
                     1.7618
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge Attack: Collision",
-            "damage": {
-              "type": "plungeAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6393,
-                    0.6914,
-                    0.7434,
-                    0.8177,
-                    0.8698,
-                    0.9293,
-                    1.011,
-                    1.0928,
-                    1.1746,
-                    1.2638,
-                    1.353,
-                    1.4422,
-                    1.5314,
-                    1.6206,
-                    1.7098
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
@@ -52692,16 +52845,53 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Attack: Collision",
+            "damage": {
+              "type": "plungeAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6393,
+                    0.6914,
+                    0.7434,
+                    0.8177,
+                    0.8698,
+                    0.9293,
+                    1.011,
+                    1.0928,
+                    1.1746,
+                    1.2638,
+                    1.353,
+                    1.4422,
+                    1.5314,
+                    1.6206,
+                    1.7098
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "1-Hit DMG",
+        "name": "Unforeseen Strike",
         "actions": [
           {
-            "name": "1-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Masterstroke: Normal Attack 1",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "normalAttack",
+                "time": 5000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52726,9 +52916,15 @@
             }
           },
           {
-            "name": "2-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Masterstroke: Normal Attack 2",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "normalAttack",
+                "time": 5000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52753,9 +52949,15 @@
             }
           },
           {
-            "name": "3-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Masterstroke: Normal Attack 3",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "normalAttack",
+                "time": 5000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52774,15 +52976,22 @@
                     0.9133,
                     0.9665,
                     1.0198
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
           },
           {
-            "name": "4-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Masterstroke: Normal Attack 4",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "normalAttack",
+                "time": 5000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52807,9 +53016,15 @@
             }
           },
           {
-            "name": "5-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Masterstroke: Normal Attack 5",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "normalAttack",
+                "time": 5000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52853,9 +53068,15 @@
             }
           },
           {
-            "name": "Charged Attack DMG",
-            "type": "elementalSkill",
+            "name": "Masterstroke: Charged Attack",
+            "type": "chargedAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "normalAttack",
+                "time": 5000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52874,41 +53095,15 @@
                     2.3669,
                     2.5048,
                     2.6427
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
           },
           {
-            "name": "Plunge DMG",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6393,
-                    0.6914,
-                    0.7434,
-                    0.8177,
-                    0.8698,
-                    0.9293,
-                    1.011,
-                    1.0928,
-                    1.1746,
-                    1.2638,
-                    1.353,
-                    1.4422,
-                    1.5314,
-                    1.6206,
-                    1.7098
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge Attack: Low",
-            "type": "elementalSkill",
+            "name": "Masterstroke: Plunge Attack: Low",
+            "type": "plungeAttack",
             "damage": {
               "multipliers": [
                 {
@@ -52934,8 +53129,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "elementalSkill",
+            "name": "Masterstroke: Plunge Attack: High",
+            "type": "plungeAttack",
             "damage": {
               "multipliers": [
                 {
@@ -52961,9 +53156,42 @@
             }
           },
           {
-            "name": "Etched Into Bone and Soul DMG",
+            "name": "Masterstroke: Plunge Attack: Collision",
+            "damage": {
+              "type": "plungeAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6393,
+                    0.6914,
+                    0.7434,
+                    0.8177,
+                    0.8698,
+                    0.9293,
+                    1.011,
+                    1.0928,
+                    1.1746,
+                    1.2638,
+                    1.353,
+                    1.4422,
+                    1.5314,
+                    1.6206,
+                    1.7098
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Masterstroke: Elemental Skill: Etched Into Bone and Soul",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "elementalSkill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52982,7 +53210,8 @@
                     1.275,
                     1.35,
                     1.425
-                  ]
+                  ],
+                  "times": 4
                 }
               ]
             }
@@ -52990,12 +53219,18 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Manifest Judgment",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "elementalBurst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -53014,7 +53249,8 @@
                     2.5245,
                     2.673,
                     2.8215
-                  ]
+                  ],
+                  "times": 6
                 }
               ]
             }
@@ -53022,7 +53258,54 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13517,
+      "setCounts": {
+        "15044": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.6",
+        "elementalSkill.1",
+        "elementalSkill.6",
+        "elementalBurst.0",
+        "elementalSkill.1",
+        "elementalSkill.6",
+        "elementalSkill.1",
+        "elementalSkill.6",
+        "elementalSkill.1",
+        "elementalSkill.6",
+        "elementalSkill.1",
+        "elementalSkill.6",
+        "elementalSkill.10",
+        "elementalSkill.1",
+        "elementalSkill.6",
+        "elementalSkill.1",
+        "elementalSkill.6",
+        "elementalSkill.1",
+        "elementalSkill.6",
+        "elementalSkill.1",
+        "elementalSkill.6",
+        "elementalSkill.1",
+        "elementalSkill.6",
+        "elementalSkill.10"
+      ],
+      "duration": 14650
+    },
+    "teamPreset": [
+      10000129,
+      {
+        "id": 10000123,
+        "rotation": [
+          "elementalSkill.0",
+          "elementalSkill.2",
+          "elementalBurst.1"
+        ]
+      },
+      10000131,
+      10000043
+    ]
   },
   "10000130": {
     "disabled": true,
