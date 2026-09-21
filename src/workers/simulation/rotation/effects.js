@@ -29,8 +29,8 @@ export function runUseEffect(ctx, state, use = {}, spec = {}) {
         noDuration: true,
       };
 
-      if (effect.snapshot) {
-        runOptions.snapshotMaps = spec.snapshotMaps[index];
+      if (effect.snapshotBuffs) {
+        runOptions.snapshotBuffs = spec.snapshotBuffs[index];
       }
 
       for (let i = 0; i < useTimes; i++) {
@@ -98,7 +98,7 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
     }
 
     if (apply.uses) {
-      state.applyUses ??= 0;
+      state.usesLeft ??= 0;
 
       if (apply.extend) {
         state.usesLeft += apply.uses;
@@ -123,8 +123,8 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
       state.rampingTimer = effect.rampingOffset ?? 0;
     }
 
-    if (effect.snapshot) {
-      state.snapshotMaps = effect.use.map((use) =>
+    if (effect.snapshotBuffs) {
+      state.snapshotBuffs = effect.use.map((use) =>
         use.action.map((action) =>
           getBuffMap(ctx, { memberId: effect.ownerId, action })
         )

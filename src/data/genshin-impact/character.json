@@ -1726,7 +1726,8 @@
           "when": "interval",
           "cooldown": 400,
           "action": "elementalBurst.1"
-        }
+        },
+        "snapshotBuffs": true
       }
     ],
     "skills": {
@@ -2108,19 +2109,25 @@
           "when": "interval",
           "cooldown": 200,
           "action": "elementalBurst.1"
-        }
+        },
+        "snapshotBuffs": true
       },
       {
-        "use": {
+        "apply": {
           "when": "hit",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
             }
           },
-          "offset": 2000,
+          "uses": 1,
+          "offset": 2000
+        },
+        "use": {
+          "when": "interval",
           "action": "elementalBurst.2"
-        }
+        },
+        "snapshotBuffs": true
       },
       {
         "apply": {
@@ -2517,7 +2524,7 @@
             }
           },
           {
-            "name": "Elemental Burst: DoT",
+            "name": "DoT",
             "damage": {
               "type": "elementalBurst",
               "gauge": 2,
@@ -2550,7 +2557,7 @@
             }
           },
           {
-            "name": "Elemental Burst: Explosion",
+            "name": "Explosion",
             "damage": {
               "type": "elementalBurst",
               "gauge": 2,
@@ -3054,7 +3061,8 @@
         "use": {
           "when": "interval",
           "action": "elementalSkill.1"
-        }
+        },
+        "snapshotBuffs": true
       },
       {
         "apply": {
@@ -3070,7 +3078,8 @@
           "when": "interval",
           "cooldown": 100,
           "action": "elementalBurst.1"
-        }
+        },
+        "snapshotBuffs": true
       },
       {
         "buff": {
@@ -3133,24 +3142,22 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "baronBunny"
+                "action": {
+                  "ref": "normalAttack.6"
                 }
               },
               {
-                "action": {
-                  "ref": "normalAttack.6"
+                "effectStacks": {
+                  "has": "baronBunny"
                 }
               }
             ]
           },
           "action": "elementalSkill.1",
-          "commands": [
-            {
-              "type": "remove",
-              "ref": "baronBunny"
-            }
-          ]
+          "commands": {
+            "type": "remove",
+            "ref": "baronBunny"
+          }
         }
       },
       {
@@ -4096,7 +4103,7 @@
           "cooldown": 1500,
           "action": "elementalSkill.1"
         },
-        "snapshot": true
+        "snapshotBuffs": true
       },
       {
         "ref": "pepper",
@@ -4141,7 +4148,7 @@
           "cooldown": 1200,
           "action": "elementalBurst.1"
         },
-        "snapshot": true
+        "snapshotBuffs": true
       },
       {
         "rank": 1,
@@ -7025,7 +7032,8 @@
           "when": "interval",
           "cooldown": 2000,
           "action": "elementalSkill.3"
-        }
+        },
+        "snapshotBuffs": true
       },
       {
         "stores": "global",
@@ -7582,7 +7590,7 @@
       {
         "ref": "oz",
         "apply": {
-          "when": "inflict",
+          "when": "hit",
           "filter": {
             "action": {
               "ref": [
@@ -7597,7 +7605,8 @@
           "when": "interval",
           "cooldown": 1000,
           "action": "elementalSkill.1"
-        }
+        },
+        "snapshotBuffs": true
       },
       {
         "use": {
@@ -7605,13 +7614,13 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "oz"
+                "reaction": {
+                  "elements": "electro"
                 }
               },
               {
-                "reaction": {
-                  "elements": "electro"
+                "effectStacks": {
+                  "has": "oz"
                 }
               }
             ]
@@ -11272,7 +11281,8 @@
           "when": "hit",
           "cooldown": 2000,
           "action": "elementalSkill.1"
-        }
+        },
+        "snapshotBuffs": true
       },
       {
         "chance": 0.5,
@@ -48733,12 +48743,10 @@
             }
           },
           "duration": 30000,
-          "commands": [
-            {
-              "type": "remove",
-              "ref": "denialOfDarkness"
-            }
-          ]
+          "commands": {
+            "type": "remove",
+            "ref": "denialOfDarkness"
+          }
         }
       },
       {
@@ -48751,12 +48759,10 @@
             }
           },
           "duration": 30000,
-          "commands": [
-            {
-              "type": "remove",
-              "ref": "confirmationOfPurity"
-            }
-          ]
+          "commands": {
+            "type": "remove",
+            "ref": "confirmationOfPurity"
+          }
         },
         "buff": {
           "stats": {
