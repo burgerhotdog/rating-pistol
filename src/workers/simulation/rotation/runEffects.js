@@ -2,14 +2,15 @@ import { GI } from '@/data';
 import { runCommands } from './commands';
 import { runRemoveEffect, runUseEffect, runApplyEffect } from './effects';
 
-function tryEffectRemove(ctx, when, state, eventOwnerId, filterSpec) {
+function tryEffectRemove(ctx, when, state, spec) {
   const { effect } = state;
   if (!effect.remove) return;
+  const eventOwnerId = spec.fieldId;
 
   for (const remove of effect.remove) {
     if (remove.when !== when) continue;
     if (!remove.by.includes(eventOwnerId)) continue;
-    if (!ctx.eventFilter(remove.filter, effect, filterSpec)) continue;
+    if (!ctx.eventFilter(remove.filter, effect, spec)) continue;
 
     const removed = runRemoveEffect(state, remove);
 
@@ -22,15 +23,16 @@ function tryEffectRemove(ctx, when, state, eventOwnerId, filterSpec) {
   }
 }
 
-function tryEffectUse(ctx, when, state, eventOwnerId, filterSpec) {
+function tryEffectUse(ctx, when, state, spec) {
   const { effect } = state;
   if (!effect.use) return;
+  const eventOwnerId = spec.fieldId;
 
   for (const use of effect.use) {
     if (use.when !== when) continue;
     if (!use.by.includes(eventOwnerId)) continue;
     if (state.isRunning || state.useCooldown) continue;
-    if (!ctx.eventFilter(use.filter, effect, filterSpec)) continue;
+    if (!ctx.eventFilter(use.filter, effect, spec)) continue;
 
     const removed = runUseEffect(ctx, state, use);
 
@@ -43,10 +45,11 @@ function tryEffectUse(ctx, when, state, eventOwnerId, filterSpec) {
   }
 }
 
-function tryEffectApply(ctx, when, effect, eventOwnerId, filterSpec) {
+function tryEffectApply(ctx, when, effect, spec) {
   const { states } = ctx;
   const { applyCooldowns } = states;
   if (!effect.apply) return;
+  const eventOwnerId = spec.fieldId;
 
   for (const apply of effect.apply) {
     if (apply.when !== when) continue;
@@ -57,10 +60,9 @@ function tryEffectApply(ctx, when, effect, eventOwnerId, filterSpec) {
     const applierField = applier === states.onFieldId ? 'onField' : 'offField';
     if (apply.field && apply.field !== applierField) continue;
 
-    const spec = { ...filterSpec, fieldId: applier };
-    if (!ctx.eventFilter(apply.filter, effect, spec)) continue;
+    if (!ctx.eventFilter(apply.filter, effect, { ...spec, fieldId: applier })) continue;
 
-    const isMaxStacks = runApplyEffect(ctx, effect, apply, { applier, inflict: event.inflict });
+    const isMaxStacks = runApplyEffect(ctx, effect, apply, { applier, inflict: spec.action?.inflict });
 
     const commands = apply.commands;
     if (commands) {
@@ -79,30 +81,29 @@ export function runEffects(ctx, when, event = {}) {
   const { cache, states } = ctx;
   const { gameId } = cache;
   const { globalEffects, memberEffects } = states;
-  const eventOwnerId = event.ownerId;
 
-  const filterSpec = {
+  const spec = {
     ...(event.reaction ? { reaction: event } : { action: event }),
-    fieldId: eventOwnerId,
+    fieldId: event.ownerId,
   };
 
   Object.values(globalEffects).forEach((state) =>
-    tryEffectRemove(ctx, when, state, eventOwnerId, filterSpec)
+    tryEffectRemove(ctx, when, state, spec)
   );
 
   for (const memberId in memberEffects) {
     Object.values(memberEffects[memberId]).forEach((state) =>
-      tryEffectRemove(ctx, when, state, eventOwnerId, filterSpec)
+      tryEffectRemove(ctx, when, state, spec)
     );
   }
 
   Object.values(globalEffects).forEach((state) =>
-    tryEffectUse(ctx, when, state, eventOwnerId, filterSpec)
+    tryEffectUse(ctx, when, state, spec)
   );
 
   for (const memberId in memberEffects) {
     Object.values(memberEffects[memberId]).forEach((state) =>
-      tryEffectUse(ctx, when, state, eventOwnerId, filterSpec)
+      tryEffectUse(ctx, when, state, spec)
     );
   }
 
@@ -110,13 +111,13 @@ export function runEffects(ctx, when, event = {}) {
     const memberEffectDefs = cache.member[id].effects;
     for (const effectKey in memberEffectDefs) {
       const effect = memberEffectDefs[effectKey];
-      tryEffectApply(ctx, when, effect, eventOwnerId, filterSpec);
+      tryEffectApply(ctx, when, effect, spec);
     }
   }
 
   if (gameId === GI) {
     for (const effect of cache.elementalResonance.effects) {
-      tryEffectApply(ctx, when, effect, eventOwnerId, filterSpec);
+      tryEffectApply(ctx, when, effect, spec);
     }
   }
 }
