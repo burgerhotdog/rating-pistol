@@ -848,16 +848,18 @@
           },
           "cooldown": 500
         },
-        "removeWhenMaxStacks": true,
-        "removeWhenMaxStacksCommands": [
-          {
-            "type": "apply",
-            "ref": "songOfResistance",
-            "spec": {
-              "duration": 12000
+        "remove": {
+          "when": "maxStacks",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "songOfResistance",
+              "spec": {
+                "duration": 12000
+              }
             }
-          }
-        ]
+          ]
+        }
       },
       {
         "ref": "songOfResistance",

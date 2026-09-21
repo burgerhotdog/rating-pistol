@@ -741,6 +741,10 @@
           },
           "cooldown": 12000
         },
+        "remove": {
+          "when": "maxStacks",
+          "offset": 6000
+        },
         "buff": {
           "stats": {
             "atk%": [
@@ -749,10 +753,8 @@
             ]
           }
         },
-        "removeWhenMaxStacks": true,
-        "removeWhenMaxStacksOffset": 6000,
-        "rampingInterval": 2000,
-        "maxStacks": 4
+        "maxStacks": 4,
+        "rampingInterval": 2000
       }
     ]
   },
@@ -1301,6 +1303,10 @@
           },
           "cooldown": 500
         },
+        "remove": {
+          "when": "maxStacks",
+          "offset": 12000
+        },
         "buff": {
           "stats": {
             "resonanceSkillDmgBonus%": [
@@ -1309,8 +1315,6 @@
             ]
           }
         },
-        "removeWhenMaxStacks": true,
-        "removeWhenMaxStacksOffset": 12000,
         "maxStacks": 14
       },
       {

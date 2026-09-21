@@ -1,51 +1,53 @@
 import { toArray } from '../toArray';
 
-function mergeValues(a, b) {
-  if (typeof a === 'number' && typeof b === 'number') {
-    return a + b;
+function mergeValues(base, addition) {
+  if (typeof base === 'number' && typeof addition === 'number') {
+    return base + addition;
   }
 
-  if (typeof a === 'string' && typeof b === 'string') {
-    return [a, b];
+  if (typeof base === 'string' && typeof addition === 'string') {
+    return [base, addition];
   }
 
-  if (Array.isArray(a) || Array.isArray(b)) {
-    return [...toArray(a), ...toArray(b)];
+  if (Array.isArray(base) || Array.isArray(addition)) {
+    return [...toArray(base), ...toArray(addition)];
   }
 
-  if (a && typeof a === 'object' && b && typeof b === 'object') {
-    const merged = { ...a };
+  if (
+    base &&
+    typeof base === 'object' &&
+    addition &&
+    typeof addition === 'object'
+  ) {
+    const merged = { ...base };
 
-    for (const [key, value] of Object.entries(b)) {
-      if (key in merged) {
-        merged[key] = mergeValues(merged[key], value);
-      } else {
-        merged[key] = value;
-      }
+    for (const key in addition) {
+      merged[key] = mergeValues(merged[key], addition[key]);
     }
 
     return merged;
   }
 
-  return b;
+  return addition;
+}
+
+const OPERATION_FIELDS = new Set(['apply', 'remove', 'use']);
+
+function modifyOperationField(values, addition) {
+  return values.map((value) => mergeValues(value, addition));
 }
 
 export function modifyEffect(effect, spec) {
   const modified = structuredClone(effect);
 
-  for (const [field, add] of Object.entries(spec)) {
-    if (
-      field === 'apply' ||
-      field === 'remove' ||
-      field === 'use'
-    ) {
-      modified[field] = modified[field].map((fieldValue) =>
-        mergeValues(fieldValue, add)
-      );
-      continue;
-    }
+  for (const field in spec) {
+    const addition = spec[field];
 
-    modified[field] = mergeValues(modified[field], add);
+    if (OPERATION_FIELDS.has(field)) {
+      modified[field] = modifyOperationField(modified[field], addition);
+    } else {
+      modified[field] = mergeValues(modified[field], addition);
+    }
   }
 
   return modified;

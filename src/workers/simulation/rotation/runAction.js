@@ -1,8 +1,6 @@
 import { GI, WW } from '@/data';
 import { clamp } from '@/utils';
-import {
-  advanceEffects,
-} from './effects';
+import { advanceEffects } from './advanceEffects';
 import {
   applyGauge,
   advanceAuras,
