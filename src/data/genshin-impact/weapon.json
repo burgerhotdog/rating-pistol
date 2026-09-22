@@ -468,7 +468,6 @@
     ]
   },
   "11408": {
-    "disabled": true,
     "name": "Blackcliff Longsword",
     "version": 1.0,
     "id": 11408,
@@ -482,7 +481,6 @@
     "effects": []
   },
   "11409": {
-    "disabled": true,
     "name": "The Black Sword",
     "version": 1.0,
     "id": 11409,
@@ -493,10 +491,52 @@
       "baseAtk": 510,
       "critRate%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.2,
+              0.4
+            ],
+            "chargedAttackDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 5000,
+          "action": {
+            "healing": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6,
+                    1
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11410": {
-    "disabled": true,
     "name": "The Alley Flash",
     "version": 1.4,
     "id": 11410,
@@ -507,7 +547,18 @@
       "baseAtk": 620,
       "elementalMastery": 55
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "11412": {
     "disabled": true,
@@ -524,7 +575,6 @@
     "effects": []
   },
   "11413": {
-    "disabled": true,
     "name": "Festering Desire",
     "version": 1.2,
     "id": 11413,
@@ -535,7 +585,29 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "critRate%": [
+              0.06,
+              0.12
+            ]
+          }
+        }
+      }
+    ]
   },
   "11414": {
     "disabled": true,
@@ -589,7 +661,6 @@
     ]
   },
   "11416": {
-    "disabled": true,
     "name": "Kagotsurube Isshin",
     "version": 2.8,
     "id": 11416,
@@ -600,7 +671,50 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack",
+                  "plungeAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 8000,
+          "duration": 8000,
+          "commands": {
+            "type": "use",
+            "ref": "hewingGale"
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.15
+          }
+        }
+      },
+      {
+        "ref": "hewingGale",
+        "use": {
+          "when": "command",
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": 1.8
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11417": {
     "name": "Sapwood Blade",
@@ -1664,7 +1778,6 @@
     "effects": []
   },
   "12408": {
-    "disabled": true,
     "name": "Blackcliff Slasher",
     "version": 1.0,
     "id": 12408,
@@ -2305,7 +2418,6 @@
     "effects": []
   },
   "13404": {
-    "disabled": true,
     "name": "Blackcliff Pole",
     "version": 1.0,
     "id": 13404,
@@ -3262,7 +3374,6 @@
     ]
   },
   "14408": {
-    "disabled": true,
     "name": "Blackcliff Agate",
     "version": 1.0,
     "id": 14408,
@@ -4237,7 +4348,6 @@
     "effects": []
   },
   "15402": {
-    "disabled": true,
     "name": "The Stringless",
     "version": 1.0,
     "id": 15402,
@@ -4248,7 +4358,22 @@
       "baseAtk": 510,
       "elementalMastery": 165
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.24,
+              0.48
+            ],
+            "elementalBurstDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
   },
   "15403": {
     "name": "Sacrificial Bow",
@@ -4304,7 +4429,6 @@
     ]
   },
   "15405": {
-    "disabled": true,
     "name": "Rust",
     "version": 1.0,
     "id": 15405,
@@ -4315,7 +4439,19 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.4,
+              0.8
+            ],
+            "chargedAttackDmgBonus%": -0.1
+          }
+        }
+      }
+    ]
   },
   "15406": {
     "disabled": true,
@@ -4348,7 +4484,6 @@
     "effects": []
   },
   "15408": {
-    "disabled": true,
     "name": "Blackcliff Warbow",
     "version": 1.0,
     "id": 15408,
@@ -4417,7 +4552,6 @@
     "effects": []
   },
   "15412": {
-    "disabled": true,
     "name": "Mitternachts Waltz",
     "version": 1.6,
     "id": 15412,
@@ -4428,10 +4562,52 @@
       "baseAtk": 510,
       "physicalDmgBonus%": 0.517
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "15413": {
-    "disabled": true,
     "name": "Windblume Ode",
     "version": 1.4,
     "id": 15413,
@@ -4442,7 +4618,27 @@
       "baseAtk": 510,
       "elementalMastery": 165
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "15414": {
     "disabled": true,

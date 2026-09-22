@@ -55,6 +55,10 @@ Weapons:
         Attack always triggers
     Skyward Spine
         Vacuum Blade always triggers
+    The Alley Flash
+        Taking dmg doesn't matter
+    The Black Sword
+        Healing doesn't need a crit
     Traveler's Handy Sword
         No effect
     Tulaytullah's Remembrance
@@ -64,7 +68,10 @@ Weapons:
     Wolf's Gravestone
         Team buff disabled
 
-    Fav and Sac weapon effects not active
+    Weapon series with inactive effects
+        Favonius
+        Sacrificial
+        Blackcliff
 
 Sets:
     Bloodstained Chivalry
