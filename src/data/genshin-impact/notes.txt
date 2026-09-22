@@ -19,6 +19,10 @@ Characters:
     Kazuha
     Klee
         No constellations
+    Lyney
+        Hats dont snapshot stats
+        No hp restrictions on A1
+        No constellations
     Nicole
         No constellations
         onField character must be hexerei to get buff upgrade
@@ -37,6 +41,8 @@ Characters:
 Weapons:
     Alley Hunter
         buff doesnt ramp slowly
+    Amos' Bow
+        in the air effect might not be accurate
     Angelos' Heptades
         energy effect disabled
     Aquila Favonia

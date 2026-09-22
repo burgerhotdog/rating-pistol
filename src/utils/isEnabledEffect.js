@@ -66,14 +66,22 @@ export const isEnabledChar = (effect, member, gameId, { memberIds, counts }) => 
   }
 
   switch (enable.special) {
-    case 'chevreuse': {
-      const teamElements = new Set(Object.keys(counts.element));
-      const isOnlyPyroElectro = [...teamElements].every((element) =>
-        element === 'pyro' || element === 'electro'
-      );
-      const hasBothPyroElectro = teamElements.has('pyro') && teamElements.has('electro');
+    case 'lyney2pyro': {
+      return counts.element.pyro >= 2;
+    }
 
-      return isOnlyPyroElectro && hasBothPyroElectro;
+    case 'lyney3pyro': {
+      return counts.element.pyro >= 3;
+    }
+
+    case 'chevreuse': {
+      const elements = Object.keys(counts.element);
+
+      return (
+        elements.length === 2 &&
+        elements.includes('pyro') &&
+        elements.includes('electro')
+      );
     }
   }
 
@@ -102,6 +110,18 @@ export const isEnabledWeap = (effect, charData, weapData, { counts } = {}) => {
       if (counts?.hexerei < countReq) {
         return false;
       }
+    }
+  }
+
+  switch (enable.special) {
+    case 'greatMagic2same': {
+      const ownerElement = charData.element;
+      return counts.element[ownerElement] >= 2;
+    }
+
+    case 'greatMagic3same': {
+      const ownerElement = charData.element;
+      return counts.element[ownerElement] >= 3;
     }
   }
 

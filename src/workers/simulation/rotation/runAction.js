@@ -133,12 +133,12 @@ export function runAction(ctx, action, options = {}) {
     runEffects('hit');
 
     if (action.drain) {
-      const { targets, value } = action.drain;
+      const { targets, value, minLimit = 0, maxLimit = 1 } = action.drain;
       const { memberHealth } = ctx.states;
 
       for (const targetId of targets) {
         const prev = memberHealth[targetId];
-        const next = clamp(prev - value, 0, 1);
+        const next = clamp(prev - value, minLimit, maxLimit);
 
         if (next !== prev) {
           memberHealth[targetId] = next;

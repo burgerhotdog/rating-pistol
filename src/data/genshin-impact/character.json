@@ -28692,33 +28692,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -28767,6 +28740,33 @@
                     3.3998,
                     3.5979,
                     3.7959
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
                   ]
                 }
               ]
@@ -32124,7 +32124,6 @@
     "memberPreset": {}
   },
   "10000084": {
-    "disabled": true,
     "name": "Lyney",
     "version": 4.0,
     "id": 10000084,
@@ -32138,11 +32137,223 @@
       "baseDef": 538,
       "critRate%": 0.192
     },
+    "energy": 60,
+    "energyMax": 1.5,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "grinMalkinHat",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.6",
+                "elementalBurst.2"
+              ]
+            }
+          },
+          "uses": 1,
+          "offset": 4000
+        },
+        "remove": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.6",
+                "elementalBurst.2"
+              ]
+            }
+          },
+          "commands": {
+            "type": "use",
+            "ref": "pyrotechnicStrike"
+          }
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "use",
+            "ref": "pyrotechnicStrike"
+          }
+        }
+      },
+      {
+        "ref": "pyrotechnicStrike",
+        "use": {
+          "when": "command",
+          "action": "normalAttack.7"
+        }
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "normalAttack.6"
+                }
+              },
+              {
+                "health": {
+                  ">": 0.6
+                }
+              }
+            ]
+          },
+          "action": {
+            "drain": {
+              "value": 0.2,
+              "minLimit": 0.6
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "propSurplus"
+          }
+        }
+      },
+      {
+        "ref": "propSurplus",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          }
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          }
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "action": {
+            "drain": {
+              "value": -0.2
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "statRefs": {
+            "damageMv": "elementalSkill.1"
+          }
+        },
+        "maxStacks": 5
+      },
+      {
+        "ref": "spiritbreathThorn",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.6"
+            }
+          },
+          "cooldown": 6000,
+          "uses": 1,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "action": "normalAttack.11"
+        }
+      },
+      {
+        "ref": "grinMalkinCat",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 1
+        },
+        "use": {
+          "when": "interval",
+          "action": [
+            "elementalBurst.1",
+            "elementalBurst.2"
+          ]
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "normalAttack.6"
+            }
+          },
+          "stats": {
+            "damageMv": 0.8
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": "pyro"
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.6
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "lyney2pyro"
+        },
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": "pyro"
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.2
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "lyney3pyro"
+        },
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": "pyro"
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.2
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Card Force Translocation",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -32272,27 +32483,117 @@
             }
           },
           {
-            "name": "Plunge Collision",
+            "name": "Aimed Shot",
+            "type": "chargedAttack",
             "damage": {
-              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
+                    0.4386,
+                    0.4743,
+                    0.51,
+                    0.561,
+                    0.5967,
+                    0.6375,
+                    0.6936,
+                    0.7497,
+                    0.8058,
+                    0.867,
+                    0.9282,
+                    0.9894,
+                    1.0506,
+                    1.1118,
+                    1.173
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Aimed Shot: Level 1",
+            "type": "chargedAttack",
+            "damage": {
+              "element": "pyro",
+              "multipliers": [
+                {
+                  "mv": [
+                    1.24,
+                    1.333,
+                    1.426,
+                    1.55,
+                    1.643,
+                    1.736,
+                    1.86,
+                    1.984,
+                    2.108,
+                    2.232,
+                    2.356,
+                    2.48,
+                    2.635,
+                    2.79,
+                    2.945
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Aimed Shot: Level 2",
+            "type": "chargedAttack",
+            "damage": {
+              "element": "pyro",
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": [
+                    1.728,
+                    1.8576,
+                    1.9872,
+                    2.16,
+                    2.2896,
+                    2.4192,
+                    2.592,
+                    2.7648,
+                    2.9376,
+                    3.1104,
+                    3.2832,
+                    3.456,
+                    3.672,
+                    3.888,
+                    4.104
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Pyrotechnic Strike",
+            "damage": {
+              "type": "chargedAttack",
+              "element": "pyro",
+              "gauge": 1,
+              "icd": {
+                "tag": "Pyrotechnic Strike",
+                "time": 1000
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    2.12,
+                    2.279,
+                    2.438,
+                    2.65,
+                    2.809,
+                    2.968,
+                    3.18,
+                    3.392,
+                    3.604,
+                    3.816,
+                    4.028,
+                    4.24,
+                    4.505,
+                    4.77,
+                    5.035
                   ]
                 }
               ]
@@ -32353,144 +32654,36 @@
             }
           },
           {
-            "name": "Aimed Shot",
-            "type": "chargedAttack",
+            "name": "Plunge Collision",
             "damage": {
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
                   ]
                 }
               ]
             }
           },
           {
-            "name": "Aimed Shot Charge Level 1",
-            "type": "normalAttack",
+            "name": "Spiritbreath Thorn",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.24,
-                    1.333,
-                    1.426,
-                    1.55,
-                    1.643,
-                    1.736,
-                    1.86,
-                    1.984,
-                    2.108,
-                    2.232,
-                    2.356,
-                    2.48,
-                    2.635,
-                    2.79,
-                    2.945
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Prop Arrow DMG",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.728,
-                    1.8576,
-                    1.9872,
-                    2.16,
-                    2.2896,
-                    2.4192,
-                    2.592,
-                    2.7648,
-                    2.9376,
-                    3.1104,
-                    3.2832,
-                    3.456,
-                    3.672,
-                    3.888,
-                    4.104
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Grin-Malkin Hat Inherited HP",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.64,
-                    0.688,
-                    0.736,
-                    0.8,
-                    0.848,
-                    0.896,
-                    0.96,
-                    1.024,
-                    1.088,
-                    1.152,
-                    1.216,
-                    1.28,
-                    1.36,
-                    1.44,
-                    1.52
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Pyrotechnic Strike DMG",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    2.12,
-                    2.279,
-                    2.438,
-                    2.65,
-                    2.809,
-                    2.968,
-                    3.18,
-                    3.392,
-                    3.604,
-                    3.816,
-                    4.028,
-                    4.24,
-                    4.505,
-                    4.77,
-                    5.035
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Spiritbreath Thorn DMG",
-            "type": "normalAttack",
-            "damage": {
+              "element": "pyro",
               "multipliers": [
                 {
                   "mv": [
@@ -32517,12 +32710,13 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Bewildering Lights",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -32547,9 +32741,8 @@
             }
           },
           {
-            "name": "Skill DMG Bonus",
-            "type": "elementalSkill",
-            "damage": {
+            "name": "Prop Surplus Buff",
+            "buff": {
               "multipliers": [
                 {
                   "mv": [
@@ -32576,12 +32769,18 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Wondrous Trick: Miracle Parade",
+        "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Collision",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -32606,9 +32805,9 @@
             }
           },
           {
-            "name": "Explosive Firework DMG",
-            "type": "elementalBurst",
+            "name": "Explosive Firework",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -32635,7 +32834,26 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15512,
+      "setCounts": {
+        "15031": 4
+      },
+      "rotation": [
+        "normalAttack.6",
+        "normalAttack.6",
+        "elementalBurst.0",
+        "normalAttack.6",
+        "normalAttack.6",
+        "elementalSkill.0"
+      ]
+    },
+    "teamPreset": [
+      10000084,
+      10000032,
+      10000023,
+      10000047
+    ]
   },
   "10000085": {
     "disabled": true,

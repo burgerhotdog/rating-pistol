@@ -7,6 +7,7 @@ import {
   formatAttr,
   formatStr,
   getAttr,
+  getMemberCounts,
   isEnabledChar,
   isEnabledWeap,
   isEnabledSet,
@@ -78,16 +79,17 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
 
   const baseMap = spec.baseMap ?? buildBaseMap(gameId, charId, member.weaponId);
   const equipMap = spec.equipMap ?? buildEquipMap(member.build?.equipList ?? []);
+  const memberIds = team.filter((member) => member?.id).map((member) => member.id);
+  const counts = getMemberCounts(gameId, memberIds);
 
   // Static buffs from effects
   const effectMaps = [];
 
   const character = CHARACTER[gameId][charId];
   if (character.effects) {
-    const memberIds = team.filter((member) => member?.id).map((member) => member.id);
     for (const effect of character.effects) {
       if (
-        !isEnabledChar(effect, member, gameId, { memberIds }) ||
+        !isEnabledChar(effect, member, gameId, { memberIds, counts }) ||
         !isStaticBuff(effect) ||
         !appliesToCharId(effect, charId)
       ) continue;
@@ -99,7 +101,7 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
   if (weapon.effects) {
     for (const effect of weapon.effects) {
       if (
-        !isEnabledWeap(effect, character, weapon) ||
+        !isEnabledWeap(effect, character, weapon, { counts }) ||
         !isStaticBuff(effect) ||
         !appliesToCharId(effect, charId)
       ) continue;

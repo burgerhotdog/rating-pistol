@@ -4933,7 +4933,6 @@
     ]
   },
   "15502": {
-    "disabled": true,
     "name": "Amos' Bow",
     "version": 1.0,
     "id": 15502,
@@ -4945,7 +4944,37 @@
       "baseAtk": 608,
       "atk%": 0.496
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.12,
+              0.24
+            ],
+            "chargedAttackDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "category": "normalAttack"
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      }
+    ]
   },
   "15503": {
     "disabled": true,
@@ -5018,7 +5047,6 @@
     "effects": []
   },
   "15512": {
-    "disabled": true,
     "name": "The First Great Magic",
     "version": 4.0,
     "id": 15512,
@@ -5029,7 +5057,54 @@
       "baseAtk": 608,
       "critDmg%": 0.662
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "chargedAttackDmgBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "greatMagic2same"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "greatMagic3same"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "15513": {
     "disabled": true,

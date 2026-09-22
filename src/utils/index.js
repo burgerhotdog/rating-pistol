@@ -13,6 +13,7 @@ export * from './getAttr';
 export * from './getDefault';
 export * from './getEnergyLevel';
 export * from './getIcon';
+export * from './getMemberCounts';
 export * from './getTotals';
 export * from './isEnabledEffect';
 export * from './math';
