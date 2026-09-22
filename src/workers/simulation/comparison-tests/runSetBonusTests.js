@@ -110,10 +110,14 @@ function getNormalizedEchoEffects(gameId, ownerId, echoId, memberIds, weaponRank
   return resolveModifyEffects(tokenResolved);
 }
 
-function buildEchoAction(gameId, echoId, ownerId, teamSize) {
+function buildEchoAction(gameId, echoId, ownerId, memberIds) {
   const rawAction = ECHO[echoId]?.action;
-  if (!rawAction) return undefined;
-  return normalizeAction(gameId, rawAction, { ownerId, category: 'echoSkill', index: 0, teamSize });
+
+  if (!rawAction) {
+    return undefined;
+  }
+
+  return normalizeAction(gameId, rawAction, { ownerId, category: 'echoSkill', index: 0, memberIds });
 }
 
 // Mirrors the main echo insertion timing in compileCache's getConvertedRotation
@@ -193,7 +197,7 @@ export function runSetBonusTests(cache, equipMaps, charId) {
         .filter((effect) => effect.static)
         .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
 
-      const echoAction = echoId != null ? buildEchoAction(gameId, echoId, charId, cache.teamSize) : undefined;
+      const echoAction = echoId != null ? buildEchoAction(gameId, echoId, charId, cache.memberIds) : undefined;
       const rotation = withEchoAction(nonEchoRotation, echoAction, ECHO[echoId]?.timing);
 
       return runVariantDps(cache, equipMaps, charId, {

@@ -41,12 +41,9 @@ export const getCompressed = (multipliers, attr, { index, weaponRank }) => {
     return scaling[index];
   }
 
-  const compressed = { flat: 0, mvs: {}, hitCount: 0 };
-  for (const { flat, mv, times = 1 } of multipliers) {
-    if (flat) {
-      compressed.flat += resolveScaling(flat) * times;
-    }
+  const compressed = { mvs: {}, flat: 0, hitCount: 0 };
 
+  for (const { flat, mv, times = 1 } of multipliers) {
     if (mv) {
       if (typeof mv === 'object' && !Array.isArray(mv)) { // dual attr scaling
         for (const [attrKey, scaling] of Object.entries(mv)) {
@@ -58,8 +55,14 @@ export const getCompressed = (multipliers, attr, { index, weaponRank }) => {
         compressed.mvs[attr] += resolveScaling(mv) * times;
       }
     }
+
+    if (flat) {
+      compressed.flat += resolveScaling(flat) * times;
+    }
+
     compressed.hitCount += times;
   }
+
   return compressed;
 };
 
@@ -172,9 +175,10 @@ export function normalizeAction(gameId, rawAction, spec) {
   if (action.healing) {
     const healing = action.healing = { ...action.healing };
 
-    if (healing.times === '$teamSize') {
-      healing.times = spec.teamSize;
+    if (healing.targets === '$team') {
+      healing.targets = spec.memberIds;
     }
+    healing.targets ??= [spec.ownerId];
 
     healing.attr ??= 'atk';
     healing.compressed = getCompressed(
@@ -250,6 +254,9 @@ export function normalizeAction(gameId, rawAction, spec) {
 
   if (action.drain) {
     const drain = action.drain = { ...action.drain };
+    if (drain.targets === '$team') {
+      drain.targets = spec.memberIds;
+    }
     drain.targets ??= [spec.ownerId];
   }
 

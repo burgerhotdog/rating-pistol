@@ -2,6 +2,7 @@ import { toMergedObj, resolveBuffSpecs } from '@/utils';
 import { runFormula } from './formula';
 import { getBuffMap } from './getStatMap';
 import { getUsedAttrs } from './formula/solver';
+import { checkInfusion } from './game-specific/genshin-impact';
 
 export const canSnapshot = (action = {}) =>
   action.damage?.compressed ||
@@ -10,7 +11,8 @@ export const canSnapshot = (action = {}) =>
 
 export const buildSnapshot = (ctx, action, options = {}) => {
   const { gameId } = ctx.cache;
-  const { runtimeOffset = 0, snapshotBuffs, infusedElement } = options;
+  const { runtimeOffset = 0, snapshotBuffs } = options;
+  const infusedElement = checkInfusion(ctx, action);
   const snapshotOwnerId = action.ownerId;
 
   let snapshotAction = action;
@@ -51,6 +53,10 @@ export const buildSnapshot = (ctx, action, options = {}) => {
       ],
     },
   };
+
+  if (action.healing) {
+    snapshot.unresolved.splitScale *= action.healing.targets.length;
+  }
 
   return snapshot;
 }

@@ -106,10 +106,7 @@ export function runAction(ctx, action, options = {}) {
   let sharedSnapshot;
   if (canSnapshot(action)) {
     if (ctx.saveSnapshots) {
-      sharedSnapshot = buildSnapshot(ctx, action, {
-        ...options,
-        infusedElement: checkInfusion(ctx, action),
-      });
+      sharedSnapshot = buildSnapshot(ctx, action, options);
     }
 
     if (gameId === WW && action.damage) {
@@ -151,6 +148,12 @@ export function runAction(ctx, action, options = {}) {
     if (gameId === GI) {
       const infusionElement = checkInfusion(ctx, action);
       scaleMult = applyGauge(ctx, action, infusionElement);
+    }
+
+    if (action.healing) {
+      for (const target of action.healing.targets) {
+        // do something
+      }
     }
 
     if (sharedSnapshot) {

@@ -1241,6 +1241,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "attr": "hp",
               "multipliers": [
                 {
@@ -1289,8 +1290,7 @@
                     0.1051
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         ]
@@ -1302,6 +1302,7 @@
             "name": "Momentary Union",
             "type": "resonanceLiberation",
             "healing": {
+              "targets": "$team",
               "attr": "hp",
               "multipliers": [
                 {
@@ -1350,8 +1351,7 @@
                     0.0457
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -1388,6 +1388,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "attr": "hp",
               "multipliers": [
                 {
@@ -1436,8 +1437,7 @@
                     0.0514
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         ]
@@ -1536,6 +1536,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "attr": "hp",
               "multipliers": [
                 {
@@ -1584,8 +1585,7 @@
                     0.0137
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         ]
@@ -3552,6 +3552,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -3599,8 +3600,7 @@
                     1.4946
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -3929,6 +3929,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -3976,13 +3977,13 @@
                     1.6939
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
             "name": "Double Pun Bonus Team Healing",
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -4030,8 +4031,7 @@
                     0.9964
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         ]
@@ -13726,6 +13726,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "attr": "energyRegen%",
               "multipliers": [
                 {
@@ -13774,8 +13775,7 @@
                     606
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         ]
@@ -13944,6 +13944,7 @@
           {
             "name": "Waves of Acclaims: Team Healing",
             "healing": {
+              "targets": "$team",
               "attr": "energyRegen%",
               "multipliers": [
                 {
@@ -13992,8 +13993,7 @@
                     379
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         ]
@@ -18059,6 +18059,7 @@
             "name": "Distributed Array: Team Healing",
             "tagged": "Wide Field Observation Mode",
             "healing": {
+              "targets": "$team",
               "attr": "def",
               "multipliers": [
                 {
@@ -18107,14 +18108,14 @@
                     2.0694
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
             "name": "Expectation Error: Team Healing",
             "type": "resonanceSkill",
             "healing": {
+              "targets": "$team",
               "attr": "def",
               "multipliers": [
                 {
@@ -18163,8 +18164,7 @@
                     0.4552
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -30048,6 +30048,7 @@
             "name": "Twin Mountains: Team Healing",
             "type": "heavyAttack",
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -30095,14 +30096,14 @@
                     2.4672
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
             "name": "Twin Thunders: Team Healing",
             "type": "heavyAttack",
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -30150,8 +30151,7 @@
                     0.3338
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         ]
@@ -30370,6 +30370,7 @@
           {
             "name": "Summon and Smite: Team Healing",
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -30417,8 +30418,7 @@
                     1.4513
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         ]
@@ -38599,6 +38599,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "mv": [
@@ -38646,8 +38647,7 @@
                     3814
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         ]
@@ -42565,6 +42565,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "mv": [
@@ -42590,8 +42591,7 @@
                     0.4727
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -42629,6 +42629,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "mv": [
@@ -42654,8 +42655,7 @@
                     0.4727
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -42693,6 +42693,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "mv": [
@@ -42718,8 +42719,7 @@
                     0.8863
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -42757,6 +42757,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "mv": [
@@ -42782,8 +42783,7 @@
                     0.5909
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -42821,6 +42821,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "mv": [
@@ -42846,8 +42847,7 @@
                     0.8863
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -42883,6 +42883,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "mv": [
@@ -42908,8 +42909,7 @@
                     3.5451
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -47213,12 +47213,12 @@
           "cooldown": 1000,
           "action": {
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "mv": 0.2
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         }
@@ -48531,6 +48531,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -48578,8 +48579,7 @@
                     0.4343
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -48727,6 +48727,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -48774,8 +48775,7 @@
                     0.5429
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -48811,6 +48811,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -48858,8 +48859,7 @@
                     0.5429
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -48895,6 +48895,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -48942,8 +48943,7 @@
                     0.5429
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -48980,6 +48980,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -49027,8 +49028,7 @@
                     0.5429
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         ]
@@ -50596,6 +50596,7 @@
             "name": "Resonance Skill",
             "type": "resonanceSkill",
             "healing": {
+              "targets": "$team",
               "attr": "hp",
               "multipliers": [
                 {
@@ -50644,8 +50645,7 @@
                     0.1089
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -50884,6 +50884,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "attr": "hp",
               "multipliers": [
                 {
@@ -50932,8 +50933,7 @@
                     0.0218
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -50971,6 +50971,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "attr": "hp",
               "multipliers": [
                 {
@@ -51019,8 +51020,7 @@
                     0.024
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         ]
@@ -53530,6 +53530,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -53577,8 +53578,7 @@
                     0.9198
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
@@ -54069,6 +54069,7 @@
               ]
             },
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -54116,8 +54117,7 @@
                     2.1461
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         ]
@@ -64661,6 +64661,7 @@
           {
             "name": "Trance: Team Healing",
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -64708,13 +64709,13 @@
                     0.8278
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           },
           {
             "name": "Perception Drain: Team Healing",
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "flat": [
@@ -64762,8 +64763,7 @@
                     3.4491
                   ]
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         ]

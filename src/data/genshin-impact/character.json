@@ -1521,8 +1521,8 @@
         "actions": [
           {
             "name": "Let the Show Begin: Healing per hit",
-            "times": "$teamSize",
             "healing": {
+              "targets": "$team",
               "attr": "hp",
               "multipliers": [
                 {
@@ -1647,8 +1647,8 @@
           {
             "name": "Shining Miracle: Healing",
             "type": "elementalBurst",
-            "times": "$teamSize",
             "healing": {
+              "targets": "$team",
               "attr": "hp",
               "multipliers": [
                 {
@@ -35595,13 +35595,13 @@
           "when": "interval",
           "action": {
             "healing": {
+              "targets": "$team",
               "attr": "hp",
               "multipliers": [
                 {
                   "mv": 0.1
                 }
-              ],
-              "times": "$teamSize"
+              ]
             }
           }
         }

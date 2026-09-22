@@ -28,11 +28,11 @@ function countMembers(gameId, memberIds) {
 }
 
 function buildCacheMember(cache, member) {
-  const { gameId, memberIds, teamSize, counts } = cache;
+  const { gameId, memberIds, counts } = cache;
   const mCache = { ...member };
 
   const baseMap = mCache.baseMap = buildBaseMap(gameId, member.id, member.weaponId);
-  const actionDefs = mCache.actions = getActionDefs(gameId, member, teamSize, baseMap);
+  const actionDefs = mCache.actions = getActionDefs(gameId, member, memberIds, baseMap);
 
   const { rotation, duration } = getConvertedRotation(gameId, member, actionDefs, memberIds);
   mCache.rotation = rotation;
