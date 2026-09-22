@@ -734,7 +734,7 @@
           "stats": {
             "normalAttackDmgBonus%": 0.5,
             "chargedAttackDmgBonus%": 0.5,
-            "plungeAttackDmgBonus%": 0.5
+            "plungingAttackDmgBonus%": 0.5
           }
         }
       }
@@ -1071,7 +1071,7 @@
             "attackSpd%": 0.1,
             "normalAttackDmgBonus%": 0.4,
             "chargedAttackDmgBonus%": 0.4,
-            "plungeAttackDmgBonus%": 0.4
+            "plungingAttackDmgBonus%": 0.4
           }
         }
       }
@@ -1129,7 +1129,7 @@
                 "type": [
                   "normalAttack",
                   "chargedAttack",
-                  "plungeAttack",
+                  "plungingAttack",
                   "elementalSkill",
                   "elementalBurst"
                 ]
@@ -1441,13 +1441,13 @@
       2,
       4
     ],
-    "halfStat": "plungeAttackDmgBonus%",
+    "halfStat": "plungingAttackDmgBonus%",
     "effects": [
       {
         "bonus": 2,
         "buff": {
           "stats": {
-            "plungeAttackDmgBonus%": 0.25
+            "plungingAttackDmgBonus%": 0.25
           }
         }
       },
@@ -1455,7 +1455,7 @@
         "bonus": 4,
         "buff": {
           "stats": {
-            "plungeAttackDmgBonus%": 0.75
+            "plungingAttackDmgBonus%": 0.75
           }
         }
       }

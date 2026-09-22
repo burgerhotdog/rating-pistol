@@ -5,7 +5,7 @@ const DEFAULT_DURATIONS = {
   [GI]: {
     'normalAttack': 750,
     'chargedAttack': 1000,
-    'plungeAttack': 1000,
+    'plungingAttack': 1000,
     'elementalSkill': 1000,
     'elementalBurst': 1500,
   },

@@ -681,7 +681,7 @@
                 "type": [
                   "normalAttack",
                   "chargedAttack",
-                  "plungeAttack"
+                  "plungingAttack"
                 ]
               }
             }
@@ -1160,7 +1160,7 @@
               0.16,
               0.32
             ],
-            "plungeAttackDmgBonus%": [
+            "plungingAttackDmgBonus%": [
               0.16,
               0.32
             ],

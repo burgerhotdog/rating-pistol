@@ -10,11 +10,13 @@ export const isEnabledChar = (effect, member, gameId, { memberIds, counts }) => 
     return false;
   }
 
-  if (!effect.enable) {
+  const { enable } = effect;
+
+  if (!enable) {
     return true;
   }
 
-  if (effect.enable.team) {
+  if (enable.team) {
     const [specialKey, countReq] = effect.enable.team;
 
     if (specialKey === 'hexerei') {
@@ -60,6 +62,18 @@ export const isEnabledChar = (effect, member, gameId, { memberIds, counts }) => 
       if (count < countReq) {
         return false;
       }
+    }
+  }
+
+  switch (enable.special) {
+    case 'chevreuse': {
+      const teamElements = new Set(Object.keys(counts.element));
+      const isOnlyPyroElectro = [...teamElements].every((element) =>
+        element === 'pyro' || element === 'electro'
+      );
+      const hasBothPyroElectro = teamElements.has('pyro') && teamElements.has('electro');
+
+      return isOnlyPyroElectro && hasBothPyroElectro;
     }
   }
 

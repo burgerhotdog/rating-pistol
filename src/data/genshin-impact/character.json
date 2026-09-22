@@ -233,9 +233,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -260,8 +260,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -287,8 +287,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -597,9 +597,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -624,8 +624,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -651,8 +651,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -1016,9 +1016,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -1043,8 +1043,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -1070,8 +1070,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -1434,9 +1434,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -1461,8 +1461,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -1488,8 +1488,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -1916,9 +1916,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -1943,8 +1943,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -1970,8 +1970,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -2314,8 +2314,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -2341,8 +2341,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -2368,9 +2368,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -2799,9 +2799,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -2826,8 +2826,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -2853,8 +2853,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -3380,8 +3380,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -3407,8 +3407,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -3434,9 +3434,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -3834,9 +3834,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -3861,8 +3861,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -3888,8 +3888,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -4406,8 +4406,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -4433,8 +4433,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -4460,9 +4460,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -4860,9 +4860,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -4887,8 +4887,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -4914,8 +4914,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -5498,9 +5498,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -5525,8 +5525,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -5552,8 +5552,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -5963,9 +5963,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -5990,8 +5990,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -6017,8 +6017,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -6242,9 +6242,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -6269,8 +6269,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -6296,8 +6296,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -6733,8 +6733,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -6760,8 +6760,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -6787,9 +6787,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -7060,7 +7060,7 @@
                 "type": [
                   "normalAttack",
                   "chargedAttack",
-                  "plungeAttack"
+                  "plungingAttack"
                 ]
               }
             }
@@ -7306,9 +7306,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -7333,8 +7333,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -7360,8 +7360,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -7835,9 +7835,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -7862,8 +7862,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -7889,8 +7889,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -8264,8 +8264,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -8291,8 +8291,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -8318,9 +8318,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -8912,9 +8912,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -8939,8 +8939,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -8966,8 +8966,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -9553,9 +9553,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -9580,8 +9580,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -9607,8 +9607,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -10113,9 +10113,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -10140,8 +10140,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -10167,8 +10167,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -10602,9 +10602,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -10629,8 +10629,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -10656,8 +10656,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -11070,9 +11070,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -11097,8 +11097,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -11124,8 +11124,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -11501,8 +11501,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
-            "type": "plungeAttack",
+            "name": "Plunge Collision",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -11528,8 +11528,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -11555,8 +11555,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -11927,9 +11927,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -11954,8 +11954,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -11981,8 +11981,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -12381,9 +12381,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -12408,8 +12408,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -12435,8 +12435,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -12837,9 +12837,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -12864,8 +12864,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -12891,8 +12891,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -13294,9 +13294,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13321,8 +13321,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -13348,8 +13348,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -13670,9 +13670,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -13697,8 +13697,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -13724,8 +13724,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -14214,9 +14214,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -14241,8 +14241,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -14268,8 +14268,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -14659,9 +14659,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -14686,8 +14686,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -14713,8 +14713,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -15267,9 +15267,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -15294,8 +15294,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -15321,8 +15321,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -15719,9 +15719,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -15746,8 +15746,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -15773,8 +15773,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -16134,9 +16134,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -16161,8 +16161,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -16188,8 +16188,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -16467,9 +16467,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -16494,8 +16494,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -16521,8 +16521,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -17030,9 +17030,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -17057,8 +17057,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -17084,8 +17084,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -17544,9 +17544,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -17571,8 +17571,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -17598,8 +17598,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -18043,7 +18043,7 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
+            "name": "Plunging Attack: Low",
             "type": "elementalBurst",
             "damage": {
               "multipliers": [
@@ -18070,7 +18070,7 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
+            "name": "Plunging Attack: High",
             "type": "elementalBurst",
             "damage": {
               "multipliers": [
@@ -18331,9 +18331,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -18358,8 +18358,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -18385,8 +18385,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -18839,9 +18839,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -18866,8 +18866,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -18893,8 +18893,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -19346,9 +19346,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -19373,8 +19373,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -19400,8 +19400,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -19761,9 +19761,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -19788,8 +19788,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -19815,8 +19815,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -20175,9 +20175,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -20202,8 +20202,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -20229,8 +20229,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -20454,9 +20454,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -20481,8 +20481,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -20508,8 +20508,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -20933,9 +20933,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -20960,8 +20960,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -20987,8 +20987,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -21394,9 +21394,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -21421,8 +21421,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -21448,8 +21448,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -21784,9 +21784,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -21811,8 +21811,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -21838,8 +21838,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -22310,9 +22310,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -22337,8 +22337,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -22364,8 +22364,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -22808,9 +22808,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -22835,8 +22835,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -22862,8 +22862,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -23287,9 +23287,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -23314,8 +23314,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -23341,8 +23341,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -23739,9 +23739,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -23766,8 +23766,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -23793,8 +23793,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -24191,9 +24191,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -24218,8 +24218,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -24245,8 +24245,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -24660,9 +24660,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -24687,8 +24687,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -24714,8 +24714,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -25012,9 +25012,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -25039,8 +25039,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -25066,8 +25066,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -25499,9 +25499,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -25526,8 +25526,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -25553,8 +25553,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -25824,9 +25824,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -25851,8 +25851,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -25878,8 +25878,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -26315,9 +26315,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -26342,8 +26342,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -26369,8 +26369,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -26668,7 +26668,7 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
+            "name": "Plunging Attack: Low",
             "type": "elementalBurst",
             "damage": {
               "multipliers": [
@@ -26695,7 +26695,7 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
+            "name": "Plunging Attack: High",
             "type": "elementalBurst",
             "damage": {
               "multipliers": [
@@ -26902,9 +26902,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -26929,8 +26929,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -26956,8 +26956,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -27308,9 +27308,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -27335,8 +27335,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -27362,8 +27362,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -27814,9 +27814,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -27841,8 +27841,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -27868,8 +27868,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -28235,9 +28235,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -28262,8 +28262,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -28289,8 +28289,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -28692,9 +28692,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -28719,8 +28719,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -28746,8 +28746,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -29083,9 +29083,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -29110,8 +29110,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -29137,8 +29137,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -29573,9 +29573,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -29600,8 +29600,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -29627,8 +29627,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -30082,9 +30082,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -30109,8 +30109,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -30136,8 +30136,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -30599,9 +30599,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -30626,8 +30626,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -30653,8 +30653,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -31078,9 +31078,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -31105,8 +31105,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -31132,8 +31132,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -31411,9 +31411,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -31438,8 +31438,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -31465,8 +31465,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -31893,9 +31893,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -31920,8 +31920,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -31947,8 +31947,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -32272,9 +32272,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -32299,8 +32299,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -32326,8 +32326,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -32821,9 +32821,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -32848,8 +32848,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -32875,8 +32875,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -33549,9 +33549,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -33576,8 +33576,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -33603,8 +33603,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -33918,9 +33918,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -33945,8 +33945,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -33972,8 +33972,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -34251,9 +34251,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -34278,8 +34278,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -34305,8 +34305,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -34784,9 +34784,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -34811,8 +34811,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -34838,8 +34838,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -35142,7 +35142,6 @@
     "memberPreset": {}
   },
   "10000090": {
-    "disabled": true,
     "name": "Chevreuse",
     "version": 4.3,
     "id": 10000090,
@@ -35156,11 +35155,263 @@
       "baseDef": 605,
       "hp%": 0.24
     },
+    "energy": 60,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "overchargedBall",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "overloaded"
+            }
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.1"
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "overchargedBall"
+                  }
+                }
+              }
+            ]
+          },
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.1"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "overchargedBall"
+                }
+              }
+            ]
+          },
+          "action": "elementalSkill.3",
+          "commands": {
+            "type": "remove",
+            "ref": "overchargedBall"
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalSkill.4"
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "cooldown": 10000,
+          "uses": 1,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.5"
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 4,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 250,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "enable": {
+          "special": "chevreuse"
+        },
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "overloaded"
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "pyroResReduction%": 0.4,
+            "electroResReduction%": 0.4
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.3"
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "element": [
+                "pyro",
+                "electro"
+              ]
+            }
+          },
+          "specs": {
+            "atk%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 0.01,
+              "maxValue": 0.4
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "cooldown": 10000,
+          "uses": 1,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "C2",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": 1.2
+                }
+              ]
+            }
+          },
+          "times": 2
+        }
+      },
+      {
+        "rank": 6,
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "uses": 1,
+          "offset": 12000
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": 0.1
+                }
+              ],
+              "times": "$teamSize"
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "stores": "$first",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.4"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "pyroDmgBonus%": 0.2,
+            "electroDmgBonus%": 0.2
+          }
+        },
+        "maxStacks": 3
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Line Bayonet Thrust EX",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -35317,35 +35568,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
-            "damage": {
-              "type": "plungeAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6393,
-                    0.6914,
-                    0.7434,
-                    0.8177,
-                    0.8698,
-                    0.9293,
-                    1.011,
-                    1.0928,
-                    1.1746,
-                    1.2638,
-                    1.353,
-                    1.4422,
-                    1.5314,
-                    1.6206,
-                    1.7098
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -35371,8 +35595,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -35396,16 +35620,45 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6393,
+                    0.6914,
+                    0.7434,
+                    0.8177,
+                    0.8698,
+                    0.9293,
+                    1.011,
+                    1.0928,
+                    1.1746,
+                    1.2638,
+                    1.353,
+                    1.4422,
+                    1.5314,
+                    1.6206,
+                    1.7098
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+        "name": "Short-Range Rapid Interdiction Fire",
+        "rankModify": 3,
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -35430,9 +35683,14 @@
             }
           },
           {
-            "name": "Hold DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill: Hold",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Precise Interdiction Shot",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -35457,9 +35715,10 @@
             }
           },
           {
-            "name": "Overcharged Ball DMG",
-            "type": "elementalSkill",
+            "name": "Overcharged Ball",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -35484,9 +35743,9 @@
             }
           },
           {
-            "name": "HP Regeneration Over Time",
-            "type": "elementalSkill",
-            "damage": {
+            "name": "Healing Over Time",
+            "healing": {
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -35505,10 +35764,8 @@
                     0.0567,
                     0.06,
                     0.0633
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     256.7918,
                     282.4746,
                     310.2976,
@@ -35530,8 +35787,7 @@
             }
           },
           {
-            "name": "Surging Blade DMG",
-            "type": "elementalSkill",
+            "name": "Surging Blade",
             "damage": {
               "multipliers": [
                 {
@@ -35559,12 +35815,14 @@
         ]
       },
       "elementalBurst": {
-        "name": "Explosive Grenade DMG",
+        "name": "Ring of Bursting Grenades",
+        "rankModify": 5,
         "actions": [
           {
-            "name": "Explosive Grenade DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -35589,9 +35847,15 @@
             }
           },
           {
-            "name": "Secondary Explosive Shell DMG",
-            "type": "elementalBurst",
+            "name": "Secondary Explosive Shell",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 3000,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -35618,7 +35882,16 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13303,
+      "setCounts": {
+        "15007": 4
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalSkill.1"
+      ]
+    }
   },
   "10000091": {
     "disabled": true,
@@ -35804,9 +36077,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -35831,8 +36104,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -35858,8 +36131,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -36191,9 +36464,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -36218,8 +36491,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -36245,8 +36518,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -36497,9 +36770,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -36524,8 +36797,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -36551,8 +36824,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -37025,9 +37298,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -37052,8 +37325,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -37079,8 +37352,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -37443,9 +37716,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -37470,8 +37743,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -37497,8 +37770,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -37922,9 +38195,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -37949,8 +38222,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -37976,8 +38249,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -38347,9 +38620,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -38374,8 +38647,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -38401,8 +38674,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -38737,9 +39010,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -38764,8 +39037,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -38791,8 +39064,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -39181,9 +39454,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -39208,8 +39481,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -39235,8 +39508,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -39587,9 +39860,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -39614,8 +39887,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -39641,8 +39914,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -39920,9 +40193,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -39947,8 +40220,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -39974,8 +40247,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -40253,9 +40526,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -40280,8 +40553,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -40307,8 +40580,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -40605,9 +40878,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -40632,8 +40905,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -40659,8 +40932,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -41147,9 +41420,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -41174,8 +41447,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -41201,8 +41474,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -41589,9 +41862,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -41616,8 +41889,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -41643,8 +41916,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -41922,9 +42195,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -41949,8 +42222,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -41976,8 +42249,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -42552,9 +42825,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -42579,8 +42852,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -42606,8 +42879,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -42996,9 +43269,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -43023,8 +43296,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -43050,8 +43323,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -43321,9 +43594,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -43348,8 +43621,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -43375,8 +43648,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -43754,9 +44027,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -43781,8 +44054,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -43808,8 +44081,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -44060,9 +44333,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -44087,8 +44360,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -44114,8 +44387,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -44620,9 +44893,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -44647,8 +44920,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -44674,8 +44947,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -44999,9 +45272,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -45026,8 +45299,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -45053,8 +45326,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -45424,9 +45697,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -45451,8 +45724,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -45478,8 +45751,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -45737,7 +46010,7 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
+            "name": "Plunging Attack: Low",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -45764,7 +46037,7 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
+            "name": "Plunging Attack: High",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -46160,9 +46433,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -46187,8 +46460,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -46214,8 +46487,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -46531,9 +46804,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -46558,8 +46831,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -46585,8 +46858,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -46883,9 +47156,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -46910,8 +47183,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -46937,8 +47210,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -47370,9 +47643,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -47397,8 +47670,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -47424,8 +47697,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -47946,9 +48219,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -47973,8 +48246,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -48000,8 +48273,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -48280,9 +48553,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -48307,8 +48580,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -48334,8 +48607,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -49334,8 +49607,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -49361,8 +49634,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -49388,9 +49661,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49934,9 +50207,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -49961,8 +50234,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -49988,8 +50261,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -50440,9 +50713,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -50467,8 +50740,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -50494,8 +50767,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -50919,9 +51192,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -50946,8 +51219,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -50973,8 +51246,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -51498,9 +51771,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -51525,8 +51798,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -51552,8 +51825,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -52066,9 +52339,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -52093,8 +52366,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -52120,8 +52393,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -52970,8 +53243,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -52997,8 +53270,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -53024,9 +53297,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -53280,8 +53553,8 @@
             }
           },
           {
-            "name": "Masterstroke: Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Masterstroke: Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -53307,8 +53580,8 @@
             }
           },
           {
-            "name": "Masterstroke: Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Masterstroke: Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -53334,9 +53607,9 @@
             }
           },
           {
-            "name": "Masterstroke: Plunge Attack: Collision",
+            "name": "Masterstroke: Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -53644,9 +53917,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -53671,8 +53944,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -53698,8 +53971,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -54206,8 +54479,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -54233,8 +54506,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -54260,9 +54533,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -54617,9 +54890,9 @@
             }
           },
           {
-            "name": "Plunge Attack: Collision",
+            "name": "Plunge Collision",
             "damage": {
-              "type": "plungeAttack",
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -54644,8 +54917,8 @@
             }
           },
           {
-            "name": "Plunge Attack: Low",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -54671,8 +54944,8 @@
             }
           },
           {
-            "name": "Plunge Attack: High",
-            "type": "plungeAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {

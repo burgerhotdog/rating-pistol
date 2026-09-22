@@ -5,6 +5,10 @@ Characters:
         C2 popping baron bunny doesnt do 200% extra dmgBonus
     Bennett
         No constellations
+    Chevreuse
+        No C1
+        No C4 cooldown
+        C6 Buff goes to first not healed
     Diluc
         No constellations
     Durin
