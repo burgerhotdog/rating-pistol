@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { memo } from 'react';
 import { Avatar, Divider, Paper, Stack, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import {
@@ -156,13 +156,24 @@ const tooltipContent = ({ payload }, areaStack) => {
   );
 };
 
-const RotationTimeline = ({ results }) => {
-  const { userSnapshots, userRotationTime, userRotationTimeSource, memberIds } = results;
+const RotationTimeline = ({
+  memberIds,
+  userSnapshots,
+  userRotationTime,
+  userRotationTimeSource,
+}) => {
   const { palette } = useTheme();
   const charDatas = useData('character');
   const elementDatas = useData('element');
 
-  const areaStack = useMemo(() => [
+  if (
+    !memberIds ||
+    !userSnapshots ||
+    !userRotationTime ||
+    !userRotationTimeSource
+  ) return;
+
+  const areaStack = [
     ...memberIds.map((id) => {
       const { name, element, icon } = charDatas[id];
       const { color } = elementDatas[element];
@@ -186,26 +197,20 @@ const RotationTimeline = ({ results }) => {
         name: formatStr(damageType),
         color: '#ffffff',
       })),
-  ], [memberIds, userSnapshots, charDatas, elementDatas]);
+  ];
 
   const data = buildData(userSnapshots, areaStack, userRotationTime, userRotationTimeSource);
+  const maxSecond = Math.floor(userRotationTime / 1000);
+  const interval = Math.max(1, Math.ceil(maxSecond / 6));
+  const ticks = [];
 
-  const ticks = useMemo(() => {
-    const maxSecond = Math.floor(userRotationTime / 1000);
-    const interval = Math.max(1, Math.ceil(maxSecond / 6));
+  for (let second = 0; second < maxSecond; second += interval) {
+    ticks.push(second * 1000);
+  }
 
-    const ticks = [];
-
-    for (let second = 0; second < maxSecond; second += interval) {
-      ticks.push(second * 1000);
-    }
-
-    if (ticks.at(-1) !== userRotationTime) {
-      ticks.push(userRotationTime);
-    }
-
-    return ticks;
-  }, [userRotationTime]);
+  if (ticks.at(-1) !== userRotationTime) {
+    ticks.push(userRotationTime);
+  }
 
   return (
     <AreaChart
@@ -263,4 +268,4 @@ const RotationTimeline = ({ results }) => {
   );
 };
 
-export default RotationTimeline;
+export default memo(RotationTimeline);

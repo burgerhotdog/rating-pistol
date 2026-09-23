@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Dialog, DialogContent, DialogTitle, Paper, Stack, Typography } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
@@ -153,8 +154,7 @@ const renderTooltip = ({ gameId, payload, label = '' }) => {
   );
 };
 
-const SetsDialog = ({ results, open, onClose }) => {
-  const { setResults, userDps, userMember } = results;
+const SetsDialog = ({ userMember, userDps, setResults, open, onClose }) => {
   const { gameId } = useParams();
   const { palette } = useTheme();
   const accent = useAccent();
@@ -172,7 +172,9 @@ const SetsDialog = ({ results, open, onClose }) => {
       fullWidth
       maxWidth="md"
     >
-      <DialogTitle>{`${langData.Equip} Set Bonus Rankings`}</DialogTitle>
+      <DialogTitle>
+        {`${langData.Equip} Set Bonus Rankings`}
+      </DialogTitle>
       <DialogContent
         dividers
         sx={{ overflowY: 'auto', p: 2 }}
@@ -250,4 +252,4 @@ const SetsDialog = ({ results, open, onClose }) => {
   );
 };
 
-export default SetsDialog;
+export default memo(SetsDialog);

@@ -2,10 +2,8 @@ import { LinearProgress, Stack, Typography } from '@mui/material';
 import { useAccent } from '@/hooks';
 
 const LoadingBar = ({ results }) => {
-  const { status, title, message, progressDay } = results;
+  const { disabled, title, message, progressDay } = results;
   const accent = useAccent();
-
-  const isIdle = status === 'idle';
 
   return (
     <Stack
@@ -29,7 +27,7 @@ const LoadingBar = ({ results }) => {
           variant="determinate"
           value={progressDay ?? 0}
           sx={{
-            visibility: !isIdle ? 'visible' : 'hidden',
+            visibility: disabled ? 'hidden' : 'visible',
             backgroundColor: 'action.hover',
             borderRadius: 2,
             '& .MuiLinearProgress-bar': { backgroundColor: accent },

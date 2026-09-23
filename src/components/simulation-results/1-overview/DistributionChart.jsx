@@ -1,5 +1,5 @@
-import { useParams } from 'react-router-dom';
-import { Paper, Typography } from '@mui/material';
+import { memo } from 'react';
+import { Box, Paper, Skeleton, Typography } from '@mui/material';
 import { alpha, darken } from '@mui/material/styles';
 import { Pie, PieChart, Sector, Tooltip } from 'recharts';
 import { useAccent } from '@/hooks';
@@ -32,12 +32,14 @@ const buildData = (snapshots, charId) => {
   }));
 };
 
-const DistributionChart = ({ results }) => {
-  const { userSnapshots } = results;
-  const { charId } = useParams();
+const DistributionChart = ({ userSnapshots, userMember }) => {
   const accent = useAccent();
 
-  const data = buildData(userSnapshots, Number(charId));
+  if (!userSnapshots || !userMember) {
+    return;
+  }
+
+  const data = buildData(userSnapshots, userMember.id);
 
   return (
     <PieChart
@@ -74,4 +76,4 @@ const DistributionChart = ({ results }) => {
   );
 };
 
-export default DistributionChart;
+export default memo(DistributionChart);

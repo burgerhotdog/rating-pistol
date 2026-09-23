@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { memo } from 'react';
 import { Dialog, DialogContent, DialogTitle, Paper, Stack, Typography } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import {
@@ -44,34 +44,30 @@ const renderTooltip = ({ payload, label }) => {
   );
 };
 
-const WeaponsDialog = ({ results, open, onClose }) => {
-  const { userMember, userDps, weaponResults } = results;
-  const userWeaponId = userMember.weaponId;
+const WeaponsDialog = ({ userMember, userDps, weaponResults, open, onClose }) => {
   const { palette, qualityColors } = useTheme();
   const weapDatas = useData('weapon');
   const langData = useData('lang');
+  const userWeaponId = userMember.weaponId;
 
-  const data = useMemo(
-    () => weaponResults
-      .toSorted((a, b) => b.dps - a.dps)
-      .map(({ weaponId, weaponRank, dps }) => {
-        const { name, icon, quality } = weapDatas[weaponId];
-        const isUser = weaponId === userWeaponId;
+  const data = weaponResults
+    .toSorted((a, b) => b.dps - a.dps)
+    .map(({ weaponId, weaponRank, dps }) => {
+      const { name, icon, quality } = weapDatas[weaponId];
+      const isUser = weaponId === userWeaponId;
 
-        return {
-          weaponId,
-          weaponRank,
-          name: `${name} R${weaponRank}`,
-          icon,
-          dps,
-          pct: (dps / userDps) * 100,
-          isUser,
-          fill: `url(#gradient${quality})`,
-          ...(!isUser && { filter: 'brightness(0.5)' }),
-        };
-      }),
-    [weapDatas, weaponResults, userWeaponId, userDps],
-  );
+      return {
+        weaponId,
+        weaponRank,
+        name: `${name} R${weaponRank}`,
+        icon,
+        dps,
+        pct: (dps / userDps) * 100,
+        isUser,
+        fill: `url(#gradient${quality})`,
+        ...(!isUser && { filter: 'brightness(0.5)' }),
+      };
+    });
 
   const chartHeight = data.length * 64 + 40;
 
@@ -82,7 +78,9 @@ const WeaponsDialog = ({ results, open, onClose }) => {
       fullWidth
       maxWidth="md"
     >
-      <DialogTitle>{`${langData.Weapon} Rankings`}</DialogTitle>
+      <DialogTitle>
+        {`${langData.Weapon} Rankings`}
+      </DialogTitle>
       <DialogContent
         dividers
         sx={{ overflowY: 'auto', p: 2 }}
@@ -156,4 +154,4 @@ const WeaponsDialog = ({ results, open, onClose }) => {
   );
 };
 
-export default WeaponsDialog;
+export default memo(WeaponsDialog);

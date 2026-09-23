@@ -12,8 +12,7 @@ import { alpha } from '@mui/material/styles';
 import { useAccent } from '@/hooks';
 import { formatStr, getStatIcon } from '@/utils';
 
-const Mainstats = ({ results, userMainstatConfigKey }) => {
-  const { equipListConfigs } = results;
+const Mainstats = ({ equipListConfigs, userMainstatConfigKey }) => {
   const { gameId } = useParams();
   const accent = useAccent();
 

@@ -143,8 +143,7 @@ const classifyRoll = (user, { min, q1 }) => {
   return 'off';
 };
 
-const SubstatsChart = ({ results, userMainstatConfigKey, userSubstatRolls }) => {
-  const { equipListConfigs } = results;
+const SubstatsChart = ({ equipListConfigs, userMainstatConfigKey, userSubstatRolls }) => {
   const { gameId } = useParams();
   const { palette } = useTheme();
   const accent = useAccent();

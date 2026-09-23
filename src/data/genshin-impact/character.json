@@ -11279,6 +11279,11 @@
         "use": {
           "by": "$team",
           "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
           "cooldown": 2000,
           "action": "elementalSkill.1"
         },

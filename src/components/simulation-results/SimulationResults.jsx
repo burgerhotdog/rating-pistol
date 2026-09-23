@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Stack, Tab } from '@mui/material';
 import { Tabs } from '@/components/Colored';
 import { useAccent, useData, useSimulation } from '@/hooks';
-import LoadingBar from './LoadingBar';
 import Overview from './1-overview';
 import Equips from './2-equips';
 import SkillLevels from './3-skill-levels';
@@ -13,10 +12,9 @@ const SimulationResults = ({ team }) => {
   const results = useSimulation(team);
   const [tab, setTab] = useState(1);
 
-  if (results.status !== 'done') {
-    return <LoadingBar results={results} />;
-  }
+  if (results.disabled) return;
 
+  const isDone = results.status === 'done';
   return (
     <Stack spacing={1} sx={{ flex: 1 }}>
       <Tabs
@@ -28,12 +26,12 @@ const SimulationResults = ({ team }) => {
       >
         <Tab value={1} label="Overview" />
         <Tab value={2} label={`${langData.Equip} Stats`} />
-        <Tab value={3} label="Skill Levels" />
+        <Tab value={3} label="Skill Levels" disabled={!isDone} />
       </Tabs>
 
       {tab === 1 && <Overview results={results} />}
       {tab === 2 && <Equips results={results} />}
-      {tab === 3 && <SkillLevels results={results} />}
+      {tab === 3 && isDone && <SkillLevels results={results} />}
     </Stack>
   );
 };

@@ -31,7 +31,7 @@ export const useSimulation = (team) => {
   const { gameId, charId } = useParams();
   const workerRef = useRef(null);
   const prevPayloadRef = useRef(undefined);
-  const [result, setResult] = useState({ status: 'idle' });
+  const [result, setResult] = useState({ disabled: true });
 
   const payload = useMemo(() => {
     const data = { gameId, charId: Number(charId), team };
@@ -57,7 +57,7 @@ export const useSimulation = (team) => {
     worker.onmessage = ({ data }) => {
       setResult((prev) => ({ ...prev, ...data }));
 
-      if (data.userSnapshots) {
+      if (data.status === 'done') {
         worker.terminate();
         if (workerRef.current === worker) {
           workerRef.current = null;
@@ -75,5 +75,5 @@ export const useSimulation = (team) => {
     };
   }, [payload]);
 
-  return payload ? result : { status: 'idle' };
+  return payload ? result : { disabled: true };
 };

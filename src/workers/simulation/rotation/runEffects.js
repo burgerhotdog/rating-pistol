@@ -28,13 +28,18 @@ function tryUse(ctx, when, state, spec) {
   if (!effect.use) return;
   const eventOwnerId = spec.fieldId;
 
-  for (const use of effect.use) {
+  for (const [index, use] of effect.use.entries()) {
     if (use.when !== when) continue;
     if (!use.by.includes(eventOwnerId)) continue;
     if (state.isRunning || state.useCooldown) continue;
     if (!ctx.eventFilter(use.filter, effect, spec)) continue;
 
-    const removed = runUseEffect(ctx, state, use);
+    const useSpec = {};
+    if (effect.snapshotBuffs) {
+      useSpec.snapshotBuffs = state.snapshotBuffs[index];
+    }
+
+    const removed = runUseEffect(ctx, state, use, useSpec);
 
     const commands = use.commands;
     if (commands) {
