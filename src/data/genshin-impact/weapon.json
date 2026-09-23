@@ -321,7 +321,7 @@
           },
           "stats": {
             "critRate%": [
-              0.21720,
+              0.2172,
               0.39848
             ]
           },
@@ -330,7 +330,7 @@
               "attr": "critRate%",
               "step": 0.01,
               "offset": [
-                0.21720,
+                0.2172,
                 0.39848
               ],
               "value": [
@@ -972,6 +972,54 @@
     },
     "effects": []
   },
+  "11437": {
+    "disabled": true,
+    "name": "New Bough",
+    "version": 7.1,
+    "id": 11437,
+    "icon": "genshin-impact/weapon/11437.webp",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 510,
+      "critDmg%": 0.551
+    },
+    "effects": []
+  },
+  "11438": {
+    "name": "Silver Light",
+    "version": 7.1,
+    "id": 11438,
+    "icon": "genshin-impact/weapon/11438.webp",
+    "quality": 4,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 510,
+      "atk%": 0.413
+    },
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              52,
+              104
+            ]
+          }
+        },
+        "maxStacks": 2
+      }
+    ]
+  },
   "11501": {
     "name": "Aquila Favonia",
     "version": 1.0,
@@ -1481,6 +1529,20 @@
     },
     "effects": []
   },
+  "11522": {
+    "disabled": true,
+    "name": "Beyond the Chrysalis",
+    "version": 7.1,
+    "id": 11522,
+    "icon": "genshin-impact/weapon/11522.webp",
+    "quality": 5,
+    "type": "sword",
+    "stats": {
+      "baseAtk": 674,
+      "critDmg%": 0.441
+    },
+    "effects": []
+  },
   "12101": {
     "name": "Waster Greatsword",
     "version": 1.0,
@@ -1711,7 +1773,7 @@
           },
           "stats": {
             "critRate%": [
-              0.21720,
+              0.2172,
               0.39848
             ]
           },
@@ -1720,7 +1782,7 @@
               "attr": "critRate%",
               "step": 0.01,
               "offset": [
-                0.21720,
+                0.2172,
                 0.39848
               ],
               "value": [
@@ -2490,7 +2552,7 @@
           },
           "stats": {
             "critRate%": [
-              0.21720,
+              0.2172,
               0.39848
             ]
           },
@@ -2499,7 +2561,7 @@
               "attr": "critRate%",
               "step": 0.01,
               "offset": [
-                0.21720,
+                0.2172,
                 0.39848
               ],
               "value": [
@@ -3243,7 +3305,7 @@
           },
           "stats": {
             "critRate%": [
-              0.21720,
+              0.2172,
               0.39848
             ]
           },
@@ -3252,7 +3314,7 @@
               "attr": "critRate%",
               "step": 0.01,
               "offset": [
-                0.21720,
+                0.2172,
                 0.39848
               ],
               "value": [
@@ -3727,6 +3789,20 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
+    },
+    "effects": []
+  },
+  "14437": {
+    "disabled": true,
+    "name": "Winter's Heavy Heart",
+    "version": 7.1,
+    "id": 14437,
+    "icon": "genshin-impact/weapon/14437.webp",
+    "quality": 4,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 510,
+      "critDmg%": 0.551
     },
     "effects": []
   },
@@ -4224,6 +4300,168 @@
       }
     ]
   },
+  "14524": {
+    "name": "Hymn of the Maelstrom",
+    "version": 7.1,
+    "id": 14524,
+    "icon": "genshin-impact/weapon/14524.webp",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 542,
+      "hp%": 0.662
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "healingBonus%": [
+              0.04,
+              0.08
+            ]
+          }
+        }
+      },
+      {
+        "ref": "vatsamongasVaticVintage",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "has": "healing"
+            }
+          },
+          "duration": 10000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "vatsamongasVaticVintageOnField"
+            },
+            {
+              "type": "apply",
+              "ref": "vatsamongasVaticVintageExtra"
+            },
+            {
+              "type": "apply",
+              "ref": "vatsamongasVaticVintageExtraOnField"
+            }
+          ]
+        },
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.04,
+              0.08
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "vatsamongasVaticVintageOnField",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "specs": {
+            "atk%": {
+              "attr": "hp",
+              "step": 1000,
+              "offset": 40000,
+              "value": [
+                0.004,
+                0.008
+              ],
+              "maxValue": [
+                0.08,
+                0.16
+              ]
+            }
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "buffIncreased",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "frozen",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "duration": 5000
+        }
+      },
+      {
+        "ref": "vatsamongasVaticVintageExtra",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "has": "buffIncreased"
+            }
+          },
+          "stats": {
+            "hp%": [
+              0.03,
+              0.06
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "vatsamongasVaticVintageExtraOnField",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "effectStacks": {
+                  "has": "buffIncreased"
+                }
+              }
+            ]
+          },
+          "specs": {
+            "atk%": {
+              "attr": "hp",
+              "step": 1000,
+              "offset": 40000,
+              "value": [
+                0.003,
+                0.006
+              ],
+              "maxValue": [
+                0.06,
+                0.12
+              ]
+            }
+          }
+        },
+        "maxStacks": 3
+      }
+    ]
+  },
   "15101": {
     "name": "Hunter's Bow",
     "version": 1.0,
@@ -4406,7 +4644,7 @@
           },
           "stats": {
             "critRate%": [
-              0.21720,
+              0.2172,
               0.39848
             ]
           },
@@ -4415,7 +4653,7 @@
               "attr": "critRate%",
               "step": 0.01,
               "offset": [
-                0.21720,
+                0.2172,
                 0.39848
               ],
               "value": [
@@ -4883,6 +5121,85 @@
       "def%": 0.517
     },
     "effects": []
+  },
+  "15437": {
+    "name": "Breezeborne Refrain",
+    "version": 7.1,
+    "id": 15437,
+    "icon": "genshin-impact/weapon/15437.webp",
+    "quality": 4,
+    "type": "bow",
+    "stats": {
+      "baseAtk": 510,
+      "critRate%": 0.276
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "energyRecharge%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "ref": "hymnOfThePure",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "thusLiedTheViper"
+                  }
+                }
+              }
+            ]
+          },
+          "cooldown": 30
+        },
+        "remove": {
+          "when": "maxStacks",
+          "commands": {
+            "type": "apply",
+            "ref": "thusLiedTheViper",
+            "spec": {
+              "duration": 12000
+            }
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "thusLiedTheViper",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "stellarGlimmerReactionBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
   },
   "15501": {
     "name": "Skyward Harp",

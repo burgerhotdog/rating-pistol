@@ -59,6 +59,8 @@ Weapons:
         energy part not done
     Sapwood Blade
         Leaf buff applied to $first instantly
+    Silver Light
+        Stack durations are not independent
     Skyward Atlas
         Favor of the Clouds always triggers
     Skyward Harp
