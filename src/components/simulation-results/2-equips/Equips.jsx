@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom';
 import {
   Card,
   CardContent,
@@ -8,7 +7,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useAccent } from '@/hooks';
-import { getMainstatConfigKey, sumSubstatRolls, formatNum, formatStr } from '@/utils';
+import { formatNum, formatStr } from '@/utils';
 import Mainstats from './Mainstats';
 import SubstatsChart from './SubstatsChart';
 import TrajectoryChart from './TrajectoryChart';
@@ -46,15 +45,20 @@ const ExtraSubstat = ({ userDps, extraSubstats }) => {
 };
 
 const Equips = ({ results }) => {
-  const { gameId } = useParams();
   const accent = useAccent();
 
-  const userMainstatConfigKey = getMainstatConfigKey(gameId, results.userMember.equipList);
-  const userSubstatRolls = sumSubstatRolls(gameId, results.userMember.equipList);
-  
-  const mainstatsReady = results.equipListConfigs && userMainstatConfigKey;
-  const substatsReady = results.equipListConfigs && userMainstatConfigKey && userSubstatRolls;
-  const extraSubstatsReady = results.userDps && results.extraSubstats;
+  const mainstatsReady =
+    results.equipListConfigs &&
+    results.userMember?.equipList;
+
+  const substatsReady = 
+    results.equipListConfigs &&
+    results.userMember?.equipList;
+
+  const extraSubstatsReady =
+    results.userDps &&
+    results.extraSubstats;
+
   const trajectoryReady =
     results.dpsProgression &&
     results.userDps &&
@@ -71,7 +75,7 @@ const Equips = ({ results }) => {
             <CardContent component={Stack} sx={{ flex: 1, overflow: 'hidden' }}>
               <Mainstats
                 equipListConfigs={results.equipListConfigs}
-                userMainstatConfigKey={userMainstatConfigKey}
+                equipList={results.userMember.equipList}
               />
             </CardContent>
           ) : (
@@ -84,8 +88,7 @@ const Equips = ({ results }) => {
           {substatsReady ? (
             <SubstatsChart
               equipListConfigs={results.equipListConfigs}
-              userMainstatConfigKey={userMainstatConfigKey}
-              userSubstatRolls={userSubstatRolls}
+              equipList={results.userMember.equipList}
             />
           ) : (
             <Skeleton variant="rectangular" sx={{ flex: 1 }} />

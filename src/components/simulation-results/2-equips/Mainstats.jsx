@@ -10,9 +10,10 @@ import {
 } from '@mui/material';
 import { alpha } from '@mui/material/styles';
 import { useAccent } from '@/hooks';
-import { formatStr, getStatIcon } from '@/utils';
+import { formatStr, getStatIcon, getMainstatConfigKey } from '@/utils';
 
-const Mainstats = ({ equipListConfigs, userMainstatConfigKey }) => {
+const Mainstats = ({ equipListConfigs, equipList }) => {
+  const userMainstatConfigKey = getMainstatConfigKey(equipList);
   const { gameId } = useParams();
   const accent = useAccent();
 
