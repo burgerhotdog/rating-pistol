@@ -30,6 +30,14 @@ export const buildSnapshot = (ctx, action, options = {}) => {
 
   const memo = {};
 
+  const isStellarConduct = snapshotAction?.damage?.type === 'stellarConduct';
+  const isStellarSwirl = snapshotAction?.damage?.type === 'stellarSwirl';
+  const { multiplier } = ctx.states.aura.stellarConduct ?? {};
+
+  const formula = (statMap, part) => isStellarConduct || isStellarSwirl
+    ? runFormula(gameId, part, snapshotAction, statMap, multiplier)
+    : runFormula(gameId, part, snapshotAction, statMap);
+
   const snapshot = {
     key: snapshotAction.key,
     name: snapshotAction.name,
@@ -45,7 +53,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
       buffMap,
       buffSpecs,
       splitScale: 1 / (action.hitOffsets?.length ?? 1),
-      formula: (statMap, part) => runFormula(gameId, part, snapshotAction, statMap),
+      formula,
       parts: [
         ...(snapshotAction.damage ? ['damage'] : []),
         ...(snapshotAction.healing ? ['healing'] : []),

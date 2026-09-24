@@ -33583,6 +33583,37 @@
           }
         },
         "maxStacks": 5
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "normalAttack.5"
+                }
+              },
+              {
+                "states": {
+                  "aura": {
+                    "has": "stellarConduct"
+                  }
+                }
+              }
+            ]
+          },
+          "action": {
+            "damage": {
+              "type": "stellarConduct",
+              "multipliers": [
+                {
+                  "mv": 2.75
+                }
+              ]
+            }
+          }
+        }
       }
     ],
     "skills": {
@@ -57537,7 +57568,6 @@
     "memberPreset": {}
   },
   "10000150": {
-    "disabled": true,
     "name": "Odette",
     "version": 7.0,
     "id": 10000150,
@@ -57551,14 +57581,15 @@
       "baseDef": 787,
       "critDmg%": 0.384
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "",
+        "name": "Snow Swan Variation",
         "actions": [
           {
-            "name": "1-Hit DMG",
+            "name": "Normal Attack 1",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -57585,7 +57616,7 @@
             }
           },
           {
-            "name": "2-Hit DMG",
+            "name": "Normal Attack 2",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -57612,7 +57643,7 @@
             }
           },
           {
-            "name": "3-Hit DMG",
+            "name": "Normal Attack 3",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -57658,7 +57689,7 @@
             }
           },
           {
-            "name": "4-Hit DMG",
+            "name": "Normal Attack 4",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -57685,7 +57716,7 @@
             }
           },
           {
-            "name": "5-Hit DMG",
+            "name": "Normal Attack 5",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -57712,8 +57743,8 @@
             }
           },
           {
-            "name": "Charged Attack DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -57739,36 +57770,63 @@
             }
           },
           {
-            "name": "Charged Attack Stamina Cost",
-            "type": "normalAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
                   "mv": [
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20
+                    1.278377,
+                    1.382431,
+                    1.486485,
+                    1.635134,
+                    1.739187,
+                    1.858106,
+                    2.02162,
+                    2.185133,
+                    2.348646,
+                    2.527025,
+                    2.705403,
+                    2.883781,
+                    3.062159,
+                    3.240537,
+                    3.418915
                   ]
                 }
               ]
             }
           },
           {
-            "name": "Plunge DMG",
-            "type": "normalAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.596762,
+                    1.726731,
+                    1.8567,
+                    2.04237,
+                    2.172339,
+                    2.320875,
+                    2.525112,
+                    2.729349,
+                    2.933586,
+                    3.15639,
+                    3.379194,
+                    3.601998,
+                    3.824802,
+                    4.047606,
+                    4.27041
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -57791,57 +57849,11 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Low/High Plunge DMG",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.278377,
-                    1.382431,
-                    1.486485,
-                    1.635134,
-                    1.739187,
-                    1.858106,
-                    2.02162,
-                    2.185133,
-                    2.348646,
-                    2.527025,
-                    2.705403,
-                    2.883781,
-                    3.062159,
-                    3.240537,
-                    3.418915
-                  ]
-                },
-                {
-                  "mv": [
-                    1.596762,
-                    1.726731,
-                    1.8567,
-                    2.04237,
-                    2.172339,
-                    2.320875,
-                    2.525112,
-                    2.729349,
-                    2.933586,
-                    3.15639,
-                    3.379194,
-                    3.601998,
-                    3.824802,
-                    4.047606,
-                    4.27041
-                  ]
-                }
-              ]
-            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "",
+        "name": "Adagio: Phantom Night Dancers",
         "actions": [
           {
             "name": "Skill DMG",
@@ -58088,92 +58100,11 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Coda at Dawn's Tolling CD",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Solo Dance Double Duration",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "CD",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15
-                  ]
-                }
-              ]
-            }
           }
         ]
       },
       "elementalBurst": {
-        "name": "",
+        "name": "Presto: Bluebird Finale",
         "actions": [
           {
             "name": "Slash DMG",
@@ -58367,6 +58298,10 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "rotation": [
+        "normalAttack.0"
+      ]
+    }
   }
 }

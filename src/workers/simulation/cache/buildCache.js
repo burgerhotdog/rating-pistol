@@ -12,6 +12,7 @@ import { getConvertedRotation } from './rotation';
 import {
   cacheElementalResonance,
   countMembersGI,
+  cacheStellarReactions,
 } from './game-specific/genshin-impact';
 import {
   cacheTuneResponses,
@@ -121,6 +122,7 @@ export const buildCache = ({ gameId, charId, team }) => {
 
   if (gameId === GI) {
     cacheElementalResonance(cache);
+    cacheStellarReactions(cache);
   }
 
   if (gameId === WW) {

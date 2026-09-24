@@ -89,6 +89,7 @@ export const getEffectDefs = (gameId, member, spec) => {
         sourceType: 'echo',
         index,
       });
+
       normalizedSetEffects[effect.key] = effect;
     }
   }

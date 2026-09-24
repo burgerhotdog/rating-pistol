@@ -10,6 +10,9 @@ import {
   reactMelt,
   reactVaporize,
 } from './amplifyingReactions';
+import {
+  reactStellarConduct,
+} from './stellarReactions';
 import { tryApplyElement } from './icd';
 import { applyAura, consumeAura } from './aura';
 
@@ -44,6 +47,10 @@ function applyElectro(ctx, gauge, applier) {
   const { aura } = ctx.states;
   let remaining = gauge;
 
+  if (aura.stellarConduct) {
+    aura.stellarConduct.hits++;
+  }
+
   if (aura.pyro && remaining) {
     reactOverloaded(ctx, applier);
     consumeAura(ctx, aura.pyro, remaining);
@@ -51,7 +58,12 @@ function applyElectro(ctx, gauge, applier) {
   }
 
   if (aura.cryo && remaining) {
-    reactSuperconduct(ctx, applier);
+    if (ctx.cache.stellarConduct) {
+      reactStellarConduct(ctx, applier);
+    } else {
+      reactSuperconduct(ctx, applier);
+    }
+
     consumeAura(ctx, aura.cryo, remaining);
     return;
   }
@@ -68,6 +80,10 @@ function applyElectro(ctx, gauge, applier) {
 function applyCryo(ctx, gauge, applier) {
   const { aura } = ctx.states;
   let remaining = gauge;
+
+  if (aura.stellarConduct) {
+    aura.stellarConduct.hits++;
+  }
 
   if (aura.hydro && remaining) {
     reactFrozen(ctx, applier, aura.hydro.gauge, remaining);

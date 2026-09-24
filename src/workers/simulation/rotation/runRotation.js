@@ -6,32 +6,45 @@ import { createEventFilter } from './filter';
 import { runAction } from './runAction';
 import { runEffects } from './runEffects';
 
+const initStates = (cache) => {
+  const { gameId, memberIds } = cache;
+
+  const initMemberStates = (init = () => ({})) =>
+    Object.fromEntries(memberIds.map((id) => [id, init()]));
+
+  const states = {
+    runtime: 0,
+    onFieldId: null,
+    getField(id) {
+      return id === this.onFieldId ? 'onField' : 'offField';
+    },
+    applyCooldowns: {},
+    globalEffects: {},
+    memberEffects: initMemberStates(),
+    memberHealth: initMemberStates(() => 1),
+  };
+
+  if (gameId === GI) {
+    states.icd = initMemberStates();
+    states.aura = {};
+    states.shield = false;
+  }
+
+  if (gameId === WW) {
+    states.negativeStatuses = {};
+    states.tune = { offTune: 0 };
+  }
+
+  return states;
+};
+
 export const runRotation = (cache, equipMaps, specId) => {
   const { gameId, memberIds } = cache;
 
   const ctx = {
     cache,
     specId,
-    states: {
-      runtime: 0,
-      onFieldId: null,
-      getField(id) {
-        return id === this.onFieldId ? 'onField' : 'offField';
-      },
-      applyCooldowns: {},
-      globalEffects: {},
-      memberEffects: Object.fromEntries(memberIds.map((id) => [id, {}])),
-      memberHealth: Object.fromEntries(memberIds.map((id) => [id, 1])),
-      ...(gameId === GI && {
-        icd: Object.fromEntries(memberIds.map((id) => [id, {}])),
-        aura: {},
-        shielded: false,
-      }),
-      ...(gameId === WW && {
-        negativeStatuses: {},
-        tune: { offTune: 0 },
-      }),
-    },
+    states: initStates(cache),
     snapshots: [],
     saveSnapshots: false,
     ...(gameId === WW && {

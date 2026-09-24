@@ -30,19 +30,19 @@ function advanceElectroCharged(ctx, elapsed) {
     }
   };
 
-  if (electroCharged.timer === 0) {
+  if (electroCharged.timeLeft === 0) {
     tick();
   }
 
   while (remaining > 0) {
     const interval = electroCharged
-      ? Math.min(remaining, electroCharged.timer)
+      ? Math.min(remaining, electroCharged.timeLeft)
       : remaining;
 
     remaining -= interval;
 
     if (electroCharged) {
-      electroCharged.timer -= interval;
+      electroCharged.timeLeft -= interval;
     }
 
     if (electro) {
@@ -69,8 +69,36 @@ function advanceElectroCharged(ctx, elapsed) {
       }
     }
 
-    if (electroCharged && electroCharged.timer === 0) {
+    if (electroCharged && electroCharged.timeLeft === 0) {
       tick();
+    }
+  }
+}
+
+function advanceStellarConduct(ctx, state, elapsed) {
+  let remaining = elapsed;
+
+  while (remaining > 0) {
+    const interval = Math.min(remaining, state.timer, state.timeLeft);
+    remaining -= interval;
+    state.timer -= interval;
+    state.timeLeft -= interval;
+
+    if (state.timeLeft <= 0) {
+      delete ctx.states.aura.stellarConduct;
+      return;
+    }
+
+    if (state.timer <= 0) {
+      const prevHits = state.prevHits = Math.min(state.hits, 12);
+      state.hits = 0;
+      state.timer = 4000;
+      state.multiplier = prevHits
+        ? 1.4 + prevHits * 0.05
+        : 1;
+      state.bonus = prevHits
+        ? 0.28 + prevHits * 0.01
+        : 0.2;
     }
   }
 }
@@ -91,8 +119,13 @@ export function advanceAuras(ctx, elapsed) {
     ) continue;
 
     if (state.reaction) {
-      state.timer -= elapsed;
-      if (state.timer <= 0) {
+      if (state.reaction === 'stellarConduct') {
+        advanceStellarConduct(ctx, state, elapsed);
+        continue;
+      }
+
+      state.timeLeft -= elapsed;
+      if (state.timeLeft <= 0) {
         delete ctx.states.aura[state.reaction];
       }
     }
