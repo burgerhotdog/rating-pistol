@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom';
 import {
   Card,
   CardContent,
@@ -7,6 +6,7 @@ import {
   Tooltip,
   Typography,
 } from '@mui/material';
+import { usePageParams } from '@/hooks';
 import { formatDate, formatDays } from '@/utils';
 import Header from './Header';
 import MenuAttrs from './MenuAttrs';
@@ -24,9 +24,9 @@ function getDaysAgo(dateString) {
 }
 
 const ConfigPanel = ({ team, setTeam }) => {
-  const { charId } = useParams();
+  const { charId } = usePageParams();
 
-  const member = team.find((member) => member.id === Number(charId));
+  const member = team.find((member) => member.id === charId);
 
   const dateString = member.build?.lastUpdated;
   const daysAgo = getDaysAgo(dateString);

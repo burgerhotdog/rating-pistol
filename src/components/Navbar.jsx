@@ -1,9 +1,9 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Avatar, Tab, Tabs } from '@mui/material';
-import { useSortedBuilds, useData } from '@/hooks';
+import { useSortedBuilds, useData, usePageParams } from '@/hooks';
 
 const Navbar = () => {
-  const { gameId, charId } = useParams();
+  const { gameId, charId } = usePageParams();
   const { sortedKeys } = useSortedBuilds();
   const charDatas = useData('character');
 
@@ -21,7 +21,7 @@ const Navbar = () => {
       }}
       slotProps={{ indicator: { style: { display: 'none' } } }}
     >
-      {sortedKeys.map((id) => {
+      {sortedKeys.map(({ id }) => {
         const { name, icon } = charDatas[id];
         return (
           <Tab

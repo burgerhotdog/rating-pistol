@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom';
 import {
   Button,
   Dialog,
@@ -7,10 +6,10 @@ import {
   DialogTitle,
 } from '@mui/material';
 import { useBuild } from '@/contexts';
-import { useData } from '@/hooks';
+import { useData, usePageParams } from '@/hooks';
 
 const DeleteDialog = ({ open, onClose }) => {
-  const { gameId, charId } = useParams();
+  const { gameId, charId } = usePageParams();
   const { deleteBuildId } = useBuild();
   const charDatas = useData('character');
 

@@ -15,11 +15,11 @@ export function useSortedBuilds() {
   const characterData = useData('character');
 
   const sortedKeys = useMemo(
-    () => Object.keys(builds)
+    () => Object.values(builds)
       .sort((a, b) => {
-        if (a === pinnedId) return -1;
-        if (b === pinnedId) return 1;
-        return characterData[b].version - characterData[a].version;
+        if (a.id === pinnedId) return -1;
+        if (b.id === pinnedId) return 1;
+        return characterData[b.id].version - characterData[a.id].version;
       }),
     [builds, pinnedId, characterData],
   );

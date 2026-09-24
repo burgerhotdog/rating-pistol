@@ -40,7 +40,7 @@ export const BuildProvider = ({ children }) => {
 
   const saveBuildEntries = async (gameId, entries) => {
     const entriesWithTimes = entries.map(([id, data]) => [
-      id,
+      String(id),
       { ...data, lastUpdated: new Date().toISOString() },
     ]);
 

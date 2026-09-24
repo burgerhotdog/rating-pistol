@@ -1,6 +1,6 @@
-import { useParams } from 'react-router-dom';
 import { Stack, Typography } from '@mui/material';
 import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON, SET, ECHO } from '@/data';
+import { usePageParams } from '@/hooks';
 import {
   buildBaseMap,
   buildEquipMap,
@@ -144,8 +144,8 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
 }
 
 const MenuAttrs = ({ team }) => {
-  const { gameId, charId } = useParams();
-  const menuMap = buildMenuMap(gameId, Number(charId), team);
+  const { gameId, charId } = usePageParams();
+  const menuMap = buildMenuMap(gameId, charId, team);
   const rows = ATTR_ROWS[gameId].map((attr) => {
     const attrValue = getAttr(attr, menuMap);
     return {

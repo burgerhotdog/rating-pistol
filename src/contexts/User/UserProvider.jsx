@@ -51,7 +51,7 @@ export const UserProvider = ({ children }) => {
 
   const updatePinnedIds = async (gameId, id) => {
     const isPinned = pinnedIds[gameId] === id;
-    const op = isPinned ? deleteField() : String(id);
+    const op = isPinned ? deleteField() : id;
 
     if (user) {
       await updateDoc(ref, { [`pinned-ids.${gameId}`]: op });

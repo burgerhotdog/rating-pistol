@@ -40,7 +40,7 @@ const GamePage = () => {
   if (!charId) {
     return !sortedKeys.length
       ? <DefaultPage key={gameId} />
-      : <Navigate to={`/${gameId}/${sortedKeys[0]}`} replace />;
+      : <Navigate to={`/${gameId}/${sortedKeys[0].id}`} replace />;
   }
 
   const validCharId = CHARACTER[gameId][charId] && builds[charId];
