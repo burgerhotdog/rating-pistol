@@ -147,7 +147,7 @@ const SubstatsChart = ({ equipListConfigs, equipList }) => {
   const { gameId } = useParams();
   const { palette } = useTheme();
   const accent = useAccent();
-  const userMainstatConfigKey = getMainstatConfigKey(equipList);
+  const userMainstatConfigKey = getMainstatConfigKey(gameId, equipList);
   const userSubstatRolls = sumSubstatRolls(gameId, equipList);
 
   const userConfig = equipListConfigs[userMainstatConfigKey];

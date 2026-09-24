@@ -13,8 +13,8 @@ import { useAccent } from '@/hooks';
 import { formatStr, getStatIcon, getMainstatConfigKey } from '@/utils';
 
 const Mainstats = ({ equipListConfigs, equipList }) => {
-  const userMainstatConfigKey = getMainstatConfigKey(equipList);
   const { gameId } = useParams();
+  const userMainstatConfigKey = getMainstatConfigKey(gameId, equipList);
   const accent = useAccent();
 
   const data = Object.entries(equipListConfigs)
