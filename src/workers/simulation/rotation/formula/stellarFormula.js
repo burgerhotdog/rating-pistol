@@ -4,14 +4,16 @@ import { getResMult } from './enemyRes';
 
 const computeBase = (compressed, statMap) => {
   const { mvs, hitCount } = compressed;
+  const mvMultiplier = getAttr('damageMv%', statMap);
+  const mvFlat = getAttr('damageMv', statMap);
   let totalMvPart = 0;
 
   for (const [attr, mv] of Object.entries(mvs)) {
     const attrValue = getAttr(attr, statMap);
-    totalMvPart += attrValue * (mv * hitCount);
+    totalMvPart += attrValue * (mv + mvFlat * hitCount);
   }
 
-  return totalMvPart;
+  return totalMvPart * (1 + mvMultiplier);
 };
 
 function getEmBonus(em) {

@@ -131,7 +131,12 @@ export function runAction(ctx, action, options = {}) {
     runEffects('hit');
 
     if (modifiedAction.drain) {
-      const { targets, value, minLimit = 0, maxLimit = 1 } = modifiedAction.drain;
+      const {
+        targets = [modifiedAction.ownerId],
+        value,
+        minLimit = 0,
+        maxLimit = 1,
+      } = modifiedAction.drain;
       const { memberHealth } = ctx.states;
 
       for (const targetId of targets) {

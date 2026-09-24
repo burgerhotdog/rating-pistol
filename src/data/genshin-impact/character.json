@@ -33537,7 +33537,8 @@
         }
       },
       {
-        "use": {
+        "ref": "surgingBlade",
+        "apply": {
           "when": "end",
           "filter": {
             "action": {
@@ -33545,28 +33546,44 @@
             }
           },
           "cooldown": 10000,
+          "uses": 1,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
           "action": "elementalBurst.1"
         }
       },
       {
-        "use": {
-          "when": "hit",
+        "modify": {
+          "type": "action",
           "filter": {
             "action": {
               "ref": "normalAttack.5"
             }
           },
-          "action": {
+          "spec": {
             "drain": {
               "value": -0.3
             }
           }
-        },
+        }
+      },
+      {
         "buff": {
           "filter": {
-            "action": {
-              "ref": "normalAttack.5"
-            }
+            "and": [
+              {
+                "not": {
+                  "radiance": "stellarConduct"
+                }
+              },
+              {
+                "action": {
+                  "ref": "normalAttack.5"
+                }
+              }
+            ]
           },
           "stats": {
             "damageBonus%": 0.5
@@ -33574,6 +33591,7 @@
         }
       },
       {
+        "ref": "prosecutionEdict",
         "apply": {
           "when": "healthChange",
           "filter": {
@@ -33605,12 +33623,16 @@
           "filter": {
             "and": [
               {
-                "action": {
-                  "ref": "normalAttack.5"
-                }
+                "radiance": "stellarConduct"
               },
               {
-                "radiance": "stellarConduct"
+                "action": {
+                  "ref": [
+                    "normalAttack.2",
+                    "normalAttack.4",
+                    "normalAttack.5"
+                  ]
+                }
               }
             ]
           },
@@ -33618,6 +33640,51 @@
             "damage": {
               "type": "stellarConduct"
             }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "radiance": "stellarConduct"
+              },
+              {
+                "action": {
+                  "ref": "normalAttack.2"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "damageMv%": -0.4
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "radiance": "stellarConduct"
+              },
+              {
+                "action": {
+                  "ref": "normalAttack.4"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "damageMv%": -0.2
+          }
+        }
+      },
+      {
+        "buff": {
+          "stats": {
+            "stellarConductReactionBonus%": 0.3
           }
         }
       }
