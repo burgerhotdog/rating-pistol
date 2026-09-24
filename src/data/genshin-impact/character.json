@@ -33610,11 +33610,7 @@
                 }
               },
               {
-                "states": {
-                  "aura": {
-                    "has": "stellarConduct"
-                  }
-                }
+                "radiance": "stellarConduct"
               }
             ]
           },
