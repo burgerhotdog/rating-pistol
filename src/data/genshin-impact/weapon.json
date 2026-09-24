@@ -1465,6 +1465,7 @@
           ]
         },
         "modify": {
+          "type": "effect",
           "ref": "selfBuff",
           "spec": {
             "buff": {
@@ -1486,6 +1487,7 @@
           ]
         },
         "modify": {
+          "type": "effect",
           "ref": "allyBuff",
           "spec": {
             "buff": {

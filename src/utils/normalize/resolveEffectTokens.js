@@ -148,7 +148,7 @@ export const resolveEffectTokens = (normalized) => {
       traverseFilter(effect.buff.filter, ownerId, sourceId);
     }
 
-    if (effect.modify) {
+    if (effect.modify?.type === 'effect') {
       const modify = effect.modify = { ...effect.modify };
       modify.key = resolveEffectRef(modify.ref, ownerId, sourceId);
     }

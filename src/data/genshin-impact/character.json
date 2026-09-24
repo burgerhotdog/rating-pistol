@@ -4192,6 +4192,7 @@
       {
         "rank": 4,
         "modify": {
+          "type": "effect",
           "ref": "pyronado",
           "spec": {
             "apply": {
@@ -5214,6 +5215,7 @@
       {
         "rank": 2,
         "modify": {
+          "type": "effect",
           "ref": "rainbowBladework",
           "spec": {
             "apply": {
@@ -5225,6 +5227,7 @@
       {
         "rank": 2,
         "modify": {
+          "type": "effect",
           "ref": "orbitalSwords",
           "spec": {
             "apply": {
@@ -49645,6 +49648,7 @@
           ]
         },
         "modify": {
+          "type": "effect",
           "ref": "pyroResDown",
           "spec": {
             "buff": {
@@ -49663,6 +49667,7 @@
           ]
         },
         "modify": {
+          "type": "effect",
           "ref": "dendroResDown",
           "spec": {
             "buff": {
@@ -49681,6 +49686,7 @@
           ]
         },
         "modify": {
+          "type": "effect",
           "ref": "electroResDown",
           "spec": {
             "buff": {
@@ -49699,6 +49705,7 @@
           ]
         },
         "modify": {
+          "type": "effect",
           "ref": "anemoResDown",
           "spec": {
             "buff": {
@@ -49717,6 +49724,7 @@
           ]
         },
         "modify": {
+          "type": "effect",
           "ref": "geoResDown",
           "spec": {
             "buff": {
@@ -49735,6 +49743,7 @@
           ]
         },
         "modify": {
+          "type": "effect",
           "ref": "denialOfDarkness",
           "spec": {
             "buff": {

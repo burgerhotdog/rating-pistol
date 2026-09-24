@@ -933,6 +933,7 @@
       {
         "rank": 4,
         "modify": {
+          "type": "effect",
           "ref": "ultCoord",
           "spec": {
             "apply": {
@@ -11081,6 +11082,7 @@
       {
         "rank": 1,
         "modify": {
+          "type": "effect",
           "ref": "heavyCoord",
           "spec": {
             "use": {
@@ -11120,6 +11122,7 @@
       {
         "rank": 4,
         "modify": {
+          "type": "effect",
           "ref": "basicCoord",
           "spec": {
             "apply": {
@@ -11131,6 +11134,7 @@
       {
         "rank": 4,
         "modify": {
+          "type": "effect",
           "ref": "heavyCoord",
           "spec": {
             "apply": {
@@ -11142,6 +11146,7 @@
       {
         "rank": 4,
         "modify": {
+          "type": "effect",
           "ref": "coordBuff",
           "spec": {
             "apply": {
@@ -59731,6 +59736,7 @@
       {
         "rank": 3,
         "modify": {
+          "type": "effect",
           "ref": "defUp",
           "spec": {
             "apply": {
@@ -60671,6 +60677,7 @@
       {
         "rank": 2,
         "modify": {
+          "type": "effect",
           "ref": "incineratingWill",
           "spec": {
             "buff": {
