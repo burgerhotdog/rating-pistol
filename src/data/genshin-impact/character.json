@@ -44441,11 +44441,13 @@
       "baseDef": 782,
       "critRate%": 0.192
     },
+    "energy": 70,
+    "energyMax": 1.5,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "By the Horns",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -44532,6 +44534,11 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
+              "icd": {
+                "tag": "Varesa General",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -44550,33 +44557,6 @@
                     1.8972,
                     2.0088,
                     2.1204
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.7459,
-                    0.8066,
-                    0.8673,
-                    0.954,
-                    1.0147,
-                    1.0841,
-                    1.1795,
-                    1.2749,
-                    1.3703,
-                    1.4744,
-                    1.5785,
-                    1.6826,
-                    1.7866,
-                    1.8907,
-                    1.9948
                   ]
                 }
               ]
@@ -44637,7 +44617,34 @@
             }
           },
           {
-            "name": "Fiery Passion 1-Hit DMG",
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.7459,
+                    0.8066,
+                    0.8673,
+                    0.954,
+                    1.0147,
+                    1.0841,
+                    1.1795,
+                    1.2749,
+                    1.3703,
+                    1.4744,
+                    1.5785,
+                    1.6826,
+                    1.7866,
+                    1.8907,
+                    1.9948
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Fiery Passion: Normal Attack 1",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -44664,7 +44671,7 @@
             }
           },
           {
-            "name": "Fiery Passion 2-Hit DMG",
+            "name": "Fiery Passion: Normal Attack 2",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -44691,7 +44698,7 @@
             }
           },
           {
-            "name": "Fiery Passion 3-Hit DMG",
+            "name": "Fiery Passion: Normal Attack 3",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -44718,9 +44725,14 @@
             }
           },
           {
-            "name": "Fiery Passion Charged Attack DMG",
-            "type": "normalAttack",
+            "name": "Fiery Passion: Charged Attack",
+            "type": "chargedAttack",
             "damage": {
+              "icd": {
+                "tag": "Varesa General",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -44745,9 +44757,63 @@
             }
           },
           {
-            "name": "Fiery Passion Plunge DMG",
-            "type": "normalAttack",
+            "name": "Fiery Passion: Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    2.2372,
+                    2.4193,
+                    2.6013,
+                    2.8615,
+                    3.0436,
+                    3.2517,
+                    3.5378,
+                    3.824,
+                    4.1101,
+                    4.4223,
+                    4.7345,
+                    5.0466,
+                    5.3588,
+                    5.6709,
+                    5.9831
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Fiery Passion: Plunging Attack: High",
+            "type": "plungingAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    2.7943,
+                    3.0218,
+                    3.2492,
+                    3.5741,
+                    3.8016,
+                    4.0615,
+                    4.4189,
+                    4.7764,
+                    5.1338,
+                    5.5237,
+                    5.9136,
+                    6.3035,
+                    6.6934,
+                    7.0833,
+                    7.4732
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Fiery Passion: Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -44770,62 +44836,22 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Fiery Passion Low/High Plunge DMG",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    2.2372,
-                    2.4193,
-                    2.6013,
-                    2.8615,
-                    3.0436,
-                    3.2517,
-                    3.5378,
-                    3.824,
-                    4.1101,
-                    4.4223,
-                    4.7345,
-                    5.0466,
-                    5.3588,
-                    5.6709,
-                    5.9831
-                  ]
-                },
-                {
-                  "mv": [
-                    2.7943,
-                    3.0218,
-                    3.2492,
-                    3.5741,
-                    3.8016,
-                    4.0615,
-                    4.4189,
-                    4.7764,
-                    5.1338,
-                    5.5237,
-                    5.9136,
-                    6.3035,
-                    6.6934,
-                    7.0833,
-                    7.4732
-                  ]
-                }
-              ]
-            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "Rush DMG",
+        "name": "Riding the Night-Rainbow",
         "actions": [
           {
-            "name": "Rush DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Varesa General",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -44850,9 +44876,15 @@
             }
           },
           {
-            "name": "Fiery Passion Rush DMG",
+            "name": "Fiery Passion: Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Varesa General",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -44879,10 +44911,10 @@
         ]
       },
       "elementalBurst": {
-        "name": "Flying Kick DMG",
+        "name": "Guardian Vent!",
         "actions": [
           {
-            "name": "Flying Kick DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
               "multipliers": [
@@ -44909,7 +44941,7 @@
             }
           },
           {
-            "name": "Fiery Passion Flying Kick DMG",
+            "name": "Fiery Passion: Elemental Burst",
             "type": "elementalBurst",
             "damage": {
               "multipliers": [
@@ -44936,9 +44968,16 @@
             }
           },
           {
-            "name": "Volcano Kablam DMG",
+            "name": "Volcano Kablam",
             "type": "elementalBurst",
             "damage": {
+              "type": "plungingAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Varesa General",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -44960,12 +44999,18 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 1000
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14519,
+      "setCounts": {
+        "15039": 4
+      }
+    }
   },
   "10000112": {
     "disabled": true,

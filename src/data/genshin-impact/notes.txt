@@ -92,3 +92,5 @@ Sets:
         4pc dmg bonus is for all elements
     Shimenawa's Reminiscence
         4pc energy simplified
+    Long Night's Oath
+        Stacks not independent

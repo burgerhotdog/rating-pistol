@@ -1432,7 +1432,6 @@
     ]
   },
   "15039": {
-    "disabled": true,
     "name": "Long Night's Oath",
     "version": 5.5,
     "id": 15039,
@@ -1453,11 +1452,43 @@
       },
       {
         "bonus": 4,
+        "ref": "radianceEverlasting",
+        "apply": [
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "plungingAttack"
+                }
+              }
+            },
+            "cooldown": 1000,
+            "duration": 6000
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "chargedAttack",
+                    "elementalSkill"
+                  ]
+                }
+              }
+            },
+            "cooldown": 1000,
+            "duration": 6000,
+            "stacks": 2
+          }
+        ],
         "buff": {
           "stats": {
-            "plungingAttackDmgBonus%": 0.75
+            "plungingAttackDmgBonus%": 0.15
           }
-        }
+        },
+        "maxStacks": 5
       }
     ]
   },
