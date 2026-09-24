@@ -5,7 +5,6 @@ import {
   applyGauge,
   advanceAuras,
   advanceIcdStates,
-  checkInfusion,
 } from './game-specific/genshin-impact';
 import {
   consumeNegativeStatuses,
@@ -148,8 +147,7 @@ export function runAction(ctx, action, options = {}) {
 
     let scaleMult = 1;
     if (gameId === GI) {
-      const infusionElement = checkInfusion(ctx, modifiedAction);
-      scaleMult = applyGauge(ctx, modifiedAction, infusionElement);
+      scaleMult = applyGauge(ctx, modifiedAction);
     }
 
     if (modifiedAction.healing) {

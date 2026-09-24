@@ -91,7 +91,12 @@ function applyCryo(ctx, gauge, applier) {
   }
 
   if (aura.electro && remaining) {
-    reactSuperconduct(ctx, applier);
+    if (ctx.cache.stellarConduct) {
+      reactStellarConduct(ctx, applier);
+    } else {
+      reactSuperconduct(ctx, applier);
+    }
+
     consumeAura(ctx, aura.electro, remaining);
     return;
   }
@@ -185,16 +190,15 @@ function applyDendro(ctx, gauge, applier) {
   applyAura(ctx, 'dendro', gauge);
 }
 
-export function applyGauge(ctx, action, infusionElement) {
+export function applyGauge(ctx, action) {
   const { damage, ownerId } = action;
   if (!damage) return;
 
   const { element, gauge, icd } = damage;
-  const usedElement = infusionElement ?? element;
-  if (usedElement === 'physical' || !gauge) return;
+  if (element === 'physical' || !gauge) return;
   if (!tryApplyElement(ctx, ownerId, icd)) return;
 
-  switch (usedElement) {
+  switch (element) {
     case 'pyro':
       return applyPyro(ctx, gauge, ownerId);
 

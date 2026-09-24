@@ -2,7 +2,6 @@ import { toMergedObj, resolveBuffSpecs } from '@/utils';
 import { runFormula } from './formula';
 import { getBuffMap } from './getStatMap';
 import { getUsedAttrs } from './formula/solver';
-import { checkInfusion } from './game-specific/genshin-impact';
 
 export const canSnapshot = (action = {}) =>
   action.damage?.compressed ||
@@ -12,52 +11,43 @@ export const canSnapshot = (action = {}) =>
 export const buildSnapshot = (ctx, action, options = {}) => {
   const { gameId } = ctx.cache;
   const { runtimeOffset = 0, snapshotBuffs } = options;
-  const infusedElement = checkInfusion(ctx, action);
   const snapshotOwnerId = action.ownerId;
 
-  let snapshotAction = action;
-  if (action?.damage && infusedElement) {
-    snapshotAction = {
-      ...action,
-      damage: {
-        ...action.damage,
-        element: infusedElement,
-      },
-    };
-  }
-
-  const { buffMap, buffSpecs } = snapshotBuffs ?? getBuffMap(ctx, { memberId: snapshotOwnerId, action: snapshotAction });
+  const { buffMap, buffSpecs } = snapshotBuffs ?? getBuffMap(ctx, {
+    memberId: snapshotOwnerId,
+    action,
+  });
 
   const memo = {};
 
-  const isStellarConduct = snapshotAction?.damage?.type === 'stellarConduct';
-  const isStellarSwirl = snapshotAction?.damage?.type === 'stellarSwirl';
+  const isStellarConduct = action?.damage?.type === 'stellarConduct';
+  const isStellarSwirl = action?.damage?.type === 'stellarSwirl';
   const { multiplier } = ctx.states.aura.stellarConduct ?? {};
 
   const formula = (statMap, part) => isStellarConduct || isStellarSwirl
-    ? runFormula(gameId, part, snapshotAction, statMap, multiplier)
-    : runFormula(gameId, part, snapshotAction, statMap);
+    ? runFormula(gameId, part, action, statMap, multiplier)
+    : runFormula(gameId, part, action, statMap);
 
   const snapshot = {
-    key: snapshotAction.key,
-    name: snapshotAction.name,
-    ownerId: snapshotAction.ownerId,
-    category: snapshotAction.category,
-    type: snapshotAction.type,
+    key: action.key,
+    name: action.name,
+    ownerId: action.ownerId,
+    category: action.category,
+    type: action.type,
     onFieldId: ctx.states.onFieldId,
     runtime: ctx.states.runtime + runtimeOffset,
-    damageType: snapshotAction.damage?.type,
+    damageType: action.damage?.type,
     unresolved: {
       memo,
-      action: snapshotAction,
+      action: action,
       buffMap,
       buffSpecs,
       splitScale: 1 / (action.hitOffsets?.length ?? 1),
       formula,
       parts: [
-        ...(snapshotAction.damage ? ['damage'] : []),
-        ...(snapshotAction.healing ? ['healing'] : []),
-        ...(snapshotAction.shield ? ['shield'] : []),
+        ...(action.damage ? ['damage'] : []),
+        ...(action.healing ? ['healing'] : []),
+        ...(action.shield ? ['shield'] : []),
       ],
     },
   };

@@ -2139,8 +2139,20 @@
           },
           "duration": 12000
         },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "category": "normalAttack"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "pyro"
+            }
+          }
+        },
         "buff": {
-          "infusion": "pyro",
           "stats": {
             "pyroDmgBonus%": 0.2
           }
@@ -33588,8 +33600,8 @@
         "maxStacks": 5
       },
       {
-        "use": {
-          "when": "start",
+        "modify": {
+          "type": "action",
           "filter": {
             "and": [
               {
@@ -33606,14 +33618,9 @@
               }
             ]
           },
-          "action": {
+          "spec": {
             "damage": {
-              "type": "stellarConduct",
-              "multipliers": [
-                {
-                  "mv": 2.75
-                }
-              ]
+              "type": "stellarConduct"
             }
           }
         }
