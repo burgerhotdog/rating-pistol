@@ -411,7 +411,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11509,
+      "setCounts": {
+        "14001": 4
+      }
+    }
   },
   "10000003": {
     "disabled": true,
@@ -857,7 +862,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11401,
+      "setCounts": {
+        "15002": 4
+      }
+    }
   },
   "10000006": {
     "disabled": true,
@@ -1275,7 +1285,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14401,
+      "setCounts": {
+        "15007": 4
+      }
+    }
   },
   "10000014": {
     "disabled": true,
@@ -1693,7 +1708,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14406,
+      "setCounts": {
+        "14004": 4
+      }
+    }
   },
   "10000015": {
     "name": "Kaeya",
@@ -2071,6 +2091,10 @@
       }
     },
     "memberPreset": {
+      "weaponId": 11401,
+      "setCounts": {
+        "15007": 4
+      },
       "rotation": [
         "elementalSkill.0",
         "elementalBurst.0"
@@ -3039,7 +3063,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12406,
+      "setCounts": {
+        "15044": 4
+      }
+    }
   },
   "10000021": {
     "name": "Amber",
@@ -6152,7 +6181,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13505,
+      "setCounts": {
+        "15023": 4
+      }
+    }
   },
   "10000027": {
     "disabled": true,
@@ -9382,7 +9416,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15507,
+      "setCounts": {
+        "15029": 4
+      }
+    }
   },
   "10000034": {
     "disabled": true,
@@ -9885,7 +9924,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12407,
+      "setCounts": {
+        "15021": 4
+      }
+    }
   },
   "10000035": {
     "disabled": true,
@@ -10431,7 +10475,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11401,
+      "setCounts": {
+        "14004": 4
+      }
+    }
   },
   "10000036": {
     "disabled": true,
@@ -10791,7 +10840,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12403,
+      "setCounts": {
+        "15007": 4
+      }
+    }
   },
   "10000037": {
     "disabled": true,
@@ -11259,7 +11313,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15502,
+      "setCounts": {
+        "15003": 4
+      }
+    }
   },
   "10000038": {
     "name": "Albedo",
@@ -14934,7 +14993,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13501,
+      "setCounts": {
+        "15006": 4
+      }
+    }
   },
   "10000047": {
     "name": "Kaedehara Kazuha",
@@ -16328,7 +16392,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15509,
+      "setCounts": {
+        "15019": 4
+      }
+    }
   },
   "10000050": {
     "disabled": true,
@@ -17359,7 +17428,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12503,
+      "setCounts": {
+        "15018": 4
+      }
+    }
   },
   "10000052": {
     "disabled": true,
@@ -18146,7 +18220,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13509,
+      "setCounts": {
+        "15020": 4
+      }
+    }
   },
   "10000053": {
     "disabled": true,
@@ -19179,7 +19258,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14506,
+      "setCounts": {
+        "15022": 4
+      }
+    }
   },
   "10000055": {
     "disabled": true,
@@ -20342,7 +20426,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12510,
+      "setCounts": {
+        "15021": 4
+      }
+    }
   },
   "10000058": {
     "disabled": true,
@@ -20729,7 +20818,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14509,
+      "setCounts": {
+        "15046": 4
+      }
+    }
   },
   "10000059": {
     "disabled": true,
@@ -21588,7 +21682,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15508,
+      "setCounts": {
+        "15020": 4
+      }
+    }
   },
   "10000061": {
     "disabled": true,
@@ -23083,7 +23182,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13507,
+      "setCounts": {
+        "15007": 4
+      }
+    }
   },
   "10000064": {
     "disabled": true,
@@ -24493,7 +24597,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11510,
+      "setCounts": {
+        "15024": 4
+      }
+    }
   },
   "10000067": {
     "disabled": true,
@@ -25693,7 +25802,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15511,
+      "setCounts": {
+        "15003": 4
+      }
+    }
   },
   "10000070": {
     "disabled": true,
@@ -26156,7 +26270,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11511,
+      "setCounts": {
+        "15028": 4
+      }
+    }
   },
   "10000071": {
     "disabled": true,
@@ -26744,7 +26863,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13511,
+      "setCounts": {
+        "15026": 4
+      }
+    }
   },
   "10000072": {
     "disabled": true,
@@ -27683,7 +27807,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14511,
+      "setCounts": {
+        "15025": 4
+      }
+    }
   },
   "10000074": {
     "disabled": true,
@@ -29916,7 +30045,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11512,
+      "setCounts": {
+        "15026": 4
+      }
+    }
   },
   "10000079": {
     "disabled": true,
@@ -30414,7 +30548,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12511,
+      "setCounts": {
+        "15030": 4
+      }
+    }
   },
   "10000080": {
     "disabled": true,
@@ -31716,7 +31855,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14505,
+      "setCounts": {
+        "15025": 4
+      }
+    }
   },
   "10000083": {
     "disabled": true,
@@ -34455,7 +34599,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14514,
+      "setCounts": {
+        "15031": 4
+      }
+    }
   },
   "10000088": {
     "disabled": true,
@@ -35475,7 +35624,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11513,
+      "setCounts": {
+        "15032": 4
+      }
+    }
   },
   "10000090": {
     "name": "Chevreuse",
@@ -36614,7 +36768,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12512,
+      "setCounts": {
+        "15034": 4
+      }
+    }
   },
   "10000092": {
     "disabled": true,
@@ -37437,7 +37596,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14515,
+      "setCounts": {
+        "15002": 4
+      }
+    }
   },
   "10000094": {
     "disabled": true,
@@ -37865,7 +38029,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11514,
+      "setCounts": {
+        "15021": 4
+      }
+    }
   },
   "10000095": {
     "disabled": true,
@@ -38272,7 +38441,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15513,
+      "setCounts": {
+        "15033": 4
+      }
+    }
   },
   "10000096": {
     "disabled": true,
@@ -38732,7 +38906,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13512,
+      "setCounts": {
+        "15035": 4
+      }
+    }
   },
   "10000097": {
     "disabled": true,
@@ -39631,7 +39810,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11515,
+      "setCounts": {
+        "15035": 4
+      }
+    }
   },
   "10000099": {
     "disabled": true,
@@ -40018,7 +40202,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13513,
+      "setCounts": {
+        "15036": 4
+      }
+    }
   },
   "10000100": {
     "disabled": true,
@@ -40730,7 +40919,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12513,
+      "setCounts": {
+        "15038": 4
+      }
+    }
   },
   "10000102": {
     "disabled": true,
@@ -41063,7 +41257,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14516,
+      "setCounts": {
+        "15038": 4
+      }
+    }
   },
   "10000103": {
     "disabled": true,
@@ -41569,7 +41768,12 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11516,
+      "setCounts": {
+        "15037": 4
+      }
+    }
   },
   "10000104": {
     "disabled": true,
