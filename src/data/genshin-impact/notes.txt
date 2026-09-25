@@ -19,23 +19,35 @@ Characters:
     Kazuha
     Klee
         No constellations
+    Lohen
+        No level increase
+        No 60 will to win gain
     Lyney
         Hats dont snapshot stats
         No hp restrictions on A1
         No constellations
     Nicole
-        No constellations
         onField character must be hexerei to get buff upgrade
         coordinated attack uses own atk
-    Lohen
-        No level increase
-        No 60 will to win gain
+        No constellations
+    Odette
+        Only plume
+        Marvelous Splendor applies to $ally
+        No constellations
+    Sandrone
+        A1 doesn't apply to non stellar dmg
+        No constellations
     Wanderer
     Wriothesley
+        No constellations
     Xingqiu
         No energy recovery
         3 sword always
         no orbitals from skill
+    Yumemizuki Mizuki
+        Ult always does damage
+        A1 always extended
+        No constellations
     Zhongli
 
 Weapons:
@@ -77,6 +89,9 @@ Weapons:
         Buff maxed
     Wandering Evenstar
         buff is constant instead of snapshotting
+    Whitelake Frostfeather
+        Stacks not independent
+        No energy effect
     Wolf's Gravestone
         Team buff disabled
 

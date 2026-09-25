@@ -1,31 +1,26 @@
 import { GI } from '@/data';
-import { clamp, getAttr } from '@/utils';
+import { getAttr } from '@/utils';
+import { getCritMult } from './getCritMult';
 import { getResMult } from './enemyRes';
 
 const computeBase = (compressed, statMap) => {
   const { mvs, hitCount } = compressed;
-  const mvMultiplier = getAttr('damageMv%', statMap);
   const mvFlat = getAttr('damageMv', statMap);
-  let totalMvPart = 0;
+  let mvDamageValue = 0;
 
-  for (const [attr, mv] of Object.entries(mvs)) {
+  for (const attr in mvs) {
     const attrValue = getAttr(attr, statMap);
-    totalMvPart += attrValue * (mv + mvFlat * hitCount);
+    const multiplier = mvs[attr] + mvFlat * hitCount;
+    mvDamageValue += attrValue * multiplier;
   }
 
-  return totalMvPart * (1 + mvMultiplier);
+  const mvMultiplier = 1 + getAttr('damageMv%', statMap);
+  return mvDamageValue * mvMultiplier;
 };
 
 function getEmBonus(em) {
   return (6 * em) / (em + 2000);
 }
-
-const critMultiplier = (statMap) => {
-  const critRate = clamp(getAttr('critRate%', statMap), 0, 1);
-  const critDamage = getAttr('critDmg%', statMap);
-
-  return critRate * (1 + critDamage) + (1 - critRate);
-};
 
 function stellarConductFormula(action, statMap, reactionMultiplier) {
   const { element, compressed } = action.damage;
@@ -35,18 +30,49 @@ function stellarConductFormula(action, statMap, reactionMultiplier) {
   let damageValue =
     reactionMultiplier *
     computeBase(compressed, statMap) *
-    (1 + getAttr('stellarConductBaseDmgBonus%', statMap)) *
-    (1 + getEmBonus(em) + getAttr('stellarConductReactionBonus%', statMap)) +
-    getAttr('stellarConductFlat', statMap);
+    (
+      1 +
+      getAttr('stellarConductBaseDmg%', statMap) +
+      getAttr('stellarGlimmerBaseDmg%', statMap)
+    ) *
+    (
+      1 +
+      getEmBonus(em) +
+      getAttr('stellarConductReactionBonus%', statMap) +
+      getAttr('stellarGlimmerReactionBonus%', statMap)
+    ) +
+    getAttr('stellarGlimmerFlat', statMap);
 
-  damageValue *= critMultiplier(statMap);
+  damageValue *= getCritMult(statMap);
   damageValue *= getResMult(GI, element, statMap);
 
   return damageValue;
 }
 
 function stellarSwirlFormula(action, statMap) {
-  return;
+  const { element, compressed } = action.damage;
+
+  const em = getAttr('elementalMastery', statMap);
+
+  let damageValue =
+    computeBase(compressed, statMap) *
+    (
+      1 +
+      getAttr('stellarSwirlBaseDmg%', statMap) +
+      getAttr('stellarGlimmerBaseDmg%', statMap)
+    ) *
+    (
+      1 +
+      getEmBonus(em) +
+      getAttr('stellarSwirlReactionBonus%', statMap) +
+      getAttr('stellarGlimmerReactionBonus%', statMap)
+    ) +
+    getAttr('stellarGlimmerFlat', statMap);
+
+  damageValue *= getCritMult(statMap);
+  damageValue *= getResMult(GI, element, statMap);
+
+  return damageValue;
 }
 
 export function runStellarFormula(action, statMap, reactionMultiplier) {
@@ -55,7 +81,6 @@ export function runStellarFormula(action, statMap, reactionMultiplier) {
   if (type === 'stellarConduct') {
     return stellarConductFormula(action, statMap, reactionMultiplier);
   }
-
 
   if (type === 'stellarSwirl') {
     return stellarSwirlFormula(action, statMap, reactionMultiplier);

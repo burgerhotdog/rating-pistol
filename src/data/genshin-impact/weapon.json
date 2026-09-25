@@ -1518,7 +1518,6 @@
     "effects": []
   },
   "11520": {
-    "disabled": true,
     "name": "Whitelake Frostfeather",
     "version": 7.0,
     "id": 11520,
@@ -1529,7 +1528,62 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "lakeHuedLament",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.08,
+              0.16
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "stellarConduct",
+                      "stellarSwirl"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "lakeHuedLament": 3
+                }
+              }
+            ]
+          },
+          "stats": {
+            "critDmg%": [
+              0.5,
+              1.1
+            ]
+          }
+        }
+      }
+    ]
   },
   "11522": {
     "disabled": true,
@@ -2013,7 +2067,6 @@
     "effects": []
   },
   "12426": {
-    "disabled": true,
     "name": "\"Ultimate Overlord's Mega Magic Sword\"",
     "version": 4.3,
     "id": 12426,
@@ -2024,7 +2077,18 @@
       "baseAtk": 565,
       "energyRecharge%": 0.306
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
   },
   "12427": {
     "disabled": true,
@@ -2327,7 +2391,6 @@
     "effects": []
   },
   "12516": {
-    "disabled": true,
     "name": "A Teaspoon of Transcendence",
     "version": 6.7,
     "id": 12516,
@@ -2338,7 +2401,42 @@
       "baseAtk": 674,
       "critDmg%": 0.441
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      },
+      {
+        "ref": "transcendence",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "cooldown": 200,
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "stellarGlimmerReactionBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        },
+        "maxStacks": 3
+      }
+    ]
   },
   "13101": {
     "name": "Beginner's Protector",
@@ -4141,7 +4239,6 @@
     "effects": []
   },
   "14518": {
-    "disabled": true,
     "name": "Sunny Morning Sleep-In",
     "version": 5.4,
     "id": 14518,
@@ -4152,7 +4249,72 @@
       "baseAtk": 542,
       "elementalMastery": 265
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "swirl",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              120,
+              240
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "duration": 9000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              96,
+              192
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              32,
+              64
+            ]
+          }
+        }
+      }
+    ]
   },
   "14519": {
     "disabled": true,

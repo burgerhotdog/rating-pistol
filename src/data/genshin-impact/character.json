@@ -8550,7 +8550,7 @@
             }
           },
           {
-            "name": "Elemental Burst: Healing Tick",
+            "name": "Healing Tick",
             "healing": {
               "attr": "hp",
               "multipliers": [
@@ -8594,7 +8594,7 @@
             }
           },
           {
-            "name": "Elemental Burst: Base ATK Buff Ratio",
+            "name": "Base ATK Buff Ratio",
             "buff": {
               "baseAttr": "baseAtk",
               "multipliers": [
@@ -33558,9 +33558,18 @@
         "modify": {
           "type": "action",
           "filter": {
-            "action": {
-              "ref": "normalAttack.5"
-            }
+            "and": [
+              {
+                "action": {
+                  "ref": "normalAttack.5"
+                }
+              },
+              {
+                "health": {
+                  "<": 0.6
+                }
+              }
+            ]
           },
           "spec": {
             "drain": {
@@ -43792,7 +43801,6 @@
     "memberPreset": {}
   },
   "10000109": {
-    "disabled": true,
     "name": "Yumemizuki Mizuki",
     "version": 5.4,
     "id": 10000109,
@@ -43806,11 +43814,207 @@
       "baseDef": 757,
       "elementalMastery": 115
     },
+    "energy": 60,
+    "energyMax": 1.3,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "dreamdrifter",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 10000,
+          "commands": {
+            "type": "apply",
+            "ref": "dreamdrifterBuff",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 800,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "dreamdrifterBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "specRefs": {
+            "swirlReactionBonus%": {
+              "attr": "elementalMastery",
+              "step": 100,
+              "value": "elementalSkill.2"
+            },
+            "stellarSwirlReactionBonus%": {
+              "attr": "elementalMastery",
+              "step": 100,
+              "value": "elementalSkill.3"
+            }
+          }
+        }
+      },
+      {
+        "ref": "miniBaku",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1500,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "apply": {
+          "by": "$ally",
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "element": [
+                      "pyro",
+                      "hydro",
+                      "cryo",
+                      "electro"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "dreamdrifter"
+                }
+              }
+            ]
+          },
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 100
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "reaction": [
+                    "swirl",
+                    "stellarSwirl"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "dreamdrifter"
+                }
+              }
+            ]
+          },
+          "cooldown": 2500,
+          "uses": 1,
+          "commands": {
+            "type": "apply",
+            "ref": "radianceExtraAttack"
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 10
+            }
+          }
+        }
+      },
+      {
+        "ref": "radianceExtraAttack",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "radiance": "stellarSwirl"
+              },
+              {
+                "action": {
+                  "ref": "elementalSkill.1"
+                }
+              }
+            ]
+          },
+          "action": {
+            "damage": {
+              "type": "stellarSwirl",
+              "attr": "elementalMastery",
+              "multipliers": [
+                {
+                  "mv": 10
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "stores": "$ally",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "radiance": "stellarSwirl"
+              },
+              {
+                "effectStates": {
+                  "has": "dreamdrifter"
+                }
+              }
+            ]
+          },
+          "specs": {
+            "elementalMastery": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.1
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Pure Heart, Pure Dreams",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -43921,33 +44125,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -44000,16 +44177,44 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Aisa Utamakura Pilgrimage",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -44031,12 +44236,19 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 10500,
+            "hitOffsets": [500]
           },
           {
-            "name": "Continuous Attack DMG",
-            "type": "elementalSkill",
+            "name": "Continuous Attack",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 1200
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -44061,27 +44273,52 @@
             }
           },
           {
-            "name": "Elemental Mastery-Based Swirl DMG Increase",
-            "type": "elementalSkill",
-            "damage": {
+            "name": "Swirl Reaction Bonus Buff",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
-                    0.0018,
-                    0.0021,
-                    0.0024,
-                    0.0027,
-                    0.003,
-                    0.0033,
-                    0.0036,
-                    0.0039,
-                    0.0042,
-                    0.0045,
-                    0.0048,
-                    0.0051,
-                    0.0054,
-                    0.0057,
-                    0.006
+                  "flat": [
+                    0.18,
+                    0.21,
+                    0.24,
+                    0.27,
+                    0.3,
+                    0.33,
+                    0.36,
+                    0.39,
+                    0.42,
+                    0.45,
+                    0.48,
+                    0.51,
+                    0.54,
+                    0.57,
+                    0.6
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Stellar Swirl Reaction Bonus Buff",
+            "buff": {
+              "multipliers": [
+                {
+                  "flat": [
+                    0.018,
+                    0.021,
+                    0.024,
+                    0.027,
+                    0.03,
+                    0.033,
+                    0.036,
+                    0.039,
+                    0.042,
+                    0.045,
+                    0.048,
+                    0.051,
+                    0.054,
+                    0.057,
+                    0.06
                   ]
                 }
               ]
@@ -44090,12 +44327,13 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Anraku Secret Spring Therapy",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -44120,9 +44358,15 @@
             }
           },
           {
-            "name": "Munen Shockwave DMG",
-            "type": "elementalBurst",
+            "name": "Munen Shockwave",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -44148,8 +44392,8 @@
           },
           {
             "name": "Snack Pick-Up HP Regeneration",
-            "type": "elementalBurst",
-            "damage": {
+            "healing": {
+              "attr": "elementalMastery",
               "multipliers": [
                 {
                   "mv": [
@@ -44168,10 +44412,8 @@
                     2.7744,
                     2.9376,
                     3.1008
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     314.57,
                     346.0314,
                     380.1145,
@@ -44195,7 +44437,16 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14518,
+      "setCounts": {
+        "15002": 4
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalSkill.0"
+      ]
+    }
   },
   "10000110": {
     "disabled": true,
@@ -55472,7 +55723,6 @@
     "memberPreset": {}
   },
   "10000133": {
-    "disabled": true,
     "name": "Sandrone",
     "version": 6.7,
     "id": 10000133,
@@ -55486,15 +55736,291 @@
       "baseDef": 752,
       "critRate%": 0.192
     },
+    "energy": 60,
+    "energyMax": 1.4,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.3"
+            }
+          },
+          "duration": 4000,
+          "commands": {
+            "type": "apply",
+            "ref": "condensedBeam",
+            "spec": {
+              "uses": 3,
+              "offset": 1500
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 500,
+          "action": "normalAttack.4"
+        }
+      },
+      {
+        "ref": "condensedBeam",
+        "apply": {
+          "when": "command"
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "not": {
+                "radiance": [
+                  "stellarConduct",
+                  "stellarSwirl"
+                ]
+              }
+            },
+            "cooldown": 1000,
+            "action": "normalAttack.5"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "radiance": "stellarConduct"
+            },
+            "cooldown": 1000,
+            "action": "normalAttack.6"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "radiance": "stellarSwirl"
+            },
+            "cooldown": 1000,
+            "action": "normalAttack.7"
+          }
+        ]
+      },
+      {
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "not": {
+                    "radiance": [
+                      "stellarConduct",
+                      "stellarSwirl"
+                    ]
+                  }
+                },
+                {
+                  "action": {
+                    "ref": "elementalSkill.0"
+                  }
+                }
+              ]
+            },
+            "action": [
+              "elementalSkill.1",
+              "elementalSkill.1"
+            ]
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarConduct"
+                },
+                {
+                  "action": {
+                    "ref": "elementalSkill.0"
+                  }
+                }
+              ]
+            },
+            "action": [
+              "elementalSkill.1",
+              "elementalSkill.2"
+            ]
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarSwirl"
+                },
+                {
+                  "action": {
+                    "ref": "elementalSkill.0"
+                  }
+                }
+              ]
+            },
+            "action": [
+              "elementalSkill.1",
+              "elementalSkill.3"
+            ]
+          }
+        ]
+      },
+      {
+        "use": [
+          {
+            "when": "end",
+            "filter": {
+              "and": [
+                {
+                  "not": {
+                    "radiance": [
+                      "stellarConduct",
+                      "stellarSwirl"
+                    ]
+                  }
+                },
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                }
+              ]
+            },
+            "action": "elementalBurst.1"
+          },
+          {
+            "when": "end",
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarConduct"
+                },
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                }
+              ]
+            },
+            "action": "elementalBurst.2"
+          },
+          {
+            "when": "end",
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarSwirl"
+                },
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                }
+              ]
+            },
+            "action": "elementalBurst.3"
+          }
+        ]
+      },
+      {
+        "ref": "decodingPower",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.3"
+            }
+          }
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "refinedTactics",
+            "spec": {
+              "stacks": 10
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.2",
+                "elementalSkill.3"
+              ]
+            }
+          },
+          "stats": {
+            "damageMv%": 3
+          }
+        }
+      },
+      {
+        "ref": "refinedTactics",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.2"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.2"
+            }
+          },
+          "stats": {
+            "damageMv%": 0.1
+          }
+        },
+        "maxStacks": 10
+      },
+      {
+        "buff": {
+          "specs": {
+            "elementalMastery": {
+              "attr": "atk",
+              "step": 100,
+              "value": 8,
+              "maxValue": 160
+            }
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "specs": {
+            "stellarGlimmerBaseDmg%": {
+              "attr": "atk",
+              "step": 100,
+              "value": 0.007,
+              "maxValue": 0.14
+            }
+          }
+        }
+      }
+    ],
     "skills": {
-      "NA": {
-        "name": "1-Hit DMG",
+      "normalAttack": {
+        "name": "Formule Phenomenale: Self-Evident Proposition",
         "actions": [
           {
-            "name": "1-Hit DMG",
-            "type": "NA",
+            "name": "Normal Attack 1",
+            "type": "normalAttack",
             "damage": {
               "multipliers": [
                 {
@@ -55520,8 +56046,8 @@
             }
           },
           {
-            "name": "2-Hit DMG",
-            "type": "NA",
+            "name": "Normal Attack 2",
+            "type": "normalAttack",
             "damage": {
               "multipliers": [
                 {
@@ -55547,8 +56073,8 @@
             }
           },
           {
-            "name": "3-Hit DMG",
-            "type": "NA",
+            "name": "Normal Attack 3",
+            "type": "normalAttack",
             "damage": {
               "multipliers": [
                 {
@@ -55574,9 +56100,19 @@
             }
           },
           {
-            "name": "Charged Attack Sweeping Fire DMG",
-            "type": "NA",
+            "name": "Charged Attack",
+            "type": "chargedAttack",
+            "duration": 4000
+          },
+          {
+            "name": "Sweeping Fire",
             "damage": {
+              "type": "chargedAttack",
+              "element": "cryo",
+              "icd": {
+                "tag": "Sweeping Fire",
+                "time": 1400
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -55601,9 +56137,15 @@
             }
           },
           {
-            "name": "Charged Attack Condensed Beam DMG",
-            "type": "NA",
+            "name": "Condensed Beam",
             "damage": {
+              "type": "chargedAttack",
+              "element": "cryo",
+              "icd": {
+                "tag": "Condensed Beam",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -55628,9 +56170,10 @@
             }
           },
           {
-            "name": "Charged Attack Condensed Beam Stellar-Conduct DMG",
-            "type": "NA",
+            "name": "Condensed Beam: Stellar-Conduct",
             "damage": {
+              "type": "stellarConduct",
+              "element": "cryo",
               "multipliers": [
                 {
                   "mv": [
@@ -55655,12 +56198,39 @@
             }
           },
           {
-            "name": "DMG When in Power Overdrive",
-            "type": "NA",
+            "name": "Condensed Beam: Stellar Swirl",
             "damage": {
+              "type": "stellarSwirl",
+              "element": "cryo",
               "multipliers": [
                 {
                   "mv": [
+                    1.2255,
+                    1.32525,
+                    1.425,
+                    1.5675,
+                    1.66725,
+                    1.78125,
+                    1.938,
+                    2.09475,
+                    2.2515,
+                    2.4225,
+                    2.5935,
+                    2.7645,
+                    2.9355,
+                    3.1065,
+                    3.2775
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "DMG When in Power Overdrive",
+            "buff": {
+              "multipliers": [
+                {
+                  "flat": [
                     0.43,
                     0.465,
                     0.5,
@@ -55682,9 +56252,63 @@
             }
           },
           {
-            "name": "Plunge DMG",
-            "type": "NA",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.49144,
+                    1.612836,
+                    1.734233,
+                    1.907656,
+                    2.029052,
+                    2.167791,
+                    2.358556,
+                    2.549322,
+                    2.740087,
+                    2.948195,
+                    3.156303,
+                    3.364411,
+                    3.572519,
+                    3.780627,
+                    3.988735
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.862889,
+                    2.01452,
+                    2.16615,
+                    2.382765,
+                    2.534396,
+                    2.707688,
+                    2.945964,
+                    3.184241,
+                    3.422517,
+                    3.682455,
+                    3.942393,
+                    4.202331,
+                    4.462269,
+                    4.722207,
+                    4.982145
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -55707,62 +56331,26 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Low/High Plunge DMG",
-            "type": "NA",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.49144,
-                    1.612836,
-                    1.734233,
-                    1.907656,
-                    2.029052,
-                    2.167791,
-                    2.358556,
-                    2.549322,
-                    2.740087,
-                    2.948195,
-                    3.156303,
-                    3.364411,
-                    3.572519,
-                    3.780627,
-                    3.988735
-                  ]
-                },
-                {
-                  "mv": [
-                    1.862889,
-                    2.01452,
-                    2.16615,
-                    2.382765,
-                    2.534396,
-                    2.707688,
-                    2.945964,
-                    3.184241,
-                    3.422517,
-                    3.682455,
-                    3.942393,
-                    4.202331,
-                    4.462269,
-                    4.722207,
-                    4.982145
-                  ]
-                }
-              ]
-            }
           }
         ]
       },
-      "ES": {
-        "name": "Prism Shot DMG",
+      "elementalSkill": {
+        "name": "Formule Phenomenale: Differential Analysis",
         "actions": [
           {
-            "name": "Prism Shot DMG",
-            "type": "ES",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Prism Shot",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -55787,9 +56375,9 @@
             }
           },
           {
-            "name": "Prism Shot Stellar-Conduct DMG",
-            "type": "ES",
+            "name": "Prism Shot: Stellar-Conduct",
             "damage": {
+              "type": "stellarConduct",
               "multipliers": [
                 {
                   "mv": [
@@ -55814,27 +56402,27 @@
             }
           },
           {
-            "name": "CD",
-            "type": "ES",
+            "name": "Prism Shot: Stellar Swirl",
             "damage": {
+              "type": "stellarSwirl",
               "multipliers": [
                 {
                   "mv": [
-                    4,
-                    4,
-                    4,
-                    4,
-                    4,
-                    4,
-                    4,
-                    4,
-                    4,
-                    4,
-                    4,
-                    4,
-                    4,
-                    4,
-                    4
+                    0.324,
+                    0.3483,
+                    0.3726,
+                    0.405,
+                    0.4293,
+                    0.4536,
+                    0.486,
+                    0.5184,
+                    0.5508,
+                    0.5832,
+                    0.6156,
+                    0.648,
+                    0.6885,
+                    0.729,
+                    0.7695
                   ]
                 }
               ]
@@ -55842,13 +56430,19 @@
           }
         ]
       },
-      "EB": {
-        "name": "Bombardment DMG",
+      "elementalBurst": {
+        "name": "Formule Phenomenale: Q.E.D.",
         "actions": [
           {
-            "name": "Bombardment DMG",
-            "type": "EB",
+            "name": "Elemental Burst",
+            "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -55867,15 +56461,22 @@
                     1.87459,
                     1.98486,
                     2.09513
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
           },
           {
-            "name": "Convective Inhibition Ray DMG",
-            "type": "EB",
+            "name": "Convective Inhibition Ray",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -55900,9 +56501,9 @@
             }
           },
           {
-            "name": "Convective Inhibition Ray Stellar-Conduct DMG",
-            "type": "EB",
+            "name": "Convective Inhibition Ray: Stellar-Conduct",
             "damage": {
+              "type": "stellarConduct",
               "multipliers": [
                 {
                   "mv": [
@@ -55927,54 +56528,27 @@
             }
           },
           {
-            "name": "CD",
-            "type": "EB",
+            "name": "Convective Inhibition Ray: Stellar Swirl",
             "damage": {
+              "type": "stellarSwirl",
               "multipliers": [
                 {
                   "mv": [
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Energy Cost",
-            "type": "EB",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60
+                    3.308,
+                    3.5561,
+                    3.8042,
+                    4.135,
+                    4.3831,
+                    4.6312,
+                    4.962,
+                    5.2928,
+                    5.6236,
+                    5.9544,
+                    6.2852,
+                    6.616,
+                    7.0295,
+                    7.443,
+                    7.8565
                   ]
                 }
               ]
@@ -55983,7 +56557,21 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12516,
+      "setCounts": {
+        "15046": 4
+      },
+      "rotation": [
+        "normalAttack.3",
+        "elementalSkill.0",
+        "normalAttack.3",
+        "elementalSkill.0",
+        "normalAttack.3",
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000140": {
     "disabled": true,
@@ -57661,8 +58249,175 @@
       "critDmg%": 0.384
     },
     "energy": 60,
+    "energyMax": 1.3,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 20000,
+          "commands": {
+            "type": "apply",
+            "ref": "marvelousSplendor",
+            "spec": {
+              "duration": 20000,
+              "stacks": 4
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalSkill.4"
+        }
+      },
+      {
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarConduct"
+                },
+                {
+                  "action": {
+                    "ref": "elementalSkill.4"
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.5"
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarSwirl"
+                },
+                {
+                  "action": {
+                    "ref": "elementalSkill.4"
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.6"
+          }
+        ]
+      },
+      {
+        "use": [
+          {
+            "when": "end",
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarConduct"
+                },
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "end",
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarSwirl"
+                },
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.3"
+          }
+        ]
+      },
+      {
+        "ref": "snowSwansDream",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "statRefs": {
+            "stellarGlimmerReactionBonus%": "elementalBurst.1"
+          }
+        }
+      },
+      {
+        "ref": "marvelousSplendor",
+        "stores": "$ally",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "stellarGlimmerReactionBonus%": 0.15
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "stellarConduct",
+                  "stellarSwirl"
+                ]
+              }
+            }
+          },
+          "specs": {
+            "damageMv%": {
+              "attr": "atk",
+              "step": 100,
+              "offset": 1000,
+              "value": 0.015,
+              "maxValue": 0.3
+            }
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "specs": {
+            "stellarGlimmerBaseDmg%": {
+              "attr": "atk",
+              "step": 100,
+              "value": 0.007,
+              "maxValue": 0.14
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Snow Swan Variation",
@@ -57935,9 +58690,10 @@
         "name": "Adagio: Phantom Night Dancers",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -57962,9 +58718,14 @@
             }
           },
           {
-            "name": "Coda at Dawn's Tolling DoT",
+            "name": "Elemental Skill: Adagio: Coda at Dawn's Tolling",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 3000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -57983,15 +58744,16 @@
                     2.0366,
                     2.1564,
                     2.2762
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
           },
           {
-            "name": "Coda at Dawn's Tolling Stellar-Conduct/Stellar Swirl DMG",
-            "type": "elementalSkill",
+            "name": "Adagio: Coda at Dawn's Tolling: Stellar-Conduct",
             "damage": {
+              "type": "stellarConduct",
               "multipliers": [
                 {
                   "mv": [
@@ -58011,7 +58773,15 @@
                     6.8796,
                     7.2618
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Adagio: Coda at Dawn's Tolling: Stellar Swirl",
+            "damage": {
+              "type": "stellarSwirl",
+              "multipliers": [
                 {
                   "mv": [
                     4.5864,
@@ -58035,9 +58805,10 @@
             }
           },
           {
-            "name": "\"Plume\" Dance Move DMG",
-            "type": "elementalSkill",
+            "name": "\"Plume\" Dance Move",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -58062,9 +58833,9 @@
             }
           },
           {
-            "name": "\"Plume\" Dance Move Stellar-Conduct/Stellar Swirl DMG",
-            "type": "elementalSkill",
+            "name": "\"Plume\" Dance Move: Stellar-Conduct",
             "damage": {
+              "type": "stellarConduct",
               "multipliers": [
                 {
                   "mv": [
@@ -58084,7 +58855,15 @@
                     0.60804,
                     0.64182
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "\"Plume\" Dance Move: Stellar Swirl",
+            "damage": {
+              "type": "stellarSwirl",
+              "multipliers": [
                 {
                   "mv": [
                     0.40528,
@@ -58108,9 +58887,10 @@
             }
           },
           {
-            "name": "\"Wing\" Dance Move DMG",
-            "type": "elementalSkill",
+            "name": "\"Wing\" Dance Move",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -58135,9 +58915,9 @@
             }
           },
           {
-            "name": "\"Wing\" Dance Move Stellar-Conduct/Stellar Swirl DMG",
-            "type": "elementalSkill",
+            "name": "\"Wing\" Dance Move: Stellar-Conduct",
             "damage": {
+              "type": "stellarConduct",
               "multipliers": [
                 {
                   "mv": [
@@ -58157,7 +58937,15 @@
                     0.72702,
                     0.76741
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "\"Wing\" Dance Move: Stellar Swirl",
+            "damage": {
+              "type": "stellarSwirl",
+              "multipliers": [
                 {
                   "mv": [
                     0.48464,
@@ -58186,9 +58974,15 @@
         "name": "Presto: Bluebird Finale",
         "actions": [
           {
-            "name": "Slash DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -58207,16 +59001,9 @@
                     2.34124,
                     2.47896,
                     2.61668
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Final Slash DMG",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
+                  ],
+                  "times": 3
+                },
                 {
                   "mv": [
                     1.70272,
@@ -58241,11 +59028,10 @@
           },
           {
             "name": "Snow Swan's Dream Stellar Glimmer Reaction DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.14,
                     0.18,
                     0.22,
@@ -58265,121 +59051,18 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Snow Swan's Dream Duration",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Solo Dance Double Duration",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "CD",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Energy Cost",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60,
-                    60
-                  ]
-                }
-              ]
-            }
           }
         ]
       }
     },
     "memberPreset": {
+      "weaponId": 11520,
+      "setCounts": {
+        "15048": 4
+      },
       "rotation": [
-        "normalAttack.0"
+        "elementalSkill.0",
+        "elementalSkill.1"
       ]
     }
   }

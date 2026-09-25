@@ -1,4 +1,6 @@
 import { tickElectroCharged } from './transformativeReactions';
+import { buildStellarSwirlSnapshot } from './stellarReactions';
+import { applyCryo } from './applyGauge';
 
 function advanceElementAura(ctx, state, elapsed) {
   state.gauge -= elapsed / state.decayRate;
@@ -103,6 +105,37 @@ function advanceStellarConduct(ctx, state, elapsed) {
   }
 }
 
+function advanceStellarSwirl(ctx, state, elapsed) {
+  let remaining = elapsed;
+
+  while (remaining > 0) {
+    const interval = Math.min(remaining, state.timeLeft, state.vortexTimer ?? Infinity);
+    remaining -= interval;
+    state.timeLeft -= interval;
+    if (state.vortexTimer) {
+      state.vortexTimer -= interval;
+    }
+
+    if (state.timeLeft <= 0) {
+      delete ctx.states.aura.stellarSwirl;
+      return;
+    }
+
+    if (state.vortexTimer <= 0) {
+      if (ctx.saveSnapshots) {
+        const level = state.vortexHits >= 2 ? 2 : 1;
+        const snapshot = buildStellarSwirlSnapshot(ctx, 'cryo', level);
+        ctx.snapshots.push(snapshot);
+      }
+      applyCryo(ctx, 1, state.ownerId);
+
+      state.vortexTimer = null;
+      state.vortexHits = null;
+      state.ownerId = null;
+    }
+  }
+}
+
 export function advanceAuras(ctx, elapsed) {
   const shouldAdvanceElectroCharged = Boolean(ctx.states.aura.electroCharged);
   if (shouldAdvanceElectroCharged) {
@@ -121,6 +154,11 @@ export function advanceAuras(ctx, elapsed) {
     if (state.reaction) {
       if (state.reaction === 'stellarConduct') {
         advanceStellarConduct(ctx, state, elapsed);
+        continue;
+      }
+
+      if (state.reaction === 'stellarSwirl') {
+        advanceStellarSwirl(ctx, state, elapsed);
         continue;
       }
 

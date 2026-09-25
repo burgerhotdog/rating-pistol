@@ -1,8 +1,7 @@
-import { getEffectStates } from './getEffectStates';
 import { runCommands } from './commands';
 import { runUseEffect } from './effects';
 
-function advanceEffectState(ctx, state, elapsed) {
+function advanceEffectState(state, elapsed) {
   const { store, effect } = state;
 
   if ('timeLeft' in state) {
@@ -62,63 +61,77 @@ function advanceEffectState(ctx, state, elapsed) {
 export function advanceEffects(ctx, elapsed) {
   if (!elapsed) return;
 
-  for (const state of getEffectStates(ctx, { member: 'all' })) {
-    const { effect } = state;
+  function advanceStore(store, storeOwnerId) {
+    for (const effectKey in store) {
+      const state = store[effectKey];
+      const { effect } = state;
 
-    if (!effect.use) {
-      advanceEffectState(ctx, state, elapsed);
-      continue;
-    }
-
-    let hasInterval = false;
-    for (const use of effect.use) {
-      if (use.when === 'interval') {
-        hasInterval = true;
-        break;
+      if (!effect.use) {
+        advanceEffectState(state, elapsed);
+        continue;
       }
-    }
 
-    if (!hasInterval) {
-      advanceEffectState(ctx, state, elapsed);
-      continue;
-    }
-
-    let remaining = elapsed;
-
-    while (remaining) {
-      const diff = Math.min(state.useCooldown ?? 0, remaining);
-
-      if (advanceEffectState(ctx, state, diff)) break;
-      remaining -= diff;
-
-      if (state.useCooldown) continue;
-
-      const runtimeOffset = elapsed - remaining;
-
-      for (const [index, use] of effect.use.entries()) {
-        if (use.when !== 'interval') continue;
-
-        const spec = { runtimeOffset };
-        if (effect.snapshotBuffs) {
-          spec.snapshotBuffs = state.snapshotBuffs[index];
-        }
-
-        const removed = runUseEffect(ctx, state, use, spec);
-
-        if (use.commands) {
-          runCommands(ctx, effect, use.commands);
-        }
-
-        if (removed) {
-          remaining = 0;
+      let hasInterval = false;
+      for (const use of effect.use) {
+        if (use.when === 'interval') {
+          hasInterval = true;
           break;
         }
       }
 
-      if (remaining && !state.useCooldown) {
-        console.log('problem');
-        break;
+      if (!hasInterval) {
+        advanceEffectState(state, elapsed);
+        continue;
+      }
+
+      let remaining = elapsed;
+
+      while (remaining) {
+        const diff = Math.min(state.useCooldown ?? 0, remaining);
+
+        if (advanceEffectState(state, diff)) break;
+        remaining -= diff;
+
+        if (state.useCooldown) continue;
+
+        const runtimeOffset = elapsed - remaining;
+
+        const filterSpec = {
+          fieldId: storeOwnerId ?? effect.ownerId,
+        };
+
+        for (const [index, use] of effect.use.entries()) {
+          if (use.when !== 'interval') continue;
+          if (!ctx.eventFilter(use.filter, effect, filterSpec)) continue;
+
+          const spec = { runtimeOffset };
+          if (effect.snapshotBuffs) {
+            spec.snapshotBuffs = state.snapshotBuffs[index];
+          }
+
+          const removed = runUseEffect(ctx, state, use, spec);
+
+          if (use.commands) {
+            runCommands(ctx, effect, use.commands);
+          }
+
+          if (removed) {
+            remaining = 0;
+            break;
+          }
+        }
+
+        if (remaining && !state.useCooldown) {
+          console.log('problem');
+          break;
+        }
       }
     }
+  }
+
+  advanceStore(ctx.states.globalEffects);
+  for (const memberId in ctx.states.memberEffects) {
+    const store = ctx.states.memberEffects[memberId];
+    advanceStore(store, memberId);
   }
 }

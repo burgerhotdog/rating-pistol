@@ -12,6 +12,7 @@ import {
 } from './amplifyingReactions';
 import {
   reactStellarConduct,
+  reactStellarSwirl,
 } from './stellarReactions';
 import { tryApplyElement } from './icd';
 import { applyAura, consumeAura } from './aura';
@@ -77,7 +78,7 @@ function applyElectro(ctx, gauge, applier) {
   }
 }
 
-function applyCryo(ctx, gauge, applier) {
+export function applyCryo(ctx, gauge, applier) {
   const { aura } = ctx.states;
   let remaining = gauge;
 
@@ -145,18 +146,23 @@ function applyAnemo(ctx, gauge, applier) {
     remaining = consumeAura(ctx, aura.pyro, remaining);
   }
 
-  if (aura.electro && remaining) {
-    reactSwirl(ctx, applier, 'electro');
-    remaining = consumeAura(ctx, aura.electro, remaining);
-  }
-
   if (aura.hydro && remaining) {
     reactSwirl(ctx, applier, 'hydro');
     remaining = consumeAura(ctx, aura.hydro, remaining);
   }
 
+  if (aura.electro && remaining) {
+    reactSwirl(ctx, applier, 'electro');
+    remaining = consumeAura(ctx, aura.electro, remaining);
+  }
+
   if (aura.cryo && remaining) {
-    reactSwirl(ctx, applier, 'cryo');
+    if (ctx.cache.stellarSwirl) {
+      reactStellarSwirl(ctx, applier);
+    } else {
+      reactSwirl(ctx, applier, 'cryo');
+    }
+
     remaining = consumeAura(ctx, aura.cryo, remaining);
   }
 }
