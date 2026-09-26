@@ -47,7 +47,13 @@ export function buildStellarSwirlSnapshot(ctx, reactionElement, level) {
 
   const allMemberBuffs = {};
   for (const memberId of ctx.cache.memberIds) {
-    allMemberBuffs[memberId] = getBuffMap(ctx, { memberId });
+    allMemberBuffs[memberId] = {
+      ...getBuffMap(ctx, { memberId }),
+      sourceBuffMap: getBuffMap(ctx, {
+        memberId,
+        ignoreSpecs: true,
+      }).buffMap,
+    };
   }
 
   const memo = {};

@@ -18,11 +18,18 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     action,
   });
 
+  const specSourceBuffMap = ctx.specId
+    ? getBuffMap(ctx, {
+        memberId: ctx.specId,
+        ignoreSpecs: true,
+      }).buffMap
+    : null;
+
   const memo = {};
 
   const isStellarConduct = action?.damage?.type === 'stellarConduct';
   const isStellarSwirl = action?.damage?.type === 'stellarSwirl';
-  const { multiplier } = ctx.states.aura.stellarConduct ?? {};
+  const { multiplier } = ctx.states.aura?.stellarConduct ?? {};
 
   const formula = (statMap, part) => isStellarConduct || isStellarSwirl
     ? runFormula(gameId, part, action, statMap, multiplier)
@@ -42,6 +49,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
       action: action,
       buffMap,
       buffSpecs,
+      specSourceBuffMap,
       splitScale: 1 / (action.hitOffsets?.length ?? 1),
       formula,
       parts: [
@@ -69,14 +77,13 @@ export const resolveSnapshot = (ctx, snapshot) => {
     return;
   }
 
-  const { memo, ownerId, action, buffMap, buffSpecs, formula, splitScale = 1 } = unresolved;
+  const { memo, ownerId, action, buffMap, buffSpecs, specSourceBuffMap, formula, splitScale = 1 } = unresolved;
   const scale = unresolved.scale ?? 1;
 
   const statMapOwnerId = action?.ownerId ?? ownerId;
   const statMapOwnerIdBuildMap = ctx.buildMaps[statMapOwnerId];
 
   const isSpecIdAction = statMapOwnerId === ctx.specId;
-  let testBuffMap;
 
   for (const part of unresolved.parts) {
     // Can be resolved now
@@ -129,14 +136,12 @@ export const resolveSnapshot = (ctx, snapshot) => {
       continue;
     }
 
-    testBuffMap ??= getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true }).buffMap;
-
     // Action is not from specId but has variable buffs from specId
     if (!isSpecIdAction) {
       const partiallyBuffedMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
       snapshot[part] = (testBuildMap) => {
         if (memo[part]?.buildMap !== testBuildMap) {
-          const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
+          const testBuffedMap = toMergedObj(testBuildMap, specSourceBuffMap);
           const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
           const statMap = toMergedObj(partiallyBuffedMap, resolvedBuffs);
           memo[part] = {
@@ -157,7 +162,7 @@ export const resolveSnapshot = (ctx, snapshot) => {
     // Action is from specId and has variable buffs from specId
     snapshot[part] = (testBuildMap) => {
       if (memo[part]?.buildMap !== testBuildMap) {
-        const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
+        const testBuffedMap = toMergedObj(testBuildMap, specSourceBuffMap);
         const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
         const statMap = toMergedObj(testBuildMap, buffMap, resolvedBuffs);
         memo[part] = {
@@ -182,7 +187,7 @@ function applyScale(value, scale) {
   return (buildMap) => value * scale(buildMap);
 }
 
-const ELEVATION_MULTIPLIERS = [0.6, 0.3, 0.05, 0.05];
+const ELEVATIONS = [0.6, 0.3, 0.05, 0.05];
 
 function resolveElevationSnapshot(ctx, snapshot) {
   const { memberIds } = ctx.cache;
@@ -208,21 +213,12 @@ function resolveElevationSnapshot(ctx, snapshot) {
 
   const scale = snapshot.unresolved.scale ?? 1;
 
-  let testBuffMap;
-
-  if (ctx.specId) {
-    testBuffMap = getBuffMap(ctx, {
-      memberId: ctx.specId,
-      ignoreSpecs: true,
-    }).buffMap;
-  }
-
   const calculate = (testBuildMap) => {
-    const testBuffedMap = ctx.specId
-      ? toMergedObj(testBuildMap, testBuffMap)
+    const testBuffMap = ctx.specId
+      ? allMemberBuffs[ctx.specId].sourceBuffMap
       : null;
 
-    const values = memberIds.map((memberId) => {
+    const memberDamageValues = memberIds.map((memberId) => {
       const isSpecMember = memberId === ctx.specId;
       const buildMap = isSpecMember ? testBuildMap : ctx.buildMaps[memberId];
       const { buffMap, buffSpecs } = allMemberBuffs[memberId];
@@ -232,24 +228,18 @@ function resolveElevationSnapshot(ctx, snapshot) {
       );
 
       if (!usesSpecs) {
-        // no dependency on spec's stats — buffMap is already correct, don't touch it
-        return formula(toMergedObj(buildMap, buffMap));
+        const statMap = toMergedObj(buildMap, buffMap);
+        return formula(statMap);
       }
 
-      const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
-      const baseMap = isSpecMember
-        ? buildMap
-        : toMergedObj(buildMap, buffMap); // keep this member's own real stats as the base
-      return formula(toMergedObj(baseMap, buffMap, resolvedBuffs));
+      const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffMap);
+      const statMap = toMergedObj(buildMap, buffMap, resolvedBuffs);
+      return formula(statMap);
     });
 
-    values.sort((a, b) => b - a);
-
-    return values.reduce(
-      (sum, value, index) =>
-        sum + value * ELEVATION_MULTIPLIERS[index],
-      0,
-    ) * splitScale;
+    return splitScale * memberDamageValues
+      .sort((a, b) => b - a)
+      .reduce((acc, value, index) => acc + value * ELEVATIONS[index], 0);
   };
 
   if (!ctx.specId) {
