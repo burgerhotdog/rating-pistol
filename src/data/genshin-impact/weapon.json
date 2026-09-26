@@ -5526,7 +5526,6 @@
     "effects": []
   },
   "15508": {
-    "disabled": true,
     "name": "Aqua Simulacra",
     "version": 2.7,
     "id": 15508,
@@ -5537,7 +5536,22 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.16,
+              0.32
+            ],
+            "dmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "15509": {
     "disabled": true,

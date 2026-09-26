@@ -22017,7 +22017,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Stealthy Bowshot",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -22176,8 +22176,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "hydro",
             "damage": {
+              "element": "hydro",
               "multipliers": [
                 {
                   "mv": [
@@ -22202,9 +22202,11 @@
             }
           },
           {
-            "name": "Breakthrough Barb DMG",
-            "type": "normalAttack",
+            "name": "Breakthrough Barb",
             "damage": {
+              "type": "chargedAttack",
+              "element": "hydro",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -22223,33 +22225,6 @@
                     0.246,
                     0.2605,
                     0.2749
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
                   ]
                 }
               ]
@@ -22308,16 +22283,44 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Lingering Lifeline",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -22344,12 +22347,13 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Depth-Clarion Dice",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -22374,9 +22378,9 @@
             }
           },
           {
-            "name": "Exquisite Throw DMG",
-            "type": "elementalBurst",
+            "name": "Exquisite Throw",
             "damage": {
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [

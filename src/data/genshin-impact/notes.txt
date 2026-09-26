@@ -59,6 +59,8 @@ Weapons:
         in the air effect might not be accurate
     Angelos' Heptades
         energy effect disabled
+    Aqua Simulacra
+        doesn't need enemies nearby
     Aquila Favonia
         Effect always hits
     Ferrous Shadow
