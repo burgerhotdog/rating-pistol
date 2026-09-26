@@ -22014,7 +22014,19 @@
       "critRate%": 0.192
     },
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Stealthy Bowshot",
@@ -22178,6 +22190,7 @@
             "type": "chargedAttack",
             "damage": {
               "element": "hydro",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -22206,6 +22219,11 @@
             "damage": {
               "type": "chargedAttack",
               "element": "hydro",
+              "gauge": 1,
+              "icd": {
+                "tag": "Breakthrough Barb",
+                "time": 300
+              },
               "attr": "hp",
               "multipliers": [
                 {
@@ -22320,6 +22338,7 @@
             "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "attr": "hp",
               "multipliers": [
                 {
@@ -22353,6 +22372,7 @@
             "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "attr": "hp",
               "multipliers": [
                 {
@@ -22380,6 +22400,11 @@
           {
             "name": "Exquisite Throw",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 3000
+              },
               "attr": "hp",
               "multipliers": [
                 {
