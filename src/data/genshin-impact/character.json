@@ -2532,7 +2532,7 @@
             "damage": {
               "gauge": 2,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 5000,
                 "hits": 5
               },
@@ -2565,7 +2565,7 @@
               "type": "elementalBurst",
               "gauge": 2,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 5000,
                 "hits": 5
               },
@@ -2598,7 +2598,7 @@
               "type": "elementalBurst",
               "gauge": 2,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 5000,
                 "hits": 5
               },
@@ -3163,7 +3163,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "chargedAttack",
+                "tag": "Charged Attack",
                 "time": 1000,
                 "hits": 3
               },
@@ -3393,7 +3393,7 @@
               "element": "pyro",
               "gauge": 2,
               "icd": {
-                "tag": "chargedAttack",
+                "tag": "Charged Attack",
                 "time": 1000,
                 "hits": 3
               },
@@ -3555,7 +3555,7 @@
               "type": "elementalBurst",
               "gauge": 1,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 1000,
                 "hits": 3
               },
@@ -4578,7 +4578,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 2500,
                 "hits": 3
               },
@@ -5717,7 +5717,7 @@
               "type": "elementalBurst",
               "gauge": 1,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 2500,
                 "hits": 3
               },
@@ -6878,7 +6878,7 @@
               "type": "elementalSkill",
               "gauge": 2,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 2500,
                 "hits": 3
               },
@@ -6911,7 +6911,7 @@
               "type": "elementalSkill",
               "gauge": 1,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 2500,
                 "hits": 3
               },
@@ -6954,7 +6954,7 @@
               "type": "elementalBurst",
               "gauge": 1,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 2500,
                 "hits": 3
               },
@@ -20448,11 +20448,692 @@
       "baseDef": 569,
       "critRate%": 0.192
     },
+    "energy": 90,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "prevTurret",
+        "apply": {
+          "when": "command"
+        },
+        "maxStacks": 2
+      },
+      {
+        "ref": "turret1",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "prevTurret"
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 24000,
+          "offset": 2000,
+          "commands": {
+            "type": "apply",
+            "ref": "prevTurret"
+          }
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": [
+                    "turret2",
+                    "turret3"
+                  ]
+                }
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.1"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": [
+                      "turret2",
+                      "turret3"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "and": [
+                        {
+                          "has": "turret2"
+                        },
+                        {
+                          "has": "turret3"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "turret2"
+                  },
+                  {
+                    "has": "turret3"
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.3"
+          }
+        ]
+      },
+      {
+        "ref": "turret2",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "prevTurret": 1
+                }
+              }
+            ]
+          },
+          "duration": 24000,
+          "offset": 2000,
+          "commands": {
+            "type": "apply",
+            "ref": "prevTurret"
+          }
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": [
+                    "turret1",
+                    "turret3"
+                  ]
+                }
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.1"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": [
+                      "turret1",
+                      "turret3"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "and": [
+                        {
+                          "has": "turret1"
+                        },
+                        {
+                          "has": "turret3"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "turret1"
+                  },
+                  {
+                    "has": "turret3"
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.3"
+          }
+        ]
+      },
+      {
+        "ref": "turret3",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "prevTurret": 2
+                }
+              }
+            ]
+          },
+          "duration": 24000,
+          "offset": 2000,
+          "commands": {
+            "type": "remove",
+            "ref": "prevTurret"
+          }
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": [
+                    "turret1",
+                    "turret2"
+                  ]
+                }
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.1"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": [
+                      "turret1",
+                      "turret2"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "and": [
+                        {
+                          "has": "turret1"
+                        },
+                        {
+                          "has": "turret2"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "turret1"
+                  },
+                  {
+                    "has": "turret2"
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.3"
+          }
+        ]
+      },
+      {
+        "ref": "tenkoThunderbolt",
+        "apply": [
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "or": [
+                      {
+                        "and": [
+                          {
+                            "has": "turret1"
+                          },
+                          {
+                            "not": {
+                              "has": [
+                                "turret2",
+                                "turret3"
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "and": [
+                          {
+                            "has": "turret2"
+                          },
+                          {
+                            "not": {
+                              "has": [
+                                "turret1",
+                                "turret3"
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "and": [
+                          {
+                            "has": "turret3"
+                          },
+                          {
+                            "not": {
+                              "has": [
+                                "turret1",
+                                "turret2"
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "uses": 1,
+            "offset": 2000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "turret1"
+              },
+              {
+                "type": "remove",
+                "ref": "turret2"
+              },
+              {
+                "type": "remove",
+                "ref": "turret3"
+              }
+            ]
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "or": [
+                      {
+                        "and": [
+                          {
+                            "not": {
+                              "has": "turret1"
+                            }
+                          },
+                          {
+                            "has": "turret2"
+                          },
+                          {
+                            "has": "turret3"
+                          }
+                        ]
+                      },
+                      {
+                        "and": [
+                          {
+                            "not": {
+                              "has": "turret2"
+                            }
+                          },
+                          {
+                            "has": "turret1"
+                          },
+                          {
+                            "has": "turret3"
+                          }
+                        ]
+                      },
+                      {
+                        "and": [
+                          {
+                            "not": {
+                              "has": "turret3"
+                            }
+                          },
+                          {
+                            "has": "turret1"
+                          },
+                          {
+                            "has": "turret2"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "uses": 2,
+            "offset": 2000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "turret1"
+              },
+              {
+                "type": "remove",
+                "ref": "turret2"
+              },
+              {
+                "type": "remove",
+                "ref": "turret3"
+              }
+            ]
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "turret1"
+                      },
+                      {
+                        "has": "turret2"
+                      },
+                      {
+                        "has": "turret3"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "uses": 3,
+            "offset": 2000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "turret1"
+              },
+              {
+                "type": "remove",
+                "ref": "turret2"
+              },
+              {
+                "type": "remove",
+                "ref": "turret3"
+              }
+            ]
+          }
+        ],
+        "use": {
+          "when": "interval",
+          "cooldown": 500,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "additionalLightningStrike",
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "not": {
+                    "radiance": "stellarConduct"
+                  }
+                },
+                {
+                  "action": {
+                    "ref": "elementalSkill.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "turret1"
+                      },
+                      {
+                        "has": "turret2"
+                      },
+                      {
+                        "has": "turret3"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "action": {
+              "damage": {
+                "type": "elementalSkill",
+                "multipliers": [
+                  {
+                    "mv": 0.4
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarConduct"
+                },
+                {
+                  "action": {
+                    "ref": "elementalSkill.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "turret1"
+                      },
+                      {
+                        "has": "turret2"
+                      },
+                      {
+                        "has": "turret3"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "action": {
+              "damage": {
+                "type": "stellarConduct",
+                "multipliers": [
+                  {
+                    "mv": 0.5
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalSkill.2",
+                "elementalSkill.3",
+                "elementalSkill.4"
+              ]
+            }
+          },
+          "specs": {
+            "dmgBonus%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.0015
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "superconduct",
+                "stellarConduct"
+              ]
+            }
+          },
+          "cooldown": 2500,
+          "uses": 1,
+          "commands": {
+            "type": "apply",
+            "ref": "radianceExtraTurretStrike",
+            "spec": {
+              "uses": 1
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalSkill.2",
+                "elementalSkill.3",
+                "elementalSkill.4"
+              ]
+            }
+          },
+          "stats": {
+            "damageMv": 0.8
+          }
+        }
+      },
+      {
+        "ref": "radianceExtraTurretStrike",
+        "apply": {
+          "when": "command"
+        },
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "not": {
+                "radiance": "stellarConduct"
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarConduct"
+                },
+                {
+                  "action": {
+                    "ref": [
+                      "elementalSkill.1",
+                      "elementalSkill.2",
+                      "elementalSkill.3",
+                      "elementalSkill.4"
+                    ]
+                  }
+                }
+              ]
+            },
+            "action": {
+              "damage": {
+                "type": "stellarConduct",
+                "multipliers": [
+                  {
+                    "mv": 2
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Spiritfox Sin-Eater",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -20539,6 +21220,10 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 500
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -20557,33 +21242,6 @@
                     3.0365,
                     3.2151,
                     3.3938
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
                   ]
                 }
               ]
@@ -20642,16 +21300,54 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "Sesshou Sakura DMG: Level 1",
+        "name": "Yakan Evocation: Sesshou Sakura",
+        "rankModify": 3,
         "actions": [
           {
-            "name": "Sesshou Sakura DMG: Level 1",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Sesshou Sakura: Level 1",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -20676,9 +21372,15 @@
             }
           },
           {
-            "name": "Sesshou Sakura DMG: Level 2",
-            "type": "elementalSkill",
+            "name": "Sesshou Sakura: Level 2",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -20703,9 +21405,15 @@
             }
           },
           {
-            "name": "Sesshou Sakura DMG: Level 3",
-            "type": "elementalSkill",
+            "name": "Sesshou Sakura: Level 3",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -20730,9 +21438,15 @@
             }
           },
           {
-            "name": "Sesshou Sakura DMG: Level 4",
-            "type": "elementalSkill",
+            "name": "Sesshou Sakura: Level 4",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -20759,12 +21473,14 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Great Secret Art: Tenko Kenshin",
+        "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -20789,9 +21505,10 @@
             }
           },
           {
-            "name": "Tenko Thunderbolt DMG",
-            "type": "elementalBurst",
+            "name": "Tenko Thunderbolt",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -20822,7 +21539,12 @@
       "weaponId": 14509,
       "setCounts": {
         "15046": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.0",
+        "elementalSkill.0"
+      ]
     }
   },
   "10000059": {
@@ -28562,7 +29284,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 2500,
                 "hits": 3
               },
@@ -32332,14 +33054,24 @@
           },
           "commands": {
             "type": "use",
-            "ref": "pyrotechnicStrike"
+            "ref": "pyrotechnicStrike",
+            "spec": {
+              "action": [
+                "normalAttack.7"
+              ]
+            }
           }
         },
         "use": {
           "when": "interval",
           "commands": {
             "type": "use",
-            "ref": "pyrotechnicStrike"
+            "ref": "pyrotechnicStrike",
+            "spec": {
+              "action": [
+                "normalAttack.7"
+              ]
+            }
           }
         }
       },
@@ -34156,7 +34888,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 2500,
                 "hits": 3
               },
@@ -44413,6 +45145,7 @@
       },
       "elementalSkill": {
         "name": "Aisa Utamakura Pilgrimage",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -44532,6 +45265,7 @@
       },
       "elementalBurst": {
         "name": "Anraku Secret Spring Therapy",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -50564,7 +51298,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "elementalSkill",
+                "tag": "Elemental Skill",
                 "time": 2500,
                 "hits": 3
               },
@@ -53867,7 +54601,7 @@
             "type": "normalAttack",
             "damage": {
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -53899,7 +54633,7 @@
             "type": "normalAttack",
             "damage": {
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -53931,7 +54665,7 @@
             "type": "normalAttack",
             "damage": {
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -53964,7 +54698,7 @@
             "type": "normalAttack",
             "damage": {
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -53996,7 +54730,7 @@
             "type": "normalAttack",
             "damage": {
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54047,7 +54781,7 @@
             "type": "chargedAttack",
             "damage": {
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54172,7 +54906,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54205,7 +54939,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54238,7 +54972,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54272,7 +55006,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54305,7 +55039,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54357,7 +55091,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54472,7 +55206,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "elementalSkill",
+                "tag": "Elemental Skill",
                 "time": 2500,
                 "hits": 3
               },
@@ -54512,7 +55246,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 2500,
                 "hits": 3
               },
@@ -56221,6 +56955,7 @@
     "skills": {
       "normalAttack": {
         "name": "Formule Phenomenale: Self-Evident Proposition",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -56636,6 +57371,7 @@
       },
       "elementalBurst": {
         "name": "Formule Phenomenale: Q.E.D.",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -58892,6 +59628,7 @@
       },
       "elementalSkill": {
         "name": "Adagio: Phantom Night Dancers",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -59176,6 +59913,7 @@
       },
       "elementalBurst": {
         "name": "Presto: Bluebird Finale",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",

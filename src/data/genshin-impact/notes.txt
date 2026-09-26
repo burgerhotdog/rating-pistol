@@ -44,6 +44,8 @@ Characters:
         No energy recovery
         3 sword always
         no orbitals from skill
+    Yae Miko
+        No constellations
     Yumemizuki Mizuki
         Ult always does damage
         A1 always extended

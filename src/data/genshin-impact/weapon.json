@@ -4048,7 +4048,6 @@
     "effects": []
   },
   "14509": {
-    "disabled": true,
     "name": "Kagura's Verity",
     "version": 2.5,
     "id": 14509,
@@ -4059,7 +4058,48 @@
       "baseAtk": 608,
       "critDmg%": 0.662
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "kaguraDance",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 24000
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.12,
+              0.24
+            ],
+            "stellarConductReactionBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "kaguraDance": 3
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "14511": {
     "disabled": true,

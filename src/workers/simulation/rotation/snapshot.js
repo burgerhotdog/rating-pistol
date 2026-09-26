@@ -19,10 +19,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
   });
 
   const specSourceBuffMap = ctx.specId
-    ? getBuffMap(ctx, {
-        memberId: ctx.specId,
-        ignoreSpecs: true,
-      }).buffMap
+    ? getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true }).buffMap
     : null;
 
   const memo = {};
