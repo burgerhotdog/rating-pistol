@@ -5,8 +5,10 @@ export function resolveModifyEffects(effectMap) {
   const modifyQueue = [];
 
   for (const effectDef of Object.values(effectMap)) {
-    if (effectDef.modify) {
-      modifyQueue.push(effectDef.modify);
+    const { modify } = effectDef;
+
+    if (modify?.type === 'effect') {
+      modifyQueue.push(modify);
     } else {
       effectDefs[effectDef.key] = effectDef;
     }

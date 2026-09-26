@@ -1,6 +1,7 @@
 import { GI, WW } from '@/data';
-import { clamp, getAttr } from '@/utils';
+import { getAttr } from '@/utils';
 import { computeBase } from './computeBase';
+import { getCritMult } from './getCritMult';
 import { getDmgAmpMult } from './dmgAmp';
 import { getDefMult } from './enemyDef';
 import { getResMult } from './enemyRes';
@@ -21,13 +22,6 @@ export const getBonusTypes = (gameId, damage) => {
   return bonusTypes;
 }
 
-const critMultiplier = (statMap) => {
-  const critRate = clamp(getAttr('critRate%', statMap), 0, 1);
-  const critDamage = getAttr('critDmg%', statMap);
-
-  return critRate * (1 + critDamage) + (1 - critRate);
-};
-
 const dmgBonusMultiplier = (statMap, dmgTypes) => {
   let dmgBonusMultiplier = 1 + getAttr('dmgBonus%', statMap);
 
@@ -45,7 +39,7 @@ export function runDamageFormula(gameId, action, statMap) {
 
   let damageValue = computeBase('damage', compressed, statMap);
 
-  damageValue *= critMultiplier(statMap);
+  damageValue *= getCritMult(statMap);
   damageValue *= dmgBonusMultiplier(statMap, bonusTypes);
 
   damageValue *= getResMult(gameId, element, statMap);

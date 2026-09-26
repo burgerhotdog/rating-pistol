@@ -17,10 +17,10 @@ export function runRemoveEffect(state, remove = {}) {
 }
 
 export function runUseEffect(ctx, state, use = {}, spec = {}) {
-  const { store, effect } = state;
+  const { store, effect, stacks } = state;
 
   if (use.action) {
-    const useTimes = use.times ?? 1;
+    const useTimes = (use.times ?? 1) * stacks;
     state.isRunning = true;
 
     for (const [index, action] of use.action.entries()) {

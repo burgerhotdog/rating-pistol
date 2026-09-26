@@ -10,11 +10,13 @@ export const isEnabledChar = (effect, member, gameId, { memberIds, counts }) => 
     return false;
   }
 
-  if (!effect.enable) {
+  const { enable } = effect;
+
+  if (!enable) {
     return true;
   }
 
-  if (effect.enable.team) {
+  if (enable.team) {
     const [specialKey, countReq] = effect.enable.team;
 
     if (specialKey === 'hexerei') {
@@ -63,6 +65,26 @@ export const isEnabledChar = (effect, member, gameId, { memberIds, counts }) => 
     }
   }
 
+  switch (enable.special) {
+    case 'lyney2pyro': {
+      return counts.element.pyro >= 2;
+    }
+
+    case 'lyney3pyro': {
+      return counts.element.pyro >= 3;
+    }
+
+    case 'chevreuse': {
+      const elements = Object.keys(counts.element);
+
+      return (
+        elements.length === 2 &&
+        elements.includes('pyro') &&
+        elements.includes('electro')
+      );
+    }
+  }
+
   return true;
 };
 
@@ -88,6 +110,18 @@ export const isEnabledWeap = (effect, charData, weapData, { counts } = {}) => {
       if (counts?.hexerei < countReq) {
         return false;
       }
+    }
+  }
+
+  switch (enable.special) {
+    case 'greatMagic2same': {
+      const ownerElement = charData.element;
+      return counts.element[ownerElement] >= 2;
+    }
+
+    case 'greatMagic3same': {
+      const ownerElement = charData.element;
+      return counts.element[ownerElement] >= 3;
     }
   }
 

@@ -53,16 +53,5 @@ def main():
     save_version(game, version.partition("+")[0])
     print("Update complete")
 
-def temp():
-    with open("src/data/wuthering-waves/character.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-        for id in data.keys():
-            print(id)
-            data = requests.get(f"https://static.nanoka.cc/ww/3.7.1/en/character/{id}.json").json()
-            urlpart = f"{data['background'][13:data['background'].index('.')]}"
-            image = requests.get(f"https://static.nanoka.cc/assets/ww/{urlpart}.webp").content
-            with open(f"public/wuthering-waves/characterFull/{id}.webp", "wb") as f:
-                f.write(image)
-
 if __name__ == "__main__":
-    temp()
+    main()

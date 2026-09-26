@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import {
   Button,
   Dialog,
@@ -9,12 +8,12 @@ import {
   Stack,
 } from '@mui/material';
 import { useBuild } from '@/contexts';
-import { useBuilds, useData } from '@/hooks';
+import { useBuilds, useData, usePageParams } from '@/hooks';
 import BuildEditor from '../../build-editor';
 import DeleteDialog from './DeleteDialog';
 
 const EditDialog = ({ open, onClose }) => {
-  const { gameId, charId } = useParams();
+  const { gameId, charId } = usePageParams();
   const { saveBuildEntries } = useBuild();
   const build = useBuilds()[charId];
   const charData = useData('character')[charId];

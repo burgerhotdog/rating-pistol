@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import {
   Box,
   Card,
@@ -9,19 +8,19 @@ import {
   Typography,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { useBuilds, useData } from '@/hooks';
+import { useBuilds, useData, usePageParams } from '@/hooks';
 import { initMember } from '@/utils';
 import CharacterPickerDialog from './CharacterPickerDialog';
 
 const CharacterPicker = ({ member, setMember, allyIds }) => {
-  const { gameId, charId } = useParams();
+  const { gameId, charId } = usePageParams();
   const builds = useBuilds();
   const [open, setOpen] = useState(false);
 
   const charDatas = useData('character');
   const memberData = charDatas[member.id];
 
-  const disabled = member.id === Number(charId);
+  const disabled = member.id === charId;
 
   return (
     <>

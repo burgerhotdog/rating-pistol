@@ -1,10 +1,83 @@
 import { GI, WW } from '@/data';
-import { toMergedObj } from '@/utils';
+import { getAttr, toMergedObj } from '@/utils';
 import { runApplyEffect } from './effects';
 import { resolveSnapshot } from './snapshot';
 import { createEventFilter } from './filter';
 import { runAction } from './runAction';
 import { runEffects } from './runEffects';
+
+const initStates = (cache) => {
+  const { gameId, memberIds } = cache;
+
+  const initMemberStates = (init = () => ({})) =>
+    Object.fromEntries(memberIds.map((id) => [id, init()]));
+
+  const states = {
+    runtime: 0,
+    onFieldId: null,
+    applyCooldowns: {},
+    globalEffects: {},
+    memberEffects: initMemberStates(),
+    memberHealth: initMemberStates(() => 1),
+  };
+
+  if (gameId === GI) {
+    states.icd = initMemberStates();
+    states.aura = {};
+    states.shield = false;
+  }
+
+  if (gameId === WW) {
+    states.negativeStatuses = {};
+    states.tune = { offTune: 0 };
+  }
+
+  return states;
+};
+
+const initBuildMaps = (cache, equipMaps) => {
+  const { gameId, memberIds } = cache;
+  const buildMaps = {};
+
+  for (const memberId of memberIds) {
+    const sources = [
+      cache.member[memberId].baseMap,
+      cache.member[memberId].staticMap,
+      equipMaps[memberId] ?? {},
+    ];
+
+    if (gameId === GI) {
+      sources.push(cache.elementalResonance.stats);
+    }
+
+    buildMaps[memberId] = toMergedObj(...sources);
+  }
+
+  return buildMaps;
+};
+
+const initAttrMaps = (buildMaps) => {
+  const attrMaps = {};
+
+  for (const memberId in buildMaps) {
+    const buildMap = buildMaps[memberId];
+    const attrMap = {};
+
+    for (const stat in buildMap) {
+      const attr = stat.startsWith('base')
+        ? stat[4].toLowerCase() + stat.slice(5)
+        : stat;
+
+      if (!(attr in attrMap)) {
+        attrMap[attr] = getAttr(attr, buildMap);
+      }
+    }
+
+    attrMaps[memberId] = attrMap;
+  }
+
+  return attrMaps;
+};
 
 export const runRotation = (cache, equipMaps, specId) => {
   const { gameId, memberIds } = cache;
@@ -12,46 +85,16 @@ export const runRotation = (cache, equipMaps, specId) => {
   const ctx = {
     cache,
     specId,
-    states: {
-      runtime: 0,
-      onFieldId: null,
-      getField(id) {
-        return id === this.onFieldId ? 'onField' : 'offField';
-      },
-      applyCooldowns: {},
-      globalEffects: {},
-      memberEffects: Object.fromEntries(memberIds.map((id) => [id, {}])),
-      memberHealth: Object.fromEntries(memberIds.map((id) => [id, 1])),
-      ...(gameId === GI && {
-        icd: Object.fromEntries(memberIds.map((id) => [id, {}])),
-        aura: {},
-        shielded: false,
-      }),
-      ...(gameId === WW && {
-        negativeStatuses: {},
-        tune: { offTune: 0 },
-      }),
-    },
+    states: initStates(cache),
     snapshots: [],
     saveSnapshots: false,
+    buildMaps: initBuildMaps(cache, equipMaps),
     ...(gameId === WW && {
       offTuneBuildup: [],
     }),
   };
 
-  ctx.buildMaps = Object.fromEntries(
-    Object.entries(equipMaps).map(([memberId, equipMap]) => {
-      const { baseMap, staticMap } = cache.member[memberId];
-      const sources = [baseMap, staticMap, equipMap];
-
-      if (gameId === GI) {
-        sources.push(cache.elementalResonance.stats);
-      }
-
-      return [memberId, toMergedObj(...sources)];
-    })
-  );
-
+  ctx.attrMaps = initAttrMaps(ctx.buildMaps);
   ctx.eventFilter = createEventFilter(ctx);
   ctx.runAction = (action, options) => runAction(ctx, action, options);
   ctx.runEffects = (when, event) => runEffects(ctx, when, event);

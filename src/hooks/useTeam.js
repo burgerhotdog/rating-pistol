@@ -1,17 +1,16 @@
-import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import { useData } from '@/hooks';
+import { useData, usePageParams } from '@/hooks';
 import { initMember } from '@/utils';
 import { useBuilds } from './useBuilds';
 
 export function useTeam() {
-  const { gameId, charId } = useParams();
+  const { gameId, charId } = usePageParams();
   const charData = useData('character')[charId];
   const { maxMembers } = useData('misc');
   const builds = useBuilds();
 
   return useState(() => {
-    const teamPreset = charData.teamPreset ?? [Number(charId)];
+    const teamPreset = charData.teamPreset ?? [charId];
 
     const presets = [
       ...teamPreset,

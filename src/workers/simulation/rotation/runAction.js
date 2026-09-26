@@ -5,7 +5,6 @@ import {
   applyGauge,
   advanceAuras,
   advanceIcdStates,
-  checkInfusion,
 } from './game-specific/genshin-impact';
 import {
   consumeNegativeStatuses,
@@ -22,6 +21,7 @@ import {
   buildSnapshot,
 } from './snapshot';
 import { getEffectStates } from './getEffectStates';
+import { getModifiedAction } from './getModifiedAction';
 
 function advanceCooldowns(ctx, elapsed) {
   const { applyCooldowns } = ctx.states;
@@ -62,7 +62,8 @@ function decayBuffStates(ctx, action) {
 export function runAction(ctx, action, options = {}) {
   const { noDuration } = options;
   const { gameId } = ctx.cache;
-  const { duration = 0, hitOffsets = [0] } = action;
+  const modifiedAction = getModifiedAction(ctx, action);
+  const { duration = 0, hitOffsets = [0] } = modifiedAction;
   let actionRuntime = 0;
 
   function advanceTimeTo(timestamp) {
@@ -91,10 +92,10 @@ export function runAction(ctx, action, options = {}) {
     }
   };
 
-  const runEffects = (when) => ctx.runEffects(when, action);
+  const runEffects = (when) => ctx.runEffects(when, modifiedAction);
 
-  if (action.key === 'system:tuneBreak') {
-    runTuneBreak(ctx, action);
+  if (modifiedAction.key === 'system:tuneBreak') {
+    runTuneBreak(ctx, modifiedAction);
     runEffects('tuneBreak');
     return;
   }
@@ -104,26 +105,23 @@ export function runAction(ctx, action, options = {}) {
   advanceTimeTo(hitOffsets[0]);
 
   let sharedSnapshot;
-  if (canSnapshot(action)) {
+  if (canSnapshot(modifiedAction)) {
     if (ctx.saveSnapshots) {
-      sharedSnapshot = buildSnapshot(ctx, action, {
-        ...options,
-        infusedElement: checkInfusion(ctx, action),
-      });
+      sharedSnapshot = buildSnapshot(ctx, modifiedAction, options);
     }
 
-    if (gameId === WW && action.damage) {
-      applyOffTuneBuildup(ctx, action);
+    if (gameId === WW && modifiedAction.damage) {
+      applyOffTuneBuildup(ctx, modifiedAction);
     }
 
-    decayBuffStates(ctx, action);
+    decayBuffStates(ctx, modifiedAction);
   }
 
   if (gameId === WW) {
-    consumeNegativeStatuses(ctx, action);
-    inflictNegativeStatuses(ctx, action);
-    replaceNegativeStatuses(ctx, action);
-    inflictTuneShifting(ctx, action);
+    consumeNegativeStatuses(ctx, modifiedAction);
+    inflictNegativeStatuses(ctx, modifiedAction);
+    replaceNegativeStatuses(ctx, modifiedAction);
+    inflictTuneShifting(ctx, modifiedAction);
   }
 
   runEffects('inflict');
@@ -132,13 +130,18 @@ export function runAction(ctx, action, options = {}) {
     advanceTimeTo(offset);
     runEffects('hit');
 
-    if (action.drain) {
-      const { targets, value } = action.drain;
+    if (modifiedAction.drain) {
+      const {
+        targets = [modifiedAction.ownerId],
+        value,
+        minLimit = 0,
+        maxLimit = 1,
+      } = modifiedAction.drain;
       const { memberHealth } = ctx.states;
 
       for (const targetId of targets) {
         const prev = memberHealth[targetId];
-        const next = clamp(prev - value, 0, 1);
+        const next = clamp(prev - value, minLimit, maxLimit);
 
         if (next !== prev) {
           memberHealth[targetId] = next;
@@ -149,8 +152,13 @@ export function runAction(ctx, action, options = {}) {
 
     let scaleMult = 1;
     if (gameId === GI) {
-      const infusionElement = checkInfusion(ctx, action);
-      scaleMult = applyGauge(ctx, action, infusionElement);
+      scaleMult = applyGauge(ctx, modifiedAction);
+    }
+
+    if (modifiedAction.healing) {
+      for (const target of modifiedAction.healing.targets) {
+        // do something
+      }
     }
 
     if (sharedSnapshot) {

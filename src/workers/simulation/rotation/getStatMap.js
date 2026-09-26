@@ -52,9 +52,15 @@ export const getBuffMap = (ctx, options = {}) => {
   }
 
   if (gameId === GI) {
-    const { superconduct } = ctx.states.aura;
-    if (superconduct) {
+    const { superconduct, stellarConduct } = ctx.states.aura;
+    if (superconduct || stellarConduct) {
       buffMap['physicalResReduction%'] = (buffMap['physicalResReduction%'] ?? 0) + 0.4;
+    }
+
+    if (stellarConduct) {
+      const { bonus } = stellarConduct;
+      buffMap['cryoDmgBonus%'] = (buffMap['cryoDmgBonus%'] ?? 0) + bonus;
+      buffMap['electroDmgBonus%'] = (buffMap['electroDmgBonus%'] ?? 0) + bonus;
     }
   }
 

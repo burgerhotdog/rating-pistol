@@ -37,12 +37,14 @@ async function resolveEquipMaps(cache, allowBlank = false) {
 }
 
 self.onmessage = async ({ data }) => {
-  self.postMessage({ title: 'Building cache' });
-  console.time('buildCache');
   const cache = buildCache(data);
-  console.timeEnd('buildCache');
 
   const { gameId, charId } = cache;
+  self.postMessage({
+    memberIds: cache.memberIds,
+    userMember: cache.member[charId],
+  });
+
   const langData = LANG[gameId];
 
   const equipMaps = await resolveEquipMaps(cache);
@@ -53,9 +55,21 @@ self.onmessage = async ({ data }) => {
   const { time: userRotationTime, source: userRotationTimeSource } = computeActualRotationTime(cache, equipMaps);
   const userDps = (userTotals.damage + userTotals.healing + userTotals.shield) / userRotationTime * 1000;
 
+  self.postMessage({
+    userSnapshots,
+    userRotationTime,
+    userRotationTimeSource,
+    userDps,
+  });
+
   console.time('runComparisonTests');
   const { weaponResults, setResults } = runComparisonTests(cache, equipMaps);
   console.timeEnd('runComparisonTests');
+
+  self.postMessage({
+    weaponResults,
+    setResults,
+  });
 
   self.postMessage({ title: `Running ${langData.Equip} Farming Simulations` });
   console.time('runEquipTests');
@@ -69,12 +83,6 @@ self.onmessage = async ({ data }) => {
 
   self.postMessage({
     status: 'done',
-    memberIds: cache.memberIds,
-    userMember: { ...cache.member[charId] },
-    userSnapshots,
-    userRotationTime,
-    userRotationTimeSource,
-    userDps,
     weaponResults,
     setResults,
     dpsCeiling: results.dpsCeiling,

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { CHARACTER, WEAPON, SET, ECHO } from '@/data';
+import { usePageParams } from '@/hooks';
 
 const isValid = ({ gameId, charId, team }) => team
   .filter((member) => member.id != null)
@@ -28,13 +28,13 @@ const isValid = ({ gameId, charId, team }) => team
   });
 
 export const useSimulation = (team) => {
-  const { gameId, charId } = useParams();
+  const { gameId, charId } = usePageParams();
   const workerRef = useRef(null);
   const prevPayloadRef = useRef(undefined);
-  const [result, setResult] = useState({ status: 'idle' });
+  const [result, setResult] = useState({ disabled: true });
 
   const payload = useMemo(() => {
-    const data = { gameId, charId: Number(charId), team };
+    const data = { gameId, charId, team };
     return isValid(data) ? data : null;
   }, [gameId, charId, team]);
 
@@ -57,7 +57,7 @@ export const useSimulation = (team) => {
     worker.onmessage = ({ data }) => {
       setResult((prev) => ({ ...prev, ...data }));
 
-      if (data.userSnapshots) {
+      if (data.status === 'done') {
         worker.terminate();
         if (workerRef.current === worker) {
           workerRef.current = null;
@@ -75,5 +75,5 @@ export const useSimulation = (team) => {
     };
   }, [payload]);
 
-  return payload ? result : { status: 'idle' };
+  return payload ? result : { disabled: true };
 };

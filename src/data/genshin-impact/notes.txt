@@ -1,76 +1,111 @@
 Characters:
+    Albedo
     Amber
         C1 arrow damage hard coded at level 10 skill
         C2 popping baron bunny doesnt do 200% extra dmgBonus
     Bennett
         No constellations
+    Chevreuse
+        No C1
+        No C4 cooldown
+        C6 Buff goes to first not healed
     Diluc
         No constellations
-        No pyro infusion
-    Klee
+    Durin
         No constellations
-    Albedo
-    Wanderer
-    Zhongli
+    Faruzan
     Fischl
     Kaeya
-    Faruzan
-    Wriothesley
     Kazuha
+    Klee
+        No constellations
+    Lohen
+        No level increase
+        No 60 will to win gain
+    Lyney
+        Hats dont snapshot stats
+        No hp restrictions on A1
+        No constellations
     Nicole
-        no constellations
         onField character must be hexerei to get buff upgrade
         coordinated attack uses own atk
-    Durin
-        no constellations
+        No constellations
+    Odette
+        Only plume
+        Marvelous Splendor applies to $ally
+        No constellations
+    Sandrone
+        A1 doesn't apply to non stellar dmg
+        No constellations
+    Wanderer
+    Wriothesley
+        No constellations
     Xingqiu
-        no energy recovery
+        No energy recovery
         3 sword always
         no orbitals from skill
-    Lohen
-        no level increase
-        no 60 will to win gain
+    Yumemizuki Mizuki
+        Ult always does damage
+        A1 always extended
+        No constellations
+    Zhongli
 
 Weapons:
     Alley Hunter
         buff doesnt ramp slowly
-    Sapwood Blade
-        Leaf buff applied to $first instantly
-    Harbinger of Dawn
-        Assume buff always up
-    Traveler's Handy Sword
-        No effect
-    Fillet Blade
-        Effect always hits
-    Sacrificial Sword
-        Effect disabled
+    Amos' Bow
+        in the air effect might not be accurate
+    Angelos' Heptades
+        energy effect disabled
     Aquila Favonia
         Effect always hits
     Ferrous Shadow
         No effect
-    Wolf's Gravestone
-        Team buff disabled
-    Skyward Spine
-        Vacuum Blade always triggers
-    Skyward Atlas
-        Favor of the Clouds always triggers
-    Tulaytullah's Remembrance
-        Buff maxed
-    Skyward Harp
-        Attack always triggers
-    Angelos' Heptades
-        energy effect disabled
-    Wandering Evenstar
-        buff is constant instead of snapshotting
+    Fillet Blade
+        Effect always hits
+    Harbinger of Dawn
+        Assume buff always up
+    Sacrificial Sword
+        Effect disabled
     Moonweaver's Dawn
         energy part not done
+    Sapwood Blade
+        Leaf buff applied to $first instantly
+    Silver Light
+        Stack durations are not independent
+    Skyward Atlas
+        Favor of the Clouds always triggers
+    Skyward Harp
+        Attack always triggers
+    Skyward Spine
+        Vacuum Blade always triggers
+    The Alley Flash
+        Taking dmg doesn't matter
+    The Black Sword
+        Healing doesn't need a crit
+    Traveler's Handy Sword
+        No effect
+    Tulaytullah's Remembrance
+        Buff maxed
+    Wandering Evenstar
+        buff is constant instead of snapshotting
+    Whitelake Frostfeather
+        Stacks not independent
+        No energy effect
+    Wolf's Gravestone
+        Team buff disabled
 
-    Fav weapons don't generate particles
+    Weapon series with inactive effects
+        Favonius
+        Sacrificial
+        Blackcliff
 
 Sets:
     Bloodstained Chivalry
         4pc not active
-    Shimenawa's Reminiscence
-        4pc energy simplified
     Celestial Gift
         4pc dmg bonus is for all elements
+    Shimenawa's Reminiscence
+        4pc energy simplified
+    Long Night's Oath
+        Stacks not independent

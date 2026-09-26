@@ -59,12 +59,11 @@ function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
   return data;
 }
 
-const TrajectoryChart = ({ results }) => {
-  const { dpsProgression, userDps, dpsCeiling, fit, benchmarkDay } = results;
+const TrajectoryChart = ({ dpsProgression, userDps, dpsCeiling, fit, benchmarkDay }) => {
   const { palette } = useTheme();
   const accent = useAccent();
 
-  const userDay = estimateDay(userDps, results.dpsCeiling, results.dpsProgression, results.fit);
+  const userDay = estimateDay(userDps, dpsCeiling, dpsProgression, fit);
 
   const maxDay = Math.ceil(Math.max(userDay, benchmarkDay, 1) * 1.25);
   const data = buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit);

@@ -1,20 +1,22 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { Avatar, CardHeader, Checkbox, Chip, IconButton, Stack } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import Star from '@mui/icons-material/Star';
 import StarBorder from '@mui/icons-material/StarBorder';
-import { useData } from '@/hooks';
+import { useUser } from '@/contexts';
+import { useData, usePageParams } from '@/hooks';
 import { formatStr } from '@/utils';
 import EditDialog from './EditDialog';
 
 const Header = () => {
-  const { charId } = useParams();
+  const { gameId, charId } = usePageParams();
+  const { pinnedIds, updatePinnedIds } = useUser();
   const charData = useData('character')[charId];
   const element = useData('element')[charData.element];
   const type = useData('type')[charData.type];
-
   const [open, setOpen] = useState(false);
+
+  const isPinned = pinnedIds[gameId] === charId;
 
   return (
     <CardHeader
@@ -63,6 +65,8 @@ const Header = () => {
       action={(
         <Stack direction="row" spacing={0.5}>
           <Checkbox
+            checked={isPinned}
+            onChange={() => updatePinnedIds(gameId, charId)}
             icon={<StarBorder />}
             checkedIcon={<Star />}
           />

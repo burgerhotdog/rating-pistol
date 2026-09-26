@@ -113,7 +113,7 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
             ownerId,
             category: effect.category,
             index: i,
-            teamSize: memberIds.length,
+            memberIds,
             weaponRank: spec.weaponRank,
             mode: spec.memberMode,
           });

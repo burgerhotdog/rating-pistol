@@ -1,7 +1,7 @@
 import { WW, CHARACTER, ECHO } from '@/data';
 import { getMvIndex, normalizeAction } from '@/utils';
 
-export const getActionDefs = (gameId, member, teamSize, baseMap) => {
+export const getActionDefs = (gameId, member, memberIds, baseMap) => {
   const { id: ownerId, skillLevels } = member;
   const { element: charElement, type: weaponType, skills } = CHARACTER[gameId][ownerId];
 
@@ -14,7 +14,7 @@ export const getActionDefs = (gameId, member, teamSize, baseMap) => {
     const sharedSpec = {
       ownerId,
       category,
-      teamSize,
+      memberIds,
       mvIndex,
       charElement,
       weaponType,
@@ -37,7 +37,6 @@ export const getActionDefs = (gameId, member, teamSize, baseMap) => {
         ownerId,
         category: 'echoSkill',
         index: 0,
-        teamSize,
       });
       actionDefs[action.ref] = action;
     }

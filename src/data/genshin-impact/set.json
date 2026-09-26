@@ -734,7 +734,7 @@
           "stats": {
             "normalAttackDmgBonus%": 0.5,
             "chargedAttackDmgBonus%": 0.5,
-            "plungeAttackDmgBonus%": 0.5
+            "plungingAttackDmgBonus%": 0.5
           }
         }
       }
@@ -1071,7 +1071,7 @@
             "attackSpd%": 0.1,
             "normalAttackDmgBonus%": 0.4,
             "chargedAttackDmgBonus%": 0.4,
-            "plungeAttackDmgBonus%": 0.4
+            "plungingAttackDmgBonus%": 0.4
           }
         }
       }
@@ -1129,7 +1129,7 @@
                 "type": [
                   "normalAttack",
                   "chargedAttack",
-                  "plungeAttack",
+                  "plungingAttack",
                   "elementalSkill",
                   "elementalBurst"
                 ]
@@ -1432,7 +1432,6 @@
     ]
   },
   "15039": {
-    "disabled": true,
     "name": "Long Night's Oath",
     "version": 5.5,
     "id": 15039,
@@ -1441,23 +1440,55 @@
       2,
       4
     ],
-    "halfStat": "plungeAttackDmgBonus%",
+    "halfStat": "plungingAttackDmgBonus%",
     "effects": [
       {
         "bonus": 2,
         "buff": {
           "stats": {
-            "plungeAttackDmgBonus%": 0.25
+            "plungingAttackDmgBonus%": 0.25
           }
         }
       },
       {
         "bonus": 4,
+        "ref": "radianceEverlasting",
+        "apply": [
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "plungingAttack"
+                }
+              }
+            },
+            "cooldown": 1000,
+            "duration": 6000
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "chargedAttack",
+                    "elementalSkill"
+                  ]
+                }
+              }
+            },
+            "cooldown": 1000,
+            "duration": 6000,
+            "stacks": 2
+          }
+        ],
         "buff": {
           "stats": {
-            "plungeAttackDmgBonus%": 0.75
+            "plungingAttackDmgBonus%": 0.15
           }
-        }
+        },
+        "maxStacks": 5
       }
     ]
   },
@@ -1786,7 +1817,6 @@
     ]
   },
   "15046": {
-    "disabled": true,
     "name": "Disenchantment in Deep Shadow",
     "version": 6.6,
     "id": 15046,
@@ -1804,11 +1834,37 @@
             "atk%": 0.18
           }
         }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "stats": {
+            "superconductReactionBonus%": 0.8,
+            "stellarConductReactionBonus%": 0.4
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "superconduct",
+                  "stellarConduct"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "critRate%": 0.16
+          }
+        }
       }
     ]
   },
   "15047": {
-    "disabled": true,
     "name": "Scarlet Proof",
     "version": 7.0,
     "id": 15047,
@@ -1826,11 +1882,28 @@
             "atk%": 0.18
           }
         }
+      },
+      {
+        "bonus": 4,
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "stellarSwirl"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "critRate%": 0.16,
+            "stellarSwirlReactionBonus%": 0.4
+          }
+        }
       }
     ]
   },
   "15048": {
-    "disabled": true,
     "name": "Heart of the Furnace",
     "version": 7.0,
     "id": 15048,
@@ -1846,6 +1919,72 @@
         "buff": {
           "stats": {
             "atk%": 0.18
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "apply": [
+          {
+            "when": "reaction",
+            "field": "*",
+            "filter": {
+              "reaction": {
+                "reaction": [
+                  "stellarConduct",
+                  "stellarSwirl"
+                ]
+              }
+            },
+            "duration": 12000,
+            "commands": {
+              "type": "apply",
+              "ref": "partyBuff",
+              "spec": {
+                "duration": 12000
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "field": "*",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "stellarConduct",
+                    "stellarSwirl"
+                  ]
+                }
+              }
+            },
+            "duration": 12000,
+            "commands": {
+              "type": "apply",
+              "ref": "partyBuff",
+              "spec": {
+                "duration": 12000
+              }
+            }
+          }
+        ],
+        "buff": {
+          "stats": {
+            "atk%": 0.12
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "partyBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "stellarConductReactionBonus%": 0.5,
+            "stellarSwirlReactionBonus%": 0.5
           }
         }
       }

@@ -10,47 +10,59 @@ export const canSnapshot = (action = {}) =>
 
 export const buildSnapshot = (ctx, action, options = {}) => {
   const { gameId } = ctx.cache;
-  const { runtimeOffset = 0, snapshotBuffs, infusedElement } = options;
+  const { runtimeOffset = 0, snapshotBuffs } = options;
   const snapshotOwnerId = action.ownerId;
 
-  let snapshotAction = action;
-  if (action?.damage && infusedElement) {
-    snapshotAction = {
-      ...action,
-      damage: {
-        ...action.damage,
-        element: infusedElement,
-      },
-    };
-  }
+  const { buffMap, buffSpecs } = snapshotBuffs ?? getBuffMap(ctx, {
+    memberId: snapshotOwnerId,
+    action,
+  });
 
-  const { buffMap, buffSpecs } = snapshotBuffs ?? getBuffMap(ctx, { memberId: snapshotOwnerId, action: snapshotAction });
+  const specSourceBuffMap = ctx.specId
+    ? getBuffMap(ctx, {
+        memberId: ctx.specId,
+        ignoreSpecs: true,
+      }).buffMap
+    : null;
 
   const memo = {};
 
+  const isStellarConduct = action?.damage?.type === 'stellarConduct';
+  const isStellarSwirl = action?.damage?.type === 'stellarSwirl';
+  const { multiplier } = ctx.states.aura?.stellarConduct ?? {};
+
+  const formula = (statMap, part) => isStellarConduct || isStellarSwirl
+    ? runFormula(gameId, part, action, statMap, multiplier)
+    : runFormula(gameId, part, action, statMap);
+
   const snapshot = {
-    key: snapshotAction.key,
-    name: snapshotAction.name,
-    ownerId: snapshotAction.ownerId,
-    category: snapshotAction.category,
-    type: snapshotAction.type,
+    key: action.key,
+    name: action.name,
+    ownerId: action.ownerId,
+    category: action.category,
+    type: action.type,
     onFieldId: ctx.states.onFieldId,
     runtime: ctx.states.runtime + runtimeOffset,
-    damageType: snapshotAction.damage?.type,
+    damageType: action.damage?.type,
     unresolved: {
       memo,
-      action: snapshotAction,
+      action: action,
       buffMap,
       buffSpecs,
+      specSourceBuffMap,
       splitScale: 1 / (action.hitOffsets?.length ?? 1),
-      formula: (statMap, part) => runFormula(gameId, part, snapshotAction, statMap),
+      formula,
       parts: [
-        ...(snapshotAction.damage ? ['damage'] : []),
-        ...(snapshotAction.healing ? ['healing'] : []),
-        ...(snapshotAction.shield ? ['shield'] : []),
+        ...(action.damage ? ['damage'] : []),
+        ...(action.healing ? ['healing'] : []),
+        ...(action.shield ? ['shield'] : []),
       ],
     },
   };
+
+  if (action.healing) {
+    snapshot.unresolved.splitScale *= action.healing.targets.length;
+  }
 
   return snapshot;
 }
@@ -60,14 +72,18 @@ export const resolveSnapshot = (ctx, snapshot) => {
   const { unresolved } = snapshot;
   if (!unresolved) return;
 
-  const { memo, ownerId, action, buffMap, buffSpecs, formula, splitScale = 1 } = unresolved;
+  if (unresolved.elevation) {
+    resolveElevationSnapshot(ctx, snapshot);
+    return;
+  }
+
+  const { memo, ownerId, action, buffMap, buffSpecs, specSourceBuffMap, formula, splitScale = 1 } = unresolved;
   const scale = unresolved.scale ?? 1;
 
   const statMapOwnerId = action?.ownerId ?? ownerId;
   const statMapOwnerIdBuildMap = ctx.buildMaps[statMapOwnerId];
 
   const isSpecIdAction = statMapOwnerId === ctx.specId;
-  let testBuffMap;
 
   for (const part of unresolved.parts) {
     // Can be resolved now
@@ -120,14 +136,12 @@ export const resolveSnapshot = (ctx, snapshot) => {
       continue;
     }
 
-    testBuffMap ??= getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true }).buffMap;
-
     // Action is not from specId but has variable buffs from specId
     if (!isSpecIdAction) {
       const partiallyBuffedMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
       snapshot[part] = (testBuildMap) => {
         if (memo[part]?.buildMap !== testBuildMap) {
-          const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
+          const testBuffedMap = toMergedObj(testBuildMap, specSourceBuffMap);
           const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
           const statMap = toMergedObj(partiallyBuffedMap, resolvedBuffs);
           memo[part] = {
@@ -148,7 +162,7 @@ export const resolveSnapshot = (ctx, snapshot) => {
     // Action is from specId and has variable buffs from specId
     snapshot[part] = (testBuildMap) => {
       if (memo[part]?.buildMap !== testBuildMap) {
-        const testBuffedMap = toMergedObj(testBuildMap, testBuffMap);
+        const testBuffedMap = toMergedObj(testBuildMap, specSourceBuffMap);
         const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
         const statMap = toMergedObj(testBuildMap, buffMap, resolvedBuffs);
         memo[part] = {
@@ -171,4 +185,81 @@ function applyScale(value, scale) {
     return value * scale;
   }
   return (buildMap) => value * scale(buildMap);
+}
+
+const ELEVATIONS = [0.6, 0.3, 0.05, 0.05];
+
+function resolveElevationSnapshot(ctx, snapshot) {
+  const { memberIds } = ctx.cache;
+  const {
+    memo,
+    allMemberBuffs,
+    formula,
+    splitScale = 1,
+    reactionElement,
+  } = snapshot.unresolved;
+
+  const usedAttrs = new Set([
+    'elementalMastery',
+    `${snapshot.damageType}ReactionBonus%`,
+    `${reactionElement}ResReduction%`,
+  ]);
+  if (snapshot.damageType === 'stellarSwirl') {
+    usedAttrs.add('stellarGlimmerReactionBonus%');
+    usedAttrs.add('stellarSwirlBaseDmg%');
+    usedAttrs.add('stellarGlimmerBaseDmg%');
+    usedAttrs.add('stellarGlimmerFlat');
+  }
+
+  const scale = snapshot.unresolved.scale ?? 1;
+
+  const calculate = (testBuildMap) => {
+    const testBuffMap = ctx.specId
+      ? allMemberBuffs[ctx.specId].sourceBuffMap
+      : null;
+
+    const memberDamageValues = memberIds.map((memberId) => {
+      const isSpecMember = memberId === ctx.specId;
+      const buildMap = isSpecMember ? testBuildMap : ctx.buildMaps[memberId];
+      const { buffMap, buffSpecs } = allMemberBuffs[memberId];
+
+      const usesSpecs = ctx.specId && buffSpecs.some(({ specs }) =>
+        Object.keys(specs).some((stat) => usedAttrs.has(stat))
+      );
+
+      if (!usesSpecs) {
+        const statMap = toMergedObj(buildMap, buffMap);
+        return formula(statMap);
+      }
+
+      const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffMap);
+      const statMap = toMergedObj(buildMap, buffMap, resolvedBuffs);
+      return formula(statMap);
+    });
+
+    return splitScale * memberDamageValues
+      .sort((a, b) => b - a)
+      .reduce((acc, value, index) => acc + value * ELEVATIONS[index], 0);
+  };
+
+  if (!ctx.specId) {
+    const value = memo.damage ??= calculate();
+    snapshot.damage = applyScale(value, scale);
+    return;
+  }
+
+  snapshot.damage = (testBuildMap) => {
+    if (memo.damage?.buildMap !== testBuildMap) {
+      memo.damage = {
+        buildMap: testBuildMap,
+        value: calculate(testBuildMap),
+      };
+    }
+
+    const value = memo.damage.value;
+
+    return typeof scale === 'function'
+      ? value * scale(testBuildMap)
+      : value * scale;
+  };
 }

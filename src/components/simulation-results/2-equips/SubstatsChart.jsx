@@ -9,7 +9,7 @@ import { alpha, useTheme } from '@mui/material/styles';
 import { Bar, BarChart, Scatter, Tooltip, XAxis, YAxis } from 'recharts';
 import { WW, SUBSTAT } from '@/data';
 import { useAccent } from '@/hooks';
-import { formatStr, getStatIcon } from '@/utils';
+import { formatStr, getStatIcon, getMainstatConfigKey, sumSubstatRolls } from '@/utils';
 
 const chanceOfStat = (weights, stat) => {
   const dfs = (pool, remainingDraws, prob) => {
@@ -143,11 +143,12 @@ const classifyRoll = (user, { min, q1 }) => {
   return 'off';
 };
 
-const SubstatsChart = ({ results, userMainstatConfigKey, userSubstatRolls }) => {
-  const { equipListConfigs } = results;
+const SubstatsChart = ({ equipListConfigs, equipList }) => {
   const { gameId } = useParams();
   const { palette } = useTheme();
   const accent = useAccent();
+  const userMainstatConfigKey = getMainstatConfigKey(gameId, equipList);
+  const userSubstatRolls = sumSubstatRolls(gameId, equipList);
 
   const userConfig = equipListConfigs[userMainstatConfigKey];
   if (!userConfig) return;

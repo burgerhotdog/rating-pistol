@@ -90,7 +90,10 @@ export function reactSuperconduct(ctx, ownerId) {
     ctx.snapshots.push(snapshot);
   }
 
-  ctx.states.aura.superconduct = { reaction: 'superconduct', timer: 12000 };
+  const state = ctx.states.aura.superconduct ??= {
+    reaction: 'superconduct',
+  };
+  state.timeLeft = 12000;
 
   ctx.runEffects('reaction', {
     ...REACTION_DEFS.superconduct,
@@ -123,7 +126,10 @@ export function reactFrozen(ctx, ownerId, originGauge, gauge) {
   const frozenAuraGauge = 2 * Math.min(originGauge, gauge);
   const freezeDuration = (2 * Math.sqrt(5 * frozenAuraGauge + 4) - 4) * 1000;
 
-  ctx.states.aura.frozen = { reaction: 'frozen', timer: freezeDuration };
+  ctx.states.aura.frozen = {
+    reaction: 'frozen',
+    timeLeft: freezeDuration,
+  };
 
   ctx.runEffects('reaction', {
     ...REACTION_DEFS.frozen,
@@ -132,7 +138,10 @@ export function reactFrozen(ctx, ownerId, originGauge, gauge) {
 }
 
 export function reactElectroCharged(ctx, applier) {
-  const state = ctx.states.aura.electroCharged ??= { reaction: 'electroCharged', timer: 0 };
+  const state = ctx.states.aura.electroCharged ??= {
+    reaction: 'electroCharged',
+    timeLeft: 0,
+  };
   state.applier = applier;
 
   ctx.runEffects('reaction', {
@@ -162,6 +171,6 @@ export function tickElectroCharged(ctx, applier, offset = 0) {
     return true;
   }
 
-  aura.electroCharged.timer = 500;
+  aura.electroCharged.timeLeft = 500;
   return false;
 }
