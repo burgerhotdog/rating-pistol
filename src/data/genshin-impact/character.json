@@ -20434,7 +20434,6 @@
     }
   },
   "10000058": {
-    "disabled": true,
     "name": "Yae Miko",
     "version": 2.5,
     "id": 10000058,
@@ -57511,7 +57510,13 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000133,
+      10000058,
+      10000150,
+      null
+    ]
   },
   "10000140": {
     "disabled": true,
