@@ -22024,6 +22024,18 @@
             }
           },
           "duration": 15000
+        },
+        "use": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "normalAttack"
+            }
+          },
+          "cooldown": 1000,
+          "action": "elementalBurst.1",
+          "times": 3
         }
       }
     ],
