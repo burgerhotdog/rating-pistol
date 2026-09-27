@@ -21999,7 +21999,6 @@
     "memberPreset": {}
   },
   "10000060": {
-    "disabled": true,
     "name": "Yelan",
     "version": 2.7,
     "id": 10000060,
@@ -22013,6 +22012,7 @@
       "baseDef": 548,
       "critRate%": 0.192
     },
+    "energy": 70,
     "tagged": [],
     "effects": [
       {
@@ -22023,7 +22023,30 @@
               "ref": "elementalBurst.0"
             }
           },
-          "duration": 15000
+          "duration": 15000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "skillTriggerUlt",
+              "spec": {
+                "duration": 15000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "rampingBuffFixed",
+              "spec": {
+                "duration": 15000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "rampingBuff",
+              "spec": {
+                "duration": 15000
+              }
+            }
+          ]
         },
         "use": {
           "by": "$team",
@@ -22037,6 +22060,55 @@
           "action": "elementalBurst.1",
           "times": 3
         }
+      },
+      {
+        "ref": "skillTriggerUlt",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "action": "elementalBurst.1",
+          "times": 3
+        }
+      },
+      {
+        "ref": "rampingBuffFixed",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "damageBonus%": 0.01
+          }
+        }
+      },
+      {
+        "ref": "rampingBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "damageBonus%": 0.035
+          }
+        },
+        "maxStacks": 14,
+        "rampingInterval": 1000,
+        "rampingOffset": 1000
       }
     ],
     "skills": {
@@ -22345,6 +22417,7 @@
       },
       "elementalSkill": {
         "name": "Lingering Lifeline",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -22379,6 +22452,7 @@
       },
       "elementalBurst": {
         "name": "Depth-Clarion Dice",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -22448,7 +22522,11 @@
       "weaponId": 15508,
       "setCounts": {
         "15020": 4
-      }
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalSkill.0"
+      ]
     }
   },
   "10000061": {
@@ -58648,14 +58726,144 @@
       "baseDef": 703,
       "energyRecharge%": 0.2667
     },
+    "energy": 70,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "huntersMark",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 15000
+        }
+      },
+      {
+        "ref": "huntersPrecision",
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": [
+                    "elementalSkill.0",
+                    "elementalBurst.2"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "huntersMark"
+                }
+              }
+            ]
+          },
+          "duration": 15000,
+          "commands": {
+            "type": "apply",
+            "ref": "radianceHuntersPrecision",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        },
+        "buff": {
+          "statRefs": {
+            "atk%": "elementalSkill.1"
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 14000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": [
+            "elementalBurst.1",
+            "elementalBurst.2"
+          ]
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.2"
+            }
+          },
+          "action": {
+            "healing": {
+              "targets": "onField",
+              "multipliers": [
+                {
+                  "mv": 1.2
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "specs": {
+            "elementalSkillDmgBonus%": {
+              "attr": "energyRecharge%",
+              "step": 0.01,
+              "value": 0.0035,
+              "maxValue": 0.7
+            },
+            "elementalBurstDmgBonus%": {
+              "attr": "energyRecharge%",
+              "step": 0.01,
+              "value": 0.0035,
+              "maxValue": 0.7
+            }
+          }
+        }
+      },
+      {
+        "ref": "radianceHuntersPrecision",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "radiance": "stellarConduct"
+              },
+              {
+                "field": "onField"
+              }
+            ]
+          },
+          "stats": {
+            "stellarConductReactionBonus%": 0.2
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "",
+        "name": "Skirmishing Spear",
         "actions": [
           {
-            "name": "1-Hit DMG",
+            "name": "Normal Attack 1",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -58682,7 +58890,7 @@
             }
           },
           {
-            "name": "2-Hit DMG",
+            "name": "Normal Attack 2",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -58709,7 +58917,7 @@
             }
           },
           {
-            "name": "3-Hit DMG",
+            "name": "Normal Attack 3",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -58755,7 +58963,7 @@
             }
           },
           {
-            "name": "4-Hit DMG",
+            "name": "Normal Attack 4",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -58782,8 +58990,8 @@
             }
           },
           {
-            "name": "Charged Attack DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -58809,36 +59017,63 @@
             }
           },
           {
-            "name": "Charged Attack Stamina Cost",
-            "type": "normalAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
                   "mv": [
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25
+                    1.278377,
+                    1.382431,
+                    1.486485,
+                    1.635134,
+                    1.739187,
+                    1.858106,
+                    2.02162,
+                    2.185133,
+                    2.348646,
+                    2.527025,
+                    2.705403,
+                    2.883781,
+                    3.062159,
+                    3.240537,
+                    3.418915
                   ]
                 }
               ]
             }
           },
           {
-            "name": "Plunge DMG",
-            "type": "normalAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.596762,
+                    1.726731,
+                    1.8567,
+                    2.04237,
+                    2.172339,
+                    2.320875,
+                    2.525112,
+                    2.729349,
+                    2.933586,
+                    3.15639,
+                    3.379194,
+                    3.601998,
+                    3.824802,
+                    4.047606,
+                    4.27041
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -58861,62 +59096,17 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Low/High Plunge DMG",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.278377,
-                    1.382431,
-                    1.486485,
-                    1.635134,
-                    1.739187,
-                    1.858106,
-                    2.02162,
-                    2.185133,
-                    2.348646,
-                    2.527025,
-                    2.705403,
-                    2.883781,
-                    3.062159,
-                    3.240537,
-                    3.418915
-                  ]
-                },
-                {
-                  "mv": [
-                    1.596762,
-                    1.726731,
-                    1.8567,
-                    2.04237,
-                    2.172339,
-                    2.320875,
-                    2.525112,
-                    2.729349,
-                    2.933586,
-                    3.15639,
-                    3.379194,
-                    3.601998,
-                    3.824802,
-                    4.047606,
-                    4.27041
-                  ]
-                }
-              ]
-            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "",
+        "name": "Thunderbolt Strike",
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -58941,9 +59131,10 @@
             }
           },
           {
-            "name": "Hold DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -58968,63 +59159,9 @@
             }
           },
           {
-            "name": "CD",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Hunter's Mark Duration",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Hunter's Precision ATK Bonus",
             "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
                   "mv": [
@@ -59047,43 +59184,25 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Hunter's Precision Duration",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15
-                  ]
-                }
-              ]
-            }
           }
         ]
       },
       "elementalBurst": {
-        "name": "",
+        "name": "Hunter's Advance",
         "actions": [
           {
-            "name": "Fulgurite Hunting Field DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Fulgurite Hunting Field",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 1600
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -59108,9 +59227,14 @@
             }
           },
           {
-            "name": "Tugarin DMG",
-            "type": "elementalBurst",
+            "name": "Tugarin",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 1600
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -59129,87 +59253,6 @@
                     1.067243,
                     1.130022,
                     1.192801
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Duration",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "CD",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Energy Cost",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70
                   ]
                 }
               ]

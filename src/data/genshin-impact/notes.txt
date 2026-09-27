@@ -46,6 +46,9 @@ Characters:
         no orbitals from skill
     Yae Miko
         No constellations
+    Yelan
+        No barb reset
+        No turn control buff
     Yumemizuki Mizuki
         Ult always does damage
         A1 always extended
