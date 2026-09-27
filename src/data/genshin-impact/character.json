@@ -21544,7 +21544,13 @@
         "elementalSkill.0",
         "elementalSkill.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000133,
+      10000058,
+      10000150,
+      10000148
+    ]
   },
   "10000059": {
     "disabled": true,
@@ -35089,7 +35095,13 @@
         "normalAttack.5"
       ],
       "duration": 11000
-    }
+    },
+    "teamPreset": [
+      10000086,
+      10000058,
+      10000150,
+      10000148
+    ]
   },
   "10000087": {
     "disabled": true,
@@ -57634,7 +57646,7 @@
       10000133,
       10000058,
       10000150,
-      null
+      10000148
     ]
   },
   "10000140": {
@@ -58712,7 +58724,6 @@
     }
   },
   "10000148": {
-    "disabled": true,
     "name": "Alyosha",
     "version": 7.0,
     "id": 10000148,
@@ -58774,7 +58785,7 @@
         },
         "buff": {
           "statRefs": {
-            "atk%": "elementalSkill.1"
+            "atk%": "elementalSkill.2"
           }
         }
       },
@@ -59101,6 +59112,7 @@
       },
       "elementalSkill": {
         "name": "Thunderbolt Strike",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -59160,11 +59172,10 @@
           },
           {
             "name": "Hunter's Precision ATK Bonus",
-            "type": "elementalSkill",
             "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.1166,
                     0.1272,
                     0.1378,
@@ -59189,6 +59200,7 @@
       },
       "elementalBurst": {
         "name": "Hunter's Advance",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -59261,7 +59273,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13407,
+      "setCounts": {
+        "15007": 4
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalSkill.0"
+      ]
+    },
+    "teamPreset": [
+      10000133,
+      10000058,
+      10000150,
+      10000148
+    ]
   },
   "10000150": {
     "name": "Odette",
@@ -60095,6 +60122,12 @@
         "elementalSkill.0",
         "elementalSkill.1"
       ]
-    }
+    },
+    "teamPreset": [
+      10000133,
+      10000058,
+      10000150,
+      10000148
+    ]
   }
 }
