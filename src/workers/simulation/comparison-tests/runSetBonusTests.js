@@ -72,12 +72,12 @@ function assignPartition(groups, usefulSetBonuses) {
   return results;
 }
 
-function getNormalizedSetEffects(effectSources, gameId, ownerId, memberIds) {
+function getNormalizedSetEffects(effectSources, gameId, ownerId, memberIds, counts) {
   const charData = CHARACTER[gameId][ownerId];
   const normalized = {};
 
   for (const { rawEffects, pieceCount, sourceId } of effectSources) {
-    const sharedNormCtx = { gameId, ownerId, sourceId, sourceType: 'set', memberIds };
+    const sharedNormCtx = { gameId, ownerId, sourceId, sourceType: 'set', memberIds, counts };
 
     for (const [index, rawEffect] of rawEffects.entries()) {
       if (!isEnabledSet(rawEffect, pieceCount, charData)) continue;
@@ -92,10 +92,10 @@ function getNormalizedSetEffects(effectSources, gameId, ownerId, memberIds) {
   return resolveModifyEffects(tokenResolved);
 }
 
-function getNormalizedEchoEffects(gameId, ownerId, echoId, memberIds, weaponRank) {
+function getNormalizedEchoEffects(gameId, ownerId, echoId, memberIds, weaponRank, counts) {
   const charData = CHARACTER[gameId][ownerId];
   const rawEffects = ECHO[echoId]?.effects ?? [];
-  const sharedNormCtx = { gameId, ownerId, sourceId: echoId, sourceType: 'echo', memberIds, weaponRank };
+  const sharedNormCtx = { gameId, ownerId, sourceId: echoId, sourceType: 'echo', memberIds, weaponRank, counts };
 
   const normalized = {};
   for (const [index, rawEffect] of rawEffects.entries()) {
@@ -178,13 +178,13 @@ export function runSetBonusTests(cache, equipMaps, charId) {
   );
 
   const runTest = (effectSources, { testEcho = true } = {}) => {
-    const setEffects = getNormalizedSetEffects(effectSources, gameId, charId, cache.memberIds);
+    const setEffects = getNormalizedSetEffects(effectSources, gameId, charId, cache.memberIds, cache.counts);
     const testSetIds = testEcho ? effectSources.map(({ sourceId }) => sourceId) : [];
     const echoCandidates = getEchoCandidates(gameId, testSetIds);
 
     const runWithEcho = (echoId) => {
       const echoEffects = echoId != null
-        ? getNormalizedEchoEffects(gameId, charId, echoId, cache.memberIds, mCache.weaponRank)
+        ? getNormalizedEchoEffects(gameId, charId, echoId, cache.memberIds, mCache.weaponRank, cache.counts)
         : {};
 
       const effects = {

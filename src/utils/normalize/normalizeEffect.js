@@ -1,4 +1,5 @@
 import { toArray, resolveRankedValue, normalizeAction } from '@/utils';
+import { handleSpecialEffect } from './specialEffect';
 
 function normalizeScope(rawScope, { ownerId, memberIds }) {
   switch (rawScope) {
@@ -40,6 +41,10 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     category: `${sourceId}:effect${index}`,
     key: `${ownerId}.${sourceId}:effect${index}`,
   };
+
+  if (effect.special) {
+    handleSpecialEffect(gameId, effect, spec);
+  }
 
   // Scope
   effect.stores = normalizeScope(rawEffect.stores, { ownerId, memberIds });

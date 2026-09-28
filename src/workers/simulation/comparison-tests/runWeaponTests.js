@@ -20,6 +20,7 @@ function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weapo
     sourceType: 'weapon',
     weaponRank,
     memberIds,
+    counts: cache.counts,
   };
 
   const charData = CHARACTER[gameId][ownerId];

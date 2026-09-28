@@ -1005,7 +1005,6 @@
     ]
   },
   "15026": {
-    "disabled": true,
     "name": "Gilded Dreams",
     "version": 3.0,
     "id": 15026,
@@ -1026,11 +1025,14 @@
       },
       {
         "bonus": 4,
-        "buff": {
-          "stats": {
-            "elementalMastery": 150
-          }
-        }
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "cooldown": 8000,
+          "duration": 8000
+        },
+        "buff": {},
+        "special": "gildedDreams"
       }
     ]
   },

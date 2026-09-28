@@ -20,6 +20,7 @@ export const getEffectDefs = (gameId, member, spec) => {
     memberMode: member.mode,
     memberIds,
     actionDefs: spec.actionDefs,
+    counts: spec.counts,
   };
 
   // Character effects
