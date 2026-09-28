@@ -13895,6 +13895,7 @@
               ]
             },
             "shield": {
+              "duration": 30000,
               "attr": "energyRegen%",
               "multipliers": [
                 {
@@ -21984,6 +21985,7 @@
           "cooldown": 500,
           "action": {
             "shield": {
+              "duration": 5000,
               "attr": "hp",
               "multipliers": [
                 {
@@ -22023,6 +22025,7 @@
           "cooldown": 500,
           "action": {
             "shield": {
+              "duration": 5000,
               "attr": "hp",
               "multipliers": [
                 {
@@ -25440,6 +25443,7 @@
           },
           "action": {
             "shield": {
+              "duration": 10000,
               "attr": "def",
               "multipliers": [
                 {
@@ -28644,19 +28648,21 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "rulersRealm"
+                "action": {
+                  "type": "introSkill"
                 }
               },
               {
-                "action": {
-                  "type": "introSkill"
+                "effectStacks": {
+                  "has": "rulersRealm"
                 }
               }
             ]
           },
           "action": {
             "shield": {
+              "targets": "$applier",
+              "duration": 10000,
               "attr": "hp",
               "multipliers": [
                 {
@@ -28680,6 +28686,7 @@
           "cooldown": 500,
           "action": {
             "shield": {
+              "duration": 5000,
               "attr": "hp",
               "multipliers": [
                 {
@@ -37537,6 +37544,7 @@
           {
             "name": "Incomplete Minor Zhoutian: Shield",
             "shield": {
+              "duration": 30000,
               "multipliers": [
                 {
                   "flat": [
@@ -37590,6 +37598,7 @@
           {
             "name": "Minor Zhoutian: Shield",
             "shield": {
+              "duration": 30000,
               "multipliers": [
                 {
                   "flat": [
@@ -37643,6 +37652,7 @@
           {
             "name": "Major Zhoutian Inner: Shield",
             "shield": {
+              "duration": 30000,
               "multipliers": [
                 {
                   "flat": [
@@ -37696,6 +37706,7 @@
           {
             "name": "Major Zhoutian Outer: Shield",
             "shield": {
+              "duration": 30000,
               "multipliers": [
                 {
                   "flat": [
@@ -41782,6 +41793,7 @@
           },
           "action": {
             "shield": {
+              "duration": 15000,
               "multipliers": [
                 {
                   "mv": 0.32
@@ -54503,6 +54515,7 @@
               ]
             },
             "shield": {
+              "duration": 30000,
               "multipliers": [
                 {
                   "flat": [
@@ -60319,6 +60332,7 @@
           {
             "name": "Timed Counters 1: Shield",
             "shield": {
+              "duration": 18000,
               "attr": "def",
               "multipliers": [
                 {
@@ -60373,6 +60387,7 @@
           {
             "name": "Timed Counters 2: Shield",
             "shield": {
+              "duration": 18000,
               "attr": "def",
               "multipliers": [
                 {
@@ -60427,6 +60442,7 @@
           {
             "name": "Timed Counters 3: Shield",
             "shield": {
+              "duration": 18000,
               "attr": "def",
               "multipliers": [
                 {

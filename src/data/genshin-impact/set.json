@@ -523,7 +523,6 @@
     ]
   },
   "15014": {
-    "disabled": true,
     "name": "Archaic Petra",
     "version": 1.0,
     "id": 15014,
@@ -541,11 +540,173 @@
             "geoDmgBonus%": 0.15
           }
         }
+      },
+      {
+        "bonus": 4,
+        "ref": "hydroBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": [
+                    "crystallize",
+                    "lunarCrystallize"
+                  ]
+                },
+                {
+                  "elements": "hydro"
+                }
+              ]
+            }
+          },
+          "duration": 10000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "pyroBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "cryoBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "electroBuff"
+            }
+          ]
+        },
+        "buff": {
+          "stats": {
+            "hydroDmgBonus%": 0.35
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "pyroBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "crystallize"
+                },
+                {
+                  "elements": "pyro"
+                }
+              ]
+            }
+          },
+          "duration": 10000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "hydroBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "cryoBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "electroBuff"
+            }
+          ]
+        },
+        "buff": {
+          "stats": {
+            "pyroDmgBonus%": 0.35
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "cryoBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "crystallize"
+                },
+                {
+                  "elements": "cryo"
+                }
+              ]
+            }
+          },
+          "duration": 10000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "hydroBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "pyroBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "electroBuff"
+            }
+          ]
+        },
+        "buff": {
+          "stats": {
+            "cryoDmgBonus%": 0.35
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "electroBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "crystallize"
+                },
+                {
+                  "elements": "electro"
+                }
+              ]
+            }
+          },
+          "duration": 10000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "hydroBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "cryoBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "pyroBuff"
+            }
+          ]
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.35
+          }
+        }
       }
     ]
   },
   "15015": {
-    "disabled": true,
     "name": "Retracing Bolide",
     "version": 1.0,
     "id": 15015,
@@ -555,7 +716,24 @@
       4
     ],
     "halfStat": "retracingBolide",
-    "effects": []
+    "effects": [
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "states": {
+              "shielded": {
+                ">": 0
+              }
+            }
+          },
+          "stats": {
+            "normalAttackDmgBonus%": 0.4,
+            "chargedAttackDmgBonus%": 0.4
+          }
+        }
+      }
+    ]
   },
   "15016": {
     "name": "Heart of Depth",
@@ -1074,7 +1252,9 @@
           "cooldown": 8000,
           "duration": 8000
         },
-        "buff": {},
+        "buff": {
+          "stats": {}
+        },
         "special": "gildedDreams"
       }
     ]
@@ -1123,7 +1303,6 @@
     ]
   },
   "15028": {
-    "disabled": true,
     "name": "Flower of Paradise Lost",
     "version": 3.3,
     "id": 15028,
@@ -1141,6 +1320,45 @@
             "elementalMastery": 80
           }
         }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "stats": {
+            "bloomReactionBonus%": 0.4,
+            "hyperbloomReactionBonus%": 0.4,
+            "burgeonReactionBonus%": 0.4,
+            "lunarBloomReactionBonus%": 0.1
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "bloom",
+                "hyperbloom",
+                "lunarBloom",
+                "burgeon"
+              ]
+            }
+          },
+          "cooldown": 1000,
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "bloomReactionBonus%": 0.1,
+            "hyperbloomReactionBonus%": 0.1,
+            "burgeonReactionBonus%": 0.1,
+            "lunarBloomReactionBonus%": 0.025
+          }
+        },
+        "maxStacks": 4
       }
     ]
   },

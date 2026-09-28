@@ -15,6 +15,7 @@ const initStates = (cache) => {
   const states = {
     runtime: 0,
     onFieldId: null,
+    shielded: null,
     applyCooldowns: {},
     globalEffects: {},
     memberEffects: initMemberStates(),
@@ -24,7 +25,6 @@ const initStates = (cache) => {
   if (gameId === GI) {
     states.icd = initMemberStates();
     states.aura = {};
-    states.shield = false;
   }
 
   if (gameId === WW) {

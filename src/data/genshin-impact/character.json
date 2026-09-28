@@ -7038,9 +7038,7 @@
     },
     "energy": 40,
     "energyMax": 1,
-    "tagged": [
-      "shield"
-    ],
+    "tagged": [],
     "effects": [
       {
         "use": {
@@ -7529,6 +7527,7 @@
           {
             "name": "Jade Shield",
             "shield": {
+              "duration": 20000,
               "attr": "hp",
               "multipliers": [
                 {
@@ -22082,6 +22081,12 @@
           "action": "elementalBurst.1",
           "times": 3
         }
+      },
+      {
+        "buff": {
+          "stats": {}
+        },
+        "special": "yelanA1"
       },
       {
         "ref": "rampingBuffFixed",
@@ -56290,6 +56295,7 @@
               ]
             },
             "shield": {
+              "duration": 20000,
               "multipliers": [
                 {
                   "mv": [

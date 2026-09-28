@@ -791,7 +791,6 @@
     "effects": []
   },
   "11424": {
-    "disabled": true,
     "name": "Wolf-Fang",
     "version": 4.0,
     "id": 11424,
@@ -802,7 +801,80 @@
       "baseAtk": 510,
       "critRate%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "elementalSkillDmgBonus%": [
+            0.16,
+            0.32
+          ],
+          "elementalBurstDmgBonus%": [
+            0.16,
+            0.32
+          ]
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 10000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": [
+              0.02,
+              0.04
+            ]
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 10000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": [
+              0.02,
+              0.04
+            ]
+          }
+        },
+        "maxStacks": 4
+      }
+    ]
   },
   "11425": {
     "disabled": true,
@@ -4138,8 +4210,9 @@
         }
       },
       {
+        "ref": "skillUnleashed",
         "apply": {
-          "when": "start",
+          "when": "end",
           "filter": {
             "action": {
               "type": "elementalSkill"
@@ -4147,14 +4220,54 @@
           },
           "duration": 14000
         },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "commands": {
+            "type": "apply",
+            "ref": "naBuffStacks"
+          }
+        }
+      },
+      {
+        "ref": "naBuffStacks",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "skillUnleashed"
+                }
+              }
+            ]
+          },
+          "stacks": 2
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          }
+        },
         "buff": {
           "stats": {
             "normalAttackDmgBonus%": [
-              0.48,
-              0.96
+              0.048,
+              0.096
             ]
           }
-        }
+        },
+        "maxStacks": 10
       }
     ]
   },
