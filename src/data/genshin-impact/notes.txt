@@ -112,7 +112,9 @@ Sets:
         4pc not active
     Celestial Gift
         4pc dmg bonus is for all elements
-    Shimenawa's Reminiscence
-        4pc energy simplified
     Long Night's Oath
         Stacks not independent
+    Shimenawa's Reminiscence
+        4pc energy simplified
+    Vermillion Hereafter
+        stacks on health gain too

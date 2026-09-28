@@ -893,7 +893,6 @@
     ]
   },
   "15023": {
-    "disabled": true,
     "name": "Vermillion Hereafter",
     "version": 2.6,
     "id": 15023,
@@ -914,8 +913,9 @@
       },
       {
         "bonus": 4,
+        "ref": "nascentLight",
         "apply": {
-          "when": "start",
+          "when": "end",
           "filter": {
             "action": {
               "type": "elementalBurst"
@@ -931,9 +931,52 @@
         },
         "buff": {
           "stats": {
-            "atk%": 0.48
+            "atk%": 0.08
           }
         }
+      },
+      {
+        "bonus": 4,
+        "ref": "buffWhenHpDrop",
+        "apply": {
+          "when": "healthChange",
+          "filter": {
+            "effectStacks": {
+              "has": "nascentLight"
+            }
+          },
+          "cooldown": 800
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "or": [
+              {
+                "action": {
+                  "type": "elementalBurst"
+                }
+              },
+              {
+                "filter": {
+                  "field": "offField"
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "nascentLight"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.1
+          }
+        },
+        "maxStacks": 4
       }
     ]
   },
