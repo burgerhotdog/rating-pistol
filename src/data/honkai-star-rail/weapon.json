@@ -2317,6 +2317,21 @@
     },
     "effects": []
   },
+  "23055": {
+    "disabled": true,
+    "name": "Colors for Tomorrow",
+    "version": 4.6,
+    "id": 23055,
+    "icon": "honkai-star-rail/weapon/23055.webp",
+    "quality": 5,
+    "type": "elation",
+    "stats": {
+      "baseHp": 1058,
+      "baseAtk": 476,
+      "baseDef": 595
+    },
+    "effects": []
+  },
   "23056": {
     "disabled": true,
     "name": "The Finale of a Lie",

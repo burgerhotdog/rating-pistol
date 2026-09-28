@@ -38,4 +38,10 @@ export default [
       'no-console': 'off',
     },
   },
+  {
+    files: ['scripts/**/*.js'],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
 ];

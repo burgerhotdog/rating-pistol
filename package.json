@@ -9,7 +9,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "scrape": "node scripts/scrape.js"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

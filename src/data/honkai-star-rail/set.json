@@ -1119,6 +1119,32 @@
       }
     ]
   },
+  "133": {
+    "disabled": true,
+    "name": "Dreamlit Actor",
+    "version": 4.6,
+    "id": 133,
+    "icon": "honkai-star-rail/set/133.webp",
+    "bonuses": [
+      "2",
+      "4"
+    ],
+    "halfStat": "",
+    "effects": []
+  },
+  "134": {
+    "disabled": true,
+    "name": "The Edacious Heretic",
+    "version": 4.6,
+    "id": 134,
+    "icon": "honkai-star-rail/set/134.webp",
+    "bonuses": [
+      "2",
+      "4"
+    ],
+    "halfStat": "",
+    "effects": []
+  },
   "301": {
     "disabled": true,
     "name": "Space Sealing Station",

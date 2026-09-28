@@ -1,0 +1,49 @@
+import { pick } from '../../common.js';
+
+const elements = [
+  'glacio',
+  'fusion',
+  'electro',
+  'aero',
+  'spectro',
+  'havoc',
+];
+
+export function parseEcho(entry, data) {
+  const actions = Object.values(data.skill.damage).map((v) => {
+    const action = {
+      name: `Echo Skill: ${data.name}`,
+      type: 'echoSkill',
+      element: v.element === 0
+        ? 'physical'
+        : elements[v.element - 1],
+    };
+
+    if (v.related_property.toLowerCase() !== 'atk') {
+      action.attr = v.related_property.toLowerCase();
+    }
+
+    if (v.rate_lv.length > 4) {
+      action.damage = {
+        multipliers: [
+          {
+            mv: v.rate_lv[4] / 10000,
+          },
+        ],
+      };
+    }
+
+    if (data.skill.desc.startsWith('Summon')) {
+      action.duration = 0;
+    }
+
+    return action;
+  });
+
+  entry.sets = data.group.map(Number);
+
+  entry.cost = pick({ 0: 1, 1: 3, 2: 4, 3: 4 }, data.intensity_code);
+
+  entry.effects = [];
+  entry.action = actions;
+}
