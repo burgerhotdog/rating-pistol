@@ -3,7 +3,7 @@ import { parseWeapon } from './parseWeapon.js';
 import { parseSet } from './parseSet.js';
 import { parseEcho } from './parseEcho.js';
 
-export function parseGi(type, id, data) {
+export function parseWw(type, id, data) {
   switch (type) {
     case 'character':
       return parseCharacter(id, data);

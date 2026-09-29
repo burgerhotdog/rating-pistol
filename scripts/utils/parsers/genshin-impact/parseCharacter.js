@@ -27,6 +27,26 @@ const stats = {
   fight_prop_heal_add: 'healingBonus%',
 };
 
+function getColoredText(str) {
+  return str.match(/<color=[^>]+>(.*?)<\/color>/)?.[1] ?? null;
+}
+
+function addRankModify(result, data, rank) {
+  const talentName = getColoredText(data.constellations[rank - 1].desc);
+
+  const key = ['elementalBurst', 'elementalSkill', 'normalAttack']
+    .find((key) => result[key].name === talentName)
+    ?? 'normalAttack';
+
+  const { actions, ...rest } = result[key];
+
+  result[key] = {
+    ...rest,
+    rankModify: rank,
+    actions,
+  };
+}
+
 function skills(data) {
   const result = {};
   const ids = [
@@ -35,7 +55,7 @@ function skills(data) {
     'elementalBurst',
     'elementalBurst',
   ];
-  
+
   for (const [index, value] of data.skills.entries()) {
     const promote = value.promote;
     if (Object.keys(promote).length !== 15) continue;
@@ -51,7 +71,7 @@ function skills(data) {
         type: ids[index] ?? null,
         damage: {
           multipliers: matches.map(m => ({
-            mv: Array.from({ length:15 }, (_, level) => promote[level].param[Number(m[1]) - 1]),
+            mv: Array.from({ length: 15 }, (_, level) => promote[level].param[Number(m[1]) - 1]),
           })),
         },
       });
@@ -59,6 +79,9 @@ function skills(data) {
 
     result[ids[index] ?? 'null'] = { name: value.name, actions };
   }
+
+  addRankModify(result, data, 3);
+  addRankModify(result, data, 5);
 
   return result;
 }

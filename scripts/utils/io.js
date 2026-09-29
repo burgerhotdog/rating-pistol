@@ -8,9 +8,9 @@ const gameCodeToId = {
   zzz: 'zenless-zone-zero',
 };
 
-const readJson = async (p) => JSON.parse(await readFile(p, 'utf8'));
+export const readJson = async (p) => JSON.parse(await readFile(p, 'utf8'));
 
-async function writeJson(p, data) {
+export async function writeJson(p, data) {
   const temp = `${p}.tmp`;
 
   const json = JSON.stringify(data, null, 2)

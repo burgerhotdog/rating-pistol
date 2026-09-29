@@ -8,14 +8,14 @@ const mapped = {
   gi: {
     set: 'artifact',
   },
-  hsr:{
+  hsr: {
     weapon: 'lightcone',
     set: 'relicset',
   },
-  ww:{
+  ww: {
     set: 'sonata',
   },
-  zzz:{
+  zzz: {
     set: 'equipment',
   },
 };
