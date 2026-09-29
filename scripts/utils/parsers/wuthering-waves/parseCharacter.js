@@ -143,7 +143,7 @@ function skills(data) {
   return result;
 }
 
-export function parseCharacter(entry, data) {
+export function parseCharacter(id, data) {
   const b = data.stats[6][90];
 
   const s = {
@@ -169,9 +169,19 @@ export function parseCharacter(entry, data) {
     s[stat] = round(val, stat.endsWith('%') ? 4 : 1);
   }
 
-  entry.quality = Number(data.rarity);
-  entry.element = elements[Number(data.element) - 1];
-  entry.type = types[Number(data.weapon) - 1];
-  entry.stats = s;
-  entry.skills = skills(data);
+  return {
+    disabled: true,
+    name: String(data.name),
+    version: null,
+    id: Number(id),
+    icon: `wuthering-waves/character/${id}.webp`,
+    quality: Number(data.rarity),
+    element: elements[Number(data.element) - 1],
+    type: types[Number(data.weapon) - 1],
+    stats: s,
+    tagged: [],
+    effects: [],
+    skills: skills(data),
+    memberPreset: {},
+  };
 }

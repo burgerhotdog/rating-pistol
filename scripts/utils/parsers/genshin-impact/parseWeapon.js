@@ -27,18 +27,24 @@ const stats = {
   fight_prop_heal_add: 'healingBonus%',
 };
 
-export function parseWeapon(entry, data) {
-  entry.quality = Number(data.rarity);
-
-  entry.type = pick(types, data.weapon_type);
-
+export function parseWeapon(id, data) {
   const [raw, values] = Object.entries(data.stats_modifier)[1];
   const stat = pick(stats, raw);
   const rawValue = values.base * values.levels[90];
   const value = stat.endsWith('%') ? round(rawValue, 3) : round(rawValue);
 
-  entry.stats = {
-    baseAtk: round(data.stats_modifier.atk.base * data.stats_modifier.atk.levels[90] + data.ascension[6].fight_prop_base_attack),
-    [stat]: value,
+  return {
+    disabled: true,
+    name: String(data.name),
+    version: null,
+    id: Number(id),
+    icon: `genshin-impact/weapon/${id}.webp`,
+    quality: Number(data.rarity),
+    type: pick(types, data.weapon_type),
+    stats: {
+      baseAtk: round(data.stats_modifier.atk.base * data.stats_modifier.atk.levels[90] + data.ascension[6].fight_prop_base_attack),
+      [stat]: value,
+    },
+    effects: [],
   };
 }

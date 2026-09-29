@@ -2,32 +2,15 @@ import { parseCharacter } from './parseCharacter.js';
 import { parseWeapon } from './parseWeapon.js';
 import { parseSet } from './parseSet.js';
 
-export function parseGi(type, version, id, data) {
-  const entry = {
-    disabled: true,
-    name: String(data.name),
-    version: Number(version),
-    id: Number(id),
-    icon: `genshin-impact/${type}/${id}.webp`,
-  };
+export function parseGi(type, id, data) {
+  switch (type) {
+    case 'character':
+      return parseCharacter(id, data);
 
-  if (type === 'character') {
-    parseCharacter(entry, data);
-    entry.tagged = [];
-    entry.effects = [];
-    entry.memberPreset = {};
+    case 'weapon':
+      return parseWeapon(id, data);
+
+    case 'set':
+      return parseSet(id, data);
   }
-
-  if (type === 'weapon'){
-    parseWeapon(entry, data);
-    entry.effects = [];
-  }
-
-  if (type === 'set') {
-    parseSet(entry, data);
-    entry.halfStat = '';
-    entry.effects = [];
-  }
-
-  return entry;
 }

@@ -41,16 +41,24 @@ const statNames = {
   'Energy Regen': 'energyRegen%',
 };
 
-export function parseWeapon(entry, data) {
+export function parseWeapon(id, data) {
   const b = data.stats[6][90];
   const stat = pick(statNames, b[1].name);
 
-  entry.quality = Number(data.rarity);
-  entry.type = types[Number(data.type) - 1];
-  entry.stats = {
-    baseAtk: Math.floor(b[0].value),
-    [stat]: b[1].is_ratio
-      ? b[1].value / 10000
-      : Math.trunc(b[1].value),
+  return {
+    disabled: true,
+    name: String(data.name),
+    version: null,
+    id: Number(id),
+    icon: `wuthering-waves/weapon/${id}.webp`,
+    quality: Number(data.rarity),
+    type: types[Number(data.type) - 1],
+    stats: {
+      baseAtk: Math.floor(b[0].value),
+      [stat]: b[1].is_ratio
+        ? b[1].value / 10000
+        : Math.trunc(b[1].value),
+    },
+    effects: [],
   };
 }

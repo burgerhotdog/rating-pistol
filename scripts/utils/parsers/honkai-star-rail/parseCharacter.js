@@ -78,17 +78,13 @@ function skills(data) {
   return result;
 }
 
-export function parseCharacter(entry, data) {
-  entry.quality = Number(data.rarity.at(-1));
-
-  entry.element = data.damage_type === 'Thunder'
+export function parseCharacter(id, data) {
+  const charElement = data.damage_type === 'Thunder'
     ? 'lightning'
     : data.damage_type.toLowerCase();
 
-  entry.type = pick(types, data.base_type);
-
   const b = data.stats[6];
-  const s = {
+  const charStats = {
     baseHp: round(b.hp_add * 79 + b.hp_base),
     baseAtk: round(b.attack_add * 79 + b.attack_base),
     baseDef: round(b.defence_add * 79 + b.defence_base),
@@ -105,10 +101,22 @@ export function parseCharacter(entry, data) {
   }
 
   for (const [stat, val] of Object.entries(asc)) {
-    s[stat] = (s[stat] ?? 0) + round(val, stat.endsWith('%') ? 4 : 1);
+    charStats[stat] = (charStats[stat] ?? 0) + round(val, stat.endsWith('%') ? 4 : 1);
   }
 
-  entry.stats = s;
-
-  entry.skills = skills(data);
+  return {
+    disabled: true,
+    name: String(data.name),
+    version: null,
+    id: Number(id),
+    icon: `honkai-star-rail/character/${id}.webp`,
+    quality: Number(data.rarity.at(-1)),
+    element: charElement,
+    type: pick(types, data.base_type),
+    stats: charStats,
+    tagged: [],
+    effects: [],
+    skills: skills(data),
+    memberPreset: {},
+  };
 }

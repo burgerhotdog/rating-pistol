@@ -111,7 +111,10 @@ export async function enterIds(rl, game, version, type) {
 
     const image = await fetchImage(url);
 
-    out.push([id, image, parsers[game](type, version.split('+')[0], id, data)]);
+    const parsed = parsers[game](type, id, data);
+    parsed.version = version.split('+')[0];
+
+    out.push([id, image, parsed]);
   }
 
   return out;

@@ -63,30 +63,36 @@ function skills(data) {
   return result;
 }
 
-export function parseCharacter(entry, data) {
-  entry.quality = data.rarity === 'QUALITY_PURPLE' ? 4 : 5;
-
-  entry.element = data.element.toLowerCase();
-
-  entry.type = pick(types, data.weapon);
-
+export function parseCharacter(id, data) {
   const mod = data.stats_modifier;
   const asc = mod.ascension[5];
 
   const [ascProp, ascValue] = Object.entries(asc)[3];
 
-  const s = {
+  const charStats = {
     baseHp: round(data.base_hp * mod.hp[90] + asc.fight_prop_base_hp),
-    baseAtk:round(data.base_atk * mod.atk[90] + asc.fight_prop_base_attack),
-    baseDef:round(data.base_def * mod.def[90] + asc.fight_prop_base_defense),
-    [pick(stats,ascProp)]: ascValue
+    baseAtk: round(data.base_atk * mod.atk[90] + asc.fight_prop_base_attack),
+    baseDef: round(data.base_def * mod.def[90] + asc.fight_prop_base_defense),
+    [pick(stats, ascProp)]: ascValue,
   };
 
   if (data.elemental_mastery) {
-    s.elementalMastery = (s.elementalMastery ?? 0) + data.elemental_mastery;
+    charStats.elementalMastery = (charStats.elementalMastery ?? 0) + data.elemental_mastery;
   }
 
-  entry.stats = s;
-
-  entry.skills = skills(data);
+  return {
+    disabled: true,
+    name: String(data.name),
+    version: null,
+    id: Number(id),
+    icon: `genshin-impact/character/${id}.webp`,
+    quality: data.rarity === 'QUALITY_PURPLE' ? 4 : 5,
+    element: data.element.toLowerCase(),
+    type: pick(types, data.weapon),
+    stats: charStats,
+    tagged: [],
+    effects: [],
+    skills: skills(data),
+    memberPreset: {},
+  };
 }

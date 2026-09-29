@@ -9,7 +9,7 @@ const elements = [
   'havoc',
 ];
 
-export function parseEcho(entry, data) {
+export function parseEcho(id, data) {
   const actions = Object.values(data.skill.damage).map((v) => {
     const action = {
       name: `Echo Skill: ${data.name}`,
@@ -40,10 +40,15 @@ export function parseEcho(entry, data) {
     return action;
   });
 
-  entry.sets = data.group.map(Number);
-
-  entry.cost = pick({ 0: 1, 1: 3, 2: 4, 3: 4 }, data.intensity_code);
-
-  entry.effects = [];
-  entry.action = actions;
+  return {
+    disabled: true,
+    name: String(data.name),
+    version: null,
+    id: Number(id),
+    icon: `wuthering-waves/echo/${id}.webp`,
+    sets: data.group.map(Number),
+    cost: pick({ 0: 1, 1: 3, 2: 4, 3: 4 }, data.intensity_code),
+    effects: [],
+    action: actions,
+  };
 }

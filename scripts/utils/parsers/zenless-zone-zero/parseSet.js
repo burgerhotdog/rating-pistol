@@ -1,11 +1,11 @@
 export function parseSet(id, data) {
   return {
     disabled: true,
-    name: String(data.name.en),
+    name: String(data.name),
     version: null,
     id: Number(id),
-    icon: `wuthering-waves/set/${id}.webp`,
-    bonuses: Object.keys(data.set ?? {}),
+    icon: `zenless-zone-zero/set/${id}.webp`,
+    bonuses: [2, 4],
     halfStat: '',
     effects: [],
   };
