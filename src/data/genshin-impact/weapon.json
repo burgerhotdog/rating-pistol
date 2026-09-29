@@ -4350,7 +4350,6 @@
     "effects": []
   },
   "14515": {
-    "disabled": true,
     "name": "Crane's Echoing Call",
     "version": 4.4,
     "id": 14515,
@@ -4361,7 +4360,30 @@
       "baseAtk": 741,
       "atk%": 0.165
     },
-    "effects": []
+    "effects": [
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "plungingAttack"
+              }
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "plungingAttackDmgBonus%": [
+              0.28,
+              0.8
+            ]
+          }
+        }
+      }
+    ]
   },
   "14516": {
     "disabled": true,

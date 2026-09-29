@@ -5773,7 +5773,6 @@
     }
   },
   "10000026": {
-    "disabled": true,
     "name": "Xiao",
     "version": 1.3,
     "id": 10000026,
@@ -5787,8 +5786,136 @@
       "baseDef": 799,
       "critRate%": 0.192
     },
+    "energy": 70,
+    "energyMin": 1.2,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "yakshasMask",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000,
+          "commands": {
+            "type": "apply",
+            "ref": "tamerOfDemonsRamping",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        },
+        "remove": {
+          "when": "swap",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": {
+            "drain": {
+              "value": 0.02
+            }
+          }
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "type": [
+                "normalAttack",
+                "chargedAttack",
+                "plungingAttack"
+              ]
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "anemo"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack",
+                  "plungingAttack"
+                ]
+              }
+            }
+          },
+          "statRefs": {
+            "dmgBonus%": "elementalBurst.1"
+          }
+        }
+      },
+      {
+        "ref": "tamerOfDemons",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "yakshasMask"
+              }
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.05
+          }
+        },
+        "maxStacks": 5
+      },
+      {
+        "ref": "tamerOfDemonsRamping",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 3000,
+          "commands": {
+            "type": "apply",
+            "ref": "tamerOfDemons"
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 7000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.15
+          }
+        },
+        "maxStacks": 3
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Whirlwind Thrust",
@@ -6021,33 +6148,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.8183,
-                    0.8849,
-                    0.9516,
-                    1.0467,
-                    1.1133,
-                    1.1894,
-                    1.2941,
-                    1.3988,
-                    1.5035,
-                    1.6176,
-                    1.7318,
-                    1.846,
-                    1.9602,
-                    2.0744,
-                    2.1886
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -6100,6 +6200,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.8183,
+                    0.8849,
+                    0.9516,
+                    1.0467,
+                    1.1133,
+                    1.1894,
+                    1.2941,
+                    1.3988,
+                    1.5035,
+                    1.6176,
+                    1.7318,
+                    1.846,
+                    1.9602,
+                    2.0744,
+                    2.1886
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -6108,9 +6235,14 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 100
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -6141,12 +6273,16 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Normal/Charged/Plunging Attack DMG Bonus",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
-            "damage": {
+            "duration": 1000
+          },
+          {
+            "name": "Normal/Charged/Plunging Attack DMG Bonus",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.5845,
                     0.6195,
                     0.6545,
@@ -6169,11 +6305,10 @@
           },
           {
             "name": "Life Drain",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.03,
                     0.03,
                     0.03,
@@ -6201,8 +6336,44 @@
       "weaponId": 13505,
       "setCounts": {
         "15023": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8"
+      ],
+      "duration": 18000
+    },
+    "teamPreset": [
+      10000026,
+      10000093,
+      10000089,
+      10000076
+    ]
   },
   "10000027": {
     "disabled": true,
@@ -38161,7 +38332,6 @@
     "memberPreset": {}
   },
   "10000093": {
-    "disabled": true,
     "name": "Xianyun",
     "version": 4.4,
     "id": 10000093,
@@ -38175,8 +38345,108 @@
       "baseDef": 573,
       "atk%": 0.288
     },
+    "energy": 70,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "starwicker",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 8,
+          "duration": 16000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "starwickerHealing",
+              "spec": {
+                "duration": 16000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "flatBuff",
+              "spec": {
+                "duration": 16000
+              }
+            }
+          ]
+        },
+        "use": {
+          "by": "$team",
+          "when": "end",
+          "filter": {
+            "action": {
+              "type": "plungingAttack"
+            }
+          },
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "starwickerHealing",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2500,
+          "action": "elementalBurst.2"
+        }
+      },
+      {
+        "ref": "stormPinion",
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "plungingAttack"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": 0.04
+          }
+        }
+      },
+      {
+        "ref": "flatBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "type": "plungingAttack"
+            }
+          },
+          "cooldown": 400,
+          "specs": {
+            "damageFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": 2,
+              "maxValue": 9000
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Word of Wind and Flower",
@@ -38317,33 +38587,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -38396,6 +38639,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -38404,7 +38674,7 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -38431,9 +38701,10 @@
             }
           },
           {
-            "name": "Driftcloud Wave DMG",
-            "type": "elementalSkill",
+            "name": "Plunging Attack: Driftcloud Wave: Level 1",
+            "type": "plungingAttack",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -38453,7 +38724,16 @@
                     2.61,
                     2.755
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Plunging Attack: Driftcloud Wave: Level 2",
+            "type": "plungingAttack",
+            "damage": {
+              "gauge": 1,
+              "multipliers": [
                 {
                   "mv": [
                     1.48,
@@ -38472,7 +38752,16 @@
                     3.33,
                     3.515
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Plunging Attack: Driftcloud Wave: Level 3",
+            "type": "plungingAttack",
+            "damage": {
+              "gauge": 1,
+              "multipliers": [
                 {
                   "mv": [
                     3.376,
@@ -38502,9 +38791,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -38526,12 +38816,59 @@
                   ]
                 }
               ]
+            },
+            "healing": {
+              "targets": "$team",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.9216,
+                    0.9907,
+                    1.0598,
+                    1.152,
+                    1.2211,
+                    1.2902,
+                    1.3824,
+                    1.4746,
+                    1.5667,
+                    1.6589,
+                    1.751,
+                    1.8432,
+                    1.9584,
+                    2.0736,
+                    2.1888
+                  ],
+                  "flat": [
+                    577.7816,
+                    635.5678,
+                    698.1695,
+                    765.5867,
+                    837.8195,
+                    914.8677,
+                    996.7315,
+                    1083.4108,
+                    1174.9056,
+                    1271.216,
+                    1372.3418,
+                    1478.2831,
+                    1589.04,
+                    1704.6124,
+                    1825.0002
+                  ]
+                }
+              ]
             }
           },
           {
-            "name": "Starwicker DMG",
-            "type": "elementalBurst",
+            "name": "Starwicker",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -38556,55 +38893,9 @@
             }
           },
           {
-            "name": "Healing",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.9216,
-                    0.9907,
-                    1.0598,
-                    1.152,
-                    1.2211,
-                    1.2902,
-                    1.3824,
-                    1.4746,
-                    1.5667,
-                    1.6589,
-                    1.751,
-                    1.8432,
-                    1.9584,
-                    2.0736,
-                    2.1888
-                  ]
-                },
-                {
-                  "mv": [
-                    577.7816,
-                    635.5678,
-                    698.1695,
-                    765.5867,
-                    837.8195,
-                    914.8677,
-                    996.7315,
-                    1083.4108,
-                    1174.9056,
-                    1271.216,
-                    1372.3418,
-                    1478.2831,
-                    1589.04,
-                    1704.6124,
-                    1825.0002
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Continuous Healing",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "Starwicker: Healing",
+            "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "mv": [
@@ -38623,10 +38914,8 @@
                     0.9139,
                     0.9677,
                     1.0214
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     269.6314,
                     296.5983,
                     325.8124,
@@ -38654,7 +38943,12 @@
       "weaponId": 14515,
       "setCounts": {
         "15002": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalBurst.0"
+      ]
     }
   },
   "10000094": {

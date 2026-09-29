@@ -40,6 +40,12 @@ Characters:
     Wanderer
     Wriothesley
         No constellations
+    Xianyun
+        Storm Pinion stuck at 1 stack
+        No constellations
+    Xiao
+        Ult drain is fixed
+        No constellations
     Xingqiu
         No energy recovery
         3 sword always
@@ -65,6 +71,8 @@ Weapons:
         doesn't need enemies nearby
     Aquila Favonia
         Effect always hits
+    Crane's Echoing Call
+        No energy effect
     Ferrous Shadow
         No effect
     Fillet Blade

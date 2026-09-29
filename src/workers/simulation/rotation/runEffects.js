@@ -98,7 +98,7 @@ export function runEffects(ctx, when, event = {}) {
 
   for (const memberId in memberEffects) {
     Object.values(memberEffects[memberId]).forEach((state) =>
-      tryRemove(ctx, when, state, spec)
+      tryRemove(ctx, when, state, { ...spec, fieldId: spec.fieldId ?? memberId })
     );
   }
 
@@ -108,7 +108,7 @@ export function runEffects(ctx, when, event = {}) {
 
   for (const memberId in memberEffects) {
     Object.values(memberEffects[memberId]).forEach((state) =>
-      tryUse(ctx, when, state, spec)
+      tryUse(ctx, when, state, { ...spec, fieldId: spec.fieldId ?? memberId })
     );
   }
 
