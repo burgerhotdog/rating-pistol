@@ -22561,6 +22561,7 @@
           {
             "name": "Exquisite Throw",
             "damage": {
+              "type": "elementalBurst",
               "gauge": 1,
               "icd": {
                 "tag": "Elemental Burst",
