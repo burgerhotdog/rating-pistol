@@ -14563,7 +14563,71 @@
       "critDmg%": 0.384
     },
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "paramitaPapilio",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 9000
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "type": [
+                "normalAttack",
+                "chargedAttack",
+                "plungingAttack"
+              ]
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "pyro"
+            }
+          }
+        },
+        "buff": {
+          "specRefs": {
+            "atk": {
+              "attr": "hp",
+              "step": 1,
+              "value": "elementalSkill.1"
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": "chargedAttack"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "paramitaPapilio"
+                }
+              }
+            ]
+          },
+          "duration": 8000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 4000,
+          "action": "elementalSkill.2"
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Secret Spear of Wangsheng",
@@ -14777,33 +14841,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6542,
-                    0.6988,
-                    0.7434,
-                    0.8029,
-                    0.8475,
-                    0.8995,
-                    0.9664,
-                    1.0333,
-                    1.1002,
-                    1.1671,
-                    1.234,
-                    1.301,
-                    1.3679,
-                    1.4348,
-                    1.5017
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -14856,6 +14893,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6542,
+                    0.6988,
+                    0.7434,
+                    0.8029,
+                    0.8475,
+                    0.8995,
+                    0.9664,
+                    1.0333,
+                    1.1002,
+                    1.1671,
+                    1.234,
+                    1.301,
+                    1.3679,
+                    1.4348,
+                    1.5017
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -14864,12 +14928,15 @@
         "rankModify": 3,
         "actions": [
           {
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
             "name": "ATK Increase",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.0384,
                     0.0407,
                     0.043,
@@ -14891,9 +14958,9 @@
             }
           },
           {
-            "name": "Blood Blossom DMG",
-            "type": "elementalSkill",
+            "name": "Blood Blossom",
             "damage": {
+              "type": "elementalSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -58381,7 +58448,8 @@
                     0.67259,
                     0.71177,
                     0.75095
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
@@ -58582,7 +58650,7 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
