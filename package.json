@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
-    "scrape": "node scripts/scrape.js"
+    "scrape": "node scripts/scrape.js",
+    "modify": "node scripts/modify.js"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

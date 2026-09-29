@@ -28,7 +28,12 @@ const stats = {
 };
 
 function getColoredText(str) {
-  return str.match(/<color=[^>]+>(.*?)<\/color>/)?.[1] ?? null;
+  const text = str.match(/<color=[^>]+>(.*?)<\/color>/)?.[1];
+
+  return text
+    ?.replace(/\{LINK#[^}]+\}/, '')
+    .replace('{/LINK}', '')
+    ?? null;
 }
 
 function addRankModify(result, data, rank) {

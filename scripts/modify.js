@@ -1,10 +1,19 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readJson, writeJson } from './utils/io';
-import { fetchJson } from './utils/fetch';
+import { readJson, writeJson } from './utils/io.js';
+import { fetchJson } from './utils/fetch.js';
 
 function getColoredText(str) {
-  return str.match(/<color=[^>]+>(.*?)<\/color>/)?.[1] ?? null;
+  const text = str.match(/<color=[^>]+>(.*?)<\/color>/)?.[1];
+
+  if (text?.includes('{LINK#')) {
+    console.log('Found LINK text:', text);
+  }
+
+  return text
+    ?.replace(/\{LINK#[^}]+\}/, '')
+    .replace('{/LINK}', '')
+    ?? null;
 }
 
 function addRankModify(result, data, rank) {
@@ -35,17 +44,21 @@ async function main() {
   const file = path.join(root, 'src/data', 'genshin-impact', 'character.json');
   const data = await readJson(file);
 
-  for (const charData of Object.values(data)) {
-    const { id, skills } = charData;
-    const responseData = fetchJson(`https://static.nanoka.cc/gi/7.1.51/en/character/${id}.json`);
+  const charDatas = Object.values(data);
+  const length = charDatas.length;
+
+  for (const [i, charData] of charDatas.entries()) {
+    const { id, name, skills } = charData;
+    console.log(`Modifying ${name} (${i + 1}/${length})`);
+    const responseData = await fetchJson(`https://static.nanoka.cc/gi/7.1.51/en/character/${id}.json`);
 
     for (const [index, value] of responseData.skills.entries()) {
       const { promote } = value;
       if (Object.keys(promote).length !== 15) continue;
-      const { name } = value;
+      const skillName = value.name;
       const skillId = skillIds[index];
 
-      skills[skillId].name = name;
+      skills[skillId].name = skillName;
     }
 
     addRankModify(skills, responseData, 3);

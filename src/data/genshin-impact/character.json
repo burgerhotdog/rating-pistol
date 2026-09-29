@@ -317,6 +317,7 @@
       },
       "elementalSkill": {
         "name": "Kamisato Art: Hyouka",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -349,6 +350,7 @@
       },
       "elementalBurst": {
         "name": "Kamisato Art: Soumetsu",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -437,7 +439,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Favonius Bladework",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -686,6 +688,7 @@
       },
       "elementalSkill": {
         "name": "Gale Blade",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Gale Blade",
@@ -718,6 +721,7 @@
       },
       "elementalBurst": {
         "name": "Dandelion Breeze",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Dandelion Breeze",
@@ -888,7 +892,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Lightning Touch",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -1109,7 +1113,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Violet Arc: Press",
+        "name": "Violet Arc",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Violet Arc: Press",
@@ -1249,7 +1254,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Lightning Rose: Discharge",
+        "name": "Lightning Rose",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Lightning Rose: Discharge",
@@ -1311,7 +1317,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Whisper of Water",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -1532,7 +1538,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Let the Show Begin: Healing per hit",
+        "name": "Let the Show Begin♪",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Let the Show Begin: Healing per hit",
@@ -1657,7 +1664,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Shining Miracle: Healing",
+        "name": "Shining Miracle♪",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Shining Miracle: Healing",
@@ -2670,7 +2678,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Steel Fang",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -2918,7 +2926,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Claw and Thunder: Press",
+        "name": "Claw and Thunder",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Claw and Thunder: Press",
@@ -2978,6 +2987,7 @@
       },
       "elementalBurst": {
         "name": "Lightning Fang",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Lightning Fang",
@@ -3617,7 +3627,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Divine Marksmanship",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -3986,7 +3996,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skyward Sonnet: Press",
+        "name": "Skyward Sonnet",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skyward Sonnet: Press",
@@ -4045,7 +4056,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Wind's Grand Ode: DoT",
+        "name": "Wind's Grand Ode",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Wind's Grand Ode: DoT",
@@ -4263,7 +4275,7 @@
     ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Dough-Fu",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -4710,7 +4722,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Oceanborne",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -4985,7 +4997,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Shield Absorption",
+        "name": "Tidecaller",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Shield Absorption",
@@ -5090,6 +5103,7 @@
       },
       "elementalBurst": {
         "name": "Stormbreaker",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Stormbreaker",
@@ -5777,7 +5791,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Whirlwind Thrust",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -6090,7 +6104,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Lemniscatic Wind Cycling",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -6122,7 +6137,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Normal/Charged/Plunging Attack DMG Bonus",
+        "name": "Bane of All Evil",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Normal/Charged/Plunging Attack DMG Bonus",
@@ -6207,7 +6223,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack DMG",
+        "name": "Sparkling Scatter",
         "actions": [
           {
             "name": "Normal Attack DMG",
@@ -6374,7 +6390,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Jade Screen: Inherited HP",
+        "name": "Jade Screen",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Jade Screen: Inherited HP",
@@ -6434,7 +6451,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "DMG Per Gem",
+        "name": "Starshatter",
+        "rankModify": 3,
         "actions": [
           {
             "name": "DMG Per Gem",
@@ -8686,7 +8704,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Cutting Torrent",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -9043,7 +9061,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Stance Change DMG",
+        "name": "Foul Legacy: Raging Tide",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Stance Change DMG",
@@ -9329,7 +9348,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG: Melee",
+        "name": "Havoc: Obliteration",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG: Melee",
@@ -9441,7 +9461,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Favonius Bladework - Maid",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -9690,6 +9710,7 @@
       },
       "elementalSkill": {
         "name": "Breastplate",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Breastplate",
@@ -9838,6 +9859,7 @@
       },
       "elementalBurst": {
         "name": "Sweeping Time",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Sweeping Time",
@@ -9949,7 +9971,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Ancient Sword Art",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -10255,6 +10277,7 @@
       },
       "elementalSkill": {
         "name": "Adeptus Art: Herald of Frost",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Adeptus Art: Herald of Frost",
@@ -10400,6 +10423,7 @@
       },
       "elementalBurst": {
         "name": "Adeptus Art: Preserver of Fortune",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Adeptus Art: Preserver of Fortune",
@@ -10500,7 +10524,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Demonbane",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -10749,6 +10773,7 @@
       },
       "elementalSkill": {
         "name": "Spirit Blade: Chonghua's Layered Frost",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Spirit Blade: Chonghua's Layered Frost",
@@ -10808,6 +10833,7 @@
       },
       "elementalBurst": {
         "name": "Spirit Blade: Cloud-Parting Star",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Spirit Blade: Cloud-Parting Star",
@@ -10865,7 +10891,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Liutian Archery",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -11221,7 +11247,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Inherited HP",
+        "name": "Trail of the Qilin",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Inherited HP",
@@ -11280,7 +11307,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Ice Shard DMG",
+        "name": "Celestial Shower",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Ice Shard DMG",
@@ -11812,7 +11840,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Kätzlein Style",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -12088,7 +12116,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Icy Paw DMG",
+        "name": "Icy Paws",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Icy Paw DMG",
@@ -12193,7 +12222,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Signature Mix",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -12321,7 +12351,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Ripple of Fate",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -12542,7 +12572,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "DoT",
+        "name": "Mirror Reflection of Doom",
+        "rankModify": 5,
         "actions": [
           {
             "name": "DoT",
@@ -12605,7 +12636,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Illusory Bubble Explosion",
+        "name": "Stellaris Phantasm",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Illusory Bubble Explosion",
@@ -12712,7 +12744,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Yunlai Swordsmanship",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -12998,7 +13030,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Lightning Stiletto",
+        "name": "Stellar Restoration",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Lightning Stiletto",
@@ -13085,6 +13118,7 @@
       },
       "elementalBurst": {
         "name": "Starward Sword",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Starward Sword",
@@ -13456,6 +13490,7 @@
       },
       "elementalSkill": {
         "name": "Astable Anemohypostasis Creation - 6308",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -13489,6 +13524,7 @@
       },
       "elementalBurst": {
         "name": "Forbidden Creation - Isomer 75 / Type II",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -13583,7 +13619,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Dance on Fire",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -13831,7 +13867,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Swing DMG",
+        "name": "Sweeping Fervor",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Swing DMG",
@@ -14028,7 +14065,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Riff Revolution",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -14108,7 +14146,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Spear of the Church",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -14375,7 +14413,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Ravaging Confession",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -14426,7 +14465,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Rites of Termination",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -14526,7 +14566,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Secret Spear of Wangsheng",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -14820,7 +14860,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "ATK Increase",
+        "name": "Guide to Afterlife",
+        "rankModify": 3,
         "actions": [
           {
             "name": "ATK Increase",
@@ -14879,7 +14920,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Spirit Soother",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -15615,7 +15657,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Seal of Approval",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -15885,7 +15927,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Signed Edict",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -15917,7 +15960,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Done Deal",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -15997,7 +16041,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Firework Flare-Up",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -16300,7 +16344,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Blazing Arrow DMG",
+        "name": "Niwabi Fire-Dance",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Blazing Arrow DMG",
@@ -16332,7 +16377,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Ryuukin Saxifrage",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -16417,7 +16463,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Swiftshatter Spear",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -16638,7 +16684,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Blazing Blessing",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -16762,7 +16809,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Crimson Ooyoroi",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -16888,7 +16936,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Favonius Bladework - Edel",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -17201,7 +17249,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+        "name": "Icetide Vortex",
+        "rankModify": 5,
         "actions": [
           {
             "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
@@ -17341,7 +17390,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Glacial Illumination",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -17453,7 +17503,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Origin",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -17720,7 +17770,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Transcendence: Baleful Omen",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -17806,7 +17857,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Musou no Hitotachi Base DMG",
+        "name": "Secret Art: Musou Shinsetsu",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Musou no Hitotachi Base DMG",
@@ -18245,7 +18297,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Shuumatsuban Ninja Blade",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -18512,7 +18564,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Fuufuu Windwheel DMG",
+        "name": "Yoohoo Art: Fuuin Dash",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Fuufuu Windwheel DMG",
@@ -18652,7 +18705,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill Activation DMG",
+        "name": "Yoohoo Art: Mujina Flurry",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill Activation DMG",
@@ -18818,7 +18872,7 @@
       "baseHp": 13471,
       "baseAtk": 234,
       "baseDef": 657,
-      "critRate%": -1.0,
+      "critRate%": -1,
       "healingBonus%": 0.25,
       "hydroDmgBonus%": 0.288
     },
@@ -18826,7 +18880,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "The Shape of Water",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -19020,7 +19074,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Regeneration",
+        "name": "Kurage's Oath",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Regeneration",
@@ -19098,7 +19153,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Nereid's Ascension",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -19283,7 +19339,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Ripping Fang Fletching",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -19532,7 +19588,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Inuzaka All-Round Defense",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -19591,7 +19648,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Juuga: Forward Unto Victory",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -19671,7 +19729,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Tengu Bowmanship",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -19947,7 +20005,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Tengu Juurai: Ambush DMG",
+        "name": "Tengu Stormcall",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Tengu Juurai: Ambush DMG",
@@ -20006,7 +20065,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Tengu Juurai: Titanbreaker DMG",
+        "name": "Subjugation: Koukou Sendou",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Tengu Juurai: Titanbreaker DMG",
@@ -20086,7 +20146,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Fight Club Legend",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -20361,7 +20421,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Masatsu Zetsugi: Akaushi Burst!",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -20393,7 +20454,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "ATK Bonus",
+        "name": "Royal Descent: Behold, Itto the Evil!",
+        "rankModify": 5,
         "actions": [
           {
             "name": "ATK Bonus",
@@ -21570,7 +21632,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Fudou Style Martial Arts",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -21856,7 +21918,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Heartstopper Strike",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -21942,7 +22005,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Fudou Style Vacuum Slugger DMG",
+        "name": "Windmuster Kick",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Fudou Style Vacuum Slugger DMG",
@@ -22559,7 +22623,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Boxcutter",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -22837,7 +22901,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Tail-Flicking Flying Kick DMG",
+        "name": "Meow-teor Kick",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Tail-Flicking Flying Kick DMG",
@@ -23015,7 +23080,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Secret Art: Surprise Dispatch",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -23095,7 +23161,8 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Rapid Fire",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -23363,7 +23430,7 @@
         ]
       },
       "elementalSkill": {
-        "name": "Freeze Bomb DMG",
+        "name": "Frozen Wilds",
         "actions": [
           {
             "name": "Freeze Bomb DMG",
@@ -23541,7 +23608,7 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Prophecies of Dawn",
         "actions": [
           {
             "name": "Skill DMG",
@@ -23594,7 +23661,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Dawnstar Piercer",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -23861,7 +23928,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} Skill DMG",
+        "name": "Spring Spirit Summoning",
+        "rankModify": 3,
         "actions": [
           {
             "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} Skill DMG",
@@ -23947,7 +24015,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Divine Maiden's Deliverance",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -24059,7 +24128,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Cloud-Grazing Strike",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -24345,7 +24414,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+        "name": "Opening Flourish",
+        "rankModify": 5,
         "actions": [
           {
             "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
@@ -24477,7 +24547,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Cliffbreaker's Banner",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -24557,7 +24628,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Shinobu's Shadowsword",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -24797,7 +24868,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Sanctifying Ring",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -24902,7 +24974,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Single Instance DMG",
+        "name": "Gyoei Narukami Kariyama Rite",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Single Instance DMG",
@@ -25001,7 +25074,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Kamisato Art: Marobashi",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -25249,7 +25322,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Shunsuiken 1-Hit DMG",
+        "name": "Kamisato Art: Kyouka",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Shunsuiken 1-Hit DMG",
@@ -25389,7 +25463,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Bloomwater Blade DMG",
+        "name": "Kamisato Art: Suiyuu",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Bloomwater Blade DMG",
@@ -25474,7 +25549,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Supplicant's Bowmanship",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -25723,7 +25798,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Floral Brush",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -25755,7 +25831,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Explosion DMG",
+        "name": "Trump-Card Kitty",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Explosion DMG",
@@ -25835,7 +25912,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Marvelous Sword-Dance (Modified)",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -26075,7 +26152,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Troubleshooter Shot DMG",
+        "name": "Spirit-Warding Lamp: Troubleshooter Cannon",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Troubleshooter Shot DMG",
@@ -26134,7 +26212,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Connector DMG",
+        "name": "Alcazarzaray's Exactitude",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Connector DMG",
@@ -26260,7 +26339,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Khanda Barrier-Buster",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -26562,7 +26641,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Vijnana-Phala Mine",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -26594,7 +26674,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Tanglevine Shaft DMG",
+        "name": "Fashioner's Tanglevine Shaft",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Tanglevine Shaft DMG",
@@ -26679,7 +26760,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Dance of Samser",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -26892,7 +26973,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Dance of Haftkarsvar",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -27062,7 +27144,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Dance of Abzendegi: Distant Dreams, Listening Spring",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -27148,7 +27231,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Invoker's Spear",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -27388,7 +27471,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Secret Rite: Chasmic Soulfarer",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -27447,7 +27531,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "1-Hit DMG",
+        "name": "Sacred Rite: Wolf's Swiftness",
+        "rankModify": 3,
         "actions": [
           {
             "name": "1-Hit DMG",
@@ -27740,7 +27825,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Gleaming Spear - Guardian Stance",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -27980,7 +28065,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Shield DMG Absorption",
+        "name": "Sacred Rite: Heron's Sanctum",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Shield DMG Absorption",
@@ -28085,7 +28171,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Sacred Rite: Wagtail's Tide",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -28165,7 +28252,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Akara",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -28386,7 +28473,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+        "name": "All Schemes to Know",
+        "rankModify": 3,
         "actions": [
           {
             "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
@@ -28491,7 +28579,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Pyro: DMG Bonus",
+        "name": "Illusory Heart",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Pyro: DMG Bonus",
@@ -28684,7 +28773,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Sword of the Radiant Path",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -28897,7 +28986,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Nights of Formal Focus",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -29002,7 +29092,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Starlight Slug DMG",
+        "name": "Dream of the Star-Stream Shaker",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Starlight Slug DMG",
@@ -29926,7 +30017,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Toss 'N' Turn Spear",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -30166,7 +30257,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "White Jade Radish DMG",
+        "name": "Raphanus Sky Cluster",
+        "rankModify": 3,
         "actions": [
           {
             "name": "White Jade Radish DMG",
@@ -30244,7 +30336,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Moonjade Descent",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -30370,7 +30463,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Abductive Reasoning",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -30656,7 +30749,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Rush Attack DMG",
+        "name": "Universality: An Elaboration on Form",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Rush Attack DMG",
@@ -30845,7 +30939,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Single-Instance DMG",
+        "name": "Particular Field: Fetters of Phenomena",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Single-Instance DMG",
@@ -30922,7 +31017,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Sandstorm Assault",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -31170,7 +31265,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Indomitable Flame DMG",
+        "name": "Molten Inferno",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Indomitable Flame DMG",
@@ -31302,7 +31398,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Flame-Mane's Fist DMG",
+        "name": "Leonine Bite",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Flame-Mane's Fist DMG",
@@ -31425,7 +31522,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Spear of Favonius - Arrow's Passage",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -31692,7 +31789,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Flowfrost Arrow DMG",
+        "name": "Starfrost Swirl",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Flowfrost Arrow DMG",
@@ -31805,7 +31903,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Cast Healing",
+        "name": "Skyfeather Song",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Cast Healing",
@@ -31923,7 +32022,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Schematic Setup",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -32171,7 +32270,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Artistic Ingenuity",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -32203,7 +32303,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Painted Dome",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -32283,7 +32384,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "The Classics of Acupuncture",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -32504,7 +32605,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Universal Diagnosis",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -32582,7 +32684,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Seamless Shield DMG Absorption",
+        "name": "Holistic Revivification",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Seamless Shield DMG Absorption",
@@ -32732,7 +32835,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Rapid Ritesword",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -32991,7 +33094,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Enigma Thrust DMG",
+        "name": "Enigmatic Feint",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Enigma Thrust DMG",
@@ -33050,7 +33154,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Magic Trick: Astonishing Shift",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -33899,7 +34004,8 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Flowing Eddies",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -34147,7 +34253,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Upward Thrust DMG",
+        "name": "Pressurized Floe",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Upward Thrust DMG",
@@ -34425,7 +34532,7 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Shadowhunter's Ambush",
         "actions": [
           {
             "name": "Skill DMG",
@@ -35127,7 +35234,8 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "As Water Seeks Equilibrium",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -35348,7 +35456,7 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "O Tears, I Shall Repay",
         "actions": [
           {
             "name": "Skill DMG",
@@ -35407,7 +35515,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "O Tides, I Have Returned",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -35492,7 +35601,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Cool-Color Capture",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -35713,7 +35822,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "#Photo DMG ({LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press})",
+        "name": "Framing: Freezing Point Composition",
+        "rankModify": 5,
         "actions": [
           {
             "name": "#Photo DMG ({LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press})",
@@ -35826,7 +35936,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Cast Healing",
+        "name": "Still Photo: Comprehensive Confirmation",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Cast Healing",
@@ -35998,7 +36109,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Soloist's Solicitation",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -36246,7 +36357,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Ousia Bubble DMG",
+        "name": "Salon Solitaire",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Ousia Bubble DMG",
@@ -36405,7 +36517,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Let the People Rejoice",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -37269,7 +37382,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Blunt Refusal",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -37517,7 +37630,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Rosula Shardshot Base DMG",
+        "name": "Ceremonial Crystalshot",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Rosula Shardshot Base DMG",
@@ -37576,7 +37690,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "As the Sunlit Sky's Singing Salute",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -37661,7 +37776,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Stellar Rend",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -37909,7 +38024,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Plunging Attack: Charmed Cloudstrider DMG",
+        "name": "Bestial Ascent",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Plunging Attack: Charmed Cloudstrider DMG",
@@ -37941,7 +38057,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Suanni Man Chai Smash DMG",
+        "name": "Suanni's Gilded Dance",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Suanni Man Chai Smash DMG",
@@ -37994,7 +38111,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Word of Wind and Flower",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -38215,7 +38332,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "White Clouds at Dawn",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -38312,7 +38430,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Stars Gather at Dusk",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -38489,7 +38608,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Weaving Blade",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -38748,7 +38867,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Tamoto DMG",
+        "name": "Fluttering Hasode",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Tamoto DMG",
@@ -38845,7 +38965,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Hiyoku: Twin Blades",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -38922,7 +39043,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Targeted Treatment",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -39171,7 +39292,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Bolstering Bubblebalm DMG",
+        "name": "Rebound Hydrotherapy",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Bolstering Bubblebalm DMG",
@@ -39276,7 +39398,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Super Saturated Syringing",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -39334,7 +39457,8 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Masque of the Red Death Increase",
+        "name": "Invitation to a Beheading",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Masque of the Red Death Increase",
@@ -39655,7 +39779,7 @@
         ]
       },
       "elementalSkill": {
-        "name": "Spike DMG",
+        "name": "All Is Ash",
         "actions": [
           {
             "name": "Spike DMG",
@@ -39741,7 +39865,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Balemoon Rising",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -39799,7 +39924,8 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Royal Reed Archery",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -40085,7 +40211,7 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Ancient Rite: The Thundering Sands",
         "actions": [
           {
             "name": "Skill DMG",
@@ -40117,7 +40243,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Dusk Bolt DMG Increase",
+        "name": "Secret Rite: Twilight Shadowpiercer",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Dusk Bolt DMG Increase",
@@ -40170,7 +40297,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Oath of Hunting Shadows",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -40475,7 +40602,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Swift Hunt DMG",
+        "name": "Hunter's Vigil",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Swift Hunt DMG",
@@ -40618,7 +40746,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Last Lightfall",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -40703,7 +40832,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Shadow-Hunting Spear (Custom)",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -40924,7 +41053,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Fragrance Extraction",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -41037,7 +41167,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Level 3 Lumidouce Case Attack DMG",
+        "name": "Aromatic Explication",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Level 3 Lumidouce Case Attack DMG",
@@ -41095,7 +41226,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Cragbiter",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -41335,7 +41466,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Turbo Twirly Mounted DMG",
+        "name": "Go, Go Turbo Twirly!",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Turbo Twirly Mounted DMG",
@@ -41394,7 +41526,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Time to Get Serious!",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -41447,7 +41580,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Nightsun Style",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -41668,7 +41801,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Loop Shot DMG",
+        "name": "Canopy Hunter: Riding High",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Loop Shot DMG",
@@ -41727,7 +41861,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Hail to the Almighty Dragonlord",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -41812,7 +41947,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Cooling Treatment",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -42006,7 +42141,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Sharky's Bite Base DMG",
+        "name": "Surfshark Wavebreaker",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Sharky's Bite Base DMG",
@@ -42092,7 +42228,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Boomsharka-laka",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -42150,7 +42287,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Ehecatl's Roar",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -42471,7 +42608,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Rush DMG",
+        "name": "Yohual's Scratch",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Rush DMG",
@@ -42530,7 +42668,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Ocelotlicue Point!",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -42661,7 +42800,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Phantom Feather Flurry",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -42910,7 +43049,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Resonance DMG",
+        "name": "Spirit Reins, Shadow Hunt",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Resonance DMG",
@@ -43023,7 +43163,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Galesplitting Soulseeker Shell DMG",
+        "name": "Soul Reaper's Fatal Round",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Galesplitting Soulseeker Shell DMG",
@@ -43130,7 +43271,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Spiritvessel Snapshot",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -43352,7 +43493,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Spirit Orb DMG",
+        "name": "Night's Sling",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Spirit Orb DMG",
@@ -43384,7 +43526,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Ritual DMG",
+        "name": "Dark Voices Echo",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Ritual DMG",
@@ -43464,7 +43607,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Flames Weave Life",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -43685,7 +43828,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "The Named Moment",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -43987,7 +44131,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Hour of Burning Skies",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -44121,7 +44266,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Shadow-Stealing Spirit Vessel",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -44315,7 +44460,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Obsidian Tzitzimitl DMG",
+        "name": "Dawnfrost Darkstar",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Obsidian Tzitzimitl DMG",
@@ -44420,7 +44566,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Ice Storm DMG",
+        "name": "Edict of Entwined Splendor",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Ice Storm DMG",
@@ -44500,7 +44647,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Black Pheasant Strides on Water",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -44759,7 +44906,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Feathermoon Ring DMG",
+        "name": "Swallow-Wisp Pinion Dance",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Feathermoon Ring DMG",
@@ -44837,7 +44985,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Lustrous Moonrise",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -45310,7 +45459,9 @@
               ]
             },
             "duration": 10500,
-            "hitOffsets": [500]
+            "hitOffsets": [
+              500
+            ]
           },
           {
             "name": "Continuous Attack",
@@ -45540,7 +45691,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Weighted Spike",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -45761,7 +45912,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Thunderbolt Rush",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -45793,7 +45945,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "The Three Principles of Power",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -45876,6 +46029,7 @@
     "skills": {
       "normalAttack": {
         "name": "By the Horns",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -46340,6 +46494,7 @@
       },
       "elementalBurst": {
         "name": "Guardian Vent!",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -46459,7 +46614,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Kitchen Skills",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -46672,7 +46827,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Low-Temperature Cooking",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -46758,7 +46914,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Scoring Cuts",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -46857,7 +47014,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Rite of Dispelling Winds",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -47051,7 +47208,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Tonicshot DMG",
+        "name": "Airborne Disease Prevention",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Tonicshot DMG",
@@ -47129,7 +47287,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Compound Sedation Field",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -47209,7 +47368,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Havoc: Sunder",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -47476,7 +47635,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "1-Hit DMG",
+        "name": "Havoc: Warp",
+        "rankModify": 5,
         "actions": [
           {
             "name": "1-Hit DMG",
@@ -47762,7 +47922,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Slash DMG",
+        "name": "Havoc: Ruin",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Slash DMG",
@@ -47953,7 +48114,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Favonius Bladework - Ritual",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -48212,7 +48373,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Immersive Ordinance",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -48244,7 +48406,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Radiant Psalter",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -48343,7 +48506,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Cyclonic Duster",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -48583,7 +48746,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Cleaning Mode: Carrier Frequency",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -48688,7 +48852,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Supreme Instruction: Cyclonic Exterminator",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -48741,7 +48906,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Peregrination of Linnunrata",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -48935,7 +49100,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+        "name": "Runo: Dawnless Rest of Karsikko",
+        "rankModify": 5,
         "actions": [
           {
             "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
@@ -49094,7 +49260,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Bloom, Hyperbloom, and Burgeon DMG Increase",
+        "name": "Runo: All Hearts Become the Beating Moon",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Bloom, Hyperbloom, and Burgeon DMG Increase",
@@ -49174,7 +49341,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Pocztowy Demonspear",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -49422,7 +49589,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "1-Hit DMG",
+        "name": "Ancient Rite: Arcane Light",
+        "rankModify": 5,
         "actions": [
           {
             "name": "1-Hit DMG",
@@ -49616,7 +49784,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Initial Skill DMG",
+        "name": "Ancient Ritual: Cometh the Night",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Initial Skill DMG",
@@ -49777,7 +49946,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Bish-Bash-Bosh Repair",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -49998,7 +50167,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Stage 1 DMG",
+        "name": "Musecatcher",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Stage 1 DMG",
@@ -50057,7 +50227,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Water Ball DMG",
+        "name": "Precision Hydronic Cooler",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Water Ball DMG",
@@ -50111,7 +50282,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Striking Serpent",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -50332,7 +50503,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Senet Strategy: Dance of a Thousand Nights",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -50556,7 +50728,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "1-Hit DMG",
+        "name": "Sacred Vow: True Eye's Phantasm",
+        "rankModify": 5,
         "actions": [
           {
             "name": "1-Hit DMG",
@@ -51770,7 +51943,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Strike While the Arrow's Hot",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -51992,7 +52165,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Smoke Bomb DMG",
+        "name": "Savvy Strategy: Splitting the Spoils",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Smoke Bomb DMG",
@@ -52105,7 +52279,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Hidden Aces: Seven Tools of the Hunter",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -52277,7 +52452,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Moondew Cascade",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -52498,7 +52673,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Eternal Tides",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -52638,7 +52814,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Moonlit Melancholy",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -52718,7 +52895,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Golden Blade's Petaled Touch",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -52977,7 +53154,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Lunar Phase Shift 1-Hit DMG",
+        "name": "Heaven and Earth Made Manifest",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Lunar Phase Shift 1-Hit DMG",
@@ -53236,7 +53414,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill 1-Hit DMG",
+        "name": "Tri-Sphere Eminence",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill 1-Hit DMG",
@@ -53316,7 +53495,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Oathkeeper's Spear",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -53556,7 +53735,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+        "name": "Dawnbearing Songbird",
+        "rankModify": 5,
         "actions": [
           {
             "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
@@ -53653,7 +53833,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Shadowless Reflection",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -53781,7 +53962,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Favonius Bladework: Dancing Radiance",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -54124,7 +54305,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Windbound Execution",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -54505,7 +54687,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill 1-Hit DMG",
+        "name": "Northwind Avatar",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill 1-Hit DMG",
@@ -54729,7 +54912,7 @@
     ],
     "skills": {
       "normalAttack": {
-        "name": "Spear of Favonius \u2014 Broken Oath",
+        "name": "Spear of Favonius — Broken Oath",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -55480,7 +55663,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Capture Protocol",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -55702,7 +55885,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Lumi Pound-Pound Pummeler DMG",
+        "name": "Countermeasure: Lumi's Battle Cry!",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Lumi Pound-Pound Pummeler DMG",
@@ -55788,7 +55972,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Initial Healing Amount",
+        "name": "Memo: Survival Guide in Extreme Conditions",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Initial Healing Amount",
@@ -56482,7 +56667,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Badaboom! Hexbuster Hammer",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -56676,7 +56861,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Ring-A-Ding-Ding! Hexhunter Chime DMG",
+        "name": "Ring-A-Ding-Ding! Hexhunter Chime",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Ring-A-Ding-Ding! Hexhunter Chime DMG",
@@ -56735,7 +56921,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "The Bell Tolls! The Hunt Is On!",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -57897,6 +58084,7 @@
       },
       "elementalSkill": {
         "name": "Rechitativ: Sonorous Dawn",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -58028,6 +58216,7 @@
       },
       "elementalBurst": {
         "name": "Koda: Sink With Thee",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -58389,6 +58578,7 @@
       },
       "elementalSkill": {
         "name": "The Art of Victory",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -58664,6 +58854,7 @@
       },
       "elementalBurst": {
         "name": "For the Tsaritsa!",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Spirit Blade",
