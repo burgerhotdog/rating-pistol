@@ -1,4 +1,4 @@
-import { round, pick } from './common.js';
+import { round, pick } from '../../../common.js';
 
 const types = {
   WEAPON_SWORD_ONE_HAND: 'sword',

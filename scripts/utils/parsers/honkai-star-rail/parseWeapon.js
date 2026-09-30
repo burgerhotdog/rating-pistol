@@ -1,4 +1,4 @@
-import { round, pick } from '../../common.js';
+import { round, pick } from '../../../common.js';
 
 const types = {
   Rogue: 'hunt',

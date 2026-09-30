@@ -1,4 +1,4 @@
-import { pick } from '../../common.js';
+import { pick } from '../../../common.js';
 
 const types = [
   'broadblade',

@@ -1,4 +1,4 @@
-import { pick } from '../../common.js';
+import { pick } from '../../../common.js';
 
 const elements = [
   'glacio',
@@ -14,9 +14,7 @@ export function parseEcho(id, data) {
     const action = {
       name: `Echo Skill: ${data.name}`,
       type: 'echoSkill',
-      element: v.element === 0
-        ? 'physical'
-        : elements[v.element - 1],
+      
     };
 
     if (v.related_property.toLowerCase() !== 'atk') {
@@ -25,6 +23,7 @@ export function parseEcho(id, data) {
 
     if (v.rate_lv.length > 4) {
       action.damage = {
+        element: v.element === 0 ? 'physical' : elements[v.element - 1],
         multipliers: [
           {
             mv: v.rate_lv[4] / 10000,
@@ -46,7 +45,7 @@ export function parseEcho(id, data) {
     version: null,
     id: Number(id),
     icon: `wuthering-waves/echo/${id}.webp`,
-    sets: data.group.map(Number),
+    sets: Object.keys(data.group).map(Number),
     cost: pick({ 0: 1, 1: 3, 2: 4, 3: 4 }, data.intensity_code),
     effects: [],
     action: actions,

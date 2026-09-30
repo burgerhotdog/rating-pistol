@@ -461,7 +461,7 @@
     "cost": 3
   },
   "6000059": {
-    "name": "Ju\u00e9",
+    "name": "Jué",
     "version": 1.1,
     "id": 6000059,
     "icon": "wuthering-waves/echo/6000059.webp",
@@ -537,7 +537,7 @@
       }
     ],
     "action": {
-      "name": "Echo Skill: Ju\u00e9",
+      "name": "Echo Skill: Jué",
       "type": "echoSkill",
       "damage": {
         "element": "spectro",
@@ -3099,6 +3099,27 @@
     },
     "timing": "start"
   },
+  "6000219": {
+    "name": "Jade Nether Serpent",
+    "version": "3.7",
+    "id": 6000219,
+    "icon": "wuthering-waves/echo/6000219.webp",
+    "sets": [
+      36
+    ],
+    "cost": 1
+  },
+  "6000220": {
+    "name": "Skywatch Lancer",
+    "version": "3.7",
+    "id": 6000220,
+    "icon": "wuthering-waves/echo/6000220.webp",
+    "sets": [
+      37,
+      38
+    ],
+    "cost": 3
+  },
   "6000221": {
     "name": "Calamity Effigy",
     "version": 3.6,
@@ -3144,6 +3165,169 @@
         "multipliers": [
           {
             "mv": 4.05
+          }
+        ]
+      }
+    }
+  },
+  "6000222": {
+    "name": "Bloomburst Puppet",
+    "version": "3.7",
+    "id": 6000222,
+    "icon": "wuthering-waves/echo/6000222.webp",
+    "sets": [
+      36
+    ],
+    "cost": 1
+  },
+  "6000223": {
+    "name": "Formrender",
+    "version": "3.7",
+    "id": 6000223,
+    "icon": "wuthering-waves/echo/6000223.webp",
+    "sets": [
+      36,
+      38
+    ],
+    "cost": 3,
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "energyRegen%": 0.1
+          }
+        }
+      }
+    ],
+    "action": {
+      "name": "Echo Skill: Formrender",
+      "type": "echoSkill",
+      "damage": {
+        "element": "fusion",
+        "multipliers": [
+          {
+            "mv": 2.736
+          }
+        ]
+      }
+    }
+  },
+  "6000224": {
+    "name": "Soulfrayer",
+    "version": "3.7",
+    "id": 6000224,
+    "icon": "wuthering-waves/echo/6000224.webp",
+    "sets": [
+      36,
+      37
+    ],
+    "cost": 3,
+    "effects": [
+      {
+        "ref": "summoned",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          },
+          "duration": 15000
+        }
+      },
+      {
+        "stores": "$next",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": "outroSkill"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "summoned"
+                }
+              }
+            ]
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.12
+          }
+        }
+      }
+    ],
+    "action": {
+      "name": "Echo Skill: Soulfrayer",
+      "type": "echoSkill",
+      "damage": {
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.9118,
+            "times": 3
+          }
+        ]
+      }
+    }
+  },
+  "6000225": {
+    "disabled": true,
+    "name": "Reminiscence: Suhsin the Inevitable",
+    "version": "3.7",
+    "id": 6000225,
+    "icon": "wuthering-waves/echo/6000225.webp",
+    "sets": [
+      36,
+      37
+    ],
+    "cost": 4,
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.1
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "status": {
+                  "has": "electroFlare"
+                }
+              }
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.1
+          }
+        }
+      }
+    ],
+    "action": {
+      "name": "Echo Skill: Reminiscence: Suhsin the Inevitable",
+      "type": "echoSkill",
+      "damage": {
+        "element": "electro",
+        "multipliers": [
+          {
+            "mv": 0.082,
+            "times": 5
+          },
+          {
+            "mv": 2.3256
           }
         ]
       }

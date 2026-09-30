@@ -1857,5 +1857,44 @@
         }
       }
     ]
+  },
+  "36": {
+    "disabled": true,
+    "name": "Heart of Sworn Vigil",
+    "version": "3.7",
+    "id": 36,
+    "icon": "wuthering-waves/set/36.webp",
+    "bonuses": [
+      "2",
+      "5"
+    ],
+    "halfStat": "",
+    "effects": []
+  },
+  "37": {
+    "disabled": true,
+    "name": "Flash of Electric Reflection",
+    "version": "3.7",
+    "id": 37,
+    "icon": "wuthering-waves/set/37.webp",
+    "bonuses": [
+      "2",
+      "5"
+    ],
+    "halfStat": "",
+    "effects": []
+  },
+  "38": {
+    "disabled": true,
+    "name": "Flower of Tinged Yearning",
+    "version": "3.7",
+    "id": 38,
+    "icon": "wuthering-waves/set/38.webp",
+    "bonuses": [
+      "2",
+      "5"
+    ],
+    "halfStat": "",
+    "effects": []
   }
 }
