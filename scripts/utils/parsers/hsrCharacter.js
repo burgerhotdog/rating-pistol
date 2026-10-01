@@ -1,4 +1,4 @@
-import { round, pick } from '../../../common.js';
+import { round, pick } from '../../common.js';
 
 const types = {
   Rogue: 'hunt',
@@ -78,7 +78,7 @@ function skills(data) {
   return result;
 }
 
-export function parseCharacter(id, data) {
+export function hsrCharacter(id, data) {
   const charElement = data.damage_type === 'Thunder'
     ? 'lightning'
     : data.damage_type.toLowerCase();

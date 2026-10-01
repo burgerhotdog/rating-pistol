@@ -1,4 +1,4 @@
-import { pick } from '../../../common.js';
+import { pick } from '../../common.js';
 
 const elements = [
   'glacio',
@@ -9,7 +9,7 @@ const elements = [
   'havoc',
 ];
 
-export function parseEcho(id, data) {
+export function wwEcho(id, data) {
   const actions = Object.values(data.skill.damage).map((v) => {
     const action = {
       name: `Echo Skill: ${data.name}`,

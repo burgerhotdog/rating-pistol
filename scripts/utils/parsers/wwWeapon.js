@@ -1,4 +1,4 @@
-import { pick } from '../../../common.js';
+import { pick } from '../../common.js';
 
 const types = [
   'broadblade',
@@ -41,7 +41,7 @@ const statNames = {
   'Energy Regen': 'energyRegen%',
 };
 
-export function parseWeapon(id, data) {
+export function wwWeapon(id, data) {
   const b = data.stats[6][90];
   const stat = pick(statNames, b[1].name);
 

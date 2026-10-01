@@ -2513,7 +2513,7 @@
   "21020107": {
     "disabled": true,
     "name": "Unspoken Rue",
-    "version": "3.7",
+    "version": 3.7,
     "id": 21020107,
     "icon": "wuthering-waves/weapon/21020107.webp",
     "quality": 5,
@@ -5797,7 +5797,7 @@
   "21050116": {
     "disabled": true,
     "name": "Blooming Jadehaven",
-    "version": "3.7",
+    "version": 3.7,
     "id": 21050116,
     "icon": "wuthering-waves/weapon/21050116.webp",
     "quality": 5,

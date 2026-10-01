@@ -1,4 +1,6 @@
-import { round, pick } from '../../../common.js';
+import { round, pick } from '../../common.js';
+
+const skillTypes = ['normalAttack', 'elementalSkill', 'elementalBurst'];
 
 const types = {
   WEAPON_SWORD_ONE_HAND: 'sword',
@@ -36,8 +38,8 @@ function getColoredText(str) {
     ?? null;
 }
 
-function addRankModify(result, data, rank) {
-  const talentName = getColoredText(data.constellations[rank - 1].desc);
+function addRankModify(result, constellations, rank) {
+  const talentName = getColoredText(constellations[rank - 1].desc);
 
   const key = ['elementalBurst', 'elementalSkill', 'normalAttack']
     .find((key) => result[key].name === talentName)
@@ -52,46 +54,49 @@ function addRankModify(result, data, rank) {
   };
 }
 
-function skills(data) {
+function parseSkills(skills, constellations) {
   const result = {};
-  const ids = [
-    'normalAttack',
-    'elementalSkill',
-    'elementalBurst',
-    'elementalBurst',
-  ];
+  let energy;
 
-  for (const [index, value] of data.skills.entries()) {
-    const promote = value.promote;
-    if (Object.keys(promote).length !== 15) continue;
+  const dataSkills = skills
+    .filter(({ promote }) => Object.keys(promote) === 15)
+    .map((dataSkill, i) => ({ ...dataSkill, type: skillTypes[i] }));
 
+  for (const { name, type, promote } of dataSkills) {
     const actions = [];
-    for (const desc of promote[0].desc) {
-      const matches = [...desc.matchAll(/\{param(\d+):[^}]+\}/g)];
 
+    for (const { desc, param } of promote[0]) {
+      const matches = [...desc.matchAll(/\{param(\d+):[^}]+\}/g)];
       if (!matches.length) continue;
 
+      const actionName = desc.split('|')[0];
+      if (actionName === 'Energy Cost') {
+        const [, paramIndex] = matches[0];
+        energy = param[Number(paramIndex) - 1];
+        continue;
+      }
+
       actions.push({
-        name: desc.split('|')[0],
-        type: ids[index] ?? null,
+        name: actionName,
+        type,
         damage: {
-          multipliers: matches.map(m => ({
+          multipliers: matches.map((m) => ({
             mv: Array.from({ length: 15 }, (_, level) => promote[level].param[Number(m[1]) - 1]),
           })),
         },
       });
     }
 
-    result[ids[index] ?? 'null'] = { name: value.name, actions };
+    result[type] = { name, actions };
   }
 
-  addRankModify(result, data, 3);
-  addRankModify(result, data, 5);
+  addRankModify(result, constellations, 3);
+  addRankModify(result, constellations, 5);
 
-  return result;
+  return { skills: result, energy };
 }
 
-export function parseCharacter(id, data) {
+export function giCharacter(id, data) {
   const mod = data.stats_modifier;
   const asc = mod.ascension[5];
 
@@ -108,6 +113,8 @@ export function parseCharacter(id, data) {
     charStats.elementalMastery = (charStats.elementalMastery ?? 0) + data.elemental_mastery;
   }
 
+  const { skills, energy } = parseSkills(data.skills, data.constellations);
+
   return {
     disabled: true,
     name: String(data.name),
@@ -119,8 +126,9 @@ export function parseCharacter(id, data) {
     type: pick(types, data.weapon),
     stats: charStats,
     tagged: [],
+    ...(energy && { energy }),
     effects: [],
-    skills: skills(data),
+    skills,
     memberPreset: {},
   };
 }

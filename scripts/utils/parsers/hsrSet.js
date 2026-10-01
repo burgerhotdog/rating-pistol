@@ -1,11 +1,11 @@
-export function parseSet(id, data) {
+export function hsrSet(id, data) {
   return {
     disabled: true,
     name: String(data.name),
     version: null,
     id: Number(id),
-    icon: `zenless-zone-zero/set/${id}.webp`,
-    bonuses: [2, 4],
+    icon: `honkai-star-rail/set/${id}.webp`,
+    bonuses: Object.keys(data.require_num ?? {}),
     halfStat: '',
     effects: [],
   };

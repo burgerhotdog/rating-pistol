@@ -1,8 +1,5 @@
 import { fetchJson, fetchImage } from './fetch.js';
-import { parseGi } from './parsers/genshin-impact/parse.js';
-import { parseHsr } from './parsers/honkai-star-rail/parse.js';
-import { parseWw } from './parsers/wuthering-waves/parse.js';
-import { parseZzz } from './parsers/zenless-zone-zero/parse.js';
+import { getParser } from './getParser.js';
 
 const mapped = {
   gi: {
@@ -18,13 +15,6 @@ const mapped = {
   zzz: {
     set: 'equipment',
   },
-};
-
-const parsers = {
-  gi: parseGi,
-  hsr: parseHsr,
-  ww: parseWw,
-  zzz: parseZzz,
 };
 
 function imagePath(game, type, id, data) {
@@ -74,9 +64,9 @@ function imagePath(game, type, id, data) {
   throw new Error(`Unsupported game: ${game}`);
 }
 
-export async function enterIds(rl, game, version, type) {
+export async function enterIds(rl, game, versionStr, type) {
   const mappedType = mapped[game][type] ?? type;
-  const base = `https://static.nanoka.cc/${game}/${version}/`;
+  const base = `https://static.nanoka.cc/${game}/${versionStr}/`;
   const index = await fetchJson(`${base}${mappedType}.json`);
   let ids;
 
@@ -98,6 +88,7 @@ export async function enterIds(rl, game, version, type) {
   }
 
   ids.sort((a, b) => Number(a) - Number(b));
+  const parser = getParser(game, type, versionStr);
   const out = [];
 
   for (const id of ids) {
@@ -109,12 +100,11 @@ export async function enterIds(rl, game, version, type) {
 
     const url = `https://static.nanoka.cc/assets/${game}/${imagePath(game, type, id, data)}.webp`;
 
-    const image = await fetchImage(url);
-
-    const parsed = parsers[game](type, id, data);
-    parsed.version = version.split('+')[0];
-
-    out.push([id, image, parsed]);
+    out.push([
+      id,
+      await fetchImage(url),
+      parser(id, data),
+    ]);
   }
 
   return out;

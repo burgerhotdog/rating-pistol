@@ -1,4 +1,4 @@
-import { round, pick } from '../../../common.js';
+import { round, pick } from '../../common.js';
 
 const types = {
   Rogue: 'hunt',
@@ -12,7 +12,7 @@ const types = {
   Elation: 'elation',
 };
 
-export function parseWeapon(id, data) {
+export function hsrWeapon(id, data) {
   const b = data.stats[6];
 
   return {

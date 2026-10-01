@@ -3,41 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { readJson, writeJson } from './utils/io.js';
 import { fetchJson } from './utils/fetch.js';
 
-function getColoredText(str) {
-  const text = str.match(/<color=[^>]+>(.*?)<\/color>/)?.[1];
-
-  if (text?.includes('{LINK#')) {
-    console.log('Found LINK text:', text);
-  }
-
-  return text
-    ?.replace(/\{LINK#[^}]+\}/, '')
-    .replace('{/LINK}', '')
-    ?? null;
-}
-
-function addRankModify(result, data, rank) {
-  const talentName = getColoredText(data.constellations[rank - 1].desc);
-
-  const key = ['elementalBurst', 'elementalSkill', 'normalAttack']
-    .find((key) => result[key].name === talentName)
-    ?? 'normalAttack';
-
-  const { actions, ...rest } = result[key];
-
-  result[key] = {
-    ...rest,
-    rankModify: rank,
-    actions,
-  };
-}
-
-const skillIds = [
-  'normalAttack',
-  'elementalSkill',
-  'elementalBurst',
-  'elementalBurst',
-];
+const skillIds = ['normalAttack', 'elementalSkill', 'elementalBurst'];
 
 async function main() {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -48,21 +14,23 @@ async function main() {
   const length = charDatas.length;
 
   for (const [i, charData] of charDatas.entries()) {
-    const { id, name, skills } = charData;
+    const { id, name } = charData;
+    if (name === 'Skirk' || name === 'Mavuika') continue;
     console.log(`Modifying ${name} (${i + 1}/${length})`);
     const responseData = await fetchJson(`https://static.nanoka.cc/gi/7.1.51/en/character/${id}.json`);
 
-    for (const [index, value] of responseData.skills.entries()) {
-      const { promote } = value;
-      if (Object.keys(promote).length !== 15) continue;
-      const skillName = value.name;
-      const skillId = skillIds[index];
+    const burstSkill = responseData.skills
+      .filter(({ promote }) => Object.keys(promote) === 15)
+      .map((dataSkill, i) => ({ ...dataSkill, type: skillIds[i] }))
+      .find(({ type }) => type === 'elementalBurst');
 
-      skills[skillId].name = skillName;
-    }
-
-    addRankModify(skills, responseData, 3);
-    addRankModify(skills, responseData, 5);
+    const { promote } = burstSkill;
+    const { desc, param } = promote[0];
+    const energyDescStr = desc.find((str) => str.startsWith('Energy Cost'));
+    const matches = [...energyDescStr.matchAll(/\{param(\d+):[^}]+\}/g)];
+    const energyParamIndex = Number(matches[0][1]) - 1;
+    const energy = param[energyParamIndex];
+    charData.energy = energy;
   }
 
   await writeJson(file, data);

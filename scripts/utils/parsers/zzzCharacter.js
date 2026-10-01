@@ -1,4 +1,4 @@
-import { round, pick } from '../../../common.js';
+import { round, pick } from '../../common.js';
 
 const statIds = {
   11101: 'baseHp',
@@ -174,7 +174,7 @@ function skills(data) {
   return result;
 }
 
-export function parseCharacter(id, data) {
+export function zzzCharacter(id, data) {
   const b = data.stats;
   const l = data.level[6];
 

@@ -1,4 +1,4 @@
-export function parseSet(id, data) {
+export function giSet(id, data) {
   return {
     disabled: true,
     name: String(data.name),

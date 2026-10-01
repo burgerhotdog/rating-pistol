@@ -3101,7 +3101,7 @@
   },
   "6000219": {
     "name": "Jade Nether Serpent",
-    "version": "3.7",
+    "version": 3.7,
     "id": 6000219,
     "icon": "wuthering-waves/echo/6000219.webp",
     "sets": [
@@ -3111,7 +3111,7 @@
   },
   "6000220": {
     "name": "Skywatch Lancer",
-    "version": "3.7",
+    "version": 3.7,
     "id": 6000220,
     "icon": "wuthering-waves/echo/6000220.webp",
     "sets": [
@@ -3172,7 +3172,7 @@
   },
   "6000222": {
     "name": "Bloomburst Puppet",
-    "version": "3.7",
+    "version": 3.7,
     "id": 6000222,
     "icon": "wuthering-waves/echo/6000222.webp",
     "sets": [
@@ -3182,7 +3182,7 @@
   },
   "6000223": {
     "name": "Formrender",
-    "version": "3.7",
+    "version": 3.7,
     "id": 6000223,
     "icon": "wuthering-waves/echo/6000223.webp",
     "sets": [
@@ -3214,7 +3214,7 @@
   },
   "6000224": {
     "name": "Soulfrayer",
-    "version": "3.7",
+    "version": 3.7,
     "id": 6000224,
     "icon": "wuthering-waves/echo/6000224.webp",
     "sets": [
@@ -3279,7 +3279,7 @@
   "6000225": {
     "disabled": true,
     "name": "Reminiscence: Suhsin the Inevitable",
-    "version": "3.7",
+    "version": 3.7,
     "id": 6000225,
     "icon": "wuthering-waves/echo/6000225.webp",
     "sets": [

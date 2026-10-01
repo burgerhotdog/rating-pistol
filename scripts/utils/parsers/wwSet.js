@@ -1,4 +1,4 @@
-export function parseSet(id, data) {
+export function wwSet(id, data) {
   return {
     disabled: true,
     name: String(data.name.en),

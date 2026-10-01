@@ -14,6 +14,7 @@
       "baseDef": 784,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [],
     "effects": [
       {
@@ -435,6 +436,7 @@
       "baseDef": 769,
       "healingBonus%": 0.222
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -888,6 +890,7 @@
       "baseDef": 573,
       "elementalMastery": 96
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -1313,6 +1316,7 @@
       "baseDef": 669,
       "hp%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -2672,6 +2676,7 @@
       "baseDef": 751,
       "physicalDmgBonus%": 0.3
     },
+    "energy": null,
     "tagged": [
       "hexerei"
     ],
@@ -3621,6 +3626,7 @@
       "baseDef": 669,
       "energyRecharge%": 0.32
     },
+    "energy": null,
     "tagged": [
       "hexerei"
     ],
@@ -4718,6 +4724,7 @@
       "baseDef": 648,
       "electroDmgBonus%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -6390,6 +6397,7 @@
       "baseDef": 573,
       "geoDmgBonus%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -8871,6 +8879,7 @@
       "baseDef": 815,
       "hydroDmgBonus%": 0.288
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -9628,6 +9637,7 @@
       "baseDef": 799,
       "def%": 0.3
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -10138,6 +10148,7 @@
       "baseDef": 922,
       "healingBonus%": 0.222
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -10691,6 +10702,7 @@
       "baseDef": 648,
       "atk%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -11058,6 +11070,7 @@
       "baseDef": 630,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -12007,6 +12020,7 @@
       "baseDef": 601,
       "cryoDmgBonus%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -12516,6 +12530,7 @@
       "baseDef": 653,
       "energyRecharge%": 0.32
     },
+    "energy": null,
     "tagged": [
       "hexerei"
     ],
@@ -12911,6 +12926,7 @@
       "baseDef": 799,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -13786,6 +13802,7 @@
       "baseDef": 799,
       "atk%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -14313,6 +14330,7 @@
       "baseDef": 710,
       "atk%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -14733,6 +14751,7 @@
       "pyroDmgBonus%": 0.33,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [],
     "effects": [
       {
@@ -15891,6 +15910,7 @@
       "baseDef": 587,
       "pyroDmgBonus%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -16275,6 +16295,7 @@
       "baseDef": 615,
       "critRate%": 0.192
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -16697,6 +16718,7 @@
       "baseDef": 751,
       "atk%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -17170,6 +17192,7 @@
       "baseDef": 751,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -17737,6 +17760,7 @@
       "baseDef": 789,
       "energyRecharge%": 0.32
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -18531,6 +18555,7 @@
       "baseDef": 745,
       "elementalMastery": 96
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -19114,6 +19139,7 @@
       "healingBonus%": 0.25,
       "hydroDmgBonus%": 0.288
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -19573,6 +19599,7 @@
       "baseDef": 648,
       "geoDmgBonus%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -19963,6 +19990,7 @@
       "baseDef": 628,
       "atk%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -20380,6 +20408,7 @@
       "baseDef": 959,
       "critRate%": 0.192
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -21866,6 +21895,7 @@
       "baseDef": 684,
       "anemoDmgBonus%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -22858,6 +22888,7 @@
       "baseDef": 546,
       "hp%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -23396,6 +23427,7 @@
       "baseDef": 676,
       "cryoDmgBonus%": 0.288
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -23896,6 +23928,7 @@
       "baseDef": 830,
       "atk%": 0.288
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -24363,6 +24396,7 @@
       "baseDef": 734,
       "energyRecharge%": 0.267
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -24863,6 +24897,7 @@
       "baseDef": 751,
       "hp%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -25309,6 +25344,7 @@
       "baseDef": 769,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -25784,6 +25820,7 @@
       "baseDef": 601,
       "atk%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -26147,6 +26184,7 @@
       "baseDef": 723,
       "hp%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -26574,6 +26612,7 @@
       "baseDef": 630,
       "dendroDmgBonus%": 0.288
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -26995,6 +27034,7 @@
       "baseDef": 729,
       "hp%": 0.288
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -27466,6 +27506,7 @@
       "elementalMastery": 100,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -28060,6 +28101,7 @@
       "baseDef": 683,
       "hp%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -28487,6 +28529,7 @@
       "baseDef": 630,
       "elementalMastery": 115
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -29008,6 +29051,7 @@
       "baseDef": 655,
       "hp%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -30252,6 +30296,7 @@
       "baseDef": 751,
       "hp%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -30698,6 +30743,7 @@
       "baseDef": 782,
       "dendroDmgBonus%": 0.288
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -31252,6 +31298,7 @@
       "baseDef": 628,
       "hp%": 0.288
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -31757,6 +31804,7 @@
       "baseDef": 713,
       "hp%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -32257,6 +32305,7 @@
       "baseDef": 751,
       "elementalMastery": 96
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -32619,6 +32668,7 @@
       "baseDef": 500,
       "hp%": 0.288
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -33070,6 +33120,7 @@
       "baseDef": 712,
       "anemoDmgBonus%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -34239,6 +34290,7 @@
       "baseDef": 708,
       "atk%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -35469,6 +35521,7 @@
       "baseDef": 576,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -35836,6 +35889,7 @@
       "baseDef": 546,
       "atk%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -36344,6 +36398,7 @@
       "baseDef": 696,
       "critRate%": 0.192
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -37617,6 +37672,7 @@
       "baseDef": 793,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -38011,6 +38067,7 @@
       "baseDef": 703,
       "atk%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -38966,6 +39023,7 @@
       "baseDef": 953,
       "critRate%": 0.192
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -39401,6 +39459,7 @@
       "baseDef": 500,
       "hp%": 0.288
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -39815,6 +39874,7 @@
       "baseDef": 765,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -40282,6 +40342,7 @@
       "baseDef": 560,
       "elementalMastery": 96
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -40655,6 +40716,7 @@
       "baseDef": 784,
       "critRate%": 0.192
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -41190,6 +41252,7 @@
       "baseDef": 730,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -41584,6 +41647,7 @@
       "baseDef": 792,
       "geoDmgBonus%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -41938,6 +42002,7 @@
       "baseDef": 802,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -42305,6 +42370,7 @@
       "baseDef": 570,
       "critRate%": 0.192
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -42645,6 +42711,7 @@
       "baseDef": 930,
       "def%": 0.36
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -43158,6 +43225,7 @@
       "baseDef": 615,
       "critRate%": 0.192
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -43629,6 +43697,7 @@
       "baseDef": 587,
       "atk%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -44624,6 +44693,7 @@
       "baseDef": 763,
       "elementalMastery": 115
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -45005,6 +45075,7 @@
       "baseDef": 580,
       "atk%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -46049,6 +46120,7 @@
       "baseDef": 638,
       "atk%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -46972,6 +47044,7 @@
       "baseDef": 732,
       "critRate%": 0.192
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -47372,6 +47445,7 @@
       "baseDef": 605,
       "elementalMastery": 96
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -48472,6 +48546,7 @@
       "baseDef": 560,
       "hp%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -48864,6 +48939,7 @@
       "baseDef": 828,
       "critRate%": 0.192
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -49264,6 +49340,7 @@
       "baseDef": 669,
       "elementalMastery": 315
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -49699,6 +49776,7 @@
       "baseDef": 809,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -50304,6 +50382,7 @@
       "baseDef": 607,
       "elementalMastery": 96
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -50640,6 +50719,7 @@
       "critDmg%": 0.384,
       "elementalMastery": 100
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -52301,6 +52381,7 @@
       "baseDef": 580,
       "healingBonus%": 0.185
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -52810,6 +52891,7 @@
       "baseDef": 515,
       "critRate%": 0.192
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -53253,6 +53335,7 @@
       "baseDef": 957,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -53853,6 +53936,7 @@
       "baseDef": 814,
       "elementalMastery": 96
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -54318,6 +54402,7 @@
       "baseDef": 795,
       "critDmg%": 0.384
     },
+    "energy": null,
     "tagged": [
       "hexerei"
     ],
@@ -56021,6 +56106,7 @@
       "baseDef": 907,
       "critRate%": 0.192
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {
@@ -57025,6 +57111,7 @@
       "baseDef": 580,
       "atk%": 0.24
     },
+    "energy": null,
     "tagged": [],
     "effects": [],
     "skills": {

@@ -1,4 +1,4 @@
-import { round } from '../../../common.js';
+import { round } from '../../common.js';
 
 const elements = [
   'glacio',
@@ -143,7 +143,7 @@ function skills(data) {
   return result;
 }
 
-export function parseCharacter(id, data) {
+export function wwCharacter(id, data) {
   const b = data.stats[6][90];
 
   const s = {

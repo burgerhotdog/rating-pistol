@@ -1,4 +1,4 @@
-import { round, pick } from '../../../common.js';
+import { round, pick } from '../../common.js';
 
 const statNames = {
   'HP': 'hp%',
@@ -13,7 +13,7 @@ const statNames = {
   'PEN Ratio': 'penRatio%',
 };
 
-export function parseWeapon(id, data) {
+export function zzzWeapon(id, data) {
   const wt = Object.values(data.weapon_type)[0].toLowerCase();
   const baseStat = wt === 'armorer' ? 'baseDef' : 'baseAtk';
   const stat = pick(statNames, data.rand_property.name);

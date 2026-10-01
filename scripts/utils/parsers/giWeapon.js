@@ -1,4 +1,4 @@
-import { round, pick } from '../../../common.js';
+import { round, pick } from '../../common.js';
 
 const types = {
   WEAPON_SWORD_ONE_HAND: 'sword',
@@ -27,7 +27,7 @@ const stats = {
   fight_prop_heal_add: 'healingBonus%',
 };
 
-export function parseWeapon(id, data) {
+export function giWeapon(id, data) {
   const [raw, values] = Object.entries(data.stats_modifier)[1];
   const stat = pick(stats, raw);
   const rawValue = values.base * values.levels[90];

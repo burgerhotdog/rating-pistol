@@ -34583,7 +34583,7 @@
   "1311": {
     "disabled": true,
     "name": "Hsin",
-    "version": "3.7",
+    "version": 3.7,
     "id": 1311,
     "icon": "wuthering-waves/character/1311.webp",
     "quality": 5,
@@ -37136,7 +37136,7 @@
   "1312": {
     "disabled": true,
     "name": "Suoming",
-    "version": "3.7",
+    "version": 3.7,
     "id": 1312,
     "icon": "wuthering-waves/character/1312.webp",
     "quality": 5,
