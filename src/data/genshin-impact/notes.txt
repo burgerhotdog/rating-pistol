@@ -40,10 +40,20 @@ Characters:
     Wanderer
     Wriothesley
         No constellations
+    Xianyun
+        Storm Pinion stuck at 1 stack
+        No constellations
+    Xiao
+        Ult drain is fixed
+        No constellations
     Xingqiu
         No energy recovery
         3 sword always
         no orbitals from skill
+    Yae Miko
+        No constellations
+    Yelan
+        No barb reset
     Yumemizuki Mizuki
         Ult always does damage
         A1 always extended
@@ -57,8 +67,12 @@ Weapons:
         in the air effect might not be accurate
     Angelos' Heptades
         energy effect disabled
+    Aqua Simulacra
+        doesn't need enemies nearby
     Aquila Favonia
         Effect always hits
+    Crane's Echoing Call
+        No energy effect
     Ferrous Shadow
         No effect
     Fillet Blade
@@ -105,7 +119,9 @@ Sets:
         4pc not active
     Celestial Gift
         4pc dmg bonus is for all elements
-    Shimenawa's Reminiscence
-        4pc energy simplified
     Long Night's Oath
         Stacks not independent
+    Shimenawa's Reminiscence
+        4pc energy simplified
+    Vermillion Hereafter
+        stacks on health gain too

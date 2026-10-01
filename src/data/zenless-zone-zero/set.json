@@ -803,7 +803,9 @@
       {
         "bonus": 4,
         "enable": {
-          "type": "stun"
+          "owner": {
+            "type": "stun"
+          }
         },
         "stores": "$team",
         "apply": {
@@ -827,7 +829,9 @@
       {
         "bonus": 4,
         "enable": {
-          "type": "stun"
+          "owner": {
+            "type": "stun"
+          }
         },
         "stores": "$team",
         "apply": {
@@ -888,7 +892,9 @@
       {
         "bonus": 4,
         "enable": {
-          "type": "attack"
+          "owner": {
+            "type": "attack"
+          }
         },
         "apply": {
           "when": "start",
@@ -933,7 +939,9 @@
       {
         "bonus": 4,
         "enable": {
-          "type": "support"
+          "owner": {
+            "type": "support"
+          }
         },
         "stores": "$team",
         "apply": {
@@ -1170,7 +1178,9 @@
       {
         "bonus": 4,
         "enable": {
-          "element": "ether"
+          "owner": {
+            "element": "ether"
+          }
         },
         "buff": {
           "stats": {

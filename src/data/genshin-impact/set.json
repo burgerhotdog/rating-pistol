@@ -190,11 +190,13 @@
       {
         "bonus": 4,
         "enable": {
-          "type": [
-            "sword",
-            "claymore",
-            "polearm"
-          ]
+          "owner": {
+            "type": [
+              "sword",
+              "claymore",
+              "polearm"
+            ]
+          }
         },
         "buff": {
           "stats": {
@@ -363,10 +365,12 @@
       {
         "bonus": 4,
         "enable": {
-          "type": [
-            "catalyst",
-            "bow"
-          ]
+          "owner": {
+            "type": [
+              "catalyst",
+              "bow"
+            ]
+          }
         },
         "buff": {
           "stats": {
@@ -523,7 +527,6 @@
     ]
   },
   "15014": {
-    "disabled": true,
     "name": "Archaic Petra",
     "version": 1.0,
     "id": 15014,
@@ -541,11 +544,173 @@
             "geoDmgBonus%": 0.15
           }
         }
+      },
+      {
+        "bonus": 4,
+        "ref": "hydroBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": [
+                    "crystallize",
+                    "lunarCrystallize"
+                  ]
+                },
+                {
+                  "elements": "hydro"
+                }
+              ]
+            }
+          },
+          "duration": 10000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "pyroBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "cryoBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "electroBuff"
+            }
+          ]
+        },
+        "buff": {
+          "stats": {
+            "hydroDmgBonus%": 0.35
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "pyroBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "crystallize"
+                },
+                {
+                  "elements": "pyro"
+                }
+              ]
+            }
+          },
+          "duration": 10000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "hydroBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "cryoBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "electroBuff"
+            }
+          ]
+        },
+        "buff": {
+          "stats": {
+            "pyroDmgBonus%": 0.35
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "cryoBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "crystallize"
+                },
+                {
+                  "elements": "cryo"
+                }
+              ]
+            }
+          },
+          "duration": 10000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "hydroBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "pyroBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "electroBuff"
+            }
+          ]
+        },
+        "buff": {
+          "stats": {
+            "cryoDmgBonus%": 0.35
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "electroBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "crystallize"
+                },
+                {
+                  "elements": "electro"
+                }
+              ]
+            }
+          },
+          "duration": 10000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "hydroBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "cryoBuff"
+            },
+            {
+              "type": "remove",
+              "ref": "pyroBuff"
+            }
+          ]
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.35
+          }
+        }
       }
     ]
   },
   "15015": {
-    "disabled": true,
     "name": "Retracing Bolide",
     "version": 1.0,
     "id": 15015,
@@ -555,7 +720,24 @@
       4
     ],
     "halfStat": "retracingBolide",
-    "effects": []
+    "effects": [
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "states": {
+              "shielded": {
+                ">": 0
+              }
+            }
+          },
+          "stats": {
+            "normalAttackDmgBonus%": 0.4,
+            "chargedAttackDmgBonus%": 0.4
+          }
+        }
+      }
+    ]
   },
   "15016": {
     "name": "Heart of Depth",
@@ -718,7 +900,11 @@
       {
         "bonus": 4,
         "enable": {
-          "energy": 15
+          "owner": {
+            "energy": {
+              ">=": 15
+            }
+          }
         },
         "apply": {
           "when": "start",
@@ -893,7 +1079,6 @@
     ]
   },
   "15023": {
-    "disabled": true,
     "name": "Vermillion Hereafter",
     "version": 2.6,
     "id": 15023,
@@ -914,8 +1099,9 @@
       },
       {
         "bonus": 4,
+        "ref": "nascentLight",
         "apply": {
-          "when": "start",
+          "when": "end",
           "filter": {
             "action": {
               "type": "elementalBurst"
@@ -931,9 +1117,52 @@
         },
         "buff": {
           "stats": {
-            "atk%": 0.48
+            "atk%": 0.08
           }
         }
+      },
+      {
+        "bonus": 4,
+        "ref": "buffWhenHpDrop",
+        "apply": {
+          "when": "healthChange",
+          "filter": {
+            "effectStacks": {
+              "has": "nascentLight"
+            }
+          },
+          "cooldown": 800
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "or": [
+              {
+                "action": {
+                  "type": "elementalBurst"
+                }
+              },
+              {
+                "filter": {
+                  "field": "offField"
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "nascentLight"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.1
+          }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -1005,7 +1234,6 @@
     ]
   },
   "15026": {
-    "disabled": true,
     "name": "Gilded Dreams",
     "version": 3.0,
     "id": 15026,
@@ -1026,11 +1254,16 @@
       },
       {
         "bonus": 4,
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "cooldown": 8000,
+          "duration": 8000
+        },
         "buff": {
-          "stats": {
-            "elementalMastery": 150
-          }
-        }
+          "stats": {}
+        },
+        "special": "gildedDreams"
       }
     ]
   },
@@ -1078,7 +1311,6 @@
     ]
   },
   "15028": {
-    "disabled": true,
     "name": "Flower of Paradise Lost",
     "version": 3.3,
     "id": 15028,
@@ -1096,6 +1328,45 @@
             "elementalMastery": 80
           }
         }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "stats": {
+            "bloomReactionBonus%": 0.4,
+            "hyperbloomReactionBonus%": 0.4,
+            "burgeonReactionBonus%": 0.4,
+            "lunarBloomReactionBonus%": 0.1
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "bloom",
+                "hyperbloom",
+                "lunarBloom",
+                "burgeon"
+              ]
+            }
+          },
+          "cooldown": 1000,
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "bloomReactionBonus%": 0.1,
+            "hyperbloomReactionBonus%": 0.1,
+            "burgeonReactionBonus%": 0.1,
+            "lunarBloomReactionBonus%": 0.025
+          }
+        },
+        "maxStacks": 4
       }
     ]
   },
@@ -1514,7 +1785,11 @@
       {
         "bonus": 4,
         "enable": {
-          "energy": -1
+          "owner": {
+            "not": {
+              "has": "energy"
+            }
+          }
         },
         "buff": {
           "filter": {
@@ -1532,7 +1807,11 @@
       {
         "bonus": 4,
         "enable": {
-          "energy": -1
+          "owner": {
+            "not": {
+              "has": "energy"
+            }
+          }
         },
         "buff": {
           "filter": {
@@ -1721,7 +2000,9 @@
       {
         "bonus": 4,
         "enable": {
-          "tagged": "hexerei"
+          "owner": {
+            "hexerei": true
+          }
         },
         "apply": {
           "when": "hit",
@@ -1770,7 +2051,9 @@
       {
         "bonus": 4,
         "enable": {
-          "tagged": "hexerei"
+          "owner": {
+            "hexerei": true
+          }
         },
         "stores": "$team",
         "apply": {
@@ -1792,9 +2075,15 @@
       {
         "bonus": 4,
         "enable": {
-          "team": [
-            "hexerei",
-            2
+          "and": [
+            {
+              "owner": {
+                "hexerei": true
+              }
+            },
+            {
+              "secretRite": true
+            }
           ]
         },
         "stores": "$team",

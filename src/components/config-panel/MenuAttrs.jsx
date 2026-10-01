@@ -1,5 +1,5 @@
 import { Stack, Typography } from '@mui/material';
-import { GI, HSR, WW, ZZZ, CHARACTER, WEAPON, SET, ECHO } from '@/data';
+import { CHARACTER, WEAPON, SET, ECHO, GI, HSR, WW, ZZZ } from '@/data';
 import { usePageParams } from '@/hooks';
 import {
   buildBaseMap,
@@ -8,10 +8,7 @@ import {
   formatStr,
   getAttr,
   getMemberCounts,
-  isEnabledChar,
-  isEnabledWeap,
-  isEnabledSet,
-  isEnabledEcho,
+  isEnabled,
   resolveRankedValue,
   toArray,
   toMergedObj,
@@ -85,57 +82,61 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
   // Static buffs from effects
   const effectMaps = [];
 
-  const character = CHARACTER[gameId][charId];
-  if (character.effects) {
-    for (const effect of character.effects) {
-      if (
-        !isEnabledChar(effect, member, gameId, { memberIds, counts }) ||
-        !isStaticBuff(effect) ||
-        !appliesToCharId(effect, charId)
-      ) continue;
-      effectMaps.push(effect.buff.stats);
-    }
+  const charData = CHARACTER[gameId][charId];
+  for (const effect of charData.effects ?? []) {
+    if (
+      effect.rank > member.rank ||
+      effect.mode && effect.mode !== member.mode ||
+      !isEnabled(gameId, effect, charId, counts) ||
+      !isStaticBuff(effect) ||
+      !appliesToCharId(effect, charId)
+    ) continue;
+
+    effectMaps.push(effect.buff.stats);
   }
 
-  const weapon = WEAPON[gameId][member.weaponId] ?? {};
-  if (weapon.effects) {
-    for (const effect of weapon.effects) {
+  const weapData = WEAPON[gameId][member.weaponId] ?? {};
+  if (weapData.type === charData.type) {
+    for (const effect of weapData.effects ?? []) {
       if (
-        !isEnabledWeap(effect, character, weapon, { counts }) ||
+        !isEnabled(gameId, effect, charId, counts) ||
         !isStaticBuff(effect) ||
         !appliesToCharId(effect, charId)
       ) continue;
+
       const resolvedMap = {};
       for (const [stat, value] of Object.entries(effect.buff.stats)) {
         resolvedMap[stat] = Array.isArray(value)
           ? resolveRankedValue(value, member.weaponRank)
           : value;
       }
+
       effectMaps.push(resolvedMap);
     }
   }
 
-  const allSetEffects = Object.entries(member.setCounts).flatMap(([setId, pcCount]) =>
-    SET[gameId][setId].effects.filter((effect) =>
-      isEnabledSet(effect, pcCount, character)
-    )
+  const allSetEffects = Object.entries(member.setCounts).flatMap(([setId, pieces]) =>
+    SET[gameId][setId].effects.filter(({ bonus }) => bonus <= pieces)
   );
   for (const effect of allSetEffects) {
     if (
+      !isEnabled(gameId, effect, charId, counts) ||
       !isStaticBuff(effect) ||
       !appliesToCharId(effect, charId)
     ) continue;
+
     effectMaps.push(effect.buff.stats);
   }
 
-  const echo = ECHO[member.mainEcho] ?? {};
-  if (echo.effects) {
-    for (const effect of echo.effects) {
+  if (gameId === WW) {
+    const echoData = ECHO[member.mainEcho] ?? {};
+    for (const effect of echoData.effects ?? []) {
       if (
-        !isEnabledEcho(effect, character) ||
+        !isEnabled(gameId, effect, charId, counts) ||
         !isStaticBuff(effect) ||
         !appliesToCharId(effect, charId)
       ) continue;
+
       effectMaps.push(effect.buff.stats);
     }
   }

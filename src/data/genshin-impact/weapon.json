@@ -791,7 +791,6 @@
     "effects": []
   },
   "11424": {
-    "disabled": true,
     "name": "Wolf-Fang",
     "version": 4.0,
     "id": 11424,
@@ -802,7 +801,80 @@
       "baseAtk": 510,
       "critRate%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "elementalSkillDmgBonus%": [
+            0.16,
+            0.32
+          ],
+          "elementalBurstDmgBonus%": [
+            0.16,
+            0.32
+          ]
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 10000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": [
+              0.02,
+              0.04
+            ]
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 10000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": [
+              0.02,
+              0.04
+            ]
+          }
+        },
+        "maxStacks": 4
+      }
+    ]
   },
   "11425": {
     "disabled": true,
@@ -1459,10 +1531,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -1481,10 +1550,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -4048,7 +4114,6 @@
     "effects": []
   },
   "14509": {
-    "disabled": true,
     "name": "Kagura's Verity",
     "version": 2.5,
     "id": 14509,
@@ -4059,7 +4124,48 @@
       "baseAtk": 608,
       "critDmg%": 0.662
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "kaguraDance",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 24000
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.12,
+              0.24
+            ],
+            "stellarConductReactionBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "kaguraDance": 3
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "14511": {
     "disabled": true,
@@ -4098,8 +4204,9 @@
         }
       },
       {
+        "ref": "skillUnleashed",
         "apply": {
-          "when": "start",
+          "when": "end",
           "filter": {
             "action": {
               "type": "elementalSkill"
@@ -4107,14 +4214,54 @@
           },
           "duration": 14000
         },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "commands": {
+            "type": "apply",
+            "ref": "naBuffStacks"
+          }
+        }
+      },
+      {
+        "ref": "naBuffStacks",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "skillUnleashed"
+                }
+              }
+            ]
+          },
+          "stacks": 2
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          }
+        },
         "buff": {
           "stats": {
             "normalAttackDmgBonus%": [
-              0.48,
-              0.96
+              0.048,
+              0.096
             ]
           }
-        }
+        },
+        "maxStacks": 10
       }
     ]
   },
@@ -4197,7 +4344,6 @@
     "effects": []
   },
   "14515": {
-    "disabled": true,
     "name": "Crane's Echoing Call",
     "version": 4.4,
     "id": 14515,
@@ -4208,7 +4354,30 @@
       "baseAtk": 741,
       "atk%": 0.165
     },
-    "effects": []
+    "effects": [
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "plungingAttack"
+              }
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "plungingAttackDmgBonus%": [
+              0.28,
+              0.8
+            ]
+          }
+        }
+      }
+    ]
   },
   "14516": {
     "disabled": true,
@@ -4428,11 +4597,9 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
+        "stores": "$team",
         "buff": {
           "filter": {
             "and": [
@@ -5486,7 +5653,6 @@
     "effects": []
   },
   "15508": {
-    "disabled": true,
     "name": "Aqua Simulacra",
     "version": 2.7,
     "id": 15508,
@@ -5497,7 +5663,22 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.16,
+              0.32
+            ],
+            "dmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "15509": {
     "disabled": true,
@@ -5561,7 +5742,9 @@
       },
       {
         "enable": {
-          "special": "greatMagic2same"
+          "sameElementTeamMembers": {
+            ">=": 2
+          }
         },
         "buff": {
           "stats": {
@@ -5574,7 +5757,9 @@
       },
       {
         "enable": {
-          "special": "greatMagic3same"
+          "sameElementTeamMembers": {
+            ">=": 3
+          }
         },
         "buff": {
           "stats": {

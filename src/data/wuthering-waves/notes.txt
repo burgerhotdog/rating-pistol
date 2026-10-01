@@ -44,3 +44,6 @@ Sets:
         same echo can trigger multiple times
 
 Echoes:
+    Reminiscence: Suhsin the Inevitable
+        No unison
+        Always Hsin version

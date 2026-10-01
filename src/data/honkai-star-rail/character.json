@@ -4198,10 +4198,10 @@
         ]
       },
       "ultimate": {
-        "name": "Coup de Gr\u00e2ce",
+        "name": "Coup de Grâce",
         "actions": [
           {
-            "name": "Coup de Gr\u00e2ce",
+            "name": "Coup de Grâce",
             "type": "ultimate",
             "damage": {
               "multipliers": [
@@ -11875,10 +11875,10 @@
     "effects": [],
     "skills": {
       "basicAttack": {
-        "name": "E\u2014Excuse Me, Please!",
+        "name": "E—Excuse Me, Please!",
         "actions": [
           {
-            "name": "E\u2014Excuse Me, Please!",
+            "name": "E—Excuse Me, Please!",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -11902,10 +11902,10 @@
         ]
       },
       "skill": {
-        "name": "R\u2014Room Service!",
+        "name": "R—Room Service!",
         "actions": [
           {
-            "name": "R\u2014Room Service!",
+            "name": "R—Room Service!",
             "type": "skill",
             "damage": {
               "multipliers": [
@@ -11953,10 +11953,10 @@
         ]
       },
       "ultimate": {
-        "name": "G\u2014Gonna Be Late!",
+        "name": "G—Gonna Be Late!",
         "actions": [
           {
-            "name": "G\u2014Gonna Be Late!",
+            "name": "G—Gonna Be Late!",
             "type": "ultimate",
             "damage": {
               "multipliers": [
@@ -12906,10 +12906,10 @@
         ]
       },
       "ultimate": {
-        "name": "Nind\u014d Supreme: Aishiteru",
+        "name": "Nindō Supreme: Aishiteru",
         "actions": [
           {
-            "name": "Nind\u014d Supreme: Aishiteru",
+            "name": "Nindō Supreme: Aishiteru",
             "type": "ultimate",
             "damage": {
               "multipliers": [
@@ -16868,7 +16868,7 @@
             }
           },
           {
-            "name": "To Love and Tomorrow \u266a",
+            "name": "To Love and Tomorrow ♪",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -16938,10 +16938,10 @@
         ]
       },
       "ultimate": {
-        "name": "Verse \u25e6 Vow \u221e",
+        "name": "Verse ◦ Vow ∞",
         "actions": [
           {
-            "name": "Verse \u25e6 Vow \u221e",
+            "name": "Verse ◦ Vow ∞",
             "type": "ultimate",
             "damage": {
               "multipliers": [
@@ -17604,7 +17604,7 @@
             }
           },
           {
-            "name": "\"Hello, World \u266a\"",
+            "name": "\"Hello, World ♪\"",
             "type": "MT",
             "damage": {
               "type": "MT",
@@ -18183,6 +18183,376 @@
     },
     "memberPreset": {}
   },
+  "1503": {
+    "disabled": true,
+    "name": "Pearl",
+    "version": 4.6,
+    "id": 1503,
+    "icon": "honkai-star-rail/character/1503.webp",
+    "quality": 5,
+    "element": "ice",
+    "type": "elation",
+    "stats": {
+      "baseHp": 1203,
+      "baseAtk": 466,
+      "baseDef": 728,
+      "baseSpd": 99,
+      "def%": 0.225,
+      "spd": 9,
+      "effectRes%": 0.1,
+      "elation%": 0.1
+    },
+    "skills": {
+      "basicAtk": {
+        "name": "Brushstroke: Trace the Severed Stream",
+        "actions": [
+          {
+            "name": "Brushstroke: Trace the Severed Stream",
+            "type": "basicAtk",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.45,
+                    0.54,
+                    0.63,
+                    0.72,
+                    0.81,
+                    0.9,
+                    0.99,
+                    1.08,
+                    1.17,
+                    1.26
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Brushstroke: Imagenate the Starry Night",
+            "type": "basicAtk",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5,
+                    0.6,
+                    0.7,
+                    0.8,
+                    0.9,
+                    1,
+                    1.1,
+                    1.2,
+                    1.3,
+                    1.4
+                  ]
+                },
+                {
+                  "mv": [
+                    0.04,
+                    0.048,
+                    0.056,
+                    0.064,
+                    0.072,
+                    0.08,
+                    0.088,
+                    0.096,
+                    0.104,
+                    0.112
+                  ]
+                },
+                {
+                  "mv": [
+                    80,
+                    96,
+                    112,
+                    128,
+                    144,
+                    160,
+                    176,
+                    192,
+                    208,
+                    224
+                  ]
+                },
+                {
+                  "mv": [
+                    0.1,
+                    0.11,
+                    0.12,
+                    0.13,
+                    0.14,
+                    0.15,
+                    0.1625,
+                    0.175,
+                    0.1875,
+                    0.2
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Brushstroke: Render the Great Wave",
+            "type": "basicAtk",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5,
+                    0.6,
+                    0.7,
+                    0.8,
+                    0.9,
+                    1,
+                    1.1,
+                    1.2,
+                    1.3,
+                    1.4
+                  ]
+                },
+                {
+                  "mv": [
+                    0.04,
+                    0.048,
+                    0.056,
+                    0.064,
+                    0.072,
+                    0.08,
+                    0.088,
+                    0.096,
+                    0.104,
+                    0.112
+                  ]
+                },
+                {
+                  "mv": [
+                    80,
+                    96,
+                    112,
+                    128,
+                    144,
+                    160,
+                    176,
+                    192,
+                    208,
+                    224
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "skill": {
+        "name": "Relume Life's Light",
+        "actions": [
+          {
+            "name": "Relume Life's Light",
+            "type": "skill",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.06,
+                    0.066,
+                    0.072,
+                    0.078,
+                    0.084,
+                    0.09,
+                    0.0975,
+                    0.105,
+                    0.1125,
+                    0.12,
+                    0.126,
+                    0.132,
+                    0.138,
+                    0.144,
+                    0.15
+                  ]
+                },
+                {
+                  "mv": [
+                    120,
+                    132,
+                    144,
+                    156,
+                    168,
+                    180,
+                    195,
+                    210,
+                    225,
+                    240,
+                    252,
+                    264,
+                    276,
+                    288,
+                    300
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "ultimate": {
+        "name": "Appraise Soul's Ground",
+        "actions": [
+          {
+            "name": "Appraise Soul's Ground",
+            "type": "ultimate",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.3,
+                    0.33,
+                    0.36,
+                    0.39,
+                    0.42,
+                    0.45,
+                    0.4875,
+                    0.525,
+                    0.5625,
+                    0.6,
+                    0.63,
+                    0.66,
+                    0.69,
+                    0.72,
+                    0.75
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "talent": {
+        "name": "Grow Grace from Grit",
+        "actions": [
+          {
+            "name": "Grow Grace from Grit",
+            "type": "talent",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.15,
+                    0.165,
+                    0.18,
+                    0.195,
+                    0.21,
+                    0.225,
+                    0.24375,
+                    0.2625,
+                    0.28125,
+                    0.3,
+                    0.315,
+                    0.33,
+                    0.345,
+                    0.36,
+                    0.375
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "elationSkill": {
+        "name": "Dissolve Reason into Elation",
+        "actions": [
+          {
+            "name": "Dissolve Reason into Elation",
+            "type": "elationSkill",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.05,
+                    0.055,
+                    0.06,
+                    0.065,
+                    0.07,
+                    0.075,
+                    0.08125,
+                    0.0875,
+                    0.09375,
+                    0.1,
+                    0.105,
+                    0.11,
+                    0.115,
+                    0.12,
+                    0.125
+                  ]
+                },
+                {
+                  "mv": [
+                    0.075,
+                    0.0825,
+                    0.09,
+                    0.0975,
+                    0.105,
+                    0.1125,
+                    0.121875,
+                    0.13125,
+                    0.140625,
+                    0.15,
+                    0.1575,
+                    0.165,
+                    0.1725,
+                    0.18,
+                    0.1875
+                  ]
+                },
+                {
+                  "mv": [
+                    0.1,
+                    0.11,
+                    0.12,
+                    0.13,
+                    0.14,
+                    0.15,
+                    0.1625,
+                    0.175,
+                    0.1875,
+                    0.2,
+                    0.21,
+                    0.22,
+                    0.23,
+                    0.24,
+                    0.25
+                  ]
+                },
+                {
+                  "mv": [
+                    0.2,
+                    0.22,
+                    0.24,
+                    0.26,
+                    0.28,
+                    0.3,
+                    0.325,
+                    0.35,
+                    0.375,
+                    0.4,
+                    0.42,
+                    0.44,
+                    0.46,
+                    0.48,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "tagged": [],
+    "effects": [],
+    "memberPreset": {}
+  },
   "1504": {
     "disabled": true,
     "name": "Ashveil",
@@ -18728,7 +19098,7 @@
             }
           },
           {
-            "name": "Bonus Stage: \u03b1Wolf Instant",
+            "name": "Bonus Stage: αWolf Instant",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -19351,10 +19721,10 @@
         ]
       },
       "ultimate": {
-        "name": "An Gal Ta Ki Gal \u0160\u00e8",
+        "name": "An Gal Ta Ki Gal Šè",
         "actions": [
           {
-            "name": "<unbreak>An Gal Ta</unbreak> <unbreak>Ki Gal \u0160\u00e8</unbreak>",
+            "name": "<unbreak>An Gal Ta</unbreak> <unbreak>Ki Gal Šè</unbreak>",
             "type": "ultimate",
             "damage": {
               "multipliers": [

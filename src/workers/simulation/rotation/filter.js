@@ -1,64 +1,5 @@
 import { CHARACTER, GI } from '@/data';
-import { toArray } from '@/utils';
-
-const ops = new Set(['>', '<', '>=', '<=']);
-
-function compareNumber(a = 0, op, b) {
-  switch (op) {
-    case '>': return a > b;
-    case '<': return a < b;
-    case '>=': return a >= b;
-    case '<=': return a <= b;
-  }
-}
-
-function evaluateNode(node, context) {
-  if (node == null) {
-    return true;
-  }
-
-  if (typeof node !== 'object') {
-    return toArray(context).includes(node);
-  }
-
-  if (Array.isArray(node)) {
-    return node.some((subNode) => evaluateNode(subNode, context));
-  }
-
-  if ('and' in node) {
-    return node.and.every((subNode) => evaluateNode(subNode, context));
-  }
-
-  if ('or' in node) {
-    return node.or.some((subNode) => evaluateNode(subNode, context));
-  }
-
-  if ('not' in node) {
-    return !evaluateNode(node.not, context);
-  }
-
-  if ('has' in node) {
-    if (context == null) {
-      return false;
-    }
-
-    if (Array.isArray(node.has)) {
-      return node.has.some((key) => Object.hasOwn(context, key));
-    }
-
-    return node.has === '*'
-      ? Object.keys(context).length > 0
-      : Object.hasOwn(context, node.has);
-  }
-
-  const [nodeKey, nodeValue] = Object.entries(node)[0];
-
-  if (ops.has(nodeKey)) {
-    return compareNumber(context, nodeKey, nodeValue);
-  }
-
-  return evaluateNode(nodeValue, context?.[nodeKey]);
-}
+import { evaluateFilter } from '@/utils';
 
 export function createEventFilter(ctx) {
   const { cache, states } = ctx;
@@ -68,7 +9,7 @@ export function createEventFilter(ctx) {
   return (filter, effect, spec = {}) => {
     const { fieldId } = spec;
 
-    return evaluateNode(filter, {
+    return evaluateFilter(filter, {
       ...spec,
       states,
       character: CHARACTER[gameId][fieldId],

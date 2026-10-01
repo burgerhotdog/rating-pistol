@@ -90,6 +90,13 @@ export function runAction(ctx, action, options = {}) {
     if (ctx.saveSnapshots) {
       ctx.states.runtime += elapsed;
     }
+
+    if (ctx.states.shielded) {
+      ctx.states.shielded -= elapsed;
+      if (ctx.states.shielded <= 0) {
+        ctx.states.shielded = null;
+      }
+    }
   };
 
   const runEffects = (when) => ctx.runEffects(when, modifiedAction);
@@ -170,6 +177,12 @@ export function runAction(ctx, action, options = {}) {
           scale: scaleMult,
         },
       });
+    }
+
+    if (modifiedAction.shield) {
+      const { duration = 0 } = modifiedAction.shield;
+      const prev = ctx.states.shielded ?? 0;
+      ctx.states.shielded = Math.max(duration, prev);
     }
   }
 

@@ -14,6 +14,7 @@
       "baseDef": 784,
       "critDmg%": 0.384
     },
+    "energy": 80,
     "tagged": [],
     "effects": [
       {
@@ -317,6 +318,7 @@
       },
       "elementalSkill": {
         "name": "Kamisato Art: Hyouka",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -349,6 +351,7 @@
       },
       "elementalBurst": {
         "name": "Kamisato Art: Soumetsu",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -433,11 +436,12 @@
       "baseDef": 769,
       "healingBonus%": 0.222
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Favonius Bladework",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -686,6 +690,7 @@
       },
       "elementalSkill": {
         "name": "Gale Blade",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Gale Blade",
@@ -718,6 +723,7 @@
       },
       "elementalBurst": {
         "name": "Dandelion Breeze",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Dandelion Breeze",
@@ -884,11 +890,12 @@
       "baseDef": 573,
       "elementalMastery": 96
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Lightning Touch",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -1109,7 +1116,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Violet Arc: Press",
+        "name": "Violet Arc",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Violet Arc: Press",
@@ -1249,7 +1257,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Lightning Rose: Discharge",
+        "name": "Lightning Rose",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Lightning Rose: Discharge",
@@ -1307,11 +1316,12 @@
       "baseDef": 669,
       "hp%": 0.24
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Whisper of Water",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -1532,7 +1542,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Let the Show Begin: Healing per hit",
+        "name": "Let the Show Begin♪",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Let the Show Begin: Healing per hit",
@@ -1657,7 +1668,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Shining Miracle: Healing",
+        "name": "Shining Miracle♪",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Shining Miracle: Healing",
@@ -2532,7 +2544,7 @@
             "damage": {
               "gauge": 2,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 5000,
                 "hits": 5
               },
@@ -2565,7 +2577,7 @@
               "type": "elementalBurst",
               "gauge": 2,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 5000,
                 "hits": 5
               },
@@ -2598,7 +2610,7 @@
               "type": "elementalBurst",
               "gauge": 2,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 5000,
                 "hits": 5
               },
@@ -2664,13 +2676,15 @@
       "baseDef": 751,
       "physicalDmgBonus%": 0.3
     },
+    "energy": 80,
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Steel Fang",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -2918,7 +2932,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Claw and Thunder: Press",
+        "name": "Claw and Thunder",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Claw and Thunder: Press",
@@ -2978,6 +2993,7 @@
       },
       "elementalBurst": {
         "name": "Lightning Fang",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Lightning Fang",
@@ -3163,7 +3179,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "chargedAttack",
+                "tag": "Charged Attack",
                 "time": 1000,
                 "hits": 3
               },
@@ -3393,7 +3409,7 @@
               "element": "pyro",
               "gauge": 2,
               "icd": {
-                "tag": "chargedAttack",
+                "tag": "Charged Attack",
                 "time": 1000,
                 "hits": 3
               },
@@ -3555,7 +3571,7 @@
               "type": "elementalBurst",
               "gauge": 1,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 1000,
                 "hits": 3
               },
@@ -3611,13 +3627,15 @@
       "baseDef": 669,
       "energyRecharge%": 0.32
     },
+    "energy": 60,
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Divine Marksmanship",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -3986,7 +4004,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skyward Sonnet: Press",
+        "name": "Skyward Sonnet",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skyward Sonnet: Press",
@@ -4045,7 +4064,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Wind's Grand Ode: DoT",
+        "name": "Wind's Grand Ode",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Wind's Grand Ode: DoT",
@@ -4263,7 +4283,7 @@
     ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Dough-Fu",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -4578,7 +4598,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 2500,
                 "hits": 3
               },
@@ -4706,11 +4726,12 @@
       "baseDef": 648,
       "electroDmgBonus%": 0.24
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Oceanborne",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -4985,7 +5006,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Shield Absorption",
+        "name": "Tidecaller",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Shield Absorption",
@@ -5090,6 +5112,7 @@
       },
       "elementalBurst": {
         "name": "Stormbreaker",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Stormbreaker",
@@ -5717,7 +5740,7 @@
               "type": "elementalBurst",
               "gauge": 1,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 2500,
                 "hits": 3
               },
@@ -5759,7 +5782,6 @@
     }
   },
   "10000026": {
-    "disabled": true,
     "name": "Xiao",
     "version": 1.3,
     "id": 10000026,
@@ -5773,11 +5795,139 @@
       "baseDef": 799,
       "critRate%": 0.192
     },
+    "energy": 70,
+    "energyMin": 1.2,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "yakshasMask",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000,
+          "commands": {
+            "type": "apply",
+            "ref": "tamerOfDemonsRamping",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        },
+        "remove": {
+          "when": "swap",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": {
+            "drain": {
+              "value": 0.02
+            }
+          }
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "type": [
+                "normalAttack",
+                "chargedAttack",
+                "plungingAttack"
+              ]
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "anemo"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack",
+                  "plungingAttack"
+                ]
+              }
+            }
+          },
+          "statRefs": {
+            "dmgBonus%": "elementalBurst.1"
+          }
+        }
+      },
+      {
+        "ref": "tamerOfDemons",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "yakshasMask"
+              }
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.05
+          }
+        },
+        "maxStacks": 5
+      },
+      {
+        "ref": "tamerOfDemonsRamping",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 3000,
+          "commands": {
+            "type": "apply",
+            "ref": "tamerOfDemons"
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 7000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.15
+          }
+        },
+        "maxStacks": 3
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Whirlwind Thrust",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -6007,33 +6157,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.8183,
-                    0.8849,
-                    0.9516,
-                    1.0467,
-                    1.1133,
-                    1.1894,
-                    1.2941,
-                    1.3988,
-                    1.5035,
-                    1.6176,
-                    1.7318,
-                    1.846,
-                    1.9602,
-                    2.0744,
-                    2.1886
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -6086,16 +6209,49 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.8183,
+                    0.8849,
+                    0.9516,
+                    1.0467,
+                    1.1133,
+                    1.1894,
+                    1.2941,
+                    1.3988,
+                    1.5035,
+                    1.6176,
+                    1.7318,
+                    1.846,
+                    1.9602,
+                    2.0744,
+                    2.1886
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Lemniscatic Wind Cycling",
+        "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 100
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -6122,15 +6278,20 @@
         ]
       },
       "elementalBurst": {
-        "name": "Normal/Charged/Plunging Attack DMG Bonus",
+        "name": "Bane of All Evil",
+        "rankModify": 5,
         "actions": [
           {
-            "name": "Normal/Charged/Plunging Attack DMG Bonus",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
-            "damage": {
+            "duration": 1000
+          },
+          {
+            "name": "Normal/Charged/Plunging Attack DMG Bonus",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.5845,
                     0.6195,
                     0.6545,
@@ -6153,11 +6314,10 @@
           },
           {
             "name": "Life Drain",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.03,
                     0.03,
                     0.03,
@@ -6185,8 +6345,44 @@
       "weaponId": 13505,
       "setCounts": {
         "15023": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8",
+        "normalAttack.9",
+        "normalAttack.8"
+      ],
+      "duration": 18000
+    },
+    "teamPreset": [
+      10000026,
+      10000093,
+      10000089,
+      10000076
+    ]
   },
   "10000027": {
     "disabled": true,
@@ -6203,11 +6399,12 @@
       "baseDef": 573,
       "geoDmgBonus%": 0.24
     },
+    "energy": 40,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack DMG",
+        "name": "Sparkling Scatter",
         "actions": [
           {
             "name": "Normal Attack DMG",
@@ -6374,7 +6571,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Jade Screen: Inherited HP",
+        "name": "Jade Screen",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Jade Screen: Inherited HP",
@@ -6434,7 +6632,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "DMG Per Gem",
+        "name": "Starshatter",
+        "rankModify": 3,
         "actions": [
           {
             "name": "DMG Per Gem",
@@ -6491,6 +6690,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [
       {
         "apply": {
@@ -6548,10 +6748,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "use": {
           "when": "hit",
@@ -6574,10 +6771,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "ref": "boomBadgeNormal",
         "apply": {
@@ -6606,10 +6800,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "ref": "boomBadgeSkill",
         "apply": {
@@ -6638,10 +6829,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "ref": "boomBadgeBurst",
         "apply": {
@@ -6878,7 +7066,7 @@
               "type": "elementalSkill",
               "gauge": 2,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 2500,
                 "hits": 3
               },
@@ -6911,7 +7099,7 @@
               "type": "elementalSkill",
               "gauge": 1,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 2500,
                 "hits": 3
               },
@@ -6954,7 +7142,7 @@
               "type": "elementalBurst",
               "gauge": 1,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 2500,
                 "hits": 3
               },
@@ -7038,9 +7226,7 @@
     },
     "energy": 40,
     "energyMax": 1,
-    "tagged": [
-      "shield"
-    ],
+    "tagged": [],
     "effects": [
       {
         "use": {
@@ -7529,6 +7715,7 @@
           {
             "name": "Jade Shield",
             "shield": {
+              "duration": 20000,
               "attr": "hp",
               "multipliers": [
                 {
@@ -7635,6 +7822,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [
       {
         "ref": "oz",
@@ -8683,11 +8871,12 @@
       "baseDef": 815,
       "hydroDmgBonus%": 0.288
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Cutting Torrent",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -9044,7 +9233,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Stance Change DMG",
+        "name": "Foul Legacy: Raging Tide",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Stance Change DMG",
@@ -9330,7 +9520,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG: Melee",
+        "name": "Havoc: Obliteration",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG: Melee",
@@ -9438,11 +9629,12 @@
       "baseDef": 799,
       "def%": 0.3
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Favonius Bladework - Maid",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -9691,6 +9883,7 @@
       },
       "elementalSkill": {
         "name": "Breastplate",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Breastplate",
@@ -9839,6 +10032,7 @@
       },
       "elementalBurst": {
         "name": "Sweeping Time",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Sweeping Time",
@@ -9946,11 +10140,12 @@
       "baseDef": 922,
       "healingBonus%": 0.222
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Ancient Sword Art",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -10256,6 +10451,7 @@
       },
       "elementalSkill": {
         "name": "Adeptus Art: Herald of Frost",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Adeptus Art: Herald of Frost",
@@ -10401,6 +10597,7 @@
       },
       "elementalBurst": {
         "name": "Adeptus Art: Preserver of Fortune",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Adeptus Art: Preserver of Fortune",
@@ -10497,11 +10694,12 @@
       "baseDef": 648,
       "atk%": 0.24
     },
+    "energy": 40,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Demonbane",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -10750,6 +10948,7 @@
       },
       "elementalSkill": {
         "name": "Spirit Blade: Chonghua's Layered Frost",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Spirit Blade: Chonghua's Layered Frost",
@@ -10809,6 +11008,7 @@
       },
       "elementalBurst": {
         "name": "Spirit Blade: Cloud-Parting Star",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Spirit Blade: Cloud-Parting Star",
@@ -10862,11 +11062,12 @@
       "baseDef": 630,
       "critDmg%": 0.384
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Liutian Archery",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -11222,7 +11423,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Inherited HP",
+        "name": "Trail of the Qilin",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Inherited HP",
@@ -11281,7 +11483,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Ice Shard DMG",
+        "name": "Celestial Shower",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Ice Shard DMG",
@@ -11339,6 +11542,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [
       {
         "apply": {
@@ -11809,11 +12013,12 @@
       "baseDef": 601,
       "cryoDmgBonus%": 0.24
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Kätzlein Style",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -12089,7 +12294,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Icy Paw DMG",
+        "name": "Icy Paws",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Icy Paw DMG",
@@ -12194,7 +12400,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Signature Mix",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -12316,13 +12523,15 @@
       "baseDef": 653,
       "energyRecharge%": 0.32
     },
+    "energy": 60,
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Ripple of Fate",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -12543,7 +12752,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "DoT",
+        "name": "Mirror Reflection of Doom",
+        "rankModify": 5,
         "actions": [
           {
             "name": "DoT",
@@ -12606,7 +12816,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Illusory Bubble Explosion",
+        "name": "Stellaris Phantasm",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Illusory Bubble Explosion",
@@ -12709,11 +12920,12 @@
       "baseDef": 799,
       "critDmg%": 0.384
     },
+    "energy": 40,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Yunlai Swordsmanship",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -12999,7 +13211,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Lightning Stiletto",
+        "name": "Stellar Restoration",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Lightning Stiletto",
@@ -13086,6 +13299,7 @@
       },
       "elementalBurst": {
         "name": "Starward Sword",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Starward Sword",
@@ -13191,6 +13405,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [
       {
         "apply": {
@@ -13457,6 +13672,7 @@
       },
       "elementalSkill": {
         "name": "Astable Anemohypostasis Creation - 6308",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -13490,6 +13706,7 @@
       },
       "elementalBurst": {
         "name": "Forbidden Creation - Isomer 75 / Type II",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -13580,11 +13797,12 @@
       "baseDef": 799,
       "atk%": 0.24
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Dance on Fire",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -13832,7 +14050,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Swing DMG",
+        "name": "Sweeping Fervor",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Swing DMG",
@@ -14029,7 +14248,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Riff Revolution",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -14105,11 +14325,12 @@
       "baseDef": 710,
       "atk%": 0.24
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Spear of the Church",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -14376,7 +14597,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Ravaging Confession",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -14427,7 +14649,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Rites of Termination",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -14523,11 +14746,76 @@
       "pyroDmgBonus%": 0.33,
       "critDmg%": 0.384
     },
+    "energy": 60,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "paramitaPapilio",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 9000
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "type": [
+                "normalAttack",
+                "chargedAttack",
+                "plungingAttack"
+              ]
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "pyro"
+            }
+          }
+        },
+        "buff": {
+          "specRefs": {
+            "atk": {
+              "attr": "hp",
+              "step": 1,
+              "value": "elementalSkill.1"
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": "chargedAttack"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "paramitaPapilio"
+                }
+              }
+            ]
+          },
+          "duration": 8000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 4000,
+          "action": "elementalSkill.2"
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Secret Spear of Wangsheng",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -14738,33 +15026,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6542,
-                    0.6988,
-                    0.7434,
-                    0.8029,
-                    0.8475,
-                    0.8995,
-                    0.9664,
-                    1.0333,
-                    1.1002,
-                    1.1671,
-                    1.234,
-                    1.301,
-                    1.3679,
-                    1.4348,
-                    1.5017
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -14817,19 +15078,50 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6542,
+                    0.6988,
+                    0.7434,
+                    0.8029,
+                    0.8475,
+                    0.8995,
+                    0.9664,
+                    1.0333,
+                    1.1002,
+                    1.1671,
+                    1.234,
+                    1.301,
+                    1.3679,
+                    1.4348,
+                    1.5017
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "ATK Increase",
+        "name": "Guide to Afterlife",
+        "rankModify": 3,
         "actions": [
           {
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
             "name": "ATK Increase",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.0384,
                     0.0407,
                     0.043,
@@ -14851,9 +15143,9 @@
             }
           },
           {
-            "name": "Blood Blossom DMG",
-            "type": "elementalSkill",
+            "name": "Blood Blossom",
             "damage": {
+              "type": "elementalSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -14880,7 +15172,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Spirit Soother",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -15612,11 +15905,12 @@
       "baseDef": 587,
       "pyroDmgBonus%": 0.24
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Seal of Approval",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -15886,7 +16180,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Signed Edict",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -15918,7 +16213,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Done Deal",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -15994,11 +16290,12 @@
       "baseDef": 615,
       "critRate%": 0.192
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Firework Flare-Up",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -16301,7 +16598,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Blazing Arrow DMG",
+        "name": "Niwabi Fire-Dance",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Blazing Arrow DMG",
@@ -16333,7 +16631,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Ryuukin Saxifrage",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -16414,11 +16713,12 @@
       "baseDef": 751,
       "atk%": 0.24
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Swiftshatter Spear",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -16639,7 +16939,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Blazing Blessing",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -16763,7 +17064,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Crimson Ooyoroi",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -16885,11 +17187,12 @@
       "baseDef": 751,
       "critDmg%": 0.384
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Favonius Bladework - Edel",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -17202,7 +17505,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+        "name": "Icetide Vortex",
+        "rankModify": 5,
         "actions": [
           {
             "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
@@ -17342,7 +17646,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Glacial Illumination",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -17450,11 +17755,12 @@
       "baseDef": 789,
       "energyRecharge%": 0.32
     },
+    "energy": 90,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Origin",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -17721,7 +18027,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Transcendence: Baleful Omen",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -17807,7 +18114,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Musou no Hitotachi Base DMG",
+        "name": "Secret Art: Musou Shinsetsu",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Musou no Hitotachi Base DMG",
@@ -18242,11 +18550,12 @@
       "baseDef": 745,
       "elementalMastery": 96
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Shuumatsuban Ninja Blade",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -18513,7 +18822,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Fuufuu Windwheel DMG",
+        "name": "Yoohoo Art: Fuuin Dash",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Fuufuu Windwheel DMG",
@@ -18653,7 +18963,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill Activation DMG",
+        "name": "Yoohoo Art: Mujina Flurry",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill Activation DMG",
@@ -18819,15 +19130,16 @@
       "baseHp": 13471,
       "baseAtk": 234,
       "baseDef": 657,
-      "critRate%": -1.0,
+      "critRate%": -1,
       "healingBonus%": 0.25,
       "hydroDmgBonus%": 0.288
     },
+    "energy": 70,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "The Shape of Water",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -19021,7 +19333,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Regeneration",
+        "name": "Kurage's Oath",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Regeneration",
@@ -19099,7 +19412,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Nereid's Ascension",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -19280,11 +19594,12 @@
       "baseDef": 648,
       "geoDmgBonus%": 0.24
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Ripping Fang Fletching",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -19533,7 +19848,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Inuzaka All-Round Defense",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -19592,7 +19908,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Juuga: Forward Unto Victory",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -19668,11 +19985,12 @@
       "baseDef": 628,
       "atk%": 0.24
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Tengu Bowmanship",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -19948,7 +20266,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Tengu Juurai: Ambush DMG",
+        "name": "Tengu Stormcall",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Tengu Juurai: Ambush DMG",
@@ -20007,7 +20326,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Tengu Juurai: Titanbreaker DMG",
+        "name": "Subjugation: Koukou Sendou",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Tengu Juurai: Titanbreaker DMG",
@@ -20083,11 +20403,12 @@
       "baseDef": 959,
       "critRate%": 0.192
     },
+    "energy": 70,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Fight Club Legend",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -20362,7 +20683,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Masatsu Zetsugi: Akaushi Burst!",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -20394,7 +20716,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "ATK Bonus",
+        "name": "Royal Descent: Behold, Itto the Evil!",
+        "rankModify": 5,
         "actions": [
           {
             "name": "ATK Bonus",
@@ -20434,7 +20757,6 @@
     }
   },
   "10000058": {
-    "disabled": true,
     "name": "Yae Miko",
     "version": 2.5,
     "id": 10000058,
@@ -20448,11 +20770,692 @@
       "baseDef": 569,
       "critRate%": 0.192
     },
+    "energy": 90,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "prevTurret",
+        "apply": {
+          "when": "command"
+        },
+        "maxStacks": 2
+      },
+      {
+        "ref": "turret1",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "prevTurret"
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 24000,
+          "offset": 2000,
+          "commands": {
+            "type": "apply",
+            "ref": "prevTurret"
+          }
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": [
+                    "turret2",
+                    "turret3"
+                  ]
+                }
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.1"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": [
+                      "turret2",
+                      "turret3"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "and": [
+                        {
+                          "has": "turret2"
+                        },
+                        {
+                          "has": "turret3"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "turret2"
+                  },
+                  {
+                    "has": "turret3"
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.3"
+          }
+        ]
+      },
+      {
+        "ref": "turret2",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "prevTurret": 1
+                }
+              }
+            ]
+          },
+          "duration": 24000,
+          "offset": 2000,
+          "commands": {
+            "type": "apply",
+            "ref": "prevTurret"
+          }
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": [
+                    "turret1",
+                    "turret3"
+                  ]
+                }
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.1"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": [
+                      "turret1",
+                      "turret3"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "and": [
+                        {
+                          "has": "turret1"
+                        },
+                        {
+                          "has": "turret3"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "turret1"
+                  },
+                  {
+                    "has": "turret3"
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.3"
+          }
+        ]
+      },
+      {
+        "ref": "turret3",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "prevTurret": 2
+                }
+              }
+            ]
+          },
+          "duration": 24000,
+          "offset": 2000,
+          "commands": {
+            "type": "remove",
+            "ref": "prevTurret"
+          }
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": [
+                    "turret1",
+                    "turret2"
+                  ]
+                }
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.1"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": [
+                      "turret1",
+                      "turret2"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "and": [
+                        {
+                          "has": "turret1"
+                        },
+                        {
+                          "has": "turret2"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "turret1"
+                  },
+                  {
+                    "has": "turret2"
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.3"
+          }
+        ]
+      },
+      {
+        "ref": "tenkoThunderbolt",
+        "apply": [
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "or": [
+                      {
+                        "and": [
+                          {
+                            "has": "turret1"
+                          },
+                          {
+                            "not": {
+                              "has": [
+                                "turret2",
+                                "turret3"
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "and": [
+                          {
+                            "has": "turret2"
+                          },
+                          {
+                            "not": {
+                              "has": [
+                                "turret1",
+                                "turret3"
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "and": [
+                          {
+                            "has": "turret3"
+                          },
+                          {
+                            "not": {
+                              "has": [
+                                "turret1",
+                                "turret2"
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "uses": 1,
+            "offset": 2000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "turret1"
+              },
+              {
+                "type": "remove",
+                "ref": "turret2"
+              },
+              {
+                "type": "remove",
+                "ref": "turret3"
+              }
+            ]
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "or": [
+                      {
+                        "and": [
+                          {
+                            "not": {
+                              "has": "turret1"
+                            }
+                          },
+                          {
+                            "has": "turret2"
+                          },
+                          {
+                            "has": "turret3"
+                          }
+                        ]
+                      },
+                      {
+                        "and": [
+                          {
+                            "not": {
+                              "has": "turret2"
+                            }
+                          },
+                          {
+                            "has": "turret1"
+                          },
+                          {
+                            "has": "turret3"
+                          }
+                        ]
+                      },
+                      {
+                        "and": [
+                          {
+                            "not": {
+                              "has": "turret3"
+                            }
+                          },
+                          {
+                            "has": "turret1"
+                          },
+                          {
+                            "has": "turret2"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "uses": 2,
+            "offset": 2000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "turret1"
+              },
+              {
+                "type": "remove",
+                "ref": "turret2"
+              },
+              {
+                "type": "remove",
+                "ref": "turret3"
+              }
+            ]
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "turret1"
+                      },
+                      {
+                        "has": "turret2"
+                      },
+                      {
+                        "has": "turret3"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "uses": 3,
+            "offset": 2000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "turret1"
+              },
+              {
+                "type": "remove",
+                "ref": "turret2"
+              },
+              {
+                "type": "remove",
+                "ref": "turret3"
+              }
+            ]
+          }
+        ],
+        "use": {
+          "when": "interval",
+          "cooldown": 500,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "additionalLightningStrike",
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "not": {
+                    "radiance": "stellarConduct"
+                  }
+                },
+                {
+                  "action": {
+                    "ref": "elementalSkill.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "turret1"
+                      },
+                      {
+                        "has": "turret2"
+                      },
+                      {
+                        "has": "turret3"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "action": {
+              "damage": {
+                "type": "elementalSkill",
+                "multipliers": [
+                  {
+                    "mv": 0.4
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarConduct"
+                },
+                {
+                  "action": {
+                    "ref": "elementalSkill.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "turret1"
+                      },
+                      {
+                        "has": "turret2"
+                      },
+                      {
+                        "has": "turret3"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "action": {
+              "damage": {
+                "type": "stellarConduct",
+                "multipliers": [
+                  {
+                    "mv": 0.5
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalSkill.2",
+                "elementalSkill.3",
+                "elementalSkill.4"
+              ]
+            }
+          },
+          "specs": {
+            "dmgBonus%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.0015
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "superconduct",
+                "stellarConduct"
+              ]
+            }
+          },
+          "cooldown": 2500,
+          "uses": 1,
+          "commands": {
+            "type": "apply",
+            "ref": "radianceExtraTurretStrike",
+            "spec": {
+              "uses": 1
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalSkill.2",
+                "elementalSkill.3",
+                "elementalSkill.4"
+              ]
+            }
+          },
+          "stats": {
+            "damageMv": 0.8
+          }
+        }
+      },
+      {
+        "ref": "radianceExtraTurretStrike",
+        "apply": {
+          "when": "command"
+        },
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "not": {
+                "radiance": "stellarConduct"
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarConduct"
+                },
+                {
+                  "action": {
+                    "ref": [
+                      "elementalSkill.1",
+                      "elementalSkill.2",
+                      "elementalSkill.3",
+                      "elementalSkill.4"
+                    ]
+                  }
+                }
+              ]
+            },
+            "action": {
+              "damage": {
+                "type": "stellarConduct",
+                "multipliers": [
+                  {
+                    "mv": 2
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Spiritfox Sin-Eater",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -20539,6 +21542,10 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 500
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -20557,33 +21564,6 @@
                     3.0365,
                     3.2151,
                     3.3938
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
                   ]
                 }
               ]
@@ -20642,16 +21622,54 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "Sesshou Sakura DMG: Level 1",
+        "name": "Yakan Evocation: Sesshou Sakura",
+        "rankModify": 3,
         "actions": [
           {
-            "name": "Sesshou Sakura DMG: Level 1",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Sesshou Sakura: Level 1",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -20676,9 +21694,15 @@
             }
           },
           {
-            "name": "Sesshou Sakura DMG: Level 2",
-            "type": "elementalSkill",
+            "name": "Sesshou Sakura: Level 2",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -20703,9 +21727,15 @@
             }
           },
           {
-            "name": "Sesshou Sakura DMG: Level 3",
-            "type": "elementalSkill",
+            "name": "Sesshou Sakura: Level 3",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -20730,9 +21760,15 @@
             }
           },
           {
-            "name": "Sesshou Sakura DMG: Level 4",
-            "type": "elementalSkill",
+            "name": "Sesshou Sakura: Level 4",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -20759,12 +21795,14 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Great Secret Art: Tenko Kenshin",
+        "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -20789,9 +21827,10 @@
             }
           },
           {
-            "name": "Tenko Thunderbolt DMG",
-            "type": "elementalBurst",
+            "name": "Tenko Thunderbolt",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -20822,8 +21861,19 @@
       "weaponId": 14509,
       "setCounts": {
         "15046": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.0",
+        "elementalSkill.0"
+      ]
+    },
+    "teamPreset": [
+      10000133,
+      10000058,
+      10000150,
+      10000148
+    ]
   },
   "10000059": {
     "disabled": true,
@@ -20840,11 +21890,12 @@
       "baseDef": 684,
       "anemoDmgBonus%": 0.24
     },
+    "energy": 40,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Fudou Style Martial Arts",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -21130,7 +22181,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Heartstopper Strike",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -21216,7 +22268,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Fudou Style Vacuum Slugger DMG",
+        "name": "Windmuster Kick",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Fudou Style Vacuum Slugger DMG",
@@ -21278,7 +22331,6 @@
     "memberPreset": {}
   },
   "10000060": {
-    "disabled": true,
     "name": "Yelan",
     "version": 2.7,
     "id": 10000060,
@@ -21292,11 +22344,114 @@
       "baseDef": 548,
       "critRate%": 0.192
     },
+    "energy": 70,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "skillTriggerUlt",
+              "spec": {
+                "duration": 15000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "rampingBuffFixed",
+              "spec": {
+                "duration": 15000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "rampingBuff",
+              "spec": {
+                "duration": 15000
+              }
+            }
+          ]
+        },
+        "use": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "normalAttack"
+            }
+          },
+          "cooldown": 1000,
+          "action": "elementalBurst.1",
+          "times": 3
+        }
+      },
+      {
+        "ref": "skillTriggerUlt",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "action": "elementalBurst.1",
+          "times": 3
+        }
+      },
+      {
+        "buff": {
+          "stats": {}
+        },
+        "special": "yelanA1"
+      },
+      {
+        "ref": "rampingBuffFixed",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "damageBonus%": 0.01
+          }
+        }
+      },
+      {
+        "ref": "rampingBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "damageBonus%": 0.035
+          }
+        },
+        "maxStacks": 14,
+        "rampingInterval": 1000,
+        "rampingOffset": 1000
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Stealthy Bowshot",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -21455,8 +22610,9 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "hydro",
             "damage": {
+              "element": "hydro",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -21481,9 +22637,16 @@
             }
           },
           {
-            "name": "Breakthrough Barb DMG",
-            "type": "normalAttack",
+            "name": "Breakthrough Barb",
             "damage": {
+              "type": "chargedAttack",
+              "element": "hydro",
+              "gauge": 1,
+              "icd": {
+                "tag": "Breakthrough Barb",
+                "time": 300
+              },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -21502,33 +22665,6 @@
                     0.246,
                     0.2605,
                     0.2749
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
                   ]
                 }
               ]
@@ -21587,16 +22723,46 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Lingering Lifeline",
+        "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -21623,12 +22789,15 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Depth-Clarion Dice",
+        "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -21653,9 +22822,15 @@
             }
           },
           {
-            "name": "Exquisite Throw DMG",
-            "type": "elementalBurst",
+            "name": "Exquisite Throw",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 3000
+              },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -21686,7 +22861,11 @@
       "weaponId": 15508,
       "setCounts": {
         "15020": 4
-      }
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalSkill.0"
+      ]
     }
   },
   "10000061": {
@@ -21704,11 +22883,12 @@
       "baseDef": 546,
       "hp%": 0.24
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Boxcutter",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -21986,7 +23166,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Tail-Flicking Flying Kick DMG",
+        "name": "Meow-teor Kick",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Tail-Flicking Flying Kick DMG",
@@ -22164,7 +23345,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Secret Art: Surprise Dispatch",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -22240,11 +23422,13 @@
       "baseDef": 676,
       "cryoDmgBonus%": 0.288
     },
+    "energy": 40,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Rapid Fire",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -22512,7 +23696,7 @@
         ]
       },
       "elementalSkill": {
-        "name": "Freeze Bomb DMG",
+        "name": "Frozen Wilds",
         "actions": [
           {
             "name": "Freeze Bomb DMG",
@@ -22690,7 +23874,7 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Prophecies of Dawn",
         "actions": [
           {
             "name": "Skill DMG",
@@ -22739,11 +23923,12 @@
       "baseDef": 830,
       "atk%": 0.288
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Dawnstar Piercer",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -23010,7 +24195,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} Skill DMG",
+        "name": "Spring Spirit Summoning",
+        "rankModify": 3,
         "actions": [
           {
             "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} Skill DMG",
@@ -23096,7 +24282,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Divine Maiden's Deliverance",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -23204,11 +24391,12 @@
       "baseDef": 734,
       "energyRecharge%": 0.267
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Cloud-Grazing Strike",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -23494,7 +24682,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+        "name": "Opening Flourish",
+        "rankModify": 5,
         "actions": [
           {
             "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
@@ -23626,7 +24815,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Cliffbreaker's Banner",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -23702,11 +24892,12 @@
       "baseDef": 751,
       "hp%": 0.24
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Shinobu's Shadowsword",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -23946,7 +25137,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Sanctifying Ring",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -24051,7 +25243,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Single Instance DMG",
+        "name": "Gyoei Narukami Kariyama Rite",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Single Instance DMG",
@@ -24146,11 +25339,12 @@
       "baseDef": 769,
       "critDmg%": 0.384
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Kamisato Art: Marobashi",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -24398,7 +25592,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Shunsuiken 1-Hit DMG",
+        "name": "Kamisato Art: Kyouka",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Shunsuiken 1-Hit DMG",
@@ -24538,7 +25733,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Bloomwater Blade DMG",
+        "name": "Kamisato Art: Suiyuu",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Bloomwater Blade DMG",
@@ -24619,11 +25815,12 @@
       "baseDef": 601,
       "atk%": 0.24
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Supplicant's Bowmanship",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -24872,7 +26069,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Floral Brush",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -24904,7 +26102,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Explosion DMG",
+        "name": "Trump-Card Kitty",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Explosion DMG",
@@ -24980,11 +26179,12 @@
       "baseDef": 723,
       "hp%": 0.24
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Marvelous Sword-Dance (Modified)",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -25224,7 +26424,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Troubleshooter Shot DMG",
+        "name": "Spirit-Warding Lamp: Troubleshooter Cannon",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Troubleshooter Shot DMG",
@@ -25283,7 +26484,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Connector DMG",
+        "name": "Alcazarzaray's Exactitude",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Connector DMG",
@@ -25405,11 +26607,12 @@
       "baseDef": 630,
       "dendroDmgBonus%": 0.288
     },
+    "energy": 40,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Khanda Barrier-Buster",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -25711,7 +26914,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Vijnana-Phala Mine",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -25743,7 +26947,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Tanglevine Shaft DMG",
+        "name": "Fashioner's Tanglevine Shaft",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Tanglevine Shaft DMG",
@@ -25824,11 +27029,12 @@
       "baseDef": 729,
       "hp%": 0.288
     },
+    "energy": 70,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Dance of Samser",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -26041,7 +27247,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Dance of Haftkarsvar",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -26211,7 +27418,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Dance of Abzendegi: Distant Dreams, Listening Spring",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -26293,11 +27501,12 @@
       "elementalMastery": 100,
       "critDmg%": 0.384
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Invoker's Spear",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -26537,7 +27746,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Secret Rite: Chasmic Soulfarer",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -26596,7 +27806,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "1-Hit DMG",
+        "name": "Sacred Rite: Wolf's Swiftness",
+        "rankModify": 3,
         "actions": [
           {
             "name": "1-Hit DMG",
@@ -26885,11 +28096,12 @@
       "baseDef": 683,
       "hp%": 0.24
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Gleaming Spear - Guardian Stance",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -27129,7 +28341,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Shield DMG Absorption",
+        "name": "Sacred Rite: Heron's Sanctum",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Shield DMG Absorption",
@@ -27234,7 +28447,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Sacred Rite: Wagtail's Tide",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -27310,11 +28524,12 @@
       "baseDef": 630,
       "elementalMastery": 115
     },
+    "energy": 50,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Akara",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -27535,7 +28750,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+        "name": "All Schemes to Know",
+        "rankModify": 3,
         "actions": [
           {
             "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
@@ -27640,7 +28856,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Pyro: DMG Bonus",
+        "name": "Illusory Heart",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Pyro: DMG Bonus",
@@ -27829,11 +29046,12 @@
       "baseDef": 655,
       "hp%": 0.24
     },
+    "energy": 40,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Sword of the Radiant Path",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -28046,7 +29264,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Nights of Formal Focus",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -28151,7 +29370,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Starlight Slug DMG",
+        "name": "Dream of the Star-Stream Shaker",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Starlight Slug DMG",
@@ -28562,7 +29782,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 2500,
                 "hits": 3
               },
@@ -29071,11 +30291,12 @@
       "baseDef": 751,
       "hp%": 0.24
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Toss 'N' Turn Spear",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -29315,7 +30536,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "White Jade Radish DMG",
+        "name": "Raphanus Sky Cluster",
+        "rankModify": 3,
         "actions": [
           {
             "name": "White Jade Radish DMG",
@@ -29393,7 +30615,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Moonjade Descent",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -29515,11 +30738,12 @@
       "baseDef": 782,
       "dendroDmgBonus%": 0.288
     },
+    "energy": 70,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Abductive Reasoning",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -29805,7 +31029,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Rush Attack DMG",
+        "name": "Universality: An Elaboration on Form",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Rush Attack DMG",
@@ -29994,7 +31219,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Single-Instance DMG",
+        "name": "Particular Field: Fetters of Phenomena",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Single-Instance DMG",
@@ -30067,11 +31293,12 @@
       "baseDef": 628,
       "hp%": 0.288
     },
+    "energy": 70,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Sandstorm Assault",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -30319,7 +31546,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Indomitable Flame DMG",
+        "name": "Molten Inferno",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Indomitable Flame DMG",
@@ -30451,7 +31679,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Flame-Mane's Fist DMG",
+        "name": "Leonine Bite",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Flame-Mane's Fist DMG",
@@ -30570,11 +31799,12 @@
       "baseDef": 713,
       "hp%": 0.24
     },
+    "energy": 70,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Spear of Favonius - Arrow's Passage",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -30841,7 +32071,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Flowfrost Arrow DMG",
+        "name": "Starfrost Swirl",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Flowfrost Arrow DMG",
@@ -30954,7 +32185,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Cast Healing",
+        "name": "Skyfeather Song",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Cast Healing",
@@ -31068,11 +32300,12 @@
       "baseDef": 751,
       "elementalMastery": 96
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Schematic Setup",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -31320,7 +32553,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Artistic Ingenuity",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -31352,7 +32586,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Painted Dome",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -31428,11 +32663,12 @@
       "baseDef": 500,
       "hp%": 0.288
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "The Classics of Acupuncture",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -31653,7 +32889,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Universal Diagnosis",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -31731,7 +32968,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Seamless Shield DMG Absorption",
+        "name": "Holistic Revivification",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Seamless Shield DMG Absorption",
@@ -31877,11 +33115,12 @@
       "baseDef": 712,
       "anemoDmgBonus%": 0.24
     },
+    "energy": 70,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Rapid Ritesword",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -32140,7 +33379,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Enigma Thrust DMG",
+        "name": "Enigmatic Feint",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Enigma Thrust DMG",
@@ -32199,7 +33439,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Magic Trick: Astonishing Shift",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -32332,14 +33573,24 @@
           },
           "commands": {
             "type": "use",
-            "ref": "pyrotechnicStrike"
+            "ref": "pyrotechnicStrike",
+            "spec": {
+              "action": [
+                "normalAttack.7"
+              ]
+            }
           }
         },
         "use": {
           "when": "interval",
           "commands": {
             "type": "use",
-            "ref": "pyrotechnicStrike"
+            "ref": "pyrotechnicStrike",
+            "spec": {
+              "action": [
+                "normalAttack.7"
+              ]
+            }
           }
         }
       },
@@ -32485,7 +33736,13 @@
       },
       {
         "enable": {
-          "special": "lyney2pyro"
+          "counts": {
+            "element": {
+              "pyro": {
+                ">=": 2
+              }
+            }
+          }
         },
         "buff": {
           "filter": {
@@ -32500,7 +33757,13 @@
       },
       {
         "enable": {
-          "special": "lyney3pyro"
+          "counts": {
+            "element": {
+              "pyro": {
+                ">=": 3
+              }
+            }
+          }
         },
         "buff": {
           "filter": {
@@ -33034,11 +34297,13 @@
       "baseDef": 708,
       "atk%": 0.24
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Flowing Eddies",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -33286,7 +34551,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Upward Thrust DMG",
+        "name": "Pressurized Floe",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Upward Thrust DMG",
@@ -33564,7 +34830,7 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Shadowhunter's Ambush",
         "actions": [
           {
             "name": "Skill DMG",
@@ -34156,7 +35422,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 2500,
                 "hits": 3
               },
@@ -34239,7 +35505,13 @@
         "normalAttack.5"
       ],
       "duration": 11000
-    }
+    },
+    "teamPreset": [
+      10000086,
+      10000058,
+      10000150,
+      10000148
+    ]
   },
   "10000087": {
     "disabled": true,
@@ -34256,11 +35528,13 @@
       "baseDef": 576,
       "critDmg%": 0.384
     },
+    "energy": 70,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "As Water Seeks Equilibrium",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -34481,7 +35755,7 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "O Tears, I Shall Repay",
         "actions": [
           {
             "name": "Skill DMG",
@@ -34540,7 +35814,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "O Tides, I Have Returned",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -34621,11 +35896,12 @@
       "baseDef": 546,
       "atk%": 0.24
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Cool-Color Capture",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -34846,7 +36122,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "#Photo DMG ({LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press})",
+        "name": "Framing: Freezing Point Composition",
+        "rankModify": 5,
         "actions": [
           {
             "name": "#Photo DMG ({LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press})",
@@ -34959,7 +36236,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Cast Healing",
+        "name": "Still Photo: Comprehensive Confirmation",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Cast Healing",
@@ -35127,11 +36405,12 @@
       "baseDef": 696,
       "critRate%": 0.192
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Soloist's Solicitation",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -35379,7 +36658,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Ousia Bubble DMG",
+        "name": "Salon Solitaire",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Ousia Bubble DMG",
@@ -35538,7 +36818,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Let the People Rejoice",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -35764,7 +37045,29 @@
       },
       {
         "enable": {
-          "special": "chevreuse"
+          "counts": {
+            "element": {
+              "and": [
+                {
+                  "not": {
+                    "has": [
+                      "anemo",
+                      "geo",
+                      "cryo",
+                      "hydro",
+                      "dendro"
+                    ]
+                  }
+                },
+                {
+                  "has": "pyro"
+                },
+                {
+                  "has": "electro"
+                }
+              ]
+            }
+          }
         },
         "stores": "global",
         "apply": {
@@ -36398,11 +37701,12 @@
       "baseDef": 793,
       "critDmg%": 0.384
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Blunt Refusal",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -36650,7 +37954,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Rosula Shardshot Base DMG",
+        "name": "Ceremonial Crystalshot",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Rosula Shardshot Base DMG",
@@ -36709,7 +38014,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "As the Sunlit Sky's Singing Salute",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -36790,11 +38096,12 @@
       "baseDef": 703,
       "atk%": 0.24
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Stellar Rend",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -37042,7 +38349,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Plunging Attack: Charmed Cloudstrider DMG",
+        "name": "Bestial Ascent",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Plunging Attack: Charmed Cloudstrider DMG",
@@ -37074,7 +38382,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Suanni Man Chai Smash DMG",
+        "name": "Suanni's Gilded Dance",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Suanni Man Chai Smash DMG",
@@ -37109,7 +38418,6 @@
     "memberPreset": {}
   },
   "10000093": {
-    "disabled": true,
     "name": "Xianyun",
     "version": 4.4,
     "id": 10000093,
@@ -37123,11 +38431,111 @@
       "baseDef": 573,
       "atk%": 0.288
     },
+    "energy": 70,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "starwicker",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 8,
+          "duration": 16000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "starwickerHealing",
+              "spec": {
+                "duration": 16000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "flatBuff",
+              "spec": {
+                "duration": 16000
+              }
+            }
+          ]
+        },
+        "use": {
+          "by": "$team",
+          "when": "end",
+          "filter": {
+            "action": {
+              "type": "plungingAttack"
+            }
+          },
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "starwickerHealing",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2500,
+          "action": "elementalBurst.2"
+        }
+      },
+      {
+        "ref": "stormPinion",
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "plungingAttack"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": 0.04
+          }
+        }
+      },
+      {
+        "ref": "flatBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "type": "plungingAttack"
+            }
+          },
+          "cooldown": 400,
+          "specs": {
+            "damageFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": 2,
+              "maxValue": 9000
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Word of Wind and Flower",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -37265,33 +38673,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -37344,14 +38725,42 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "White Clouds at Dawn",
+        "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -37378,9 +38787,10 @@
             }
           },
           {
-            "name": "Driftcloud Wave DMG",
-            "type": "elementalSkill",
+            "name": "Plunging Attack: Driftcloud Wave: Level 1",
+            "type": "plungingAttack",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -37400,7 +38810,16 @@
                     2.61,
                     2.755
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Plunging Attack: Driftcloud Wave: Level 2",
+            "type": "plungingAttack",
+            "damage": {
+              "gauge": 1,
+              "multipliers": [
                 {
                   "mv": [
                     1.48,
@@ -37419,7 +38838,16 @@
                     3.33,
                     3.515
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Plunging Attack: Driftcloud Wave: Level 3",
+            "type": "plungingAttack",
+            "damage": {
+              "gauge": 1,
+              "multipliers": [
                 {
                   "mv": [
                     3.376,
@@ -37445,12 +38873,14 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Stars Gather at Dusk",
+        "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -37472,12 +38902,59 @@
                   ]
                 }
               ]
+            },
+            "healing": {
+              "targets": "$team",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.9216,
+                    0.9907,
+                    1.0598,
+                    1.152,
+                    1.2211,
+                    1.2902,
+                    1.3824,
+                    1.4746,
+                    1.5667,
+                    1.6589,
+                    1.751,
+                    1.8432,
+                    1.9584,
+                    2.0736,
+                    2.1888
+                  ],
+                  "flat": [
+                    577.7816,
+                    635.5678,
+                    698.1695,
+                    765.5867,
+                    837.8195,
+                    914.8677,
+                    996.7315,
+                    1083.4108,
+                    1174.9056,
+                    1271.216,
+                    1372.3418,
+                    1478.2831,
+                    1589.04,
+                    1704.6124,
+                    1825.0002
+                  ]
+                }
+              ]
             }
           },
           {
-            "name": "Starwicker DMG",
-            "type": "elementalBurst",
+            "name": "Starwicker",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -37502,55 +38979,9 @@
             }
           },
           {
-            "name": "Healing",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.9216,
-                    0.9907,
-                    1.0598,
-                    1.152,
-                    1.2211,
-                    1.2902,
-                    1.3824,
-                    1.4746,
-                    1.5667,
-                    1.6589,
-                    1.751,
-                    1.8432,
-                    1.9584,
-                    2.0736,
-                    2.1888
-                  ]
-                },
-                {
-                  "mv": [
-                    577.7816,
-                    635.5678,
-                    698.1695,
-                    765.5867,
-                    837.8195,
-                    914.8677,
-                    996.7315,
-                    1083.4108,
-                    1174.9056,
-                    1271.216,
-                    1372.3418,
-                    1478.2831,
-                    1589.04,
-                    1704.6124,
-                    1825.0002
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Continuous Healing",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "Starwicker: Healing",
+            "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "mv": [
@@ -37569,10 +39000,8 @@
                     0.9139,
                     0.9677,
                     1.0214
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     269.6314,
                     296.5983,
                     325.8124,
@@ -37600,7 +39029,12 @@
       "weaponId": 14515,
       "setCounts": {
         "15002": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalBurst.0"
+      ]
     }
   },
   "10000094": {
@@ -37618,11 +39052,12 @@
       "baseDef": 953,
       "critRate%": 0.192
     },
+    "energy": 50,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Weaving Blade",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -37881,7 +39316,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Tamoto DMG",
+        "name": "Fluttering Hasode",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Tamoto DMG",
@@ -37978,7 +39414,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Hiyoku: Twin Blades",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -38051,11 +39488,12 @@
       "baseDef": 500,
       "hp%": 0.288
     },
+    "energy": 70,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Targeted Treatment",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -38304,7 +39742,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Bolstering Bubblebalm DMG",
+        "name": "Rebound Hydrotherapy",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Bolstering Bubblebalm DMG",
@@ -38409,7 +39848,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Super Saturated Syringing",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -38463,11 +39903,13 @@
       "baseDef": 765,
       "critDmg%": 0.384
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Masque of the Red Death Increase",
+        "name": "Invitation to a Beheading",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Masque of the Red Death Increase",
@@ -38788,7 +40230,7 @@
         ]
       },
       "elementalSkill": {
-        "name": "Spike DMG",
+        "name": "All Is Ash",
         "actions": [
           {
             "name": "Spike DMG",
@@ -38874,7 +40316,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Balemoon Rising",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -38928,11 +40371,13 @@
       "baseDef": 560,
       "elementalMastery": 96
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Royal Reed Archery",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -39218,7 +40663,7 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Ancient Rite: The Thundering Sands",
         "actions": [
           {
             "name": "Skill DMG",
@@ -39250,7 +40695,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Dusk Bolt DMG Increase",
+        "name": "Secret Rite: Twilight Shadowpiercer",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Dusk Bolt DMG Increase",
@@ -39299,11 +40745,12 @@
       "baseDef": 784,
       "critRate%": 0.192
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Oath of Hunting Shadows",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -39608,7 +41055,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Swift Hunt DMG",
+        "name": "Hunter's Vigil",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Swift Hunt DMG",
@@ -39751,7 +41199,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Last Lightfall",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -39832,11 +41281,12 @@
       "baseDef": 730,
       "critDmg%": 0.384
     },
+    "energy": 50,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Shadow-Hunting Spear (Custom)",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -40057,7 +41507,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Fragrance Extraction",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -40170,7 +41621,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Level 3 Lumidouce Case Attack DMG",
+        "name": "Aromatic Explication",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Level 3 Lumidouce Case Attack DMG",
@@ -40224,11 +41676,12 @@
       "baseDef": 792,
       "geoDmgBonus%": 0.24
     },
+    "energy": 70,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Cragbiter",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -40468,7 +41921,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Turbo Twirly Mounted DMG",
+        "name": "Go, Go Turbo Twirly!",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Turbo Twirly Mounted DMG",
@@ -40527,7 +41981,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Time to Get Serious!",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -40576,11 +42031,12 @@
       "baseDef": 802,
       "critDmg%": 0.384
     },
+    "energy": 70,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Nightsun Style",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -40801,7 +42257,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Loop Shot DMG",
+        "name": "Canopy Hunter: Riding High",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Loop Shot DMG",
@@ -40860,7 +42317,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Hail to the Almighty Dragonlord",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -40941,11 +42399,12 @@
       "baseDef": 570,
       "critRate%": 0.192
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Cooling Treatment",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -41139,7 +42598,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Sharky's Bite Base DMG",
+        "name": "Surfshark Wavebreaker",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Sharky's Bite Base DMG",
@@ -41225,7 +42685,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Boomsharka-laka",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -41279,11 +42740,12 @@
       "baseDef": 930,
       "def%": 0.36
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Ehecatl's Roar",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -41604,7 +43066,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Rush DMG",
+        "name": "Yohual's Scratch",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Rush DMG",
@@ -41663,7 +43126,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Ocelotlicue Point!",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -41790,11 +43254,12 @@
       "baseDef": 615,
       "critRate%": 0.192
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Phantom Feather Flurry",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -42043,7 +43508,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Resonance DMG",
+        "name": "Spirit Reins, Shadow Hunt",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Resonance DMG",
@@ -42156,7 +43622,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Galesplitting Soulseeker Shell DMG",
+        "name": "Soul Reaper's Fatal Round",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Galesplitting Soulseeker Shell DMG",
@@ -42259,11 +43726,12 @@
       "baseDef": 587,
       "atk%": 0.24
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Spiritvessel Snapshot",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -42485,7 +43953,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Spirit Orb DMG",
+        "name": "Night's Sling",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Spirit Orb DMG",
@@ -42517,7 +43986,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Ritual DMG",
+        "name": "Dark Voices Echo",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Ritual DMG",
@@ -42597,7 +44067,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Flames Weave Life",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -42818,7 +44288,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "The Named Moment",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -43120,7 +44591,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Hour of Burning Skies",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -43250,11 +44722,12 @@
       "baseDef": 763,
       "elementalMastery": 115
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Shadow-Stealing Spirit Vessel",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -43448,7 +44921,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Obsidian Tzitzimitl DMG",
+        "name": "Dawnfrost Darkstar",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Obsidian Tzitzimitl DMG",
@@ -43553,7 +45027,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Ice Storm DMG",
+        "name": "Edict of Entwined Splendor",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Ice Storm DMG",
@@ -43629,11 +45104,12 @@
       "baseDef": 580,
       "atk%": 0.24
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Black Pheasant Strides on Water",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -43892,7 +45368,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Feathermoon Ring DMG",
+        "name": "Swallow-Wisp Pinion Dance",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Feathermoon Ring DMG",
@@ -43970,7 +45447,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Lustrous Moonrise",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -44413,6 +45891,7 @@
       },
       "elementalSkill": {
         "name": "Aisa Utamakura Pilgrimage",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -44442,7 +45921,9 @@
               ]
             },
             "duration": 10500,
-            "hitOffsets": [500]
+            "hitOffsets": [
+              500
+            ]
           },
           {
             "name": "Continuous Attack",
@@ -44532,6 +46013,7 @@
       },
       "elementalBurst": {
         "name": "Anraku Secret Spring Therapy",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -44667,11 +46149,12 @@
       "baseDef": 638,
       "atk%": 0.24
     },
+    "energy": 70,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Weighted Spike",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -44892,7 +46375,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Thunderbolt Rush",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -44924,7 +46408,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "The Three Principles of Power",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -45007,6 +46492,7 @@
     "skills": {
       "normalAttack": {
         "name": "By the Horns",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -45471,6 +46957,7 @@
       },
       "elementalBurst": {
         "name": "Guardian Vent!",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -45586,11 +47073,12 @@
       "baseDef": 732,
       "critRate%": 0.192
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Kitchen Skills",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -45803,7 +47291,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Low-Temperature Cooking",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -45889,7 +47378,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Scoring Cuts",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -45984,11 +47474,12 @@
       "baseDef": 605,
       "elementalMastery": 96
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Rite of Dispelling Winds",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -46182,7 +47673,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Tonicshot DMG",
+        "name": "Airborne Disease Prevention",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Tonicshot DMG",
@@ -46260,7 +47752,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Compound Sedation Field",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -46340,7 +47833,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Havoc: Sunder",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -46607,7 +48100,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "1-Hit DMG",
+        "name": "Havoc: Warp",
+        "rankModify": 5,
         "actions": [
           {
             "name": "1-Hit DMG",
@@ -46893,7 +48387,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Slash DMG",
+        "name": "Havoc: Ruin",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Slash DMG",
@@ -47080,11 +48575,12 @@
       "baseDef": 560,
       "hp%": 0.24
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Favonius Bladework - Ritual",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -47343,7 +48839,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Immersive Ordinance",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -47375,7 +48872,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Radiant Psalter",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -47470,11 +48968,12 @@
       "baseDef": 828,
       "critRate%": 0.192
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Cyclonic Duster",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -47714,7 +49213,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Cleaning Mode: Carrier Frequency",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -47819,7 +49319,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Supreme Instruction: Cyclonic Exterminator",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -47868,11 +49369,12 @@
       "baseDef": 669,
       "elementalMastery": 315
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Peregrination of Linnunrata",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -48066,7 +49568,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+        "name": "Runo: Dawnless Rest of Karsikko",
+        "rankModify": 5,
         "actions": [
           {
             "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
@@ -48225,7 +49728,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Bloom, Hyperbloom, and Burgeon DMG Increase",
+        "name": "Runo: All Hearts Become the Beating Moon",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Bloom, Hyperbloom, and Burgeon DMG Increase",
@@ -48301,11 +49805,12 @@
       "baseDef": 809,
       "critDmg%": 0.384
     },
+    "energy": 80,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Pocztowy Demonspear",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -48553,7 +50058,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "1-Hit DMG",
+        "name": "Ancient Rite: Arcane Light",
+        "rankModify": 5,
         "actions": [
           {
             "name": "1-Hit DMG",
@@ -48747,7 +50253,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Initial Skill DMG",
+        "name": "Ancient Ritual: Cometh the Night",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Initial Skill DMG",
@@ -48904,11 +50411,12 @@
       "baseDef": 607,
       "elementalMastery": 96
     },
+    "energy": 50,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Bish-Bash-Bosh Repair",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -49129,7 +50637,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Stage 1 DMG",
+        "name": "Musecatcher",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Stage 1 DMG",
@@ -49188,7 +50697,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Water Ball DMG",
+        "name": "Precision Hydronic Cooler",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Water Ball DMG",
@@ -49238,11 +50748,12 @@
       "critDmg%": 0.384,
       "elementalMastery": 100
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Striking Serpent",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -49463,7 +50974,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Senet Strategy: Dance of a Thousand Nights",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -49687,7 +51199,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "1-Hit DMG",
+        "name": "Sacred Vow: True Eye's Phantasm",
+        "rankModify": 5,
         "actions": [
           {
             "name": "1-Hit DMG",
@@ -49832,6 +51345,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [
       {
         "ref": "confirmationOfPurity",
@@ -50167,10 +51681,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -50186,10 +51697,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -50205,10 +51713,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -50224,10 +51729,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -50243,10 +51745,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -50262,10 +51761,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -50564,7 +52060,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "elementalSkill",
+                "tag": "Elemental Skill",
                 "time": 2500,
                 "hits": 3
               },
@@ -50897,11 +52393,12 @@
       "baseDef": 580,
       "healingBonus%": 0.185
     },
+    "energy": 70,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Strike While the Arrow's Hot",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -51123,7 +52620,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Smoke Bomb DMG",
+        "name": "Savvy Strategy: Splitting the Spoils",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Smoke Bomb DMG",
@@ -51236,7 +52734,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Hidden Aces: Seven Tools of the Hunter",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -51404,11 +52903,12 @@
       "baseDef": 515,
       "critRate%": 0.192
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Moondew Cascade",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -51629,7 +53129,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Eternal Tides",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -51769,7 +53270,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Moonlit Melancholy",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill DMG",
@@ -51845,11 +53347,12 @@
       "baseDef": 957,
       "critDmg%": 0.384
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Golden Blade's Petaled Touch",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -52108,7 +53611,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Lunar Phase Shift 1-Hit DMG",
+        "name": "Heaven and Earth Made Manifest",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Lunar Phase Shift 1-Hit DMG",
@@ -52367,7 +53871,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill 1-Hit DMG",
+        "name": "Tri-Sphere Eminence",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill 1-Hit DMG",
@@ -52443,11 +53948,12 @@
       "baseDef": 814,
       "elementalMastery": 96
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Oathkeeper's Spear",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -52687,7 +54193,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+        "name": "Dawnbearing Songbird",
+        "rankModify": 5,
         "actions": [
           {
             "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
@@ -52784,7 +54291,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "Shadowless Reflection",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -52906,13 +54414,15 @@
       "baseDef": 795,
       "critDmg%": 0.384
     },
+    "energy": 60,
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Favonius Bladework: Dancing Radiance",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -53255,7 +54765,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Skill DMG",
+        "name": "Windbound Execution",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -53636,7 +55147,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill 1-Hit DMG",
+        "name": "Northwind Avatar",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Skill 1-Hit DMG",
@@ -53716,6 +55228,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [
       {
         "ref": "masterstroke",
@@ -53822,10 +55335,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "apply": {
           "when": "hit",
@@ -53860,14 +55370,14 @@
     ],
     "skills": {
       "normalAttack": {
-        "name": "Spear of Favonius \u2014 Broken Oath",
+        "name": "Spear of Favonius — Broken Oath",
         "actions": [
           {
             "name": "Normal Attack 1",
             "type": "normalAttack",
             "damage": {
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -53899,7 +55409,7 @@
             "type": "normalAttack",
             "damage": {
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -53931,7 +55441,7 @@
             "type": "normalAttack",
             "damage": {
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -53964,7 +55474,7 @@
             "type": "normalAttack",
             "damage": {
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -53996,7 +55506,7 @@
             "type": "normalAttack",
             "damage": {
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54047,7 +55557,7 @@
             "type": "chargedAttack",
             "damage": {
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54172,7 +55682,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54205,7 +55715,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54238,7 +55748,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54272,7 +55782,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54305,7 +55815,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54357,7 +55867,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "normalAttack",
+                "tag": "Normal Attack",
                 "time": 5000,
                 "hits": 2
               },
@@ -54472,7 +55982,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "elementalSkill",
+                "tag": "Elemental Skill",
                 "time": 2500,
                 "hits": 3
               },
@@ -54512,7 +56022,7 @@
             "damage": {
               "gauge": 1,
               "icd": {
-                "tag": "elementalBurst",
+                "tag": "Elemental Burst",
                 "time": 2500,
                 "hits": 3
               },
@@ -54607,11 +56117,12 @@
       "baseDef": 907,
       "critRate%": 0.192
     },
+    "energy": 60,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Capture Protocol",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -54833,7 +56344,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Lumi Pound-Pound Pummeler DMG",
+        "name": "Countermeasure: Lumi's Battle Cry!",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Lumi Pound-Pound Pummeler DMG",
@@ -54919,7 +56431,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Initial Healing Amount",
+        "name": "Memo: Survival Guide in Extreme Conditions",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Initial Healing Amount",
@@ -55037,6 +56550,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [
       {
         "ref": "graceOfKenosis",
@@ -55178,10 +56692,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "buff": {
           "filter": {
@@ -55426,6 +56937,7 @@
               ]
             },
             "shield": {
+              "duration": 20000,
               "multipliers": [
                 {
                   "mv": [
@@ -55608,11 +57120,12 @@
       "baseDef": 580,
       "atk%": 0.24
     },
+    "energy": 70,
     "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "Normal Attack 1",
+        "name": "Badaboom! Hexbuster Hammer",
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -55806,7 +57319,8 @@
         ]
       },
       "elementalSkill": {
-        "name": "Ring-A-Ding-Ding! Hexhunter Chime DMG",
+        "name": "Ring-A-Ding-Ding! Hexhunter Chime",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Ring-A-Ding-Ding! Hexhunter Chime DMG",
@@ -55865,7 +57379,8 @@
         ]
       },
       "elementalBurst": {
-        "name": "Skill DMG",
+        "name": "The Bell Tolls! The Hunt Is On!",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Skill DMG",
@@ -56221,6 +57736,7 @@
     "skills": {
       "normalAttack": {
         "name": "Formule Phenomenale: Self-Evident Proposition",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Normal Attack 1",
@@ -56636,6 +58152,7 @@
       },
       "elementalBurst": {
         "name": "Formule Phenomenale: Q.E.D.",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -56775,7 +58292,13 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000133,
+      10000058,
+      10000150,
+      10000148
+    ]
   },
   "10000140": {
     "disabled": true,
@@ -57019,6 +58542,7 @@
       },
       "elementalSkill": {
         "name": "Rechitativ: Sonorous Dawn",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -57150,6 +58674,7 @@
       },
       "elementalBurst": {
         "name": "Koda: Sink With Thee",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -57313,7 +58838,8 @@
                     0.67259,
                     0.71177,
                     0.75095
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
@@ -57511,9 +59037,10 @@
       },
       "elementalSkill": {
         "name": "The Art of Victory",
+        "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -57786,6 +59313,7 @@
       },
       "elementalBurst": {
         "name": "For the Tsaritsa!",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Spirit Blade",
@@ -57852,7 +59380,6 @@
     }
   },
   "10000148": {
-    "disabled": true,
     "name": "Alyosha",
     "version": 7.0,
     "id": 10000148,
@@ -57866,14 +59393,144 @@
       "baseDef": 703,
       "energyRecharge%": 0.2667
     },
+    "energy": 70,
     "tagged": [],
-    "effects": [],
+    "effects": [
+      {
+        "ref": "huntersMark",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 15000
+        }
+      },
+      {
+        "ref": "huntersPrecision",
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": [
+                    "elementalSkill.0",
+                    "elementalBurst.2"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "huntersMark"
+                }
+              }
+            ]
+          },
+          "duration": 15000,
+          "commands": {
+            "type": "apply",
+            "ref": "radianceHuntersPrecision",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        },
+        "buff": {
+          "statRefs": {
+            "atk%": "elementalSkill.2"
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 14000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": [
+            "elementalBurst.1",
+            "elementalBurst.2"
+          ]
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.2"
+            }
+          },
+          "action": {
+            "healing": {
+              "targets": "onField",
+              "multipliers": [
+                {
+                  "mv": 1.2
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "specs": {
+            "elementalSkillDmgBonus%": {
+              "attr": "energyRecharge%",
+              "step": 0.01,
+              "value": 0.0035,
+              "maxValue": 0.7
+            },
+            "elementalBurstDmgBonus%": {
+              "attr": "energyRecharge%",
+              "step": 0.01,
+              "value": 0.0035,
+              "maxValue": 0.7
+            }
+          }
+        }
+      },
+      {
+        "ref": "radianceHuntersPrecision",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "radiance": "stellarConduct"
+              },
+              {
+                "field": "onField"
+              }
+            ]
+          },
+          "stats": {
+            "stellarConductReactionBonus%": 0.2
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "",
+        "name": "Skirmishing Spear",
         "actions": [
           {
-            "name": "1-Hit DMG",
+            "name": "Normal Attack 1",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -57900,7 +59557,7 @@
             }
           },
           {
-            "name": "2-Hit DMG",
+            "name": "Normal Attack 2",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -57927,7 +59584,7 @@
             }
           },
           {
-            "name": "3-Hit DMG",
+            "name": "Normal Attack 3",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -57973,7 +59630,7 @@
             }
           },
           {
-            "name": "4-Hit DMG",
+            "name": "Normal Attack 4",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -58000,8 +59657,8 @@
             }
           },
           {
-            "name": "Charged Attack DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -58027,36 +59684,63 @@
             }
           },
           {
-            "name": "Charged Attack Stamina Cost",
-            "type": "normalAttack",
+            "name": "Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
                   "mv": [
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25
+                    1.278377,
+                    1.382431,
+                    1.486485,
+                    1.635134,
+                    1.739187,
+                    1.858106,
+                    2.02162,
+                    2.185133,
+                    2.348646,
+                    2.527025,
+                    2.705403,
+                    2.883781,
+                    3.062159,
+                    3.240537,
+                    3.418915
                   ]
                 }
               ]
             }
           },
           {
-            "name": "Plunge DMG",
-            "type": "normalAttack",
+            "name": "Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.596762,
+                    1.726731,
+                    1.8567,
+                    2.04237,
+                    2.172339,
+                    2.320875,
+                    2.525112,
+                    2.729349,
+                    2.933586,
+                    3.15639,
+                    3.379194,
+                    3.601998,
+                    3.824802,
+                    4.047606,
+                    4.27041
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -58079,62 +59763,18 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Low/High Plunge DMG",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.278377,
-                    1.382431,
-                    1.486485,
-                    1.635134,
-                    1.739187,
-                    1.858106,
-                    2.02162,
-                    2.185133,
-                    2.348646,
-                    2.527025,
-                    2.705403,
-                    2.883781,
-                    3.062159,
-                    3.240537,
-                    3.418915
-                  ]
-                },
-                {
-                  "mv": [
-                    1.596762,
-                    1.726731,
-                    1.8567,
-                    2.04237,
-                    2.172339,
-                    2.320875,
-                    2.525112,
-                    2.729349,
-                    2.933586,
-                    3.15639,
-                    3.379194,
-                    3.601998,
-                    3.824802,
-                    4.047606,
-                    4.27041
-                  ]
-                }
-              ]
-            }
           }
         ]
       },
       "elementalSkill": {
-        "name": "",
+        "name": "Thunderbolt Strike",
+        "rankModify": 3,
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -58159,9 +59799,10 @@
             }
           },
           {
-            "name": "Hold DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -58186,66 +59827,11 @@
             }
           },
           {
-            "name": "CD",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Hunter's Mark Duration",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Hunter's Precision ATK Bonus",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.1166,
                     0.1272,
                     0.1378,
@@ -58265,43 +59851,26 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Hunter's Precision Duration",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15
-                  ]
-                }
-              ]
-            }
           }
         ]
       },
       "elementalBurst": {
-        "name": "",
+        "name": "Hunter's Advance",
+        "rankModify": 5,
         "actions": [
           {
-            "name": "Fulgurite Hunting Field DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Fulgurite Hunting Field",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 1600
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -58326,9 +59895,14 @@
             }
           },
           {
-            "name": "Tugarin DMG",
-            "type": "elementalBurst",
+            "name": "Tugarin",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 1600
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -58351,92 +59925,26 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Duration",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14,
-                    14
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "CD",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Energy Cost",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70,
-                    70
-                  ]
-                }
-              ]
-            }
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13407,
+      "setCounts": {
+        "15007": 4
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalSkill.0"
+      ]
+    },
+    "teamPreset": [
+      10000133,
+      10000058,
+      10000150,
+      10000148
+    ]
   },
   "10000150": {
     "name": "Odette",
@@ -58892,6 +60400,7 @@
       },
       "elementalSkill": {
         "name": "Adagio: Phantom Night Dancers",
+        "rankModify": 3,
         "actions": [
           {
             "name": "Elemental Skill",
@@ -59176,6 +60685,7 @@
       },
       "elementalBurst": {
         "name": "Presto: Bluebird Finale",
+        "rankModify": 5,
         "actions": [
           {
             "name": "Elemental Burst",
@@ -59268,6 +60778,12 @@
         "elementalSkill.0",
         "elementalSkill.1"
       ]
-    }
+    },
+    "teamPreset": [
+      10000133,
+      10000058,
+      10000150,
+      10000148
+    ]
   }
 }

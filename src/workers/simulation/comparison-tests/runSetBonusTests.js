@@ -1,7 +1,6 @@
-import { GI, HSR, WW, ZZZ, CHARACTER, SET, ECHO } from '@/data';
+import { SET, ECHO, GI, HSR, WW, ZZZ } from '@/data';
 import {
-  isEnabledEcho,
-  isEnabledSet,
+  isEnabled,
   normalizeAction,
   normalizeEffect,
   resolveEffectTokens,
@@ -72,15 +71,17 @@ function assignPartition(groups, usefulSetBonuses) {
   return results;
 }
 
-function getNormalizedSetEffects(effectSources, gameId, ownerId, memberIds) {
-  const charData = CHARACTER[gameId][ownerId];
+function getNormalizedSetEffects(effectSources, gameId, ownerId, memberIds, counts) {
   const normalized = {};
 
-  for (const { rawEffects, pieceCount, sourceId } of effectSources) {
-    const sharedNormCtx = { gameId, ownerId, sourceId, sourceType: 'set', memberIds };
+  for (const { rawEffects, pieces, sourceId } of effectSources) {
+    const sharedNormCtx = { gameId, ownerId, sourceId, sourceType: 'set', memberIds, counts };
 
     for (const [index, rawEffect] of rawEffects.entries()) {
-      if (!isEnabledSet(rawEffect, pieceCount, charData)) continue;
+      if (
+        rawEffect.bonus > pieces ||
+        !isEnabled(gameId, rawEffect, ownerId, counts)
+      ) continue;
 
       const normCtx = { ...sharedNormCtx, index };
       const effect = normalizeEffect(gameId, rawEffect, normCtx);
@@ -92,14 +93,13 @@ function getNormalizedSetEffects(effectSources, gameId, ownerId, memberIds) {
   return resolveModifyEffects(tokenResolved);
 }
 
-function getNormalizedEchoEffects(gameId, ownerId, echoId, memberIds, weaponRank) {
-  const charData = CHARACTER[gameId][ownerId];
+function getNormalizedEchoEffects(gameId, ownerId, echoId, memberIds, weaponRank, counts) {
   const rawEffects = ECHO[echoId]?.effects ?? [];
-  const sharedNormCtx = { gameId, ownerId, sourceId: echoId, sourceType: 'echo', memberIds, weaponRank };
+  const sharedNormCtx = { gameId, ownerId, sourceId: echoId, sourceType: 'echo', memberIds, weaponRank, counts };
 
   const normalized = {};
   for (const [index, rawEffect] of rawEffects.entries()) {
-    if (!isEnabledEcho(rawEffect, charData)) continue;
+    if (!isEnabled(gameId, rawEffect, ownerId, counts)) continue;
 
     const normCtx = { ...sharedNormCtx, index };
     const effect = normalizeEffect(gameId, rawEffect, normCtx);
@@ -178,13 +178,13 @@ export function runSetBonusTests(cache, equipMaps, charId) {
   );
 
   const runTest = (effectSources, { testEcho = true } = {}) => {
-    const setEffects = getNormalizedSetEffects(effectSources, gameId, charId, cache.memberIds);
+    const setEffects = getNormalizedSetEffects(effectSources, gameId, charId, cache.memberIds, cache.counts);
     const testSetIds = testEcho ? effectSources.map(({ sourceId }) => sourceId) : [];
     const echoCandidates = getEchoCandidates(gameId, testSetIds);
 
     const runWithEcho = (echoId) => {
       const echoEffects = echoId != null
-        ? getNormalizedEchoEffects(gameId, charId, echoId, cache.memberIds, mCache.weaponRank)
+        ? getNormalizedEchoEffects(gameId, charId, echoId, cache.memberIds, mCache.weaponRank, cache.counts)
         : {};
 
       const effects = {
@@ -245,7 +245,7 @@ export function runSetBonusTests(cache, equipMaps, charId) {
 
       const effectSources = assignment.map(({ size, setId }) => ({
         rawEffects: SET[gameId][setId].effects,
-        pieceCount: size,
+        pieces: size,
         sourceId: setId,
       }));
 
