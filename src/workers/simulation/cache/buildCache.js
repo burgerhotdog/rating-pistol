@@ -4,6 +4,7 @@ import {
   buildBaseMap,
   clamp,
   getEnergyLevel,
+  getMemberCounts,
   toMergedObj,
 } from '@/utils';
 import { getActionDefs } from './actions';
@@ -11,22 +12,11 @@ import { getEffectDefs } from './effects';
 import { getConvertedRotation } from './rotation';
 import {
   cacheElementalResonance,
-  countMembersGI,
   cacheStellarReactions,
 } from './game-specific/genshin-impact';
 import {
   cacheTuneResponses,
-  countMembersWW,
 } from './game-specific/wuthering-waves';
-
-function countMembers(gameId, memberIds) {
-  switch (gameId) {
-    case GI:
-      return countMembersGI(memberIds);
-    case WW:
-      return countMembersWW(memberIds);
-  }
-}
 
 function buildCacheMember(cache, member) {
   const { gameId, memberIds, counts } = cache;
@@ -113,7 +103,7 @@ export const buildCache = ({ gameId, charId, team }) => {
 
   const cache = {
     gameId, charId, memberIds, teamSize,
-    counts: countMembers(gameId, memberIds),
+    counts: getMemberCounts(gameId, memberIds),
   };
 
   cache.member = Object.fromEntries(

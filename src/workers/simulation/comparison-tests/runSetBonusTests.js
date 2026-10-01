@@ -1,7 +1,6 @@
-import { GI, HSR, WW, ZZZ, CHARACTER, SET, ECHO } from '@/data';
+import { SET, ECHO, GI, HSR, WW, ZZZ } from '@/data';
 import {
-  isEnabledEcho,
-  isEnabledSet,
+  isEnabled,
   normalizeAction,
   normalizeEffect,
   resolveEffectTokens,
@@ -73,14 +72,16 @@ function assignPartition(groups, usefulSetBonuses) {
 }
 
 function getNormalizedSetEffects(effectSources, gameId, ownerId, memberIds, counts) {
-  const charData = CHARACTER[gameId][ownerId];
   const normalized = {};
 
-  for (const { rawEffects, pieceCount, sourceId } of effectSources) {
+  for (const { rawEffects, pieces, sourceId } of effectSources) {
     const sharedNormCtx = { gameId, ownerId, sourceId, sourceType: 'set', memberIds, counts };
 
     for (const [index, rawEffect] of rawEffects.entries()) {
-      if (!isEnabledSet(rawEffect, pieceCount, charData)) continue;
+      if (
+        rawEffect.bonus > pieces ||
+        !isEnabled(gameId, rawEffect, ownerId, counts)
+      ) continue;
 
       const normCtx = { ...sharedNormCtx, index };
       const effect = normalizeEffect(gameId, rawEffect, normCtx);
@@ -93,13 +94,12 @@ function getNormalizedSetEffects(effectSources, gameId, ownerId, memberIds, coun
 }
 
 function getNormalizedEchoEffects(gameId, ownerId, echoId, memberIds, weaponRank, counts) {
-  const charData = CHARACTER[gameId][ownerId];
   const rawEffects = ECHO[echoId]?.effects ?? [];
   const sharedNormCtx = { gameId, ownerId, sourceId: echoId, sourceType: 'echo', memberIds, weaponRank, counts };
 
   const normalized = {};
   for (const [index, rawEffect] of rawEffects.entries()) {
-    if (!isEnabledEcho(rawEffect, charData)) continue;
+    if (!isEnabled(gameId, rawEffect, ownerId, counts)) continue;
 
     const normCtx = { ...sharedNormCtx, index };
     const effect = normalizeEffect(gameId, rawEffect, normCtx);
@@ -245,7 +245,7 @@ export function runSetBonusTests(cache, equipMaps, charId) {
 
       const effectSources = assignment.map(({ size, setId }) => ({
         rawEffects: SET[gameId][setId].effects,
-        pieceCount: size,
+        pieces: size,
         sourceId: setId,
       }));
 

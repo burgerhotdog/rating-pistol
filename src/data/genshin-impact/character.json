@@ -2680,6 +2680,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -3630,6 +3631,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -6688,6 +6690,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [
       {
         "apply": {
@@ -6745,10 +6748,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "use": {
           "when": "hit",
@@ -6771,10 +6771,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "ref": "boomBadgeNormal",
         "apply": {
@@ -6803,10 +6800,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "ref": "boomBadgeSkill",
         "apply": {
@@ -6835,10 +6829,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "ref": "boomBadgeBurst",
         "apply": {
@@ -7831,6 +7822,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [
       {
         "ref": "oz",
@@ -11550,6 +11542,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [
       {
         "apply": {
@@ -12534,6 +12527,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -13411,6 +13405,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [
       {
         "apply": {
@@ -33741,7 +33736,13 @@
       },
       {
         "enable": {
-          "special": "lyney2pyro"
+          "counts": {
+            "element": {
+              "pyro": {
+                ">=": 2
+              }
+            }
+          }
         },
         "buff": {
           "filter": {
@@ -33756,7 +33757,13 @@
       },
       {
         "enable": {
-          "special": "lyney3pyro"
+          "counts": {
+            "element": {
+              "pyro": {
+                ">=": 3
+              }
+            }
+          }
         },
         "buff": {
           "filter": {
@@ -37038,7 +37045,29 @@
       },
       {
         "enable": {
-          "special": "chevreuse"
+          "counts": {
+            "element": {
+              "and": [
+                {
+                  "not": {
+                    "has": [
+                      "anemo",
+                      "geo",
+                      "cryo",
+                      "hydro",
+                      "dendro"
+                    ]
+                  }
+                },
+                {
+                  "has": "pyro"
+                },
+                {
+                  "has": "electro"
+                }
+              ]
+            }
+          }
         },
         "stores": "global",
         "apply": {
@@ -51316,6 +51345,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [
       {
         "ref": "confirmationOfPurity",
@@ -51651,10 +51681,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -51670,10 +51697,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -51689,10 +51713,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -51708,10 +51729,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -51727,10 +51745,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -51746,10 +51761,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -54406,6 +54418,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -55215,6 +55228,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [
       {
         "ref": "masterstroke",
@@ -55321,10 +55335,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "apply": {
           "when": "hit",
@@ -56539,6 +56550,7 @@
     "tagged": [
       "hexerei"
     ],
+    "hexerei": true,
     "effects": [
       {
         "ref": "graceOfKenosis",
@@ -56680,10 +56692,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "buff": {
           "filter": {

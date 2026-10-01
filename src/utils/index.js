@@ -9,6 +9,7 @@ export * from './resolve';
 
 export * from './buildSkippable';
 export * from './estimateTrajectory';
+export * from './evaluateFilter';
 export * from './getAttr';
 export * from './getDefault';
 export * from './getEnergyLevel';

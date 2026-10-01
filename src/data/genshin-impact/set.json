@@ -190,11 +190,13 @@
       {
         "bonus": 4,
         "enable": {
-          "type": [
-            "sword",
-            "claymore",
-            "polearm"
-          ]
+          "owner": {
+            "type": [
+              "sword",
+              "claymore",
+              "polearm"
+            ]
+          }
         },
         "buff": {
           "stats": {
@@ -363,10 +365,12 @@
       {
         "bonus": 4,
         "enable": {
-          "type": [
-            "catalyst",
-            "bow"
-          ]
+          "owner": {
+            "type": [
+              "catalyst",
+              "bow"
+            ]
+          }
         },
         "buff": {
           "stats": {
@@ -896,7 +900,11 @@
       {
         "bonus": 4,
         "enable": {
-          "energy": 15
+          "owner": {
+            "energy": {
+              ">=": 15
+            }
+          }
         },
         "apply": {
           "when": "start",
@@ -1777,7 +1785,11 @@
       {
         "bonus": 4,
         "enable": {
-          "energy": -1
+          "owner": {
+            "not": {
+              "has": "energy"
+            }
+          }
         },
         "buff": {
           "filter": {
@@ -1795,7 +1807,11 @@
       {
         "bonus": 4,
         "enable": {
-          "energy": -1
+          "owner": {
+            "not": {
+              "has": "energy"
+            }
+          }
         },
         "buff": {
           "filter": {
@@ -1984,7 +2000,9 @@
       {
         "bonus": 4,
         "enable": {
-          "tagged": "hexerei"
+          "owner": {
+            "hexerei": true
+          }
         },
         "apply": {
           "when": "hit",
@@ -2033,7 +2051,9 @@
       {
         "bonus": 4,
         "enable": {
-          "tagged": "hexerei"
+          "owner": {
+            "hexerei": true
+          }
         },
         "stores": "$team",
         "apply": {
@@ -2055,9 +2075,15 @@
       {
         "bonus": 4,
         "enable": {
-          "team": [
-            "hexerei",
-            2
+          "and": [
+            {
+              "owner": {
+                "hexerei": true
+              }
+            },
+            {
+              "secretRite": true
+            }
           ]
         },
         "stores": "$team",

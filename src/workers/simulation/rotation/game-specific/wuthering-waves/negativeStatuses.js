@@ -330,7 +330,7 @@ export function inflictNegativeStatuses(ctx, action) {
 
     if ( // Hiyuki 2 special handling
       id === 'glacioChafe' &&
-      action.ownerId === '1108' &&
+      action.ownerId === 1108 &&
       hasGameRule(ctx, 'hiyuki2') &&
       ctx.saveSnapshots
     ) {

@@ -5242,51 +5242,109 @@
         "gameRule": "glacioBite"
       },
       {
-        "enable": {
-          "team": [
-            "hiyuki",
-            1
-          ]
+        "stores": "$team",
+        "use": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "status": {
+                  "has": [
+                    "glacioChafe",
+                    "havocBane"
+                  ]
+                }
+              }
+            }
+          },
+          "cooldown": 1e1000,
+          "commands": {
+            "type": "apply",
+            "ref": "snowRust"
+          }
+        }
+      },
+      {
+        "ref": "snowRust",
+        "apply": {
+          "when": "command"
         },
+        "maxStacks": 3
+      },
+      {
         "stores": "global",
         "buff": {
+          "filter": {
+            "effectStacks": {
+              "snowRust": {
+                ">=": 1
+              }
+            }
+          },
           "stats": {
             "glacioChafeDmgAmp%": 0.3
           }
         }
       },
       {
-        "enable": {
-          "team": [
-            "hiyuki",
-            1
-          ]
-        },
         "buff": {
+          "filter": {
+            "effectStacks": {
+              "snowRust": {
+                ">=": 1
+              }
+            }
+          },
           "stats": {
             "critDmg%": 0.4
           }
         }
       },
       {
-        "enable": {
-          "team": [
-            "hiyuki",
-            2
-          ]
-        },
-        "stores": "global",
-        "gameRule": "hiyuki2"
+        "use": {
+          "when": "inflict",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "inflict": {
+                    "status": {
+                      "has": "glacioChafe"
+                    }
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "snowRust": {
+                    ">=": 2
+                  }
+                }
+              }
+            ]
+          },
+          "action": {
+            "damage": {
+              "type": "glacioBite",
+              "multipliers": [
+                {
+                  "mv": 1.02
+                }
+              ]
+            }
+          }
+        }
       },
       {
-        "enable": {
-          "team": [
-            "hiyuki",
-            3
-          ]
-        },
         "stores": "global",
         "buff": {
+          "filter": {
+            "effectStacks": {
+              "snowRust": {
+                ">=": 3
+              }
+            }
+          },
           "stats": {
             "glacioChafeDmgAmp%": 0.3
           }
@@ -14151,10 +14209,13 @@
       {
         "ref": "packHunt3",
         "enable": {
-          "team": [
-            "lupa",
-            3
-          ]
+          "counts": {
+            "element": {
+              "fusion": {
+                ">=": 3
+              }
+            }
+          }
         },
         "stores": "$team",
         "apply": {
@@ -14175,10 +14236,13 @@
       {
         "ref": "glory1",
         "enable": {
-          "team": [
-            "lupa",
-            1
-          ]
+          "counts": {
+            "element": {
+              "fusion": {
+                ">=": 1
+              }
+            }
+          }
         },
         "stores": "$team",
         "apply": {
@@ -14199,10 +14263,13 @@
       {
         "ref": "glory2",
         "enable": {
-          "team": [
-            "lupa",
-            2
-          ]
+          "counts": {
+            "element": {
+              "fusion": {
+                ">=": 2
+              }
+            }
+          }
         },
         "stores": "$team",
         "apply": {
@@ -14223,10 +14290,13 @@
       {
         "ref": "glory3",
         "enable": {
-          "team": [
-            "lupa",
-            3
-          ]
+          "counts": {
+            "element": {
+              "fusion": {
+                ">=": 3
+              }
+            }
+          }
         },
         "stores": "$team",
         "apply": {

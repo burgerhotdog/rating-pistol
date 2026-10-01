@@ -2,7 +2,7 @@ import { CHARACTER, WEAPON } from '@/data';
 import {
   buildBaseMap,
   getDefaultWeapRank,
-  isEnabledWeap,
+  isEnabled,
   normalizeEffect,
   resolveEffectTokens,
   resolveModifyEffects,
@@ -26,11 +26,13 @@ function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weapo
   const charData = CHARACTER[gameId][ownerId];
   const weapData = WEAPON[gameId][sourceId];
 
-  for (const [index, rawEffect] of rawEffects.entries()) {
-    if (!isEnabledWeap(rawEffect, charData, weapData, { counts })) continue;
+  if (weapData.type === charData.type) {
+    for (const [index, rawEffect] of rawEffects.entries()) {
+      if (!isEnabled(gameId, rawEffect, ownerId, counts)) continue;
 
-    const effect = normalizeEffect(gameId, rawEffect, { ...sharedNormCtx, index });
-    normalized[effect.key] = effect;
+      const effect = normalizeEffect(gameId, rawEffect, { ...sharedNormCtx, index });
+      normalized[effect.key] = effect;
+    }
   }
 
   const tokenResolved = resolveEffectTokens(normalized);

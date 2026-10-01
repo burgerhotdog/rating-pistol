@@ -1531,10 +1531,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -1553,10 +1550,7 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
         "modify": {
           "type": "effect",
@@ -4603,11 +4597,9 @@
       },
       {
         "enable": {
-          "team": [
-            "hexerei",
-            2
-          ]
+          "secretRite": true
         },
+        "stores": "$team",
         "buff": {
           "filter": {
             "and": [
@@ -5750,7 +5742,9 @@
       },
       {
         "enable": {
-          "special": "greatMagic2same"
+          "sameElementTeamMembers": {
+            ">=": 2
+          }
         },
         "buff": {
           "stats": {
@@ -5763,7 +5757,9 @@
       },
       {
         "enable": {
-          "special": "greatMagic3same"
+          "sameElementTeamMembers": {
+            ">=": 3
+          }
         },
         "buff": {
           "stats": {

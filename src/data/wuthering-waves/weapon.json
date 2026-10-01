@@ -1494,7 +1494,9 @@
       },
       {
         "enable": {
-          "id": 1603
+          "owner": {
+            "id": 1603
+          }
         },
         "apply": {
           "when": "start",
@@ -1774,7 +1776,9 @@
       },
       {
         "enable": {
-          "id": 1406
+          "owner": {
+            "id": 1406
+          }
         },
         "stores": "global",
         "apply": {

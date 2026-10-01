@@ -366,7 +366,9 @@
     "effects": [
       {
         "enable": {
-          "id": 1605
+          "owner": {
+            "id": 1605
+          }
         },
         "apply": {
           "when": "start",
@@ -1516,10 +1518,12 @@
       },
       {
         "enable": {
-          "id": [
-            1406,
-            1409
-          ]
+          "owner": {
+            "id": [
+              1406,
+              1409
+            ]
+          }
         },
         "buff": {
           "stats": {
@@ -2442,7 +2446,9 @@
     "effects": [
       {
         "enable": {
-          "id": 1210
+          "owner": {
+            "id": 1210
+          }
         },
         "buff": {
           "stats": {
@@ -2750,10 +2756,12 @@
     "effects": [
       {
         "enable": {
-          "id": [
-            1511,
-            1308
-          ]
+          "owner": {
+            "id": [
+              1511,
+              1308
+            ]
+          }
         },
         "buff": {
           "stats": {
@@ -2763,7 +2771,9 @@
       },
       {
         "enable": {
-          "id": 1511
+          "owner": {
+            "id": 1511
+          }
         },
         "use": {
           "when": "start",
@@ -2787,7 +2797,9 @@
       },
       {
         "enable": {
-          "id": 1308
+          "owner": {
+            "id": 1308
+          }
         },
         "use": {
           "when": "start",

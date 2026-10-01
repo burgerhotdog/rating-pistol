@@ -862,7 +862,11 @@
       {
         "bonus": 3,
         "enable": {
-          "energy": -1
+          "owner": {
+            "not": {
+              "has": "energy"
+            }
+          }
         },
         "buff": {
           "stats": {
