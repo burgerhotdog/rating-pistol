@@ -15,7 +15,7 @@ export function buildUsefulSetBonuses(gameId, baselineDps, runTest) {
 
       const { dps } = runTest([{
         rawEffects: effects,
-        pieceCount: bonusTier,
+        pieces: bonusTier,
         sourceId: id,
       }], { testEcho: false });
 
