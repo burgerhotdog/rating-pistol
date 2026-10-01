@@ -20,7 +20,7 @@ async function main() {
     const responseData = await fetchJson(`https://static.nanoka.cc/gi/7.1.51/en/character/${id}.json`);
 
     const burstSkill = responseData.skills
-      .filter(({ promote }) => Object.keys(promote) === 15)
+      .filter(({ promote }) => Object.keys(promote).length === 15)
       .map((dataSkill, i) => ({ ...dataSkill, type: skillIds[i] }))
       .find(({ type }) => type === 'elementalBurst');
 

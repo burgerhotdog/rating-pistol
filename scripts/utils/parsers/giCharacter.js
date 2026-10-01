@@ -59,7 +59,7 @@ function parseSkills(skills, constellations) {
   let energy;
 
   const dataSkills = skills
-    .filter(({ promote }) => Object.keys(promote) === 15)
+    .filter(({ promote }) => Object.keys(promote).length === 15)
     .map((dataSkill, i) => ({ ...dataSkill, type: skillTypes[i] }));
 
   for (const { name, type, promote } of dataSkills) {
