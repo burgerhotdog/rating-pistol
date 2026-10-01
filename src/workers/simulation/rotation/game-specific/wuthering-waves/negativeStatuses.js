@@ -47,7 +47,7 @@ const STATUSES = {
   glacioChafe: {
     id: 'glacioChafe',
     element: 'glacio',
-    mv: [2450, 4442, 6434, 8426, 10417, 12409, 14401, 16393, 18385, 20377, 27169, 33961, 40753],
+    mv: [0.245, 0.4442, 0.6434, 0.8426, 1.0417, 1.2409, 1.4401, 1.6393, 1.8385, 2.0377, 2.7169, 3.3961, 4.0753],
     inflict: (ctx, stacks) => {
       const { negativeStatuses } = ctx.states;
       const state = negativeStatuses.glacioChafe ??= {
@@ -84,7 +84,7 @@ const STATUSES = {
   fusionBurst: {
     id: 'fusionBurst',
     element: 'fusion',
-    mv: [8400, 15229, 22058, 28888, 35717, 42546, 49375, 56204, 63034, 69863, 93150, 116438, 139726],
+    mv: [0.84, 1.5229, 2.2058, 2.8888, 3.5717, 4.2546, 4.9375, 5.6204, 6.3034, 6.9863, 9.3150, 11.6438, 13.9726],
     inflict: (ctx, stacks) => {
       const { negativeStatuses } = ctx.states;
       const state = negativeStatuses.fusionBurst ??= {
@@ -137,7 +137,7 @@ const STATUSES = {
   electroFlare: {
     id: 'electroFlare',
     element: 'electro',
-    mv: [5000, 9065, 13130, 17195, 21260, 25325, 29390, 33455, 37520, 41585, 55447, 69308, 83170],
+    mv: [0.5, 0.9065, 1.313, 1.7195, 2.126, 2.5325, 2.939, 3.3455, 3.752, 4.1585, 5.5447, 6.9308, 8.317],
     inflict: (ctx, stacks) => {
       const { negativeStatuses } = ctx.states;
       const state = negativeStatuses.electroFlare ??= {
@@ -181,7 +181,7 @@ const STATUSES = {
   aeroErosion: {
     id: 'aeroErosion',
     element: 'aero',
-    mv: [4500, 11250, 22500, 33750, 45000, 56250, 67500, 78750, 90000, 101250, 112500, 123750],
+    mv: [0.45, 1.125, 2.25, 3.375, 4.5, 5.625, 6.75, 7.875, 9, 10.125, 11.25, 12.375],
     inflict: (ctx, stacks) => {
       const { negativeStatuses } = ctx.states;
       const state = negativeStatuses.aeroErosion ??= {
@@ -229,7 +229,7 @@ const STATUSES = {
   spectroFrazzle: {
     id: 'spectroFrazzle',
     element: 'spectro',
-    mv: [3000, 5439, 7878, 10317, 12756, 15195, 17634, 20073, 22512, 24951, 33268, 41585, 49902],
+    mv: [0.3, 0.5439, 0.7878, 1.0317, 1.2756, 1.5195, 1.7634, 2.0073, 2.2512, 2.4951, 3.3268, 4.1585, 4.9902],
     inflict: (ctx, stacks) => {
       const heliacalEmberEnabled = hasGameRule(ctx, 'heliacalEmber');
       const { negativeStatuses } = ctx.states;
@@ -327,16 +327,6 @@ export function inflictNegativeStatuses(ctx, action) {
   for (const [id, stacks] of Object.entries(toInflict)) {
     const status = STATUSES[id];
     status.inflict(ctx, stacks);
-
-    if ( // Hiyuki 2 special handling
-      id === 'glacioChafe' &&
-      action.ownerId === 1108 &&
-      hasGameRule(ctx, 'hiyuki2') &&
-      ctx.saveSnapshots
-    ) {
-      const snapshot = buildSnapshot(ctx, { status: STATUSES.glacioChafe }, 0, 10200 * stacks);
-      ctx.snapshots.push(snapshot);
-    }
   }
 }
 
@@ -374,7 +364,7 @@ const buildSnapshot = (ctx, statusState, runtimeOffset = 0, fixedMv) => {
 
   const mv = fixedMv ?? status.mv[stacks - 1];
   const rageMv = rage ? status.mv[rage - 1] : 0;
-  const baseDmg = LEVEL_MODIFIER * ((mv + rageMv) / 10000);
+  const baseDmg = LEVEL_MODIFIER * (mv + rageMv);
 
   const dmgAmpMult = getDmgAmpMult(buffMap, [status.id]);
   const defMult = getDefMult(WW, buffMap);

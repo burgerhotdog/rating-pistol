@@ -34,7 +34,7 @@ function tryUse(ctx, when, state, spec) {
     if (state.isRunning || state.useCooldown) continue;
     if (!ctx.eventFilter(use.filter, effect, spec)) continue;
 
-    const useSpec = {};
+    const useSpec = { inflict: spec.action?.inflict };
     if (effect.snapshotBuffs) {
       useSpec.snapshotBuffs = state.snapshotBuffs[index];
     }

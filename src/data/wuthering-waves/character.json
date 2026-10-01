@@ -5326,13 +5326,15 @@
           "action": {
             "damage": {
               "type": "glacioBite",
+              "attr": "statusAmp",
               "multipliers": [
                 {
                   "mv": 1.02
                 }
               ]
             }
-          }
+          },
+          "perStatusInflict": "glacioChafe"
         }
       },
       {
