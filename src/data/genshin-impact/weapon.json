@@ -1384,7 +1384,6 @@
     "effects": []
   },
   "11513": {
-    "disabled": true,
     "name": "Splendor of Tranquil Waters",
     "version": 4.2,
     "id": 11513,
@@ -1395,7 +1394,43 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "healthChange",
+          "field": "*",
+          "cooldown": 200,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.08,
+              0.16
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "apply": {
+          "by": "$ally",
+          "when": "healthChange",
+          "field": "*",
+          "cooldown": 200,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.14,
+              0.28
+            ]
+          }
+        },
+        "maxStacks": 2
+      }
+    ]
   },
   "11514": {
     "disabled": true,

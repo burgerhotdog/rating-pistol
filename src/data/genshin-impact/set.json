@@ -1371,7 +1371,6 @@
     ]
   },
   "15029": {
-    "disabled": true,
     "name": "Nymph's Dream",
     "version": 3.6,
     "id": 15029,
@@ -1392,6 +1391,7 @@
       },
       {
         "bonus": 4,
+        "ref": "stack1",
         "apply": {
           "when": "hit",
           "filter": {
@@ -1400,19 +1400,185 @@
                 "type": [
                   "normalAttack",
                   "chargedAttack",
-                  "plungingAttack",
-                  "elementalSkill",
-                  "elementalBurst"
+                  "plungingAttack"
                 ]
               }
             }
           },
           "duration": 8000
-        },
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "stack2",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "duration": 8000
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "stack3",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "duration": 8000
+        }
+      },
+      {
+        "bonus": 4,
         "buff": {
+          "filter": {
+            "effectStacks": {
+              "and": [
+                {
+                  "has": "stack1"
+                },
+                {
+                  "has": "stack2"
+                },
+                {
+                  "has": "stack3"
+                }
+              ]
+            }
+          },
           "stats": {
-            "atk%": 0.0833,
-            "hydroDmgBonus%": 0.05
+            "atk%": 0.25,
+            "hydroDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "or": [
+                {
+                  "and": [
+                    {
+                      "not": {
+                        "has": "stack1"
+                      }
+                    },
+                    {
+                      "has": "stack2"
+                    },
+                    {
+                      "has": "stack3"
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "not": {
+                        "has": "stack2"
+                      }
+                    },
+                    {
+                      "has": "stack1"
+                    },
+                    {
+                      "has": "stack3"
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "not": {
+                        "has": "stack3"
+                      }
+                    },
+                    {
+                      "has": "stack1"
+                    },
+                    {
+                      "has": "stack2"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "stats": {
+            "atk%": 0.16,
+            "hydroDmgBonus%": 0.09
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "or": [
+                {
+                  "and": [
+                    {
+                      "has": "stack1"
+                    },
+                    {
+                      "not": {
+                        "has": [
+                          "stack2",
+                          "stack3"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "has": "stack2"
+                    },
+                    {
+                      "not": {
+                        "has": [
+                          "stack1",
+                          "stack3"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "has": "stack3"
+                    },
+                    {
+                      "not": {
+                        "has": [
+                          "stack1",
+                          "stack2"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "stats": {
+            "atk%": 0.07,
+            "hydroDmgBonus%": 0.04
           }
         }
       }
