@@ -77,10 +77,12 @@ Weapons:
         No effect
     Fillet Blade
         Effect always hits
+    Finale of the Deep
+        Clear BoL gives fixed atk buff
     Harbinger of Dawn
         Assume buff always up
-    Sacrificial Sword
-        Effect disabled
+    Heretic's Molten Blade
+        No effect
     Moonweaver's Dawn
         energy part not done
     Sapwood Blade
@@ -93,14 +95,14 @@ Weapons:
         Attack always triggers
     Skyward Spine
         Vacuum Blade always triggers
+    Sturdy Bone
+        No effect
     The Alley Flash
         Taking dmg doesn't matter
     The Black Sword
         Healing doesn't need a crit
     Traveler's Handy Sword
         No effect
-    Tulaytullah's Remembrance
-        Buff maxed
     Wandering Evenstar
         buff is constant instead of snapshotting
     Whitelake Frostfeather
@@ -108,6 +110,9 @@ Weapons:
         No energy effect
     Wolf's Gravestone
         Team buff disabled
+    Xiphos' Moonlight
+        Permanent buff, not interval application
+        Might not apply to rotation time calculation
 
     Weapon series with inactive effects
         Favonius

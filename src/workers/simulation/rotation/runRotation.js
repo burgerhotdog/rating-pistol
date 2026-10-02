@@ -25,6 +25,7 @@ const initStates = (cache) => {
   if (gameId === GI) {
     states.icd = initMemberStates();
     states.aura = {};
+    states.bondOfLife = initMemberStates(() => 0);
   }
 
   if (gameId === WW) {

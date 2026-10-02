@@ -1763,7 +1763,6 @@
     ]
   },
   "15035": {
-    "disabled": true,
     "name": "Fragment of Harmonic Whimsy",
     "version": 4.6,
     "id": 15035,
@@ -1784,11 +1783,16 @@
       },
       {
         "bonus": 4,
+        "apply": {
+          "when": "bondOfLifeChange",
+          "duration": 6000
+        },
         "buff": {
           "stats": {
-            "dmgBonus%": 0.54
+            "dmgBonus%": 0.18
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },

@@ -59474,7 +59474,9 @@
           },
           "action": {
             "healing": {
-              "targets": "onField",
+              "targets": [
+                "$onField"
+              ],
               "multipliers": [
                 {
                   "mv": 1.2

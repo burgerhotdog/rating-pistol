@@ -763,7 +763,6 @@
     ]
   },
   "11418": {
-    "disabled": true,
     "name": "Xiphos' Moonlight",
     "version": 3.1,
     "id": 11418,
@@ -774,10 +773,39 @@
       "baseAtk": 510,
       "elementalMastery": 165
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "specs": {
+            "energyRecharge%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                0.00036,
+                0.00072
+              ]
+            }
+          }
+        }
+      },
+      {
+        "stores": "$ally",
+        "buff": {
+          "specs": {
+            "energyRecharge%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                0.000108,
+                0.000216
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11422": {
-    "disabled": true,
     "name": "Toukabou Shigure",
     "version": 3.3,
     "id": 11422,
@@ -788,7 +816,28 @@
       "baseAtk": 510,
       "elementalMastery": 165
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 15000,
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "11424": {
     "name": "Wolf-Fang",
@@ -804,14 +853,16 @@
     "effects": [
       {
         "buff": {
-          "elementalSkillDmgBonus%": [
-            0.16,
-            0.32
-          ],
-          "elementalBurstDmgBonus%": [
-            0.16,
-            0.32
-          ]
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "elementalBurstDmgBonus%": [
+              0.16,
+              0.32
+            ]
+          }
         }
       },
       {
@@ -877,7 +928,6 @@
     ]
   },
   "11425": {
-    "disabled": true,
     "name": "Finale of the Deep",
     "version": 4.0,
     "id": 11425,
@@ -889,10 +939,83 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 10000,
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 10000,
+          "action": {
+            "bondOfLife": {
+              "value": 0.25
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "applyClearBolBuff",
+            "spec": {
+              "uses": 1
+            }
+          }
+        }
+      },
+      {
+        "ref": "applyClearBolBuff",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "bondOfLifeClear",
+          "commands": {
+            "type": "apply",
+            "ref": "clearBolBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "ref": "clearBolBuff",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk": [
+              150,
+              300
+            ]
+          }
+        }
+      }
+    ]
   },
   "11426": {
-    "disabled": true,
     "name": "Fleuve Cendre Ferryman",
     "version": 4.0,
     "id": 11426,
@@ -903,7 +1026,44 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "energyRecharge%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "11427": {
     "disabled": true,
@@ -934,7 +1094,6 @@
     "effects": []
   },
   "11430": {
-    "disabled": true,
     "name": "Sturdy Bone",
     "version": 5.1,
     "id": 11430,
@@ -944,11 +1103,9 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    },
-    "effects": []
+    }
   },
   "11431": {
-    "disabled": true,
     "name": "Flute of Ezpitzal",
     "version": 5.0,
     "id": 11431,
@@ -960,7 +1117,27 @@
       "baseAtk": 454,
       "def%": 0.69
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "def%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "11432": {
     "disabled": true,
@@ -1016,7 +1193,6 @@
     ]
   },
   "11435": {
-    "disabled": true,
     "name": "Heretic's Molten Blade",
     "version": 7.0,
     "id": 11435,
@@ -1026,11 +1202,9 @@
     "stats": {
       "baseAtk": 510,
       "critRate%": 0.276
-    },
-    "effects": []
+    }
   },
   "11436": {
-    "disabled": true,
     "name": "Emberwell",
     "version": 7.0,
     "id": 11436,
@@ -1042,10 +1216,48 @@
       "baseAtk": 510,
       "elementalMastery": 165
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "stellarGlimmerReactionBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "11437": {
-    "disabled": true,
     "name": "New Bough",
     "version": 7.1,
     "id": 11437,
@@ -1056,7 +1268,96 @@
       "baseAtk": 510,
       "critDmg%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 20000
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 1000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "verdant1",
+              "spec": {
+                "duration": 6000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "verdant2",
+              "spec": {
+                "duration": 6000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "verdant1",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "not": {
+              "radiance": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "stats": {
+            "atk%": [
+              0.04,
+              0.08
+            ],
+            "elementalMastery": [
+              20,
+              40
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "verdant2",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "radiance": [
+              "stellarConduct",
+              "stellarSwirl"
+            ]
+          },
+          "stats": {
+            "atk%": [
+              0.06,
+              0.12
+            ],
+            "stellarGlimmerReactionBonus%": [
+              0.08,
+              0.16
+            ]
+          }
+        },
+        "maxStacks": 3
+      }
+    ]
   },
   "11438": {
     "name": "Silver Light",
@@ -1314,7 +1615,6 @@
     "effects": []
   },
   "11505": {
-    "disabled": true,
     "name": "Primordial Jade Cutter",
     "version": 1.3,
     "id": 11505,
@@ -1325,7 +1625,28 @@
       "baseAtk": 542,
       "critRate%": 0.441
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.2,
+              0.4
+            ]
+          },
+          "specs": {
+            "atk": {
+              "attr": "hp",
+              "step": 1,
+              "value": [
+                0.012,
+                0.024
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11509": {
     "disabled": true,
@@ -1447,7 +1768,6 @@
     "effects": []
   },
   "11515": {
-    "disabled": true,
     "name": "Absolution",
     "version": 4.7,
     "id": 11515,
@@ -1458,7 +1778,42 @@
       "baseAtk": 674,
       "critDmg%": 0.441
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "critDmg%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "bondOfLifeChange",
+          "filter": {
+            "action": {
+              "bondOfLife": {
+                "value": {
+                  ">": 0
+                }
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        },
+        "maxStacks": 3
+      }
+    ]
   },
   "11516": {
     "disabled": true,
@@ -1475,7 +1830,6 @@
     "effects": []
   },
   "11517": {
-    "disabled": true,
     "name": "Azurelight",
     "version": 5.7,
     "id": 11517,
@@ -1486,7 +1840,57 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "owner": {
+            "not": {
+              "has": "energy"
+            }
+          }
+        },
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.24,
+              0.48
+            ],
+            "critDmg%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      }
+    ]
   },
   "11518": {
     "name": "Athame Artis",
@@ -4096,10 +4500,12 @@
           }
         },
         "buff": {
-          "elementalDmgBonus%": [
-            0.08,
-            0.16
-          ]
+          "stats": {
+            "elementalDmgBonus%": [
+              0.08,
+              0.16
+            ]
+          }
         },
         "rampingInterval": 4000,
         "maxStacks": 4

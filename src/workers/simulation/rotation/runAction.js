@@ -5,6 +5,8 @@ import {
   applyGauge,
   advanceAuras,
   advanceIcdStates,
+  changeBondOfLife,
+  grantBondOfLife,
 } from './game-specific/genshin-impact';
 import {
   consumeNegativeStatuses,
@@ -124,6 +126,10 @@ export function runAction(ctx, action, options = {}) {
     decayBuffStates(ctx, modifiedAction);
   }
 
+  if (gameId === GI) {
+    grantBondOfLife(ctx, modifiedAction);
+  }
+
   if (gameId === WW) {
     consumeNegativeStatuses(ctx, modifiedAction);
     inflictNegativeStatuses(ctx, modifiedAction);
@@ -138,23 +144,7 @@ export function runAction(ctx, action, options = {}) {
     runEffects('hit');
 
     if (modifiedAction.drain) {
-      const {
-        targets = [modifiedAction.ownerId],
-        value,
-        minLimit = 0,
-        maxLimit = 1,
-      } = modifiedAction.drain;
-      const { memberHealth } = ctx.states;
-
-      for (const targetId of targets) {
-        const prev = memberHealth[targetId];
-        const next = clamp(prev - value, minLimit, maxLimit);
-
-        if (next !== prev) {
-          memberHealth[targetId] = next;
-          runEffects('healthChange');
-        }
-      }
+      runDrain(ctx, modifiedAction);
     }
 
     let scaleMult = 1;
@@ -164,7 +154,12 @@ export function runAction(ctx, action, options = {}) {
 
     if (modifiedAction.healing) {
       for (const target of modifiedAction.healing.targets) {
-        // do something
+        let targetId = target;
+        if (targetId === '$onField') {
+          targetId = ctx.states.onFieldId;
+        }
+
+        changeBondOfLife(ctx, targetId, -1);
       }
     }
 
@@ -188,4 +183,24 @@ export function runAction(ctx, action, options = {}) {
 
   advanceTimeTo(duration);
   runEffects('end');
+}
+
+function runDrain(ctx, modifiedAction) {
+  const {
+    targets = [modifiedAction.ownerId],
+    value,
+    minLimit = 0,
+    maxLimit = 1,
+  } = modifiedAction.drain;
+  const { memberHealth } = ctx.states;
+
+  for (const targetId of targets) {
+    const prev = memberHealth[targetId];
+    const next = clamp(prev - value, minLimit, maxLimit);
+
+    if (next !== prev) {
+      memberHealth[targetId] = next;
+      ctx.runEffects('healthChange', modifiedAction);
+    }
+  }
 }

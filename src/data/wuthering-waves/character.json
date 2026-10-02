@@ -28725,7 +28725,9 @@
           },
           "action": {
             "shield": {
-              "targets": "$applier",
+              "targets": [
+                "$applier"
+              ],
               "duration": 10000,
               "attr": "hp",
               "multipliers": [
