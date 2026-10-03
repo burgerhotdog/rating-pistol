@@ -128,5 +128,3 @@ Sets:
         Stacks not independent
     Shimenawa's Reminiscence
         4pc energy simplified
-    Vermillion Hereafter
-        stacks on health gain too

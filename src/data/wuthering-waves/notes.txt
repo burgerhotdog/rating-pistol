@@ -4,34 +4,34 @@ Characters:
 Weapons:
     Broadblade#41
         user hp above 80%
-    Wildfire Mark
-        unsure about extension rules
-    Thunderflare Dominion
-        activates when creating shield
-    Red Spring
-        concerto energy consumed action is hardcoded
-    Sword#18
-        user hp below 40%
-    Lunar Cutter
-        assume average stacks
     Emerald Sentence
         some stacking rules are loosened
     Frostburn
         unsure if this is done correctly
-    Pistols#26
-        assume resonator never takes damage
-    Novaburst
-        assume max stacks always
     Gauntlets#21D
         does not include dashes
-    Moongazer's Sigil
-        activates when creating shield, intro skill stacks last regular time
     Hollow Mirage
+        assume resonator never takes damage
+    Lunar Cutter
+        assume average stacks
+    Moongazer's Sigil
+        activates when creating shield
+    Novaburst
+        assume max stacks always
+    Pistols#26
         assume resonator never takes damage
     Rectifier#25
         user hp above 60%
+    Red Spring
+        concerto energy consumed action is hardcoded
+    Sword#18
+        user hp below 40%
+    Thunderflare Dominion
+        activates when creating shield
     Whispers of Sirens
         some limitations removed
+    Wildfire Mark
+        unsure about extension rules
 
 Sets:
     Lingering Tunes

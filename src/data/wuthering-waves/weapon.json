@@ -364,15 +364,15 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "resonanceLiberationDmgIncreased"
-                }
-              },
-              {
                 "action": {
                   "damage": {
                     "type": "heavyAttack"
                   }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "resonanceLiberationDmgIncreased"
                 }
               }
             ]
@@ -5469,11 +5469,6 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "resonanceLiberationDmgIncreased"
-                }
-              },
-              {
                 "action": {
                   "or": [
                     {
@@ -5489,6 +5484,11 @@
                       }
                     }
                   ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "resonanceLiberationDmgIncreased"
                 }
               }
             ]
