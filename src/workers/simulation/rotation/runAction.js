@@ -1,51 +1,31 @@
 import { GI, WW } from '@/data';
 import { clamp } from '@/utils';
-import { advanceEffects } from './advanceEffects';
 import {
   applyGauge,
-  advanceAuras,
-  advanceIcdStates,
   changeBondOfLife,
   grantBondOfLife,
 } from './game-specific/genshin-impact';
 import {
-  consumeNegativeStatuses,
-  inflictNegativeStatuses,
-  advanceNegativeStatuses,
-  replaceNegativeStatuses,
   runTuneBreak,
   applyOffTuneBuildup,
   inflictTuneShifting,
-  advanceTune,
 } from './game-specific/wuthering-waves';
 import {
-  canSnapshot,
-  buildSnapshot,
-} from './snapshot';
+  consumeNegativeStatuses,
+  inflictNegativeStatuses,
+  replaceNegativeStatuses,
+} from './states/negativeStatuses';
+import { canSnapshot, buildSnapshot } from './snapshot';
 import { getEffectStates } from './getEffectStates';
 import { getModifiedAction } from './getModifiedAction';
-
-function advanceCooldowns(ctx, elapsed) {
-  const { applyCooldowns } = ctx.states;
-
-  for (const effectKey in applyCooldowns) {
-    applyCooldowns[effectKey] -= elapsed;
-
-    if (applyCooldowns[effectKey] <= 0) {
-      delete applyCooldowns[effectKey];
-    }
-  }
-}
+import { advanceStates } from './states';
 
 function decayBuffStates(ctx, action) {
   for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
     const { store, effect, buffCooldown } = state;
 
     if (buffCooldown) continue;
-    const spec = {
-      action,
-      fieldId: action.ownerId,
-    };
+    const spec = { action, fieldId: action.ownerId };
     if (!ctx.eventFilter(effect.buff?.filter, effect, spec)) continue;
 
     if (effect.buff?.cooldown) {
@@ -74,31 +54,8 @@ export function runAction(ctx, action, options = {}) {
     const elapsed = timestamp - actionRuntime;
     if (elapsed <= 0) return;
 
-    if (gameId === GI) {
-      advanceAuras(ctx, elapsed);
-      advanceIcdStates(ctx, elapsed);
-    }
-
-    if (gameId === WW) {
-      advanceNegativeStatuses(ctx, elapsed);
-      advanceTune(ctx, elapsed);
-    }
-
-    advanceEffects(ctx, elapsed);
-    advanceCooldowns(ctx, elapsed);
-
+    advanceStates(ctx, elapsed);
     actionRuntime += elapsed;
-
-    if (ctx.saveSnapshots) {
-      ctx.states.runtime += elapsed;
-    }
-
-    if (ctx.states.shielded) {
-      ctx.states.shielded -= elapsed;
-      if (ctx.states.shielded <= 0) {
-        ctx.states.shielded = null;
-      }
-    }
   };
 
   const runEffects = (when) => ctx.runEffects(when, modifiedAction);
@@ -159,7 +116,9 @@ export function runAction(ctx, action, options = {}) {
           targetId = ctx.states.onFieldId;
         }
 
-        changeBondOfLife(ctx, targetId, -1);
+        if (gameId === GI) {
+          changeBondOfLife(ctx, targetId, -1);
+        }
       }
     }
 

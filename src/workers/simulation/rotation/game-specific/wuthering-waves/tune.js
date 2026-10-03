@@ -1,6 +1,6 @@
 import { getAttr, toMergedObj } from '@/utils';
-import { runCommands } from '../../commands';
-import { runApplyEffect } from '../../effects';
+import { runCommands } from '../../states/effects/commands';
+import { runApplyEffect } from '../../states/effects/effects';
 import { getBuffMap } from '../../getStatMap';
 import { runTuneFormula } from '../../formula/tuneFormula';
 

@@ -8099,11 +8099,6 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "ceaselessLandscape"
-                }
-              },
-              {
                 "action": {
                   "inflict": {
                     "status": {
@@ -8116,6 +8111,11 @@
                       ]
                     }
                   }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "ceaselessLandscape"
                 }
               }
             ]
@@ -8132,17 +8132,17 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "roamingTranscendent"
-                }
-              },
-              {
                 "action": {
                   "consume": {
                     "status": {
                       "has": "havocBane"
                     }
                   }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "roamingTranscendent"
                 }
               }
             ]
@@ -8216,16 +8216,16 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "roamingTranscendent"
-                }
-              },
-              {
                 "action": {
                   "ref": [
                     "outroSkill.0",
                     "resonanceLiberation.1"
                   ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "roamingTranscendent"
                 }
               }
             ]
@@ -43834,24 +43834,44 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "swordOfDivinitysShadow"
+                "action": {
+                  "ref": "normalAttack.8"
                 }
               },
               {
-                "action": {
-                  "ref": "normalAttack.8"
+                "effectStacks": {
+                  "has": "swordOfDivinitysShadow"
                 }
               }
             ]
           }
         },
-        "gameRule": "mandateOfDivinity",
         "buff": {
           "stats": {
             "aeroErosionDmgAmp%": 0.5
           }
         }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "normalAttack.8"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "swordOfDivinitysShadow"
+                }
+              }
+            ]
+          }
+        },
+        "gameRule": "mandateOfDivinity"
       },
       {
         "ref": "powerOfDiscord",
@@ -43861,13 +43881,13 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "swordOfDiscordsShadow"
+                "action": {
+                  "ref": "normalAttack.8"
                 }
               },
               {
-                "action": {
-                  "ref": "normalAttack.8"
+                "effectStacks": {
+                  "has": "swordOfDiscordsShadow"
                 }
               }
             ]
@@ -43877,9 +43897,13 @@
       {
         "ref": "manifest",
         "apply": {
-          "action": {
-            "ref": "resonanceLiberation.0"
-          }
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 12000
         }
       },
       {
@@ -51203,6 +51227,7 @@
       },
       {
         "ref": "shimmer",
+        "stores": "global",
         "apply": {
           "when": "inflict",
           "filter": {

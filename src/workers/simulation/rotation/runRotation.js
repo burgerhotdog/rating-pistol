@@ -1,40 +1,11 @@
 import { GI, WW } from '@/data';
 import { getAttr, toMergedObj } from '@/utils';
-import { runApplyEffect } from './effects';
-import { resolveSnapshot } from './snapshot';
+import { initStates } from './states';
 import { createEventFilter } from './filter';
 import { runAction } from './runAction';
 import { runEffects } from './runEffects';
-
-const initStates = (cache) => {
-  const { gameId, memberIds } = cache;
-
-  const initMemberStates = (init = () => ({})) =>
-    Object.fromEntries(memberIds.map((id) => [id, init()]));
-
-  const states = {
-    runtime: 0,
-    onFieldId: null,
-    shielded: null,
-    applyCooldowns: {},
-    globalEffects: {},
-    memberEffects: initMemberStates(),
-    memberHealth: initMemberStates(() => 1),
-  };
-
-  if (gameId === GI) {
-    states.icd = initMemberStates();
-    states.aura = {};
-    states.bondOfLife = initMemberStates(() => 0);
-  }
-
-  if (gameId === WW) {
-    states.negativeStatuses = {};
-    states.tune = { offTune: 0 };
-  }
-
-  return states;
-};
+import { initPassives } from './states/effects';
+import { resolveSnapshot } from './snapshot';
 
 const initBuildMaps = (cache, equipMaps) => {
   const { gameId, memberIds } = cache;
@@ -86,7 +57,7 @@ export const runRotation = (cache, equipMaps, specId) => {
   const ctx = {
     cache,
     specId,
-    states: initStates(cache),
+    states: initStates(gameId, memberIds),
     snapshots: [],
     saveSnapshots: false,
     buildMaps: initBuildMaps(cache, equipMaps),
@@ -99,24 +70,7 @@ export const runRotation = (cache, equipMaps, specId) => {
   ctx.eventFilter = createEventFilter(ctx);
   ctx.runAction = (action, options) => runAction(ctx, action, options);
   ctx.runEffects = (when, event) => runEffects(ctx, when, event);
-
-  // Apply passive effects into states
-  for (const memberId in cache.member) {
-    const mCache = cache.member[memberId];
-
-    for (const effectKey in mCache.effects) {
-      const effect = mCache.effects[effectKey];
-      if (effect.static || effect.apply) continue;
-      runApplyEffect(ctx, effect);
-    }
-  }
-
-  if (gameId === GI) {
-    for (const effect of cache.elementalResonance.effects) {
-      if (effect.static || effect.apply) continue;
-      runApplyEffect(ctx, effect, effect.apply);
-    }
-  }
+  initPassives(ctx);
 
   // Rotation loop
   const memberOrder = memberIds.toReversed();

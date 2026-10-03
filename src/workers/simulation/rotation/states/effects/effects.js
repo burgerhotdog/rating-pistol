@@ -1,5 +1,6 @@
 import { runCommands } from './commands';
-import { getBuffMap } from './getStatMap';
+import { getBuffMap } from '../../getStatMap';
+import { applyCooldown } from '../cooldowns';
 
 export function runRemoveEffect(state, remove = {}) {
   const { store, effect } = state;
@@ -61,7 +62,7 @@ export function runUseEffect(ctx, state, use = {}, spec = {}) {
 }
 
 export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
-  const { applyCooldowns, memberEffects, globalEffects } = ctx.states;
+  const { memberEffects, globalEffects } = ctx.states;
   const { maxStacks = 1 } = effect;
 
   function updateState(store) {
@@ -182,6 +183,6 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
   }
 
   if (apply.cooldown) {
-    applyCooldowns[effect.key] = apply.cooldown;
+    applyCooldown(ctx, effect.key, apply.cooldown);
   }
 }
