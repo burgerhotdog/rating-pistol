@@ -1,5 +1,5 @@
 import { GI } from '@/data';
-import { runApplyEffect } from './effects';
+import { runApplyEffect } from './runApplyEffect';
 
 export function initPassives(ctx) {
   const { cache } = ctx;

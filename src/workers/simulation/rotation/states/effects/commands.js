@@ -1,4 +1,6 @@
-import { runRemoveEffect, runUseEffect, runApplyEffect } from './effects';
+import { runRemoveEffect } from './runRemoveEffect';
+import { runUseEffect } from './runUseEffect';
+import { runApplyEffect } from './runApplyEffect';
 
 export function runCommands(ctx, effect, commands) {
   const effectDefs = ctx.cache.member[effect.ownerId].effects;

@@ -3,13 +3,14 @@ import {
   advanceAuras,
   advanceIcdStates,
 } from '../game-specific/genshin-impact';
-import { advanceTune } from './tune';
 import { advanceNegativeStatuses } from './negativeStatuses';
-import { advanceEffects } from './effects/advanceEffects';
+import { advanceTune } from './tune';
+import { advanceEffects } from './effects';
 import { advanceCooldowns } from './cooldowns';
 import { advanceShielded } from './shielded';
 
 export const advanceStates = (ctx, elapsed) => {
+  if (!elapsed) return;
   const { cache, states, saveSnapshots } = ctx;
   const { gameId } = cache;
 
