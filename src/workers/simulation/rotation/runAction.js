@@ -9,7 +9,7 @@ import {
   runTuneBreak,
   applyOffTuneBuildup,
   inflictTuneShifting,
-} from './game-specific/wuthering-waves';
+} from './states/tune';
 import {
   consumeNegativeStatuses,
   inflictNegativeStatuses,

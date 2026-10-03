@@ -1,6 +1,6 @@
-import { getAttr, toMergedObj } from '@/utils';
-import { runCommands } from '../../states/effects/commands';
-import { runApplyEffect } from '../../states/effects/effects';
+import { toMergedObj } from '@/utils';
+import { runCommands } from '../effects/commands';
+import { runApplyEffect } from '../effects/effects';
 import { getBuffMap } from '../../getStatMap';
 import { runTuneFormula } from '../../formula/tuneFormula';
 
@@ -114,66 +114,4 @@ export function runTuneBreak(ctx) {
   if (ctx.cache.member['1413']) tune.interferedStacks += 1;
   delete tune.shifting;
   delete tune.shiftingTimeLeft;
-}
-
-export function applyOffTuneBuildup(ctx, action) {
-  const { tune } = ctx.states;
-  if (
-    !action.damage ||
-    tune.isMistune ||
-    tune.offTuneCooldown
-  ) return;
-
-  const buildMap = ctx.buildMaps[action.ownerId];
-  const { buffMap } = getBuffMap(ctx, { memberId: action.ownerId, action, ignoreSpecs: true });
-  const statMap = toMergedObj(buildMap, buffMap);
-  const offTuneBuildupRate = getAttr('offTuneBuildupRate%', statMap);
-
-  const hitCount = action.damage.compressed.hitCount;
-
-  tune.offTune += 10 * offTuneBuildupRate * hitCount;
-  if (tune.offTune < 300) return;
-  tune.offTune = 300;
-  tune.isMistune = true;
-}
-
-export function inflictTuneShifting(ctx, action) {
-  if (!action.inflict?.shifting) return;
-  const { tune } = ctx.states;
-
-  tune.shifting = action.inflict.shifting;
-  tune.shiftingTimeLeft = 25000;
-
-  if (action.inflict.shifting === 'tuneStrain') {
-    tune.strainAppliers ??= new Set();
-    tune.strainAppliers.add(action.ownerId);
-  }
-}
-
-export function advanceTune(ctx, elapsed) {
-  const { tune } = ctx.states;
-
-  if (tune.offTuneCooldown) {
-    tune.offTuneCooldown -= elapsed;
-    if (tune.offTuneCooldown <= 0)
-      delete tune.offTuneCooldown;
-  }
-
-  if (tune.shiftingTimeLeft) {
-    tune.shiftingTimeLeft -= elapsed;
-    if (tune.shiftingTimeLeft <= 0) {
-      delete tune.shifting;
-      delete tune.shiftingTimeLeft;
-      delete tune.strainAppliers;
-    }
-  }
-
-  if (tune.interferedTimeLeft) {
-    tune.interferedTimeLeft -= elapsed;
-    if (tune.interferedTimeLeft <= 0) {
-      delete tune.interfered;
-      delete tune.interferedTimeLeft;
-      delete tune.interferedStacks;
-    }
-  }
 }

@@ -3,7 +3,7 @@ import {
   advanceAuras,
   advanceIcdStates,
 } from '../game-specific/genshin-impact';
-import { advanceTune } from '../game-specific/wuthering-waves';
+import { advanceTune } from './tune';
 import { advanceNegativeStatuses } from './negativeStatuses';
 import { advanceEffects } from './effects/advanceEffects';
 import { advanceCooldowns } from './cooldowns';
