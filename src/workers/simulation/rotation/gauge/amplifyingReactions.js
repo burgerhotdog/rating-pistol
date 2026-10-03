@@ -1,5 +1,5 @@
 import { getAttr, toMergedObj, resolveBuffSpecs } from '@/utils';
-import { getBuffMap } from '../../getStatMap';
+import { getBuffMap } from '../getStatMap';
 
 function emBonus(statMap) {
   const emValue = getAttr('elementalMastery', statMap);

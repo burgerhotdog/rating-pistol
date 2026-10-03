@@ -1,8 +1,6 @@
 import { GI, WW } from '@/data';
-import {
-  advanceAuras,
-  advanceIcdStates,
-} from '../game-specific/genshin-impact';
+import { advanceIcdStates } from './icd';
+import { advanceAuras } from './aura';
 import { advanceNegativeStatuses } from './negativeStatuses';
 import { advanceTune } from './tune';
 import { advanceEffects } from './effects';

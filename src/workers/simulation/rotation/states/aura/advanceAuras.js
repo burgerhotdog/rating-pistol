@@ -1,6 +1,4 @@
-import { tickElectroCharged } from './transformativeReactions';
-import { buildStellarSwirlSnapshot } from './stellarReactions';
-import { applyCryo } from './applyGauge';
+import { applyCryo, tickElectroCharged, buildStellarSwirlSnapshot } from '../../gauge';
 
 function advanceElementAura(ctx, state, elapsed) {
   state.gauge -= elapsed / state.decayRate;

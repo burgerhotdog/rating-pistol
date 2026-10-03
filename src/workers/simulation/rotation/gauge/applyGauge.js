@@ -14,8 +14,8 @@ import {
   reactStellarConduct,
   reactStellarSwirl,
 } from './stellarReactions';
-import { tryApplyElement } from './icd';
-import { applyAura, consumeAura } from './aura';
+import { tryApplyElement } from '../states/icd';
+import { applyAura, consumeAura } from '../states/aura';
 
 function applyPyro(ctx, gauge, applier) {
   const { aura } = ctx.states;

@@ -1,8 +1,8 @@
 import { GI } from '@/data';
 import { getAttr } from '@/utils';
-import { getBuffMap } from '../../getStatMap';
-import { getResMult } from '../../formula/enemyRes';
-import { getCritMult } from '../../formula/getCritMult';
+import { getBuffMap } from '../getStatMap';
+import { getResMult } from '../formula/enemyRes';
+import { getCritMult } from '../formula/getCritMult';
 import { applyCryo } from './applyGauge';
 
 const LEVEL_MULTIPLIER = 1446.85;

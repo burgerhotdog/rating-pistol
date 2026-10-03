@@ -1,8 +1,8 @@
 import { GI } from '@/data';
 import { getAttr, formatStr } from '@/utils';
-import { getBuffMap } from '../../getStatMap';
-import { getResMult } from '../../formula/enemyRes';
-import { consumeAura } from './aura';
+import { getBuffMap } from '../getStatMap';
+import { getResMult } from '../formula/enemyRes';
+import { consumeAura } from '../states/aura';
 
 const LEVEL_MULTIPLIER = 1446.85;
 

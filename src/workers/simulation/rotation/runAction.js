@@ -1,10 +1,10 @@
 import { GI, WW } from '@/data';
 import { clamp } from '@/utils';
+import { applyGauge } from './gauge';
 import {
-  applyGauge,
   changeBondOfLife,
   grantBondOfLife,
-} from './game-specific/genshin-impact';
+} from './states/bondOfLife'
 import {
   runTuneBreak,
   applyOffTuneBuildup,
