@@ -7,6 +7,7 @@ import {
   Stack,
 } from '@mui/material';
 import { useData } from '@/hooks';
+import { formatNum } from '@/utils';
 import SummaryCard from './SummaryCard';
 import WeaponsDialog from './WeaponsDialog';
 import SetsDialog from './SetsDialog';
@@ -107,7 +108,7 @@ const Overview = ({ results }) => {
 
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
         <Card component={Stack} sx={{ flex: 2 }}>
-          <CardHeader title="Rotation Timeline" />
+          <CardHeader title="Rotation Timeline" subheader={`DPS: ${formatNum(results.userDps ?? 0)}`} />
           {timelineReady && (
             <TimelineChart
               memberIds={results.memberIds}
