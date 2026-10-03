@@ -3,13 +3,10 @@ import { applyCryo, tickElectroCharged, buildStellarSwirlSnapshot } from '../../
 function advanceElementAura(ctx, state, elapsed) {
   state.gauge -= elapsed / state.decayRate;
 
-  const isDeleted = state.gauge <= 0;
+  const isDepleted = state.gauge <= 0;
+  if (isDepleted) delete ctx.states.aura[state.element];
 
-  if (isDeleted) {
-    delete ctx.states.aura[state.element];
-  }
-
-  return isDeleted;
+  return isDepleted;
 }
 
 function advanceElectroCharged(ctx, elapsed) {
@@ -125,6 +122,7 @@ function advanceStellarSwirl(ctx, state, elapsed) {
         const snapshot = buildStellarSwirlSnapshot(ctx, 'cryo', level);
         ctx.snapshots.push(snapshot);
       }
+
       applyCryo(ctx, 1, state.ownerId);
 
       state.vortexTimer = null;
@@ -134,40 +132,43 @@ function advanceStellarSwirl(ctx, state, elapsed) {
   }
 }
 
+const isHandledByElectroCharged = (state) =>
+  state.reaction === 'electroCharged' ||
+  state.element === 'electro' ||
+  state.element === 'hydro';
+
 export function advanceAuras(ctx, elapsed) {
-  const shouldAdvanceElectroCharged = Boolean(ctx.states.aura.electroCharged);
-  if (shouldAdvanceElectroCharged) {
+  const store = ctx.states.aura;
+  const hasElectroCharged = Boolean(store.electroCharged);
+
+  if (hasElectroCharged) {
     advanceElectroCharged(ctx, elapsed);
   }
 
-  for (const state of Object.values(ctx.states.aura)) {
-    if ( // Already handled
-      shouldAdvanceElectroCharged && (
-        state.reaction === 'electroCharged' ||
-        state.element === 'electro' ||
-        state.element === 'hydro'
-      )
-    ) continue;
-
-    if (state.reaction) {
-      if (state.reaction === 'stellarConduct') {
-        advanceStellarConduct(ctx, state, elapsed);
-        continue;
-      }
-
-      if (state.reaction === 'stellarSwirl') {
-        advanceStellarSwirl(ctx, state, elapsed);
-        continue;
-      }
-
-      state.timeLeft -= elapsed;
-      if (state.timeLeft <= 0) {
-        delete ctx.states.aura[state.reaction];
-      }
+  for (const state of Object.values(store)) {
+    if (hasElectroCharged && isHandledByElectroCharged(state)) {
+      continue;
     }
-
+    
     if (state.element) {
       advanceElementAura(ctx, state, elapsed);
+      continue;
+    }
+
+    if (state.reaction === 'stellarConduct') {
+      advanceStellarConduct(ctx, state, elapsed);
+      continue;
+    }
+
+    if (state.reaction === 'stellarSwirl') {
+      advanceStellarSwirl(ctx, state, elapsed);
+      continue;
+    }
+
+    const remaining = state.timeLeft -= elapsed;
+
+    if (remaining <= 0) {
+      delete store[state.reaction];
     }
   }
 }
