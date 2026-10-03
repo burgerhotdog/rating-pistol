@@ -1127,9 +1127,22 @@
         "apply": {
           "when": "healthChange",
           "filter": {
-            "effectStacks": {
-              "has": "nascentLight"
-            }
+            "and": [
+              {
+                "action": {
+                  "drain": {
+                    "value": {
+                      ">": 0
+                    }
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "nascentLight"
+                }
+              }
+            ]
           },
           "cooldown": 800
         },
@@ -1143,9 +1156,7 @@
                 }
               },
               {
-                "filter": {
-                  "field": "offField"
-                }
+                "field": "offField"
               },
               {
                 "effectStacks": {
