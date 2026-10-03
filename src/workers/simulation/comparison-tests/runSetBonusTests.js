@@ -154,7 +154,7 @@ function getEchoCandidates(gameId, testSetIds) {
   });
 }
 
-export function runSetBonusTests(cache, equipMaps, charId) {
+export function runSetBonusTests(cache, equipMaps, charId, durationGetter) {
   const gameId = cache.gameId;
   const mCache = cache.member[charId];
 
@@ -204,7 +204,7 @@ export function runSetBonusTests(cache, equipMaps, charId) {
         staticMap: toMergedObj(newStaticMap, oldStaticMapPart),
         effects,
         rotation,
-      });
+      }, durationGetter);
     };
 
     if (!echoCandidates.length) {

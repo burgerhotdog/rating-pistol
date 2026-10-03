@@ -1,8 +1,7 @@
 import { getTotals } from '@/utils';
 import { runRotation } from '../rotation';
-import { computeDuration } from '../duration';
 
-export function runVariantDps(cache, equipMaps, charId, memberOverride) {
+export function runVariantDps(cache, equipMaps, charId, memberOverride, durationGetter, variantBonusEnergy) {
   const variantCache = {
     ...cache,
     member: {
@@ -15,7 +14,7 @@ export function runVariantDps(cache, equipMaps, charId, memberOverride) {
   };
 
   const snapshots = runRotation(variantCache, equipMaps);
-  const { time } = computeDuration(variantCache, equipMaps);
+  const { time } = durationGetter(variantCache, variantBonusEnergy);
   const totals = getTotals(snapshots);
   return (totals.damage + totals.healing + totals.shield) / time * 1000;
 }

@@ -2,8 +2,6 @@ import { GI, WW, CHARACTER, WEAPON } from '@/data';
 import {
   buildEquipMap,
   buildBaseMap,
-  clamp,
-  getEnergyLevel,
   getMemberCounts,
   toMergedObj,
 } from '@/utils';
@@ -73,18 +71,6 @@ function buildCacheMember(cache, member) {
 
   if (charData.tagged.includes('shield')) {
     mCache.shield = true;
-  }
-
-  if (charData.energy) {
-    mCache.energy = charData.energy;
-
-    const { energyMin = 1, energyMax = Infinity } = charData;
-    if (!mCache.statMap) {
-      mCache.energyReq = energyMin;
-    } else {
-      const energyLevel = getEnergyLevel(gameId, mCache.statMap);
-      mCache.energyReq = clamp(energyLevel, energyMin, energyMax);
-    }
   }
 
   if (gameId === WW) {
