@@ -1,11 +1,8 @@
 import { CHARACTER, LANG } from '@/data';
-import {
-  computeActualRotationTime,
-  estimateDps,
-  getTotals,
-} from '@/utils';
+import { estimateDps, getTotals } from '@/utils';
 import { buildCache } from './cache';
 import { runRotation } from './rotation';
+import { computeDuration } from './duration';
 import { runComparisonTests } from './comparison-tests';
 import { runEquipTests, runTrials } from './equip-tests';
 import { runSkillLevelTests } from './skill-level-tests';
@@ -52,7 +49,7 @@ self.onmessage = async ({ data }) => {
   self.postMessage({ title: 'Simulating rotation' });
   const userSnapshots = runRotation(cache, equipMaps);
   const userTotals = getTotals(userSnapshots);
-  const { time: userRotationTime, source: userRotationTimeSource } = computeActualRotationTime(cache, equipMaps);
+  const { time: userRotationTime, source: userRotationTimeSource } = computeDuration(cache, equipMaps);
   const userDps = (userTotals.damage + userTotals.healing + userTotals.shield) / userRotationTime * 1000;
 
   self.postMessage({

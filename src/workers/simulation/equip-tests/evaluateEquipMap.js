@@ -1,6 +1,7 @@
 import { GI } from '@/data';
 import { runRotation } from '../rotation';
-import { getTotals, toMergedObj, computeActualRotationTime } from '@/utils';
+import { getTotals, toMergedObj } from '@/utils';
+import { computeDuration } from '../duration';
 
 export function createEvaluateEquipMap(cache, equipMaps, evalId) {
   const { gameId } = cache;
@@ -18,7 +19,7 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
 
     const snapshots = snapshotSpecs(evalStatMap);
     const totals = getTotals(snapshots);
-    const { time } = computeActualRotationTime(cache, { ...equipMaps, [evalId]: evalEquipMap });
+    const { time } = computeDuration(cache, { ...equipMaps, [evalId]: evalEquipMap });
     const score = (totals.damage + totals.healing + totals.shield) / time * 1000;
 
     return { snapshots, totals, score, actualRotationTime: time };

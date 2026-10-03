@@ -1,6 +1,7 @@
 import { CHARACTER, MISC } from '@/data';
-import { computeActualRotationTime, getCompressed, getTotals, getMvIndex } from '@/utils';
+import { getCompressed, getTotals, getMvIndex } from '@/utils';
 import { runRotation } from '../rotation';
+import { computeDuration } from '../duration';
 
 const parts = ['damage', 'healing', 'shield'];
 
@@ -104,7 +105,7 @@ export function runSkillLevelTests(cache, equipMaps, charId) {
       };
 
       const snapshots = runRotation(testCache, equipMaps);
-      const { time } = computeActualRotationTime(testCache, equipMaps);
+      const { time } = computeDuration(testCache, equipMaps);
       const totals = getTotals(snapshots);
       const dps = (totals.damage + totals.healing + totals.shield) / time * 1000;
 
