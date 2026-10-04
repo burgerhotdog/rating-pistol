@@ -10,7 +10,7 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
 
   const toMerge = [mCache.baseMap, mCache.staticMap];
   if (gameId === GI) {
-    toMerge.push(cache.elementalResonance.stats);
+    toMerge.push(cache.teamResonance.stats);
   }
   const preMerged = toMergedObj(...toMerge);
 

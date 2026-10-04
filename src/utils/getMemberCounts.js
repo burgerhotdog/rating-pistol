@@ -3,19 +3,20 @@ import { CHARACTER, GI } from '@/data';
 export function getMemberCounts(gameId, memberIds) {
   const counts = {
     element: {},
-    ...(gameId === GI && { hexerei: 0 }),
+    ...(gameId === GI && {
+      moonsign: 0,
+      hexerei: 0,
+    }),
   };
 
   for (const memberId of memberIds) {
-    const charData = CHARACTER[gameId][memberId];
-    const { element } = charData;
+    const { element, moonsign, hexerei } = CHARACTER[gameId][memberId];
 
     counts.element[element] = (counts.element[element] ?? 0) + 1;
 
     if (gameId === GI) {
-      if (charData.hexerei) {
-        counts.hexerei++;
-      }
+      if (moonsign) counts.moonsign++;
+      if (hexerei) counts.hexerei++;
     }
   }
 

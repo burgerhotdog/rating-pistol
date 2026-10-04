@@ -9,8 +9,8 @@ import { getActionDefs } from './actions';
 import { getEffectDefs } from './effects';
 import { getConvertedRotation } from './rotation';
 import {
-  cacheElementalResonance,
-  cacheStellarReactions,
+  cacheExclusiveReactions,
+  cacheTeamResonance,
 } from './game-specific/genshin-impact';
 import {
   cacheTuneResponses,
@@ -65,14 +65,6 @@ function buildCacheMember(cache, member) {
 
   const charData = CHARACTER[gameId][member.id];
 
-  if (charData.tagged.includes('healing')) {
-    mCache.healing = true;
-  }
-
-  if (charData.tagged.includes('shield')) {
-    mCache.shield = true;
-  }
-
   if (gameId === WW) {
     if (charData.concertoReq) {
       mCache.concertoPenalty = !WEAPON[WW][member.weaponId]?.concerto;
@@ -97,8 +89,8 @@ export const buildCache = ({ gameId, charId, team }) => {
   );
 
   if (gameId === GI) {
-    cacheElementalResonance(cache);
-    cacheStellarReactions(cache);
+    cacheExclusiveReactions(cache);
+    cacheTeamResonance(cache);
   }
 
   if (gameId === WW) {

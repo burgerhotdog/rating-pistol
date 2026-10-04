@@ -121,7 +121,7 @@ export function runEffects(ctx, when, event = {}) {
   }
 
   if (gameId === GI) {
-    for (const effect of cache.elementalResonance.effects) {
+    for (const effect of cache.teamResonance.effects) {
       tryApply(ctx, when, effect, spec);
     }
   }

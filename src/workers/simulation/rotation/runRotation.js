@@ -19,7 +19,7 @@ const initBuildMaps = (cache, equipMaps) => {
     ];
 
     if (gameId === GI) {
-      sources.push(cache.elementalResonance.stats);
+      sources.push(cache.teamResonance.stats);
     }
 
     buildMaps[memberId] = toMergedObj(...sources);

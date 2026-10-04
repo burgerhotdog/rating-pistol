@@ -1,2 +1,2 @@
-export * from './elementalResonance';
-export * from './stellarReactions';
+export * from './exclusiveReactions';
+export * from './teamResonance';

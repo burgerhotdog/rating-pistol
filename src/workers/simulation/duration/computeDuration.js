@@ -13,7 +13,7 @@ function getStatMap(cache, memberId, equipMap) {
     baseMap,
     staticMap,
     equipMap,
-    ...(gameId === GI ? [cache.elementalResonance.stats] : []),
+    ...(gameId === GI ? [cache.teamResonance.stats] : []),
   );
 }
 
