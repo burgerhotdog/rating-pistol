@@ -62,8 +62,8 @@ function tryApply(ctx, when, effect, spec) {
     const applier = eventOwnerId ?? effect.ownerId;
     if (!apply.by.includes(applier) || applyCooldowns[effect.key]) continue;
 
-    const applierField = applier === states.onFieldId ? 'onField' : 'offField';
-    if (apply.field && apply.field !== applierField) continue;
+    const ownerField = effect.ownerId === states.onFieldId ? 'onField' : 'offField';
+    if (apply.field && apply.field !== ownerField) continue;
 
     if (!ctx.eventFilter(apply.filter, effect, { ...spec, fieldId: applier })) continue;
 

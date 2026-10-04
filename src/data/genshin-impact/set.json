@@ -1699,24 +1699,30 @@
       },
       {
         "bonus": 4,
-        "apply": {
-          "when": "start",
-          "field": "offField",
-          "filter": {
-            "field": "offField"
-          }
-        },
-        "remove": {
-          "when": "start",
-          "filter": {
-            "field": "onField"
-          },
-          "offset": 2000
-        },
         "buff": {
+          "filter": {
+            "or": [
+              {
+                "field": "offField"
+              },
+              {
+                "effectStacks": {
+                  "has": "onFieldTimer"
+                }
+              }
+            ]
+          },
           "stats": {
             "elementalSkillDmgBonus%": 0.25
           }
+        }
+      },
+      {
+        "ref": "onFieldTimer",
+        "apply": {
+          "when": "swap",
+          "field": "onField",
+          "duration": 2000
         }
       }
     ]
@@ -2040,7 +2046,6 @@
     ]
   },
   "15041": {
-    "disabled": true,
     "name": "Night of the Sky's Unveiling",
     "version": 6.0,
     "id": 15041,
@@ -2061,10 +2066,49 @@
       },
       {
         "bonus": 4,
-        "buff": {
+        "enable": {
+          "nascentGleam": true
+        },
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
           "filter": {
-            "field": "onField"
+            "reaction": {
+              "reaction": [
+                "lunarCharged",
+                "lunarBloom",
+                "lunarCrystallize"
+              ]
+            }
           },
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "critRate%": 0.15
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "ascendantGleam": true
+        },
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "lunarCharged",
+                "lunarBloom",
+                "lunarCrystallize"
+              ]
+            }
+          },
+          "duration": 4000
+        },
+        "buff": {
           "stats": {
             "critRate%": 0.3
           }
@@ -2073,7 +2117,6 @@
     ]
   },
   "15042": {
-    "disabled": true,
     "name": "Silken Moon's Serenade",
     "version": 6.0,
     "id": 15042,
@@ -2094,9 +2137,35 @@
       },
       {
         "bonus": 4,
+        "enable": {
+          "nascentGleam": true
+        },
         "stores": "$team",
         "apply": {
           "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 60
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "ascendantGleam": true
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "has": "damage"
@@ -2113,7 +2182,6 @@
     ]
   },
   "15043": {
-    "disabled": true,
     "name": "Aubade of Morningstar and Moon",
     "version": 6.3,
     "id": 15043,
@@ -2130,6 +2198,57 @@
           "stats": {
             "elementalMastery": 80
           }
+        }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "or": [
+              {
+                "field": "offField"
+              },
+              {
+                "effectStacks": {
+                  "has": "onFieldTimer"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "lunarReactionBonus%": 0.2
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "ascendantGleam": true
+        },
+        "buff": {
+          "filter": {
+            "or": [
+              {
+                "field": "offField"
+              },
+              {
+                "effectStacks": {
+                  "has": "onFieldTimer"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "lunarReactionBonus%": 0.4
+          }
+        }
+      },
+      {
+        "ref": "onFieldTimer",
+        "apply": {
+          "when": "swap",
+          "field": "onField",
+          "duration": 3000
         }
       }
     ]
