@@ -4,7 +4,7 @@ import { applyGauge } from './gauge';
 import {
   changeBondOfLife,
   grantBondOfLife,
-} from './states/bondOfLife'
+} from './states/bond-of-life'
 import {
   runTuneBreak,
   applyOffTuneBuildup,
@@ -14,11 +14,12 @@ import {
   consumeNegativeStatuses,
   inflictNegativeStatuses,
   replaceNegativeStatuses,
-} from './states/negativeStatuses';
+} from './states/negative-statuses';
 import { canSnapshot, buildSnapshot } from './snapshot';
 import { getEffectStates } from './getEffectStates';
 import { getModifiedAction } from './getModifiedAction';
 import { advanceStates } from './states';
+import { runRestoreEnergy } from './restoreEnergy';
 
 function decayBuffStates(ctx, action) {
   for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
@@ -81,6 +82,10 @@ export function runAction(ctx, action, options = {}) {
     }
 
     decayBuffStates(ctx, modifiedAction);
+  }
+
+  if (ctx.saveSnapshots) {
+    runRestoreEnergy(ctx, modifiedAction);
   }
 
   if (gameId === GI) {

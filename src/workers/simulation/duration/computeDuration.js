@@ -17,14 +17,36 @@ function getStatMap(cache, memberId, equipMap) {
   );
 }
 
-function getRequiredEr(cache, memberId, equipMap, bonusEnergy = {}) {
+// Memoized stat map lookup for any member, using the equip map chosen by getEquipMap
+function createStatMapLookup(cache, getEquipMap) {
+  const memo = {};
+  return (memberId) => memo[memberId] ??= getStatMap(cache, memberId, getEquipMap(memberId));
+}
+
+// Crit scaled entries are weighted by the crit rate of the member who triggered them
+function resolveBonusEnergy(memberBonusEnergy, statMapOf) {
+  if (!memberBonusEnergy) return { flat: 0, erScaled: 0 };
+
+  let { flat, erScaled } = memberBonusEnergy;
+
+  for (const entry of memberBonusEnergy.critScaled) {
+    const ownerStatMap = statMapOf(entry.ownerId);
+    const critRate = clamp((ownerStatMap['critRate%'] ?? 0) + (entry.buffMap['critRate%'] ?? 0), 0, 1);
+    const mult = 1 - ((1 - critRate) ** 2);
+    flat += entry.flat * mult;
+    erScaled += entry.erScaled * mult;
+  }
+
+  return { flat, erScaled };
+}
+
+function getRequiredEr(cache, memberId, statMapOf, bonusEnergy = {}) {
   const { gameId } = cache;
   const { energy, energyMin = 1, energyMax = Infinity } = CHARACTER[gameId][memberId];
 
-  const statMap = getStatMap(cache, memberId, equipMap);
-  const er = getEnergyLevel(gameId, statMap);
+  const er = getEnergyLevel(gameId, statMapOf(memberId));
 
-  const {flat = 0, erScaled = 0 } = bonusEnergy[memberId] ?? {};
+  const { flat, erScaled } = resolveBonusEnergy(bonusEnergy[memberId], statMapOf);
 
   const requiredEr = energy * er / (energy - flat - erScaled * er);
 
@@ -34,22 +56,23 @@ function getRequiredEr(cache, memberId, equipMap, bonusEnergy = {}) {
 function getRequiredErMap(cache, equipMaps, bonusEnergy) {
   const { gameId } = cache;
   const requiredErMap = {};
+  const statMapOf = createStatMapLookup(cache, (id) => equipMaps[id]);
 
   for (const memberId in cache.member) {
     const { energy } = CHARACTER[gameId][memberId];
     if (!energy) continue;
 
-    requiredErMap[memberId] = getRequiredEr(cache, memberId, equipMaps[memberId], bonusEnergy);
+    requiredErMap[memberId] = getRequiredEr(cache, memberId, statMapOf, bonusEnergy);
   }
 
   return requiredErMap;
 }
 
-// Member ids from for...in are strings, so compare against the numeric member.id
 function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, specEquipMap) {
   const { gameId } = cache;
   const source = {};
   let fullTime = 0;
+  const statMapOf = createStatMapLookup(cache, (id) => id === specId ? specEquipMap : equipMaps[id]);
 
   for (const memberId in cache.member) {
     const { id, duration, concertoPenalty } = cache.member[memberId];
@@ -64,15 +87,10 @@ function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, s
       fullTime += 3000;
     }
 
-    const equipMap = id === specId
-      ? specEquipMap
-      : equipMaps[memberId];
-
-    const statMap = getStatMap(cache, memberId, equipMap);
-    const testEr = getEnergyLevel(gameId, statMap);
+    const testEr = getEnergyLevel(gameId, statMapOf(id));
     const requiredEr = requiredErMap[memberId];
 
-    const { flat = 0, erScaled = 0 } = bonusEnergy[memberId] ?? {};
+    const { flat, erScaled } = resolveBonusEnergy(bonusEnergy[memberId], statMapOf);
 
     const energyPerEr = energy / requiredEr;
     const generated = (energyPerEr + erScaled) * testEr + flat;

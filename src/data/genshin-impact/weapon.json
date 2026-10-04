@@ -232,7 +232,41 @@
       "baseAtk": 454,
       "energyRecharge%": 0.613
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          },
+          "cooldown": 6000,
+          "action": [
+            {
+              "restoreEnergy": {
+                "erScaled": 2.4,
+                "critScaled": true
+              }
+            },
+            {
+              "restoreEnergy": {
+                "targets": "$team",
+                "erScaled": 3.6,
+                "critScaled": true
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
   "11402": {
     "name": "The Flute",
@@ -2287,7 +2321,41 @@
       "baseAtk": 454,
       "energyRecharge%": 0.613
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          },
+          "cooldown": 6000,
+          "action": [
+            {
+              "restoreEnergy": {
+                "erScaled": 2.4,
+                "critScaled": true
+              }
+            },
+            {
+              "restoreEnergy": {
+                "targets": "$team",
+                "erScaled": 3.6,
+                "critScaled": true
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
   "12402": {
     "disabled": true,
@@ -3136,7 +3204,41 @@
       "baseAtk": 565,
       "energyRecharge%": 0.306
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          },
+          "cooldown": 6000,
+          "action": [
+            {
+              "restoreEnergy": {
+                "erScaled": 2.4,
+                "critScaled": true
+              }
+            },
+            {
+              "restoreEnergy": {
+                "targets": "$team",
+                "erScaled": 3.6,
+                "critScaled": true
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
   "13408": {
     "name": "Royal Spear",
@@ -3863,7 +3965,41 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          },
+          "cooldown": 6000,
+          "action": [
+            {
+              "restoreEnergy": {
+                "erScaled": 2.4,
+                "critScaled": true
+              }
+            },
+            {
+              "restoreEnergy": {
+                "targets": "$team",
+                "erScaled": 3.6,
+                "critScaled": true
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
   "14402": {
     "disabled": true,
@@ -5355,7 +5491,41 @@
       "baseAtk": 454,
       "energyRecharge%": 0.613
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          },
+          "cooldown": 6000,
+          "action": [
+            {
+              "restoreEnergy": {
+                "erScaled": 2.4,
+                "critScaled": true
+              }
+            },
+            {
+              "restoreEnergy": {
+                "targets": "$team",
+                "erScaled": 3.6,
+                "critScaled": true
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
   "15402": {
     "name": "The Stringless",

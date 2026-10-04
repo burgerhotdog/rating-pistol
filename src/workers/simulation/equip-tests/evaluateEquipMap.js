@@ -6,7 +6,7 @@ import { createEquipDurationGetter } from '../duration';
 export function createEvaluateEquipMap(cache, equipMaps, evalId) {
   const { gameId } = cache;
   const mCache = cache.member[evalId];
-  const snapshotSpecs = runRotation(cache, equipMaps, evalId);
+  const { snapshots: snapshotSpecs, bonusEnergy } = runRotation(cache, equipMaps, evalId);
 
   const toMerge = [mCache.baseMap, mCache.staticMap];
   if (gameId === GI) {
@@ -14,7 +14,7 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
   }
   const preMerged = toMergedObj(...toMerge);
 
-  const durationGetter = createEquipDurationGetter(cache, equipMaps, evalId);
+  const durationGetter = createEquipDurationGetter(cache, equipMaps, evalId, bonusEnergy);
 
   return (evalEquipMap = {}) => {
     const evalStatMap = toMergedObj(preMerged, evalEquipMap);

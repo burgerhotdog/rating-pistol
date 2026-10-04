@@ -60,6 +60,7 @@ export const runRotation = (cache, equipMaps, specId) => {
     states: initStates(gameId, memberIds),
     snapshots: [],
     saveSnapshots: false,
+    bonusEnergy: Object.fromEntries(memberIds.map((id) => [id, { flat: 0, erScaled: 0, critScaled: [] }])),
     buildMaps: initBuildMaps(cache, equipMaps),
     ...(gameId === WW && {
       offTuneBuildup: [],
@@ -102,20 +103,30 @@ export const runRotation = (cache, equipMaps, specId) => {
   }
 
   if (!specId) {
-    return ctx.snapshots.map(({ unresolved: _, ...snapshot }) => snapshot);
+    return {
+      snapshots: ctx.snapshots.map(({ unresolved: _, ...snapshot }) => snapshot),
+      bonusEnergy: ctx.bonusEnergy,
+    };
   }
 
-  return (buildMap) => ctx.snapshots.map((snapshot) => {
-    const resolved = { ...snapshot };
+  return {
+    snapshots: (buildMap) => ctx.snapshots.map((snapshot) => {
+      const resolved = { ...snapshot };
 
-    for (const part of SNAPSHOT_PARTS) {
-      if (typeof snapshot[part] === 'function') {
-        resolved[part] = snapshot[part](buildMap);
+      if (typeof snapshot.damage === 'function') {
+        resolved.damage = snapshot.damage(buildMap);
       }
-    }
 
-    return resolved;
-  });
+      if (typeof snapshot.healing === 'function') {
+        resolved.healing = snapshot.healing(buildMap);
+      }
+
+      if (typeof snapshot.shield === 'function') {
+        resolved.shield = snapshot.shield(buildMap);
+      }
+
+      return resolved;
+    }),
+    bonusEnergy: ctx.bonusEnergy,
+  };
 };
-
-const SNAPSHOT_PARTS = ['damage', 'healing', 'shield'];

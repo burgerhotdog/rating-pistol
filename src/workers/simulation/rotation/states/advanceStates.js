@@ -1,7 +1,7 @@
 import { GI, WW } from '@/data';
 import { advanceIcdStates } from './icd';
 import { advanceAuras } from './aura';
-import { advanceNegativeStatuses } from './negativeStatuses';
+import { advanceNegativeStatuses } from './negative-statuses';
 import { advanceTune } from './tune';
 import { advanceEffects } from './effects';
 import { advanceCooldowns } from './cooldowns';

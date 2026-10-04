@@ -3,11 +3,11 @@ import { runSetBonusTests } from './runSetBonusTests';
 import { runWeaponTests } from './runWeaponTests';
 import { createVariantDurationGetter } from '../duration';
 
-export function runComparisonTests(cache, equipMaps) {
+export function runComparisonTests(cache, equipMaps, bonusEnergy) {
   const { gameId, charId } = cache;
   const langData = LANG[gameId];
 
-  const durationGetter = createVariantDurationGetter(cache, equipMaps);
+  const durationGetter = createVariantDurationGetter(cache, equipMaps, bonusEnergy);
 
   self.postMessage({ title: `Running ${langData.Weapon} Tests` });
   const weaponResults = runWeaponTests(cache, equipMaps, charId, durationGetter);
