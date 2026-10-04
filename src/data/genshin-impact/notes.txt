@@ -71,8 +71,6 @@ Weapons:
         doesn't need enemies nearby
     Aquila Favonia
         Effect always hits
-    Crane's Echoing Call
-        No energy effect
     Ferrous Shadow
         No effect
     Fillet Blade
@@ -83,8 +81,6 @@ Weapons:
         Assume buff always up
     Heretic's Molten Blade
         No effect
-    Moonweaver's Dawn
-        energy part not done
     Sapwood Blade
         Leaf buff applied to $first instantly
     Silver Light
@@ -107,7 +103,6 @@ Weapons:
         buff is constant instead of snapshotting
     Whitelake Frostfeather
         Stacks not independent
-        No energy effect
     Wolf's Gravestone
         Team buff disabled
     Xiphos' Moonlight
@@ -115,7 +110,6 @@ Weapons:
         Might not apply to rotation time calculation
 
     Weapon series with inactive effects
-        Favonius
         Sacrificial
         Blackcliff
 

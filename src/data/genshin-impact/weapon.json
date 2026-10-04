@@ -1223,6 +1223,47 @@
             ]
           }
         }
+      },
+      {
+        "enable": {
+          "owner": {
+            "energy": {
+              "and": [
+                {
+                  "<=": 60
+                },
+                {
+                  ">": 40
+                }
+              ]
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalBurstDmgBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "owner": {
+            "energy": {
+              "<=": 40
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalBurstDmgBonus%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
       }
     ]
   },
@@ -2119,6 +2160,28 @@
               0.5,
               1.1
             ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "cooldown": 3500,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                4,
+                6
+              ]
+            }
           }
         }
       }
@@ -4953,6 +5016,28 @@
             ]
           }
         }
+      },
+      {
+        "use": {
+          "by": "$ally",
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "plungingAttack"
+              }
+            }
+          },
+          "cooldown": 700,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                2.5,
+                3.5
+              ]
+            }
+          }
+        }
       }
     ]
   },
@@ -5907,7 +5992,6 @@
     "effects": []
   },
   "15424": {
-    "disabled": true,
     "name": "Scion of the Blazing Sun",
     "version": 4.0,
     "id": 15424,
@@ -5918,7 +6002,54 @@
       "baseAtk": 565,
       "critRate%": 0.184
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "cooldown": 10000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6,
+                    1.2
+                  ]
+                }
+              ]
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "heartsearer",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        }
+      },
+      {
+        "ref": "heartsearer",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "chargedAttackDmgBonus%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      }
+    ]
   },
   "15425": {
     "disabled": true,

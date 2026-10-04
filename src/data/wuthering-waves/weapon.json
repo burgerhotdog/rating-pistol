@@ -411,7 +411,27 @@
       "baseAtk": 300,
       "energyRegen%": 0.324
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "cooldown": 20000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                8,
+                12
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "21010044": {
     "name": "Dauntless Evernight",
@@ -717,7 +737,27 @@
       "baseAtk": 300,
       "atk%": 0.303
     },
-    "effects": []
+    "concerto": true,
+    "effects": [
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          },
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                4,
+                8
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "21010064": {
     "name": "Helios Cleaver",
@@ -1038,6 +1078,25 @@
       "atk%": 0.182
     },
     "effects": [
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "cooldown": 20000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                6,
+                10
+              ]
+            }
+          }
+        }
+      },
       {
         "apply": {
           "when": "start",
@@ -1652,7 +1711,27 @@
       "baseAtk": 300,
       "energyRegen%": 0.324
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "cooldown": 20000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                8,
+                12
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "21020044": {
     "name": "Commando of Conviction",
@@ -2148,6 +2227,25 @@
       "atk%": 0.182
     },
     "effects": [
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "cooldown": 20000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                6,
+                10
+              ]
+            }
+          }
+        }
+      },
       {
         "apply": {
           "when": "start",
@@ -2956,7 +3054,27 @@
       "baseAtk": 300,
       "atk%": 0.303
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "cooldown": 20000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                8,
+                12
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "21030044": {
     "name": "Undying Flame",
@@ -3376,6 +3494,25 @@
       "atk%": 0.182
     },
     "effects": [
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "cooldown": 20000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                6,
+                10
+              ]
+            }
+          }
+        }
+      },
       {
         "apply": {
           "when": "start",
@@ -3938,7 +4075,27 @@
       "baseAtk": 325,
       "def%": 0.307
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "cooldown": 20000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                8,
+                12
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "21040044": {
     "name": "Amity Accord",
@@ -4381,6 +4538,25 @@
       "atk%": 0.182
     },
     "effects": [
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "cooldown": 20000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                6,
+                10
+              ]
+            }
+          }
+        }
+      },
       {
         "apply": {
           "when": "start",
@@ -4986,7 +5162,27 @@
       "baseAtk": 300,
       "energyRegen%": 0.324
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "cooldown": 20000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                8,
+                12
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "21050044": {
     "name": "Jinzhou Keeper",
@@ -5518,6 +5714,25 @@
       "atk%": 0.182
     },
     "effects": [
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "resonanceSkill"
+            }
+          },
+          "cooldown": 20000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                6,
+                10
+              ]
+            }
+          }
+        }
+      },
       {
         "apply": {
           "when": "start",
