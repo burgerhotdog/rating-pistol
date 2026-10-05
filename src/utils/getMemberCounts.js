@@ -20,5 +20,7 @@ export function getMemberCounts(gameId, memberIds) {
     }
   }
 
+  counts.uniqueElements = Object.keys(counts.element).length;
+
   return counts;
 }

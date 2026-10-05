@@ -3453,7 +3453,6 @@
     "effects": []
   },
   "13424": {
-    "disabled": true,
     "name": "Ballad of the Fjords",
     "version": 4.0,
     "id": 13424,
@@ -3464,7 +3463,25 @@
       "baseAtk": 510,
       "critRate%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "enable": {
+          "counts": {
+            "uniqueElements": {
+              ">=": 3
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              120,
+              240
+            ]
+          }
+        }
+      }
+    ]
   },
   "13425": {
     "disabled": true,
@@ -3919,7 +3936,6 @@
     ]
   },
   "13516": {
-    "disabled": true,
     "name": "Bloodsoaked Ruins",
     "version": 6.0,
     "id": 13516,
@@ -3930,7 +3946,65 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalBurst"
+            }
+          },
+          "duration": 3500
+        },
+        "buff": {
+          "stats": {
+            "lunarChargedReactionBonus%": [
+              0.36,
+              0.72
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "lunarCharged"
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "lunarCharged"
+            }
+          },
+          "cooldown": 14000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                12,
+                16
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "13517": {
     "disabled": true,
@@ -5241,7 +5315,6 @@
     "effects": []
   },
   "14520": {
-    "disabled": true,
     "name": "Nightweaver's Looking Glass",
     "version": 6.0,
     "id": 14520,
@@ -5252,7 +5325,96 @@
       "baseAtk": 542,
       "elementalMastery": 265
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "prayerOfTheFarNorth",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "and": [
+                  {
+                    "type": "elementalSkill"
+                  },
+                  {
+                    "element": [
+                      "hydro",
+                      "dendro"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "duration": 4500
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              60,
+              120
+            ]
+          }
+        }
+      },
+      {
+        "ref": "newMoonVerse",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": "lunarBloom"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              60,
+              120
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "buff": {
+          "filter": {
+            "effectStacks": [
+              {
+                "has": "prayerOfTheFarNorth"
+              },
+              {
+                "has": "newMoonVerse"
+              }
+            ]
+          },
+          "stats": {
+            "bloomReactionBonus%": [
+              1.2,
+              2.4
+            ],
+            "hyperbloomReactionBonus%": [
+              0.8,
+              1.6
+            ],
+            "burgeonReactionBonus%": [
+              0.8,
+              1.6
+            ],
+            "lunarBloomReactionBonus%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      }
+    ]
   },
   "14521": {
     "disabled": true,
@@ -5269,7 +5431,6 @@
     "effects": []
   },
   "14522": {
-    "disabled": true,
     "name": "Nocturne's Curtain Call",
     "version": 6.3,
     "id": 14522,
@@ -5280,7 +5441,157 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "use": [
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "reaction": [
+                  "lunarCharged",
+                  "lunarBloom",
+                  "lunarCrystallize"
+                ]
+              }
+            },
+            "cooldown": 18000,
+            "action": {
+              "restoreEnergy": {
+                "flat": [
+                  14,
+                  18
+                ]
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "lunarCharged",
+                    "lunarBloom",
+                    "lunarCrystallize"
+                  ]
+                }
+              }
+            },
+            "cooldown": 18000,
+            "action": {
+              "restoreEnergy": {
+                "flat": [
+                  14,
+                  18
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "apply": [
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "reaction": [
+                  "lunarCharged",
+                  "lunarBloom",
+                  "lunarCrystallize"
+                ]
+              }
+            },
+            "duration": 12000
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "lunarCharged",
+                    "lunarBloom",
+                    "lunarCrystallize"
+                  ]
+                }
+              }
+            },
+            "duration": 12000
+          }
+        ],
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.14,
+              0.28
+            ]
+          }
+        }
+      },
+      {
+        "apply": [
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "reaction": [
+                  "lunarCharged",
+                  "lunarBloom",
+                  "lunarCrystallize"
+                ]
+              }
+            },
+            "duration": 12000
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "lunarCharged",
+                    "lunarBloom",
+                    "lunarCrystallize"
+                  ]
+                }
+              }
+            },
+            "duration": 12000
+          }
+        ],
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "lunarCharged",
+                  "lunarBloom",
+                  "lunarCrystallize"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "critDmg%": [
+              0.6,
+              1.2
+            ]
+          }
+        }
+      }
+    ]
   },
   "14523": {
     "name": "Angelos' Heptades",

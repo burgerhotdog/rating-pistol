@@ -45804,13 +45804,13 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "fullMoonDomain"
+                "action": {
+                  "has": "shield"
                 }
               },
               {
-                "action": {
-                  "has": "shield"
+                "effectStacks": {
+                  "has": "fullMoonDomain"
                 }
               }
             ]

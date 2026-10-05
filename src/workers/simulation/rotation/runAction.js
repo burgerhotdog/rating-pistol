@@ -20,6 +20,7 @@ import { getEffectStates } from './getEffectStates';
 import { getModifiedAction } from './getModifiedAction';
 import { advanceStates } from './states';
 import { runRestoreEnergy } from './restoreEnergy';
+import { updateShielded } from './states/shielded';
 
 function decayBuffStates(ctx, action) {
   for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
@@ -136,11 +137,7 @@ export function runAction(ctx, action, options = {}) {
       });
     }
 
-    if (modifiedAction.shield) {
-      const { duration = 0 } = modifiedAction.shield;
-      const prev = ctx.states.shielded ?? 0;
-      ctx.states.shielded = Math.max(duration, prev);
-    }
+    updateShielded(ctx, modifiedAction);
   }
 
   advanceTimeTo(duration);

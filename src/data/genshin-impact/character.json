@@ -9888,6 +9888,7 @@
           {
             "name": "Breastplate: Shield",
             "shield": {
+              "duration": 12000,
               "attr": "def",
               "multipliers": [
                 {
@@ -13738,7 +13739,13 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000120,
+      10000125,
+      10000116,
+      10000043
+    ]
   },
   "10000044": {
     "disabled": true,
@@ -49241,8 +49248,9 @@
             }
           },
           {
-            "name": "Shield DMG Absorption",
+            "name": "Shield Absorption",
             "shield": {
+              "duration": 20000,
               "multipliers": [
                 {
                   "mv": [
@@ -49356,7 +49364,13 @@
       "rotation": [
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000120,
+      10000125,
+      10000116,
+      10000043
+    ]
   },
   "10000119": {
     "disabled": true,
@@ -49375,7 +49389,27 @@
     },
     "energy": 60,
     "moonsign": true,
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 15000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalSkill.3"
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Peregrination of Linnunrata",
@@ -49462,8 +49496,8 @@
             }
           },
           {
-            "name": "Spiritcall Prayer DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack: Spiritcall Prayer",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -49483,33 +49517,6 @@
                     2.7421,
                     2.9034,
                     3.0647
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
                   ]
                 }
               ]
@@ -49568,6 +49575,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -49576,7 +49610,7 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -49657,9 +49691,9 @@
             }
           },
           {
-            "name": "Frostgrove Sanctuary Attack DMG",
-            "type": "elementalSkill",
+            "name": "Frostgrove Sanctuary Attack",
             "damage": {
+              "type": "elementalSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -49704,11 +49738,10 @@
           },
           {
             "name": "Elemental RES Decrease",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.025,
                     0.05,
                     0.075,
@@ -49736,12 +49769,15 @@
         "rankModify": 3,
         "actions": [
           {
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
             "name": "Bloom, Hyperbloom, and Burgeon DMG Increase",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     2.7776,
                     2.9859,
                     3.1942,
@@ -49764,11 +49800,10 @@
           },
           {
             "name": "Lunar-Bloom DMG Increase",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     2.2224,
                     2.3891,
                     2.5558,
@@ -49792,10 +49827,14 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14520,
+      "setCounts": {
+        "15042": 4
+      }
+    }
   },
   "10000120": {
-    "disabled": true,
     "name": "Flins",
     "version": 6.0,
     "id": 10000120,
@@ -49811,7 +49850,107 @@
     },
     "energy": 80,
     "moonsign": true,
-    "effects": [],
+    "effects": [
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "buff": {
+          "stats": {
+            "lunarChargedReactionBonus%": 0.2
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "action": [
+            "elementalBurst.1",
+            "elementalBurst.2"
+          ]
+        }
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.0"
+                }
+              },
+              {
+                "states": {
+                  "aura": {
+                    "has": "lunarCharged"
+                  }
+                }
+              }
+            ]
+          },
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.3"
+                }
+              },
+              {
+                "states": {
+                  "aura": {
+                    "has": "lunarCharged"
+                  }
+                }
+              }
+            ]
+          },
+          "action": "elementalBurst.4"
+        }
+      },
+      {
+        "buff": {
+          "specs": {
+            "elementalMastery": {
+              "attr": "atk",
+              "step": 1,
+              "value": 0.08,
+              "maxValue": 160
+            }
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "specs": {
+            "lunarChargedBaseDmg%": {
+              "attr": "atk",
+              "step": 100,
+              "value": 0.007,
+              "maxValue": 0.14
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Pocztowy Demonspear",
@@ -49919,7 +50058,8 @@
                     0.7674,
                     0.8121,
                     0.8569
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
@@ -49979,33 +50119,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6393,
-                    0.6914,
-                    0.7434,
-                    0.8177,
-                    0.8698,
-                    0.9293,
-                    1.011,
-                    1.0928,
-                    1.1746,
-                    1.2638,
-                    1.353,
-                    1.4422,
-                    1.5314,
-                    1.6206,
-                    1.7098
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -50058,6 +50171,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6393,
+                    0.6914,
+                    0.7434,
+                    0.8177,
+                    0.8698,
+                    0.9293,
+                    1.011,
+                    1.0928,
+                    1.1746,
+                    1.2638,
+                    1.353,
+                    1.4422,
+                    1.5314,
+                    1.6206,
+                    1.7098
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -50066,9 +50206,19 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "1-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Manifest Flame: Normal Attack 1",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50093,9 +50243,15 @@
             }
           },
           {
-            "name": "2-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Manifest Flame: Normal Attack 2",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50120,9 +50276,15 @@
             }
           },
           {
-            "name": "3-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Manifest Flame: Normal Attack 3",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50147,9 +50309,15 @@
             }
           },
           {
-            "name": "4-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Manifest Flame: Normal Attack 4",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50168,15 +50336,22 @@
                     0.8867,
                     0.9388,
                     0.991
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
           },
           {
-            "name": "5-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Manifest Flame: Normal Attack 5",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50201,9 +50376,10 @@
             }
           },
           {
-            "name": "Charged Attack DMG",
-            "type": "elementalSkill",
+            "name": "Manifest Flame: Charged Attack",
+            "type": "chargedAttack",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -50228,9 +50404,10 @@
             }
           },
           {
-            "name": "Northland Spearstorm DMG",
+            "name": "Elemental Skill: Northland Spearstorm",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -50261,9 +50438,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Initial Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -50288,9 +50466,9 @@
             }
           },
           {
-            "name": "Middle Phase Lunar-Charged DMG",
-            "type": "elementalBurst",
+            "name": "Middle Phase",
             "damage": {
+              "type": "lunarCharged",
               "multipliers": [
                 {
                   "mv": [
@@ -50309,15 +50487,16 @@
                     0.3451,
                     0.3654,
                     0.3857
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
           },
           {
-            "name": "Final Phase Lunar-Charged DMG",
-            "type": "elementalBurst",
+            "name": "Final Phase",
             "damage": {
+              "type": "lunarCharged",
               "multipliers": [
                 {
                   "mv": [
@@ -50342,9 +50521,10 @@
             }
           },
           {
-            "name": "Thunderous Symphony DMG",
+            "name": "Elemental Burst: Thunderous Symphony",
             "type": "elementalBurst",
             "damage": {
+              "type": "lunarCharged",
               "multipliers": [
                 {
                   "mv": [
@@ -50366,12 +50546,13 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 1000
           },
           {
-            "name": "Thunderous Symphony Additional DMG",
-            "type": "elementalBurst",
+            "name": "Thunderous Symphony Additional",
             "damage": {
+              "type": "lunarCharged",
               "multipliers": [
                 {
                   "mv": [
@@ -50398,7 +50579,36 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13516,
+      "setCounts": {
+        "15041": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.4",
+        "elementalSkill.5",
+        "elementalSkill.7",
+        "elementalBurst.3",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.4",
+        "elementalSkill.5",
+        "elementalSkill.7",
+        "elementalBurst.3"
+      ],
+      "duration": 11000
+    },
+    "teamPreset": [
+      10000120,
+      10000125,
+      10000116,
+      10000043
+    ]
   },
   "10000121": {
     "disabled": true,
@@ -52890,7 +53100,6 @@
     "memberPreset": {}
   },
   "10000125": {
-    "disabled": true,
     "name": "Columbina",
     "version": 6.3,
     "id": 10000125,
@@ -52906,7 +53115,69 @@
     },
     "energy": 60,
     "moonsign": true,
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 25000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "lunarDomain",
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "statRefs": {
+            "lunarReactionBonus%": "elementalBurst.1"
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "has": "lunarDomain"
+            }
+          },
+          "stats": {
+            "lunarChargedBaseDmg%": 0.33,
+            "lunarCrystallizeBaseDmg%": 0.33
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "specs": {
+            "lunarBaseDmg%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 0.002,
+              "maxValue": 0.07
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Moondew Cascade",
@@ -53020,9 +53291,13 @@
             }
           },
           {
-            "name": "Moondew Cleanse DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack: Moondew Cleanse",
+            "type": "chargedAttack",
             "damage": {
+              "type": "lunarBloom",
+              "gauge": 0,
+              "element": "dendro",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -53041,34 +53316,8 @@
                     0.0321,
                     0.034,
                     0.0359
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
@@ -53126,6 +53375,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -53134,9 +53410,11 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -53161,9 +53439,10 @@
             }
           },
           {
-            "name": "Gravity Ripple: Continuous DMG",
-            "type": "elementalSkill",
+            "name": "Gravity Ripple: Continuous",
             "damage": {
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -53188,9 +53467,9 @@
             }
           },
           {
-            "name": "Gravity Interference: Lunar-Charged DMG",
-            "type": "elementalSkill",
+            "name": "Gravity Interference: Lunar-Charged",
             "damage": {
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -53215,9 +53494,9 @@
             }
           },
           {
-            "name": "Gravity Interference: Lunar-Bloom DMG",
-            "type": "elementalSkill",
+            "name": "Gravity Interference: Lunar-Bloom",
             "damage": {
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -53236,15 +53515,16 @@
                     0.0299,
                     0.0317,
                     0.0334
-                  ]
+                  ],
+                  "times": 5
                 }
               ]
             }
           },
           {
-            "name": "Gravity Interference: Lunar-Crystallize DMG",
-            "type": "elementalSkill",
+            "name": "Gravity Interference: Lunar-Crystallize",
             "damage": {
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -53275,9 +53555,11 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -53303,11 +53585,10 @@
           },
           {
             "name": "Lunar Reaction DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.13,
                     0.16,
                     0.19,
@@ -53331,7 +53612,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14522,
+      "setCounts": {
+        "15042": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000120,
+      10000125,
+      10000116,
+      10000043
+    ]
   },
   "10000126": {
     "disabled": true,

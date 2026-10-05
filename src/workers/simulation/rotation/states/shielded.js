@@ -8,3 +8,11 @@ export function advanceShielded(ctx, elapsed) {
     states.shielded = false;
   }
 }
+
+export function updateShielded(ctx, action) {
+  const { states } = ctx;
+  const duration = action.shield?.duration;
+  if (!duration) return;
+
+  states.shielded = Math.max(duration, states.shielded ?? 0);
+}

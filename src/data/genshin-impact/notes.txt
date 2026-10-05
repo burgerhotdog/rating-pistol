@@ -5,6 +5,9 @@ Characters:
         C2 popping baron bunny doesnt do 200% extra dmgBonus
     Bennett
         No constellations
+    Columbina
+        Minimal Lunar Charged implementation
+        No constellations
     Chevreuse
         No C1
         No C4 cooldown
@@ -15,6 +18,7 @@ Characters:
         No constellations
     Faruzan
     Fischl
+    Flins
     Ineffa
     Kaeya
     Kazuha

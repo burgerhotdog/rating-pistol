@@ -46,7 +46,7 @@ export function buildElevationSnapshot(ctx, rxnKey, spec = {}) {
   const allMemberBuffs = {};
 
   for (const memberId of ctx.cache.memberIds) {
-    const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId });
+    const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId, action: { damage: { type: rxnKey } } });
     const { buffMap: sourceBuffMap } = getBuffMap(ctx, { memberId, ignoreSpecs: true });
 
     allMemberBuffs[memberId] = { buffMap, buffSpecs, sourceBuffMap };
