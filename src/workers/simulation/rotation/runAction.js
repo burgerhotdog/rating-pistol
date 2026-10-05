@@ -59,16 +59,14 @@ export function runAction(ctx, action, options = {}) {
     actionRuntime += elapsed;
   };
 
-  const runEffects = (when) => ctx.runEffects(when, modifiedAction);
-
   if (modifiedAction.key === 'system:tuneBreak') {
     runTuneBreak(ctx, modifiedAction);
-    runEffects('tuneBreak');
+    ctx.runEffects('tuneBreak', modifiedAction);
     return;
   }
 
   // Action timeline
-  runEffects('start');
+  ctx.runEffects('start', modifiedAction);
   advanceTimeTo(hitOffsets[0]);
 
   let sharedSnapshot;
@@ -99,11 +97,11 @@ export function runAction(ctx, action, options = {}) {
     inflictTuneShifting(ctx, modifiedAction);
   }
 
-  runEffects('inflict');
+  ctx.runEffects('inflict', modifiedAction);
 
   for (const offset of hitOffsets) {
     advanceTimeTo(offset);
-    runEffects('hit');
+    ctx.runEffects('hit', modifiedAction);
 
     if (modifiedAction.drain) {
       runDrain(ctx, modifiedAction);
@@ -146,7 +144,7 @@ export function runAction(ctx, action, options = {}) {
   }
 
   advanceTimeTo(duration);
-  runEffects('end');
+  ctx.runEffects('end', modifiedAction);
 }
 
 function runDrain(ctx, modifiedAction) {

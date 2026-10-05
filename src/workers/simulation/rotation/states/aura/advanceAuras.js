@@ -1,4 +1,5 @@
-import { applyCryo, tickElectroCharged, buildStellarSwirlSnapshot } from '../../gauge';
+import { applyCryo, tickElectroCharged } from '../../gauge';
+import { buildElevationSnapshot } from '../../snapshot';
 
 function advanceElementAura(ctx, state, elapsed) {
   state.gauge -= elapsed / state.decayRate;
@@ -118,8 +119,11 @@ function advanceStellarSwirl(ctx, state, elapsed) {
 
     if (state.vortexTimer <= 0) {
       if (ctx.saveSnapshots) {
-        const level = state.vortexHits >= 2 ? 2 : 1;
-        const snapshot = buildStellarSwirlSnapshot(ctx, 'cryo', level);
+        const snapshot = buildElevationSnapshot(ctx, 'stellarSwirl', {
+          multiplier: state.vortexHits >= 2 ? 3 : 2,
+          element: 'cryo',
+        });
+
         ctx.snapshots.push(snapshot);
       }
 

@@ -1,11 +1,5 @@
-import { GI } from '@/data';
-import { getAttr } from '@/utils';
-import { getBuffMap } from '../getStatMap';
-import { getResMult } from '../formula/enemyRes';
-import { getCritMult } from '../formula/getCritMult';
 import { applyCryo } from './applyGauge';
-
-const LEVEL_MULTIPLIER = 1446.85;
+import { buildElevationSnapshot } from '../snapshot';
 
 const REACTION_DEFS = {
   stellarConduct: {
@@ -17,68 +11,6 @@ const REACTION_DEFS = {
     elements: ['cryo', 'anemo'],
   },
 };
-
-function getEmMult(em) {
-  return (6 * em) / (2000 + em);
-}
-
-function runFormula(statMap, reactionElement, multiplier) {
-  const em = getAttr('elementalMastery', statMap);
-
-  const baseValue = (
-    multiplier *
-    LEVEL_MULTIPLIER *
-    (1 + getAttr('stellarSwirlBaseDmg%', statMap) + getAttr('stellarGlimmerBaseDmg%', statMap)) *
-    (1 + getEmMult(em) + getAttr('stellarSwirlReactionBonus%', statMap) + getAttr('stellarGlimmerReactionBonus%', statMap)) +
-    getAttr('stellarGlimmerFlat', statMap)
-  );
-
-  return baseValue *
-    getCritMult(statMap) *
-    getResMult(GI, reactionElement, statMap);
-}
-
-export function buildStellarSwirlSnapshot(ctx, reactionElement, level) {
-  const multiplier = reactionElement === 'anemo'
-    ? 0.75
-    : level === 2
-      ? 3
-      : 2;
-
-  const allMemberBuffs = {};
-  for (const memberId of ctx.cache.memberIds) {
-    allMemberBuffs[memberId] = {
-      ...getBuffMap(ctx, { memberId }),
-      sourceBuffMap: getBuffMap(ctx, {
-        memberId,
-        ignoreSpecs: true,
-      }).buffMap,
-    };
-  }
-
-  const memo = {};
-
-  const snapshot = {
-    key: `system:stellarSwirl`,
-    name: 'Stellar Swirl',
-    ownerId: 'system',
-    type: 'stellarReaction',
-    damageType: 'stellarSwirl',
-    onFieldId: ctx.states.onFieldId,
-    runtime: ctx.states.runtime,
-    unresolved: {
-      elevation: true,
-      memo,
-      allMemberBuffs,
-      formula: (statMap) => runFormula(statMap, reactionElement, multiplier),
-      scale: 1,
-      parts: ['damage'],
-      reactionElement,
-    },
-  };
-
-  return snapshot;
-}
 
 export function reactStellarConduct(ctx, ownerId) {
   const state = ctx.states.aura.stellarConduct ??= {
@@ -110,7 +42,11 @@ export function reactStellarSwirl(ctx, ownerId) {
     state.ownerId = ownerId;
   } else {
     if (ctx.saveSnapshots) {
-      const snapshot = buildStellarSwirlSnapshot(ctx, 'anemo');
+      const snapshot = buildElevationSnapshot(ctx, 'stellarSwirl', {
+        multiplier: 0.75,
+        element: 'anemo',
+      });
+
       ctx.snapshots.push(snapshot);
     }
 
@@ -121,9 +57,14 @@ export function reactStellarSwirl(ctx, ownerId) {
 
   if (state.vortexHits === 5) {
     if (ctx.saveSnapshots) {
-      const snapshot = buildStellarSwirlSnapshot(ctx, 'cryo', 2);
+      const snapshot = buildElevationSnapshot(ctx, 'stellarSwirl', {
+        multiplier: 3,
+        element: 'cryo',
+      });
+
       ctx.snapshots.push(snapshot);
     }
+
     applyCryo(ctx, 1, ownerId);
 
     state.vortexTimer = null;
