@@ -15,6 +15,7 @@ Characters:
         No constellations
     Faruzan
     Fischl
+    Ineffa
     Kaeya
     Kazuha
     Klee

@@ -3853,7 +3853,6 @@
     "effects": []
   },
   "13515": {
-    "disabled": true,
     "name": "Fractured Halo",
     "version": 5.8,
     "id": 13515,
@@ -3864,7 +3863,60 @@
       "baseAtk": 608,
       "critDmg%": 0.662
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "atkBuff",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "elementalSkill",
+                "elementalBurst"
+              ]
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "shield"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "atkBuff"
+                }
+              }
+            ]
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "lunarChargedReactionBonus%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      }
+    ]
   },
   "13516": {
     "disabled": true,
