@@ -22,7 +22,7 @@ export function resolveElevationSnapshot(ctx, snapshot) {
 
   const calculate = (testBuildMap) => {
     const testBuffMap = ctx.specId
-      ? allMemberBuffs[ctx.specId].sourceBuffMap
+      ? toMergedObj(testBuildMap, allMemberBuffs[ctx.specId].sourceBuffMap)
       : null;
 
     const memberDamageValues = memberIds.map((memberId) => {

@@ -44,11 +44,17 @@ export function elevationReactionUsedAttrs(rxnKey, rxnElement) {
     `${rxnKey}BaseDmg%`,
     `${rxnGroup}BaseDmg%`,
     'elementalMastery',
+    'elementalMastery%',
     `${rxnKey}ReactionBonus%`,
     `${rxnGroup}ReactionBonus%`,
     `${rxnGroup}Flat`,
     'critRate%',
     'critDmg%',
+    'resReduction%',
     `${rxnElement}ResReduction%`,
+    'elementalResReduction%',
+    'resIgnore%',
+    `${rxnElement}ResIgnore%`,
+    'elementalResIgnore%',
   ]);
 }
