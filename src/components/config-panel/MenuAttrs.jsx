@@ -85,7 +85,10 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
   const charData = CHARACTER[gameId][charId];
   for (const effect of charData.effects ?? []) {
     if (
-      effect.rank > member.rank ||
+      (
+        effect.rank > 0 && member.rank < effect.rank ||
+        effect.rank < 0 && member.rank >= -effect.rank
+      ) ||
       effect.mode && effect.mode !== member.mode ||
       !isEnabled(gameId, effect, charId, counts) ||
       !isStaticBuff(effect) ||

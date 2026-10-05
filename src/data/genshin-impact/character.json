@@ -20731,6 +20731,7 @@
         "maxStacks": 2
       },
       {
+        "rank": -2,
         "ref": "turret1",
         "apply": {
           "when": "hit",
@@ -20822,6 +20823,7 @@
         ]
       },
       {
+        "rank": -2,
         "ref": "turret2",
         "apply": {
           "when": "hit",
@@ -20911,6 +20913,7 @@
         ]
       },
       {
+        "rank": -2,
         "ref": "turret3",
         "apply": {
           "when": "hit",
@@ -21365,9 +21368,23 @@
           {
             "when": "hit",
             "filter": {
-              "not": {
-                "radiance": "stellarConduct"
-              }
+              "and": [
+                {
+                  "not": {
+                    "radiance": "stellarConduct"
+                  }
+                },
+                {
+                  "action": {
+                    "ref": [
+                      "elementalSkill.1",
+                      "elementalSkill.2",
+                      "elementalSkill.3",
+                      "elementalSkill.4"
+                    ]
+                  }
+                }
+              ]
             }
           },
           {
@@ -21401,6 +21418,415 @@
             }
           }
         ]
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "action": {
+            "restoreEnergy": {
+              "flat": 8
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "stores": "$team",
+        "apply": [
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "reaction": [
+                  "superconduct",
+                  "stellarConduct"
+                ]
+              }
+            },
+            "duration": 10000
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "stellarConduct"
+                }
+              }
+            },
+            "duration": 10000
+          }
+        ],
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.5,
+            "stellarConductReactionBonus%": 0.5
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "ref": "turret1",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "prevTurret"
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 24000,
+          "offset": 2000,
+          "commands": {
+            "type": "apply",
+            "ref": "prevTurret"
+          }
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": [
+                    "turret2",
+                    "turret3"
+                  ]
+                }
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": [
+                      "turret2",
+                      "turret3"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "and": [
+                        {
+                          "has": "turret2"
+                        },
+                        {
+                          "has": "turret3"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.3"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "turret2"
+                  },
+                  {
+                    "has": "turret3"
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.4"
+          }
+        ]
+      },
+      {
+        "rank": 2,
+        "ref": "turret2",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "prevTurret": 1
+                }
+              }
+            ]
+          },
+          "duration": 24000,
+          "offset": 2000,
+          "commands": {
+            "type": "apply",
+            "ref": "prevTurret"
+          }
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": [
+                    "turret1",
+                    "turret3"
+                  ]
+                }
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": [
+                      "turret1",
+                      "turret3"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "and": [
+                        {
+                          "has": "turret1"
+                        },
+                        {
+                          "has": "turret3"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.3"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "turret1"
+                  },
+                  {
+                    "has": "turret3"
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.4"
+          }
+        ]
+      },
+      {
+        "rank": 2,
+        "ref": "turret3",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "prevTurret": 2
+                }
+              }
+            ]
+          },
+          "duration": 24000,
+          "offset": 2000,
+          "commands": {
+            "type": "remove",
+            "ref": "prevTurret"
+          }
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": [
+                    "turret1",
+                    "turret2"
+                  ]
+                }
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": [
+                      "turret1",
+                      "turret2"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "and": [
+                        {
+                          "has": "turret1"
+                        },
+                        {
+                          "has": "turret2"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.3"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "turret1"
+                  },
+                  {
+                    "has": "turret2"
+                  }
+                ]
+              }
+            },
+            "cooldown": 3000,
+            "action": "elementalSkill.4"
+          }
+        ]
+      },
+      {
+        "rank": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalSkill.2",
+                "elementalSkill.3",
+                "elementalSkill.4"
+              ]
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalSkill.2",
+                "elementalSkill.3",
+                "elementalSkill.4"
+              ]
+            }
+          },
+          "cooldown": 5000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 8
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "buff": {
+          "stats": {
+            "elementalBurstDmgBonus%": 1
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalSkill.2",
+                "elementalSkill.3",
+                "elementalSkill.4"
+              ]
+            }
+          },
+          "stats": {
+            "defIgnore%": 0.6
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "stellarConduct"
+              }
+            }
+          },
+          "stats": {
+            "critDmg%": 2
+          }
+        }
       }
     ],
     "skills": {

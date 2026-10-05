@@ -55,8 +55,6 @@ Characters:
         No energy recovery
         3 sword always
         no orbitals from skill
-    Yae Miko
-        No constellations
     Yelan
         No barb reset
     Yumemizuki Mizuki
