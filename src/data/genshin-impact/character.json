@@ -48890,6 +48890,37 @@
         }
       },
       {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.2"
+                }
+              },
+              {
+                "states": {
+                  "aura": {
+                    "has": "lunarCharged"
+                  }
+                }
+              }
+            ]
+          },
+          "action": {
+            "damage": {
+              "type": "lunarCharged",
+              "multipliers": [
+                {
+                  "mv": 0.65
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
         "stores": "$team",
         "apply": {
           "when": "start",
