@@ -1,4 +1,4 @@
-import { applyCryo, tickElectroCharged } from '../../gauge';
+import { applyCryo, tickElectroCharged, tickLunarCharged } from '../../gauge';
 import { buildElevationSnapshot } from '../../snapshot';
 
 function advanceElementAura(ctx, state, elapsed) {
@@ -10,37 +10,40 @@ function advanceElementAura(ctx, state, elapsed) {
   return isDepleted;
 }
 
-function advanceElectroCharged(ctx, elapsed) {
+function advanceCharged(ctx, elapsed) {
   const { aura } = ctx.states;
-  let electroCharged = aura.electroCharged;
+  const rxnKey = ctx.cache.lunarCharged ? 'lunarCharged' : 'electroCharged';
+  let charged = aura[rxnKey];
   let electro = aura.electro;
   let hydro = aura.hydro;
 
   let remaining = elapsed;
 
   const tick = () => {
-    const stateDeleted = tickElectroCharged(ctx, electroCharged.applier, elapsed - remaining);
+    const stateDeleted = ctx.cache.lunarCharged
+      ? tickLunarCharged(ctx, elapsed - remaining)
+      : tickElectroCharged(ctx, charged.applier, elapsed - remaining);
 
     if (stateDeleted) {
-      electroCharged = null;
+      charged = null;
       electro = aura.electro;
       hydro = aura.hydro;
     }
   };
 
-  if (electroCharged.timeLeft === 0) {
+  if (charged.timeLeft === 0) {
     tick();
   }
 
   while (remaining > 0) {
-    const interval = electroCharged
-      ? Math.min(remaining, electroCharged.timeLeft)
+    const interval = charged
+      ? Math.min(remaining, charged.timeLeft)
       : remaining;
 
     remaining -= interval;
 
-    if (electroCharged) {
-      electroCharged.timeLeft -= interval;
+    if (charged) {
+      charged.timeLeft -= interval;
     }
 
     if (electro) {
@@ -48,9 +51,9 @@ function advanceElectroCharged(ctx, elapsed) {
       if (stateDeleted) {
         electro = null;
 
-        if (electroCharged) {
-          delete aura.electroCharged;
-          electroCharged = null;
+        if (charged) {
+          delete aura[rxnKey];
+          charged = null;
         }
       }
     }
@@ -60,14 +63,14 @@ function advanceElectroCharged(ctx, elapsed) {
       if (stateDeleted) {
         hydro = null;
 
-        if (electroCharged) {
-          delete aura.electroCharged;
-          electroCharged = null;
+        if (charged) {
+          delete aura[rxnKey];
+          charged = null;
         }
       }
     }
 
-    if (electroCharged && electroCharged.timeLeft === 0) {
+    if (charged && charged.timeLeft === 0) {
       tick();
     }
   }
@@ -136,24 +139,25 @@ function advanceStellarSwirl(ctx, state, elapsed) {
   }
 }
 
-const isHandledByElectroCharged = (state) =>
+const isHandledByCharged = (state) =>
   state.reaction === 'electroCharged' ||
+  state.reaction === 'lunarCharged' ||
   state.element === 'electro' ||
   state.element === 'hydro';
 
 export function advanceAuras(ctx, elapsed) {
   const store = ctx.states.aura;
-  const hasElectroCharged = Boolean(store.electroCharged);
+  const hasCharged = Boolean(store.electroCharged || store.lunarCharged);
 
-  if (hasElectroCharged) {
-    advanceElectroCharged(ctx, elapsed);
+  if (hasCharged) {
+    advanceCharged(ctx, elapsed);
   }
 
   for (const state of Object.values(store)) {
-    if (hasElectroCharged && isHandledByElectroCharged(state)) {
+    if (hasCharged && isHandledByCharged(state)) {
       continue;
     }
-    
+
     if (state.element) {
       advanceElementAura(ctx, state, elapsed);
       continue;

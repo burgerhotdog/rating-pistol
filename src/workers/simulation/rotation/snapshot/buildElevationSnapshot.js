@@ -42,7 +42,7 @@ function handleStellarSwirl(snapshot, spec) {
     elevationReactionUsedAttrs('stellarSwirl', element);
 }
 
-export function buildElevationSnapshot(ctx, reactionKey, spec = {}) {
+export function buildElevationSnapshot(ctx, rxnKey, spec = {}) {
   const allMemberBuffs = {};
 
   for (const memberId of ctx.cache.memberIds) {
@@ -65,7 +65,7 @@ export function buildElevationSnapshot(ctx, reactionKey, spec = {}) {
     },
   };
 
-  switch (reactionKey) {
+  switch (rxnKey) {
     case 'lunarCharged':
       handleLunarCharged(snapshot);
       break;

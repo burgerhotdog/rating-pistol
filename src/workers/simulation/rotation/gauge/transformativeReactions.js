@@ -1,26 +1,18 @@
-import { GI } from '@/data';
-import { getAttr, formatStr } from '@/utils';
-import { getBuffMap } from '../getStatMap';
-import { getResMult } from '../formula/enemyRes';
 import { consumeAura } from '../states/aura';
-
-const LEVEL_MULTIPLIER = 1446.85;
+import { buildTransformativeReactionSnapshot } from '../snapshot';
 
 const REACTION_DEFS = {
   overloaded: {
     reaction: 'overloaded',
     elements: ['pyro', 'electro'],
-    multiplier: 2.75,
   },
   superconduct: {
     reaction: 'superconduct',
     elements: ['cryo', 'electro'],
-    multiplier: 1.5,
   },
   swirl: {
     reaction: 'swirl',
     elements: ['anemo'],
-    multiplier: 0.6,
   },
   crystallize: {
     reaction: 'crystallize',
@@ -33,48 +25,12 @@ const REACTION_DEFS = {
   electroCharged: {
     reaction: 'electroCharged',
     elements: ['electro', 'hydro'],
-    multiplier: 2,
   },
 };
 
-function runFormula(reaction, statMap, reactionElement) {
-  const em = getAttr('elementalMastery', statMap);
-  const reactionBonus = 1 + ((16 * em) / (2000 + em)) + getAttr(`${reaction}ReactionBonus%`, statMap);
-  const resMult = getResMult(GI, reactionElement, statMap);
-  return LEVEL_MULTIPLIER * REACTION_DEFS[reaction].multiplier * reactionBonus * resMult;
-}
-
-function buildSnapshot(ctx, reaction, ownerId, reactionElement) {
-  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId });
-
-  const memo = {};
-
-  const snapshot = {
-    key: `system:${reaction}`,
-    name: formatStr(reaction),
-    ownerId: 'system',
-    type: 'transformativeReaction',
-    damageType: reaction,
-    onFieldId: ctx.states.onFieldId,
-    runtime: ctx.states.runtime,
-    unresolved: {
-      memo,
-      ownerId,
-      buffMap,
-      buffSpecs,
-      formula: (statMap) => runFormula(reaction, statMap, reactionElement),
-      scale: 1,
-      parts: ['damage'],
-      reactionElement,
-    },
-  };
-
-  return snapshot;
-}
-
 export function reactOverloaded(ctx, ownerId) {
   if (ctx.saveSnapshots) {
-    const snapshot = buildSnapshot(ctx, 'overloaded', ownerId, 'pyro');
+    const snapshot = buildTransformativeReactionSnapshot(ctx, ownerId, 'overloaded', 'pyro');
     ctx.snapshots.push(snapshot);
   }
 
@@ -86,13 +42,14 @@ export function reactOverloaded(ctx, ownerId) {
 
 export function reactSuperconduct(ctx, ownerId) {
   if (ctx.saveSnapshots) {
-    const snapshot = buildSnapshot(ctx, 'superconduct', ownerId, 'cryo');
+    const snapshot = buildTransformativeReactionSnapshot(ctx, ownerId, 'superconduct', 'cryo');
     ctx.snapshots.push(snapshot);
   }
 
   const state = ctx.states.aura.superconduct ??= {
     reaction: 'superconduct',
   };
+
   state.timeLeft = 12000;
 
   ctx.runEffects('reaction', {
@@ -103,7 +60,7 @@ export function reactSuperconduct(ctx, ownerId) {
 
 export function reactSwirl(ctx, ownerId, auraElement) {
   if (ctx.saveSnapshots) {
-    const snapshot = buildSnapshot(ctx, 'swirl', ownerId, auraElement);
+    const snapshot = buildTransformativeReactionSnapshot(ctx, ownerId, 'swirl', auraElement);
     ctx.snapshots.push(snapshot);
   }
 
@@ -142,6 +99,7 @@ export function reactElectroCharged(ctx, applier) {
     reaction: 'electroCharged',
     timeLeft: 0,
   };
+
   state.applier = applier;
 
   ctx.runEffects('reaction', {
@@ -159,18 +117,18 @@ export function tickElectroCharged(ctx, applier, offset = 0) {
   }
 
   if (ctx.saveSnapshots) {
-    const snapshot = buildSnapshot(ctx, 'electroCharged', applier, 'electro');
+    const snapshot = buildTransformativeReactionSnapshot(ctx, applier, 'electroCharged', 'electro');
     ctx.snapshots.push({ ...snapshot, runtime: snapshot.runtime + offset });
   }
 
-  consumeAura(ctx, aura.electro, 0.5);
-  consumeAura(ctx, aura.hydro, 0.5);
+  consumeAura(ctx, aura.electro, 0.4);
+  consumeAura(ctx, aura.hydro, 0.4);
 
   if (!aura.electro || !aura.hydro) {
     delete aura.electroCharged;
     return true;
   }
 
-  aura.electroCharged.timeLeft = 500;
+  aura.electroCharged.timeLeft = 1000;
   return false;
 }

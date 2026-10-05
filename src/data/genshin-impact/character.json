@@ -48840,7 +48840,6 @@
     "memberPreset": {}
   },
   "10000116": {
-    "disabled": true,
     "name": "Ineffa",
     "version": 5.8,
     "id": 10000116,
@@ -48856,7 +48855,87 @@
     },
     "energy": 60,
     "moonsign": true,
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 20000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "filter": {
+            "or": [
+              {
+                "field": "onField"
+              },
+              {
+                "character": {
+                  "id": 10000116
+                }
+              }
+            ]
+          },
+          "specs": {
+            "elementalMastery": {
+              "attr": "atk",
+              "step": 1,
+              "value": 0.06
+            }
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "specs": {
+            "lunarChargedBaseDmg%": {
+              "attr": "atk",
+              "step": 100,
+              "value": 0.007,
+              "maxValue": 0.14
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Cyclonic Duster",
@@ -49016,33 +49095,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6393,
-                    0.6914,
-                    0.7434,
-                    0.8177,
-                    0.8698,
-                    0.9293,
-                    1.011,
-                    1.0928,
-                    1.1746,
-                    1.2638,
-                    1.353,
-                    1.4422,
-                    1.5314,
-                    1.6206,
-                    1.7098
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -49095,6 +49147,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6393,
+                    0.6914,
+                    0.7434,
+                    0.8177,
+                    0.8698,
+                    0.9293,
+                    1.011,
+                    1.0928,
+                    1.1746,
+                    1.2638,
+                    1.353,
+                    1.4422,
+                    1.5314,
+                    1.6206,
+                    1.7098
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -49103,9 +49182,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -49131,8 +49211,7 @@
           },
           {
             "name": "Shield DMG Absorption",
-            "type": "elementalSkill",
-            "damage": {
+            "shield": {
               "multipliers": [
                 {
                   "mv": [
@@ -49151,10 +49230,8 @@
                     4.7002,
                     4.9766,
                     5.2531
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     1386.6759,
                     1525.3628,
                     1675.6068,
@@ -49176,9 +49253,10 @@
             }
           },
           {
-            "name": "Birgitta Discharge DMG",
-            "type": "elementalSkill",
+            "name": "Birgitta Discharge",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -49209,9 +49287,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -49238,7 +49317,15 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13515,
+      "setCounts": {
+        "15043": 4
+      },
+      "rotation": [
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000119": {
     "disabled": true,

@@ -11,6 +11,9 @@ import {
   reactVaporize,
 } from './amplifyingReactions';
 import {
+  reactLunarCharged,
+} from './lunarReactions';
+import {
   reactStellarConduct,
   reactStellarSwirl,
 } from './stellarReactions';
@@ -74,7 +77,11 @@ function applyElectro(ctx, gauge, applier) {
   }
 
   if (aura.hydro && remaining) {
-    reactElectroCharged(ctx, applier);
+    if (ctx.cache.lunarCharged) {
+      reactLunarCharged(ctx, applier);
+    } else {
+      reactElectroCharged(ctx, applier);
+    }
   }
 }
 
@@ -133,7 +140,11 @@ function applyHydro(ctx, gauge, applier) {
   }
 
   if (aura.electro && remaining) {
-    reactElectroCharged(ctx, applier);
+    if (ctx.cache.lunarCharged) {
+      reactLunarCharged(ctx, applier);
+    } else {
+      reactElectroCharged(ctx, applier);
+    }
   }
 }
 
