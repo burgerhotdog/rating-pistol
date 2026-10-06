@@ -34,6 +34,15 @@ function toSetCounts(comboKey) {
   );
 }
 
+function toComboKey(setCounts) {
+  const entries = Object.entries(setCounts);
+  if (!entries.length) return 'none';
+
+  return entries
+    .map(([id, count]) => `${id}_${count}`)
+    .join('+');
+}
+
 function getComboIcons(comboKey, setDatas) {
   const { setKey, echoId } = splitComboKey(comboKey);
   const icons = setKey.split('+').map((partStr) => setDatas[partStr.split('_')[0]]?.icon);
@@ -55,14 +64,26 @@ const toEquivKey = (gameId, setCounts) =>
     .join('+');
 
 function buildData(gameId, setResults, userDps, userSetCounts, limit = false) {
-  const dataEntries = setResults.toSorted((a, b) => b.dps - a.dps);
-
   const userEquivKey = toEquivKey(gameId, userSetCounts);
+
   const isUser = (comboKey) => {
     const testSetCounts = toSetCounts(comboKey);
     const testEquivKey = toEquivKey(gameId, testSetCounts);
     return testEquivKey === userEquivKey;
   };
+
+  const hasUserConfig = setResults.some(({ comboKey }) => isUser(comboKey));
+
+  const dataEntries = [
+    ...setResults,
+    ...(!hasUserConfig
+      ? [{
+          comboKey: toComboKey(userSetCounts),
+          dps: userDps,
+        }]
+      : []
+    ),
+  ].toSorted((a, b) => b.dps - a.dps);
 
   let limitLeft = 6;
   const bestDps = dataEntries[0].dps;

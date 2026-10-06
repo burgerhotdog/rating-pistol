@@ -2,33 +2,6 @@ import { consumeAura } from '../states/aura';
 import { updateShielded } from '../states/shielded';
 import { buildTransformativeReactionSnapshot } from '../snapshot';
 
-const REACTION_DEFS = {
-  overloaded: {
-    reaction: 'overloaded',
-    elements: ['pyro', 'electro'],
-  },
-  superconduct: {
-    reaction: 'superconduct',
-    elements: ['cryo', 'electro'],
-  },
-  swirl: {
-    reaction: 'swirl',
-    elements: ['anemo'],
-  },
-  crystallize: {
-    reaction: 'crystallize',
-    elements: ['geo'],
-  },
-  frozen: {
-    reaction: 'frozen',
-    elements: ['cryo', 'hydro'],
-  },
-  electroCharged: {
-    reaction: 'electroCharged',
-    elements: ['electro', 'hydro'],
-  },
-};
-
 export function reactOverloaded(ctx, ownerId) {
   if (ctx.saveSnapshots) {
     const snapshot = buildTransformativeReactionSnapshot(ctx, ownerId, 'overloaded', 'pyro');
@@ -36,7 +9,8 @@ export function reactOverloaded(ctx, ownerId) {
   }
 
   ctx.runEffects('reaction', {
-    ...REACTION_DEFS.overloaded,
+    reaction: 'overloaded',
+    elements: ['pyro', 'electro'],
     ownerId,
   });
 }
@@ -54,7 +28,8 @@ export function reactSuperconduct(ctx, ownerId) {
   state.timeLeft = 12000;
 
   ctx.runEffects('reaction', {
-    ...REACTION_DEFS.superconduct,
+    reaction: 'superconduct',
+    elements: ['cryo', 'electro'],
     ownerId,
   });
 }
@@ -66,17 +41,17 @@ export function reactSwirl(ctx, ownerId, auraElement) {
   }
 
   ctx.runEffects('reaction', {
-    ...REACTION_DEFS.swirl,
-    ownerId,
+    reaction: 'swirl',
     elements: ['anemo', auraElement],
+    ownerId,
   });
 }
 
 export function reactCrystallize(ctx, ownerId, auraElement) {
   ctx.runEffects('reaction', {
-    ...REACTION_DEFS.crystallize,
-    ownerId,
+    reaction: 'crystallize',
     elements: ['geo', auraElement],
+    ownerId,
   });
 
   updateShielded(ctx, { shield: { duration: 15000 } });
@@ -92,7 +67,8 @@ export function reactFrozen(ctx, ownerId, originGauge, gauge) {
   };
 
   ctx.runEffects('reaction', {
-    ...REACTION_DEFS.frozen,
+    reaction: 'frozen',
+    elements: ['cryo', 'hydro'],
     ownerId,
   });
 }
@@ -106,7 +82,34 @@ export function reactElectroCharged(ctx, applier) {
   state.applier = applier;
 
   ctx.runEffects('reaction', {
-    ...REACTION_DEFS.electroCharged,
+    reaction: 'electroCharged',
+    elements: ['electro', 'hydro'],
+    ownerId: applier,
+  });
+}
+
+export function reactBloom(ctx, applier) {
+  const newCore = { timeLeft: 6000, ownerId: applier };
+
+  const state = ctx.states.aura.bloom ??= {
+    reaction: 'bloom',
+    cores: [],
+  };
+
+  state.cores.push(newCore);
+
+  if (state.cores.length > 5) {
+    const oldestCore = state.cores.shift();
+
+    if (ctx.saveSnapshots) {
+      const snapshot = buildTransformativeReactionSnapshot(ctx, oldestCore.ownerId, 'bloom', 'dendro');
+      ctx.snapshots.push(snapshot);
+    }
+  }
+
+  ctx.runEffects('reaction', {
+    reaction: 'bloom',
+    elements: ['dendro', 'hydro'],
     ownerId: applier,
   });
 }

@@ -1,5 +1,5 @@
 import { applyCryo, tickElectroCharged, tickLunarCharged } from '../../gauge';
-import { buildElevationSnapshot } from '../../snapshot';
+import { buildTransformativeReactionSnapshot, buildElevationSnapshot } from '../../snapshot';
 
 function advanceElementAura(ctx, state, elapsed) {
   state.gauge -= elapsed / state.decayRate;
@@ -139,6 +139,22 @@ function advanceStellarSwirl(ctx, state, elapsed) {
   }
 }
 
+function advanceBloom(ctx, state, elapsed) {
+  for (const core of state.cores) {
+    core.timeLeft -= elapsed;
+  }
+
+  while (state.cores[0]?.timeLeft <= 0) {
+    const core = state.cores.shift();
+
+    if (ctx.saveSnapshots) {
+      const offset = elapsed + core.timeLeft;
+      const snapshot = buildTransformativeReactionSnapshot(ctx, core.ownerId, 'bloom', 'dendro');
+      ctx.snapshots.push({ ...snapshot, runtime: snapshot.runtime + offset });
+    }
+  }
+}
+
 const isHandledByCharged = (state) =>
   state.reaction === 'electroCharged' ||
   state.reaction === 'lunarCharged' ||
@@ -170,6 +186,11 @@ export function advanceAuras(ctx, elapsed) {
 
     if (state.reaction === 'stellarSwirl') {
       advanceStellarSwirl(ctx, state, elapsed);
+      continue;
+    }
+
+    if (state.reaction === 'bloom') {
+      advanceBloom(ctx, state, elapsed);
       continue;
     }
 

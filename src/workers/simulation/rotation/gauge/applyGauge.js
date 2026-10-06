@@ -1,5 +1,6 @@
 import {
   reactOverloaded,
+  reactBloom,
   reactSuperconduct,
   reactSwirl,
   reactCrystallize,
@@ -142,6 +143,7 @@ function applyHydro(ctx, gauge, applier) {
       reactLunarBloom(ctx, applier);
     }
 
+    reactBloom(ctx, applier);
     consumeAura(ctx, aura.dendro, remaining / 2);
     return;
   }
@@ -228,6 +230,7 @@ function applyDendro(ctx, gauge, applier) {
       reactLunarBloom(ctx, applier);
     }
 
+    reactBloom(ctx, applier);
     consumeAura(ctx, aura.hydro, remaining * 2);
     return;
   }
