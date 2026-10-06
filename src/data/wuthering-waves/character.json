@@ -16,7 +16,6 @@
     },
     "energy": 100,
     "energyMax": 1,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -732,7 +731,6 @@
     "energy": 175,
     "energyMin": 2.2,
     "concertoReq": true,
-    "tagged": [],
     "effects": [
       {
         "ref": "ultCoord",
@@ -1640,7 +1638,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -2556,7 +2553,6 @@
     },
     "energy": 125,
     "energyMin": 1.3,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -3133,7 +3129,6 @@
     },
     "energy": 100,
     "energyMin": 1,
-    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -4148,7 +4143,6 @@
     },
     "energy": 125,
     "energyMin": 1.1,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -5235,7 +5229,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "stores": "global",
@@ -6859,7 +6852,6 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
-    "tagged": [],
     "modes": [
       "glacioChafe",
       "echo"
@@ -8024,7 +8016,6 @@
     "energy": 175,
     "energyMin": 2.6,
     "concertoReq": true,
-    "tagged": [],
     "effects": [
       {
         "ref": "enrichment",
@@ -8099,11 +8090,6 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "ceaselessLandscape"
-                }
-              },
-              {
                 "action": {
                   "inflict": {
                     "status": {
@@ -8116,6 +8102,11 @@
                       ]
                     }
                   }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "ceaselessLandscape"
                 }
               }
             ]
@@ -8132,17 +8123,17 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "roamingTranscendent"
-                }
-              },
-              {
                 "action": {
                   "consume": {
                     "status": {
                       "has": "havocBane"
                     }
                   }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "roamingTranscendent"
                 }
               }
             ]
@@ -8216,16 +8207,16 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "roamingTranscendent"
-                }
-              },
-              {
                 "action": {
                   "ref": [
                     "outroSkill.0",
                     "resonanceLiberation.1"
                   ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "roamingTranscendent"
                 }
               }
             ]
@@ -9414,7 +9405,6 @@
     },
     "energy": 150,
     "energyMin": 1.1,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -10078,7 +10068,6 @@
     },
     "energy": 125,
     "energyMin": 1.3,
-    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -11004,7 +10993,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "ref": "basicCoord",
@@ -11798,7 +11786,6 @@
     },
     "energy": 125,
     "energyMin": 1.1,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -12709,7 +12696,6 @@
     },
     "energy": 175,
     "energyMin": 2.5,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -14175,7 +14161,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -15756,7 +15741,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "ref": "demonHypostasis",
@@ -17413,7 +17397,6 @@
     "energy": 175,
     "energyMin": 2.6,
     "concertoReq": true,
-    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -18647,7 +18630,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "modes": [
       "tuneRupture",
       "fusionBurst"
@@ -20490,7 +20472,6 @@
     },
     "energy": 125,
     "energyMin": 1.1,
-    "tagged": [],
     "modes": [
       "fusionBurst",
       "tuneStrain"
@@ -21966,7 +21947,6 @@
     },
     "energy": 125,
     "energyMin": 1.1,
-    "tagged": [],
     "effects": [
       {
         "ref": "yingHuo",
@@ -23572,7 +23552,6 @@
     },
     "energy": 125,
     "energyMin": 1.3,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -24733,7 +24712,6 @@
     },
     "energy": 125,
     "energyMin": 1.3,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -25383,7 +25361,6 @@
     },
     "energy": 125,
     "energyMin": 1,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -26548,7 +26525,6 @@
     },
     "energy": 150,
     "energyMin": 1,
-    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -27811,7 +27787,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -28691,7 +28666,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "ref": "rulersRealm",
@@ -28725,7 +28699,9 @@
           },
           "action": {
             "shield": {
-              "targets": "$applier",
+              "targets": [
+                "$applier"
+              ],
               "duration": 10000,
               "attr": "hp",
               "multipliers": [
@@ -29810,7 +29786,6 @@
     },
     "energy": 150,
     "energyMin": 1.3,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -30550,7 +30525,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -32619,7 +32593,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "stores": "$team",
@@ -34668,7 +34641,6 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
-    "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -37221,7 +37193,6 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
-    "tagged": [],
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -38669,7 +38640,6 @@
     },
     "energy": 100,
     "energyMin": 1.1,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -39359,7 +39329,6 @@
     },
     "energy": 150,
     "energyMin": 1.5,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -40040,7 +40009,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -40843,7 +40811,6 @@
     },
     "energy": 150,
     "energyMin": 1.6,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -42006,7 +41973,6 @@
     },
     "energy": 150,
     "energyMin": 1.3,
-    "tagged": [],
     "effects": [
       {
         "use": {
@@ -43080,7 +43046,6 @@
     },
     "energy": 125,
     "energyMin": 1.3,
-    "tagged": [],
     "effects": [
       {
         "stores": "$team",
@@ -43795,7 +43760,6 @@
     },
     "energy": 125,
     "energyMin": 1.1,
-    "tagged": [],
     "effects": [
       {
         "ref": "swordOfDivinitysShadow",
@@ -43832,24 +43796,44 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "swordOfDivinitysShadow"
+                "action": {
+                  "ref": "normalAttack.8"
                 }
               },
               {
-                "action": {
-                  "ref": "normalAttack.8"
+                "effectStacks": {
+                  "has": "swordOfDivinitysShadow"
                 }
               }
             ]
           }
         },
-        "gameRule": "mandateOfDivinity",
         "buff": {
           "stats": {
             "aeroErosionDmgAmp%": 0.5
           }
         }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "normalAttack.8"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "swordOfDivinitysShadow"
+                }
+              }
+            ]
+          }
+        },
+        "gameRule": "mandateOfDivinity"
       },
       {
         "ref": "powerOfDiscord",
@@ -43859,13 +43843,13 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "swordOfDiscordsShadow"
+                "action": {
+                  "ref": "normalAttack.8"
                 }
               },
               {
-                "action": {
-                  "ref": "normalAttack.8"
+                "effectStacks": {
+                  "has": "swordOfDiscordsShadow"
                 }
               }
             ]
@@ -43875,9 +43859,13 @@
       {
         "ref": "manifest",
         "apply": {
-          "action": {
-            "ref": "resonanceLiberation.0"
-          }
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 12000
         }
       },
       {
@@ -45788,7 +45776,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "ref": "fullMoonDomain",
@@ -45817,13 +45804,13 @@
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "fullMoonDomain"
+                "action": {
+                  "has": "shield"
                 }
               },
               {
-                "action": {
-                  "has": "shield"
+                "effectStacks": {
+                  "has": "fullMoonDomain"
                 }
               }
             ]
@@ -47147,7 +47134,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "stores": "$team",
@@ -48476,7 +48462,6 @@
     },
     "energy": 125,
     "energyMin": 1.1,
-    "tagged": [],
     "effects": [
       {
         "ref": "divergent",
@@ -49848,7 +49833,6 @@
     },
     "energy": 125,
     "energyMin": 1.1,
-    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -51180,7 +51164,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -51201,6 +51184,7 @@
       },
       {
         "ref": "shimmer",
+        "stores": "global",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -51954,7 +51938,6 @@
     "energy": 175,
     "energyMin": 2.3,
     "concertoReq": true,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -53197,7 +53180,6 @@
     },
     "energy": 125,
     "energyMin": 1.4,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -54243,7 +54225,6 @@
     "energy": 175,
     "energyMin": 2.5,
     "concertoReq": true,
-    "tagged": [],
     "effects": [
       {
         "use": {
@@ -55151,7 +55132,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -56049,7 +56029,6 @@
     },
     "energy": 125,
     "energyMin": 1.1,
-    "tagged": [],
     "effects": [
       {
         "use": {
@@ -57201,7 +57180,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -58753,7 +58731,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "modes": [
       "tuneRupture",
       "tuneStrain"
@@ -60129,7 +60106,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "use": {
@@ -61315,7 +61291,6 @@
     },
     "energy": 125,
     "energyMin": 1.3,
-    "tagged": [],
     "effects": [
       {
         "stores": "global",
@@ -63725,7 +63700,6 @@
     },
     "energy": 125,
     "energyMin": 1,
-    "tagged": [],
     "effects": [
       {
         "ref": "defUp",
@@ -64649,7 +64623,6 @@
     },
     "energy": 100,
     "energyMin": 1,
-    "tagged": [],
     "effects": [
       {
         "ref": "incineratingWill",
@@ -65521,7 +65494,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -66364,7 +66336,6 @@
     },
     "energy": 125,
     "energyMin": 1.4,
-    "tagged": [],
     "effects": [
       {
         "buff": {
@@ -67384,7 +67355,6 @@
     },
     "energy": 125,
     "energyMin": 1.3,
-    "tagged": [],
     "effects": [
       {
         "stores": "$team",
@@ -67999,7 +67969,6 @@
     },
     "energy": 125,
     "energyMin": 1.3,
-    "tagged": [],
     "effects": [
       {
         "apply": {
@@ -69002,7 +68971,6 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
-    "tagged": [],
     "effects": [
       {
         "ref": "maestro",
@@ -70176,7 +70144,6 @@
     },
     "energy": 125,
     "energyMin": 1.2,
-    "tagged": [],
     "effects": [
       {
         "ref": "voiceUponVoice",

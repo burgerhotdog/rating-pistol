@@ -125,7 +125,6 @@ export function giCharacter(id, data) {
     element: data.element.toLowerCase(),
     type: pick(types, data.weapon),
     stats: charStats,
-    tagged: [],
     ...(energy && { energy }),
     effects: [],
     skills,

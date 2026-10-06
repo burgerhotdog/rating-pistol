@@ -179,7 +179,6 @@ export function wwCharacter(id, data) {
     element: elements[Number(data.element) - 1],
     type: types[Number(data.weapon) - 1],
     stats: s,
-    tagged: [],
     effects: [],
     skills: skills(data),
     memberPreset: {},

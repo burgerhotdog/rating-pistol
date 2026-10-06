@@ -1,4 +1,4 @@
-import { HSR, ZZZ } from '@/data';
+import { GI, HSR, ZZZ } from '@/data';
 import { getBonusTypes } from './damageFormula';
 
 function handleDamageAttrs(usedAttrs, gameId, action) {
@@ -6,10 +6,29 @@ function handleDamageAttrs(usedAttrs, gameId, action) {
   const bonusTypes = getBonusTypes(gameId, action.damage);
   const keyword = gameId === HSR ? 'Pen' : 'Ignore';
   const isStellar = type === 'stellarConduct' || type === 'stellarSwirl';
+  const isLunar =
+    type === 'lunarCharged' ||
+    type === 'lunarBloom' ||
+    type === 'lunarCrystallize';
   const stellarType = isStellar ? type : null;
 
   usedAttrs.add('critRate%');
   usedAttrs.add('critDmg%');
+
+  if (isLunar) {
+    usedAttrs.add('lunarReactionBonus%');
+    usedAttrs.add(`${type}ReactionBonus%`);
+    usedAttrs.add('lunarBaseDmg%');
+    usedAttrs.add(`${type}BaseDmg%`);
+    usedAttrs.add('lunarFlat');
+    usedAttrs.add('elementalMastery');
+    usedAttrs.add('elementalMastery%');
+  }
+
+  if (gameId === GI && element !== 'physical') {
+    usedAttrs.add('elementalResReduction%');
+    usedAttrs.add(`elementalRes${keyword}%`);
+  }
 
   if (!isStellar) {
     usedAttrs.add('dmgBonus%');
@@ -31,7 +50,9 @@ function handleDamageAttrs(usedAttrs, gameId, action) {
     usedAttrs.add(`${stellarType}ReactionBonus%`);
     usedAttrs.add('stellarGlimmerBaseDmg%');
     usedAttrs.add(`${stellarType}BaseDmg%`);
+    usedAttrs.add('stellarGlimmerFlat');
     usedAttrs.add('elementalMastery');
+    usedAttrs.add('elementalMastery%');
   }
 
   usedAttrs.add('resReduction%');

@@ -1,49 +1,33 @@
 import { GI, WW } from '@/data';
 import { clamp } from '@/utils';
-import { advanceEffects } from './advanceEffects';
+import { applyGauge, consumeVerdantDew } from './gauge';
 import {
-  applyGauge,
-  advanceAuras,
-  advanceIcdStates,
-} from './game-specific/genshin-impact';
+  changeBondOfLife,
+  grantBondOfLife,
+} from './states/bond-of-life'
 import {
-  consumeNegativeStatuses,
-  inflictNegativeStatuses,
-  advanceNegativeStatuses,
-  replaceNegativeStatuses,
   runTuneBreak,
   applyOffTuneBuildup,
   inflictTuneShifting,
-  advanceTune,
-} from './game-specific/wuthering-waves';
+} from './states/tune';
 import {
-  canSnapshot,
-  buildSnapshot,
-} from './snapshot';
+  consumeNegativeStatuses,
+  inflictNegativeStatuses,
+  replaceNegativeStatuses,
+} from './states/negative-statuses';
+import { canSnapshot, buildSnapshot } from './snapshot';
 import { getEffectStates } from './getEffectStates';
 import { getModifiedAction } from './getModifiedAction';
-
-function advanceCooldowns(ctx, elapsed) {
-  const { applyCooldowns } = ctx.states;
-
-  for (const effectKey in applyCooldowns) {
-    applyCooldowns[effectKey] -= elapsed;
-
-    if (applyCooldowns[effectKey] <= 0) {
-      delete applyCooldowns[effectKey];
-    }
-  }
-}
+import { advanceStates } from './states';
+import { runRestoreEnergy } from './restoreEnergy';
+import { updateShielded } from './states/shielded';
 
 function decayBuffStates(ctx, action) {
   for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
     const { store, effect, buffCooldown } = state;
 
     if (buffCooldown) continue;
-    const spec = {
-      action,
-      fieldId: action.ownerId,
-    };
+    const spec = { action, fieldId: action.ownerId };
     if (!ctx.eventFilter(effect.buff?.filter, effect, spec)) continue;
 
     if (effect.buff?.cooldown) {
@@ -72,44 +56,24 @@ export function runAction(ctx, action, options = {}) {
     const elapsed = timestamp - actionRuntime;
     if (elapsed <= 0) return;
 
-    if (gameId === GI) {
-      advanceAuras(ctx, elapsed);
-      advanceIcdStates(ctx, elapsed);
-    }
-
-    if (gameId === WW) {
-      advanceNegativeStatuses(ctx, elapsed);
-      advanceTune(ctx, elapsed);
-    }
-
-    advanceEffects(ctx, elapsed);
-    advanceCooldowns(ctx, elapsed);
-
+    advanceStates(ctx, elapsed);
     actionRuntime += elapsed;
-
-    if (ctx.saveSnapshots) {
-      ctx.states.runtime += elapsed;
-    }
-
-    if (ctx.states.shielded) {
-      ctx.states.shielded -= elapsed;
-      if (ctx.states.shielded <= 0) {
-        ctx.states.shielded = null;
-      }
-    }
   };
-
-  const runEffects = (when) => ctx.runEffects(when, modifiedAction);
 
   if (modifiedAction.key === 'system:tuneBreak') {
     runTuneBreak(ctx, modifiedAction);
-    runEffects('tuneBreak');
+    ctx.runEffects('tuneBreak', modifiedAction);
     return;
   }
 
   // Action timeline
-  runEffects('start');
+  ctx.runEffects('start', modifiedAction);
   advanceTimeTo(hitOffsets[0]);
+
+  let verdantDewMultiplier = 1;
+  if (gameId === GI && modifiedAction.verdantDew && ctx.cache.lunarBloom) {
+    verdantDewMultiplier = consumeVerdantDew(ctx, modifiedAction.verdantDew);
+  }
 
   let sharedSnapshot;
   if (canSnapshot(modifiedAction)) {
@@ -124,6 +88,14 @@ export function runAction(ctx, action, options = {}) {
     decayBuffStates(ctx, modifiedAction);
   }
 
+  if (ctx.saveSnapshots) {
+    runRestoreEnergy(ctx, modifiedAction);
+  }
+
+  if (gameId === GI) {
+    grantBondOfLife(ctx, modifiedAction);
+  }
+
   if (gameId === WW) {
     consumeNegativeStatuses(ctx, modifiedAction);
     inflictNegativeStatuses(ctx, modifiedAction);
@@ -131,30 +103,14 @@ export function runAction(ctx, action, options = {}) {
     inflictTuneShifting(ctx, modifiedAction);
   }
 
-  runEffects('inflict');
+  ctx.runEffects('inflict', modifiedAction);
 
   for (const offset of hitOffsets) {
     advanceTimeTo(offset);
-    runEffects('hit');
+    ctx.runEffects('hit', modifiedAction);
 
     if (modifiedAction.drain) {
-      const {
-        targets = [modifiedAction.ownerId],
-        value,
-        minLimit = 0,
-        maxLimit = 1,
-      } = modifiedAction.drain;
-      const { memberHealth } = ctx.states;
-
-      for (const targetId of targets) {
-        const prev = memberHealth[targetId];
-        const next = clamp(prev - value, minLimit, maxLimit);
-
-        if (next !== prev) {
-          memberHealth[targetId] = next;
-          runEffects('healthChange');
-        }
-      }
+      runDrain(ctx, modifiedAction);
     }
 
     let scaleMult = 1;
@@ -164,7 +120,14 @@ export function runAction(ctx, action, options = {}) {
 
     if (modifiedAction.healing) {
       for (const target of modifiedAction.healing.targets) {
-        // do something
+        let targetId = target;
+        if (targetId === '$onField') {
+          targetId = ctx.states.onFieldId;
+        }
+
+        if (gameId === GI) {
+          changeBondOfLife(ctx, targetId, -1);
+        }
       }
     }
 
@@ -175,17 +138,34 @@ export function runAction(ctx, action, options = {}) {
         unresolved: {
           ...sharedSnapshot.unresolved,
           scale: scaleMult,
+          dew: verdantDewMultiplier,
         },
       });
     }
 
-    if (modifiedAction.shield) {
-      const { duration = 0 } = modifiedAction.shield;
-      const prev = ctx.states.shielded ?? 0;
-      ctx.states.shielded = Math.max(duration, prev);
-    }
+    updateShielded(ctx, modifiedAction);
   }
 
   advanceTimeTo(duration);
-  runEffects('end');
+  ctx.runEffects('end', modifiedAction);
+}
+
+function runDrain(ctx, modifiedAction) {
+  const {
+    targets = [modifiedAction.ownerId],
+    value,
+    minLimit = 0,
+    maxLimit = 1,
+  } = modifiedAction.drain;
+  const { memberHealth } = ctx.states;
+
+  for (const targetId of targets) {
+    const prev = memberHealth[targetId];
+    const next = clamp(prev - value, minLimit, maxLimit);
+
+    if (next !== prev) {
+      memberHealth[targetId] = next;
+      ctx.runEffects('healthChange', modifiedAction);
+    }
+  }
 }

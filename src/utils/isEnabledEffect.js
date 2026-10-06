@@ -10,6 +10,8 @@ export const isEnabled = (gameId, effect, ownerId, counts) => {
     counts,
     sameElementTeamMembers: counts.element[ownerElement],
     ...(gameId === GI && {
+      nascentGleam: counts.moonsign === 1,
+      ascendantGleam: counts.moonsign >= 2,
       secretRite: counts.hexerei >= 2,
     }),
   });

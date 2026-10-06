@@ -1,11 +1,8 @@
 import { CHARACTER, LANG } from '@/data';
-import {
-  computeActualRotationTime,
-  estimateDps,
-  getTotals,
-} from '@/utils';
+import { estimateDps, getTotals } from '@/utils';
 import { buildCache } from './cache';
 import { runRotation } from './rotation';
+import { computeDuration } from './duration';
 import { runComparisonTests } from './comparison-tests';
 import { runEquipTests, runTrials } from './equip-tests';
 import { runSkillLevelTests } from './skill-level-tests';
@@ -50,9 +47,9 @@ self.onmessage = async ({ data }) => {
   const equipMaps = await resolveEquipMaps(cache);
 
   self.postMessage({ title: 'Simulating rotation' });
-  const userSnapshots = runRotation(cache, equipMaps);
+  const { snapshots: userSnapshots, bonusEnergy } = runRotation(cache, equipMaps);
   const userTotals = getTotals(userSnapshots);
-  const { time: userRotationTime, source: userRotationTimeSource } = computeActualRotationTime(cache, equipMaps);
+  const { time: userRotationTime, source: userRotationTimeSource } = computeDuration(cache, equipMaps, bonusEnergy);
   const userDps = (userTotals.damage + userTotals.healing + userTotals.shield) / userRotationTime * 1000;
 
   self.postMessage({
@@ -63,13 +60,9 @@ self.onmessage = async ({ data }) => {
   });
 
   console.time('runComparisonTests');
-  const { weaponResults, setResults } = runComparisonTests(cache, equipMaps);
+  const { weaponResults, setResults } = runComparisonTests(cache, equipMaps, bonusEnergy);
   console.timeEnd('runComparisonTests');
-
-  self.postMessage({
-    weaponResults,
-    setResults,
-  });
+  self.postMessage({ weaponResults, setResults });
 
   self.postMessage({ title: `Running ${langData.Equip} Farming Simulations` });
   console.time('runEquipTests');

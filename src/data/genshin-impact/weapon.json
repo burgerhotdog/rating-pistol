@@ -232,7 +232,41 @@
       "baseAtk": 454,
       "energyRecharge%": 0.613
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          },
+          "cooldown": 6000,
+          "action": [
+            {
+              "restoreEnergy": {
+                "erScaled": 2.4,
+                "critScaled": true
+              }
+            },
+            {
+              "restoreEnergy": {
+                "targets": "$team",
+                "erScaled": 3.6,
+                "critScaled": true
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
   "11402": {
     "name": "The Flute",
@@ -763,7 +797,6 @@
     ]
   },
   "11418": {
-    "disabled": true,
     "name": "Xiphos' Moonlight",
     "version": 3.1,
     "id": 11418,
@@ -774,10 +807,39 @@
       "baseAtk": 510,
       "elementalMastery": 165
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "specs": {
+            "energyRecharge%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                0.00036,
+                0.00072
+              ]
+            }
+          }
+        }
+      },
+      {
+        "stores": "$ally",
+        "buff": {
+          "specs": {
+            "energyRecharge%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                0.000108,
+                0.000216
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11422": {
-    "disabled": true,
     "name": "Toukabou Shigure",
     "version": 3.3,
     "id": 11422,
@@ -788,7 +850,28 @@
       "baseAtk": 510,
       "elementalMastery": 165
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 15000,
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "11424": {
     "name": "Wolf-Fang",
@@ -804,14 +887,16 @@
     "effects": [
       {
         "buff": {
-          "elementalSkillDmgBonus%": [
-            0.16,
-            0.32
-          ],
-          "elementalBurstDmgBonus%": [
-            0.16,
-            0.32
-          ]
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "elementalBurstDmgBonus%": [
+              0.16,
+              0.32
+            ]
+          }
         }
       },
       {
@@ -877,7 +962,6 @@
     ]
   },
   "11425": {
-    "disabled": true,
     "name": "Finale of the Deep",
     "version": 4.0,
     "id": 11425,
@@ -889,10 +973,83 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 10000,
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 10000,
+          "action": {
+            "bondOfLife": {
+              "value": 0.25
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "applyClearBolBuff",
+            "spec": {
+              "uses": 1
+            }
+          }
+        }
+      },
+      {
+        "ref": "applyClearBolBuff",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "bondOfLifeClear",
+          "commands": {
+            "type": "apply",
+            "ref": "clearBolBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "ref": "clearBolBuff",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk": [
+              150,
+              300
+            ]
+          }
+        }
+      }
+    ]
   },
   "11426": {
-    "disabled": true,
     "name": "Fleuve Cendre Ferryman",
     "version": 4.0,
     "id": 11426,
@@ -903,7 +1060,44 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "energyRecharge%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "11427": {
     "disabled": true,
@@ -934,7 +1128,6 @@
     "effects": []
   },
   "11430": {
-    "disabled": true,
     "name": "Sturdy Bone",
     "version": 5.1,
     "id": 11430,
@@ -944,11 +1137,9 @@
     "stats": {
       "baseAtk": 565,
       "atk%": 0.276
-    },
-    "effects": []
+    }
   },
   "11431": {
-    "disabled": true,
     "name": "Flute of Ezpitzal",
     "version": 5.0,
     "id": 11431,
@@ -960,7 +1151,27 @@
       "baseAtk": 454,
       "def%": 0.69
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "def%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "11432": {
     "disabled": true,
@@ -1012,11 +1223,51 @@
             ]
           }
         }
+      },
+      {
+        "enable": {
+          "owner": {
+            "energy": {
+              "and": [
+                {
+                  "<=": 60
+                },
+                {
+                  ">": 40
+                }
+              ]
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalBurstDmgBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "owner": {
+            "energy": {
+              "<=": 40
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalBurstDmgBonus%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
       }
     ]
   },
   "11435": {
-    "disabled": true,
     "name": "Heretic's Molten Blade",
     "version": 7.0,
     "id": 11435,
@@ -1026,11 +1277,9 @@
     "stats": {
       "baseAtk": 510,
       "critRate%": 0.276
-    },
-    "effects": []
+    }
   },
   "11436": {
-    "disabled": true,
     "name": "Emberwell",
     "version": 7.0,
     "id": 11436,
@@ -1042,10 +1291,48 @@
       "baseAtk": 510,
       "elementalMastery": 165
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "stellarGlimmerReactionBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "11437": {
-    "disabled": true,
     "name": "New Bough",
     "version": 7.1,
     "id": 11437,
@@ -1056,7 +1343,96 @@
       "baseAtk": 510,
       "critDmg%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 20000
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 1000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "verdant1",
+              "spec": {
+                "duration": 6000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "verdant2",
+              "spec": {
+                "duration": 6000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "verdant1",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "not": {
+              "radiance": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "stats": {
+            "atk%": [
+              0.04,
+              0.08
+            ],
+            "elementalMastery": [
+              20,
+              40
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "verdant2",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "radiance": [
+              "stellarConduct",
+              "stellarSwirl"
+            ]
+          },
+          "stats": {
+            "atk%": [
+              0.06,
+              0.12
+            ],
+            "stellarGlimmerReactionBonus%": [
+              0.08,
+              0.16
+            ]
+          }
+        },
+        "maxStacks": 3
+      }
+    ]
   },
   "11438": {
     "name": "Silver Light",
@@ -1314,7 +1690,6 @@
     "effects": []
   },
   "11505": {
-    "disabled": true,
     "name": "Primordial Jade Cutter",
     "version": 1.3,
     "id": 11505,
@@ -1325,7 +1700,28 @@
       "baseAtk": 542,
       "critRate%": 0.441
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.2,
+              0.4
+            ]
+          },
+          "specs": {
+            "atk": {
+              "attr": "hp",
+              "step": 1,
+              "value": [
+                0.012,
+                0.024
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11509": {
     "disabled": true,
@@ -1384,7 +1780,6 @@
     "effects": []
   },
   "11513": {
-    "disabled": true,
     "name": "Splendor of Tranquil Waters",
     "version": 4.2,
     "id": 11513,
@@ -1395,7 +1790,43 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "healthChange",
+          "field": "*",
+          "cooldown": 200,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.08,
+              0.16
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "apply": {
+          "by": "$ally",
+          "when": "healthChange",
+          "field": "*",
+          "cooldown": 200,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.14,
+              0.28
+            ]
+          }
+        },
+        "maxStacks": 2
+      }
+    ]
   },
   "11514": {
     "disabled": true,
@@ -1412,7 +1843,6 @@
     "effects": []
   },
   "11515": {
-    "disabled": true,
     "name": "Absolution",
     "version": 4.7,
     "id": 11515,
@@ -1423,7 +1853,42 @@
       "baseAtk": 674,
       "critDmg%": 0.441
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "critDmg%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "bondOfLifeChange",
+          "filter": {
+            "action": {
+              "bondOfLife": {
+                "value": {
+                  ">": 0
+                }
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        },
+        "maxStacks": 3
+      }
+    ]
   },
   "11516": {
     "disabled": true,
@@ -1440,7 +1905,6 @@
     "effects": []
   },
   "11517": {
-    "disabled": true,
     "name": "Azurelight",
     "version": 5.7,
     "id": 11517,
@@ -1451,7 +1915,57 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "owner": {
+            "not": {
+              "has": "energy"
+            }
+          }
+        },
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.24,
+              0.48
+            ],
+            "critDmg%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      }
+    ]
   },
   "11518": {
     "name": "Athame Artis",
@@ -1646,6 +2160,28 @@
               0.5,
               1.1
             ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "cooldown": 3500,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                4,
+                6
+              ]
+            }
           }
         }
       }
@@ -1848,7 +2384,41 @@
       "baseAtk": 454,
       "energyRecharge%": 0.613
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          },
+          "cooldown": 6000,
+          "action": [
+            {
+              "restoreEnergy": {
+                "erScaled": 2.4,
+                "critScaled": true
+              }
+            },
+            {
+              "restoreEnergy": {
+                "targets": "$team",
+                "erScaled": 3.6,
+                "critScaled": true
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
   "12402": {
     "disabled": true,
@@ -2697,7 +3267,41 @@
       "baseAtk": 565,
       "energyRecharge%": 0.306
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          },
+          "cooldown": 6000,
+          "action": [
+            {
+              "restoreEnergy": {
+                "erScaled": 2.4,
+                "critScaled": true
+              }
+            },
+            {
+              "restoreEnergy": {
+                "targets": "$team",
+                "erScaled": 3.6,
+                "critScaled": true
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
   "13408": {
     "name": "Royal Spear",
@@ -2849,7 +3453,6 @@
     "effects": []
   },
   "13424": {
-    "disabled": true,
     "name": "Ballad of the Fjords",
     "version": 4.0,
     "id": 13424,
@@ -2860,7 +3463,25 @@
       "baseAtk": 510,
       "critRate%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "enable": {
+          "counts": {
+            "uniqueElements": {
+              ">=": 3
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              120,
+              240
+            ]
+          }
+        }
+      }
+    ]
   },
   "13425": {
     "disabled": true,
@@ -2949,7 +3570,6 @@
     "effects": []
   },
   "13433": {
-    "disabled": true,
     "name": "Prospector's Shovel",
     "version": 6.0,
     "id": 13433,
@@ -2961,7 +3581,35 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "electroChargedReactionBonus%": [
+              0.48,
+              0.96
+            ],
+            "lunarChargedReactionBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "buff": {
+          "stats": {
+            "lunarChargedReactionBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "13434": {
     "disabled": true,
@@ -3222,7 +3870,6 @@
     "effects": []
   },
   "13515": {
-    "disabled": true,
     "name": "Fractured Halo",
     "version": 5.8,
     "id": 13515,
@@ -3233,10 +3880,62 @@
       "baseAtk": 608,
       "critDmg%": 0.662
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "atkBuff",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "elementalSkill",
+                "elementalBurst"
+              ]
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "has": "shield"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "atkBuff"
+                }
+              }
+            ]
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "lunarChargedReactionBonus%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      }
+    ]
   },
   "13516": {
-    "disabled": true,
     "name": "Bloodsoaked Ruins",
     "version": 6.0,
     "id": 13516,
@@ -3247,7 +3946,65 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalBurst"
+            }
+          },
+          "duration": 3500
+        },
+        "buff": {
+          "stats": {
+            "lunarChargedReactionBonus%": [
+              0.36,
+              0.72
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "lunarCharged"
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "lunarCharged"
+            }
+          },
+          "cooldown": 14000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                12,
+                16
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "13517": {
     "disabled": true,
@@ -3424,7 +4181,41 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          },
+          "cooldown": 6000,
+          "action": [
+            {
+              "restoreEnergy": {
+                "erScaled": 2.4,
+                "critScaled": true
+              }
+            },
+            {
+              "restoreEnergy": {
+                "targets": "$team",
+                "erScaled": 3.6,
+                "critScaled": true
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
   "14402": {
     "disabled": true,
@@ -3786,7 +4577,6 @@
     ]
   },
   "14417": {
-    "disabled": true,
     "name": "Fruit of Fulfillment",
     "version": 3.0,
     "id": 14417,
@@ -3798,10 +4588,30 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "cooldown": 300,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              24,
+              48
+            ],
+            "atk%": -0.05
+          }
+        },
+        "maxStacks": 5,
+        "decay": true,
+        "decayDuration": 6000
+      }
+    ]
   },
   "14424": {
-    "disabled": true,
     "name": "Sacrificial Jade",
     "version": 4.0,
     "id": 14424,
@@ -3812,7 +4622,42 @@
       "baseAtk": 454,
       "critRate%": 0.368
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "or": [
+              {
+                "field": "offField"
+              },
+              {
+                "effectStacks": {
+                  "has": "onFieldTimer"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "hp%": [
+              0.32,
+              0.64
+            ],
+            "elementalMastery": [
+              40,
+              80
+            ]
+          }
+        }
+      },
+      {
+        "ref": "onFieldTimer",
+        "apply": {
+          "when": "swap",
+          "field": "onField",
+          "duration": 10000
+        }
+      }
+    ]
   },
   "14425": {
     "disabled": true,
@@ -4061,10 +4906,12 @@
           }
         },
         "buff": {
-          "elementalDmgBonus%": [
-            0.08,
-            0.16
-          ]
+          "stats": {
+            "elementalDmgBonus%": [
+              0.08,
+              0.16
+            ]
+          }
         },
         "rampingInterval": 4000,
         "maxStacks": 4
@@ -4376,6 +5223,28 @@
             ]
           }
         }
+      },
+      {
+        "use": {
+          "by": "$ally",
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "plungingAttack"
+              }
+            }
+          },
+          "cooldown": 700,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                2.5,
+                3.5
+              ]
+            }
+          }
+        }
       }
     ]
   },
@@ -4500,7 +5369,6 @@
     "effects": []
   },
   "14520": {
-    "disabled": true,
     "name": "Nightweaver's Looking Glass",
     "version": 6.0,
     "id": 14520,
@@ -4511,7 +5379,96 @@
       "baseAtk": 542,
       "elementalMastery": 265
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "prayerOfTheFarNorth",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "and": [
+                  {
+                    "type": "elementalSkill"
+                  },
+                  {
+                    "element": [
+                      "hydro",
+                      "dendro"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "duration": 4500
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              60,
+              120
+            ]
+          }
+        }
+      },
+      {
+        "ref": "newMoonVerse",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": "lunarBloom"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              60,
+              120
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "buff": {
+          "filter": {
+            "effectStacks": [
+              {
+                "has": "prayerOfTheFarNorth"
+              },
+              {
+                "has": "newMoonVerse"
+              }
+            ]
+          },
+          "stats": {
+            "bloomReactionBonus%": [
+              1.2,
+              2.4
+            ],
+            "hyperbloomReactionBonus%": [
+              0.8,
+              1.6
+            ],
+            "burgeonReactionBonus%": [
+              0.8,
+              1.6
+            ],
+            "lunarBloomReactionBonus%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      }
+    ]
   },
   "14521": {
     "disabled": true,
@@ -4528,7 +5485,6 @@
     "effects": []
   },
   "14522": {
-    "disabled": true,
     "name": "Nocturne's Curtain Call",
     "version": 6.3,
     "id": 14522,
@@ -4539,7 +5495,157 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "use": [
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "reaction": [
+                  "lunarCharged",
+                  "lunarBloom",
+                  "lunarCrystallize"
+                ]
+              }
+            },
+            "cooldown": 18000,
+            "action": {
+              "restoreEnergy": {
+                "flat": [
+                  14,
+                  18
+                ]
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "lunarCharged",
+                    "lunarBloom",
+                    "lunarCrystallize"
+                  ]
+                }
+              }
+            },
+            "cooldown": 18000,
+            "action": {
+              "restoreEnergy": {
+                "flat": [
+                  14,
+                  18
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "apply": [
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "reaction": [
+                  "lunarCharged",
+                  "lunarBloom",
+                  "lunarCrystallize"
+                ]
+              }
+            },
+            "duration": 12000
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "lunarCharged",
+                    "lunarBloom",
+                    "lunarCrystallize"
+                  ]
+                }
+              }
+            },
+            "duration": 12000
+          }
+        ],
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.14,
+              0.28
+            ]
+          }
+        }
+      },
+      {
+        "apply": [
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "reaction": [
+                  "lunarCharged",
+                  "lunarBloom",
+                  "lunarCrystallize"
+                ]
+              }
+            },
+            "duration": 12000
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "lunarCharged",
+                    "lunarBloom",
+                    "lunarCrystallize"
+                  ]
+                }
+              }
+            },
+            "duration": 12000
+          }
+        ],
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "lunarCharged",
+                  "lunarBloom",
+                  "lunarCrystallize"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "critDmg%": [
+              0.6,
+              1.2
+            ]
+          }
+        }
+      }
+    ]
   },
   "14523": {
     "name": "Angelos' Heptades",
@@ -4876,7 +5982,6 @@
     }
   },
   "15304": {
-    "disabled": true,
     "name": "Slingshot",
     "version": 1.0,
     "id": 15304,
@@ -4886,8 +5991,7 @@
     "stats": {
       "baseAtk": 354,
       "critRate%": 0.312
-    },
-    "effects": []
+    }
   },
   "15305": {
     "disabled": true,
@@ -4914,7 +6018,41 @@
       "baseAtk": 454,
       "energyRecharge%": 0.613
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          },
+          "cooldown": 6000,
+          "action": [
+            {
+              "restoreEnergy": {
+                "erScaled": 2.4,
+                "critScaled": true
+              }
+            },
+            {
+              "restoreEnergy": {
+                "targets": "$team",
+                "erScaled": 3.6,
+                "critScaled": true
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
   "15402": {
     "name": "The Stringless",
@@ -5296,7 +6434,6 @@
     "effects": []
   },
   "15424": {
-    "disabled": true,
     "name": "Scion of the Blazing Sun",
     "version": 4.0,
     "id": 15424,
@@ -5307,7 +6444,54 @@
       "baseAtk": 565,
       "critRate%": 0.184
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "cooldown": 10000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6,
+                    1.2
+                  ]
+                }
+              ]
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "heartsearer",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        }
+      },
+      {
+        "ref": "heartsearer",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "chargedAttackDmgBonus%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      }
+    ]
   },
   "15425": {
     "disabled": true,
@@ -5815,7 +6999,6 @@
     "effects": []
   },
   "15516": {
-    "disabled": true,
     "name": "Golden Frostbound Oath",
     "version": 6.5,
     "id": 15516,
@@ -5826,6 +7009,85 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "def%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "ref": "frostFaesFavor",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "elementalSkill",
+                  "lunarCrystallize"
+                ]
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "geoDmgBonus%": [
+              0.4,
+              0.8
+            ],
+            "lunarCrystallizeReactionBonus%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      },
+      {
+        "ref": "frostFaesMischief",
+        "stores": "$ally",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "elementalSkill",
+                  "lunarCrystallize"
+                ]
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": "lunarCrystallize"
+              }
+            }
+          },
+          "stats": {
+            "geoDmgBonus%": [
+              0.2,
+              0.4
+            ],
+            "lunarCrystallizeReactionBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   }
 }

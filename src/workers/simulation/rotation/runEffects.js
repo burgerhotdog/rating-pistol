@@ -1,6 +1,6 @@
 import { GI } from '@/data';
-import { runCommands } from './commands';
-import { runRemoveEffect, runUseEffect, runApplyEffect } from './effects';
+import { runCommands } from './states/effects/commands';
+import { runRemoveEffect, runUseEffect, runApplyEffect } from './states/effects';
 
 function tryRemove(ctx, when, state, spec) {
   const { effect } = state;
@@ -62,8 +62,8 @@ function tryApply(ctx, when, effect, spec) {
     const applier = eventOwnerId ?? effect.ownerId;
     if (!apply.by.includes(applier) || applyCooldowns[effect.key]) continue;
 
-    const applierField = applier === states.onFieldId ? 'onField' : 'offField';
-    if (apply.field && apply.field !== applierField) continue;
+    const ownerField = effect.ownerId === states.onFieldId ? 'onField' : 'offField';
+    if (apply.field && apply.field !== ownerField) continue;
 
     if (!ctx.eventFilter(apply.filter, effect, { ...spec, fieldId: applier })) continue;
 
@@ -121,7 +121,7 @@ export function runEffects(ctx, when, event = {}) {
   }
 
   if (gameId === GI) {
-    for (const effect of cache.elementalResonance.effects) {
+    for (const effect of cache.teamResonance.effects) {
       tryApply(ctx, when, effect, spec);
     }
   }

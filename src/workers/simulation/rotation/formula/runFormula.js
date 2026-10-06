@@ -2,6 +2,7 @@ import { runDamageFormula } from './damageFormula';
 import { runTuneFormula } from './tuneFormula';
 import { runHealingFormula } from './healingFormula';
 import { runShieldFormula } from './shieldFormula';
+import { runLunarFormula } from './lunarFormula';
 import { runStellarFormula } from './stellarFormula';
 import { runNegativeStatusFormula } from './negativeStatusFormula';
 
@@ -16,7 +17,18 @@ export function runFormula(gameId, part, action, statMap, stellarMultiplier) {
 
   const damageType = action.damage.type;
 
-  if (damageType === 'stellarConduct' || damageType === 'stellarSwirl') {
+  if (
+    damageType === 'lunarCharged' ||
+    damageType === 'lunarBloom' ||
+    damageType === 'lunarCrystallize'
+  ) {
+    return runLunarFormula(action, statMap);
+  }
+
+  if (
+    damageType === 'stellarConduct' ||
+    damageType === 'stellarSwirl'
+  ) {
     return runStellarFormula(action, statMap, stellarMultiplier);
   }
 

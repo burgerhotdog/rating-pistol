@@ -95,6 +95,25 @@ export function normalizeAction(gameId, rawAction, spec) {
   }
   action.duration ??= DEFAULT_DURATIONS[gameId][action.type] ?? 0;
 
+  if (action.restoreEnergy) {
+    const restoreEnergy = action.restoreEnergy = { ...action.restoreEnergy };
+
+    if (restoreEnergy.targets === '$team') {
+      restoreEnergy.targets = spec.memberIds;
+    }
+    restoreEnergy.targets ??= [spec.ownerId];
+
+    if (restoreEnergy.flat && Array.isArray(restoreEnergy.flat)) {
+      const [r1, r5] = restoreEnergy.flat;
+      restoreEnergy.flat = lerp(r1, r5, (spec.weaponRank - 1) / 4);
+    }
+
+    if (restoreEnergy.erScaled && Array.isArray(restoreEnergy.erScaled)) {
+      const [r1, r5] = restoreEnergy.erScaled;
+      restoreEnergy.erScaled = lerp(r1, r5, (spec.weaponRank - 1) / 4);
+    }
+  }
+
   if (action.damage) {
     const damage = action.damage = { ...action.damage };
 

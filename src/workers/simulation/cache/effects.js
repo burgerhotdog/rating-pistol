@@ -27,7 +27,10 @@ export const getEffectDefs = (gameId, member, spec) => {
 
   for (const [index, rawEffect] of charEffects.entries()) {
     if (
-      rawEffect.rank > member.rank ||
+      (
+        rawEffect.rank > 0 && member.rank < rawEffect.rank ||
+        rawEffect.rank < 0 && member.rank >= -rawEffect.rank
+      ) ||
       rawEffect.mode && rawEffect.mode !== member.mode ||
       !isEnabled(gameId, rawEffect, member.id, spec.counts)
     ) continue;

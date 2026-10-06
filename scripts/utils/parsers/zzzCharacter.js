@@ -219,7 +219,6 @@ export function zzzCharacter(id, data) {
     element: Object.values(data.element_type)[0].toLowerCase(),
     type: Object.values(data.weapon_type)[0].toLowerCase(),
     stats: s,
-    tagged: [],
     effects: [],
     skills: skills(data),
     memberPreset: {},

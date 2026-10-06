@@ -99,13 +99,10 @@ export function collectResults(workers, payload, isMainChar) {
 export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
   if (isMainChar) self.postMessage({ message: `Running Trials` });
 
-  const workers = Array.from(
-    { length: 4 },
-    () => new Worker(
-      new URL('./trials-worker/worker.js', import.meta.url),
-      { type: 'module' },
-    ),
-  );
+  const workers = Array.from({ length: 4 }, () => new Worker(
+    new URL('./trials-worker/worker.js', import.meta.url),
+    { type: 'module' },
+  ));
 
   const payload = {
     cache,

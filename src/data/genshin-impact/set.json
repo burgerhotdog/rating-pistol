@@ -1008,7 +1008,8 @@
           }
         },
         "maxStacks": 4,
-        "decay": true
+        "decay": true,
+        "decayDuration": 6000
       },
       {
         "bonus": 4,
@@ -1127,9 +1128,22 @@
         "apply": {
           "when": "healthChange",
           "filter": {
-            "effectStacks": {
-              "has": "nascentLight"
-            }
+            "and": [
+              {
+                "action": {
+                  "drain": {
+                    "value": {
+                      ">": 0
+                    }
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "nascentLight"
+                }
+              }
+            ]
           },
           "cooldown": 800
         },
@@ -1143,9 +1157,7 @@
                 }
               },
               {
-                "filter": {
-                  "field": "offField"
-                }
+                "field": "offField"
               },
               {
                 "effectStacks": {
@@ -1371,7 +1383,6 @@
     ]
   },
   "15029": {
-    "disabled": true,
     "name": "Nymph's Dream",
     "version": 3.6,
     "id": 15029,
@@ -1392,6 +1403,7 @@
       },
       {
         "bonus": 4,
+        "ref": "stack1",
         "apply": {
           "when": "hit",
           "filter": {
@@ -1400,19 +1412,185 @@
                 "type": [
                   "normalAttack",
                   "chargedAttack",
-                  "plungingAttack",
-                  "elementalSkill",
-                  "elementalBurst"
+                  "plungingAttack"
                 ]
               }
             }
           },
           "duration": 8000
-        },
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "stack2",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "duration": 8000
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "stack3",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "duration": 8000
+        }
+      },
+      {
+        "bonus": 4,
         "buff": {
+          "filter": {
+            "effectStacks": {
+              "and": [
+                {
+                  "has": "stack1"
+                },
+                {
+                  "has": "stack2"
+                },
+                {
+                  "has": "stack3"
+                }
+              ]
+            }
+          },
           "stats": {
-            "atk%": 0.0833,
-            "hydroDmgBonus%": 0.05
+            "atk%": 0.25,
+            "hydroDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "or": [
+                {
+                  "and": [
+                    {
+                      "not": {
+                        "has": "stack1"
+                      }
+                    },
+                    {
+                      "has": "stack2"
+                    },
+                    {
+                      "has": "stack3"
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "not": {
+                        "has": "stack2"
+                      }
+                    },
+                    {
+                      "has": "stack1"
+                    },
+                    {
+                      "has": "stack3"
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "not": {
+                        "has": "stack3"
+                      }
+                    },
+                    {
+                      "has": "stack1"
+                    },
+                    {
+                      "has": "stack2"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "stats": {
+            "atk%": 0.16,
+            "hydroDmgBonus%": 0.09
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "or": [
+                {
+                  "and": [
+                    {
+                      "has": "stack1"
+                    },
+                    {
+                      "not": {
+                        "has": [
+                          "stack2",
+                          "stack3"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "has": "stack2"
+                    },
+                    {
+                      "not": {
+                        "has": [
+                          "stack1",
+                          "stack3"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "has": "stack3"
+                    },
+                    {
+                      "not": {
+                        "has": [
+                          "stack1",
+                          "stack2"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "stats": {
+            "atk%": 0.07,
+            "hydroDmgBonus%": 0.04
           }
         }
       }
@@ -1522,24 +1700,30 @@
       },
       {
         "bonus": 4,
-        "apply": {
-          "when": "start",
-          "field": "offField",
-          "filter": {
-            "field": "offField"
-          }
-        },
-        "remove": {
-          "when": "start",
-          "filter": {
-            "field": "onField"
-          },
-          "offset": 2000
-        },
         "buff": {
+          "filter": {
+            "or": [
+              {
+                "field": "offField"
+              },
+              {
+                "effectStacks": {
+                  "has": "onFieldTimer"
+                }
+              }
+            ]
+          },
           "stats": {
             "elementalSkillDmgBonus%": 0.25
           }
+        }
+      },
+      {
+        "ref": "onFieldTimer",
+        "apply": {
+          "when": "swap",
+          "field": "onField",
+          "duration": 2000
         }
       }
     ]
@@ -1597,7 +1781,6 @@
     ]
   },
   "15035": {
-    "disabled": true,
     "name": "Fragment of Harmonic Whimsy",
     "version": 4.6,
     "id": 15035,
@@ -1618,11 +1801,16 @@
       },
       {
         "bonus": 4,
+        "apply": {
+          "when": "bondOfLifeChange",
+          "duration": 6000
+        },
         "buff": {
           "stats": {
-            "dmgBonus%": 0.54
+            "dmgBonus%": 0.18
           }
-        }
+        },
+        "maxStacks": 3
       }
     ]
   },
@@ -1859,7 +2047,6 @@
     ]
   },
   "15041": {
-    "disabled": true,
     "name": "Night of the Sky's Unveiling",
     "version": 6.0,
     "id": 15041,
@@ -1880,10 +2067,49 @@
       },
       {
         "bonus": 4,
-        "buff": {
+        "enable": {
+          "nascentGleam": true
+        },
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
           "filter": {
-            "field": "onField"
+            "reaction": {
+              "reaction": [
+                "lunarCharged",
+                "lunarBloom",
+                "lunarCrystallize"
+              ]
+            }
           },
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "critRate%": 0.15
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "ascendantGleam": true
+        },
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "lunarCharged",
+                "lunarBloom",
+                "lunarCrystallize"
+              ]
+            }
+          },
+          "duration": 4000
+        },
+        "buff": {
           "stats": {
             "critRate%": 0.3
           }
@@ -1892,7 +2118,6 @@
     ]
   },
   "15042": {
-    "disabled": true,
     "name": "Silken Moon's Serenade",
     "version": 6.0,
     "id": 15042,
@@ -1913,9 +2138,35 @@
       },
       {
         "bonus": 4,
+        "enable": {
+          "nascentGleam": true
+        },
         "stores": "$team",
         "apply": {
           "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 60
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "ascendantGleam": true
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "field": "*",
           "filter": {
             "action": {
               "has": "damage"
@@ -1932,7 +2183,6 @@
     ]
   },
   "15043": {
-    "disabled": true,
     "name": "Aubade of Morningstar and Moon",
     "version": 6.3,
     "id": 15043,
@@ -1949,6 +2199,57 @@
           "stats": {
             "elementalMastery": 80
           }
+        }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "or": [
+              {
+                "field": "offField"
+              },
+              {
+                "effectStacks": {
+                  "has": "onFieldTimer"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "lunarReactionBonus%": 0.2
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "ascendantGleam": true
+        },
+        "buff": {
+          "filter": {
+            "or": [
+              {
+                "field": "offField"
+              },
+              {
+                "effectStacks": {
+                  "has": "onFieldTimer"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "lunarReactionBonus%": 0.4
+          }
+        }
+      },
+      {
+        "ref": "onFieldTimer",
+        "apply": {
+          "when": "swap",
+          "field": "onField",
+          "duration": 3000
         }
       }
     ]

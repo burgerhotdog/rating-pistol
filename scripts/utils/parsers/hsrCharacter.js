@@ -114,7 +114,6 @@ export function hsrCharacter(id, data) {
     element: charElement,
     type: pick(types, data.base_type),
     stats: charStats,
-    tagged: [],
     effects: [],
     skills: skills(data),
     memberPreset: {},

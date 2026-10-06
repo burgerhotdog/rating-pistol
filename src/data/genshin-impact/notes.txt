@@ -5,6 +5,9 @@ Characters:
         C2 popping baron bunny doesnt do 200% extra dmgBonus
     Bennett
         No constellations
+    Columbina
+        Moonridge Dew has no 18s cooldown
+        No constellations
     Chevreuse
         No C1
         No C4 cooldown
@@ -15,9 +18,18 @@ Characters:
         No constellations
     Faruzan
     Fischl
+    Flins
+    Ineffa
     Kaeya
     Kazuha
     Klee
+        No constellations
+    Lauma
+        Always gain 3 stacks of Moon song
+        Pale Hymn might not be decaying properly
+        Nascent Gleam Passive 1 not in effect
+    Linnea
+        Passive 2 always buffs linnea
         No constellations
     Lohen
         No level increase
@@ -50,8 +62,6 @@ Characters:
         No energy recovery
         3 sword always
         no orbitals from skill
-    Yae Miko
-        No constellations
     Yelan
         No barb reset
     Yumemizuki Mizuki
@@ -71,18 +81,18 @@ Weapons:
         doesn't need enemies nearby
     Aquila Favonia
         Effect always hits
-    Crane's Echoing Call
-        No energy effect
     Ferrous Shadow
         No effect
     Fillet Blade
         Effect always hits
+    Finale of the Deep
+        Clear BoL gives fixed atk buff
     Harbinger of Dawn
         Assume buff always up
-    Sacrificial Sword
-        Effect disabled
-    Moonweaver's Dawn
-        energy part not done
+    Heretic's Molten Blade
+        No effect
+    Sacrificial Jade
+        No 5s buffer
     Sapwood Blade
         Leaf buff applied to $first instantly
     Silver Light
@@ -93,24 +103,27 @@ Weapons:
         Attack always triggers
     Skyward Spine
         Vacuum Blade always triggers
+    Slingshot
+        No effect
+    Sturdy Bone
+        No effect
     The Alley Flash
         Taking dmg doesn't matter
     The Black Sword
         Healing doesn't need a crit
     Traveler's Handy Sword
         No effect
-    Tulaytullah's Remembrance
-        Buff maxed
     Wandering Evenstar
         buff is constant instead of snapshotting
     Whitelake Frostfeather
         Stacks not independent
-        No energy effect
     Wolf's Gravestone
         Team buff disabled
+    Xiphos' Moonlight
+        Permanent buff, not interval application
+        Might not apply to rotation time calculation
 
     Weapon series with inactive effects
-        Favonius
         Sacrificial
         Blackcliff
 
@@ -123,5 +136,7 @@ Sets:
         Stacks not independent
     Shimenawa's Reminiscence
         4pc energy simplified
-    Vermillion Hereafter
-        stacks on health gain too
+
+    No stacking gleaming moon
+        Night of the Sky's Unveiling
+        Silken Moon's Serenade

@@ -1,39 +1,11 @@
 import { GI, WW } from '@/data';
 import { getAttr, toMergedObj } from '@/utils';
-import { runApplyEffect } from './effects';
-import { resolveSnapshot } from './snapshot';
+import { initStates } from './states';
 import { createEventFilter } from './filter';
 import { runAction } from './runAction';
 import { runEffects } from './runEffects';
-
-const initStates = (cache) => {
-  const { gameId, memberIds } = cache;
-
-  const initMemberStates = (init = () => ({})) =>
-    Object.fromEntries(memberIds.map((id) => [id, init()]));
-
-  const states = {
-    runtime: 0,
-    onFieldId: null,
-    shielded: null,
-    applyCooldowns: {},
-    globalEffects: {},
-    memberEffects: initMemberStates(),
-    memberHealth: initMemberStates(() => 1),
-  };
-
-  if (gameId === GI) {
-    states.icd = initMemberStates();
-    states.aura = {};
-  }
-
-  if (gameId === WW) {
-    states.negativeStatuses = {};
-    states.tune = { offTune: 0 };
-  }
-
-  return states;
-};
+import { initPassives } from './states/effects';
+import { resolveSnapshot } from './snapshot';
 
 const initBuildMaps = (cache, equipMaps) => {
   const { gameId, memberIds } = cache;
@@ -47,7 +19,7 @@ const initBuildMaps = (cache, equipMaps) => {
     ];
 
     if (gameId === GI) {
-      sources.push(cache.elementalResonance.stats);
+      sources.push(cache.teamResonance.stats);
     }
 
     buildMaps[memberId] = toMergedObj(...sources);
@@ -85,9 +57,10 @@ export const runRotation = (cache, equipMaps, specId) => {
   const ctx = {
     cache,
     specId,
-    states: initStates(cache),
+    states: initStates(gameId, memberIds),
     snapshots: [],
     saveSnapshots: false,
+    bonusEnergy: Object.fromEntries(memberIds.map((id) => [id, { flat: 0, erScaled: 0, critScaled: [] }])),
     buildMaps: initBuildMaps(cache, equipMaps),
     ...(gameId === WW && {
       offTuneBuildup: [],
@@ -98,24 +71,7 @@ export const runRotation = (cache, equipMaps, specId) => {
   ctx.eventFilter = createEventFilter(ctx);
   ctx.runAction = (action, options) => runAction(ctx, action, options);
   ctx.runEffects = (when, event) => runEffects(ctx, when, event);
-
-  // Apply passive effects into states
-  for (const memberId in cache.member) {
-    const mCache = cache.member[memberId];
-
-    for (const effectKey in mCache.effects) {
-      const effect = mCache.effects[effectKey];
-      if (effect.static || effect.apply) continue;
-      runApplyEffect(ctx, effect);
-    }
-  }
-
-  if (gameId === GI) {
-    for (const effect of cache.elementalResonance.effects) {
-      if (effect.static || effect.apply) continue;
-      runApplyEffect(ctx, effect, effect.apply);
-    }
-  }
+  initPassives(ctx);
 
   // Rotation loop
   const memberOrder = memberIds.toReversed();
@@ -147,20 +103,30 @@ export const runRotation = (cache, equipMaps, specId) => {
   }
 
   if (!specId) {
-    return ctx.snapshots.map(({ unresolved: _, ...snapshot }) => snapshot);
+    return {
+      snapshots: ctx.snapshots.map(({ unresolved: _, ...snapshot }) => snapshot),
+      bonusEnergy: ctx.bonusEnergy,
+    };
   }
 
-  return (buildMap) => ctx.snapshots.map((snapshot) => {
-    const resolved = { ...snapshot };
+  return {
+    snapshots: (buildMap) => ctx.snapshots.map((snapshot) => {
+      const resolved = { ...snapshot };
 
-    for (const part of SNAPSHOT_PARTS) {
-      if (typeof snapshot[part] === 'function') {
-        resolved[part] = snapshot[part](buildMap);
+      if (typeof snapshot.damage === 'function') {
+        resolved.damage = snapshot.damage(buildMap);
       }
-    }
 
-    return resolved;
-  });
+      if (typeof snapshot.healing === 'function') {
+        resolved.healing = snapshot.healing(buildMap);
+      }
+
+      if (typeof snapshot.shield === 'function') {
+        resolved.shield = snapshot.shield(buildMap);
+      }
+
+      return resolved;
+    }),
+    bonusEnergy: ctx.bonusEnergy,
+  };
 };
-
-const SNAPSHOT_PARTS = ['damage', 'healing', 'shield'];
