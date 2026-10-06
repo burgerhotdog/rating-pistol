@@ -16,32 +16,11 @@ import {
   replaceNegativeStatuses,
 } from './states/negative-statuses';
 import { canSnapshot, buildSnapshot } from './snapshot';
-import { getEffectStates } from './getEffectStates';
 import { getModifiedAction } from './getModifiedAction';
 import { advanceStates } from './states';
 import { runRestoreEnergy } from './restoreEnergy';
 import { updateShielded } from './states/shielded';
-
-function decayBuffStates(ctx, action) {
-  for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
-    const { store, effect, buffCooldown } = state;
-
-    if (buffCooldown) continue;
-    const spec = { action, fieldId: action.ownerId };
-    if (!ctx.eventFilter(effect.buff?.filter, effect, spec)) continue;
-
-    if (effect.buff?.cooldown) {
-      state.buffCooldown = effect.buff.cooldown;
-    }
-
-    if (state.usesLeft) {
-      state.usesLeft--;
-      if (!state.usesLeft) {
-        delete store[effect.key];
-      }
-    }
-  }
-}
+import { decayBuffUses } from './states/effects/decayBuffUses';
 
 export function runAction(ctx, action, options = {}) {
   const { noDuration } = options;
@@ -85,7 +64,7 @@ export function runAction(ctx, action, options = {}) {
       applyOffTuneBuildup(ctx, modifiedAction);
     }
 
-    decayBuffStates(ctx, modifiedAction);
+    decayBuffUses(ctx, modifiedAction);
   }
 
   if (ctx.saveSnapshots) {
