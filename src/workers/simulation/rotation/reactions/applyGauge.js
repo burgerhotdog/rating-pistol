@@ -1,243 +1,254 @@
+import { applyAura, tryIcd } from '../states';
 import {
-  reactOverloaded,
-  reactBloom,
-  reactSuperconduct,
-  reactSwirl,
-  reactCrystallize,
-  reactFrozen,
-  reactElectroCharged,
-} from './transformative';
+  reactAggravate,
+  reactQuicken,
+  reactSpread,
+} from './additive';
 import {
   reactMelt,
   reactVaporize,
 } from './amplifying';
 import {
-  reactLunarCharged,
+  reactBloom,
+  reactBurgeon,
+  reactCrystallize,
+  reactElectroCharged,
+  reactFrozen,
+  reactHyperbloom,
+  reactOverloaded,
+  reactSuperconduct,
+  reactSwirl,
+} from './transformative';
+import {
   reactLunarBloom,
+  reactLunarCharged,
   reactLunarCrystallize,
-} from './lunarReactions';
+} from './lunar';
 import {
   reactStellarConduct,
   reactStellarSwirl,
-} from './stellarReactions';
-import { tryApplyElement } from './tryApplyElement';
-import { applyAura, consumeAura } from '../states/aura';
+} from './stellar';
 
 function applyPyro(ctx, gauge, applier) {
   const { aura } = ctx.states;
-  let remaining = gauge;
+  let availableUnits = gauge;
+  let scaleMult;
 
-  if (aura.electro && remaining) {
-    reactOverloaded(ctx, applier);
-    consumeAura(ctx, aura.electro, remaining);
-    return;
+  if (aura.bloom) {
+    reactBurgeon(ctx, applier);
   }
 
-  if (aura.cryo && remaining) {
-    const multiplier = reactMelt(ctx, applier, true);
-    consumeAura(ctx, aura.cryo, remaining * 2);
-    return multiplier;
+  if (aura.electro && availableUnits) {
+    availableUnits = reactOverloaded(ctx, applier, 'electro', availableUnits);
   }
 
-  if (aura.hydro && remaining) {
-    const multiplier = reactVaporize(ctx, applier, false);
-    consumeAura(ctx, aura.hydro, remaining / 2);
-    return multiplier;
+  if (aura.hydro && availableUnits) {
+    const { excess, mult } = reactVaporize(ctx, applier, 'hydro', availableUnits);
+    availableUnits = excess;
+    scaleMult = mult;
   }
 
-  if (remaining) {
-    applyAura(ctx, 'pyro', remaining);
+  if (aura.cryo && availableUnits) {
+    const { excess, mult } = reactMelt(ctx, applier, 'cryo', availableUnits);
+    availableUnits = excess;
+    scaleMult = mult;
   }
+
+  if (availableUnits === gauge) {
+    applyAura(ctx, 'pyro', availableUnits);
+  }
+
+  return scaleMult;
 }
 
 function applyElectro(ctx, gauge, applier) {
   const { aura } = ctx.states;
-  let remaining = gauge;
+  let availableUnits = gauge;
+  let scaleMult;
+
+  if (aura.bloom) {
+    reactHyperbloom(ctx, applier);
+  }
+
+  if (aura.quicken) {
+    scaleMult = reactAggravate(ctx, applier);
+  }
 
   if (aura.stellarConduct) {
     aura.stellarConduct.hits++;
   }
 
-  if (aura.pyro && remaining) {
-    reactOverloaded(ctx, applier);
-    consumeAura(ctx, aura.pyro, remaining);
-    return;
+  if (aura.pyro && availableUnits) {
+    availableUnits = reactOverloaded(ctx, applier, 'pyro', availableUnits);
   }
 
-  if (aura.cryo && remaining) {
+  if (aura.cryo && availableUnits) {
     if (ctx.cache.stellarConduct) {
-      reactStellarConduct(ctx, applier);
+      availableUnits = reactStellarConduct(ctx, applier, 'cryo', availableUnits);
     } else {
-      reactSuperconduct(ctx, applier);
+      availableUnits = reactSuperconduct(ctx, applier, 'cryo', availableUnits);
     }
-
-    consumeAura(ctx, aura.cryo, remaining);
-    return;
   }
 
-  if (remaining) {
-    applyAura(ctx, 'electro', remaining);
-  }
-
-  if (aura.hydro && remaining) {
+  if (aura.hydro && availableUnits) {
     if (ctx.cache.lunarCharged) {
       reactLunarCharged(ctx, applier);
     } else {
       reactElectroCharged(ctx, applier);
     }
   }
-}
 
-export function applyCryo(ctx, gauge, applier) {
-  const { aura } = ctx.states;
-  let remaining = gauge;
-
-  if (aura.stellarConduct) {
-    aura.stellarConduct.hits++;
+  if (availableUnits === gauge) {
+    applyAura(ctx, 'electro', availableUnits);
   }
 
-  if (aura.hydro && remaining) {
-    reactFrozen(ctx, applier, aura.hydro.gauge, remaining);
-    remaining = consumeAura(ctx, aura.hydro, remaining);
-  }
-
-  if (aura.electro && remaining) {
-    if (ctx.cache.stellarConduct) {
-      reactStellarConduct(ctx, applier);
-    } else {
-      reactSuperconduct(ctx, applier);
-    }
-
-    consumeAura(ctx, aura.electro, remaining);
-    return;
-  }
-
-  if (aura.pyro && remaining) {
-    const multiplier = reactMelt(ctx, applier, false);
-    consumeAura(ctx, aura.pyro, remaining / 2);
-    return multiplier;
-  }
-
-  if (remaining) {
-    applyAura(ctx, 'cryo', remaining);
-  }
+  return scaleMult;
 }
 
 function applyHydro(ctx, gauge, applier) {
   const { aura } = ctx.states;
-  let remaining = gauge;
+  let availableUnits = gauge;
+  let scaleMult;
 
-  if (aura.cryo && remaining) {
-    reactFrozen(ctx, applier, aura.cryo.gauge, remaining);
-    remaining = consumeAura(ctx, aura.cryo, remaining);
+  if (aura.pyro && availableUnits) {
+    const { excess, mult } = reactVaporize(ctx, applier, 'pyro', availableUnits);
+    availableUnits = excess;
+    scaleMult = mult;
   }
 
-  if (aura.pyro && remaining) {
-    const multiplier = reactVaporize(ctx, applier, true);
-    consumeAura(ctx, aura.pyro, remaining * 2);
-    return multiplier;
+  if (aura.cryo && availableUnits) {
+    availableUnits = reactFrozen(ctx, applier, 'cryo', availableUnits);
   }
 
-  if (aura.dendro && remaining) {
+  if (aura.dendro && availableUnits) {
     if (ctx.cache.lunarBloom) {
       reactLunarBloom(ctx, applier);
     }
 
-    reactBloom(ctx, applier);
-    consumeAura(ctx, aura.dendro, remaining / 2);
-    return;
+    availableUnits = reactBloom(ctx, applier, 'dendro', availableUnits);
   }
 
-  if (remaining) {
-    applyAura(ctx, 'hydro', remaining);
-  }
-
-  if (aura.electro && remaining) {
+  if (aura.electro && availableUnits) {
     if (ctx.cache.lunarCharged) {
       reactLunarCharged(ctx, applier);
     } else {
       reactElectroCharged(ctx, applier);
     }
   }
+
+  if (availableUnits === gauge) {
+    applyAura(ctx, 'hydro', availableUnits);
+  }
+
+  return scaleMult;
+}
+
+function applyDendro(ctx, gauge, applier) {
+  const { aura } = ctx.states;
+  let availableUnits = gauge;
+  let scaleMult;
+
+  if (aura.quicken) {
+    scaleMult = reactSpread(ctx, applier);
+  }
+
+  if (aura.hydro && availableUnits) {
+    if (ctx.cache.lunarBloom) {
+      reactLunarBloom(ctx, applier);
+    }
+
+    availableUnits = reactBloom(ctx, applier, 'hydro', availableUnits);
+  }
+
+  if (availableUnits === gauge) {
+    applyAura(ctx, 'dendro', availableUnits);
+  }
+
+  return scaleMult;
 }
 
 function applyAnemo(ctx, gauge, applier) {
   const { aura } = ctx.states;
-  let remaining = gauge / 2;
+  let availableUnits = gauge;
 
-  if (aura.pyro && remaining) {
-    reactSwirl(ctx, applier, 'pyro');
-    remaining = consumeAura(ctx, aura.pyro, remaining);
+  if (aura.pyro && availableUnits) {
+    availableUnits = reactSwirl(ctx, applier, 'pyro', availableUnits);
   }
 
-  if (aura.hydro && remaining) {
-    reactSwirl(ctx, applier, 'hydro');
-    remaining = consumeAura(ctx, aura.hydro, remaining);
+  if (aura.electro && availableUnits) {
+    availableUnits = reactSwirl(ctx, applier, 'electro', availableUnits);
   }
 
-  if (aura.electro && remaining) {
-    reactSwirl(ctx, applier, 'electro');
-    remaining = consumeAura(ctx, aura.electro, remaining);
+  if (aura.hydro && availableUnits) {
+    availableUnits = reactSwirl(ctx, applier, 'hydro', availableUnits);
   }
 
-  if (aura.cryo && remaining) {
+  if (aura.cryo && availableUnits) {
     if (ctx.cache.stellarSwirl) {
-      reactStellarSwirl(ctx, applier);
+      reactStellarSwirl(ctx, applier, availableUnits);
     } else {
-      reactSwirl(ctx, applier, 'cryo');
+      reactSwirl(ctx, applier, 'cryo', availableUnits);
     }
-
-    remaining = consumeAura(ctx, aura.cryo, remaining);
   }
 }
 
 function applyGeo(ctx, gauge, applier) {
   const { aura } = ctx.states;
-  let remaining = gauge / 2;
+  let availableUnits = gauge;
 
-  if (aura.pyro && remaining) {
-    reactCrystallize(ctx, applier, 'pyro');
-    remaining = consumeAura(ctx, aura.pyro, remaining);
+  if (aura.pyro && availableUnits) {
+    availableUnits = reactCrystallize(ctx, applier, 'pyro', availableUnits);
   }
 
-  if (aura.electro && remaining) {
-    reactCrystallize(ctx, applier, 'electro');
-    remaining = consumeAura(ctx, aura.electro, remaining);
+  if (aura.electro && availableUnits) {
+    availableUnits = reactCrystallize(ctx, applier, 'electro', availableUnits);
   }
 
-  if (aura.hydro && remaining) {
+  if (aura.hydro && availableUnits) {
     if (ctx.cache.lunarCrystallize) {
-      reactLunarCrystallize(ctx, applier);
+      availableUnits = reactLunarCrystallize(ctx, applier);
     } else {
-      reactCrystallize(ctx, applier, 'hydro');
+      availableUnits = reactCrystallize(ctx, applier, 'hydro', availableUnits);
     }
-
-    remaining = consumeAura(ctx, aura.hydro, remaining);
   }
 
-  if (aura.cryo && remaining) {
-    reactCrystallize(ctx, applier, 'cryo');
-    remaining = consumeAura(ctx, aura.cryo, remaining);
+  if (aura.cryo && availableUnits) {
+    reactCrystallize(ctx, applier, 'cryo', availableUnits);
   }
 }
 
-function applyDendro(ctx, gauge, applier) {
+export function applyCryo(ctx, gauge, applier) {
   const { aura } = ctx.states;
-  let remaining = gauge;
+  let availableUnits = gauge;
+  let scaleMult;
 
-  if (aura.hydro && remaining) {
-    if (ctx.cache.lunarBloom) {
-      reactLunarBloom(ctx, applier);
+  if (aura.stellarConduct) {
+    aura.stellarConduct.hits++;
+  }
+
+  if (aura.pyro && availableUnits) {
+    const { excess, mult } = reactMelt(ctx, applier, 'pyro', availableUnits);
+    availableUnits = excess;
+    scaleMult = mult;
+  }
+
+  if (aura.electro && availableUnits) {
+    if (ctx.cache.stellarConduct) {
+      availableUnits = reactStellarConduct(ctx, applier, 'electro', availableUnits);
+    } else {
+      availableUnits = reactSuperconduct(ctx, applier, 'electro', availableUnits);
     }
-
-    reactBloom(ctx, applier);
-    consumeAura(ctx, aura.hydro, remaining * 2);
-    return;
   }
 
-  if (remaining) {
-    applyAura(ctx, 'dendro', remaining);
+  if (aura.hydro && availableUnits) {
+    availableUnits = reactFrozen(ctx, applier, 'hydro', availableUnits);
   }
+
+  if (availableUnits === gauge) {
+    applyAura(ctx, 'cryo', availableUnits);
+  }
+
+  return scaleMult;
 }
 
 export function applyGauge(ctx, action) {
@@ -245,7 +256,7 @@ export function applyGauge(ctx, action) {
   const { element, gauge, icd } = damage;
 
   if (element === 'physical' || !gauge) return;
-  if (!tryApplyElement(ctx, ownerId, icd)) return;
+  if (!tryIcd(ctx, ownerId, icd)) return;
 
   switch (element) {
     case 'pyro':

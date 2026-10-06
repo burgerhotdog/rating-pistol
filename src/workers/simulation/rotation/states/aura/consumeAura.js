@@ -1,10 +1,13 @@
-export function consumeAura(ctx, state, gauge) {
-  const remaining = Math.max(gauge - state.gauge, 0);
-  state.gauge -= gauge;
+export function consumeAura(ctx, element, gaugeUnits) {
+  const store = ctx.states.aura;
+  const state = store[element];
+
+  const excessGaugeUnits = Math.max(gaugeUnits - state.gauge, 0);
+  state.gauge -= gaugeUnits;
 
   if (state.gauge <= 0) {
-    delete ctx.states.aura[state.element];
+    delete store[element];
   }
 
-  return remaining;
+  return excessGaugeUnits;
 }

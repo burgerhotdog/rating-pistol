@@ -1,36 +1,8 @@
-import { applyCryo } from './applyGauge';
-import { buildElevationSnapshot } from '../snapshot';
+import { applyCryo } from '../applyGauge';
+import { buildElevationSnapshot } from '../../snapshot';
+import { consumeAura } from '../../states';
 
-const REACTION_DEFS = {
-  stellarConduct: {
-    reaction: 'stellarConduct',
-    elements: ['cryo', 'electro'],
-  },
-  stellarSwirl: {
-    reaction: 'stellarSwirl',
-    elements: ['cryo', 'anemo'],
-  },
-};
-
-export function reactStellarConduct(ctx, ownerId) {
-  const state = ctx.states.aura.stellarConduct ??= {
-    reaction: 'stellarConduct',
-    prevHits: 0,
-    multiplier: 1,
-    bonus: 0.2,
-    hits: 0,
-    timer: 4000,
-  };
-
-  state.timeLeft = 7000;
-
-  ctx.runEffects('reaction', {
-    ...REACTION_DEFS.stellarConduct,
-    ownerId,
-  });
-}
-
-export function reactStellarSwirl(ctx, ownerId) {
+export function reactStellarSwirl(ctx, ownerId, gaugeUnits) {
   const state = ctx.states.aura.stellarSwirl ??= {
     reaction: 'stellarSwirl',
   };
@@ -73,7 +45,10 @@ export function reactStellarSwirl(ctx, ownerId) {
   }
 
   ctx.runEffects('reaction', {
-    ...REACTION_DEFS.stellarSwirl,
+    reaction: 'stellarSwirl',
+    elements: ['cryo', 'anemo'],
     ownerId,
   });
+
+  consumeAura(ctx, 'cryo', gaugeUnits);
 }

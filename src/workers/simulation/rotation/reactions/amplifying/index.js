@@ -1,1 +1,2 @@
-export * from './amplifyingReactions';
+export * from './melt';
+export * from './vaporize';

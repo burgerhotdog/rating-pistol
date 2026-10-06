@@ -1,5 +1,6 @@
-export * from './applyGauge';
 export * from './amplifying';
 export * from './transformative';
-export * from './lunarReactions';
-export * from './stellarReactions';
+export * from './lunar';
+export * from './stellar';
+
+export * from './applyGauge';
