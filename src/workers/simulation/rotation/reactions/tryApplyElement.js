@@ -16,6 +16,7 @@ export function tryApplyElement(ctx, memberId, icdData) {
   }
 
   state.hitsLeft--;
+
   if (state.hitsLeft <= 0) {
     delete state.hitsLeft;
   }

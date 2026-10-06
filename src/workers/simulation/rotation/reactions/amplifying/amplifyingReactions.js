@@ -1,5 +1,5 @@
 import { getAttr, toMergedObj, resolveBuffSpecs } from '@/utils';
-import { getBuffMap } from '../getStatMap';
+import { getBuffMap } from '../../getStatMap';
 
 function emBonus(statMap) {
   const emValue = getAttr('elementalMastery', statMap);
@@ -70,13 +70,21 @@ function getAmpMultiplier(ctx, reaction, ownerId, isForward) {
 }
 
 export function reactMelt(ctx, ownerId, isForward) {
-  ctx.runEffects('reaction', { reaction: 'melt', ownerId, elements: ['pyro', 'cryo'] });
+  ctx.runEffects('reaction', {
+    reaction: 'melt',
+    elements: ['pyro', 'cryo'],
+    ownerId,
+  });
 
   return getAmpMultiplier(ctx, 'melt', ownerId, isForward);
 }
 
 export function reactVaporize(ctx, ownerId, isForward) {
-  ctx.runEffects('reaction', { reaction: 'vaporize', ownerId, elements: ['pyro', 'hydro'] });
+  ctx.runEffects('reaction', {
+    reaction: 'vaporize',
+    elements: ['pyro', 'hydro'],
+    ownerId,
+  });
 
   return getAmpMultiplier(ctx, 'vaporize', ownerId, isForward);
 }

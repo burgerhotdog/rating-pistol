@@ -1,6 +1,6 @@
 import { GI, WW } from '@/data';
 import { clamp } from '@/utils';
-import { applyGauge, consumeVerdantDew } from './gauge';
+import { applyGauge, consumeVerdantDew } from './reactions';
 import {
   changeBondOfLife,
   grantBondOfLife,

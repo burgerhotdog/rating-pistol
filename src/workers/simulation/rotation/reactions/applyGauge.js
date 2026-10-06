@@ -6,11 +6,11 @@ import {
   reactCrystallize,
   reactFrozen,
   reactElectroCharged,
-} from './transformativeReactions';
+} from './transformative';
 import {
   reactMelt,
   reactVaporize,
-} from './amplifyingReactions';
+} from './amplifying';
 import {
   reactLunarCharged,
   reactLunarBloom,
@@ -20,7 +20,7 @@ import {
   reactStellarConduct,
   reactStellarSwirl,
 } from './stellarReactions';
-import { tryApplyElement } from '../states/icd';
+import { tryApplyElement } from './tryApplyElement';
 import { applyAura, consumeAura } from '../states/aura';
 
 function applyPyro(ctx, gauge, applier) {
@@ -241,10 +241,9 @@ function applyDendro(ctx, gauge, applier) {
 }
 
 export function applyGauge(ctx, action) {
-  const { damage, ownerId } = action;
-  if (!damage) return;
-
+  const { ownerId, damage = {} } = action;
   const { element, gauge, icd } = damage;
+
   if (element === 'physical' || !gauge) return;
   if (!tryApplyElement(ctx, ownerId, icd)) return;
 

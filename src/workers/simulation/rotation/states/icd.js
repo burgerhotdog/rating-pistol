@@ -1,4 +1,4 @@
-export function advanceIcdStates(ctx, elapsed) {
+export function advanceIcds(ctx, elapsed) {
   const { states } = ctx;
 
   for (const memberId in states.icd) {

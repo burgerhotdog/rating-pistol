@@ -1,4 +1,4 @@
-import { applyCryo, tickElectroCharged, tickLunarCharged } from '../../gauge';
+import { applyCryo, tickElectroCharged, tickLunarCharged } from '../../reactions';
 import { buildTransformativeReactionSnapshot, buildElevationSnapshot } from '../../snapshot';
 
 function advanceElementAura(ctx, state, elapsed) {

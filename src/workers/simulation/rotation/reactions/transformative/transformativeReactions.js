@@ -1,6 +1,6 @@
-import { consumeAura } from '../states/aura';
-import { updateShielded } from '../states/shielded';
-import { buildTransformativeReactionSnapshot } from '../snapshot';
+import { consumeAura } from '../../states/aura';
+import { updateShielded } from '../../states/shielded';
+import { buildTransformativeReactionSnapshot } from '../../snapshot';
 
 export function reactOverloaded(ctx, ownerId) {
   if (ctx.saveSnapshots) {
