@@ -12,6 +12,8 @@ import {
 } from './amplifyingReactions';
 import {
   reactLunarCharged,
+  reactLunarBloom,
+  reactLunarCrystallize,
 } from './lunarReactions';
 import {
   reactStellarConduct,
@@ -135,6 +137,15 @@ function applyHydro(ctx, gauge, applier) {
     return multiplier;
   }
 
+  if (aura.dendro && remaining) {
+    if (ctx.cache.lunarBloom) {
+      reactLunarBloom(ctx, applier);
+    }
+
+    consumeAura(ctx, aura.dendro, remaining / 2);
+    return;
+  }
+
   if (remaining) {
     applyAura(ctx, 'hydro', remaining);
   }
@@ -193,7 +204,12 @@ function applyGeo(ctx, gauge, applier) {
   }
 
   if (aura.hydro && remaining) {
-    reactCrystallize(ctx, applier, 'hydro');
+    if (ctx.cache.lunarCrystallize) {
+      reactLunarCrystallize(ctx, applier);
+    } else {
+      reactCrystallize(ctx, applier, 'hydro');
+    }
+
     remaining = consumeAura(ctx, aura.hydro, remaining);
   }
 
@@ -204,7 +220,21 @@ function applyGeo(ctx, gauge, applier) {
 }
 
 function applyDendro(ctx, gauge, applier) {
-  applyAura(ctx, 'dendro', gauge);
+  const { aura } = ctx.states;
+  let remaining = gauge;
+
+  if (aura.hydro && remaining) {
+    if (ctx.cache.lunarBloom) {
+      reactLunarBloom(ctx, applier);
+    }
+
+    consumeAura(ctx, aura.hydro, remaining * 2);
+    return;
+  }
+
+  if (remaining) {
+    applyAura(ctx, 'dendro', remaining);
+  }
 }
 
 export function applyGauge(ctx, action) {

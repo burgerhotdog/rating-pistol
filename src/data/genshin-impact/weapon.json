@@ -4577,7 +4577,6 @@
     ]
   },
   "14417": {
-    "disabled": true,
     "name": "Fruit of Fulfillment",
     "version": 3.0,
     "id": 14417,
@@ -4589,10 +4588,30 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "cooldown": 300,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              24,
+              48
+            ],
+            "atk%": -0.05
+          }
+        },
+        "maxStacks": 5,
+        "decay": true,
+        "decayDuration": 6000
+      }
+    ]
   },
   "14424": {
-    "disabled": true,
     "name": "Sacrificial Jade",
     "version": 4.0,
     "id": 14424,
@@ -4603,7 +4622,42 @@
       "baseAtk": 454,
       "critRate%": 0.368
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "or": [
+              {
+                "field": "offField"
+              },
+              {
+                "effectStacks": {
+                  "has": "onFieldTimer"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "hp%": [
+              0.32,
+              0.64
+            ],
+            "elementalMastery": [
+              40,
+              80
+            ]
+          }
+        }
+      },
+      {
+        "ref": "onFieldTimer",
+        "apply": {
+          "when": "swap",
+          "field": "onField",
+          "duration": 10000
+        }
+      }
+    ]
   },
   "14425": {
     "disabled": true,
@@ -5928,7 +5982,6 @@
     }
   },
   "15304": {
-    "disabled": true,
     "name": "Slingshot",
     "version": 1.0,
     "id": 15304,
@@ -5938,8 +5991,7 @@
     "stats": {
       "baseAtk": 354,
       "critRate%": 0.312
-    },
-    "effects": []
+    }
   },
   "15305": {
     "disabled": true,
@@ -6947,7 +6999,6 @@
     "effects": []
   },
   "15516": {
-    "disabled": true,
     "name": "Golden Frostbound Oath",
     "version": 6.5,
     "id": 15516,
@@ -6958,6 +7009,85 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "def%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "ref": "frostFaesFavor",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "elementalSkill",
+                  "lunarCrystallize"
+                ]
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "geoDmgBonus%": [
+              0.4,
+              0.8
+            ],
+            "lunarCrystallizeReactionBonus%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      },
+      {
+        "ref": "frostFaesMischief",
+        "stores": "$ally",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "elementalSkill",
+                  "lunarCrystallize"
+                ]
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": "lunarCrystallize"
+              }
+            }
+          },
+          "stats": {
+            "geoDmgBonus%": [
+              0.2,
+              0.4
+            ],
+            "lunarCrystallizeReactionBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   }
 }

@@ -25,6 +25,7 @@ function elevationBaseDamage(statMap, rxnKey, rxnMultiplier) {
     rxnMultiplier * LEVEL_MULTIPLIER *
     rxnBaseDmgBonusMult *
     rxnBonusMult +
+    getAttr(`${rxnKey}Flat`, statMap) +
     getAttr(`${rxnGroup}Flat`, statMap)
   );
 }
@@ -33,7 +34,8 @@ export function elevationReactionFormula(statMap, rxnKey, rxnMultiplier, rxnElem
   return (
     elevationBaseDamage(statMap, rxnKey, rxnMultiplier) *
     getCritMult(statMap) *
-    getResMult(GI, rxnElement, statMap)
+    getResMult(GI, rxnElement, statMap) *
+    (1 + getAttr(`${rxnKey}ExtraStrikeChance%`, statMap))
   );
 }
 
@@ -47,6 +49,7 @@ export function elevationReactionUsedAttrs(rxnKey, rxnElement) {
     'elementalMastery%',
     `${rxnKey}ReactionBonus%`,
     `${rxnGroup}ReactionBonus%`,
+    `${rxnKey}Flat`,
     `${rxnGroup}Flat`,
     'critRate%',
     'critDmg%',
@@ -56,5 +59,6 @@ export function elevationReactionUsedAttrs(rxnKey, rxnElement) {
     'resIgnore%',
     `${rxnElement}ResIgnore%`,
     'elementalResIgnore%',
+    `${rxnKey}ExtraStrikeChance%`,
   ]);
 }

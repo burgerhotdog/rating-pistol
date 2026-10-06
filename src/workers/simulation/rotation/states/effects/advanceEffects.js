@@ -14,7 +14,7 @@ function advanceEffectState(state, elapsed) {
     }
 
     while (state.timeLeft <= 0) {
-      state.timeLeft += effect.apply.duration;
+      state.timeLeft += effect.decayDuration;
       state.stacks--;
 
       if (state.stacks <= 0) {
@@ -108,7 +108,6 @@ function advanceState(ctx, elapsed, state, storeOwnerId) {
     }
 
     if (remaining && !state.useCooldown) {
-      console.log('problem');
       break;
     }
   }

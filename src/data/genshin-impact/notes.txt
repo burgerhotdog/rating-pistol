@@ -6,7 +6,7 @@ Characters:
     Bennett
         No constellations
     Columbina
-        Minimal Lunar Charged implementation
+        Moonridge Dew has no 18s cooldown
         No constellations
     Chevreuse
         No C1
@@ -23,6 +23,13 @@ Characters:
     Kaeya
     Kazuha
     Klee
+        No constellations
+    Lauma
+        Always gain 3 stacks of Moon song
+        Pale Hymn might not be decaying properly
+        Nascent Gleam Passive 1 not in effect
+    Linnea
+        Passive 2 always buffs linnea
         No constellations
     Lohen
         No level increase
@@ -84,6 +91,8 @@ Weapons:
         Assume buff always up
     Heretic's Molten Blade
         No effect
+    Sacrificial Jade
+        No 5s buffer
     Sapwood Blade
         Leaf buff applied to $first instantly
     Silver Light
@@ -94,6 +103,8 @@ Weapons:
         Attack always triggers
     Skyward Spine
         Vacuum Blade always triggers
+    Slingshot
+        No effect
     Sturdy Bone
         No effect
     The Alley Flash

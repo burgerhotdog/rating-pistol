@@ -48,11 +48,13 @@ const ELEMENTAL_RESONANCES = {
             states: {
               or: [
                 {
-                  shielded: true,
+                  shielded: {
+                    '>': 0,
+                  },
                 },
                 {
                   aura: {
-                    has: "moondrifts",
+                    has: "lunarCrystallize",
                   },
                 },
               ],
@@ -74,11 +76,13 @@ const ELEMENTAL_RESONANCES = {
                 states: {
                   or: [
                     {
-                      shielded: true,
+                      shielded: {
+                        '>': 0,
+                      },
                     },
                     {
                       aura: {
-                        has: "moondrifts",
+                        has: "lunarCrystallize",
                       },
                     },
                   ],

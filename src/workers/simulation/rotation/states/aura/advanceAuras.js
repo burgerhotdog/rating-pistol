@@ -173,6 +173,8 @@ export function advanceAuras(ctx, elapsed) {
       continue;
     }
 
+    if (!('timeLeft' in state)) continue;
+
     const remaining = state.timeLeft -= elapsed;
 
     if (remaining <= 0) {

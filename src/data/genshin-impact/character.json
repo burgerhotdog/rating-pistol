@@ -49799,7 +49799,6 @@
     ]
   },
   "10000119": {
-    "disabled": true,
     "name": "Lauma",
     "version": 6.0,
     "id": 10000119,
@@ -49832,7 +49831,182 @@
         "use": {
           "when": "interval",
           "cooldown": 2000,
-          "action": "elementalSkill.3"
+          "action": "elementalSkill.4"
+        }
+      },
+      {
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                },
+                {
+                  "states": {
+                    "aura": {
+                      "not": {
+                        "has": "lunarBloom"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.0"
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                },
+                {
+                  "states": {
+                    "aura": {
+                      "has": "lunarBloom"
+                    }
+                  }
+                }
+              ]
+            },
+            "action": [
+              "elementalSkill.2",
+              "elementalSkill.3"
+            ]
+          }
+        ]
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.2",
+                "elementalSkill.4"
+              ]
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "statRefs": {
+            "dendroResReduction%": "elementalSkill.5",
+            "hydroResReduction%": "elementalSkill.5"
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 36
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "bloom",
+                  "hyperbloom",
+                  "burgeon",
+                  "lunarBloom"
+                ]
+              }
+            }
+          },
+          "specRefs": {
+            "bloomFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": "elementalBurst.1"
+            },
+            "hyperbloomFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": "elementalBurst.1"
+            },
+            "burgeonFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": "elementalBurst.1"
+            },
+            "lunarBloomFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": "elementalBurst.2"
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "lunarBloom"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": 0.1,
+            "critDmg%": 0.2
+          }
+        }
+      },
+      {
+        "buff": {
+          "specs": {
+            "elementalSkillDmgBonus%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.0004,
+              "maxValue": 0.32
+            }
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "specs": {
+            "lunarBloomBaseDmg%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.000175,
+              "maxValue": 0.14
+            }
+          }
         }
       }
     ],
@@ -50039,6 +50213,7 @@
             "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -50063,9 +50238,14 @@
             }
           },
           {
-            "name": "1-Hit Hold DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill: Hold",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Regular Hold Dmg",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -50090,9 +50270,11 @@
             }
           },
           {
-            "name": "2-Hit Hold DMG",
-            "type": "elementalSkill",
+            "name": "Lunar Bloom Hold Dmg",
+            "verdantDew": 3,
             "damage": {
+              "type": "lunarBloom",
+              "attr": "elementalMastery",
               "multipliers": [
                 {
                   "mv": [
@@ -50120,44 +50302,45 @@
             "name": "Frostgrove Sanctuary Attack",
             "damage": {
               "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
-                  "mv": [
-                    0.96,
-                    1.032,
-                    1.104,
-                    1.2,
-                    1.272,
-                    1.344,
-                    1.44,
-                    1.536,
-                    1.632,
-                    1.728,
-                    1.824,
-                    1.92,
-                    2.04,
-                    2.16,
-                    2.28
-                  ]
-                },
-                {
-                  "mv": [
-                    1.92,
-                    2.064,
-                    2.208,
-                    2.4,
-                    2.544,
-                    2.688,
-                    2.88,
-                    3.072,
-                    3.264,
-                    3.456,
-                    3.648,
-                    3.84,
-                    4.08,
-                    4.32,
-                    4.56
-                  ]
+                  "mv": {
+                    "atk": [
+                      0.96,
+                      1.032,
+                      1.104,
+                      1.2,
+                      1.272,
+                      1.344,
+                      1.44,
+                      1.536,
+                      1.632,
+                      1.728,
+                      1.824,
+                      1.92,
+                      2.04,
+                      2.16,
+                      2.28
+                    ],
+                    "elementalMastery": [
+                      1.92,
+                      2.064,
+                      2.208,
+                      2.4,
+                      2.544,
+                      2.688,
+                      2.88,
+                      3.072,
+                      3.264,
+                      3.456,
+                      3.648,
+                      3.84,
+                      4.08,
+                      4.32,
+                      4.56
+                    ]
+                  }
                 }
               ]
             }
@@ -50257,7 +50440,11 @@
       "weaponId": 14520,
       "setCounts": {
         "15042": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.1",
+        "elementalBurst.0"
+      ]
     }
   },
   "10000120": {
@@ -53543,6 +53730,53 @@
     "moonsign": true,
     "effects": [
       {
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "normalAttack.3"
+                  }
+                },
+                {
+                  "states": {
+                    "aura": {
+                      "not": {
+                        "has": "lunarBloom"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "action": "normalAttack.4"
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "normalAttack.3"
+                  }
+                },
+                {
+                  "states": {
+                    "aura": {
+                      "has": "lunarBloom"
+                    }
+                  }
+                }
+              ]
+            },
+            "action": "normalAttack.5"
+          }
+        ]
+      },
+      {
+        "ref": "gravityRipple",
         "apply": {
           "when": "hit",
           "filter": {
@@ -53557,6 +53791,355 @@
           "cooldown": 2000,
           "action": "elementalSkill.1"
         }
+      },
+      {
+        "ref": "newMoonsOmenLC",
+        "apply": [
+          {
+            "by": "$team",
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "reaction": "lunarCharged"
+              }
+            },
+            "duration": 2000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "newMoonsOmenLB"
+              },
+              {
+                "type": "remove",
+                "ref": "newMoonsOmenLCr"
+              }
+            ]
+          },
+          {
+            "by": "$team",
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "lunarCharged"
+                }
+              }
+            },
+            "duration": 2000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "newMoonsOmenLB"
+              },
+              {
+                "type": "remove",
+                "ref": "newMoonsOmenLCr"
+              }
+            ]
+          }
+        ],
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "gravityCooldown"
+              }
+            }
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "gravityLC"
+            },
+            {
+              "type": "apply",
+              "ref": "gravityTotal"
+            },
+            {
+              "type": "apply",
+              "ref": "gravityCooldown",
+              "spec": {
+                "duration": 1000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "newMoonsOmenLB",
+        "apply": [
+          {
+            "by": "$team",
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "reaction": "lunarBloom"
+              }
+            },
+            "duration": 2000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "newMoonsOmenLC"
+              },
+              {
+                "type": "remove",
+                "ref": "newMoonsOmenLCr"
+              }
+            ]
+          },
+          {
+            "by": "$team",
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "lunarBloom"
+                }
+              }
+            },
+            "duration": 2000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "newMoonsOmenLC"
+              },
+              {
+                "type": "remove",
+                "ref": "newMoonsOmenLCr"
+              }
+            ]
+          }
+        ],
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "gravityCooldown"
+              }
+            }
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "gravityLB"
+            },
+            {
+              "type": "apply",
+              "ref": "gravityTotal"
+            },
+            {
+              "type": "apply",
+              "ref": "gravityCooldown",
+              "spec": {
+                "duration": 1000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "newMoonsOmenLCr",
+        "apply": [
+          {
+            "by": "$team",
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "reaction": "lunarCrystallize"
+              }
+            },
+            "duration": 2000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "newMoonsOmenLC"
+              },
+              {
+                "type": "remove",
+                "ref": "newMoonsOmenLB"
+              }
+            ]
+          },
+          {
+            "by": "$team",
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "lunarCrystallize"
+                }
+              }
+            },
+            "duration": 2000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "newMoonsOmenLC"
+              },
+              {
+                "type": "remove",
+                "ref": "newMoonsOmenLB"
+              }
+            ]
+          }
+        ],
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "gravityCooldown"
+              }
+            }
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "gravityLCr"
+            },
+            {
+              "type": "apply",
+              "ref": "gravityTotal"
+            },
+            {
+              "type": "apply",
+              "ref": "gravityCooldown",
+              "spec": {
+                "duration": 1000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "gravityCooldown",
+        "apply": {
+          "when": "command"
+        }
+      },
+      {
+        "ref": "gravityLC",
+        "apply": {
+          "when": "command"
+        },
+        "maxStacks": 6
+      },
+      {
+        "ref": "gravityLB",
+        "apply": {
+          "when": "command"
+        },
+        "maxStacks": 6
+      },
+      {
+        "ref": "gravityLCr",
+        "apply": {
+          "when": "command"
+        },
+        "maxStacks": 6
+      },
+      {
+        "ref": "gravityTotal",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "maxStacks",
+          "commands": {
+            "type": "apply",
+            "ref": "gravityInterference",
+            "spec": {
+              "uses": 1
+            }
+          }
+        },
+        "maxStacks": 6
+      },
+      {
+        "ref": "gravityInterference",
+        "apply": {
+          "when": "command"
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "gravityLC": {
+                  ">=": 2
+                }
+              }
+            },
+            "action": "elementalSkill.2",
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "gravityLC"
+              },
+              {
+                "type": "remove",
+                "ref": "gravityLB"
+              },
+              {
+                "type": "remove",
+                "ref": "gravityLCr"
+              }
+            ]
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "gravityLB": {
+                  ">=": 2
+                }
+              }
+            },
+            "action": "elementalSkill.3",
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "gravityLC"
+              },
+              {
+                "type": "remove",
+                "ref": "gravityLB"
+              },
+              {
+                "type": "remove",
+                "ref": "gravityLCr"
+              }
+            ]
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "gravityLCr": {
+                  ">=": 2
+                }
+              }
+            },
+            "action": "elementalSkill.4",
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "gravityLC"
+              },
+              {
+                "type": "remove",
+                "ref": "gravityLB"
+              },
+              {
+                "type": "remove",
+                "ref": "gravityLCr"
+              }
+            ]
+          }
+        ]
       },
       {
         "ref": "lunarDomain",
@@ -53577,6 +54160,28 @@
         }
       },
       {
+        "ref": "lunacy",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.2",
+                "elementalSkill.3",
+                "elementalSkill.4"
+              ]
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "critRate%": 0.05
+          }
+        },
+        "maxStacks": 3
+      },
+      {
         "stores": "global",
         "buff": {
           "filter": {
@@ -53585,10 +54190,23 @@
             }
           },
           "stats": {
-            "lunarChargedBaseDmg%": 0.33,
-            "lunarCrystallizeBaseDmg%": 0.33
+            "lunarChargedExtraStrikeChance%": 0.33,
+            "lunarCrystallizeExtraStrikeChance%": 0.33
           }
         }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 20000
+        },
+        "gameRule": "moonridgeDew"
       },
       {
         "stores": "global",
@@ -53691,8 +54309,12 @@
           },
           {
             "name": "Charged Attack",
-            "type": "chargedAttack",
+            "type": "chargedAttack"
+          },
+          {
+            "name": "Regular Charged Attack",
             "damage": {
+              "type": "chargedAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -53717,8 +54339,8 @@
             }
           },
           {
-            "name": "Charged Attack: Moondew Cleanse",
-            "type": "chargedAttack",
+            "name": "Moondew Cleanse",
+            "verdantDew": 1,
             "damage": {
               "type": "lunarBloom",
               "gauge": 0,
@@ -53867,6 +54489,7 @@
           {
             "name": "Gravity Ripple: Continuous",
             "damage": {
+              "type": "elementalSkill",
               "gauge": 1,
               "attr": "hp",
               "multipliers": [
@@ -53895,6 +54518,8 @@
           {
             "name": "Gravity Interference: Lunar-Charged",
             "damage": {
+              "type": "lunarCharged",
+              "element": "electro",
               "attr": "hp",
               "multipliers": [
                 {
@@ -53922,6 +54547,8 @@
           {
             "name": "Gravity Interference: Lunar-Bloom",
             "damage": {
+              "type": "lunarBloom",
+              "element": "dendro",
               "attr": "hp",
               "multipliers": [
                 {
@@ -53950,6 +54577,8 @@
           {
             "name": "Gravity Interference: Lunar-Crystallize",
             "damage": {
+              "type": "lunarCrystallize",
+              "element": "geo",
               "attr": "hp",
               "multipliers": [
                 {
@@ -56820,7 +57449,6 @@
     ]
   },
   "10000130": {
-    "disabled": true,
     "name": "Linnea",
     "version": 6.5,
     "id": 10000130,
@@ -56836,7 +57464,207 @@
     },
     "energy": 60,
     "moonsign": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "superPowerForm",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "or": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "and": [
+                  {
+                    "action": {
+                      "ref": "elementalBurst.0"
+                    }
+                  },
+                  {
+                    "effectStacks": {
+                      "not": {
+                        "has": "standardPowerForm"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "duration": 25000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "superPowerForm2",
+              "spec": {
+                "duration": 25000
+              }
+            },
+            {
+              "type": "remove",
+              "ref": "standardPowerForm"
+            }
+          ]
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "ref": "superPowerForm2",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "states": {
+              "aura": {
+                "has": "lunarCrystallize"
+              }
+            }
+          },
+          "cooldown": 5000,
+          "action": "elementalSkill.3"
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "action": "elementalSkill.4"
+        }
+      },
+      {
+        "ref": "standardPowerForm",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "or": [
+              {
+                "action": {
+                  "ref": "elementalSkill.1"
+                }
+              },
+              {
+                "and": [
+                  {
+                    "action": {
+                      "ref": "elementalBurst.0"
+                    }
+                  },
+                  {
+                    "effectStacks": {
+                      "has": "standardPowerForm"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "duration": 25000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "superPowerForm"
+            },
+            {
+              "type": "remove",
+              "ref": "superPowerForm2"
+            }
+          ]
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 5000,
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "has": [
+                "superPowerForm",
+                "standardPowerForm"
+              ]
+            }
+          },
+          "stats": {
+            "geoResReduction%": 0.15
+          }
+        }
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "stores": "global",
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "has": [
+                "superPowerForm",
+                "standardPowerForm"
+              ]
+            }
+          },
+          "stats": {
+            "geoResReduction%": 0.15
+          }
+        }
+      },
+      {
+        "buff": {
+          "specs": {
+            "elementalMastery": {
+              "attr": "def",
+              "step": 1,
+              "value": 0.05
+            }
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "specs": {
+            "lunarCrystallizeBaseDmg%": {
+              "attr": "def",
+              "step": 100,
+              "value": 0.007,
+              "maxValue": 0.14
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Capture Protocol",
@@ -56952,8 +57780,9 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "geo",
             "damage": {
+              "element": "geo",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -56972,33 +57801,6 @@
                     2.635,
                     2.79,
                     2.945
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
                   ]
                 }
               ]
@@ -57057,6 +57859,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -57065,9 +57894,25 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Lumi Pound-Pound Pummeler DMG",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Elemental Skill: 5 Taps",
             "type": "elementalSkill",
+            "duration": 2000
+          },
+          {
+            "name": "Lumi Pound-Pound Pummeler",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -57086,15 +57931,17 @@
                     2.04,
                     2.16,
                     2.28
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
           },
           {
-            "name": "Lumi Heavy Overdrive Hammer DMG",
-            "type": "elementalSkill",
+            "name": "Lumi Heavy Overdrive Hammer",
             "damage": {
+              "type": "lunarCrystallize",
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -57119,9 +57966,10 @@
             }
           },
           {
-            "name": "Lumi Million Ton Crush DMG",
-            "type": "elementalSkill",
+            "name": "Lumi Million Ton Crush",
             "damage": {
+              "type": "lunarCrystallize",
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -57152,9 +58000,11 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Initial Healing Amount",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
-            "damage": {
+            "healing": {
+              "targets": "$team",
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -57173,10 +58023,8 @@
                     3.4,
                     3.6,
                     3.8
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     770.3755,
                     847.4238,
                     930.8927,
@@ -57199,8 +58047,11 @@
           },
           {
             "name": "Continuous Healing",
-            "type": "elementalBurst",
-            "damage": {
+            "healing": {
+              "targets": [
+                "$onField"
+              ],
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -57219,10 +58070,8 @@
                     0.68,
                     0.72,
                     0.76
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     154.0751,
                     169.4848,
                     186.1785,
@@ -57246,7 +58095,15 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15516,
+      "setCounts": {
+        "15043": 4
+      },
+      "rotation": [
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000131": {
     "name": "Nicole",

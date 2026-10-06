@@ -1,6 +1,6 @@
 import { GI, WW } from '@/data';
 import { clamp } from '@/utils';
-import { applyGauge } from './gauge';
+import { applyGauge, consumeVerdantDew } from './gauge';
 import {
   changeBondOfLife,
   grantBondOfLife,
@@ -70,6 +70,11 @@ export function runAction(ctx, action, options = {}) {
   ctx.runEffects('start', modifiedAction);
   advanceTimeTo(hitOffsets[0]);
 
+  let verdantDewMultiplier = 1;
+  if (gameId === GI && modifiedAction.verdantDew && ctx.cache.lunarBloom) {
+    verdantDewMultiplier = consumeVerdantDew(ctx, modifiedAction.verdantDew);
+  }
+
   let sharedSnapshot;
   if (canSnapshot(modifiedAction)) {
     if (ctx.saveSnapshots) {
@@ -133,6 +138,7 @@ export function runAction(ctx, action, options = {}) {
         unresolved: {
           ...sharedSnapshot.unresolved,
           scale: scaleMult,
+          dew: verdantDewMultiplier,
         },
       });
     }

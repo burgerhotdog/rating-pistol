@@ -1008,7 +1008,8 @@
           }
         },
         "maxStacks": 4,
-        "decay": true
+        "decay": true,
+        "decayDuration": 6000
       },
       {
         "bonus": 4,

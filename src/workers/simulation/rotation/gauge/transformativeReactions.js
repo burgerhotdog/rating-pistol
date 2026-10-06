@@ -1,4 +1,5 @@
 import { consumeAura } from '../states/aura';
+import { updateShielded } from '../states/shielded';
 import { buildTransformativeReactionSnapshot } from '../snapshot';
 
 const REACTION_DEFS = {
@@ -77,6 +78,8 @@ export function reactCrystallize(ctx, ownerId, auraElement) {
     ownerId,
     elements: ['geo', auraElement],
   });
+
+  updateShielded(ctx, { shield: { duration: 15000 } });
 }
 
 export function reactFrozen(ctx, ownerId, originGauge, gauge) {

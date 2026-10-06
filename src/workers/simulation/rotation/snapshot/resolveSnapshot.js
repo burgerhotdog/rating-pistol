@@ -13,7 +13,7 @@ export const resolveSnapshot = (ctx, snapshot) => {
   }
 
   const { memo, ownerId, action, buffMap, buffSpecs, specSourceBuffMap, formula, splitScale = 1 } = unresolved;
-  const scale = unresolved.scale ?? 1;
+  const scale = (unresolved.scale ?? 1) * (unresolved.dew ?? 1);
 
   const statMapOwnerId = action?.ownerId ?? ownerId;
   const statMapOwnerIdBuildMap = ctx.buildMaps[statMapOwnerId];

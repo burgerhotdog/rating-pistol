@@ -21,7 +21,8 @@ function transformativeBaseDamage(statMap, rxnKey) {
 
   return (
     RXN_MULTIPLIERS[rxnKey] * LEVEL_MULTIPLIER *
-    rxnBonusMult
+    rxnBonusMult +
+    getAttr(`${rxnKey}Flat`, statMap)
   );
 }
 
@@ -36,6 +37,7 @@ export function transformativeReactionUsedAttrs(rxnKey, rxnElement) {
   return new Set([
     'elementalMastery',
     `${rxnKey}ReactionBonus%`,
+    `${rxnKey}Flat`,
     `${rxnElement}ResReduction%`,
   ]);
 }
