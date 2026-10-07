@@ -80,7 +80,7 @@ function getNormalizedSetEffects(effectSources, gameId, ownerId, memberIds, coun
     for (const [index, rawEffect] of rawEffects.entries()) {
       if (
         rawEffect.bonus > pieces ||
-        !isEnabled(gameId, rawEffect, ownerId, counts)
+        !isEnabled(gameId, rawEffect, ownerId, counts, memberIds)
       ) continue;
 
       const normCtx = { ...sharedNormCtx, index };
@@ -99,7 +99,7 @@ function getNormalizedEchoEffects(gameId, ownerId, echoId, memberIds, weaponRank
 
   const normalized = {};
   for (const [index, rawEffect] of rawEffects.entries()) {
-    if (!isEnabled(gameId, rawEffect, ownerId, counts)) continue;
+    if (!isEnabled(gameId, rawEffect, ownerId, counts, memberIds)) continue;
 
     const normCtx = { ...sharedNormCtx, index };
     const effect = normalizeEffect(gameId, rawEffect, normCtx);

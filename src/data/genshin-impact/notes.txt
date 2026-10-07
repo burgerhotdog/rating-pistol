@@ -40,6 +40,10 @@ Characters:
         Hats dont snapshot stats
         No hp restrictions on A1
         No constellations
+    Nahida
+        Dendro core trigger offset might be wrong
+        No ult electro/hydro buff
+        EM buff comes from self
     Nicole
         onField character must be hexerei to get buff upgrade
         coordinated attack uses own atk
@@ -73,6 +77,8 @@ Characters:
     Zhongli
 
 Weapons:
+    A Thousand Floating Dreams
+        Dmg bonus is generic, not element specific
     Alley Hunter
         buff doesnt ramp slowly
     Amos' Bow

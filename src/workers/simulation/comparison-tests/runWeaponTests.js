@@ -28,7 +28,7 @@ function getNormalizedWeaponEffects(rawEffects, gameId, ownerId, sourceId, weapo
 
   if (weapData.type === charData.type) {
     for (const [index, rawEffect] of rawEffects.entries()) {
-      if (!isEnabled(gameId, rawEffect, ownerId, counts)) continue;
+      if (!isEnabled(gameId, rawEffect, ownerId, counts, memberIds)) continue;
 
       const effect = normalizeEffect(gameId, rawEffect, { ...sharedNormCtx, index });
       normalized[effect.key] = effect;

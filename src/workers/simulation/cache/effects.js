@@ -32,7 +32,7 @@ export const getEffectDefs = (gameId, member, spec) => {
         rawEffect.rank < 0 && member.rank >= -rawEffect.rank
       ) ||
       rawEffect.mode && rawEffect.mode !== member.mode ||
-      !isEnabled(gameId, rawEffect, member.id, spec.counts)
+      !isEnabled(gameId, rawEffect, member.id, spec.counts, memberIds)
     ) continue;
 
     const effect = normalizeEffect(gameId, rawEffect, {
@@ -52,7 +52,7 @@ export const getEffectDefs = (gameId, member, spec) => {
   const normalizedWeapEffects = {};
   if (weapData.type === charData.type) {
     for (const [index, rawEffect] of weapEffects.entries()) {
-      if (!isEnabled(gameId, rawEffect, member.id, spec.counts)) continue;
+      if (!isEnabled(gameId, rawEffect, member.id, spec.counts, memberIds)) continue;
 
       const effect = normalizeEffect(gameId, rawEffect, {
         ...sharedCtx,
@@ -74,7 +74,7 @@ export const getEffectDefs = (gameId, member, spec) => {
     for (const [index, rawEffect] of setEffects.entries()) {
       if (
         rawEffect.bonus > pcCount ||
-        !isEnabled(gameId, rawEffect, member.id, spec.counts)
+        !isEnabled(gameId, rawEffect, member.id, spec.counts, memberIds)
       ) continue;
 
       const effect = normalizeEffect(gameId, rawEffect, {
@@ -91,7 +91,7 @@ export const getEffectDefs = (gameId, member, spec) => {
   if (gameId === WW) {
     const echoEffects = ECHO[member.mainEcho]?.effects ?? [];
     for (const [index, rawEffect] of echoEffects.entries()) {
-      if (!isEnabled(gameId, rawEffect, member.id, spec.counts)) continue;
+      if (!isEnabled(gameId, rawEffect, member.id, spec.counts, memberIds)) continue;
 
       const effect = normalizeEffect(gameId, rawEffect, {
         ...sharedCtx,

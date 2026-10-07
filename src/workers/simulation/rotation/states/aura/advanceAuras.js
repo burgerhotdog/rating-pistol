@@ -165,6 +165,8 @@ function advanceBloom(ctx, state, elapsed) {
       const snapshot = buildTransformativeReactionSnapshot(ctx, core.ownerId, 'bloom', 'dendro');
       ctx.snapshots.push({ ...snapshot, runtime: snapshot.runtime + offset });
     }
+
+    ctx.runEffects('dendroCore');
   }
 }
 

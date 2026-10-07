@@ -25825,7 +25825,13 @@
       "rotation": [
         "elementalSkill.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000078,
+      10000065,
+      10000025,
+      10000073
+    ]
   },
   "10000066": {
     "disabled": true,
@@ -29006,7 +29012,6 @@
     "memberPreset": {}
   },
   "10000073": {
-    "disabled": true,
     "name": "Nahida",
     "version": 3.2,
     "id": 10000073,
@@ -29021,7 +29026,144 @@
       "elementalMastery": 115
     },
     "energy": 50,
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 25000
+        },
+        "use": [
+          {
+            "by": "$team",
+            "when": "reaction",
+            "cooldown": 2500,
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "dendroCore",
+            "cooldown": 2500,
+            "action": "elementalSkill.2"
+          }
+        ]
+      },
+      {
+        "ref": "shrineOfMaya",
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "specs": {
+            "elementalMastery": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.25,
+              "maxValue": 250
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "pyro": 1
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.2"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "shrineOfMaya"
+                }
+              }
+            ]
+          },
+          "statRefs": {
+            "dmgBonus%": "elementalBurst.1"
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "pyro": {
+                ">=": 2
+              }
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.2"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "shrineOfMaya"
+                }
+              }
+            ]
+          },
+          "statRefs": {
+            "dmgBonus%": "elementalBurst.2"
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          },
+          "specs": {
+            "dmgBonus%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "offset": 200,
+              "value": 0.001,
+              "maxValue": 0.8
+            },
+            "critRate%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "offset": 200,
+              "value": 0.0003,
+              "maxValue": 0.24
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Akara",
@@ -29162,33 +29304,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -29241,6 +29356,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -29249,9 +29391,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -29276,9 +29419,10 @@
             }
           },
           {
-            "name": "Hold DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -29303,47 +29447,52 @@
             }
           },
           {
-            "name": "Tri-Karma Purification DMG",
-            "type": "elementalSkill",
+            "name": "Tri-Karma Purification",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1.5,
+              "icd": {
+                "tag": "Nahida Tri-Karma Purification",
+                "time": 1000
+              },
               "multipliers": [
                 {
-                  "mv": [
-                    1.032,
-                    1.1094,
-                    1.1868,
-                    1.29,
-                    1.3674,
-                    1.4448,
-                    1.548,
-                    1.6512,
-                    1.7544,
-                    1.8576,
-                    1.9608,
-                    2.064,
-                    2.193,
-                    2.322,
-                    2.451
-                  ]
-                },
-                {
-                  "mv": [
-                    2.064,
-                    2.2188,
-                    2.3736,
-                    2.58,
-                    2.7348,
-                    2.8896,
-                    3.096,
-                    3.3024,
-                    3.5088,
-                    3.7152,
-                    3.9216,
-                    4.128,
-                    4.386,
-                    4.644,
-                    4.902
-                  ]
+                  "mv": {
+                    "atk": [
+                      1.032,
+                      1.1094,
+                      1.1868,
+                      1.29,
+                      1.3674,
+                      1.4448,
+                      1.548,
+                      1.6512,
+                      1.7544,
+                      1.8576,
+                      1.9608,
+                      2.064,
+                      2.193,
+                      2.322,
+                      2.451
+                    ],
+                    "elementalMastery": [
+                      2.064,
+                      2.2188,
+                      2.3736,
+                      2.58,
+                      2.7348,
+                      2.8896,
+                      3.096,
+                      3.3024,
+                      3.5088,
+                      3.7152,
+                      3.9216,
+                      4.128,
+                      4.386,
+                      4.644,
+                      4.902
+                    ]
+                  }
                 }
               ]
             }
@@ -29355,12 +29504,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Pyro: DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Pyro: DMG Bonus 1",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.1488,
                     0.16,
                     0.1711,
@@ -29382,12 +29534,11 @@
             }
           },
           {
-            "name": "Pyro: DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "Pyro: DMG Bonus 2",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.2232,
                     0.2399,
                     0.2567,
@@ -29409,12 +29560,11 @@
             }
           },
           {
-            "name": "Electro: Trigger Interval Decrease",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "Electro: Trigger Interval Decrease 1",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.248,
                     0.2666,
                     0.2852,
@@ -29436,12 +29586,11 @@
             }
           },
           {
-            "name": "Electro: Trigger Interval Decrease",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "Electro: Trigger Interval Decrease 2",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.372,
                     0.3999,
                     0.4278,
@@ -29463,12 +29612,11 @@
             }
           },
           {
-            "name": "Hydro: Duration Extension",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "Hydro: Duration Extension 1",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     3.344,
                     3.5948,
                     3.8456,
@@ -29490,12 +29638,11 @@
             }
           },
           {
-            "name": "Hydro: Duration Extension",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "Hydro: Duration Extension 2",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     5.016,
                     5.3922,
                     5.7684,
@@ -29523,8 +29670,18 @@
       "weaponId": 14511,
       "setCounts": {
         "15025": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.1",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000078,
+      10000065,
+      10000025,
+      10000073
+    ]
   },
   "10000074": {
     "disabled": true,
@@ -31998,7 +32155,13 @@
         "normalAttack.3",
         "normalAttack.4"
       ]
-    }
+    },
+    "teamPreset": [
+      10000078,
+      10000065,
+      10000025,
+      10000073
+    ]
   },
   "10000079": {
     "disabled": true,
