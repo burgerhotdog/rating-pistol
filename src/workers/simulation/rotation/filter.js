@@ -1,6 +1,32 @@
 import { CHARACTER, GI } from '@/data';
 import { evaluateFilter } from '@/utils';
 
+function evaluateSpecialFilter(ctx, special, effect, spec) {
+  const { cache, states } = ctx;
+  const { gameId } = cache;
+
+  switch (special) {
+    case 'celestialGift1': {
+      const { ownerId } = effect;
+      const ownerElement = CHARACTER[gameId][ownerId].element;
+      const damageElement = spec.action?.damage?.element;
+      return damageElement === ownerElement;
+    }
+
+    case 'celestialGift2': {
+      const { ownerId } = effect;
+      const ownerElement = CHARACTER[gameId][ownerId].element;
+      const { onFieldId } = states;
+      const onFieldElement = CHARACTER[gameId][onFieldId].element;
+      const damageElement = spec.action?.damage?.element;
+      return (
+        damageElement === ownerElement ||
+        damageElement === onFieldElement
+      );
+    }
+  }
+}
+
 export function createEventFilter(ctx) {
   const { cache, states } = ctx;
   const { gameId } = cache;
@@ -8,6 +34,10 @@ export function createEventFilter(ctx) {
 
   return (filter, effect, spec = {}) => {
     const { fieldId } = spec;
+
+    if (filter?.special) {
+      return evaluateSpecialFilter(ctx, filter.special, effect, spec);
+    }
 
     return evaluateFilter(filter, {
       ...spec,

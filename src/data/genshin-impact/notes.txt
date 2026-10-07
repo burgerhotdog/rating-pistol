@@ -142,8 +142,6 @@ Weapons:
 Sets:
     Bloodstained Chivalry
         4pc not active
-    Celestial Gift
-        4pc dmg bonus is for all elements
     Long Night's Oath
         Stacks not independent
     Shimenawa's Reminiscence
