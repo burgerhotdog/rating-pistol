@@ -921,7 +921,8 @@
             "normalAttackDmgBonus%": 0.5,
             "chargedAttackDmgBonus%": 0.5,
             "plungingAttackDmgBonus%": 0.5
-          }
+          },
+          "snapshot": false
         }
       }
     ]
@@ -955,7 +956,8 @@
               "value": 0.0025,
               "maxValue": 0.75
             }
-          }
+          },
+          "snapshot": false
         }
       }
     ]

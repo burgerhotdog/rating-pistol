@@ -52,9 +52,13 @@ Characters:
         Only plume
         Marvelous Splendor applies to $ally
         No constellations
+    Raiden
+        Remember E no snapshot
     Sandrone
         A1 doesn't apply to non stellar dmg
         No constellations
+    Sara
+        Remember c6 no snapshot
     Wanderer
     Wriothesley
         No constellations

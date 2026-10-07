@@ -74,7 +74,7 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
     if (effect.snapshotBuffs) {
       state.snapshotBuffs = effect.use.map((use) =>
         use.action.map((action) =>
-          getBuffMap(ctx, { memberId: effect.ownerId, action })
+          getBuffMap(ctx, { memberId: effect.ownerId, action, snapshot: 'frozen' })
         )
       );
     }

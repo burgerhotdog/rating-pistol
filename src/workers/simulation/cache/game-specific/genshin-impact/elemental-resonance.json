@@ -1,0 +1,168 @@
+{
+  "pyro": {
+    "stats": {
+      "atk%": 0.25
+    },
+    "effects": []
+  },
+  "electro": {
+    "stats": {},
+    "effects": []
+  },
+  "hydro": {
+    "stats": {
+      "hp%": 0.25
+    },
+    "effects": []
+  },
+  "dendro": {
+    "stats": {
+      "elementalMastery": 50
+    },
+    "effects": [
+      {
+        "stores": "$team",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "burning",
+                "quicken",
+                "bloom",
+                "lunarBloom"
+              ]
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 30
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "aggravate",
+                "spread",
+                "hyperbloom",
+                "burgeon"
+              ]
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 20
+          }
+        }
+      }
+    ]
+  },
+  "anemo": {
+    "stats": {},
+    "effects": []
+  },
+  "geo": {
+    "stats": {
+      "shieldStrength%": 0.15
+    },
+    "effects": [
+      {
+        "stores": "$team",
+        "buff": {
+          "filter": {
+            "states": {
+              "or": [
+                {
+                  "shielded": {
+                    ">": 0
+                  }
+                },
+                {
+                  "aura": {
+                    "has": "lunarCrystallize"
+                  }
+                }
+              ]
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.15
+          },
+          "snapshot": false
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "by": "$team",
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "states": {
+                  "or": [
+                    {
+                      "shielded": {
+                        ">": 0
+                      }
+                    },
+                    {
+                      "aura": {
+                        "has": "lunarCrystallize"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              }
+            ]
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "geoResReduction%": 0.2
+          }
+        }
+      }
+    ]
+  },
+  "cryo": {
+    "stats": {},
+    "effects": [
+      {
+        "stores": "$team",
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "cryo",
+                  "frozen"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "critRate%": 0.15
+          }
+        }
+      }
+    ]
+  }
+}

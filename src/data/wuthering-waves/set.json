@@ -615,7 +615,7 @@
       },
       {
         "bonus": 5,
-        "stores": "global",
+        "stores": "$team",
         "apply": {
           "when": "hit",
           "filter": {

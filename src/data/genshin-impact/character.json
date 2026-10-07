@@ -30525,7 +30525,7 @@
         }
       },
       {
-        "stores": "global",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {

@@ -3,7 +3,8 @@ import { getAttr, toMergedObj, resolveSpecs } from '@/utils';
 import { getEffectStates } from './getEffectStates';
 
 export const getBuffMap = (ctx, options = {}) => {
-  const { memberId, action = {}, ignoreSpecs, resolveNow } = options;
+  // snapshot: 'frozen' skips buffs flagged `snapshot: false`; 'live' includes only those
+  const { memberId, action = {}, ignoreSpecs, resolveNow, snapshot } = options;
   const { gameId } = ctx.cache;
   const buildMap = ctx.buildMaps[memberId] ?? {};
   const buffMap = {};
@@ -22,8 +23,14 @@ export const getBuffMap = (ctx, options = {}) => {
     return toMergedObj(buildMap, buffMap);
   }
 
-  for (const { effect, stacks, buffCooldown } of getEffectStates(ctx, { member: memberId, type: 'buff' })) {
+  for (const { effect, stacks, buffCooldown, store } of getEffectStates(ctx, { member: memberId, type: 'buff' })) {
     if (buffCooldown) continue;
+
+    // Global effects (enemy debuffs) are never snapshotted
+    const isLiveOnly = effect.buff?.snapshot === false || store === ctx.states.globalEffects;
+    if (snapshot === 'frozen' && isLiveOnly) continue;
+    if (snapshot === 'live' && !isLiveOnly) continue;
+
     if (!ctx.eventFilter(effect.buff?.filter, effect, { action, fieldId: action.ownerId })) continue;
 
     const linkedStacks = effect.buff?.statusStacks
@@ -49,6 +56,10 @@ export const getBuffMap = (ctx, options = {}) => {
         buffMap[stat] = (buffMap[stat] ?? 0) + resolvedStatMap[stat] * buffMult;
       }
     }
+  }
+
+  if (snapshot === 'live') {
+    return { buffMap, buffSpecs };
   }
 
   if (gameId === GI) {
