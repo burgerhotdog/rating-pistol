@@ -133,22 +133,25 @@ export function runAction(ctx, action, options = {}) {
   ctx.runEffects('end', modifiedAction);
 }
 
-function runDrain(ctx, modifiedAction) {
+function runDrain(ctx, action) {
   const {
-    targets = [modifiedAction.ownerId],
+    targets = [action.ownerId],
     value,
     minLimit = 0,
     maxLimit = 1,
-  } = modifiedAction.drain;
+  } = action.drain;
   const { memberHealth } = ctx.states;
 
   for (const targetId of targets) {
     const prev = memberHealth[targetId];
+    if (prev <= minLimit) continue;
+    if (prev >= maxLimit) continue;
+
     const next = clamp(prev - value, minLimit, maxLimit);
 
     if (next !== prev) {
       memberHealth[targetId] = next;
-      ctx.runEffects('healthChange', modifiedAction);
+      ctx.runEffects('healthChange', action);
     }
   }
 }
