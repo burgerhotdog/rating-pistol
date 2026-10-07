@@ -25,7 +25,7 @@ export function advanceIcds(ctx, elapsed) {
 }
 
 export function getIcdState(ctx, memberId, icdTag) {
-  const store = ctx.states.icd[memberId];
+  const store = ctx.states.icd[memberId] ??= {};
 
   return store[icdTag] ??= {
     timeLeft: 0,

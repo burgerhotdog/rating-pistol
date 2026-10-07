@@ -1,5 +1,6 @@
 export * from './bloom';
 export * from './burgeon';
+export * from './burning';
 export * from './crystallize';
 export * from './electroCharged';
 export * from './frozen';

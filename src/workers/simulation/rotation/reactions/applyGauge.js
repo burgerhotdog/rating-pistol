@@ -11,6 +11,8 @@ import {
 import {
   reactBloom,
   reactBurgeon,
+  reactBurning,
+  refreshBurning,
   reactCrystallize,
   reactElectroCharged,
   reactFrozen,
@@ -29,7 +31,7 @@ import {
   reactStellarSwirl,
 } from './stellar';
 
-function applyPyro(ctx, gauge, applier) {
+export function applyPyro(ctx, gauge, applier) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
   let scaleMult;
@@ -53,6 +55,14 @@ function applyPyro(ctx, gauge, applier) {
     const { excess, mult } = reactMelt(ctx, applier, 'cryo', availableUnits);
     availableUnits = excess;
     scaleMult = mult;
+  }
+
+  if (aura.dendro && availableUnits) {
+    if (!aura.burning) {
+      availableUnits = reactBurning(ctx, applier, 'pyro', availableUnits);
+    } else {
+      availableUnits = refreshBurning(ctx, applier, 'pyro', availableUnits);
+    }
   }
 
   if (availableUnits === gauge) {
@@ -158,6 +168,14 @@ function applyDendro(ctx, gauge, applier) {
 
   if (aura.quicken) {
     scaleFlat = reactSpread(ctx, applier);
+  }
+
+  if (aura.pyro && availableUnits) {
+    if (!aura.burning) {
+      availableUnits = reactBurning(ctx, applier, 'dendro', availableUnits);
+    } else {
+      availableUnits = refreshBurning(ctx, applier, 'dendro', availableUnits);
+    }
   }
 
   if (aura.electro && availableUnits) {

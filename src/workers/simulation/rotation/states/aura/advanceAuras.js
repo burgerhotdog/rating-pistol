@@ -1,8 +1,29 @@
-import { applyCryo, tickElectroCharged, tickLunarCharged } from '../../reactions';
-import { buildTransformativeReactionSnapshot, buildElevationSnapshot } from '../../snapshot';
+import {
+  applyPyro,
+  applyCryo,
+  tickElectroCharged,
+  tickLunarCharged,
+} from '../../reactions';
+import {
+  buildTransformativeReactionSnapshot,
+  buildElevationSnapshot,
+} from '../../snapshot';
+import { tryIcd } from '../icd';
 
 function decayElementAura(ctx, state, elapsed) {
   state.gauge -= elapsed / state.decayRate;
+
+  const isDepleted = state.gauge <= 0;
+  if (isDepleted) {
+    delete ctx.states.aura[state.element];
+  }
+
+  return isDepleted;
+}
+
+function decayDendroBurning(ctx, state, elapsed) {
+  const specialDecayRate = Math.max(0.0004, 2 / state.decayRate);
+  state.gauge -= elapsed * specialDecayRate;
 
   const isDepleted = state.gauge <= 0;
   if (isDepleted) {
@@ -170,22 +191,80 @@ function advanceBloom(ctx, state, elapsed) {
   }
 }
 
+function advanceBurning(ctx, elapsed) {
+  const store = ctx.states.aura;
+  const state = store.burning;
+  let remaining = elapsed;
+
+  while (remaining > 0) {
+    const decrease = Math.min(state.timer, remaining);
+    state.timer -= decrease;
+    remaining -= decrease;
+
+    if (store.pyro) {
+      decayElementAura(ctx, store.pyro, decrease);
+    }
+    const isDendroDepleted = decayDendroBurning(ctx, store.dendro, decrease);
+
+    if (isDendroDepleted) {
+      delete store.burning;
+      break;
+    }
+
+    if (state.timer === 0) {
+      if (ctx.saveSnapshots) {
+        const snapshot = buildTransformativeReactionSnapshot(ctx, state.ownerId, 'burning', 'pyro');
+        ctx.snapshots.push({ ...snapshot, runtime: snapshot.runtime + elapsed - remaining});
+      }
+
+      state.timer = 250;
+
+      if (tryIcd(ctx, 'system', { tag: 'burning', time: 2000 })) {
+        applyPyro(ctx, 1, state.ownerId);
+      }
+    }
+  }
+
+  if (remaining > 0) {
+    if (store.pyro) {
+      decayElementAura(ctx, store.pyro, remaining);
+    }
+    if (store.dendro) {
+      decayElementAura(ctx, store.dendro, remaining);
+    }
+  }
+}
+
 const isHandledByCharged = (state) =>
   state.reaction === 'electroCharged' ||
   state.reaction === 'lunarCharged' ||
   state.element === 'electro' ||
   state.element === 'hydro';
 
+const isHandledByBurning = (state) =>
+  state.reaction === 'burning' ||
+  state.element === 'pyro' ||
+  state.element === 'dendro';
+
 export function advanceAuras(ctx, elapsed) {
   const store = ctx.states.aura;
   const hasCharged = Boolean(store.electroCharged || store.lunarCharged);
+  const hasBurning = Boolean(store.burning);
 
   if (hasCharged) {
     advanceCharged(ctx, elapsed);
   }
 
+  if (hasBurning) {
+    advanceBurning(ctx, elapsed);
+  }
+
   for (const state of Object.values(store)) {
     if (hasCharged && isHandledByCharged(state)) {
+      continue;
+    }
+
+    if (hasBurning && isHandledByBurning(state)) {
       continue;
     }
 
