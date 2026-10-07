@@ -17,6 +17,7 @@ function ampFormula(reaction, statMap) {
 
 function getAmpMultiplier(ctx, reaction, ownerId, isForward) {
   const reactionMultiplier = isForward ? 2 : 1.5;
+
   const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId });
 
   const statMapOwnerIdBuildMap = ctx.buildMaps[ownerId];
@@ -27,7 +28,12 @@ function getAmpMultiplier(ctx, reaction, ownerId, isForward) {
   }
 
   const isSpecIdAction = ownerId === ctx.specId;
-  const usedAttrs = new Set(['elementalMastery', `${reaction}ReactionBonus%`]);
+
+  const usedAttrs = new Set([
+    'elementalMastery',
+    `${reaction}ReactionBonus%`,
+  ]);
+
   const usesSpecs = buffSpecs.some(({ specs }) =>
     Object.keys(specs).some((stat) => usedAttrs.has(stat))
   );
@@ -72,13 +78,11 @@ function getAmpMultiplier(ctx, reaction, ownerId, isForward) {
 
 export function reactMelt(ctx, ownerId, auraElement, gaugeUnits) {
   const isForward = auraElement === 'cryo';
-  const consumeUnits = isForward
-    ? gaugeUnits * 2
-    : gaugeUnits / 2;
 
   const mult = getAmpMultiplier(ctx, 'melt', ownerId, isForward);
 
-  const excess = consumeAura(ctx, auraElement, consumeUnits)
+  const consumeUnits = isForward ? gaugeUnits * 2 : gaugeUnits / 2;
+  const excess = consumeAura(ctx, auraElement, consumeUnits);
 
   ctx.runEffects('reaction', {
     reaction: 'melt',

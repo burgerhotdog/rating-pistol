@@ -33,6 +33,7 @@ function applyPyro(ctx, gauge, applier) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
   let scaleMult;
+  let scaleFlat;
 
   if (aura.bloom) {
     reactBurgeon(ctx, applier);
@@ -58,20 +59,21 @@ function applyPyro(ctx, gauge, applier) {
     applyAura(ctx, 'pyro', availableUnits);
   }
 
-  return scaleMult;
+  return { scaleMult, scaleFlat };
 }
 
 function applyElectro(ctx, gauge, applier) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
   let scaleMult;
+  let scaleFlat;
 
   if (aura.bloom) {
     reactHyperbloom(ctx, applier);
   }
 
   if (aura.quicken) {
-    scaleMult = reactAggravate(ctx, applier);
+    scaleFlat = reactAggravate(ctx, applier);
   }
 
   if (aura.stellarConduct) {
@@ -90,6 +92,10 @@ function applyElectro(ctx, gauge, applier) {
     }
   }
 
+  if (aura.dendro && availableUnits) {
+    availableUnits = reactQuicken(ctx, applier, 'dendro', availableUnits);
+  }
+
   if (aura.hydro && availableUnits) {
     if (ctx.cache.lunarCharged) {
       reactLunarCharged(ctx, applier);
@@ -102,13 +108,14 @@ function applyElectro(ctx, gauge, applier) {
     applyAura(ctx, 'electro', availableUnits);
   }
 
-  return scaleMult;
+  return { scaleMult, scaleFlat };
 }
 
 function applyHydro(ctx, gauge, applier) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
   let scaleMult;
+  let scaleFlat;
 
   if (aura.pyro && availableUnits) {
     const { excess, mult } = reactVaporize(ctx, applier, 'pyro', availableUnits);
@@ -140,16 +147,21 @@ function applyHydro(ctx, gauge, applier) {
     applyAura(ctx, 'hydro', availableUnits);
   }
 
-  return scaleMult;
+  return { scaleMult, scaleFlat };
 }
 
 function applyDendro(ctx, gauge, applier) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
   let scaleMult;
+  let scaleFlat;
 
   if (aura.quicken) {
-    scaleMult = reactSpread(ctx, applier);
+    scaleFlat = reactSpread(ctx, applier);
+  }
+
+  if (aura.electro && availableUnits) {
+    availableUnits = reactQuicken(ctx, applier, 'electro', availableUnits);
   }
 
   if (aura.hydro && availableUnits) {
@@ -164,7 +176,7 @@ function applyDendro(ctx, gauge, applier) {
     applyAura(ctx, 'dendro', availableUnits);
   }
 
-  return scaleMult;
+  return { scaleMult, scaleFlat };
 }
 
 function applyAnemo(ctx, gauge, applier) {
@@ -221,6 +233,7 @@ export function applyCryo(ctx, gauge, applier) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
   let scaleMult;
+  let scaleFlat;
 
   if (aura.stellarConduct) {
     aura.stellarConduct.hits++;
@@ -248,7 +261,7 @@ export function applyCryo(ctx, gauge, applier) {
     applyAura(ctx, 'cryo', availableUnits);
   }
 
-  return scaleMult;
+  return { scaleMult, scaleFlat };
 }
 
 export function applyGauge(ctx, action) {

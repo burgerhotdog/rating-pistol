@@ -92,9 +92,12 @@ export function runAction(ctx, action, options = {}) {
       runDrain(ctx, modifiedAction);
     }
 
-    let scaleMult = 1;
+    let rxnScaleMult = 1;
+    let rxnScaleFlat = 0;
     if (gameId === GI) {
-      scaleMult = applyGauge(ctx, modifiedAction);
+      const { scaleMult, scaleFlat } = applyGauge(ctx, modifiedAction) ?? {};
+      rxnScaleMult = scaleMult;
+      rxnScaleFlat = scaleFlat;
     }
 
     if (modifiedAction.healing) {
@@ -116,7 +119,8 @@ export function runAction(ctx, action, options = {}) {
         runtime: sharedSnapshot.runtime + actionRuntime - hitOffsets[0],
         unresolved: {
           ...sharedSnapshot.unresolved,
-          scale: scaleMult,
+          scale: rxnScaleMult,
+          scaleFlat: rxnScaleFlat,
           dew: verdantDewMultiplier,
         },
       });

@@ -78,7 +78,7 @@ export function reactVaporize(ctx, ownerId, auraElement, gaugeUnits) {
 
   const mult = getAmpMultiplier(ctx, 'vaporize', ownerId, isForward);
 
-  const excess = consumeAura(ctx, auraElement, consumeUnits)
+  const excess = consumeAura(ctx, auraElement, consumeUnits);
 
   ctx.runEffects('reaction', {
     reaction: 'vaporize',

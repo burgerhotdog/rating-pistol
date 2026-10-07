@@ -1,11 +1,24 @@
 import { applyCryo, tickElectroCharged, tickLunarCharged } from '../../reactions';
 import { buildTransformativeReactionSnapshot, buildElevationSnapshot } from '../../snapshot';
 
-function advanceElementAura(ctx, state, elapsed) {
+function decayElementAura(ctx, state, elapsed) {
   state.gauge -= elapsed / state.decayRate;
 
   const isDepleted = state.gauge <= 0;
-  if (isDepleted) delete ctx.states.aura[state.element];
+  if (isDepleted) {
+    delete ctx.states.aura[state.element];
+  }
+
+  return isDepleted;
+}
+
+function decayReactionAura(ctx, state, elapsed) {
+  state.gauge -= elapsed / state.decayRate;
+
+  const isDepleted = state.gauge <= 0;
+  if (isDepleted) {
+    delete ctx.states.aura[state.reaction];
+  }
 
   return isDepleted;
 }
@@ -47,7 +60,7 @@ function advanceCharged(ctx, elapsed) {
     }
 
     if (electro) {
-      const stateDeleted = advanceElementAura(ctx, electro, interval);
+      const stateDeleted = decayElementAura(ctx, electro, interval);
       if (stateDeleted) {
         electro = null;
 
@@ -59,7 +72,7 @@ function advanceCharged(ctx, elapsed) {
     }
 
     if (hydro) {
-      const stateDeleted = advanceElementAura(ctx, hydro, interval);
+      const stateDeleted = decayElementAura(ctx, hydro, interval);
       if (stateDeleted) {
         hydro = null;
 
@@ -175,7 +188,12 @@ export function advanceAuras(ctx, elapsed) {
     }
 
     if (state.element) {
-      advanceElementAura(ctx, state, elapsed);
+      decayElementAura(ctx, state, elapsed);
+      continue;
+    }
+
+    if (state.reaction === 'quicken') {
+      decayReactionAura(ctx, state, elapsed);
       continue;
     }
 
