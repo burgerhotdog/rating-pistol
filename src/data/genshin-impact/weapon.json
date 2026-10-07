@@ -1766,7 +1766,6 @@
     "effects": []
   },
   "11512": {
-    "disabled": true,
     "name": "Light of Foliar Incision",
     "version": 3.4,
     "id": 11512,
@@ -1777,7 +1776,55 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "critRate%": [
+              0.04,
+              0.08
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 12000,
+          "duration": 12000,
+          "uses": 28
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "elementalSkill"
+                ]
+              }
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                1.2,
+                2.4
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11513": {
     "name": "Splendor of Tranquil Waters",
