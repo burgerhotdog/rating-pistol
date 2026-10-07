@@ -1,9 +1,9 @@
 import { consumeAura } from '../../states';
 
 export function reactStellarConduct(ctx, ownerId, auraElement, gaugeUnits) {
-  const state = ctx.states.aura.stellarConduct ??= {
+  const auraStore = ctx.states.aura;
+  const state = auraStore.stellarConduct ??= {
     reaction: 'stellarConduct',
-    prevHits: 0,
     multiplier: 1,
     bonus: 0.2,
     hits: 0,
@@ -12,7 +12,7 @@ export function reactStellarConduct(ctx, ownerId, auraElement, gaugeUnits) {
 
   state.timeLeft = 7000;
 
-  const excessGaugeUnits = consumeAura(ctx.states.aura, auraElement, gaugeUnits);
+  const excessGaugeUnits = consumeAura(auraStore, auraElement, gaugeUnits);
 
   ctx.runEffects('reaction', {
     reaction: 'stellarConduct',

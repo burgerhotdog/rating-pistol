@@ -5,11 +5,15 @@ import { consumeAura } from '../../states';
 export function reactStellarSwirl(ctx, ownerId, gaugeUnits) {
   const state = ctx.states.aura.stellarSwirl ??= {
     reaction: 'stellarSwirl',
+    timeLeft: 8000,
+    vortexTimer: Infinity,
+    vortexHits: 0,
+    ownerId: null,
   };
 
   state.timeLeft = 8000;
 
-  if (state.vortexTimer) {
+  if (state.vortexTimer !== Infinity) {
     state.vortexHits++;
     state.ownerId = ownerId;
   } else {
@@ -23,9 +27,16 @@ export function reactStellarSwirl(ctx, ownerId, gaugeUnits) {
     }
 
     state.vortexTimer = 3000;
-    state.vortexHits = 0;
     state.ownerId = ownerId;
   }
+
+  consumeAura(ctx.states.aura, 'cryo', gaugeUnits);
+
+  ctx.runEffects('reaction', {
+    reaction: 'stellarSwirl',
+    elements: ['cryo', 'anemo'],
+    ownerId,
+  });
 
   if (state.vortexHits === 5) {
     if (ctx.saveSnapshots) {
@@ -37,18 +48,10 @@ export function reactStellarSwirl(ctx, ownerId, gaugeUnits) {
       ctx.snapshots.push(snapshot);
     }
 
-    applyCryo(ctx, 1, ownerId);
-
-    state.vortexTimer = null;
-    state.vortexHits = null;
+    state.vortexTimer = Infinity;
+    state.vortexHits = 0;
     state.ownerId = null;
+
+    applyCryo(ctx, 1, ownerId);
   }
-
-  ctx.runEffects('reaction', {
-    reaction: 'stellarSwirl',
-    elements: ['cryo', 'anemo'],
-    ownerId,
-  });
-
-  consumeAura(ctx.states.aura, 'cryo', gaugeUnits);
 }

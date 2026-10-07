@@ -1,42 +1,14 @@
-import { buildTransformativeReactionSnapshot } from '../../snapshot';
-import { consumeAura } from '../../states';
-
-export function reactElectroCharged(ctx, applier) {
+export function reactElectroCharged(ctx, ownerId) {
   const state = ctx.states.aura.electroCharged ??= {
     reaction: 'electroCharged',
-    timeLeft: 0,
+    timer: 0,
   };
 
-  state.applier = applier;
+  state.ownerId = ownerId;
 
   ctx.runEffects('reaction', {
     reaction: 'electroCharged',
     elements: ['electro', 'hydro'],
-    ownerId: applier,
+    ownerId,
   });
-}
-
-export function tickElectroCharged(ctx, applier, offset = 0) {
-  const { aura } = ctx.states;
-
-  if (!aura.electro || !aura.hydro) {
-    delete aura.electroCharged;
-    return true;
-  }
-
-  if (ctx.saveSnapshots) {
-    const snapshot = buildTransformativeReactionSnapshot(ctx, applier, 'electroCharged', 'electro');
-    ctx.snapshots.push({ ...snapshot, runtime: snapshot.runtime + offset });
-  }
-
-  consumeAura(ctx.states.aura, 'electro', 0.4);
-  consumeAura(ctx.states.aura, 'hydro', 0.4);
-
-  if (!aura.electro || !aura.hydro) {
-    delete aura.electroCharged;
-    return true;
-  }
-
-  aura.electroCharged.timeLeft = 1000;
-  return false;
 }
