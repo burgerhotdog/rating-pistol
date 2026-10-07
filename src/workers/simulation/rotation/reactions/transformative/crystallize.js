@@ -7,7 +7,7 @@ const mockAction = {
 };
 
 export function reactCrystallize(ctx, ownerId, auraElement, gaugeUnits) {
-  const excessGaugeUnits = consumeAura(ctx, auraElement, gaugeUnits / 2);
+  const excessGaugeUnits = consumeAura(ctx.states.aura, auraElement, gaugeUnits / 2);
 
   ctx.runEffects('reaction', {
     reaction: 'crystallize',

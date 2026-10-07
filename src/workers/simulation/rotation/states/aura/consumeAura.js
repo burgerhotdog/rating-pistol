@@ -1,12 +1,23 @@
-export function consumeAura(ctx, element, gaugeUnits) {
-  const store = ctx.states.aura;
-  const state = store[element];
+function deleteLinkedAuras(aura, element) {
+  if (element === 'electro' || element === 'hydro') {
+    delete aura.electroCharged;
+    delete aura.lunarCharged;
+  }
+
+  if (element === 'dendro') {
+    delete aura.burning;
+  }
+}
+
+export function consumeAura(aura, element, gaugeUnits) {
+  const state = aura[element];
 
   const excessGaugeUnits = Math.max(gaugeUnits - state.gauge, 0);
   state.gauge -= gaugeUnits;
 
   if (state.gauge <= 0) {
-    delete store[element];
+    delete aura[element];
+    deleteLinkedAuras(aura, element);
   }
 
   return excessGaugeUnits;

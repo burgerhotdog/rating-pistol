@@ -25,7 +25,7 @@ export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
     ? gaugeUnits * 2
     : gaugeUnits / 2;
 
-  const excessGaugeUnits = consumeAura(ctx, auraElement, consumeUnits);
+  const excessGaugeUnits = consumeAura(ctx.states.aura, auraElement, consumeUnits);
 
   ctx.runEffects('reaction', {
     reaction: 'bloom',

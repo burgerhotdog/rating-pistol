@@ -11,7 +11,7 @@ export function reactFrozen(ctx, ownerId, auraElement, gaugeUnits) {
     timeLeft: frozenDuration,
   };
 
-  const excessGaugeUnits = consumeAura(ctx, auraElement, gaugeUnits);
+  const excessGaugeUnits = consumeAura(ctx.states.aura, auraElement, gaugeUnits);
 
   ctx.runEffects('reaction', {
     reaction: 'frozen',

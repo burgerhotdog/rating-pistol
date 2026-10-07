@@ -82,7 +82,7 @@ export function reactMelt(ctx, ownerId, auraElement, gaugeUnits) {
   const mult = getAmpMultiplier(ctx, 'melt', ownerId, isForward);
 
   const consumeUnits = isForward ? gaugeUnits * 2 : gaugeUnits / 2;
-  const excess = consumeAura(ctx, auraElement, consumeUnits);
+  const excess = consumeAura(ctx.states.aura, auraElement, consumeUnits);
 
   ctx.runEffects('reaction', {
     reaction: 'melt',

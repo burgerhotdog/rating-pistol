@@ -7,7 +7,7 @@ export function reactOverloaded(ctx, ownerId, auraElement, gaugeUnits) {
     ctx.snapshots.push(snapshot);
   }
 
-  const excessGaugeUnits = consumeAura(ctx, auraElement, gaugeUnits);
+  const excessGaugeUnits = consumeAura(ctx.states.aura, auraElement, gaugeUnits);
 
   ctx.runEffects('reaction', {
     reaction: 'overloaded',

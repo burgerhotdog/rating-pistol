@@ -7,7 +7,7 @@ export function reactSwirl(ctx, ownerId, auraElement, gaugeUnits) {
     ctx.snapshots.push(snapshot);
   }
 
-  const excessGaugeUnits = consumeAura(ctx, auraElement, gaugeUnits / 2);
+  const excessGaugeUnits = consumeAura(ctx.states.aura, auraElement, gaugeUnits / 2);
 
   ctx.runEffects('reaction', {
     reaction: 'swirl',

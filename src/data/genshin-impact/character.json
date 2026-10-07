@@ -22800,7 +22800,7 @@
             "field": "onField"
           },
           "stats": {
-            "damageBonus%": 0.01
+            "dmgBonus%": 0.01
           }
         }
       },
@@ -22815,7 +22815,7 @@
             "field": "onField"
           },
           "stats": {
-            "damageBonus%": 0.035
+            "dmgBonus%": 0.035
           }
         },
         "maxStacks": 14,
@@ -35882,7 +35882,7 @@
             ]
           },
           "stats": {
-            "damageBonus%": 0.5
+            "dmgBonus%": 0.5
           }
         }
       },

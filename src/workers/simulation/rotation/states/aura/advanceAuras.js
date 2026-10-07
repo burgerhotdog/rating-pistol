@@ -9,20 +9,19 @@ import {
   buildElevationSnapshot,
 } from '../../snapshot';
 import { tryIcd } from '../icd';
+import { consumeAura } from './consumeAura';
 
-function decayElementAura(ctx, state, elapsed) {
-  state.gauge -= elapsed / state.decayRate;
+// Returns whether the aura is absent after decay
+function decayElementAura(auraStore, element, elapsed) {
+  const state = auraStore[element];
+  if (!state) return true;
 
-  const isDepleted = state.gauge <= 0;
-  if (isDepleted) {
-    delete ctx.states.aura[state.element];
-  }
-
-  return isDepleted;
+  consumeAura(auraStore, element, elapsed * state.decayRate);
+  return !auraStore[element];
 }
 
 function decayDendroBurning(ctx, state, elapsed) {
-  const specialDecayRate = Math.max(0.0004, 2 / state.decayRate);
+  const specialDecayRate = Math.max(0.0004, 2 * state.decayRate);
   state.gauge -= elapsed * specialDecayRate;
 
   const isDepleted = state.gauge <= 0;
@@ -34,7 +33,7 @@ function decayDendroBurning(ctx, state, elapsed) {
 }
 
 function decayReactionAura(ctx, state, elapsed) {
-  state.gauge -= elapsed / state.decayRate;
+  state.gauge -= elapsed * state.decayRate;
 
   const isDepleted = state.gauge <= 0;
   if (isDepleted) {
@@ -45,11 +44,11 @@ function decayReactionAura(ctx, state, elapsed) {
 }
 
 function advanceCharged(ctx, elapsed) {
-  const { aura } = ctx.states;
+  const auraStore = ctx.states.aura;
   const rxnKey = ctx.cache.lunarCharged ? 'lunarCharged' : 'electroCharged';
-  let charged = aura[rxnKey];
-  let electro = aura.electro;
-  let hydro = aura.hydro;
+  let charged = auraStore[rxnKey];
+  let electro = auraStore.electro;
+  let hydro = auraStore.hydro;
 
   let remaining = elapsed;
 
@@ -60,8 +59,8 @@ function advanceCharged(ctx, elapsed) {
 
     if (stateDeleted) {
       charged = null;
-      electro = aura.electro;
-      hydro = aura.hydro;
+      electro = auraStore.electro;
+      hydro = auraStore.hydro;
     }
   };
 
@@ -81,26 +80,16 @@ function advanceCharged(ctx, elapsed) {
     }
 
     if (electro) {
-      const stateDeleted = decayElementAura(ctx, electro, interval);
-      if (stateDeleted) {
+      if (decayElementAura(auraStore, 'electro', interval)) {
         electro = null;
-
-        if (charged) {
-          delete aura[rxnKey];
-          charged = null;
-        }
+        charged = null;
       }
     }
 
     if (hydro) {
-      const stateDeleted = decayElementAura(ctx, hydro, interval);
-      if (stateDeleted) {
+      if (decayElementAura(auraStore, 'hydro', interval)) {
         hydro = null;
-
-        if (charged) {
-          delete aura[rxnKey];
-          charged = null;
-        }
+        charged = null;
       }
     }
 
@@ -111,6 +100,7 @@ function advanceCharged(ctx, elapsed) {
 }
 
 function advanceStellarConduct(ctx, state, elapsed) {
+  const auraStore = ctx.states.aura;
   let remaining = elapsed;
 
   while (remaining > 0) {
@@ -120,7 +110,7 @@ function advanceStellarConduct(ctx, state, elapsed) {
     state.timeLeft -= interval;
 
     if (state.timeLeft <= 0) {
-      delete ctx.states.aura.stellarConduct;
+      delete auraStore.stellarConduct;
       return;
     }
 
@@ -139,6 +129,7 @@ function advanceStellarConduct(ctx, state, elapsed) {
 }
 
 function advanceStellarSwirl(ctx, state, elapsed) {
+  const auraStore = ctx.states.aura;
   let remaining = elapsed;
 
   while (remaining > 0) {
@@ -150,7 +141,7 @@ function advanceStellarSwirl(ctx, state, elapsed) {
     }
 
     if (state.timeLeft <= 0) {
-      delete ctx.states.aura.stellarSwirl;
+      delete auraStore.stellarSwirl;
       return;
     }
 
@@ -192,8 +183,8 @@ function advanceBloom(ctx, state, elapsed) {
 }
 
 function advanceBurning(ctx, elapsed) {
-  const store = ctx.states.aura;
-  const state = store.burning;
+  const auraStore = ctx.states.aura;
+  const state = auraStore.burning;
   let remaining = elapsed;
 
   while (remaining > 0) {
@@ -201,13 +192,11 @@ function advanceBurning(ctx, elapsed) {
     state.timer -= decrease;
     remaining -= decrease;
 
-    if (store.pyro) {
-      decayElementAura(ctx, store.pyro, decrease);
-    }
-    const isDendroDepleted = decayDendroBurning(ctx, store.dendro, decrease);
+    decayElementAura(auraStore, 'pyro', decrease);
+    const isDendroDepleted = decayDendroBurning(ctx, auraStore.dendro, decrease);
 
     if (isDendroDepleted) {
-      delete store.burning;
+      delete auraStore.burning;
       break;
     }
 
@@ -226,12 +215,8 @@ function advanceBurning(ctx, elapsed) {
   }
 
   if (remaining > 0) {
-    if (store.pyro) {
-      decayElementAura(ctx, store.pyro, remaining);
-    }
-    if (store.dendro) {
-      decayElementAura(ctx, store.dendro, remaining);
-    }
+    decayElementAura(auraStore, 'pyro', remaining);
+    decayElementAura(auraStore, 'dendro', remaining);
   }
 }
 
@@ -247,9 +232,9 @@ const isHandledByBurning = (state) =>
   state.element === 'dendro';
 
 export function advanceAuras(ctx, elapsed) {
-  const store = ctx.states.aura;
-  const hasCharged = Boolean(store.electroCharged || store.lunarCharged);
-  const hasBurning = Boolean(store.burning);
+  const auraStore = ctx.states.aura;
+  const hasCharged = Boolean(auraStore.electroCharged || auraStore.lunarCharged);
+  const hasBurning = Boolean(auraStore.burning);
 
   if (hasCharged) {
     advanceCharged(ctx, elapsed);
@@ -259,7 +244,7 @@ export function advanceAuras(ctx, elapsed) {
     advanceBurning(ctx, elapsed);
   }
 
-  for (const state of Object.values(store)) {
+  for (const state of Object.values(auraStore)) {
     if (hasCharged && isHandledByCharged(state)) {
       continue;
     }
@@ -269,7 +254,7 @@ export function advanceAuras(ctx, elapsed) {
     }
 
     if (state.element) {
-      decayElementAura(ctx, state, elapsed);
+      decayElementAura(auraStore, state.element, elapsed);
       continue;
     }
 
@@ -298,7 +283,7 @@ export function advanceAuras(ctx, elapsed) {
     const remaining = state.timeLeft -= elapsed;
 
     if (remaining <= 0) {
-      delete store[state.reaction];
+      delete auraStore[state.reaction];
     }
   }
 }

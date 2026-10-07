@@ -12,7 +12,7 @@ export function reactStellarConduct(ctx, ownerId, auraElement, gaugeUnits) {
 
   state.timeLeft = 7000;
 
-  const excessGaugeUnits = consumeAura(ctx, auraElement, gaugeUnits);
+  const excessGaugeUnits = consumeAura(ctx.states.aura, auraElement, gaugeUnits);
 
   ctx.runEffects('reaction', {
     reaction: 'stellarConduct',

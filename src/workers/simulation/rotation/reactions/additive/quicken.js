@@ -9,7 +9,7 @@ export function reactQuicken(ctx, ownerId, auraElement, gaugeUnits) {
 
   if (quickenGauge > prevQuickenGauge) {
     const quickenDuration = (quickenGauge * 5 + 6) * 1000;
-    const decayRate = quickenDuration / quickenGauge;
+    const decayRate = quickenGauge / quickenDuration;
 
     store.quicken = {
       reaction: 'quicken',
@@ -18,7 +18,7 @@ export function reactQuicken(ctx, ownerId, auraElement, gaugeUnits) {
     };
   }
 
-  const excessGaugeUnits = consumeAura(ctx, auraElement, gaugeUnits);
+  const excessGaugeUnits = consumeAura(ctx.states.aura, auraElement, gaugeUnits);
 
   ctx.runEffects('reaction', {
     reaction: 'quicken',

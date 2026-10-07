@@ -50,5 +50,5 @@ export function reactStellarSwirl(ctx, ownerId, gaugeUnits) {
     ownerId,
   });
 
-  consumeAura(ctx, 'cryo', gaugeUnits);
+  consumeAura(ctx.states.aura, 'cryo', gaugeUnits);
 }

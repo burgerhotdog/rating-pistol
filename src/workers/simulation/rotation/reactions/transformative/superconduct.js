@@ -13,7 +13,7 @@ export function reactSuperconduct(ctx, ownerId, auraElement, gaugeUnits) {
 
   state.timeLeft = 12000;
 
-  const excessGaugeUnits = consumeAura(ctx, auraElement, gaugeUnits);
+  const excessGaugeUnits = consumeAura(ctx.states.aura, auraElement, gaugeUnits);
 
   ctx.runEffects('reaction', {
     reaction: 'superconduct',

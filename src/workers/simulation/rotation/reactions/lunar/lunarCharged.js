@@ -27,8 +27,8 @@ export function tickLunarCharged(ctx, offset = 0) {
     ctx.snapshots.push({ ...snapshot, runtime: snapshot.runtime + offset });
   }
 
-  consumeAura(ctx, 'electro', 0.4);
-  consumeAura(ctx, 'hydro', 0.4);
+  consumeAura(ctx.states.aura, 'electro', 0.4);
+  consumeAura(ctx.states.aura, 'hydro', 0.4);
 
   if (!aura.electro || !aura.hydro) {
     delete aura.lunarCharged;
