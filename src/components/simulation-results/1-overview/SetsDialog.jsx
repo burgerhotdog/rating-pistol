@@ -83,7 +83,11 @@ function buildData(gameId, setResults, userDps, userSetCounts, limit = false) {
         }]
       : []
     ),
-  ].toSorted((a, b) => b.dps - a.dps);
+  ].toSorted((a, b) => {
+    if (a.comboKey === 'none') return 1;
+    if (b.comboKey === 'none') return -1;
+    return b.dps - a.dps;
+  });
 
   let limitLeft = 6;
   const bestDps = dataEntries[0].dps;
@@ -134,11 +138,13 @@ const renderTooltip = ({ gameId, payload, label = '' }) => {
     : labelParts
       .map((part) => {
         const [id, count] = part.split('_');
-        if (count !== '2') {
-          return `${SET[gameId][id]?.name} (${count}pc)`;
+        const { name, halfStat } = SET[gameId][id] ?? {};
+
+        if (count !== '2' || !halfStat) {
+          return `${name} (${count}pc)`;
         }
 
-        return `${formatStr(SET[gameId][id]?.halfStat)} (${count}pc)`;
+        return `${formatStr(halfStat)} (${count}pc)`;
       });
 
   const diff = pct - 100;
@@ -161,7 +167,7 @@ const renderTooltip = ({ gameId, payload, label = '' }) => {
           <Typography variant="caption">
             {formatNum(dps)} dps
           </Typography>
-          {!isUser && (
+          {!isUser && Math.abs(diff) >= 0.05 && (
             <Typography
               variant="caption"
               color={diff >= 0 ? 'success' : 'error'}

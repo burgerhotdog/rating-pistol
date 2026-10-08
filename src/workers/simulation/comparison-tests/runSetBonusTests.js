@@ -263,7 +263,7 @@ export function runSetBonusTests(cache, equipMaps, charId, durationGetter) {
 function get2pcKey(gameId, assignment) {
   return assignment
     .filter(({ size }) => size === 2)
-    .map(({ setId }) => SET[gameId][setId].halfStat)
+    .map(({ setId }) => SET[gameId][setId].halfStat ?? setId)
     .sort()
     .join('|');
 }
