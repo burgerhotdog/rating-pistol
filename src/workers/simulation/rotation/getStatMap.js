@@ -31,7 +31,7 @@ export const getBuffMap = (ctx, options = {}) => {
     if (snapshot === 'frozen' && isLiveOnly) continue;
     if (snapshot === 'live' && !isLiveOnly) continue;
 
-    if (!ctx.eventFilter(effect.buff?.filter, effect, { action, fieldId: action.ownerId })) continue;
+    if (!ctx.eventFilter(effect.buff?.filter, effect, { action, fieldId: memberId })) continue;
 
     const linkedStacks = effect.buff?.statusStacks
       ? ctx.states.negativeStatuses[effect.buff.statusStacks]?.stacks ?? 0

@@ -719,7 +719,6 @@
       2,
       4
     ],
-    "halfStat": "retracingBolide",
     "effects": [
       {
         "bonus": 4,
@@ -1647,7 +1646,6 @@
       2,
       4
     ],
-    "halfStat": "normalAndChargedAttackDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -2143,7 +2141,6 @@
     ]
   },
   "15038": {
-    "disabled": true,
     "name": "Obsidian Codex",
     "version": 5.0,
     "id": 15038,
@@ -2152,13 +2149,21 @@
       2,
       4
     ],
-    "halfStat": "obsidianCodex",
     "effects": [
       {
         "bonus": 2,
         "buff": {
           "filter": {
-            "field": "onField"
+            "and": [
+              {
+                "nightsoul": {
+                  ">": 0
+                }
+              },
+              {
+                "field": "onField"
+              }
+            ]
           },
           "stats": {
             "dmgBonus%": 0.15
@@ -2167,6 +2172,25 @@
       },
       {
         "bonus": 4,
+        "apply": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "nightsoul": {
+                    "<=": -1
+                  }
+                }
+              },
+              {
+                "field": "onField"
+              }
+            ]
+          },
+          "cooldown": 1000,
+          "duration": 6000
+        },
         "buff": {
           "stats": {
             "critRate%": 0.4

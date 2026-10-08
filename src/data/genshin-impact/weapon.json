@@ -5399,7 +5399,6 @@
     ]
   },
   "14516": {
-    "disabled": true,
     "name": "Surf's Up",
     "version": 5.0,
     "id": 14516,
@@ -5410,7 +5409,118 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "ref": "scorchingSummer",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 15000,
+          "duration": 14000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "scorchingSummerStacks",
+              "spec": {
+                "stacks": 4
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "cleanUp",
+              "spec": {
+                "uses": 1,
+                "offset": 14000
+              }
+            }
+          ]
+        },
+        "use": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "vaporize"
+            }
+          },
+          "cooldown": 1500,
+          "commands": {
+            "type": "apply",
+            "ref": "delayedApply",
+            "spec": {
+              "uses": 1,
+              "offset": 250
+            }
+          }
+        }
+      },
+      {
+        "ref": "delayedApply",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "scorchingSummerStacks"
+          }
+        }
+      },
+      {
+        "ref": "scorchingSummerStacks",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 1500,
+          "stacks": 1
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "cleanUp",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "remove",
+            "ref": "scorchingSummerStacks"
+          }
+        }
+      }
+    ]
   },
   "14517": {
     "disabled": true,

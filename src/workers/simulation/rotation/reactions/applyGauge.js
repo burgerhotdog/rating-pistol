@@ -31,7 +31,7 @@ import {
   reactStellarSwirl,
 } from './stellar';
 
-export function applyPyro(ctx, gauge, applier) {
+export function applyPyro(ctx, gauge, applier, action) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
   let scaleMult;
@@ -46,13 +46,13 @@ export function applyPyro(ctx, gauge, applier) {
   }
 
   if (aura.hydro && availableUnits) {
-    const { excess, mult } = reactVaporize(ctx, applier, false, availableUnits);
+    const { excess, mult } = reactVaporize(ctx, applier, false, availableUnits, action);
     availableUnits = excess;
     scaleMult = mult;
   }
 
   if (aura.cryo && availableUnits) {
-    const { excess, mult } = reactMelt(ctx, applier, true, availableUnits);
+    const { excess, mult } = reactMelt(ctx, applier, true, availableUnits, action);
     availableUnits = excess;
     scaleMult = mult;
   }
@@ -72,7 +72,7 @@ export function applyPyro(ctx, gauge, applier) {
   return { scaleMult, scaleFlat };
 }
 
-function applyElectro(ctx, gauge, applier) {
+function applyElectro(ctx, gauge, applier, action) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
   let scaleMult;
@@ -87,7 +87,7 @@ function applyElectro(ctx, gauge, applier) {
   }
 
   if (aura.quicken) {
-    scaleFlat = reactAggravate(ctx, applier);
+    scaleFlat = reactAggravate(ctx, applier, action);
   }
 
   if ((aura.pyro || aura.burning) && availableUnits) {
@@ -121,14 +121,14 @@ function applyElectro(ctx, gauge, applier) {
   return { scaleMult, scaleFlat };
 }
 
-function applyHydro(ctx, gauge, applier) {
+function applyHydro(ctx, gauge, applier, action) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
   let scaleMult;
   let scaleFlat;
 
   if ((aura.pyro || aura.burning) && availableUnits) {
-    const { excess, mult } = reactVaporize(ctx, applier, true, availableUnits);
+    const { excess, mult } = reactVaporize(ctx, applier, true, availableUnits, action);
 
     availableUnits = excess;
     scaleMult = mult;
@@ -161,14 +161,14 @@ function applyHydro(ctx, gauge, applier) {
   return { scaleMult, scaleFlat };
 }
 
-function applyDendro(ctx, gauge, applier) {
+function applyDendro(ctx, gauge, applier, action) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
   let scaleMult;
   let scaleFlat;
 
   if (aura.quicken) {
-    scaleFlat = reactSpread(ctx, applier);
+    scaleFlat = reactSpread(ctx, applier, action);
   }
 
   if (aura.pyro && availableUnits) {
@@ -198,7 +198,7 @@ function applyDendro(ctx, gauge, applier) {
   return { scaleMult, scaleFlat };
 }
 
-function applyAnemo(ctx, gauge, applier) {
+function applyAnemo(ctx, gauge, applier, action) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
 
@@ -223,7 +223,7 @@ function applyAnemo(ctx, gauge, applier) {
   }
 }
 
-function applyGeo(ctx, gauge, applier) {
+function applyGeo(ctx, gauge, applier, action) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
 
@@ -248,7 +248,7 @@ function applyGeo(ctx, gauge, applier) {
   }
 }
 
-export function applyCryo(ctx, gauge, applier) {
+export function applyCryo(ctx, gauge, applier, action) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
   let scaleMult;
@@ -267,7 +267,7 @@ export function applyCryo(ctx, gauge, applier) {
   }
 
   if ((aura.pyro || aura.burning) && availableUnits) {
-    const { excess, mult } = reactMelt(ctx, applier, false, availableUnits);
+    const { excess, mult } = reactMelt(ctx, applier, false, availableUnits, action);
     availableUnits = excess;
     scaleMult = mult;
   }
@@ -292,24 +292,24 @@ export function applyGauge(ctx, action) {
 
   switch (element) {
     case 'pyro':
-      return applyPyro(ctx, gauge, ownerId);
+      return applyPyro(ctx, gauge, ownerId, action);
 
     case 'electro':
-      return applyElectro(ctx, gauge, ownerId);
+      return applyElectro(ctx, gauge, ownerId, action);
 
     case 'cryo':
-      return applyCryo(ctx, gauge, ownerId);
+      return applyCryo(ctx, gauge, ownerId, action);
 
     case 'hydro':
-      return applyHydro(ctx, gauge, ownerId);
+      return applyHydro(ctx, gauge, ownerId, action);
 
     case 'anemo':
-      return applyAnemo(ctx, gauge, ownerId);
+      return applyAnemo(ctx, gauge, ownerId, action);
 
     case 'geo':
-      return applyGeo(ctx, gauge, ownerId);
+      return applyGeo(ctx, gauge, ownerId, action);
 
     case 'dendro':
-      return applyDendro(ctx, gauge, ownerId);
+      return applyDendro(ctx, gauge, ownerId, action);
   }
 }

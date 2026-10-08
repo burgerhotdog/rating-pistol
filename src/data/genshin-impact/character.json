@@ -43249,7 +43249,6 @@
     }
   },
   "10000102": {
-    "disabled": true,
     "name": "Mualani",
     "version": 5.0,
     "id": 10000102,
@@ -43265,7 +43264,155 @@
     },
     "energy": 60,
     "nightsoul": true,
-    "effects": [],
+    "maxNightsoul": 60,
+    "effects": [
+      {
+        "ref": "nightsoulDecay",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "offset": 1000
+        },
+        "remove": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "nightsoul": 0
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": {
+            "nightsoul": -10
+          }
+        }
+      },
+      {
+        "ref": "markedAsPrey",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          }
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          }
+        }
+      },
+      {
+        "ref": "waveMomentum",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          }
+        },
+        "buff": {
+          "statRefs": {
+            "damageMv": "elementalSkill.3"
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "sharkysSurgingBite",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.2"
+                }
+              },
+              {
+                "effectStacks": {
+                  "waveMomentum": 3
+                }
+              }
+            ]
+          },
+          "statRefs": {
+            "damageMv": "elementalSkill.4"
+          }
+        },
+        "use": {
+          "when": "end",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.2"
+                }
+              },
+              {
+                "effectStacks": {
+                  "waveMomentum": 3
+                }
+              }
+            ]
+          },
+          "commands": {
+            "type": "remove",
+            "ref": "waveMomentum"
+          }
+        }
+      },
+      {
+        "ref": "wavechasersExploits",
+        "apply": {
+          "by": "$team",
+          "when": "nightsoulBurst",
+          "duration": 20000,
+          "uses": 1
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "stats": {
+            "damageMv": 0.15
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "rank": 1,
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 1
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          },
+          "stats": {
+            "damageMv": 0.66
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Cooling Treatment",
@@ -43379,33 +43526,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -43458,6 +43578,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -43466,9 +43613,21 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Sharky's Bite Base DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
+            "nightsoul": 60
+          },
+          {
+            "name": "Apply Marked as Prey",
+            "duration": 700
+          },
+          {
+            "name": "Normal Attack: Sharky's Bite",
+            "type": "normalAttack",
+            "nightsoul": 20,
             "damage": {
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -43490,15 +43649,15 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 1200
           },
           {
-            "name": "Wave Momentum DMG Bonus",
-            "type": "elementalSkill",
-            "damage": {
+            "name": "Wave Momentum Additional DMG",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.0434,
                     0.0467,
                     0.0499,
@@ -43520,12 +43679,11 @@
             }
           },
           {
-            "name": "Sharky's Surging Bite Additional DMG Bonus",
-            "type": "elementalSkill",
-            "damage": {
+            "name": "Sharky's Surging Bite Additional DMG",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.217,
                     0.2333,
                     0.2495,
@@ -43553,9 +43711,11 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -43586,7 +43746,23 @@
       "weaponId": 14516,
       "setCounts": {
         "15038": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalBurst.0"
+      ]
     }
   },
   "10000103": {
@@ -45745,6 +45921,7 @@
       },
       {
         "use": {
+          "by": "$team",
           "when": "nightsoulBurst",
           "action": {
             "nightsoul": 4

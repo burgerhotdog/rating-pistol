@@ -3,7 +3,9 @@ import { getBuffMap } from '../getStatMap';
 import { transformativeReactionFormula } from '../formula';
 
 export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reactionElement) {
-  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId });
+  const mockAction = { damage: { type: rxnKey, element: reactionElement } };
+
+  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId, action: mockAction });
 
   return {
     key: `system:${rxnKey}`,

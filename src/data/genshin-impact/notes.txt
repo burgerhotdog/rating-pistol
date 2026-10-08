@@ -42,6 +42,8 @@ Characters:
         Hats dont snapshot stats
         No hp restrictions on A1
         No constellations
+    Mualani
+        No constellations
     Nahida
         Dendro core trigger offset might be wrong
         No ult electro/hydro buff
