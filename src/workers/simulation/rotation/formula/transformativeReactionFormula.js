@@ -6,10 +6,15 @@ import { getResMult } from './enemyRes';
 const LEVEL_MULTIPLIER = 1446.85;
 
 const RXN_MULTIPLIERS = {
+  hyperbloom: 3,
+  burgeon: 3,
+  shattered: 3,
   overloaded: 2.75,
+  electroCharged: 2,
+  bloom: 2,
   superconduct: 1.5,
   swirl: 0.6,
-  electroCharged: 2,
+  burning: 0.25,
 };
 
 function transformativeBaseDamage(statMap, rxnKey) {

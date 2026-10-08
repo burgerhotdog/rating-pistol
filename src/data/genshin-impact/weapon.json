@@ -1766,7 +1766,6 @@
     "effects": []
   },
   "11512": {
-    "disabled": true,
     "name": "Light of Foliar Incision",
     "version": 3.4,
     "id": 11512,
@@ -1777,7 +1776,55 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "critRate%": [
+              0.04,
+              0.08
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 12000,
+          "duration": 12000,
+          "uses": 28
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "elementalSkill"
+                ]
+              }
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                1.2,
+                2.4
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11513": {
     "name": "Splendor of Tranquil Waters",
@@ -4318,7 +4365,8 @@
               0.2,
               0.4
             ]
-          }
+          },
+          "snapshot": false
         }
       },
       {
@@ -5015,7 +5063,6 @@
     ]
   },
   "14511": {
-    "disabled": true,
     "name": "A Thousand Floating Dreams",
     "version": 3.2,
     "id": 14511,
@@ -5026,7 +5073,110 @@
       "baseAtk": 542,
       "elementalMastery": 265
     },
-    "effects": []
+    "effects": [
+      {
+        "enable": {
+          "sameElementTeamMembers": {
+            ">=": 2
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              32,
+              64
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "sameElementTeamMembers": {
+            ">=": 3
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              32,
+              64
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "sameElementTeamMembers": {
+            ">=": 4
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              32,
+              64
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "diffElementTeamMembers": {
+            ">=": 2
+          }
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "diffElementTeamMembers": {
+            ">=": 3
+          }
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "diffElementTeamMembers": {
+            ">=": 4
+          }
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$ally",
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              0.4,
+              0.48
+            ]
+          }
+        },
+        "stackable": true
+      }
+    ]
   },
   "14512": {
     "name": "Tulaytullah's Remembrance",
@@ -6239,7 +6389,8 @@
               0.2,
               0.4
             ]
-          }
+          },
+          "snapshot": false
         }
       }
     ]

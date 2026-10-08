@@ -1,3 +1,4 @@
+import { toMergedObj } from '@/utils';
 import { runFormula } from '../formula';
 import { getBuffMap } from '../getStatMap';
 
@@ -11,10 +12,20 @@ export const buildSnapshot = (ctx, action, options = {}) => {
   const { runtimeOffset = 0, snapshotBuffs } = options;
   const snapshotOwnerId = action.ownerId;
 
-  const { buffMap, buffSpecs } = snapshotBuffs ?? getBuffMap(ctx, {
+  let { buffMap, buffSpecs } = snapshotBuffs ?? getBuffMap(ctx, {
     memberId: snapshotOwnerId,
     action,
   });
+
+  if (snapshotBuffs) {
+    const live = getBuffMap(ctx, {
+      memberId: snapshotOwnerId,
+      action,
+      snapshot: 'live',
+    });
+    buffMap = toMergedObj(buffMap, live.buffMap);
+    buffSpecs = [...buffSpecs, ...live.buffSpecs];
+  }
 
   const specSourceBuffMap = ctx.specId
     ? getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true }).buffMap

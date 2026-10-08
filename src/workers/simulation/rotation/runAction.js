@@ -1,6 +1,6 @@
 import { GI, WW } from '@/data';
 import { clamp } from '@/utils';
-import { applyGauge, consumeVerdantDew } from './gauge';
+import { applyGauge, consumeVerdantDew } from './reactions';
 import {
   changeBondOfLife,
   grantBondOfLife,
@@ -16,32 +16,11 @@ import {
   replaceNegativeStatuses,
 } from './states/negative-statuses';
 import { canSnapshot, buildSnapshot } from './snapshot';
-import { getEffectStates } from './getEffectStates';
 import { getModifiedAction } from './getModifiedAction';
 import { advanceStates } from './states';
 import { runRestoreEnergy } from './restoreEnergy';
 import { updateShielded } from './states/shielded';
-
-function decayBuffStates(ctx, action) {
-  for (const state of getEffectStates(ctx, { member: action.ownerId, type: 'buff' })) {
-    const { store, effect, buffCooldown } = state;
-
-    if (buffCooldown) continue;
-    const spec = { action, fieldId: action.ownerId };
-    if (!ctx.eventFilter(effect.buff?.filter, effect, spec)) continue;
-
-    if (effect.buff?.cooldown) {
-      state.buffCooldown = effect.buff.cooldown;
-    }
-
-    if (state.usesLeft) {
-      state.usesLeft--;
-      if (!state.usesLeft) {
-        delete store[effect.key];
-      }
-    }
-  }
-}
+import { decayBuffUses } from './states/effects/decayBuffUses';
 
 export function runAction(ctx, action, options = {}) {
   const { noDuration } = options;
@@ -85,7 +64,7 @@ export function runAction(ctx, action, options = {}) {
       applyOffTuneBuildup(ctx, modifiedAction);
     }
 
-    decayBuffStates(ctx, modifiedAction);
+    decayBuffUses(ctx, modifiedAction);
   }
 
   if (ctx.saveSnapshots) {
@@ -113,9 +92,12 @@ export function runAction(ctx, action, options = {}) {
       runDrain(ctx, modifiedAction);
     }
 
-    let scaleMult = 1;
+    let rxnScaleMult = 1;
+    let rxnScaleFlat = 0;
     if (gameId === GI) {
-      scaleMult = applyGauge(ctx, modifiedAction);
+      const { scaleMult, scaleFlat } = applyGauge(ctx, modifiedAction) ?? {};
+      rxnScaleMult = scaleMult;
+      rxnScaleFlat = scaleFlat;
     }
 
     if (modifiedAction.healing) {
@@ -137,7 +119,8 @@ export function runAction(ctx, action, options = {}) {
         runtime: sharedSnapshot.runtime + actionRuntime - hitOffsets[0],
         unresolved: {
           ...sharedSnapshot.unresolved,
-          scale: scaleMult,
+          scale: rxnScaleMult,
+          scaleFlat: rxnScaleFlat,
           dew: verdantDewMultiplier,
         },
       });
@@ -150,22 +133,25 @@ export function runAction(ctx, action, options = {}) {
   ctx.runEffects('end', modifiedAction);
 }
 
-function runDrain(ctx, modifiedAction) {
+function runDrain(ctx, action) {
   const {
-    targets = [modifiedAction.ownerId],
+    targets = [action.ownerId],
     value,
     minLimit = 0,
     maxLimit = 1,
-  } = modifiedAction.drain;
+  } = action.drain;
   const { memberHealth } = ctx.states;
 
   for (const targetId of targets) {
     const prev = memberHealth[targetId];
+    if (value > 0 && prev <= minLimit) continue;
+    if (value < 0 && prev >= maxLimit) continue;
+
     const next = clamp(prev - value, minLimit, maxLimit);
 
     if (next !== prev) {
       memberHealth[targetId] = next;
-      ctx.runEffects('healthChange', modifiedAction);
+      ctx.runEffects('healthChange', action);
     }
   }
 }

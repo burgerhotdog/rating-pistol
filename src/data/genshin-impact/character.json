@@ -22800,7 +22800,7 @@
             "field": "onField"
           },
           "stats": {
-            "damageBonus%": 0.01
+            "dmgBonus%": 0.01
           }
         }
       },
@@ -22815,7 +22815,7 @@
             "field": "onField"
           },
           "stats": {
-            "damageBonus%": 0.035
+            "dmgBonus%": 0.035
           }
         },
         "maxStacks": 14,
@@ -25248,7 +25248,6 @@
     "memberPreset": {}
   },
   "10000065": {
-    "disabled": true,
     "name": "Kuki Shinobu",
     "version": 2.7,
     "id": 10000065,
@@ -25263,7 +25262,158 @@
       "hp%": 0.24
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "grassRing",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 12000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1500,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "apply": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "health": {
+                    ">": 0.5
+                  }
+                }
+              ]
+            },
+            "uses": 7
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "health": {
+                    "<=": 0.5
+                  }
+                }
+              ]
+            },
+            "uses": 12
+          }
+        ],
+        "use": {
+          "when": "interval",
+          "cooldown": 300,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "health": {
+              "<=": 0.5
+            }
+          },
+          "stats": {
+            "healingBonus%": 0.15
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "specs": {
+            "healingFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.75
+            },
+            "damageFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.25
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "modify": {
+          "type": "effect",
+          "ref": "grassRing",
+          "spec": {
+            "apply": {
+              "duration": 3000
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": {
+          "by": "$team",
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack",
+                      "plungingAttack"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "grassRing"
+                }
+              }
+            ]
+          },
+          "cooldown": 5000,
+          "action": {
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": 0.097
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Shinobu's Shadowsword",
@@ -25423,33 +25573,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6393,
-                    0.6914,
-                    0.7434,
-                    0.8177,
-                    0.8698,
-                    0.9293,
-                    1.011,
-                    1.0928,
-                    1.1746,
-                    1.2638,
-                    1.353,
-                    1.4422,
-                    1.5314,
-                    1.6206,
-                    1.7098
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -25502,6 +25625,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6393,
+                    0.6914,
+                    0.7434,
+                    0.8177,
+                    0.8698,
+                    0.9293,
+                    1.011,
+                    1.0928,
+                    1.1746,
+                    1.2638,
+                    1.353,
+                    1.4422,
+                    1.5314,
+                    1.6206,
+                    1.7098
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -25510,9 +25660,19 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
+            "drain": {
+              "value": 0.3,
+              "minLimit": 0.2
+            },
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -25537,55 +25697,15 @@
             }
           },
           {
-            "name": "Grass Ring of Sanctification Healing",
-            "type": "elementalSkill",
+            "name": "Grass Ring of Sanctification",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.03,
-                    0.0323,
-                    0.0345,
-                    0.0375,
-                    0.0398,
-                    0.042,
-                    0.045,
-                    0.048,
-                    0.051,
-                    0.054,
-                    0.057,
-                    0.06,
-                    0.0638,
-                    0.0675,
-                    0.0712
-                  ]
-                },
-                {
-                  "mv": [
-                    288.8908,
-                    317.7839,
-                    349.0847,
-                    382.7934,
-                    418.9098,
-                    457.4339,
-                    498.3657,
-                    541.7054,
-                    587.4528,
-                    635.608,
-                    686.1709,
-                    739.1415,
-                    794.52,
-                    852.3062,
-                    912.5001
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Grass Ring of Sanctification DMG",
-            "type": "elementalSkill",
-            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -25607,6 +25727,47 @@
                   ]
                 }
               ]
+            },
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.03,
+                    0.0323,
+                    0.0345,
+                    0.0375,
+                    0.0398,
+                    0.042,
+                    0.045,
+                    0.048,
+                    0.051,
+                    0.054,
+                    0.057,
+                    0.06,
+                    0.0638,
+                    0.0675,
+                    0.0712
+                  ],
+                  "flat": [
+                    288.8908,
+                    317.7839,
+                    349.0847,
+                    382.7934,
+                    418.9098,
+                    457.4339,
+                    498.3657,
+                    541.7054,
+                    587.4528,
+                    635.608,
+                    686.1709,
+                    739.1415,
+                    794.52,
+                    852.3062,
+                    912.5001
+                  ]
+                }
+              ]
             }
           }
         ]
@@ -25616,9 +25777,20 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Single Instance DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Single Instance",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -25641,57 +25813,25 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Total DMG",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.2523,
-                    0.2713,
-                    0.2902,
-                    0.3154,
-                    0.3343,
-                    0.3533,
-                    0.3785,
-                    0.4037,
-                    0.429,
-                    0.4542,
-                    0.4794,
-                    0.5047,
-                    0.5362,
-                    0.5678,
-                    0.5993
-                  ]
-                },
-                {
-                  "mv": [
-                    0.4326,
-                    0.465,
-                    0.4975,
-                    0.5407,
-                    0.5732,
-                    0.6056,
-                    0.6489,
-                    0.6921,
-                    0.7354,
-                    0.7786,
-                    0.8219,
-                    0.8652,
-                    0.9192,
-                    0.9733,
-                    1.0274
-                  ]
-                }
-              ]
-            }
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11407,
+      "setCounts": {
+        "15028": 4
+      },
+      "rotation": [
+        "elementalSkill.0"
+      ]
+    },
+    "teamPreset": [
+      10000078,
+      10000065,
+      10000025,
+      10000073
+    ]
   },
   "10000066": {
     "disabled": true,
@@ -28872,7 +29012,6 @@
     "memberPreset": {}
   },
   "10000073": {
-    "disabled": true,
     "name": "Nahida",
     "version": 3.2,
     "id": 10000073,
@@ -28887,7 +29026,144 @@
       "elementalMastery": 115
     },
     "energy": 50,
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 25000
+        },
+        "use": [
+          {
+            "by": "$team",
+            "when": "reaction",
+            "cooldown": 2500,
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "dendroCore",
+            "cooldown": 2500,
+            "action": "elementalSkill.2"
+          }
+        ]
+      },
+      {
+        "ref": "shrineOfMaya",
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "specs": {
+            "elementalMastery": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.25,
+              "maxValue": 250
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "pyro": 1
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.2"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "shrineOfMaya"
+                }
+              }
+            ]
+          },
+          "statRefs": {
+            "dmgBonus%": "elementalBurst.1"
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "pyro": {
+                ">=": 2
+              }
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.2"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "shrineOfMaya"
+                }
+              }
+            ]
+          },
+          "statRefs": {
+            "dmgBonus%": "elementalBurst.2"
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          },
+          "specs": {
+            "dmgBonus%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "offset": 200,
+              "value": 0.001,
+              "maxValue": 0.8
+            },
+            "critRate%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "offset": 200,
+              "value": 0.0003,
+              "maxValue": 0.24
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Akara",
@@ -29028,33 +29304,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -29107,6 +29356,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -29115,9 +29391,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -29142,9 +29419,10 @@
             }
           },
           {
-            "name": "Hold DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -29169,47 +29447,52 @@
             }
           },
           {
-            "name": "Tri-Karma Purification DMG",
-            "type": "elementalSkill",
+            "name": "Tri-Karma Purification",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1.5,
+              "icd": {
+                "tag": "Nahida Tri-Karma Purification",
+                "time": 1000
+              },
               "multipliers": [
                 {
-                  "mv": [
-                    1.032,
-                    1.1094,
-                    1.1868,
-                    1.29,
-                    1.3674,
-                    1.4448,
-                    1.548,
-                    1.6512,
-                    1.7544,
-                    1.8576,
-                    1.9608,
-                    2.064,
-                    2.193,
-                    2.322,
-                    2.451
-                  ]
-                },
-                {
-                  "mv": [
-                    2.064,
-                    2.2188,
-                    2.3736,
-                    2.58,
-                    2.7348,
-                    2.8896,
-                    3.096,
-                    3.3024,
-                    3.5088,
-                    3.7152,
-                    3.9216,
-                    4.128,
-                    4.386,
-                    4.644,
-                    4.902
-                  ]
+                  "mv": {
+                    "atk": [
+                      1.032,
+                      1.1094,
+                      1.1868,
+                      1.29,
+                      1.3674,
+                      1.4448,
+                      1.548,
+                      1.6512,
+                      1.7544,
+                      1.8576,
+                      1.9608,
+                      2.064,
+                      2.193,
+                      2.322,
+                      2.451
+                    ],
+                    "elementalMastery": [
+                      2.064,
+                      2.2188,
+                      2.3736,
+                      2.58,
+                      2.7348,
+                      2.8896,
+                      3.096,
+                      3.3024,
+                      3.5088,
+                      3.7152,
+                      3.9216,
+                      4.128,
+                      4.386,
+                      4.644,
+                      4.902
+                    ]
+                  }
                 }
               ]
             }
@@ -29221,12 +29504,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Pyro: DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Pyro: DMG Bonus 1",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.1488,
                     0.16,
                     0.1711,
@@ -29248,12 +29534,11 @@
             }
           },
           {
-            "name": "Pyro: DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "Pyro: DMG Bonus 2",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.2232,
                     0.2399,
                     0.2567,
@@ -29275,12 +29560,11 @@
             }
           },
           {
-            "name": "Electro: Trigger Interval Decrease",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "Electro: Trigger Interval Decrease 1",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.248,
                     0.2666,
                     0.2852,
@@ -29302,12 +29586,11 @@
             }
           },
           {
-            "name": "Electro: Trigger Interval Decrease",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "Electro: Trigger Interval Decrease 2",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.372,
                     0.3999,
                     0.4278,
@@ -29329,12 +29612,11 @@
             }
           },
           {
-            "name": "Hydro: Duration Extension",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "Hydro: Duration Extension 1",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     3.344,
                     3.5948,
                     3.8456,
@@ -29356,12 +29638,11 @@
             }
           },
           {
-            "name": "Hydro: Duration Extension",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "Hydro: Duration Extension 2",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     5.016,
                     5.3922,
                     5.7684,
@@ -29389,8 +29670,18 @@
       "weaponId": 14511,
       "setCounts": {
         "15025": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.1",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000078,
+      10000065,
+      10000025,
+      10000073
+    ]
   },
   "10000074": {
     "disabled": true,
@@ -30234,7 +30525,7 @@
         }
       },
       {
-        "stores": "global",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -31081,7 +31372,6 @@
     "memberPreset": {}
   },
   "10000078": {
-    "disabled": true,
     "name": "Alhaitham",
     "version": 3.4,
     "id": 10000078,
@@ -31096,7 +31386,291 @@
       "dendroDmgBonus%": 0.288
     },
     "energy": 70,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "mirrors",
+        "apply": [
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "not": {
+                      "has": "mirrors"
+                    }
+                  }
+                }
+              ]
+            },
+            "duration": 4000
+          },
+          {
+            "when": "start",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              }
+            },
+            "duration": 4000
+          }
+        ],
+        "remove": {
+          "when": "swap",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "category": "normalAttack"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "dendro"
+            }
+          }
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "category": "normalAttack"
+            }
+          },
+          "cooldown": 1600,
+          "action": "elementalSkill.1"
+        },
+        "maxStacks": 3,
+        "decay": true,
+        "decayDuration": 4000
+      },
+      {
+        "apply": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "not": {
+                      "has": "mirrors"
+                    }
+                  }
+                }
+              ]
+            },
+            "uses": 4,
+            "commands": {
+              "type": "apply",
+              "ref": "ultApply3",
+              "spec": {
+                "uses": 1,
+                "offset": 2000
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "mirrors": 1
+                  }
+                }
+              ]
+            },
+            "uses": 6,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "mirrors"
+              },
+              {
+                "type": "apply",
+                "ref": "ultApply2",
+                "spec": {
+                  "uses": 1,
+                  "offset": 2000
+                }
+              }
+            ]
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "mirrors": 2
+                  }
+                }
+              ]
+            },
+            "uses": 8,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "mirrors"
+              },
+              {
+                "type": "apply",
+                "ref": "ultApply1",
+                "spec": {
+                  "uses": 1,
+                  "offset": 2000
+                }
+              }
+            ]
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "mirrors": 3
+                  }
+                }
+              ]
+            },
+            "uses": 10,
+            "commands": {
+              "type": "remove",
+              "ref": "mirrors"
+            }
+          }
+        ],
+        "use": {
+          "when": "interval",
+          "cooldown": 200,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "ultApply3",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "mirrors",
+            "spec": {
+              "duration": 4000,
+              "stacks": 3
+            }
+          }
+        }
+      },
+      {
+        "ref": "ultApply2",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "mirrors",
+            "spec": {
+              "duration": 4000,
+              "stacks": 2
+            }
+          }
+        }
+      },
+      {
+        "ref": "ultApply1",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "mirrors",
+            "spec": {
+              "duration": 4000,
+              "stacks": 1
+            }
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "chargedAttack",
+                  "plungingAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 12000,
+          "commands": {
+            "type": "apply",
+            "ref": "mirrors",
+            "spec": {
+              "duration": 4000
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalBurst.1"
+              ]
+            }
+          },
+          "specs": {
+            "dmgBonus%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.001,
+              "maxValue": 1
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Abductive Reasoning",
@@ -31259,6 +31833,10 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 2000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -31296,33 +31874,6 @@
                     1.3236,
                     1.4006,
                     1.4777
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6393,
-                    0.6914,
-                    0.7434,
-                    0.8177,
-                    0.8698,
-                    0.9293,
-                    1.011,
-                    1.0928,
-                    1.1746,
-                    1.2638,
-                    1.353,
-                    1.4422,
-                    1.5314,
-                    1.6206,
-                    1.7098
                   ]
                 }
               ]
@@ -31381,6 +31932,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6393,
+                    0.6914,
+                    0.7434,
+                    0.8177,
+                    0.8698,
+                    0.9293,
+                    1.011,
+                    1.0928,
+                    1.1746,
+                    1.2638,
+                    1.353,
+                    1.4422,
+                    1.5314,
+                    1.6206,
+                    1.7098
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -31389,185 +31967,100 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Rush Attack DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
-                  "mv": [
-                    1.936,
-                    2.0812,
-                    2.2264,
-                    2.42,
-                    2.5652,
-                    2.7104,
-                    2.904,
-                    3.0976,
-                    3.2912,
-                    3.4848,
-                    3.6784,
-                    3.872,
-                    4.114,
-                    4.356,
-                    4.598
-                  ]
-                },
-                {
-                  "mv": [
-                    1.5488,
-                    1.665,
-                    1.7811,
-                    1.936,
-                    2.0522,
-                    2.1683,
-                    2.3232,
-                    2.4781,
-                    2.633,
-                    2.7878,
-                    2.9427,
-                    3.0976,
-                    3.2912,
-                    3.4848,
-                    3.6784
-                  ]
+                  "mv": {
+                    "atk": [
+                      1.936,
+                      2.0812,
+                      2.2264,
+                      2.42,
+                      2.5652,
+                      2.7104,
+                      2.904,
+                      3.0976,
+                      3.2912,
+                      3.4848,
+                      3.6784,
+                      3.872,
+                      4.114,
+                      4.356,
+                      4.598
+                    ],
+                    "elementalMastery": [
+                      1.5488,
+                      1.665,
+                      1.7811,
+                      1.936,
+                      2.0522,
+                      2.1683,
+                      2.3232,
+                      2.4781,
+                      2.633,
+                      2.7878,
+                      2.9427,
+                      3.0976,
+                      3.2912,
+                      3.4848,
+                      3.6784
+                    ]
+                  }
                 }
               ]
             }
           },
           {
-            "name": "1-Mirror Projection Attack DMG",
-            "type": "elementalSkill",
+            "name": "Mirror Projection Attack",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 12000,
+                "hits": 2
+              },
               "multipliers": [
                 {
-                  "mv": [
-                    0.672,
-                    0.7224,
-                    0.7728,
-                    0.84,
-                    0.8904,
-                    0.9408,
-                    1.008,
-                    1.0752,
-                    1.1424,
-                    1.2096,
-                    1.2768,
-                    1.344,
-                    1.428,
-                    1.512,
-                    1.596
-                  ]
-                },
-                {
-                  "mv": [
-                    1.344,
-                    1.4448,
-                    1.5456,
-                    1.68,
-                    1.7808,
-                    1.8816,
-                    2.016,
-                    2.1504,
-                    2.2848,
-                    2.4192,
-                    2.5536,
-                    2.688,
-                    2.856,
-                    3.024,
-                    3.192
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "2-Mirror Projection Attack DMG",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.672,
-                    0.7224,
-                    0.7728,
-                    0.84,
-                    0.8904,
-                    0.9408,
-                    1.008,
-                    1.0752,
-                    1.1424,
-                    1.2096,
-                    1.2768,
-                    1.344,
-                    1.428,
-                    1.512,
-                    1.596
-                  ]
-                },
-                {
-                  "mv": [
-                    1.344,
-                    1.4448,
-                    1.5456,
-                    1.68,
-                    1.7808,
-                    1.8816,
-                    2.016,
-                    2.1504,
-                    2.2848,
-                    2.4192,
-                    2.5536,
-                    2.688,
-                    2.856,
-                    3.024,
-                    3.192
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "3-Mirror Projection Attack DMG",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.672,
-                    0.7224,
-                    0.7728,
-                    0.84,
-                    0.8904,
-                    0.9408,
-                    1.008,
-                    1.0752,
-                    1.1424,
-                    1.2096,
-                    1.2768,
-                    1.344,
-                    1.428,
-                    1.512,
-                    1.596
-                  ]
-                },
-                {
-                  "mv": [
-                    1.344,
-                    1.4448,
-                    1.5456,
-                    1.68,
-                    1.7808,
-                    1.8816,
-                    2.016,
-                    2.1504,
-                    2.2848,
-                    2.4192,
-                    2.5536,
-                    2.688,
-                    2.856,
-                    3.024,
-                    3.192
-                  ]
+                  "mv": {
+                    "atk": [
+                      0.672,
+                      0.7224,
+                      0.7728,
+                      0.84,
+                      0.8904,
+                      0.9408,
+                      1.008,
+                      1.0752,
+                      1.1424,
+                      1.2096,
+                      1.2768,
+                      1.344,
+                      1.428,
+                      1.512,
+                      1.596
+                    ],
+                    "elementalMastery": [
+                      1.344,
+                      1.4448,
+                      1.5456,
+                      1.68,
+                      1.7808,
+                      1.8816,
+                      2.016,
+                      2.1504,
+                      2.2848,
+                      2.4192,
+                      2.5536,
+                      2.688,
+                      2.856,
+                      3.024,
+                      3.192
+                    ]
+                  }
                 }
               ]
             }
@@ -31579,47 +32072,57 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Single-Instance DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Single-Instance",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
-                  "mv": [
-                    1.216,
-                    1.3072,
-                    1.3984,
-                    1.52,
-                    1.6112,
-                    1.7024,
-                    1.824,
-                    1.9456,
-                    2.0672,
-                    2.1888,
-                    2.3104,
-                    2.432,
-                    2.584,
-                    2.736,
-                    2.888
-                  ]
-                },
-                {
-                  "mv": [
-                    0.9728,
-                    1.0458,
-                    1.1187,
-                    1.216,
-                    1.289,
-                    1.3619,
-                    1.4592,
-                    1.5565,
-                    1.6538,
-                    1.751,
-                    1.8483,
-                    1.9456,
-                    2.0672,
-                    2.1888,
-                    2.3104
-                  ]
+                  "mv": {
+                    "atk": [
+                      1.216,
+                      1.3072,
+                      1.3984,
+                      1.52,
+                      1.6112,
+                      1.7024,
+                      1.824,
+                      1.9456,
+                      2.0672,
+                      2.1888,
+                      2.3104,
+                      2.432,
+                      2.584,
+                      2.736,
+                      2.888
+                    ],
+                    "elementalMastery": [
+                      0.9728,
+                      1.0458,
+                      1.1187,
+                      1.216,
+                      1.289,
+                      1.3619,
+                      1.4592,
+                      1.5565,
+                      1.6538,
+                      1.751,
+                      1.8483,
+                      1.9456,
+                      2.0672,
+                      2.1888,
+                      2.3104
+                    ]
+                  }
                 }
               ]
             }
@@ -31631,8 +32134,34 @@
       "weaponId": 11512,
       "setCounts": {
         "15026": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "elementalSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "normalAttack.5",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4"
+      ]
+    },
+    "teamPreset": [
+      10000078,
+      10000065,
+      10000025,
+      10000073
+    ]
   },
   "10000079": {
     "disabled": true,
@@ -35353,7 +35882,7 @@
             ]
           },
           "stats": {
-            "damageBonus%": 0.5
+            "dmgBonus%": 0.5
           }
         }
       },
@@ -35425,7 +35954,7 @@
             ]
           },
           "stats": {
-            "damageMv%": -0.4
+            "damageMv": -0.4
           }
         }
       },
@@ -35444,7 +35973,7 @@
             ]
           },
           "stats": {
-            "damageMv%": -0.2
+            "damageMv": -0.2
           }
         }
       },
@@ -45036,7 +45565,6 @@
     "memberPreset": {}
   },
   "10000107": {
-    "disabled": true,
     "name": "Citlali",
     "version": 5.3,
     "id": 10000107,
@@ -45051,7 +45579,104 @@
       "elementalMastery": 115
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "itzPapa",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 20000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 1,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "reaction": [
+                    "frozen",
+                    "melt"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "itzPapa"
+                }
+              }
+            ]
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "pyroResReduction%": 0.2,
+            "hydroResReduction%": 0.2
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.9
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 12
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Shadow-Stealing Spirit Vessel",
@@ -45165,33 +45790,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -45244,6 +45842,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -45252,9 +45877,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Obsidian Tzitzimitl DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -45276,12 +45902,10 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Shield DMG Absorption",
-            "type": "elementalSkill",
-            "damage": {
+            },
+            "shield": {
+              "duration": 20000,
+              "attr": "elementalMastery",
               "multipliers": [
                 {
                   "mv": [
@@ -45300,10 +45924,8 @@
                     12.24,
                     12.96,
                     13.68
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     1386.6759,
                     1525.3628,
                     1675.6068,
@@ -45325,9 +45947,14 @@
             }
           },
           {
-            "name": "Frostfall Storm DMG",
-            "type": "elementalSkill",
+            "name": "Frostfall Storm",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Frostfall Storm",
+                "time": 1500
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -45358,9 +45985,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Ice Storm DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -45385,9 +46013,15 @@
             }
           },
           {
-            "name": "Spiritvessel Skull DMG",
-            "type": "elementalBurst",
+            "name": "Spiritvessel Skull",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Spiritvessel Skull",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -45414,7 +46048,16 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14517,
+      "setCounts": {
+        "15037": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000108": {
     "disabled": true,
@@ -57445,7 +58088,7 @@
         ]
       },
       10000131,
-      10000043
+      10000107
     ]
   },
   "10000130": {

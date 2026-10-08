@@ -1,2 +1,2 @@
-export * from './grantBondOfLife';
 export * from './changeBondOfLife';
+export * from './grantBondOfLife';

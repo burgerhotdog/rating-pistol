@@ -1,5 +1,5 @@
 import { GI, WW } from '@/data';
-import { advanceIcdStates } from './icd';
+import { advanceIcds } from './icd';
 import { advanceAuras } from './aura';
 import { advanceNegativeStatuses } from './negative-statuses';
 import { advanceTune } from './tune';
@@ -14,7 +14,7 @@ export const advanceStates = (ctx, elapsed) => {
 
   if (gameId === GI) {
     advanceAuras(ctx, elapsed);
-    advanceIcdStates(ctx, elapsed);
+    advanceIcds(ctx, elapsed);
   }
 
   if (gameId === WW) {

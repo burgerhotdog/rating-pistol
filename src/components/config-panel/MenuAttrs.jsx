@@ -90,7 +90,7 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
         effect.rank < 0 && member.rank >= -effect.rank
       ) ||
       effect.mode && effect.mode !== member.mode ||
-      !isEnabled(gameId, effect, charId, counts) ||
+      !isEnabled(gameId, effect, charId, counts, memberIds) ||
       !isStaticBuff(effect) ||
       !appliesToCharId(effect, charId)
     ) continue;
@@ -102,7 +102,7 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
   if (weapData.type === charData.type) {
     for (const effect of weapData.effects ?? []) {
       if (
-        !isEnabled(gameId, effect, charId, counts) ||
+        !isEnabled(gameId, effect, charId, counts, memberIds) ||
         !isStaticBuff(effect) ||
         !appliesToCharId(effect, charId)
       ) continue;
@@ -123,7 +123,7 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
   );
   for (const effect of allSetEffects) {
     if (
-      !isEnabled(gameId, effect, charId, counts) ||
+      !isEnabled(gameId, effect, charId, counts, memberIds) ||
       !isStaticBuff(effect) ||
       !appliesToCharId(effect, charId)
     ) continue;
@@ -135,7 +135,7 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
     const echoData = ECHO[member.mainEcho] ?? {};
     for (const effect of echoData.effects ?? []) {
       if (
-        !isEnabled(gameId, effect, charId, counts) ||
+        !isEnabled(gameId, effect, charId, counts, memberIds) ||
         !isStaticBuff(effect) ||
         !appliesToCharId(effect, charId)
       ) continue;

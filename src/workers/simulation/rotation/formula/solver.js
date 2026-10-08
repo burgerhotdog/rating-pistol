@@ -3,34 +3,37 @@ import { getBonusTypes } from './damageFormula';
 
 function handleDamageAttrs(usedAttrs, gameId, action) {
   const { type, element } = action.damage;
-  const bonusTypes = getBonusTypes(gameId, action.damage);
-  const keyword = gameId === HSR ? 'Pen' : 'Ignore';
-  const isStellar = type === 'stellarConduct' || type === 'stellarSwirl';
+  const isStellar =
+    type === 'stellarConduct' ||
+    type === 'stellarSwirl';
   const isLunar =
     type === 'lunarCharged' ||
     type === 'lunarBloom' ||
     type === 'lunarCrystallize';
-  const stellarType = isStellar ? type : null;
 
   usedAttrs.add('critRate%');
   usedAttrs.add('critDmg%');
 
   if (isLunar) {
-    usedAttrs.add('lunarReactionBonus%');
-    usedAttrs.add(`${type}ReactionBonus%`);
     usedAttrs.add('lunarBaseDmg%');
     usedAttrs.add(`${type}BaseDmg%`);
+    usedAttrs.add('lunarReactionBonus%');
+    usedAttrs.add(`${type}ReactionBonus%`);
     usedAttrs.add('lunarFlat');
+    usedAttrs.add(`${type}Flat%`);
     usedAttrs.add('elementalMastery');
     usedAttrs.add('elementalMastery%');
-  }
-
-  if (gameId === GI && element !== 'physical') {
-    usedAttrs.add('elementalResReduction%');
-    usedAttrs.add(`elementalRes${keyword}%`);
-  }
-
-  if (!isStellar) {
+  } else if (isStellar) {
+    usedAttrs.add('stellarGlimmerBaseDmg%');
+    usedAttrs.add(`${type}BaseDmg%`);
+    usedAttrs.add('stellarGlimmerReactionBonus%');
+    usedAttrs.add(`${type}ReactionBonus%`);
+    usedAttrs.add('stellarGlimmerFlat');
+    usedAttrs.add(`${type}Flat`);
+    usedAttrs.add('elementalMastery');
+    usedAttrs.add('elementalMastery%');
+  } else {
+    const bonusTypes = getBonusTypes(gameId, action.damage);
     usedAttrs.add('dmgBonus%');
     usedAttrs.add('dmgAmp%');
     for (const type of bonusTypes) {
@@ -45,20 +48,17 @@ function handleDamageAttrs(usedAttrs, gameId, action) {
     } else {
       usedAttrs.add('defIgnore%');
     }
-  } else {
-    usedAttrs.add('stellarGlimmerReactionBonus%');
-    usedAttrs.add(`${stellarType}ReactionBonus%`);
-    usedAttrs.add('stellarGlimmerBaseDmg%');
-    usedAttrs.add(`${stellarType}BaseDmg%`);
-    usedAttrs.add('stellarGlimmerFlat');
-    usedAttrs.add('elementalMastery');
-    usedAttrs.add('elementalMastery%');
   }
 
+  const keyword = gameId === HSR ? 'Pen' : 'Ignore';
   usedAttrs.add('resReduction%');
   usedAttrs.add(`${element}ResReduction%`);
   usedAttrs.add(`res${keyword}%`);
   usedAttrs.add(`${element}Res${keyword}%`);
+  if (gameId === GI && element !== 'physical') {
+    usedAttrs.add('elementalResReduction%');
+    usedAttrs.add(`elementalRes${keyword}%`);
+  }
 
   usedAttrs.add('vuln%');
   usedAttrs.add('attackSpd%');

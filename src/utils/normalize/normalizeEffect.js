@@ -1,3 +1,4 @@
+import { CHARACTER } from '@/data';
 import { toArray, resolveRankedValue, normalizeAction } from '@/utils';
 import { handleSpecialEffect } from './specialEffect';
 
@@ -133,34 +134,61 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     });
   }
 
-  // Resolve indexed buff stats
-  if (effect.buff?.statRefs && spec.sourceType === 'character') {
+  if (effect.buff) {
     const buff = effect.buff = { ...effect.buff };
-    const buffStatRefsRaw = buff.statRefsRaw = {};
-    const buffStats = buff.stats = {};
 
-    for (const [id, ref] of Object.entries(buff.statRefs)) {
-      const { value, ...rest } = spec.actionDefs[ref].buff;
-      buffStatRefsRaw[id] = rest
-      buffStats[id] = value;
+    const cooldown = buff.cooldown;
+    const hasRankedCooldown = cooldown && Array.isArray(cooldown);
+    if (hasRankedCooldown) {
+      buff.cooldown = resolveRankedValue(cooldown, spec.weaponRank)
     }
-  }
 
-  // Resolve indexed buff specs
-  if (effect.buff?.specRefs && spec.sourceType === 'character') {
-    const buff = effect.buff = { ...effect.buff };
-    const buffSpecRefsRaw = buff.specRefsRaw = {};
-    const buffSpecs = buff.specs = {};
+    if (buff.replaceToken) {
+      const replaceStr = buff.replaceToken === 'ownerElement'
+        ? CHARACTER[gameId][ownerId].element
+        : '';
 
-    for (const [id, specRef] of Object.entries(buff.specRefs)) {
-      const buffSpec = buffSpecs[id] = { ...specRef };
-      buffSpecRefsRaw[id] = {};
+      if (buff.stats) {
+        const resolved = {};
 
-      for (const [field, ref] of Object.entries(buffSpec)) {
-        if (field === 'attr' || typeof ref === 'number') continue;
+        for (const stat in buff.stats) {
+          const value = buff.stats[stat];
+          resolved[stat.replace('$', replaceStr)] = value;
+        }
+
+        buff.stats = resolved;
+      }
+    }
+
+    // Resolve indexed buff stats
+    if (effect.buff?.statRefs && spec.sourceType === 'character') {
+      const buff = effect.buff = { ...effect.buff };
+      const buffStatRefsRaw = buff.statRefsRaw = {};
+      const buffStats = buff.stats = {};
+
+      for (const [id, ref] of Object.entries(buff.statRefs)) {
         const { value, ...rest } = spec.actionDefs[ref].buff;
-        buffSpecRefsRaw[id][field] = rest;
-        buffSpec[field] = value;
+        buffStatRefsRaw[id] = rest
+        buffStats[id] = value;
+      }
+    }
+
+    // Resolve indexed buff specs
+    if (effect.buff?.specRefs && spec.sourceType === 'character') {
+      const buff = effect.buff = { ...effect.buff };
+      const buffSpecRefsRaw = buff.specRefsRaw = {};
+      const buffSpecs = buff.specs = {};
+
+      for (const [id, specRef] of Object.entries(buff.specRefs)) {
+        const buffSpec = buffSpecs[id] = { ...specRef };
+        buffSpecRefsRaw[id] = {};
+
+        for (const [field, ref] of Object.entries(buffSpec)) {
+          if (field === 'attr' || typeof ref === 'number') continue;
+          const { value, ...rest } = spec.actionDefs[ref].buff;
+          buffSpecRefsRaw[id][field] = rest;
+          buffSpec[field] = value;
+        }
       }
     }
   }

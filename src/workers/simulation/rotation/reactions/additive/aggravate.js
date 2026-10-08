@@ -1,46 +1,49 @@
 import { getAttr, toMergedObj, resolveBuffSpecs } from '@/utils';
-import { getBuffMap } from '../getStatMap';
+import { getBuffMap } from '../../getStatMap';
 
-function emBonus(statMap) {
+const LEVEL_MULT = 1446.85;
+const RXN_MULT = 1.15;
+
+function getEmBonus(statMap) {
   const emValue = getAttr('elementalMastery', statMap);
-  return (2.78 * emValue) / (1400 + emValue);
+  return (5 * emValue) / (1200 + emValue);
 }
 
-function reactionBonus(reaction, statMap) {
-  return getAttr(`${reaction}ReactionBonus%`, statMap);
+function flatFormula(statMap) {
+  return 1 + getEmBonus(statMap) + getAttr('aggravateReactionBonus%', statMap);
 }
 
-function ampFormula(reaction, statMap) {
-  return 1 + emBonus(statMap) + reactionBonus(reaction, statMap);
-}
-
-function getAmpMultiplier(ctx, reaction, ownerId, isForward) {
-  const reactionMultiplier = isForward ? 2 : 1.5;
+function getFlat(ctx, ownerId) {
   const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId });
 
   const statMapOwnerIdBuildMap = ctx.buildMaps[ownerId];
 
   if (!ctx.specId) {
     const statMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
-    return reactionMultiplier * ampFormula(reaction, statMap);
+    return LEVEL_MULT * RXN_MULT * flatFormula(statMap);
   }
 
   const isSpecIdAction = ownerId === ctx.specId;
-  const usedAttrs = new Set(['elementalMastery', `${reaction}ReactionBonus%`]);
+
+  const usedAttrs = new Set([
+    'elementalMastery',
+    'aggravateReactionBonus%',
+  ]);
+
   const usesSpecs = buffSpecs.some(({ specs }) =>
     Object.keys(specs).some((stat) => usedAttrs.has(stat))
   );
 
   if (!isSpecIdAction && !usesSpecs) {
     const statMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
-    return reactionMultiplier * ampFormula(reaction, statMap);
+    return LEVEL_MULT * RXN_MULT * flatFormula(statMap);
   }
 
   // Action is from specId but has no variable buffs from specId
   if (!usesSpecs) {
     return (testBuildMap) => {
       const statMap = toMergedObj(testBuildMap, buffMap);
-      return reactionMultiplier * ampFormula(reaction, statMap);
+      return LEVEL_MULT * RXN_MULT * flatFormula(statMap);
     };
   }
 
@@ -55,7 +58,7 @@ function getAmpMultiplier(ctx, reaction, ownerId, isForward) {
       const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
       const statMap = toMergedObj(partiallyBuffedMap, resolvedBuffs);
 
-      return reactionMultiplier * ampFormula(reaction, statMap);
+      return LEVEL_MULT * RXN_MULT * flatFormula(statMap);
     };
   }
 
@@ -65,18 +68,18 @@ function getAmpMultiplier(ctx, reaction, ownerId, isForward) {
     const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
     const statMap = toMergedObj(testBuildMap, buffMap, resolvedBuffs);
 
-    return reactionMultiplier * ampFormula(reaction, statMap);
+    return LEVEL_MULT * RXN_MULT * flatFormula(statMap);
   };
 }
 
-export function reactMelt(ctx, ownerId, isForward) {
-  ctx.runEffects('reaction', { reaction: 'melt', ownerId, elements: ['pyro', 'cryo'] });
+export function reactAggravate(ctx, ownerId) {
+  const flat = getFlat(ctx, ownerId);
 
-  return getAmpMultiplier(ctx, 'melt', ownerId, isForward);
-}
+  ctx.runEffects('reaction', {
+    reaction: 'aggravate',
+    elements: ['dendro', 'electro'],
+    ownerId,
+  });
 
-export function reactVaporize(ctx, ownerId, isForward) {
-  ctx.runEffects('reaction', { reaction: 'vaporize', ownerId, elements: ['pyro', 'hydro'] });
-
-  return getAmpMultiplier(ctx, 'vaporize', ownerId, isForward);
+  return flat;
 }

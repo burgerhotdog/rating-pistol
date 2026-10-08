@@ -63703,7 +63703,7 @@
     "effects": [
       {
         "ref": "defUp",
-        "stores": "global",
+        "stores": "$team",
         "apply": {
           "when": "start",
           "filter": {
@@ -63720,13 +63720,19 @@
           "stats": {
             "def%": 0.15
           }
-        },
-        "remove": {
+        }
+      },
+      {
+        "use": {
           "when": "start",
           "filter": {
             "action": {
               "ref": "normalAttack.3"
             }
+          },
+          "commands": {
+            "type": "remove",
+            "ref": "defUp"
           }
         }
       },

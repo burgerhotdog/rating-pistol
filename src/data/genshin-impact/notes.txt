@@ -1,5 +1,7 @@
 Characters:
     Albedo
+    Alhaitham
+        No constellations
     Amber
         C1 arrow damage hard coded at level 10 skill
         C2 popping baron bunny doesnt do 200% extra dmgBonus
@@ -12,6 +14,9 @@ Characters:
         No C1
         No C4 cooldown
         C6 Buff goes to first not healed
+    Citlali
+        No Nightsoul
+        No constellations
     Diluc
         No constellations
     Durin
@@ -38,6 +43,10 @@ Characters:
         Hats dont snapshot stats
         No hp restrictions on A1
         No constellations
+    Nahida
+        Dendro core trigger offset might be wrong
+        No ult electro/hydro buff
+        EM buff comes from self
     Nicole
         onField character must be hexerei to get buff upgrade
         coordinated attack uses own atk
@@ -46,9 +55,13 @@ Characters:
         Only plume
         Marvelous Splendor applies to $ally
         No constellations
+    Raiden
+        Remember E no snapshot
     Sandrone
         A1 doesn't apply to non stellar dmg
         No constellations
+    Sara
+        Remember c6 no snapshot
     Wanderer
     Wriothesley
         No constellations
@@ -71,6 +84,8 @@ Characters:
     Zhongli
 
 Weapons:
+    A Thousand Floating Dreams
+        Dmg bonus is generic, not element specific
     Alley Hunter
         buff doesnt ramp slowly
     Amos' Bow
@@ -130,8 +145,6 @@ Weapons:
 Sets:
     Bloodstained Chivalry
         4pc not active
-    Celestial Gift
-        4pc dmg bonus is for all elements
     Long Night's Oath
         Stacks not independent
     Shimenawa's Reminiscence

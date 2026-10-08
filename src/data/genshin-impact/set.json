@@ -921,7 +921,8 @@
             "normalAttackDmgBonus%": 0.5,
             "chargedAttackDmgBonus%": 0.5,
             "plungingAttackDmgBonus%": 0.5
-          }
+          },
+          "snapshot": false
         }
       }
     ]
@@ -955,7 +956,8 @@
               "value": 0.0025,
               "maxValue": 0.75
             }
-          }
+          },
+          "snapshot": false
         }
       }
     ]
@@ -2352,9 +2354,18 @@
       {
         "bonus": 4,
         "enable": {
-          "owner": {
-            "hexerei": true
-          }
+          "and": [
+            {
+              "owner": {
+                "hexerei": true
+              }
+            },
+            {
+              "not": {
+                "secretRite": true
+              }
+            }
+          ]
         },
         "stores": "$team",
         "apply": {
@@ -2368,8 +2379,11 @@
           "duration": 20000
         },
         "buff": {
+          "filter": {
+            "special": "celestialGift1"
+          },
           "stats": {
-            "dmgBonus%": 0.2
+            "elementalDmgBonus%": 0.2
           }
         }
       },
@@ -2399,8 +2413,11 @@
           "duration": 20000
         },
         "buff": {
+          "filter": {
+            "special": "celestialGift2"
+          },
           "stats": {
-            "dmgBonus%": 0.2
+            "elementalDmgBonus%": 0.4
           }
         }
       }
