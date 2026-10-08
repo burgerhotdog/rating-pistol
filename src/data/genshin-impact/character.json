@@ -45587,6 +45587,7 @@
     },
     "energy": 60,
     "nightsoul": true,
+    "maxNightsoul": 100,
     "effects": [
       {
         "ref": "itzPapa",
@@ -45601,8 +45602,39 @@
         },
         "use": {
           "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "has": "opalFire"
+            }
+          },
           "cooldown": 1000,
           "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "opalFire",
+        "apply": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "and": [
+              {
+                "nightsoul": {
+                  ">=": 50
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "itzPapa"
+                }
+              }
+            ]
+          }
+        },
+        "remove": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "nightsoul": 0
+          }
         }
       },
       {
@@ -45653,6 +45685,33 @@
         }
       },
       {
+        "use": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "reaction": [
+                    "frozen",
+                    "melt"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "itzPapa"
+                }
+              }
+            ]
+          },
+          "cooldown": 8000,
+          "action": {
+            "nightsoul": 16
+          }
+        }
+      },
+      {
         "buff": {
           "filter": {
             "action": {
@@ -45681,6 +45740,14 @@
               "step": 1,
               "value": 12
             }
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "nightsoulBurst",
+          "action": {
+            "nightsoul": 4
           }
         }
       }
@@ -45887,6 +45954,7 @@
           {
             "name": "Elemental Skill",
             "type": "elementalSkill",
+            "nightsoul": 24,
             "damage": {
               "gauge": 1,
               "multipliers": [
@@ -45956,6 +46024,7 @@
           },
           {
             "name": "Frostfall Storm",
+            "nightsoul": -8,
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
@@ -45995,6 +46064,7 @@
           {
             "name": "Elemental Burst",
             "type": "elementalBurst",
+            "nightsoul": 24,
             "damage": {
               "gauge": 2,
               "multipliers": [
@@ -46022,6 +46092,7 @@
           },
           {
             "name": "Spiritvessel Skull",
+            "nightsoul": 3,
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,

@@ -1,6 +1,5 @@
 import { GI } from '@/data';
-import { runCommands } from './states/effects/commands';
-import { runRemoveEffect, runUseEffect, runApplyEffect } from './states/effects';
+import { runCommands, runRemoveEffect, runUseEffect, runApplyEffect } from './states';
 
 function tryRemove(ctx, when, state, spec) {
   const { effect } = state;

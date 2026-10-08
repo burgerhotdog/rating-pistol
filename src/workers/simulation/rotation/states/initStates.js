@@ -18,7 +18,7 @@ export const initStates = (gameId, memberIds) => {
       aura: {},
       icd: initPerMember(),
       bondOfLife: initPerMember(() => 0),
-      nightsoul: initPerMember(),
+      nightsoul: initPerMember(() => 0),
     }),
     ...(gameId === WW && {
       negativeStatuses: {},

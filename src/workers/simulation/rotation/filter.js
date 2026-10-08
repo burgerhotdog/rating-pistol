@@ -2,97 +2,49 @@ import { CHARACTER, GI } from '@/data';
 import { evaluateFilter } from '@/utils';
 
 function evaluateSpecialFilter(ctx, special, effect, spec) {
-  const { cache, states } = ctx;
-  const { gameId } = cache;
+  const gameId = ctx.cache.gameId
+  const onFieldId = ctx.states.onFieldId;
+  const effOwnerId = effect.ownerId;
+  const ownerElem = CHARACTER[gameId][effOwnerId]?.element;
+  const actionElem = spec.action?.damage?.element;
+  const rxnElems = spec.reaction?.elements ?? [];
+  const nsStore = ctx.states.nightsoul;
 
   switch (special) {
-    case 'cinderCityPyro': {
-      const { ownerId } = effect;
-      const ownerElement = CHARACTER[gameId][ownerId].element;
-      const reactionElements = spec.reaction?.elements;
-      return (
-        reactionElements.includes('pyro') &&
-        reactionElements.includes(ownerElement)
-      );
-    }
+    case 'cinderCityPyro1':
+      return rxnElems.includes('pyro') && rxnElems.includes(ownerElem);
+    case 'cinderCityPyro2':
+      return rxnElems.includes('pyro') && rxnElems.includes(ownerElem) && nsStore[effOwnerId];
+    case 'cinderCityElectro1':
+      return rxnElems.includes('electro') && rxnElems.includes(ownerElem);
+    case 'cinderCityElectro2':
+      return rxnElems.includes('electro') && rxnElems.includes(ownerElem) && nsStore[effOwnerId];
+    case 'cinderCityHydro1':
+      return rxnElems.includes('hydro') && rxnElems.includes(ownerElem);
+    case 'cinderCityHydro2':
+      return rxnElems.includes('hydro') && rxnElems.includes(ownerElem) && nsStore[effOwnerId];
+    case 'cinderCityDendro1':
+      return rxnElems.includes('dendro') && rxnElems.includes(ownerElem);
+    case 'cinderCityDendro2':
+      return rxnElems.includes('dendro') && rxnElems.includes(ownerElem) && nsStore[effOwnerId];
+    case 'cinderCityAnemo1':
+      return rxnElems.includes('anemo') && rxnElems.includes(ownerElem);
+    case 'cinderCityAnemo2':
+      return rxnElems.includes('anemo') && rxnElems.includes(ownerElem) && nsStore[effOwnerId];
+    case 'cinderCityGeo1':
+      return rxnElems.includes('geo') && rxnElems.includes(ownerElem);
+    case 'cinderCityGeo2':
+      return rxnElems.includes('geo') && rxnElems.includes(ownerElem) && nsStore[effOwnerId];
+    case 'cinderCityCryo1':
+      return rxnElems.includes('cryo') && rxnElems.includes(ownerElem);
+    case 'cinderCityCryo2':
+      return rxnElems.includes('cryo') && rxnElems.includes(ownerElem) && nsStore[effOwnerId];
 
-    case 'cinderCityElectro': {
-      const { ownerId } = effect;
-      const ownerElement = CHARACTER[gameId][ownerId].element;
-      const reactionElements = spec.reaction?.elements;
-      return (
-        reactionElements.includes('electro') &&
-        reactionElements.includes(ownerElement)
-      );
-    }
-
-    case 'cinderCityHydro': {
-      const { ownerId } = effect;
-      const ownerElement = CHARACTER[gameId][ownerId].element;
-      const reactionElements = spec.reaction?.elements;
-      return (
-        reactionElements.includes('hydro') &&
-        reactionElements.includes(ownerElement)
-      );
-    }
-
-    case 'cinderCityDendro': {
-      const { ownerId } = effect;
-      const ownerElement = CHARACTER[gameId][ownerId].element;
-      const reactionElements = spec.reaction?.elements;
-      return (
-        reactionElements.includes('dendro') &&
-        reactionElements.includes(ownerElement)
-      );
-    }
-
-    case 'cinderCityAnemo': {
-      const { ownerId } = effect;
-      const ownerElement = CHARACTER[gameId][ownerId].element;
-      const reactionElements = spec.reaction?.elements;
-      return (
-        reactionElements.includes('anemo') &&
-        reactionElements.includes(ownerElement)
-      );
-    }
-
-    case 'cinderCityGeo': {
-      const { ownerId } = effect;
-      const ownerElement = CHARACTER[gameId][ownerId].element;
-      const reactionElements = spec.reaction?.elements;
-      return (
-        reactionElements.includes('geo') &&
-        reactionElements.includes(ownerElement)
-      );
-    }
-
-    case 'cinderCityCryo': {
-      const { ownerId } = effect;
-      const ownerElement = CHARACTER[gameId][ownerId].element;
-      const reactionElements = spec.reaction?.elements;
-      return (
-        reactionElements.includes('cryo') &&
-        reactionElements.includes(ownerElement)
-      );
-    }
-
-    case 'celestialGift1': {
-      const { ownerId } = effect;
-      const ownerElement = CHARACTER[gameId][ownerId].element;
-      const damageElement = spec.action?.damage?.element;
-      return damageElement === ownerElement;
-    }
-
+    case 'celestialGift1':
+      return actionElem === ownerElem;
     case 'celestialGift2': {
-      const { ownerId } = effect;
-      const ownerElement = CHARACTER[gameId][ownerId].element;
-      const { onFieldId } = states;
-      const onFieldElement = CHARACTER[gameId][onFieldId].element;
-      const damageElement = spec.action?.damage?.element;
-      return (
-        damageElement === ownerElement ||
-        damageElement === onFieldElement
-      );
+      const onFieldElem = CHARACTER[gameId][onFieldId].element;
+      return actionElem === ownerElem || actionElem === onFieldElem;
     }
   }
 }
@@ -136,6 +88,7 @@ export function createEventFilter(ctx) {
         return value;
       },
       ...(gameId === GI && {
+        nightsoul: states.nightsoul[effect.ownerId],
         radiance: states.aura.stellarConduct
           ? 'stellarConduct'
           : states.aura.stellarSwirl

@@ -2,25 +2,23 @@ import { GI, WW } from '@/data';
 import { clamp } from '@/utils';
 import { applyGauge, consumeVerdantDew } from './reactions';
 import {
+  advanceStates,
+  decayBuffUses,
+  updateShielded,
   changeBondOfLife,
   grantBondOfLife,
-} from './states/bond-of-life'
-import {
-  runTuneBreak,
-  applyOffTuneBuildup,
-  inflictTuneShifting,
-} from './states/tune';
-import {
+  tryNightsoulBurst,
+  updateNightsoulPoints,
   consumeNegativeStatuses,
   inflictNegativeStatuses,
   replaceNegativeStatuses,
-} from './states/negative-statuses';
+  runTuneBreak,
+  applyOffTuneBuildup,
+  inflictTuneShifting,
+} from './states'
 import { canSnapshot, buildSnapshot } from './snapshot';
 import { getModifiedAction } from './getModifiedAction';
-import { advanceStates, tryNightsoulBurst } from './states';
 import { runRestoreEnergy } from './restoreEnergy';
-import { updateShielded } from './states/shielded';
-import { decayBuffUses } from './states/effects/decayBuffUses';
 
 export function runAction(ctx, action, options = {}) {
   const { noDuration } = options;
@@ -73,6 +71,7 @@ export function runAction(ctx, action, options = {}) {
 
   if (gameId === GI) {
     grantBondOfLife(ctx, modifiedAction);
+    updateNightsoulPoints(ctx, modifiedAction);
   }
 
   if (gameId === WW) {
@@ -127,7 +126,9 @@ export function runAction(ctx, action, options = {}) {
 
     updateShielded(ctx, modifiedAction);
 
-    tryNightsoulBurst(ctx, modifiedAction);
+    if (gameId === GI) {
+      tryNightsoulBurst(ctx, modifiedAction);
+    }
 
     ctx.runEffects('hit', modifiedAction);
   }
