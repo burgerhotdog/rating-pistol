@@ -77,7 +77,7 @@ export function reactSpread(ctx, ownerId) {
 
   ctx.runEffects('reaction', {
     reaction: 'spread',
-    elements: ['dendro', 'electro'],
+    elements: ['dendro'],
     ownerId,
   });
 

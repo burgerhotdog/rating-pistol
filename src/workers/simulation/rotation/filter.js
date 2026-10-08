@@ -6,6 +6,76 @@ function evaluateSpecialFilter(ctx, special, effect, spec) {
   const { gameId } = cache;
 
   switch (special) {
+    case 'cinderCityPyro': {
+      const { ownerId } = effect;
+      const ownerElement = CHARACTER[gameId][ownerId].element;
+      const reactionElements = spec.reaction?.elements;
+      return (
+        reactionElements.includes('pyro') &&
+        reactionElements.includes(ownerElement)
+      );
+    }
+
+    case 'cinderCityElectro': {
+      const { ownerId } = effect;
+      const ownerElement = CHARACTER[gameId][ownerId].element;
+      const reactionElements = spec.reaction?.elements;
+      return (
+        reactionElements.includes('electro') &&
+        reactionElements.includes(ownerElement)
+      );
+    }
+
+    case 'cinderCityHydro': {
+      const { ownerId } = effect;
+      const ownerElement = CHARACTER[gameId][ownerId].element;
+      const reactionElements = spec.reaction?.elements;
+      return (
+        reactionElements.includes('hydro') &&
+        reactionElements.includes(ownerElement)
+      );
+    }
+
+    case 'cinderCityDendro': {
+      const { ownerId } = effect;
+      const ownerElement = CHARACTER[gameId][ownerId].element;
+      const reactionElements = spec.reaction?.elements;
+      return (
+        reactionElements.includes('dendro') &&
+        reactionElements.includes(ownerElement)
+      );
+    }
+
+    case 'cinderCityAnemo': {
+      const { ownerId } = effect;
+      const ownerElement = CHARACTER[gameId][ownerId].element;
+      const reactionElements = spec.reaction?.elements;
+      return (
+        reactionElements.includes('anemo') &&
+        reactionElements.includes(ownerElement)
+      );
+    }
+
+    case 'cinderCityGeo': {
+      const { ownerId } = effect;
+      const ownerElement = CHARACTER[gameId][ownerId].element;
+      const reactionElements = spec.reaction?.elements;
+      return (
+        reactionElements.includes('geo') &&
+        reactionElements.includes(ownerElement)
+      );
+    }
+
+    case 'cinderCityCryo': {
+      const { ownerId } = effect;
+      const ownerElement = CHARACTER[gameId][ownerId].element;
+      const reactionElements = spec.reaction?.elements;
+      return (
+        reactionElements.includes('cryo') &&
+        reactionElements.includes(ownerElement)
+      );
+    }
+
     case 'celestialGift1': {
       const { ownerId } = effect;
       const ownerElement = CHARACTER[gameId][ownerId].element;

@@ -42541,6 +42541,7 @@
       "geoDmgBonus%": 0.24
     },
     "energy": 70,
+    "nightsoul": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -42895,6 +42896,7 @@
       "critDmg%": 0.384
     },
     "energy": 70,
+    "nightsoul": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -43262,6 +43264,7 @@
       "critRate%": 0.192
     },
     "energy": 60,
+    "nightsoul": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -43602,6 +43605,7 @@
       "def%": 0.36
     },
     "energy": 60,
+    "nightsoul": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -44115,6 +44119,7 @@
       "critRate%": 0.192
     },
     "energy": 60,
+    "nightsoul": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -44586,6 +44591,7 @@
       "atk%": 0.24
     },
     "energy": 60,
+    "nightsoul": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -44921,6 +44927,7 @@
       "baseDef": 792,
       "critDmg%": 0.384
     },
+    "nightsoul": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -45579,6 +45586,7 @@
       "elementalMastery": 115
     },
     "energy": 60,
+    "nightsoul": true,
     "effects": [
       {
         "ref": "itzPapa",
@@ -47118,6 +47126,7 @@
       "atk%": 0.24
     },
     "energy": 70,
+    "nightsoul": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -47453,6 +47462,7 @@
       "critRate%": 0.192
     },
     "energy": 70,
+    "nightsoul": true,
     "energyMax": 1.5,
     "effects": [],
     "skills": {
@@ -48440,6 +48450,7 @@
       "elementalMastery": 96
     },
     "energy": 60,
+    "nightsoul": true,
     "effects": [],
     "skills": {
       "normalAttack": {

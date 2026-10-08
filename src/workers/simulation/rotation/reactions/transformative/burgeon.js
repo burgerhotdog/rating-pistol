@@ -17,7 +17,7 @@ export function reactBurgeon(ctx, applier) {
 
   ctx.runEffects('reaction', {
     reaction: 'burgeon',
-    elements: ['dendro', 'hydro', 'pyro'],
+    elements: ['dendro', 'pyro'],
     ownerId: applier,
   });
 }

@@ -1847,7 +1847,6 @@
     ]
   },
   "15037": {
-    "disabled": true,
     "name": "Scroll of the Hero of Cinder City",
     "version": 5.0,
     "id": 15037,
@@ -1857,7 +1856,138 @@
       4
     ],
     "halfStat": "scrollOfTheHeroOfCinderCity",
-    "effects": []
+    "effects": [
+      {
+        "bonus": 2,
+        "use": {
+          "when": "nightsoulBurst",
+          "action": {
+            "restoreEnergy": {
+              "flat": 6
+            }
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityPyro"
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "pyroDmgBonus%": 0.12
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityElectro"
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.12
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityHydro"
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "hydroDmgBonus%": 0.12
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityDendro"
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "dendroDmgBonus%": 0.12
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityAnemo"
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "anemoDmgBonus%": 0.12
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityGeo"
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "geoDmgBonus%": 0.12
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityCryo"
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "cryoDmgBonus%": 0.12
+          }
+        }
+      }
+    ]
   },
   "15038": {
     "disabled": true,

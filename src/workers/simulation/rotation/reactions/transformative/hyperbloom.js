@@ -17,7 +17,7 @@ export function reactHyperbloom(ctx, applier) {
 
   ctx.runEffects('reaction', {
     reaction: 'hyperbloom',
-    elements: ['dendro', 'hydro', 'electro'],
+    elements: ['dendro', 'electro'],
     ownerId: applier,
   });
 }

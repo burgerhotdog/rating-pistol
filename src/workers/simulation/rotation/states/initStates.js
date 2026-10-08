@@ -8,6 +8,7 @@ export const initStates = (gameId, memberIds) => {
     runtime: 0,
     onFieldId: null,
     shielded: null,
+    globalCooldowns: {},
     applyCooldowns: {},
     gameRules: {},
     globalEffects: {},
@@ -17,6 +18,7 @@ export const initStates = (gameId, memberIds) => {
       aura: {},
       icd: initPerMember(),
       bondOfLife: initPerMember(() => 0),
+      nightsoul: initPerMember(),
     }),
     ...(gameId === WW && {
       negativeStatuses: {},
