@@ -70,15 +70,13 @@ function getAmpMultiplier(ctx, reaction, ownerId, isForward) {
   };
 }
 
-export function reactVaporize(ctx, ownerId, auraElement, gaugeUnits) {
-  const isForward = auraElement === 'pyro';
-  const consumeUnits = isForward
-    ? gaugeUnits * 2
-    : gaugeUnits / 2;
+export function reactVaporize(ctx, ownerId, auraKey, gaugeUnits) {
+  const auraStore = ctx.states.aura;
+  const isForward = auraKey === 'pyro' || auraKey === 'burning';
+  const unitsModifier = isForward ? 2 : 0.5;
 
   const mult = getAmpMultiplier(ctx, 'vaporize', ownerId, isForward);
-
-  const excess = consumeAura(ctx.states.aura, auraElement, consumeUnits);
+  const excess = consumeAura(auraStore, auraKey, gaugeUnits * unitsModifier);
 
   ctx.runEffects('reaction', {
     reaction: 'vaporize',

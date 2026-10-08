@@ -37,7 +37,7 @@ export function advanceBurning(ctx, elapsed) {
     auraStore.burning.timer -= decrease;
     remaining -= decrease;
     decayElementalAura(auraStore, 'pyro', decrease);
-    decayDendroAura(ctx, decrease);
+    decayDendroAura(auraStore, decrease);
 
     if (auraStore.burning?.timer === 0) {
       tickBurning(ctx, auraStore.burning, elapsed - remaining);

@@ -78,6 +78,10 @@ function applyElectro(ctx, gauge, applier) {
   let scaleMult;
   let scaleFlat;
 
+  if (aura.stellarConduct) {
+    aura.stellarConduct.hits++;
+  }
+
   if (aura.bloom) {
     reactHyperbloom(ctx, applier);
   }
@@ -86,12 +90,16 @@ function applyElectro(ctx, gauge, applier) {
     scaleFlat = reactAggravate(ctx, applier);
   }
 
-  if (aura.stellarConduct) {
-    aura.stellarConduct.hits++;
-  }
-
   if (aura.pyro && availableUnits) {
     availableUnits = reactOverloaded(ctx, applier, 'pyro', availableUnits);
+  }
+
+  if (aura.hydro && availableUnits) {
+    if (ctx.cache.lunarCharged) {
+      reactLunarCharged(ctx, applier);
+    } else {
+      reactElectroCharged(ctx, applier);
+    }
   }
 
   if (aura.cryo && availableUnits) {
@@ -104,14 +112,6 @@ function applyElectro(ctx, gauge, applier) {
 
   if (aura.dendro && availableUnits) {
     availableUnits = reactQuicken(ctx, applier, 'dendro', availableUnits);
-  }
-
-  if (aura.hydro && availableUnits) {
-    if (ctx.cache.lunarCharged) {
-      reactLunarCharged(ctx, applier);
-    } else {
-      reactElectroCharged(ctx, applier);
-    }
   }
 
   if (availableUnits === gauge) {
@@ -127,8 +127,9 @@ function applyHydro(ctx, gauge, applier) {
   let scaleMult;
   let scaleFlat;
 
-  if (aura.pyro && availableUnits) {
-    const { excess, mult } = reactVaporize(ctx, applier, 'pyro', availableUnits);
+  if ((aura.pyro || aura.burning) && availableUnits) {
+    const { excess, mult } = reactVaporize(ctx, applier, aura.burning ? 'burning' : 'pyro', availableUnits);
+
     availableUnits = excess;
     scaleMult = mult;
   }
@@ -201,12 +202,12 @@ function applyAnemo(ctx, gauge, applier) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
 
-  if (aura.pyro && availableUnits) {
-    availableUnits = reactSwirl(ctx, applier, 'pyro', availableUnits);
-  }
-
   if (aura.electro && availableUnits) {
     availableUnits = reactSwirl(ctx, applier, 'electro', availableUnits);
+  }
+
+  if (aura.pyro && availableUnits) {
+    availableUnits = reactSwirl(ctx, applier, 'pyro', availableUnits);
   }
 
   if (aura.hydro && availableUnits) {
@@ -226,12 +227,12 @@ function applyGeo(ctx, gauge, applier) {
   const { aura } = ctx.states;
   let availableUnits = gauge;
 
-  if (aura.pyro && availableUnits) {
-    availableUnits = reactCrystallize(ctx, applier, 'pyro', availableUnits);
-  }
-
   if (aura.electro && availableUnits) {
     availableUnits = reactCrystallize(ctx, applier, 'electro', availableUnits);
+  }
+
+  if (aura.pyro && availableUnits) {
+    availableUnits = reactCrystallize(ctx, applier, 'pyro', availableUnits);
   }
 
   if (aura.hydro && availableUnits) {
@@ -257,18 +258,18 @@ export function applyCryo(ctx, gauge, applier) {
     aura.stellarConduct.hits++;
   }
 
-  if (aura.pyro && availableUnits) {
-    const { excess, mult } = reactMelt(ctx, applier, 'pyro', availableUnits);
-    availableUnits = excess;
-    scaleMult = mult;
-  }
-
   if (aura.electro && availableUnits) {
     if (ctx.cache.stellarConduct) {
       availableUnits = reactStellarConduct(ctx, applier, 'electro', availableUnits);
     } else {
       availableUnits = reactSuperconduct(ctx, applier, 'electro', availableUnits);
     }
+  }
+
+  if (aura.pyro && availableUnits) {
+    const { excess, mult } = reactMelt(ctx, applier, 'pyro', availableUnits);
+    availableUnits = excess;
+    scaleMult = mult;
   }
 
   if (aura.hydro && availableUnits) {

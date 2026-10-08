@@ -20,13 +20,15 @@ export function reactBurning(ctx, applier, gaugeElement, gaugeUnits) {
 }
 
 export function refreshBurning(ctx, applier, gaugeElement, gaugeUnits) {
-  const store = ctx.states.aura;
-  const state = store.burning;
+  const auraStore = ctx.states.aura;
+  const burningState = auraStore.burning;
 
-  state.ownerId = applier;
+  burningState.ownerId = applier;
 
   if (gaugeElement === 'dendro') {
-    store.dendro.gauge = gaugeUnits;
+    auraStore.dendro.gauge = gaugeUnits;
+  } else {
+    applyAura(ctx, 'pyro', gaugeUnits);
   }
 
   return 0;

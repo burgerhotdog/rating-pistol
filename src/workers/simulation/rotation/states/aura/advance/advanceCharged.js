@@ -15,7 +15,7 @@ function tickCharged(ctx, chargedState, offset = 0) {
     ctx.snapshots.push({ ...snapshot, runtime });
   }
 
-  chargedState.timeLeft = isLunar ? 2000 : 1000;
+  chargedState.timer = isLunar ? 2000 : 1000;
   consumeAura(auraStore, 'electro', 0.4);
   consumeAura(auraStore, 'hydro', 0.4);
 }
