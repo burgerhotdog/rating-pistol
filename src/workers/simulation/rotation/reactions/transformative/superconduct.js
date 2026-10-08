@@ -2,18 +2,20 @@ import { buildTransformativeReactionSnapshot } from '../../snapshot';
 import { consumeAura } from '../../states';
 
 export function reactSuperconduct(ctx, ownerId, auraElement, gaugeUnits) {
+  const auraStore = ctx.states.aura;
+
   if (ctx.saveSnapshots) {
     const snapshot = buildTransformativeReactionSnapshot(ctx, ownerId, 'superconduct', 'cryo');
     ctx.snapshots.push(snapshot);
   }
 
-  const state = ctx.states.aura.superconduct ??= {
+  const state = auraStore.superconduct ??= {
     reaction: 'superconduct',
   };
 
   state.timeLeft = 12000;
 
-  const excessGaugeUnits = consumeAura(ctx.states.aura, auraElement, gaugeUnits);
+  const excess = consumeAura(auraStore, auraElement, gaugeUnits);
 
   ctx.runEffects('reaction', {
     reaction: 'superconduct',
@@ -21,5 +23,5 @@ export function reactSuperconduct(ctx, ownerId, auraElement, gaugeUnits) {
     ownerId,
   });
 
-  return excessGaugeUnits;
+  return excess;
 }

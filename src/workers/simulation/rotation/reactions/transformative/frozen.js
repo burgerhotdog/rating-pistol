@@ -1,17 +1,18 @@
 import { consumeAura } from '../../states';
 
 export function reactFrozen(ctx, ownerId, auraElement, gaugeUnits) {
-  const auraGauge = ctx.states.aura[auraElement].gauge;
+  const auraStore = ctx.states.aura;
+  const auraGauge = auraStore[auraElement].gauge;
   const frozenGauge = 2 * Math.min(auraGauge, gaugeUnits);
   const frozenDuration = (2 * Math.sqrt(5 * frozenGauge + 4) - 4) * 1000;
 
-  ctx.states.aura.frozen = {
+  auraStore.frozen = {
     reaction: 'frozen',
     gauge: frozenGauge,
     timeLeft: frozenDuration,
   };
 
-  const excessGaugeUnits = consumeAura(ctx.states.aura, auraElement, gaugeUnits);
+  const excess = consumeAura(auraStore, auraElement, gaugeUnits);
 
   ctx.runEffects('reaction', {
     reaction: 'frozen',
@@ -19,5 +20,5 @@ export function reactFrozen(ctx, ownerId, auraElement, gaugeUnits) {
     ownerId,
   });
 
-  return excessGaugeUnits;
+  return excess;
 }

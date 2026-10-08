@@ -46,13 +46,13 @@ export function applyPyro(ctx, gauge, applier) {
   }
 
   if (aura.hydro && availableUnits) {
-    const { excess, mult } = reactVaporize(ctx, applier, 'hydro', availableUnits);
+    const { excess, mult } = reactVaporize(ctx, applier, false, availableUnits);
     availableUnits = excess;
     scaleMult = mult;
   }
 
   if (aura.cryo && availableUnits) {
-    const { excess, mult } = reactMelt(ctx, applier, 'cryo', availableUnits);
+    const { excess, mult } = reactMelt(ctx, applier, true, availableUnits);
     availableUnits = excess;
     scaleMult = mult;
   }
@@ -90,7 +90,7 @@ function applyElectro(ctx, gauge, applier) {
     scaleFlat = reactAggravate(ctx, applier);
   }
 
-  if (aura.pyro && availableUnits) {
+  if ((aura.pyro || aura.burning) && availableUnits) {
     availableUnits = reactOverloaded(ctx, applier, 'pyro', availableUnits);
   }
 
@@ -128,7 +128,7 @@ function applyHydro(ctx, gauge, applier) {
   let scaleFlat;
 
   if ((aura.pyro || aura.burning) && availableUnits) {
-    const { excess, mult } = reactVaporize(ctx, applier, aura.burning ? 'burning' : 'pyro', availableUnits);
+    const { excess, mult } = reactVaporize(ctx, applier, true, availableUnits);
 
     availableUnits = excess;
     scaleMult = mult;
@@ -206,7 +206,7 @@ function applyAnemo(ctx, gauge, applier) {
     availableUnits = reactSwirl(ctx, applier, 'electro', availableUnits);
   }
 
-  if (aura.pyro && availableUnits) {
+  if ((aura.pyro || aura.burning) && availableUnits) {
     availableUnits = reactSwirl(ctx, applier, 'pyro', availableUnits);
   }
 
@@ -231,7 +231,7 @@ function applyGeo(ctx, gauge, applier) {
     availableUnits = reactCrystallize(ctx, applier, 'electro', availableUnits);
   }
 
-  if (aura.pyro && availableUnits) {
+  if ((aura.pyro || aura.burning) && availableUnits) {
     availableUnits = reactCrystallize(ctx, applier, 'pyro', availableUnits);
   }
 
@@ -266,8 +266,8 @@ export function applyCryo(ctx, gauge, applier) {
     }
   }
 
-  if (aura.pyro && availableUnits) {
-    const { excess, mult } = reactMelt(ctx, applier, 'pyro', availableUnits);
+  if ((aura.pyro || aura.burning) && availableUnits) {
+    const { excess, mult } = reactMelt(ctx, applier, false, availableUnits);
     availableUnits = excess;
     scaleMult = mult;
   }

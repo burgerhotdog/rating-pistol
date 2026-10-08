@@ -144,8 +144,8 @@ function runDrain(ctx, action) {
 
   for (const targetId of targets) {
     const prev = memberHealth[targetId];
-    if (prev <= minLimit) continue;
-    if (prev >= maxLimit) continue;
+    if (value > 0 && prev <= minLimit) continue;
+    if (value < 0 && prev >= maxLimit) continue;
 
     const next = clamp(prev - value, minLimit, maxLimit);
 

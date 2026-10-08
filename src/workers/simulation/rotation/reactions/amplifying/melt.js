@@ -76,13 +76,23 @@ function getAmpMultiplier(ctx, reaction, ownerId, isForward) {
   };
 }
 
-export function reactMelt(ctx, ownerId, auraElement, gaugeUnits) {
-  const isForward = auraElement === 'cryo';
+export function reactMelt(ctx, ownerId, isForward, gaugeUnits) {
+  const auraStore = ctx.states.aura;
+  const unitModifier = isForward ? 2 : 0.5;
 
   const mult = getAmpMultiplier(ctx, 'melt', ownerId, isForward);
+  const units = gaugeUnits * unitModifier;
 
-  const consumeUnits = isForward ? gaugeUnits * 2 : gaugeUnits / 2;
-  const excess = consumeAura(ctx.states.aura, auraElement, consumeUnits);
+  let excess;
+
+  if (isForward) {
+    excess = consumeAura(auraStore, 'cryo', units);
+  } else {
+    excess = Math.min(
+      consumeAura(auraStore, 'burning', units),
+      consumeAura(auraStore, 'pyro', units),
+    );
+  }
 
   ctx.runEffects('reaction', {
     reaction: 'melt',
@@ -90,5 +100,5 @@ export function reactMelt(ctx, ownerId, auraElement, gaugeUnits) {
     ownerId,
   });
 
-  return { excess, mult };
+  return { excess: excess / unitModifier, mult };
 }

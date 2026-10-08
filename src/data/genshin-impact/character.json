@@ -35954,7 +35954,7 @@
             ]
           },
           "stats": {
-            "damageMv%": -0.4
+            "damageMv": -0.4
           }
         }
       },
@@ -35973,7 +35973,7 @@
             ]
           },
           "stats": {
-            "damageMv%": -0.2
+            "damageMv": -0.2
           }
         }
       },

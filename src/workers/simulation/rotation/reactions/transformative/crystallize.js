@@ -7,7 +7,19 @@ const mockAction = {
 };
 
 export function reactCrystallize(ctx, ownerId, auraElement, gaugeUnits) {
-  const excessGaugeUnits = consumeAura(ctx.states.aura, auraElement, gaugeUnits / 2);
+  const auraState = ctx.states.aura;
+  const units = gaugeUnits / 2;
+
+  let excess;
+
+  if (auraElement === 'pyro') {
+    excess = Math.min(
+      consumeAura(auraState, 'burning', units),
+      consumeAura(auraState, 'pyro', units),
+    );
+  } else {
+    excess = consumeAura(auraState, auraElement, units);
+  }
 
   ctx.runEffects('reaction', {
     reaction: 'crystallize',
@@ -17,5 +29,5 @@ export function reactCrystallize(ctx, ownerId, auraElement, gaugeUnits) {
 
   updateShielded(ctx, mockAction);
 
-  return excessGaugeUnits;
+  return excess * 2;
 }

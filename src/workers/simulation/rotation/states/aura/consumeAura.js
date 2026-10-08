@@ -11,8 +11,9 @@ function deleteLinkedAuras(aura, element) {
 
 export function consumeAura(aura, element, gaugeUnits) {
   const state = aura[element];
+  if (!state) return gaugeUnits;
 
-  const excessGaugeUnits = Math.max(gaugeUnits - state.gauge, 0);
+  const excess = Math.max(gaugeUnits - state.gauge, 0);
   const remainingAuraUnits = state.gauge -= gaugeUnits;
 
   if (remainingAuraUnits <= 0) {
@@ -20,5 +21,5 @@ export function consumeAura(aura, element, gaugeUnits) {
     deleteLinkedAuras(aura, element);
   }
 
-  return excessGaugeUnits;
+  return excess;
 }
