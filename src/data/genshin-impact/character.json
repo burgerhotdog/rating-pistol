@@ -45565,7 +45565,6 @@
     "memberPreset": {}
   },
   "10000107": {
-    "disabled": true,
     "name": "Citlali",
     "version": 5.3,
     "id": 10000107,
@@ -45580,7 +45579,104 @@
       "elementalMastery": 115
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "itzPapa",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 20000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 1,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "reaction": [
+                    "frozen",
+                    "melt"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "itzPapa"
+                }
+              }
+            ]
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "pyroResReduction%": 0.2,
+            "hydroResReduction%": 0.2
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.9
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 12
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Shadow-Stealing Spirit Vessel",
@@ -45694,33 +45790,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -45773,6 +45842,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -45781,9 +45877,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Obsidian Tzitzimitl DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -45805,12 +45902,10 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Shield DMG Absorption",
-            "type": "elementalSkill",
-            "damage": {
+            },
+            "shield": {
+              "duration": 20000,
+              "attr": "elementalMastery",
               "multipliers": [
                 {
                   "mv": [
@@ -45829,10 +45924,8 @@
                     12.24,
                     12.96,
                     13.68
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     1386.6759,
                     1525.3628,
                     1675.6068,
@@ -45854,9 +45947,14 @@
             }
           },
           {
-            "name": "Frostfall Storm DMG",
-            "type": "elementalSkill",
+            "name": "Frostfall Storm",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Frostfall Storm",
+                "time": 1500
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -45887,9 +45985,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Ice Storm DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -45914,9 +46013,15 @@
             }
           },
           {
-            "name": "Spiritvessel Skull DMG",
-            "type": "elementalBurst",
+            "name": "Spiritvessel Skull",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Spiritvessel Skull",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -45943,7 +46048,16 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14517,
+      "setCounts": {
+        "15037": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000108": {
     "disabled": true,

@@ -14,6 +14,9 @@ Characters:
         No C1
         No C4 cooldown
         C6 Buff goes to first not healed
+    Citlali
+        No Nightsoul
+        No constellations
     Diluc
         No constellations
     Durin
