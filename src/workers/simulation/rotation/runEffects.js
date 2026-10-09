@@ -4,7 +4,7 @@ import { runCommands, runRemoveEffect, runUseEffect, runApplyEffect } from './st
 function tryRemove(ctx, when, state, spec) {
   const { effect } = state;
   if (!effect.remove) return;
-  const eventOwnerId = spec.fieldId;
+  const eventOwnerId = spec.fieldId ?? effect.ownerId;
 
   for (const remove of effect.remove) {
     if (remove.when !== when) continue;

@@ -4124,7 +4124,6 @@
     ]
   },
   "14302": {
-    "disabled": true,
     "name": "Thrilling Tales of Dragon Slayers",
     "version": 1.0,
     "id": 14302,
@@ -4135,7 +4134,25 @@
       "baseAtk": 401,
       "hp%": 0.352
     },
-    "effects": []
+    "effects": [
+      {
+        "stores": "$next",
+        "apply": {
+          "when": "swap",
+          "field": "offField",
+          "cooldown": 20000,
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
   },
   "14303": {
     "disabled": true,

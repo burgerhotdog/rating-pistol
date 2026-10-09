@@ -60845,7 +60845,6 @@
     ]
   },
   "10000140": {
-    "disabled": true,
     "name": "Vodyanitsa",
     "version": 7.1,
     "id": 10000140,
@@ -60860,7 +60859,185 @@
       "hp%": 0.288
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "songOfAgesPast",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 16000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "hornOfSpringsCall",
+              "spec": {
+                "duration": 16000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "wanderingVortex",
+              "spec": {
+                "duration": 16000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "leadVocal",
+              "spec": {
+                "uses": 25
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "chorus",
+              "spec": {
+                "uses": 10
+              }
+            }
+          ]
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1500,
+          "action": "elementalSkill.2"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "statRefs": {
+            "dmgBonus%": "elementalBurst.1"
+          }
+        }
+      },
+      {
+        "ref": "hornOfSpringsCall",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 3000,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "statRefs": {
+            "hydroResReduction%": "elementalSkill.3",
+            "cryoResReduction%": "elementalSkill.3"
+          }
+        }
+      },
+      {
+        "ref": "wanderingVortex",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "gameRule": "wanderingVortex"
+      },
+      {
+        "ref": "wanderingVortexBuff",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "anemoResReduction%": 0.35
+          }
+        }
+      },
+      {
+        "ref": "leadVocal",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "damage": {
+                    "element": [
+                      "hydro",
+                      "cryo"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 140,
+              "maxValue": 3500
+            }
+          }
+        }
+      },
+      {
+        "ref": "chorus",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "offField"
+              },
+              {
+                "action": {
+                  "damage": {
+                    "element": [
+                      "hydro",
+                      "cryo"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 140,
+              "maxValue": 3500
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Psyshkhwe Arietta",
@@ -61091,6 +61268,12 @@
             "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "attr": "hp",
               "multipliers": [
                 {
@@ -61119,6 +61302,12 @@
             "name": "Horn of Spring's Call",
             "damage": {
               "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "attr": "hp",
               "multipliers": [
                 {
@@ -61146,6 +61335,9 @@
           {
             "name": "Song of Ages Past Healing",
             "healing": {
+              "targets": [
+                "$onField"
+              ],
               "attr": "hp",
               "multipliers": [
                 {
@@ -61223,6 +61415,7 @@
             "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "attr": "hp",
               "multipliers": [
                 {
@@ -61280,7 +61473,10 @@
       "weaponId": 14524,
       "setCounts": {
         "15017": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0"
+      ]
     }
   },
   "10000143": {
