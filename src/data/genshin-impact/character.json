@@ -60889,6 +60889,7 @@
               "type": "apply",
               "ref": "leadVocal",
               "spec": {
+                "duration": 30000,
                 "uses": 25
               }
             },
@@ -60896,6 +60897,7 @@
               "type": "apply",
               "ref": "chorus",
               "spec": {
+                "duration": 30000,
                 "uses": 10
               }
             }
@@ -60958,18 +60960,6 @@
         "gameRule": "wanderingVortex"
       },
       {
-        "ref": "wanderingVortexBuff",
-        "stores": "global",
-        "apply": {
-          "when": "command"
-        },
-        "buff": {
-          "stats": {
-            "anemoResReduction%": 0.35
-          }
-        }
-      },
-      {
         "ref": "leadVocal",
         "stores": "global",
         "apply": {
@@ -60977,23 +60967,84 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "or": [
               {
-                "field": "onField"
+                "and": [
+                  {
+                    "field": "onField"
+                  },
+                  {
+                    "states": {
+                      "aura": {
+                        "not": {
+                          "stellarSwirl": {
+                            "wanderingVortex": {
+                              ">": 1000
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "action": {
+                      "damage": {
+                        "and": [
+                          {
+                            "element": [
+                              "hydro",
+                              "cryo"
+                            ]
+                          },
+                          {
+                            "type": [
+                              "normalAttack",
+                              "chargedAttack",
+                              "plungingAttack",
+                              "elementalSkill",
+                              "elementalBurst"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
               },
               {
-                "action": {
-                  "damage": {
-                    "element": [
-                      "hydro",
-                      "cryo"
-                    ]
+                "and": [
+                  {
+                    "field": "onField"
+                  },
+                  {
+                    "states": {
+                      "aura": {
+                        "stellarSwirl": {
+                          "wanderingVortex": {
+                            ">": 1000
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "action": {
+                      "damage": {
+                        "type": "stellarSwirl"
+                      }
+                    }
                   }
-                }
+                ]
               }
             ]
           },
           "specs": {
+            "stellarSwirlFlat": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 260,
+              "maxValue": 6500
+            },
             "damageFlat": {
               "attr": "hp",
               "step": 1000,
@@ -61011,23 +61062,84 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "or": [
               {
-                "field": "offField"
+                "and": [
+                  {
+                    "field": "offField"
+                  },
+                  {
+                    "states": {
+                      "aura": {
+                        "not": {
+                          "stellarSwirl": {
+                            "wanderingVortex": {
+                              ">": 1000
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "action": {
+                      "damage": {
+                        "and": [
+                          {
+                            "element": [
+                              "hydro",
+                              "cryo"
+                            ]
+                          },
+                          {
+                            "type": [
+                              "normalAttack",
+                              "chargedAttack",
+                              "plungingAttack",
+                              "elementalSkill",
+                              "elementalBurst"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
               },
               {
-                "action": {
-                  "damage": {
-                    "element": [
-                      "hydro",
-                      "cryo"
-                    ]
+                "and": [
+                  {
+                    "field": "offField"
+                  },
+                  {
+                    "states": {
+                      "aura": {
+                        "stellarSwirl": {
+                          "wanderingVortex": {
+                            ">": 1000
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "action": {
+                      "damage": {
+                        "type": "stellarSwirl"
+                      }
+                    }
                   }
-                }
+                ]
               }
             ]
           },
           "specs": {
+            "stellarSwirlFlat": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 260,
+              "maxValue": 6500
+            },
             "damageFlat": {
               "attr": "hp",
               "step": 1000,

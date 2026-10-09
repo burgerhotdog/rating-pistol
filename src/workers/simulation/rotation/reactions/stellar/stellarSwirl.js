@@ -1,17 +1,21 @@
 import { applyCryo } from '../applyGauge';
 import { buildElevationSnapshot } from '../../snapshot';
-import { consumeAura } from '../../states';
+import { consumeAura, hasGameRule } from '../../states';
 
-export function reactStellarSwirl(ctx, ownerId, gaugeUnits) {
-  const state = ctx.states.aura.stellarSwirl ??= {
+export function reactStellarSwirl(ctx, ownerId, auraKey, gaugeUnits) {
+  const auraStore = ctx.states.aura;
+  const hasWV = hasGameRule(ctx, 'wanderingVortex');
+
+  const state = auraStore.stellarSwirl ??= {
     reaction: 'stellarSwirl',
-    timeLeft: 8000,
+    timeLeft: hasWV ? 12000 : 8000,
     vortexTimer: Infinity,
     vortexHits: 0,
     ownerId: null,
+    wanderingVortex: 0,
   };
 
-  state.timeLeft = 8000;
+  state.timeLeft = hasWV ? 12000 : 8000;
 
   if (state.vortexTimer !== Infinity) {
     state.vortexHits++;
@@ -28,9 +32,13 @@ export function reactStellarSwirl(ctx, ownerId, gaugeUnits) {
 
     state.vortexTimer = 3000;
     state.ownerId = ownerId;
+    if (hasWV) {
+      state.wanderingVortex = 6000;
+    }
   }
 
-  consumeAura(ctx.states.aura, 'cryo', gaugeUnits);
+  const units = gaugeUnits / 2;
+  const excess = consumeAura(auraStore, auraKey, units);
 
   ctx.runEffects('reaction', {
     reaction: 'stellarSwirl',
@@ -51,7 +59,12 @@ export function reactStellarSwirl(ctx, ownerId, gaugeUnits) {
     state.vortexTimer = Infinity;
     state.vortexHits = 0;
     state.ownerId = null;
+    if (hasWV) {
+      state.wanderingVortex = 6000;
+    }
 
     applyCryo(ctx, 1, ownerId);
   }
+
+  return excess * 2;
 }

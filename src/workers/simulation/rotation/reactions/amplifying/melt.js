@@ -86,7 +86,10 @@ export function reactMelt(ctx, ownerId, isForward, gaugeUnits, action) {
   let excess;
 
   if (isForward) {
-    excess = consumeAura(auraStore, 'cryo', units);
+    excess = Math.min(
+      consumeAura(auraStore, 'frozen', units),
+      consumeAura(auraStore, 'cryo', units),
+    );
   } else {
     excess = Math.min(
       consumeAura(auraStore, 'burning', units),

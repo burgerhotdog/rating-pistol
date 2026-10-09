@@ -1,4 +1,5 @@
-import { applyAura, tryIcd } from '../states';
+import { CHARACTER, GI } from '@/data';
+import { applyAura, consumeAura, tryIcd } from '../states';
 import {
   reactAggravate,
   reactQuicken,
@@ -18,6 +19,7 @@ import {
   reactFrozen,
   reactHyperbloom,
   reactOverloaded,
+  reactShattered,
   reactSuperconduct,
   reactSwirl,
 } from './transformative';
@@ -45,7 +47,7 @@ export function applyPyro(ctx, gauge, applier, action) {
     availableUnits = reactOverloaded(ctx, applier, 'electro', availableUnits);
   }
 
-  if (aura.hydro && availableUnits) {
+  if (aura.hydro && availableUnits && !aura.frozen) {
     const { excess, mult } = reactVaporize(ctx, applier, false, availableUnits, action);
     availableUnits = excess;
     scaleMult = mult;
@@ -94,7 +96,7 @@ function applyElectro(ctx, gauge, applier, action) {
     availableUnits = reactOverloaded(ctx, applier, 'pyro', availableUnits);
   }
 
-  if (aura.hydro && availableUnits) {
+  if (aura.hydro && availableUnits && !aura.frozen) {
     if (ctx.cache.lunarCharged) {
       reactLunarCharged(ctx, applier);
     } else {
@@ -107,6 +109,10 @@ function applyElectro(ctx, gauge, applier, action) {
       availableUnits = reactStellarConduct(ctx, applier, 'cryo', availableUnits);
     } else {
       availableUnits = reactSuperconduct(ctx, applier, 'cryo', availableUnits);
+    }
+
+    if (aura.frozen && availableUnits) {
+      consumeAura(ctx, 'frozen', availableUnits);
     }
   }
 
@@ -212,13 +218,25 @@ function applyAnemo(ctx, gauge, applier, action) {
 
   if (aura.hydro && availableUnits) {
     availableUnits = reactSwirl(ctx, applier, 'hydro', availableUnits);
+
+    if (aura.frozen && availableUnits) {
+      if (ctx.cache.stellarSwirl) {
+        availableUnits = reactStellarSwirl(ctx, applier, 'frozen', availableUnits);
+      } else {
+        availableUnits = reactSwirl(ctx, applier, 'frozen', availableUnits);
+      }
+    }
   }
 
   if (aura.cryo && availableUnits) {
     if (ctx.cache.stellarSwirl) {
-      reactStellarSwirl(ctx, applier, availableUnits);
+      availableUnits = reactStellarSwirl(ctx, applier, 'cryo', availableUnits);
     } else {
-      reactSwirl(ctx, applier, 'cryo', availableUnits);
+      availableUnits = reactSwirl(ctx, applier, 'cryo', availableUnits);
+    }
+
+    if (aura.frozen && availableUnits) {
+      consumeAura(ctx, 'frozen', availableUnits);
     }
   }
 }
@@ -283,9 +301,40 @@ export function applyCryo(ctx, gauge, applier, action) {
   return { scaleMult, scaleFlat };
 }
 
+const isBluntAttack = (action) => {
+  if (!action.damage) return;
+
+  const ownerId = action.ownerId;
+  const ownerType = CHARACTER[GI][ownerId].type;
+  const actionRef = action.ref;
+  const actionType = action.type;
+  const damageType = action.damage.type;
+  const damageElem = action.damage.element;
+
+  const isClaymore = ownerType === 'claymore';
+  const isKinichMidair = ownerId === 10000101 && actionRef === 'normalAttack.2';
+  if (isClaymore && !isKinichMidair) return true;
+
+  const isPlunge = actionType === 'plungingAttack';
+  const isSwordClaymorePolearm = ownerType === 'sword' || ownerType === 'claymore' || ownerType === 'polearm';
+  const isVaresa = ownerId === 10000111;
+  if ((isPlunge && isSwordClaymorePolearm) || isVaresa) return true;
+
+  const isGeo = damageElem === 'geo';
+  const isGeoException =
+    (ownerId === 10000027 && damageType === 'plungingAttack') ||
+    (ownerId === 10000103 && actionRef === 'elementalSkill.0');
+  if (isGeo && !isGeoException) return true;
+};
+
 export function applyGauge(ctx, action) {
   const { ownerId, damage = {} } = action;
   const { element, gauge, icd } = damage;
+  const auraStore = ctx.states.aura;
+
+  if (auraStore.frozen && isBluntAttack(action)) {
+    reactShattered(ctx, ownerId);
+  }
 
   if (element === 'physical' || !gauge) return;
   if (!tryIcd(ctx, ownerId, icd)) return;

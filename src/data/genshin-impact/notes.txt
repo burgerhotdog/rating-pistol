@@ -64,7 +64,6 @@ Characters:
     Sara
         Remember c6 no snapshot
     Vodyanitsa
-        Unfinished
         No constellations
     Wanderer
     Wriothesley

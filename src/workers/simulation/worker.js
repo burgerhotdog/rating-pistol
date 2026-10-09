@@ -49,14 +49,16 @@ self.onmessage = async ({ data }) => {
   self.postMessage({ title: 'Simulating rotation' });
   const { snapshots: userSnapshots, bonusEnergy } = runRotation(cache, equipMaps);
   const userTotals = getTotals(userSnapshots);
-  const { time: userRotationTime, source: userRotationTimeSource } = computeDuration(cache, equipMaps, bonusEnergy);
-  const userDps = userTotals.damage / userRotationTime * 1000;
+  const {
+    time: userRotationTime,
+    source: userRotationTimeSource,
+  } = computeDuration(cache, equipMaps, bonusEnergy);
 
   self.postMessage({
     userSnapshots,
     userRotationTime,
     userRotationTimeSource,
-    userDps,
+    userDps: userTotals.damage / userRotationTime * 1000,
   });
 
   console.time('runComparisonTests');
