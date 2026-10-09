@@ -2235,7 +2235,6 @@
     ]
   },
   "11522": {
-    "disabled": true,
     "name": "Beyond the Chrysalis",
     "version": 7.1,
     "id": 11522,
@@ -2246,7 +2245,214 @@
       "baseAtk": 674,
       "critDmg%": 0.441
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "buffGuard",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "type": [
+                "elementalSkill",
+                "elementalBurst"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "ref": "prevBuff",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swap",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "maxStacks": 2
+      },
+      {
+        "ref": "windsOfDevotion",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": [
+                    "elementalSkill",
+                    "elementalBurst"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "and": [
+                    {
+                      "not": {
+                        "has": "buffGuard"
+                      }
+                    },
+                    {
+                      "not": {
+                        "has": "prevBuff"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 10000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "buffGuard"
+            },
+            {
+              "type": "apply",
+              "ref": "prevBuff"
+            }
+          ]
+        },
+        "remove": {
+          "when": "swap",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": [
+              0.56,
+              1.2
+            ]
+          }
+        }
+      },
+      {
+        "ref": "windsOfDefiance",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": [
+                    "elementalSkill",
+                    "elementalBurst"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "and": [
+                    {
+                      "not": {
+                        "has": "buffGuard"
+                      }
+                    },
+                    {
+                      "prevBuff": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 10000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "buffGuard"
+            },
+            {
+              "type": "apply",
+              "ref": "prevBuff"
+            }
+          ]
+        },
+        "remove": {
+          "when": "swap",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "buff": {
+          "stats": {
+            "stellarSwirlReactionBonus%": [
+              0.36,
+              0.72
+            ]
+          }
+        }
+      },
+      {
+        "ref": "windsOfPlenty",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": [
+                    "elementalSkill",
+                    "elementalBurst"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "and": [
+                    {
+                      "not": {
+                        "has": "buffGuard"
+                      }
+                    },
+                    {
+                      "prevBuff": 2
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "uses": 1,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "buffGuard"
+            },
+            {
+              "type": "remove",
+              "ref": "prevBuff"
+            }
+          ]
+        },
+        "remove": {
+          "when": "swap",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "use": {
+          "when": "start",
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                5,
+                7
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "12101": {
     "name": "Waster Greatsword",
@@ -4136,12 +4342,26 @@
     },
     "effects": [
       {
-        "stores": "$next",
         "apply": {
           "when": "swap",
-          "field": "offField",
-          "cooldown": 20000,
-          "duration": 10000
+          "cooldown": 20000
+        },
+        "remove": {
+          "when": "swap",
+          "commands": {
+            "type": "apply",
+            "ref": "buff",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        }
+      },
+      {
+        "ref": "buff",
+        "stores": "$next",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "stats": {

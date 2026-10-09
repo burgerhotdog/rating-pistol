@@ -1,7 +1,7 @@
 import { CHARACTER, GI } from '@/data';
 import { evaluateFilter } from '@/utils';
 
-function evaluateSpecialFilter(ctx, special, effect, spec) {
+function evaluateSpecial(ctx, special, effect, spec) {
   const gameId = ctx.cache.gameId
   const onFieldId = ctx.states.onFieldId;
   const effOwnerId = effect.ownerId;
@@ -58,7 +58,7 @@ export function createEventFilter(ctx) {
     const { fieldId } = spec;
 
     if (filter?.special) {
-      return evaluateSpecialFilter(ctx, filter.special, effect, spec);
+      return evaluateSpecial(ctx, filter.special, effect, spec);
     }
 
     return evaluateFilter(filter, {

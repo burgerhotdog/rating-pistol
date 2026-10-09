@@ -20724,6 +20724,20 @@
     "energy": 90,
     "effects": [
       {
+        "ref": "turretGuard",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          }
+        }
+      },
+      {
         "ref": "prevTurret",
         "apply": {
           "when": "command"
@@ -20744,19 +20758,34 @@
               },
               {
                 "effectStacks": {
-                  "not": {
-                    "has": "prevTurret"
-                  }
+                  "and": [
+                    {
+                      "not": {
+                        "has": "turretGuard"
+                      }
+                    },
+                    {
+                      "not": {
+                        "has": "prevTurret"
+                      }
+                    }
+                  ]
                 }
               }
             ]
           },
           "duration": 24000,
           "offset": 2000,
-          "commands": {
-            "type": "apply",
-            "ref": "prevTurret"
-          }
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "turretGuard"
+            },
+            {
+              "type": "apply",
+              "ref": "prevTurret"
+            }
+          ]
         },
         "use": [
           {
@@ -20836,17 +20865,32 @@
               },
               {
                 "effectStacks": {
-                  "prevTurret": 1
+                  "and": [
+                    {
+                      "not": {
+                        "has": "turretGuard"
+                      }
+                    },
+                    {
+                      "prevTurret": 1
+                    }
+                  ]
                 }
               }
             ]
           },
           "duration": 24000,
           "offset": 2000,
-          "commands": {
-            "type": "apply",
-            "ref": "prevTurret"
-          }
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "turretGuard"
+            },
+            {
+              "type": "apply",
+              "ref": "prevTurret"
+            }
+          ]
         },
         "use": [
           {
@@ -20926,17 +20970,32 @@
               },
               {
                 "effectStacks": {
-                  "prevTurret": 2
+                  "and": [
+                    {
+                      "not": {
+                        "has": "turretGuard"
+                      }
+                    },
+                    {
+                      "prevTurret": 2
+                    }
+                  ]
                 }
               }
             ]
           },
           "duration": 24000,
           "offset": 2000,
-          "commands": {
-            "type": "remove",
-            "ref": "prevTurret"
-          }
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "turretGuard"
+            },
+            {
+              "type": "remove",
+              "ref": "prevTurret"
+            }
+          ]
         },
         "use": [
           {
@@ -21484,19 +21543,34 @@
               },
               {
                 "effectStacks": {
-                  "not": {
-                    "has": "prevTurret"
-                  }
+                  "and": [
+                    {
+                      "not": {
+                        "has": "turretGuard"
+                      }
+                    },
+                    {
+                      "not": {
+                        "has": "prevTurret"
+                      }
+                    }
+                  ]
                 }
               }
             ]
           },
           "duration": 24000,
           "offset": 2000,
-          "commands": {
-            "type": "apply",
-            "ref": "prevTurret"
-          }
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "turretGuard"
+            },
+            {
+              "type": "apply",
+              "ref": "prevTurret"
+            }
+          ]
         },
         "use": [
           {
@@ -21576,17 +21650,32 @@
               },
               {
                 "effectStacks": {
-                  "prevTurret": 1
+                  "and": [
+                    {
+                      "not": {
+                        "has": "turretGuard"
+                      }
+                    },
+                    {
+                      "prevTurret": 1
+                    }
+                  ]
                 }
               }
             ]
           },
           "duration": 24000,
           "offset": 2000,
-          "commands": {
-            "type": "apply",
-            "ref": "prevTurret"
-          }
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "turretGuard"
+            },
+            {
+              "type": "apply",
+              "ref": "prevTurret"
+            }
+          ]
         },
         "use": [
           {
@@ -21666,17 +21755,32 @@
               },
               {
                 "effectStacks": {
-                  "prevTurret": 2
+                  "and": [
+                    {
+                      "not": {
+                        "has": "turretGuard"
+                      }
+                    },
+                    {
+                      "prevTurret": 2
+                    }
+                  ]
                 }
               }
             ]
           },
           "duration": 24000,
           "offset": 2000,
-          "commands": {
-            "type": "remove",
-            "ref": "prevTurret"
-          }
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "turretGuard"
+            },
+            {
+              "type": "remove",
+              "ref": "prevTurret"
+            }
+          ]
         },
         "use": [
           {
@@ -37926,11 +38030,11 @@
                 {
                   "not": {
                     "has": [
+                      "hydro",
+                      "dendro",
                       "anemo",
                       "geo",
-                      "cryo",
-                      "hydro",
-                      "dendro"
+                      "cryo"
                     ]
                   }
                 },
@@ -61589,10 +61693,15 @@
       "rotation": [
         "elementalSkill.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000143,
+      10000140,
+      10000150,
+      10000076
+    ]
   },
   "10000143": {
-    "disabled": true,
     "name": "Vesna",
     "version": 7.1,
     "id": 10000143,
@@ -61607,7 +61716,385 @@
       "critRate%": 0.192
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "armedForAction",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 15000,
+          "commands": {
+            "type": "apply",
+            "ref": "windborneSwordLevel"
+          }
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "category": "normalAttack"
+            }
+          },
+          "action": "elementalSkill.7"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "category": "normalAttack"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "anemo"
+            }
+          }
+        }
+      },
+      {
+        "ref": "windborneSwordLevel",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "timesUsedLevel3",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.6"
+            }
+          }
+        },
+        "remove": {
+          "when": "maxStacks",
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "windborneSwordLevel"
+            },
+            {
+              "type": "remove",
+              "ref": "armedForAction"
+            }
+          ]
+        },
+        "maxStacks": 3
+      },
+      {
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "windborneSwordLevel": 1
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "windborneSwordLevel": 2
+                  }
+                }
+              ]
+            },
+            "action": [
+              "elementalSkill.3",
+              "elementalSkill.4"
+            ]
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "windborneSwordLevel": 3
+                  }
+                }
+              ]
+            },
+            "action": [
+              "elementalSkill.5",
+              "elementalSkill.6"
+            ]
+          }
+        ]
+      },
+      {
+        "modify": {
+          "type": "action",
+          "filter": {
+            "and": [
+              {
+                "radiance": "stellarSwirl"
+              },
+              {
+                "action": {
+                  "ref": [
+                    "elementalSkill.4",
+                    "elementalSkill.5",
+                    "elementalSkill.6",
+                    "elementalBurst.0"
+                  ]
+                }
+              }
+            ]
+          },
+          "spec": {
+            "damage": {
+              "type": "stellarSwirl"
+            }
+          }
+        }
+      },
+      {
+        "ref": "disciplinaryAction",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 20000
+        },
+        "remove": [
+          {
+            "when": "start",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              }
+            }
+          },
+          {
+            "when": "swap",
+            "filter": {
+              "field": "offField"
+            }
+          }
+        ],
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.4",
+                "elementalSkill.5",
+                "elementalSkill.6",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "stats": {
+            "damageMv%": 0.1
+          }
+        },
+        "maxStacks": 6
+      },
+      {
+        "ref": "passive2Self",
+        "buff": {
+          "filter": {
+            "radiance": "stellarSwirl"
+          },
+          "stats": {
+            "atk%": 0.06
+          }
+        }
+      },
+      {
+        "ref": "passive2CryoAnemo2",
+        "enable": {
+          "counts": {
+            "element": {
+              "or": [
+                {
+                  "anemo": {
+                    ">=": 2
+                  }
+                },
+                {
+                  "cryo": {
+                    ">=": 1
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "radiance": "stellarSwirl"
+          },
+          "stats": {
+            "atk%": 0.06
+          }
+        }
+      },
+      {
+        "ref": "passive2CryoAnemo3",
+        "enable": {
+          "counts": {
+            "element": {
+              "or": [
+                {
+                  "anemo": {
+                    ">=": 3
+                  }
+                },
+                {
+                  "and": [
+                    {
+                      "anemo": {
+                        ">=": 2
+                      }
+                    },
+                    {
+                      "cryo": {
+                        ">=": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "cryo": {
+                    ">=": 2
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "radiance": "stellarSwirl"
+          },
+          "stats": {
+            "atk%": 0.06
+          }
+        }
+      },
+      {
+        "ref": "passive2CryoAnemo4",
+        "enable": {
+          "counts": {
+            "element": {
+              "not": {
+                "has": [
+                  "pyro",
+                  "electro",
+                  "hydro",
+                  "dendro",
+                  "geo"
+                ]
+              }
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "radiance": "stellarSwirl"
+          },
+          "stats": {
+            "atk%": 0.06
+          }
+        }
+      },
+      {
+        "ref": "passive2Non1",
+        "enable": {
+          "special": "vesnaPassive2Non1"
+        },
+        "buff": {
+          "filter": {
+            "radiance": "stellarSwirl"
+          },
+          "stats": {
+            "elementalMastery": 25
+          }
+        }
+      },
+      {
+        "ref": "passive2Non2",
+        "enable": {
+          "special": "vesnaPassive2Non2"
+        },
+        "buff": {
+          "filter": {
+            "radiance": "stellarSwirl"
+          },
+          "stats": {
+            "elementalMastery": 25
+          }
+        }
+      },
+      {
+        "ref": "passive2Non3",
+        "enable": {
+          "special": "vesnaPassive2Non3"
+        },
+        "buff": {
+          "filter": {
+            "radiance": "stellarSwirl"
+          },
+          "stats": {
+            "elementalMastery": 25
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "specs": {
+            "stellarSwirlBaseDmg%": {
+              "attr": "atk",
+              "step": 100,
+              "value": 0.007,
+              "maxValue": 0.14
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Vila Blade Dance",
@@ -61779,6 +62266,11 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -61893,6 +62385,11 @@
             "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Vesna Elemental Skill Start",
+                "time": 2000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -61917,9 +62414,18 @@
             }
           },
           {
-            "name": "Windborne Sword Lv. 1 DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill: Windborne Sword",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Windborne Sword: Level 1",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Vesna Elemental Skill",
+                "time": 2000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -61944,9 +62450,14 @@
             }
           },
           {
-            "name": "Windborne Sword Lv. 2 DMG",
-            "type": "elementalSkill",
+            "name": "Windborne Sword: Level 2",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Vesna Elemental Skill",
+                "time": 2000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -61971,9 +62482,14 @@
             }
           },
           {
-            "name": "Windborne Sword Lv. 2 Spirit Blade DMG",
-            "type": "elementalSkill",
+            "name": "Windborne Sword: Level 2: Spirit Blade",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Vesna Elemental Skill",
+                "time": 2000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -61998,9 +62514,14 @@
             }
           },
           {
-            "name": "Windborne Sword Lv. 3 Spirit Blade DMG",
-            "type": "elementalSkill",
+            "name": "Windborne Sword: Level 3: Spirit Blade",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Vesna Elemental Skill",
+                "time": 2000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -62019,15 +62540,21 @@
                     0.952,
                     1.008,
                     1.064
-                  ]
+                  ],
+                  "times": 4
                 }
               ]
             }
           },
           {
-            "name": "Windborne Sword Lv. 3 Spirit Blade Final Hit DMG",
-            "type": "elementalSkill",
+            "name": "Windborne Sword: Level 3: Spirit Blade: Final Hit",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Vesna Elemental Skill",
+                "time": 2000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -62052,90 +62579,14 @@
             }
           },
           {
-            "name": "Windborne Sword Lv. 2 Spirit Blade Stellar Swirl DMG",
-            "type": "elementalSkill",
+            "name": "Wind Pinion",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.12,
-                    1.204,
-                    1.288,
-                    1.4,
-                    1.484,
-                    1.568,
-                    1.68,
-                    1.792,
-                    1.904,
-                    2.016,
-                    2.128,
-                    2.24,
-                    2.38,
-                    2.52,
-                    2.66
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Windborne Sword Lv. 3 Spirit Blade Stellar Swirl DMG",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.448,
-                    0.4816,
-                    0.5152,
-                    0.56,
-                    0.5936,
-                    0.6272,
-                    0.672,
-                    0.7168,
-                    0.7616,
-                    0.8064,
-                    0.8512,
-                    0.896,
-                    0.952,
-                    1.008,
-                    1.064
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Windborne Sword Lv. 3 Spirit Blade Final Hit Stellar Swirl DMG",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.568,
-                    1.6856,
-                    1.8032,
-                    1.96,
-                    2.0776,
-                    2.1952,
-                    2.352,
-                    2.5088,
-                    2.6656,
-                    2.8224,
-                    2.9792,
-                    3.136,
-                    3.332,
-                    3.528,
-                    3.724
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Wind Pinion DMG",
-            "type": "elementalSkill",
-            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Vesna Elemental Skill",
+                "time": 2000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -62166,36 +62617,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Spirit Blade",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    2.632,
-                    2.8294,
-                    3.0268,
-                    3.29,
-                    3.4874,
-                    3.6848,
-                    3.948,
-                    4.2112,
-                    4.4744,
-                    4.7376,
-                    5.0008,
-                    5.264,
-                    5.593,
-                    5.922,
-                    6.251
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Spirit Blade Stellar Swirl",
-            "type": "elementalBurst",
-            "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -62226,8 +62651,32 @@
       "weaponId": 11522,
       "setCounts": {
         "15047": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalBurst.0",
+        "elementalSkill.1",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.6",
+        "elementalSkill.1",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.6",
+        "elementalSkill.1"
+      ],
+      "duration": 15500
+    },
+    "teamPreset": [
+      10000143,
+      10000140,
+      10000150,
+      10000076
+    ]
   },
   "10000148": {
     "name": "Alyosha",

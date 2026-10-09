@@ -13,6 +13,7 @@ function tryRemove(ctx, when, state, spec) {
 
     const removed = runRemoveEffect(state, remove);
 
+
     const commands = remove.commands;
     if (commands) {
       runCommands(ctx, effect, commands, eventOwnerId ?? effect.ownerId);
@@ -97,7 +98,7 @@ export function runEffects(ctx, when, event = {}) {
 
   for (const memberId in memberEffects) {
     Object.values(memberEffects[memberId]).forEach((state) =>
-      tryRemove(ctx, when, state, { ...spec, fieldId: spec.fieldId ?? memberId })
+      tryRemove(ctx, when, state, { ...spec, fieldId: spec.fieldId ?? Number(memberId) })
     );
   }
 
@@ -107,7 +108,7 @@ export function runEffects(ctx, when, event = {}) {
 
   for (const memberId in memberEffects) {
     Object.values(memberEffects[memberId]).forEach((state) =>
-      tryUse(ctx, when, state, { ...spec, fieldId: spec.fieldId ?? memberId })
+      tryUse(ctx, when, state, { ...spec, fieldId: spec.fieldId ?? Number(memberId) })
     );
   }
 

@@ -63,6 +63,9 @@ Characters:
         No constellations
     Sara
         Remember c6 no snapshot
+    Vesna
+        Disciplinary Action stacks not independent
+        No constellations
     Vodyanitsa
         No constellations
     Wanderer

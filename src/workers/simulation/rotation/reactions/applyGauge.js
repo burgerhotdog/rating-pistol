@@ -327,16 +327,24 @@ const isBluntAttack = (action) => {
   if (isGeo && !isGeoException) return true;
 };
 
+const directRxnTypes = new Set([
+  'lunarCharged',
+  'lunarBloom',
+  'lunarCrystallize',
+  'stellarConduct',
+  'stellarSwirl',
+]);
+
 export function applyGauge(ctx, action) {
   const { ownerId, damage = {} } = action;
-  const { element, gauge, icd } = damage;
+  const { type, element, gauge, icd } = damage;
   const auraStore = ctx.states.aura;
 
   if (auraStore.frozen && isBluntAttack(action)) {
     reactShattered(ctx, ownerId);
   }
 
-  if (element === 'physical' || !gauge) return;
+  if (directRxnTypes.has(type) || element === 'physical' || !gauge) return;
   if (!tryIcd(ctx, ownerId, icd)) return;
 
   switch (element) {
