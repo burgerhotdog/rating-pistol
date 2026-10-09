@@ -4823,7 +4823,6 @@
     "effects": []
   },
   "14435": {
-    "disabled": true,
     "name": "Clash of Kings",
     "version": 7.0,
     "id": 14435,
@@ -4834,7 +4833,63 @@
       "baseAtk": 510,
       "critRate%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "lawsOfTheBoard",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 12000,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ],
+            "elementalMastery": [
+              100,
+              200
+            ]
+          }
+        },
+        "maxExtensions": 1
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "chargedAttack"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "lawsOfTheBoard"
+                }
+              }
+            ]
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "lawsOfTheBoard",
+            "spec": {
+              "duration": 6000,
+              "extend": true
+            }
+          }
+        }
+      }
+    ]
   },
   "14436": {
     "disabled": true,

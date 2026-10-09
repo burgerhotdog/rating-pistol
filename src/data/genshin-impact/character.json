@@ -34989,6 +34989,7 @@
           {
             "name": "Spiritbreath Thorn",
             "damage": {
+              "type": "chargedAttack",
               "element": "pyro",
               "multipliers": [
                 {
@@ -35113,6 +35114,7 @@
           {
             "name": "Explosive Firework",
             "damage": {
+              "type": "elementalBurst",
               "gauge": 1,
               "multipliers": [
                 {

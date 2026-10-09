@@ -50,7 +50,7 @@ self.onmessage = async ({ data }) => {
   const { snapshots: userSnapshots, bonusEnergy } = runRotation(cache, equipMaps);
   const userTotals = getTotals(userSnapshots);
   const { time: userRotationTime, source: userRotationTimeSource } = computeDuration(cache, equipMaps, bonusEnergy);
-  const userDps = (userTotals.damage + userTotals.healing + userTotals.shield) / userRotationTime * 1000;
+  const userDps = userTotals.damage / userRotationTime * 1000;
 
   self.postMessage({
     userSnapshots,
