@@ -22,8 +22,8 @@ function tickBurning(ctx, burningState, offset = 0) {
   burningState.timer = 250;
 
   if (!ctx.states.globalCooldowns.burning) {
-    applyPyro(ctx, 1, burningState.ownerId);
     ctx.states.globalCooldowns.burning = 2000;
+    applyPyro(ctx, 1, burningState.ownerId);
   }
 }
 
