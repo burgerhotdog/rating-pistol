@@ -33,8 +33,6 @@ Characters:
         No constellations
     Kaeya
         No constellations
-    Kazuha
-        No constellations
     Klee
         No constellations
     Lauma

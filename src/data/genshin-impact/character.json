@@ -15494,20 +15494,106 @@
     "energy": 60,
     "effects": [
       {
+        "ref": "midareRanzan",
         "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 10000,
+          "uses": 1
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "type": "plungingAttack"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "anemo"
+            }
+          }
+        }
+      },
+      {
+        "ref": "midareRanzanAbsorption",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 10000,
+          "uses": 1
+        },
+        "use": {
           "when": "end",
+          "filter": {
+            "action": {
+              "type": "plungingAttack"
+            }
+          },
+          "action": {
+            "damage": {
+              "type": "plungingAttack",
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": 2
+                }
+              ]
+            }
+          }
+        },
+        "absorbElement": true
+      },
+      {
+        "ref": "autumnWhirlWind",
+        "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
             }
           },
-          "duration": 8000
+          "duration": 8000,
+          "offset": 1000
         },
         "use": {
           "when": "interval",
           "cooldown": 2000,
           "action": "elementalBurst.1"
         }
+      },
+      {
+        "ref": "ultAbsorption",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 8000,
+          "offset": 1100
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalBurst.2"
+        },
+        "absorbElement": true
       },
       {
         "stores": "$team",
@@ -15617,6 +15703,115 @@
               "attr": "elementalMastery",
               "step": 1,
               "value": 0.0004
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "filter": {
+            "or": [
+              {
+                "field": "onField"
+              },
+              {
+                "character": {
+                  "id": 10000047
+                }
+              }
+            ]
+          },
+          "stats": {
+            "elementalMastery": 200
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              }
+            },
+            "action": {
+              "restoreEnergy": {
+                "flat": 3
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.1"
+              }
+            },
+            "action": {
+              "restoreEnergy": {
+                "flat": 4
+              }
+            }
+          }
+        ]
+      },
+      {
+        "rank": 6,
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 5000
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "category": "normalAttack"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "anemo"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack",
+                  "plungingAttack"
+                ]
+              }
+            }
+          },
+          "specs": {
+            "dmgBonus%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.002
             }
           }
         }
@@ -15775,7 +15970,8 @@
                     0.6375,
                     0.6852,
                     0.7372
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
@@ -15821,33 +16017,6 @@
                     1.8757,
                     2.016,
                     2.1691
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.8183,
-                    0.8849,
-                    0.9516,
-                    1.0467,
-                    1.1133,
-                    1.1894,
-                    1.2941,
-                    1.3988,
-                    1.5035,
-                    1.6176,
-                    1.7318,
-                    1.846,
-                    1.9602,
-                    2.0744,
-                    2.1886
                   ]
                 }
               ]
@@ -15902,6 +16071,33 @@
                     4.8957,
                     5.1809,
                     5.4661
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.8183,
+                    0.8849,
+                    0.9516,
+                    1.0467,
+                    1.1133,
+                    1.1894,
+                    1.2941,
+                    1.3988,
+                    1.5035,
+                    1.6176,
+                    1.7318,
+                    1.846,
+                    1.9602,
+                    2.0744,
+                    2.1886
                   ]
                 }
               ]
@@ -16069,6 +16265,7 @@
       },
       "rotation": [
         "elementalSkill.1",
+        "normalAttack.7",
         "elementalBurst.0"
       ]
     }
