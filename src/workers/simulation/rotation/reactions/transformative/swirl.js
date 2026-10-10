@@ -3,7 +3,7 @@ import { consumeAura } from '../../states';
 
 export function reactSwirl(ctx, ownerId, auraKey, gaugeUnits) {
   const auraStore = ctx.states.aura;
-  const auraElement = auraKey === 'frozen' ? 'cryo': 'auraKey';
+  const auraElement = auraKey === 'frozen' ? 'cryo': auraKey;
 
   if (ctx.states.globalCooldowns.swirl?.length !== 2) {
     (ctx.states.globalCooldowns.swirl ??= []).push(500);

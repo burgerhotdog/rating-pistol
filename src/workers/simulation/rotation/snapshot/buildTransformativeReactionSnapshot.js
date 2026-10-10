@@ -7,6 +7,10 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
 
   const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId, action: mockAction });
 
+  const specSourceBuffMap = ctx.specId
+    ? getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true }).buffMap
+    : null;
+
   return {
     key: `system:${rxnKey}`,
     name: formatStr(rxnKey),
@@ -20,6 +24,7 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
       ownerId,
       buffMap,
       buffSpecs,
+      specSourceBuffMap,
       scale: 1,
       parts: ['damage'],
       reactionElement,

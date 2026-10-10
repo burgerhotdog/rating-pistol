@@ -51,7 +51,7 @@ function getAmpMultiplier(ctx, reaction, ownerId, isForward, action) {
     };
   }
 
-  const testBuffMap = getBuffMap(ctx, { memberId: ctx.specId, action, ignoreSpecs: true });
+  const testBuffMap = getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true }).buffMap;
 
   // Action is not from specId but has variable buffs from specId
   if (!isSpecIdAction) {

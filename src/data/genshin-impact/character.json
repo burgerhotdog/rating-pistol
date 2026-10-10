@@ -37372,7 +37372,6 @@
     "memberPreset": {}
   },
   "10000089": {
-    "disabled": true,
     "name": "Furina",
     "version": 4.2,
     "id": 10000089,
@@ -37387,7 +37386,293 @@
       "critRate%": 0.192
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "arkheAlignment",
+        "apply": {
+          "when": "command"
+        }
+      },
+      {
+        "ref": "arkheGuard",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.4"
+            }
+          }
+        }
+      },
+      {
+        "ref": "chargedAttackAlignmentChange",
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "normalAttack.4"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "not": {
+                          "has": "arkheGuard"
+                        }
+                      },
+                      {
+                        "not": {
+                          "has": "arkheAlignment"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "commands": [
+              {
+                "type": "apply",
+                "ref": "arkheGuard"
+              },
+              {
+                "type": "apply",
+                "ref": "arkheAlignment"
+              }
+            ]
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "normalAttack.4"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "not": {
+                          "has": "arkheGuard"
+                        }
+                      },
+                      {
+                        "has": "arkheAlignment"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "commands": [
+              {
+                "type": "apply",
+                "ref": "arkheGuard"
+              },
+              {
+                "type": "remove",
+                "ref": "arkheAlignment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "type": "normalAttack"
+            }
+          },
+          "cooldown": 6000,
+          "action": "normalAttack.8"
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "arkheAlignment"
+                  }
+                }
+              }
+            ]
+          },
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "pet1",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 30000
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "arkheAlignment"
+              }
+            }
+          },
+          "cooldown": 2900,
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "ref": "pet2",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 30000
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "arkheAlignment"
+              }
+            }
+          },
+          "cooldown": 1190,
+          "action": "elementalSkill.3"
+        }
+      },
+      {
+        "ref": "pet3",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 30000
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "arkheAlignment"
+              }
+            }
+          },
+          "cooldown": 2900,
+          "action": "elementalSkill.4"
+        }
+      },
+      {
+        "ref": "pet4",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 30000
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "has": "arkheAlignment"
+            }
+          },
+          "cooldown": 4800,
+          "action": "elementalSkill.5"
+        }
+      },
+      {
+        "ref": "tempSkillBuff",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.2",
+                "elementalSkill.3",
+                "elementalSkill.4"
+              ]
+            }
+          },
+          "stats": {
+            "damageMv%": 0.4
+          }
+        }
+      },
+      {
+        "ref": "tempBurstBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 18000,
+          "stacks": 300
+        },
+        "buff": {
+          "statRefs": {
+            "dmgBonus%": "elementalBurst.1"
+          }
+        },
+        "maxStacks": 300
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.2",
+                "elementalSkill.3",
+                "elementalSkill.4"
+              ]
+            }
+          },
+          "specs": {
+            "dmgBonus%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 0.007,
+              "maxValue": 0.28
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Soloist's Solicitation",
@@ -37528,33 +37813,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6393,
-                    0.6914,
-                    0.7434,
-                    0.8177,
-                    0.8698,
-                    0.9293,
-                    1.011,
-                    1.0928,
-                    1.1746,
-                    1.2638,
-                    1.353,
-                    1.4422,
-                    1.5314,
-                    1.6206,
-                    1.7098
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -37609,9 +37867,37 @@
             }
           },
           {
-            "name": "Spiritbreath Thorn/Surging Blade DMG",
-            "type": "normalAttack",
+            "name": "Plunge Collision",
             "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6393,
+                    0.6914,
+                    0.7434,
+                    0.8177,
+                    0.8698,
+                    0.9293,
+                    1.011,
+                    1.0928,
+                    1.1746,
+                    1.2638,
+                    1.353,
+                    1.4422,
+                    1.5314,
+                    1.6206,
+                    1.7098
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Spiritbreath Thorn/Surging Blade",
+            "damage": {
+              "type": "normalAttack",
+              "element": "hydro",
               "multipliers": [
                 {
                   "mv": [
@@ -37642,9 +37928,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Ousia Bubble DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Ousia Bubble",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -37669,9 +37961,16 @@
             }
           },
           {
-            "name": "Gentilhomme Usher DMG",
-            "type": "elementalSkill",
+            "name": "Gentilhomme Usher",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Octopus",
+                "time": 30000,
+                "hits": 2
+              },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -37696,9 +37995,16 @@
             }
           },
           {
-            "name": "Surintendante Chevalmarin DMG",
-            "type": "elementalSkill",
+            "name": "Surintendante Chevalmarin",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Seahorse",
+                "time": 30000,
+                "hits": 2
+              },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -37723,9 +38029,11 @@
             }
           },
           {
-            "name": "Mademoiselle Crabaletta DMG",
-            "type": "elementalSkill",
+            "name": "Mademoiselle Crabaletta",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -37751,8 +38059,11 @@
           },
           {
             "name": "Singer of Many Waters Healing",
-            "type": "elementalSkill",
-            "damage": {
+            "healing": {
+              "targets": [
+                "$onField"
+              ],
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -37771,10 +38082,8 @@
                     0.102,
                     0.108,
                     0.114
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     462.2253,
                     508.4543,
                     558.5356,
@@ -37802,9 +38111,11 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -37830,11 +38141,10 @@
           },
           {
             "name": "Fanfare to DMG Increase Conversion Ratio",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.0007,
                     0.0009,
                     0.0011,
@@ -37857,11 +38167,10 @@
           },
           {
             "name": "Fanfare to Incoming Healing Bonus Conversion Ratio",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.0001,
                     0.0002,
                     0.0003,
@@ -37889,7 +38198,11 @@
       "weaponId": 11513,
       "setCounts": {
         "15032": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
     }
   },
   "10000090": {

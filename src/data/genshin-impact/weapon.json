@@ -69,6 +69,11 @@
     "effects": [
       {
         "buff": {
+          "filter": {
+            "health": {
+              ">": 0.9
+            }
+          },
           "stats": {
             "critRate%": [
               0.14,
@@ -2440,16 +2445,41 @@
             "field": "offField"
           }
         },
-        "use": {
-          "when": "start",
-          "action": {
-            "restoreEnergy": {
-              "flat": [
-                5,
-                7
-              ]
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": "energyCd"
+                }
+              }
+            },
+            "action": {
+              "restoreEnergy": {
+                "flat": [
+                  5,
+                  7
+                ]
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "energyCd",
+              "spec": {
+                "duration": 4000
+              }
             }
+          },
+          {
+            "when": "interval"
           }
+        ]
+      },
+      {
+        "ref": "energyCd",
+        "apply": {
+          "when": "command"
         }
       }
     ]
@@ -6248,6 +6278,25 @@
               "maxValue": [
                 0.26,
                 0.58
+              ]
+            }
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "shield"
+            }
+          },
+          "cooldown": 14000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                14,
+                18
               ]
             }
           }

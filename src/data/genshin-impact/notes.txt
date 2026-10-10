@@ -1,5 +1,6 @@
 Characters:
     Albedo
+        No constellations
     Alhaitham
         No constellations
     Amber
@@ -21,11 +22,21 @@ Characters:
     Durin
         No constellations
     Faruzan
+        No constellations
     Fischl
+        No constellations
     Flins
+        No constellations
+    Furina
+        Has temporary fixed buffs
+        No healing interval decrease
+        No constellations
     Ineffa
+        No constellations
     Kaeya
+        No constellations
     Kazuha
+        No constellations
     Klee
         No constellations
     Lauma
@@ -69,6 +80,7 @@ Characters:
     Vodyanitsa
         No constellations
     Wanderer
+        No constellations
     Wriothesley
         No constellations
     Xianyun
@@ -88,6 +100,7 @@ Characters:
         A1 always extended
         No constellations
     Zhongli
+        No constellations
 
 Weapons:
     A Thousand Floating Dreams
@@ -96,8 +109,6 @@ Weapons:
         buff doesnt ramp slowly
     Amos' Bow
         in the air effect might not be accurate
-    Angelos' Heptades
-        energy effect disabled
     Aqua Simulacra
         doesn't need enemies nearby
     Aquila Favonia
@@ -108,8 +119,6 @@ Weapons:
         Effect always hits
     Finale of the Deep
         Clear BoL gives fixed atk buff
-    Harbinger of Dawn
-        Assume buff always up
     Heretic's Molten Blade
         No effect
     Sacrificial Jade
