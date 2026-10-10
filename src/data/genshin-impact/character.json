@@ -5802,9 +5802,7 @@
         },
         "remove": {
           "when": "swap",
-          "filter": {
-            "field": "offField"
-          }
+          "field": "offField"
         },
         "use": {
           "when": "interval",
@@ -32142,9 +32140,7 @@
         ],
         "remove": {
           "when": "swap",
-          "filter": {
-            "field": "offField"
-          }
+          "field": "offField"
         },
         "modify": {
           "type": "action",
@@ -36494,9 +36490,7 @@
         },
         "remove": {
           "when": "swap",
-          "filter": {
-            "field": "offField"
-          }
+          "field": "offField"
         },
         "use": {
           "when": "hit",
@@ -60388,20 +60382,28 @@
       "atk%": 0.288
     },
     "energy": 60,
-    "energyMax": 2,
     "hexerei": true,
     "effects": [
       {
         "ref": "graceOfKenosis",
         "stores": "$team",
         "apply": {
-          "when": "start",
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
             }
           },
-          "duration": 20000
+          "duration": 20000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "guidanceOfKenosis",
+              "spec": {
+                "duration": 20000
+              }
+            }
+          ]
         },
         "buff": {
           "specRefs": {
@@ -60415,56 +60417,48 @@
         }
       },
       {
-        "ref": "guidanceUpgrade",
-        "stores": "$ally",
+        "ref": "guidanceOfKenosis",
+        "stores": "$team",
         "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "elementalSkill.0"
-            }
-          },
-          "duration": 20000
-        },
-        "buff": {
-          "filter": {
-            "and": [
-              {
-                "field": "onField"
-              },
-              {
-                "character": {
-                  "tagged": "hexerei"
-                }
-              }
-            ]
-          },
-          "stats": {
-            "atk": 300
-          }
-        }
-      },
-      {
-        "ref": "selfGuidanceUpgrade",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "elementalSkill.0"
-            }
-          },
-          "duration": 20000
+          "when": "command"
         },
         "buff": {
           "filter": {
             "or": [
               {
-                "field": "onField"
+                "and": [
+                  {
+                    "field": "onField"
+                  },
+                  {
+                    "or": [
+                      {
+                        "character": {
+                          "hexerei": true
+                        }
+                      },
+                      {
+                        "effectStacks": {
+                          "has": "observeDone"
+                        }
+                      }
+                    ]
+                  }
+                ]
               },
               {
-                "effectStacks": {
-                  "has": "selfGuidanceCanUpgrade"
-                }
+                "and": [
+                  {
+                    "character": {
+                      "id": 10000131
+                    }
+                  },
+                  {
+                    "effectStacks": {
+                      "has": "nicoleGuidanceUpgrade"
+                    }
+                  }
+                ]
               }
             ]
           },
@@ -60474,24 +60468,75 @@
         }
       },
       {
-        "ref": "selfGuidanceCanUpgrade",
+        "ref": "observeStart",
+        "remove": {
+          "when": "swap"
+        },
+        "apply": {
+          "by": "$team",
+          "when": "swap",
+          "filter": {
+            "and": [
+              {
+                "character": {
+                  "not": {
+                    "has": "hexerei"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "graceOfKenosis"
+                }
+              }
+            ]
+          },
+          "uses": 1,
+          "offset": 3000
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "observeDone"
+          }
+        }
+      },
+      {
+        "ref": "observeDone",
+        "remove": {
+          "when": "swap"
+        },
+        "apply": {
+          "when": "command"
+        }
+      },
+      {
+        "ref": "nicoleGuidanceUpgrade",
         "apply": {
           "by": "$team",
           "when": "hit",
           "filter": {
             "and": [
               {
-                "effectStacks": {
-                  "has": "selfGuidanceUpgrade"
+                "action": {
+                  "and": [
+                    {
+                      "has": "damage"
+                    },
+                    {
+                      "damage": {
+                        "not": {
+                          "element": "physical"
+                        }
+                      }
+                    }
+                  ]
                 }
               },
               {
-                "action": {
-                  "damage": {
-                    "not": {
-                      "element": "physical"
-                    }
-                  }
+                "effectStacks": {
+                  "has": "graceOfKenosis"
                 }
               }
             ]
@@ -63101,9 +63146,7 @@
           },
           {
             "when": "swap",
-            "filter": {
-              "field": "offField"
-            }
+            "field": "offField"
           }
         ],
         "buff": {

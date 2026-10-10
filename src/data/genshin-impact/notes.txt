@@ -56,7 +56,6 @@ Characters:
         No ult electro/hydro buff
         EM buff comes from self
     Nicole
-        onField character must be hexerei to get buff upgrade
         coordinated attack uses own atk
         No constellations
     Odette

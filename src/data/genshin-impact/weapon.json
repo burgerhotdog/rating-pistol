@@ -2275,9 +2275,7 @@
         },
         "remove": {
           "when": "swap",
-          "filter": {
-            "field": "offField"
-          }
+          "field": "offField"
         },
         "maxStacks": 2
       },
@@ -2327,9 +2325,7 @@
         },
         "remove": {
           "when": "swap",
-          "filter": {
-            "field": "offField"
-          }
+          "field": "offField"
         },
         "buff": {
           "stats": {
@@ -2384,9 +2380,7 @@
         },
         "remove": {
           "when": "swap",
-          "filter": {
-            "field": "offField"
-          }
+          "field": "offField"
         },
         "buff": {
           "stats": {
@@ -2441,9 +2435,7 @@
         },
         "remove": {
           "when": "swap",
-          "filter": {
-            "field": "offField"
-          }
+          "field": "offField"
         },
         "use": [
           {
