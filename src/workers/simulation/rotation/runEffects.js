@@ -32,6 +32,10 @@ function tryUse(ctx, when, state, spec) {
     if (use.when !== when) continue;
     if (!use.by.includes(eventOwnerId)) continue;
     if (state.isRunning || state.useCooldown) continue;
+
+    const ownerField = effect.ownerId === ctx.states.onFieldId ? 'onField' : 'offField';
+    if (use.field && use.field !== ownerField) continue;
+
     if (!ctx.eventFilter(use.filter, effect, spec)) continue;
 
     const useSpec = { inflict: spec.action?.inflict };

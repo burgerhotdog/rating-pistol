@@ -14,23 +14,24 @@ async function main() {
   const length = charDatas.length;
 
   for (const [i, charData] of charDatas.entries()) {
-    const { id, name } = charData;
-    if (name === 'Skirk' || name === 'Mavuika') continue;
-    console.log(`Modifying ${name} (${i + 1}/${length})`);
-    const responseData = await fetchJson(`https://static.nanoka.cc/gi/7.1.51/en/character/${id}.json`);
+    console.log(`Modifying ${charData.name} (${i + 1}/${length})`);
 
-    const burstSkill = responseData.skills
-      .filter(({ promote }) => Object.keys(promote).length === 15)
-      .map((dataSkill, i) => ({ ...dataSkill, type: skillIds[i] }))
-      .find(({ type }) => type === 'elementalBurst');
+    if (!charData.disabled) continue;
 
-    const { promote } = burstSkill;
-    const { desc, param } = promote[0];
-    const energyDescStr = desc.find((str) => str.startsWith('Energy Cost'));
-    const matches = [...energyDescStr.matchAll(/\{param(\d+):[^}]+\}/g)];
-    const energyParamIndex = Number(matches[0][1]) - 1;
-    const energy = param[energyParamIndex];
-    charData.energy = energy;
+    const naActions = charData.skills.normalAttack.actions;
+
+    const lastThree = naActions.slice(-3);
+
+    if (
+      lastThree[0]?.name === 'Plunge Collision' &&
+      lastThree[1]?.name === 'Plunging Attack: Low' &&
+      lastThree[2]?.name === 'Plunging Attack: High'
+    ) {
+      const [collision] = naActions.splice(-3, 1);
+      naActions.push(collision);
+
+      console.log(`Reordered plunge actions for ${charData.name}`);
+    }
   }
 
   await writeJson(file, data);
