@@ -31027,7 +31027,13 @@
       "rotation": [
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000143,
+      10000140,
+      10000150,
+      10000076
+    ]
   },
   "10000077": {
     "disabled": true,
@@ -47846,7 +47852,13 @@
         "elementalBurst.0",
         "elementalSkill.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000109,
+      10000140,
+      10000150,
+      10000076
+    ]
   },
   "10000110": {
     "disabled": true,
