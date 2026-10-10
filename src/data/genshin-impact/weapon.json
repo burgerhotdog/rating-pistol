@@ -5881,7 +5881,6 @@
     ]
   },
   "14517": {
-    "disabled": true,
     "name": "Starcaller's Watch",
     "version": 5.3,
     "id": 14517,
@@ -5892,7 +5891,42 @@
       "baseAtk": 542,
       "elementalMastery": 265
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              100,
+              200
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "shield"
+            }
+          },
+          "cooldown": 14000,
+          "duration": 15000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      }
+    ]
   },
   "14518": {
     "name": "Sunny Morning Sleep-In",
@@ -5973,7 +6007,6 @@
     ]
   },
   "14519": {
-    "disabled": true,
     "name": "Vivid Notions",
     "version": 5.5,
     "id": 14519,
@@ -5984,7 +6017,91 @@
       "baseAtk": 674,
       "critDmg%": 0.441
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "plungingAttack"
+            }
+          },
+          "duration": 15000
+        },
+        "remove": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "type": "plungingAttack"
+            }
+          },
+          "offset": 100
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "plungingAttack"
+              }
+            }
+          },
+          "stats": {
+            "critDmg%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "elementalSkill",
+                "elementalBurst"
+              ]
+            }
+          },
+          "duration": 15000
+        },
+        "remove": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "type": "plungingAttack"
+            }
+          },
+          "offset": 100
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "plungingAttack"
+              }
+            }
+          },
+          "stats": {
+            "critDmg%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      }
+    ]
   },
   "14520": {
     "name": "Nightweaver's Looking Glass",
@@ -6089,7 +6206,6 @@
     ]
   },
   "14521": {
-    "disabled": true,
     "name": "Reliquary of Truth",
     "version": 6.1,
     "id": 14521,
@@ -6100,7 +6216,86 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "critRate%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      },
+      {
+        "ref": "secretOfLies",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              80,
+              160
+            ]
+          }
+        }
+      },
+      {
+        "ref": "moonOfTruth",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "lunarBloom"
+              }
+            }
+          },
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "and": [
+                {
+                  "has": "secretOfLies"
+                },
+                {
+                  "has": "moonOfTruth"
+                }
+              ]
+            }
+          },
+          "stats": {
+            "elementalMastery": [
+              40,
+              80
+            ],
+            "critDmg%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "14522": {
     "name": "Nocturne's Curtain Call",
