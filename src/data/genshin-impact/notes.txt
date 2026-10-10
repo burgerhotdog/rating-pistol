@@ -162,6 +162,11 @@ Sets:
         Stacks not independent
     Shimenawa's Reminiscence
         4pc energy simplified
+    Nighttime Whispers in the Echoing Woods
+        No 1s grace period
+        Can be any shield
+    Unfinished Reverie
+        Burning expiry is approximation
 
     No stacking gleaming moon
         Night of the Sky's Unveiling

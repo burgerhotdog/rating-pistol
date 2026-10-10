@@ -12,7 +12,7 @@ export function initPassives(ctx) {
       const effect = mCache.effects[effectKey];
       if (effect.static || effect.apply) continue;
 
-      runApplyEffect(ctx, effect);
+      runApplyEffect(ctx, effect, { stacks: effect.maxStacks ?? 1 });
     }
   }
 

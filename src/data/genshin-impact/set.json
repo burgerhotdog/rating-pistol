@@ -1180,7 +1180,6 @@
     ]
   },
   "15024": {
-    "disabled": true,
     "name": "Echoes of an Offering",
     "version": 2.6,
     "id": 15024,
@@ -1196,6 +1195,25 @@
         "buff": {
           "stats": {
             "atk%": 0.18
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": 0.3514
+            }
           }
         }
       }
@@ -1598,7 +1616,6 @@
     ]
   },
   "15030": {
-    "disabled": true,
     "name": "Vourukasha's Glow",
     "version": 3.6,
     "id": 15030,
@@ -1628,12 +1645,56 @@
       },
       {
         "bonus": 4,
-        "buff": {
-          "stats": {
-            "elementalSkillDmgBonus%": 0.4,
-            "elementalBurstDmgBonus%": 0.4
+        "use": {
+          "when": "interval",
+          "filter": {
+            "or": [
+              {
+                "and": [
+                  {
+                    "field": "onField"
+                  },
+                  {
+                    "states": {
+                      "shielded": {
+                        "not": {
+                          ">": 0
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "character": {
+                  "id": 10000079
+                }
+              }
+            ]
+          },
+          "cooldown": 1000,
+          "commands": {
+            "type": "apply",
+            "ref": "takeDmgBuff",
+            "spec": {
+              "duration": 5000
+            }
           }
         }
+      },
+      {
+        "bonus": 4,
+        "ref": "takeDmgBuff",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": 0.08,
+            "elementalBurstDmgBonus%": 0.08
+          }
+        },
+        "maxStacks": 5
       }
     ]
   },
@@ -1751,7 +1812,6 @@
     ]
   },
   "15034": {
-    "disabled": true,
     "name": "Nighttime Whispers in the Echoing Woods",
     "version": 4.3,
     "id": 15034,
@@ -1772,9 +1832,50 @@
       },
       {
         "bonus": 4,
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 10000,
+          "commands": {
+            "type": "apply",
+            "ref": "extraBonus",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        },
         "buff": {
           "stats": {
-            "geoDmgBonus%": 0.5
+            "geoDmgBonus%": 0.2
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "extraBonus",
+        "buff": {
+          "filter": {
+            "states": {
+              "or": [
+                {
+                  "shielded": {
+                    ">": 0
+                  }
+                },
+                {
+                  "aura": {
+                    "has": "lunarCrystallize"
+                  }
+                }
+              ]
+            }
+          },
+          "stats": {
+            "geoDmgBonus%": 0.3
           }
         }
       }
@@ -1815,7 +1916,6 @@
     ]
   },
   "15036": {
-    "disabled": true,
     "name": "Unfinished Reverie",
     "version": 4.6,
     "id": 15036,
@@ -1836,10 +1936,100 @@
       },
       {
         "bonus": 4,
+        "ref": "burningBuff",
         "buff": {
           "stats": {
-            "dmgBonus%": 0.5
+            "dmgBonus%": 0.1
           }
+        },
+        "maxStacks": 5
+      },
+      {
+        "bonus": 4,
+        "use": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "states": {
+                  "aura": {
+                    "has": "burning"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "burningBuff": {
+                    "<": 5
+                  }
+                }
+              }
+            ]
+          },
+          "cooldown": 1000,
+          "commands": {
+            "type": "apply",
+            "ref": "burningBuff"
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "use": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "states": {
+                  "aura": {
+                    "not": {
+                      "has": "burning"
+                    }
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "and": [
+                    {
+                      "not": {
+                        "has": "burningGrace"
+                      }
+                    },
+                    {
+                      "has": "burningBuff"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "cooldown": 1000,
+          "commands": {
+            "type": "remove",
+            "ref": "burningBuff",
+            "spec": {
+              "stacks": 1
+            }
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "burningGrace",
+        "apply": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "states": {
+              "aura": {
+                "has": "burning"
+              }
+            }
+          },
+          "duration": 6000
         }
       }
     ]

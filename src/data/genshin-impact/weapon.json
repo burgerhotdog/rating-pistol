@@ -1631,17 +1631,7 @@
               "spec": {
                 "duration": 12000
               }
-            }
-          ]
-        }
-      },
-      {
-        "ref": "songOfResistance",
-        "stores": "$team",
-        "apply": {
-          "when": "command",
-          "duration": 12000,
-          "commands": [
+            },
             {
               "type": "apply",
               "ref": "blockSigils",
@@ -1650,6 +1640,14 @@
               }
             }
           ]
+        },
+        "maxStacks": 2
+      },
+      {
+        "ref": "songOfResistance",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "stats": {
@@ -7191,7 +7189,6 @@
     "effects": []
   },
   "15431": {
-    "disabled": true,
     "name": "Chain Breaker",
     "version": 5.0,
     "id": 15431,
@@ -7203,10 +7200,66 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "enable": {
+          "special": "chainBreaker1"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.048,
+              0.096
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "chainBreaker2"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.048,
+              0.096
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "chainBreaker3"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.048,
+              0.096
+            ],
+            "elementalMastery": [
+              24,
+              48
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "chainBreaker4"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.048,
+              0.096
+            ]
+          }
+        }
+      }
+    ]
   },
   "15432": {
-    "disabled": true,
     "name": "Sequence of Solitude",
     "version": 5.6,
     "id": 15432,
@@ -7217,10 +7270,34 @@
       "baseAtk": 510,
       "hp%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 15000,
+          "action": {
+            "damage": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.4,
+                    0.8
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "15433": {
-    "disabled": true,
     "name": "Snare Hook",
     "version": 6.0,
     "id": 15433,
@@ -7232,10 +7309,43 @@
       "baseAtk": 454,
       "energyRecharge%": 0.613
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              60,
+              120
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              60,
+              120
+            ]
+          }
+        }
+      }
+    ]
   },
   "15434": {
-    "disabled": true,
     "name": "Rainbow Serpent's Rain Bow",
     "version": 6.2,
     "id": 15434,
@@ -7246,10 +7356,30 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "field": "offField",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      }
+    ]
   },
   "15435": {
-    "disabled": true,
     "name": "Jade Vista",
     "version": 7.0,
     "id": 15435,
@@ -7260,10 +7390,88 @@
       "baseAtk": 510,
       "critRate%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "enable": {
+          "sameElementTeamMembers": 2
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              64,
+              128
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "sameElementTeamMembers": 3
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              128,
+              256
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "sameElementTeamMembers": 4
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              192,
+              384
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "diffElementTeamMembers": 1
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "diffElementTeamMembers": 2
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "diffElementTeamMembers": 3
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.36,
+              0.72
+            ]
+          }
+        }
+      }
+    ]
   },
   "15436": {
-    "disabled": true,
     "name": "Covenant of Frost and Snow",
     "version": 7.0,
     "id": 15436,
@@ -7275,7 +7483,27 @@
       "baseAtk": 510,
       "def%": 0.517
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              120,
+              240
+            ]
+          }
+        }
+      }
+    ]
   },
   "15437": {
     "name": "Breezeborne Refrain",
@@ -7449,7 +7677,6 @@
     ]
   },
   "15503": {
-    "disabled": true,
     "name": "Elegy for the End",
     "version": 1.4,
     "id": 15503,
@@ -7460,7 +7687,92 @@
       "baseAtk": 608,
       "energyRecharge%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              60,
+              120
+            ]
+          }
+        }
+      },
+      {
+        "ref": "sigil",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "blockSigils"
+                  }
+                }
+              }
+            ]
+          },
+          "cooldown": 200
+        },
+        "remove": {
+          "when": "maxStacks",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "farewellSong",
+              "spec": {
+                "duration": 12000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "blockSigils",
+              "spec": {
+                "duration": 20000
+              }
+            }
+          ]
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "farewellSong",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              100,
+              200
+            ],
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "ref": "blockSigils",
+        "apply": {
+          "when": "command"
+        }
+      }
+    ]
   },
   "15507": {
     "disabled": true,
@@ -7519,7 +7831,6 @@
     "effects": []
   },
   "15511": {
-    "disabled": true,
     "name": "Hunter's Path",
     "version": 3.0,
     "id": 15511,
@@ -7530,7 +7841,52 @@
       "baseAtk": 542,
       "critRate%": 0.441
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "elementalDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "cooldown": 12000,
+          "duration": 10000,
+          "uses": 12
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                1.6,
+                3.2
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "15512": {
     "name": "The First Great Magic",
@@ -7611,7 +7967,6 @@
     "effects": []
   },
   "15514": {
-    "disabled": true,
     "name": "Astral Vulture's Crimson Plumage",
     "version": 5.2,
     "id": 15514,
@@ -7622,7 +7977,66 @@
       "baseAtk": 608,
       "critDmg%": 0.662
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "swirl",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "diffElementTeamMembers": 1
+        },
+        "buff": {
+          "stats": {
+            "chargedAttackDmgBonus%": [
+              0.2,
+              0.4
+            ],
+            "elementalBurstDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "diffElementTeamMembers": {
+            ">=": 2
+          }
+        },
+        "buff": {
+          "stats": {
+            "chargedAttackDmgBonus%": [
+              0.48,
+              0.96
+            ],
+            "elementalBurstDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
   },
   "15515": {
     "disabled": true,
