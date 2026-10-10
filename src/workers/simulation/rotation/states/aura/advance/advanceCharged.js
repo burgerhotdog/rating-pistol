@@ -7,12 +7,21 @@ function tickCharged(ctx, chargedState, offset = 0) {
   const isLunar = ctx.cache.lunarCharged;
 
   if (ctx.saveSnapshots) {
-    const snapshot = isLunar
-      ? buildElevationSnapshot(ctx, 'lunarCharged')
-      : buildTransformativeReactionSnapshot(ctx, chargedState.ownerId, 'electroCharged', 'electro');
-    const runtime = snapshot.runtime + offset;
+    if (isLunar) {
+      const snapshot = buildElevationSnapshot(ctx, 'lunarCharged');
+      const runtime = snapshot.runtime + offset;
 
-    ctx.snapshots.push({ ...snapshot, runtime });
+      ctx.snapshots.push({ ...snapshot, runtime });
+    } else {
+      if (!ctx.states.globalCooldowns.electroCharged) {
+        ctx.states.globalCooldowns.electroCharged = 500;
+
+        const snapshot = buildTransformativeReactionSnapshot(ctx, chargedState.ownerId, 'electroCharged', 'electro');
+        const runtime = snapshot.runtime + offset;
+
+        ctx.snapshots.push({ ...snapshot, runtime });
+      }
+    }
   }
 
   chargedState.timer = isLunar ? 2000 : 1000;

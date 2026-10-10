@@ -16,9 +16,13 @@ export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
   if (bloomState.cores.length > 5) {
     const oldestCore = bloomState.cores.shift();
 
-    if (ctx.saveSnapshots) {
-      const snapshot = buildTransformativeReactionSnapshot(ctx, oldestCore.ownerId, 'bloom', 'dendro');
-      ctx.snapshots.push(snapshot);
+    if (ctx.states.globalCooldowns.bloom?.length !== 2) {
+      (ctx.states.globalCooldowns.bloom ??= []).push(500);
+
+      if (ctx.saveSnapshots) {
+        const snapshot = buildTransformativeReactionSnapshot(ctx, oldestCore.ownerId, 'bloom', 'dendro');
+        ctx.snapshots.push(snapshot);
+      }
     }
   }
 

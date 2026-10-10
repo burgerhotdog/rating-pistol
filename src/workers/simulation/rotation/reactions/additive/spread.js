@@ -13,8 +13,8 @@ function flatFormula(statMap) {
   return 1 + getEmBonus(statMap) + getAttr('spreadReactionBonus%', statMap);
 }
 
-function getFlat(ctx, ownerId) {
-  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId });
+function getFlat(ctx, ownerId, action) {
+  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId, action });
 
   const statMapOwnerIdBuildMap = ctx.buildMaps[ownerId];
 
@@ -47,7 +47,7 @@ function getFlat(ctx, ownerId) {
     };
   }
 
-  const testBuffMap = getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true });
+  const testBuffMap = getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true }).buffMap;
 
   // Action is not from specId but has variable buffs from specId
   if (!isSpecIdAction) {
@@ -72,12 +72,12 @@ function getFlat(ctx, ownerId) {
   };
 }
 
-export function reactSpread(ctx, ownerId) {
-  const flat = getFlat(ctx, ownerId);
+export function reactSpread(ctx, ownerId, action) {
+  const flat = getFlat(ctx, ownerId, action);
 
   ctx.runEffects('reaction', {
     reaction: 'spread',
-    elements: ['dendro', 'electro'],
+    elements: ['dendro'],
     ownerId,
   });
 

@@ -3,7 +3,13 @@ import { getBuffMap } from '../getStatMap';
 import { transformativeReactionFormula } from '../formula';
 
 export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reactionElement) {
-  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId });
+  const mockAction = { damage: { type: rxnKey, element: reactionElement } };
+
+  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId, action: mockAction });
+
+  const specSourceBuffMap = ctx.specId
+    ? getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true }).buffMap
+    : null;
 
   return {
     key: `system:${rxnKey}`,
@@ -18,6 +24,7 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
       ownerId,
       buffMap,
       buffSpecs,
+      specSourceBuffMap,
       scale: 1,
       parts: ['damage'],
       reactionElement,

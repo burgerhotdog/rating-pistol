@@ -719,7 +719,6 @@
       2,
       4
     ],
-    "halfStat": "retracingBolide",
     "effects": [
       {
         "bonus": 4,
@@ -1647,7 +1646,6 @@
       2,
       4
     ],
-    "halfStat": "normalAndChargedAttackDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -1847,7 +1845,6 @@
     ]
   },
   "15037": {
-    "disabled": true,
     "name": "Scroll of the Hero of Cinder City",
     "version": 5.0,
     "id": 15037,
@@ -1856,11 +1853,294 @@
       2,
       4
     ],
-    "halfStat": "scrollOfTheHeroOfCinderCity",
-    "effects": []
+    "effects": [
+      {
+        "bonus": 2,
+        "use": {
+          "when": "nightsoulBurst",
+          "action": {
+            "restoreEnergy": {
+              "flat": 6
+            }
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityPyro1"
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "pyroDmgBonus%": 0.12
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "owner": {
+            "nightsoul": true
+          }
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityPyro2"
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "pyroDmgBonus%": 0.28
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityElectro1"
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.12
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "owner": {
+            "nightsoul": true
+          }
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityElectro2"
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.28
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityHydro1"
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "hydroDmgBonus%": 0.12
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "owner": {
+            "nightsoul": true
+          }
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityHydro2"
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "hydroDmgBonus%": 0.28
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityDendro1"
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "dendroDmgBonus%": 0.12
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "owner": {
+            "nightsoul": true
+          }
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityDendro2"
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "dendroDmgBonus%": 0.28
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityAnemo1"
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "anemoDmgBonus%": 0.12
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "owner": {
+            "nightsoul": true
+          }
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityAnemo2"
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "anemoDmgBonus%": 0.28
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityGeo1"
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "geoDmgBonus%": 0.12
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "owner": {
+            "nightsoul": true
+          }
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityGeo2"
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "geoDmgBonus%": 0.28
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityCryo1"
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "cryoDmgBonus%": 0.12
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "enable": {
+          "owner": {
+            "nightsoul": true
+          }
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "special": "cinderCityCryo2"
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "cryoDmgBonus%": 0.28
+          }
+        }
+      }
+    ]
   },
   "15038": {
-    "disabled": true,
     "name": "Obsidian Codex",
     "version": 5.0,
     "id": 15038,
@@ -1869,13 +2149,21 @@
       2,
       4
     ],
-    "halfStat": "obsidianCodex",
     "effects": [
       {
         "bonus": 2,
         "buff": {
           "filter": {
-            "field": "onField"
+            "and": [
+              {
+                "nightsoul": {
+                  ">": 0
+                }
+              },
+              {
+                "field": "onField"
+              }
+            ]
           },
           "stats": {
             "dmgBonus%": 0.15
@@ -1884,6 +2172,25 @@
       },
       {
         "bonus": 4,
+        "apply": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "nightsoul": {
+                    "<=": -1
+                  }
+                }
+              },
+              {
+                "field": "onField"
+              }
+            ]
+          },
+          "cooldown": 1000,
+          "duration": 6000
+        },
         "buff": {
           "stats": {
             "critRate%": 0.4

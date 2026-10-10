@@ -2,25 +2,23 @@ import { GI, WW } from '@/data';
 import { clamp } from '@/utils';
 import { applyGauge, consumeVerdantDew } from './reactions';
 import {
+  advanceStates,
+  decayBuffUses,
+  updateShielded,
   changeBondOfLife,
   grantBondOfLife,
-} from './states/bond-of-life'
-import {
-  runTuneBreak,
-  applyOffTuneBuildup,
-  inflictTuneShifting,
-} from './states/tune';
-import {
+  tryNightsoulBurst,
+  updateNightsoulPoints,
   consumeNegativeStatuses,
   inflictNegativeStatuses,
   replaceNegativeStatuses,
-} from './states/negative-statuses';
+  runTuneBreak,
+  applyOffTuneBuildup,
+  inflictTuneShifting,
+} from './states'
 import { canSnapshot, buildSnapshot } from './snapshot';
 import { getModifiedAction } from './getModifiedAction';
-import { advanceStates } from './states';
 import { runRestoreEnergy } from './restoreEnergy';
-import { updateShielded } from './states/shielded';
-import { decayBuffUses } from './states/effects/decayBuffUses';
 
 export function runAction(ctx, action, options = {}) {
   const { noDuration } = options;
@@ -73,6 +71,7 @@ export function runAction(ctx, action, options = {}) {
 
   if (gameId === GI) {
     grantBondOfLife(ctx, modifiedAction);
+    updateNightsoulPoints(ctx, modifiedAction);
   }
 
   if (gameId === WW) {
@@ -86,11 +85,6 @@ export function runAction(ctx, action, options = {}) {
 
   for (const offset of hitOffsets) {
     advanceTimeTo(offset);
-    ctx.runEffects('hit', modifiedAction);
-
-    if (modifiedAction.drain) {
-      runDrain(ctx, modifiedAction);
-    }
 
     let rxnScaleMult = 1;
     let rxnScaleFlat = 0;
@@ -98,19 +92,6 @@ export function runAction(ctx, action, options = {}) {
       const { scaleMult, scaleFlat } = applyGauge(ctx, modifiedAction) ?? {};
       rxnScaleMult = scaleMult;
       rxnScaleFlat = scaleFlat;
-    }
-
-    if (modifiedAction.healing) {
-      for (const target of modifiedAction.healing.targets) {
-        let targetId = target;
-        if (targetId === '$onField') {
-          targetId = ctx.states.onFieldId;
-        }
-
-        if (gameId === GI) {
-          changeBondOfLife(ctx, targetId, -1);
-        }
-      }
     }
 
     if (sharedSnapshot) {
@@ -126,7 +107,30 @@ export function runAction(ctx, action, options = {}) {
       });
     }
 
+    if (modifiedAction.healing) {
+      for (const target of modifiedAction.healing.targets) {
+        let targetId = target;
+        if (targetId === '$onField') {
+          targetId = ctx.states.onFieldId;
+        }
+
+        if (gameId === GI) {
+          changeBondOfLife(ctx, targetId, -1);
+        }
+      }
+    }
+
+    if (modifiedAction.drain) {
+      runDrain(ctx, modifiedAction);
+    }
+
     updateShielded(ctx, modifiedAction);
+
+    if (gameId === GI) {
+      tryNightsoulBurst(ctx, modifiedAction);
+    }
+
+    ctx.runEffects('hit', modifiedAction);
   }
 
   advanceTimeTo(duration);

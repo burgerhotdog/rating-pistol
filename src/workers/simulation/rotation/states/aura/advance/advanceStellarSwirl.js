@@ -1,5 +1,6 @@
 import { applyCryo } from '../../../reactions';
 import { buildElevationSnapshot } from '../../../snapshot';
+import { hasGameRule } from '../../gameRules';
 
 function tickStellarSwirl(ctx, state, offset) {
   if (ctx.saveSnapshots) {
@@ -15,6 +16,9 @@ function tickStellarSwirl(ctx, state, offset) {
   state.vortexTimer = Infinity;
   state.vortexHits = 0;
   state.ownerId = null;
+  if (hasGameRule(ctx, 'wanderingVortex')) {
+    state.wanderingVortex = 6000;
+  }
 
   applyCryo(ctx, 1, state.ownerId);
 }
@@ -30,6 +34,7 @@ export function advanceStellarSwirl(ctx, elapsed) {
     remaining -= decrease;
     state.timeLeft -= decrease;
     state.vortexTimer -= decrease;
+    state.wanderingVortex = Math.max(state.wanderingVortex - decrease, 0);
     if (state.timeLeft === 0) {
       delete auraStore.stellarSwirl;
       break;

@@ -31,7 +31,7 @@ export const getBuffMap = (ctx, options = {}) => {
     if (snapshot === 'frozen' && isLiveOnly) continue;
     if (snapshot === 'live' && !isLiveOnly) continue;
 
-    if (!ctx.eventFilter(effect.buff?.filter, effect, { action, fieldId: action.ownerId })) continue;
+    if (!ctx.eventFilter(effect.buff?.filter, effect, { action, fieldId: memberId })) continue;
 
     const linkedStacks = effect.buff?.statusStacks
       ? ctx.states.negativeStatuses[effect.buff.statusStacks]?.stacks ?? 0
@@ -63,7 +63,7 @@ export const getBuffMap = (ctx, options = {}) => {
   }
 
   if (gameId === GI) {
-    const { superconduct, stellarConduct } = ctx.states.aura;
+    const { superconduct, stellarConduct, stellarSwirl } = ctx.states.aura;
     if (superconduct || stellarConduct) {
       buffMap['physicalResReduction%'] = (buffMap['physicalResReduction%'] ?? 0) + 0.4;
     }
@@ -72,6 +72,10 @@ export const getBuffMap = (ctx, options = {}) => {
       const { bonus } = stellarConduct;
       buffMap['cryoDmgBonus%'] = (buffMap['cryoDmgBonus%'] ?? 0) + bonus;
       buffMap['electroDmgBonus%'] = (buffMap['electroDmgBonus%'] ?? 0) + bonus;
+    }
+
+    if (stellarSwirl?.wanderingVortex) {
+      buffMap['anemoResReduction%'] = (buffMap['anemoResReduction%'] ?? 0) + 0.35;
     }
   }
 

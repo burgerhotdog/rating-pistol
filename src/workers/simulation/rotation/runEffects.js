@@ -1,11 +1,10 @@
 import { GI } from '@/data';
-import { runCommands } from './states/effects/commands';
-import { runRemoveEffect, runUseEffect, runApplyEffect } from './states/effects';
+import { runCommands, runRemoveEffect, runUseEffect, runApplyEffect } from './states';
 
 function tryRemove(ctx, when, state, spec) {
   const { effect } = state;
   if (!effect.remove) return;
-  const eventOwnerId = spec.fieldId;
+  const eventOwnerId = spec.fieldId ?? effect.ownerId;
 
   for (const remove of effect.remove) {
     if (remove.when !== when) continue;
@@ -13,6 +12,7 @@ function tryRemove(ctx, when, state, spec) {
     if (!ctx.eventFilter(remove.filter, effect, spec)) continue;
 
     const removed = runRemoveEffect(state, remove);
+
 
     const commands = remove.commands;
     if (commands) {
@@ -98,7 +98,7 @@ export function runEffects(ctx, when, event = {}) {
 
   for (const memberId in memberEffects) {
     Object.values(memberEffects[memberId]).forEach((state) =>
-      tryRemove(ctx, when, state, { ...spec, fieldId: spec.fieldId ?? memberId })
+      tryRemove(ctx, when, state, { ...spec, fieldId: spec.fieldId ?? Number(memberId) })
     );
   }
 
@@ -108,7 +108,7 @@ export function runEffects(ctx, when, event = {}) {
 
   for (const memberId in memberEffects) {
     Object.values(memberEffects[memberId]).forEach((state) =>
-      tryUse(ctx, when, state, { ...spec, fieldId: spec.fieldId ?? memberId })
+      tryUse(ctx, when, state, { ...spec, fieldId: spec.fieldId ?? Number(memberId) })
     );
   }
 

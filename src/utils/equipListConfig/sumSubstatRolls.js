@@ -9,6 +9,7 @@ export const sumSubstatRolls = (gameId, equipList, isTrialBuild = false) => {
     if (!equip) continue;
 
     for (const { id, value } of equip.substats) {
+      if (!id) continue;
       const normalizedValue = isTrialBuild ? value : normalizeValue(id, value);
       const rollMult = normalizedValue / SUBSTAT[gameId][id].value;
 

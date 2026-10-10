@@ -22,7 +22,7 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
     const snapshots = snapshotSpecs(evalStatMap);
     const totals = getTotals(snapshots);
     const { time } = durationGetter(evalEquipMap);
-    const score = (totals.damage + totals.healing + totals.shield) / time * 1000;
+    const score = totals.damage / time * 1000;
 
     return { snapshots, totals, score, actualRotationTime: time };
   };

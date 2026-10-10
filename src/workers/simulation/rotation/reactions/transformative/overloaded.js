@@ -4,9 +4,13 @@ import { consumeAura } from '../../states';
 export function reactOverloaded(ctx, ownerId, auraElement, gaugeUnits) {
   const auraStore = ctx.states.aura;
 
-  if (ctx.saveSnapshots) {
-    const snapshot = buildTransformativeReactionSnapshot(ctx, ownerId, 'overloaded', 'pyro');
-    ctx.snapshots.push(snapshot);
+  if (!ctx.states.globalCooldowns.overloaded) {
+    ctx.states.globalCooldowns.overloaded = 500;
+
+    if (ctx.saveSnapshots) {
+      const snapshot = buildTransformativeReactionSnapshot(ctx, ownerId, 'overloaded', 'pyro');
+      ctx.snapshots.push(snapshot);
+    }
   }
 
   let excess;

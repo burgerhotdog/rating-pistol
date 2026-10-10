@@ -69,6 +69,11 @@
     "effects": [
       {
         "buff": {
+          "filter": {
+            "health": {
+              ">": 0.9
+            }
+          },
           "stats": {
             "critRate%": [
               0.14,
@@ -2235,7 +2240,6 @@
     ]
   },
   "11522": {
-    "disabled": true,
     "name": "Beyond the Chrysalis",
     "version": 7.1,
     "id": 11522,
@@ -2246,7 +2250,239 @@
       "baseAtk": 674,
       "critDmg%": 0.441
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "buffGuard",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "type": [
+                "elementalSkill",
+                "elementalBurst"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "ref": "prevBuff",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swap",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "maxStacks": 2
+      },
+      {
+        "ref": "windsOfDevotion",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": [
+                    "elementalSkill",
+                    "elementalBurst"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "and": [
+                    {
+                      "not": {
+                        "has": "buffGuard"
+                      }
+                    },
+                    {
+                      "not": {
+                        "has": "prevBuff"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 10000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "buffGuard"
+            },
+            {
+              "type": "apply",
+              "ref": "prevBuff"
+            }
+          ]
+        },
+        "remove": {
+          "when": "swap",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": [
+              0.56,
+              1.2
+            ]
+          }
+        }
+      },
+      {
+        "ref": "windsOfDefiance",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": [
+                    "elementalSkill",
+                    "elementalBurst"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "and": [
+                    {
+                      "not": {
+                        "has": "buffGuard"
+                      }
+                    },
+                    {
+                      "prevBuff": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "duration": 10000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "buffGuard"
+            },
+            {
+              "type": "apply",
+              "ref": "prevBuff"
+            }
+          ]
+        },
+        "remove": {
+          "when": "swap",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "buff": {
+          "stats": {
+            "stellarSwirlReactionBonus%": [
+              0.36,
+              0.72
+            ]
+          }
+        }
+      },
+      {
+        "ref": "windsOfPlenty",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": [
+                    "elementalSkill",
+                    "elementalBurst"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "and": [
+                    {
+                      "not": {
+                        "has": "buffGuard"
+                      }
+                    },
+                    {
+                      "prevBuff": 2
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "uses": 1,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "buffGuard"
+            },
+            {
+              "type": "remove",
+              "ref": "prevBuff"
+            }
+          ]
+        },
+        "remove": {
+          "when": "swap",
+          "filter": {
+            "field": "offField"
+          }
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": "energyCd"
+                }
+              }
+            },
+            "action": {
+              "restoreEnergy": {
+                "flat": [
+                  5,
+                  7
+                ]
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "energyCd",
+              "spec": {
+                "duration": 4000
+              }
+            }
+          },
+          {
+            "when": "interval"
+          }
+        ]
+      },
+      {
+        "ref": "energyCd",
+        "apply": {
+          "when": "command"
+        }
+      }
+    ]
   },
   "12101": {
     "name": "Waster Greatsword",
@@ -4124,7 +4360,6 @@
     ]
   },
   "14302": {
-    "disabled": true,
     "name": "Thrilling Tales of Dragon Slayers",
     "version": 1.0,
     "id": 14302,
@@ -4135,7 +4370,39 @@
       "baseAtk": 401,
       "hp%": 0.352
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "swap",
+          "cooldown": 20000
+        },
+        "remove": {
+          "when": "swap",
+          "commands": {
+            "type": "apply",
+            "ref": "buff",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        }
+      },
+      {
+        "ref": "buff",
+        "stores": "$next",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
   },
   "14303": {
     "disabled": true,
@@ -4823,7 +5090,6 @@
     "effects": []
   },
   "14435": {
-    "disabled": true,
     "name": "Clash of Kings",
     "version": 7.0,
     "id": 14435,
@@ -4834,7 +5100,63 @@
       "baseAtk": 510,
       "critRate%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "lawsOfTheBoard",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 12000,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ],
+            "elementalMastery": [
+              100,
+              200
+            ]
+          }
+        },
+        "maxExtensions": 1
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "chargedAttack"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "lawsOfTheBoard"
+                }
+              }
+            ]
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "lawsOfTheBoard",
+            "spec": {
+              "duration": 6000,
+              "extend": true
+            }
+          }
+        }
+      }
+    ]
   },
   "14436": {
     "disabled": true,
@@ -5399,7 +5721,6 @@
     ]
   },
   "14516": {
-    "disabled": true,
     "name": "Surf's Up",
     "version": 5.0,
     "id": 14516,
@@ -5410,7 +5731,118 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "ref": "scorchingSummer",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 15000,
+          "duration": 14000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "scorchingSummerStacks",
+              "spec": {
+                "stacks": 4
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "cleanUp",
+              "spec": {
+                "uses": 1,
+                "offset": 14000
+              }
+            }
+          ]
+        },
+        "use": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "vaporize"
+            }
+          },
+          "cooldown": 1500,
+          "commands": {
+            "type": "apply",
+            "ref": "delayedApply",
+            "spec": {
+              "uses": 1,
+              "offset": 250
+            }
+          }
+        }
+      },
+      {
+        "ref": "delayedApply",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "scorchingSummerStacks"
+          }
+        }
+      },
+      {
+        "ref": "scorchingSummerStacks",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 1500,
+          "stacks": 1
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "cleanUp",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "remove",
+            "ref": "scorchingSummerStacks"
+          }
+        }
+      }
+    ]
   },
   "14517": {
     "disabled": true,
@@ -5846,6 +6278,25 @@
               "maxValue": [
                 0.26,
                 0.58
+              ]
+            }
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "shield"
+            }
+          },
+          "cooldown": 14000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                14,
+                18
               ]
             }
           }

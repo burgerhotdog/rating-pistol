@@ -11,7 +11,7 @@ const SPECIAL_CASES = {
   Ex: 'EX',
 };
 
-export function formatStr(str) {
+export function formatStr(str = '') {
   return str
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .split(' ')

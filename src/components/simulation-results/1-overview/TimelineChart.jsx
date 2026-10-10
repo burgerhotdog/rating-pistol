@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { useData } from '@/hooks';
+import { useData, usePageParams } from '@/hooks';
 import { formatDmg, formatNum, formatStr } from '@/utils';
 
 function buildData(snapshots, areaStack, userRotationTime, userRotationTimeSource) {
@@ -162,6 +162,7 @@ const RotationTimeline = ({
   userRotationTime,
   userRotationTimeSource,
 }) => {
+  const { gameId } = usePageParams();
   const { palette } = useTheme();
   const charDatas = useData('character');
   const elementDatas = useData('element');
@@ -196,6 +197,7 @@ const RotationTimeline = ({
         dataKey: damageType,
         name: formatStr(damageType),
         color: '#ffffff',
+        icon: `${gameId}/reaction/${damageType}.webp`,
       })),
   ];
 

@@ -123,6 +123,19 @@ function cacheMoonsignResonance(cache) {
 export function cacheTeamResonance(cache) {
   cache.teamResonance = { stats: {}, effects: [] };
 
+  cacheNightsoulBurstCooldown(cache);
   cacheElementalResonance(cache);
   cacheMoonsignResonance(cache);
+}
+
+function cacheNightsoulBurstCooldown(cache) {
+  const numNightsoul = cache.counts.nightsoul;
+
+  if (numNightsoul >= 3) {
+    cache.nightsoulBurst = 9000;
+  } else if (numNightsoul === 2) {
+    cache.nightsoulBurst = 12000;
+  } else if (numNightsoul === 1) {
+    cache.nightsoulBurst = 18000;
+  }
 }

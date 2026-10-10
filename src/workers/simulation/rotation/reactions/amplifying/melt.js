@@ -15,10 +15,10 @@ function ampFormula(reaction, statMap) {
   return 1 + emBonus(statMap) + reactionBonus(reaction, statMap);
 }
 
-function getAmpMultiplier(ctx, reaction, ownerId, isForward) {
+function getAmpMultiplier(ctx, reaction, ownerId, isForward, action) {
   const reactionMultiplier = isForward ? 2 : 1.5;
 
-  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId });
+  const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId: ownerId, action });
 
   const statMapOwnerIdBuildMap = ctx.buildMaps[ownerId];
 
@@ -51,7 +51,7 @@ function getAmpMultiplier(ctx, reaction, ownerId, isForward) {
     };
   }
 
-  const testBuffMap = getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true });
+  const testBuffMap = getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true }).buffMap;
 
   // Action is not from specId but has variable buffs from specId
   if (!isSpecIdAction) {
@@ -76,17 +76,20 @@ function getAmpMultiplier(ctx, reaction, ownerId, isForward) {
   };
 }
 
-export function reactMelt(ctx, ownerId, isForward, gaugeUnits) {
+export function reactMelt(ctx, ownerId, isForward, gaugeUnits, action) {
   const auraStore = ctx.states.aura;
   const unitModifier = isForward ? 2 : 0.5;
 
-  const mult = getAmpMultiplier(ctx, 'melt', ownerId, isForward);
+  const mult = getAmpMultiplier(ctx, 'melt', ownerId, isForward, action);
   const units = gaugeUnits * unitModifier;
 
   let excess;
 
   if (isForward) {
-    excess = consumeAura(auraStore, 'cryo', units);
+    excess = Math.min(
+      consumeAura(auraStore, 'frozen', units),
+      consumeAura(auraStore, 'cryo', units),
+    );
   } else {
     excess = Math.min(
       consumeAura(auraStore, 'burning', units),

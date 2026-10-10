@@ -16,5 +16,5 @@ export function runVariantDps(cache, equipMaps, charId, memberOverride, duration
   const { snapshots, bonusEnergy } = runRotation(variantCache, equipMaps);
   const { time } = durationGetter(variantCache, bonusEnergy);
   const totals = getTotals(snapshots);
-  return (totals.damage + totals.healing + totals.shield) / time * 1000;
+  return totals.damage / time * 1000;
 }

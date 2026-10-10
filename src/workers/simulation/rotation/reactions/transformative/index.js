@@ -6,5 +6,6 @@ export * from './electroCharged';
 export * from './frozen';
 export * from './hyperbloom';
 export * from './overloaded';
+export * from './shattered';
 export * from './superconduct';
 export * from './swirl';

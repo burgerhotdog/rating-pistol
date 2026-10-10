@@ -1,6 +1,5 @@
 import { applyPyro } from '../../../reactions';
 import { buildTransformativeReactionSnapshot } from '../../../snapshot';
-import { tryIcd } from '../../icd';
 import { consumeAura } from '../consumeAura';
 import { decayElementalAura } from './decayElementalAura';
 
@@ -22,7 +21,8 @@ function tickBurning(ctx, burningState, offset = 0) {
 
   burningState.timer = 250;
 
-  if (tryIcd(ctx, 'system', { tag: 'burning', time: 2000 })) {
+  if (!ctx.states.globalCooldowns.burning) {
+    ctx.states.globalCooldowns.burning = 2000;
     applyPyro(ctx, 1, burningState.ownerId);
   }
 }
