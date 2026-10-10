@@ -72,6 +72,9 @@ Characters:
         No constellations
     Sara
         Remember c6 no snapshot
+    Sucrose
+        Element must be there at apply time to be absorbed
+        No C6
     Vesna
         Disciplinary Action stacks not independent
         No constellations

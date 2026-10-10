@@ -3053,18 +3053,64 @@
     "effects": []
   },
   "12432": {
-    "disabled": true,
     "name": "Flame-Forged Insight",
     "version": 5.8,
     "id": 12432,
     "icon": "genshin-impact/weapon/12432.webp",
     "quality": 4,
-    "type": "polearm",
+    "type": "claymore",
     "stats": {
       "baseAtk": 510,
       "elementalMastery": 165
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "electroCharged",
+                "lunarCharged",
+                "bloom",
+                "lunarBloom",
+                "crystallize",
+                "lunarCrystallize"
+              ]
+            }
+          },
+          "cooldown": 15000,
+          "duration": 15000,
+          "commands": {
+            "type": "use",
+            "ref": "energy"
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              60,
+              120
+            ]
+          }
+        }
+      },
+      {
+        "ref": "energy",
+        "use": {
+          "when": "command",
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                12,
+                24
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "12433": {
     "disabled": true,

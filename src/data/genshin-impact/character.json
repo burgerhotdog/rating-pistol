@@ -13367,6 +13367,7 @@
     "hexerei": true,
     "effects": [
       {
+        "ref": "ultDot",
         "apply": {
           "when": "hit",
           "filter": {
@@ -13374,12 +13375,155 @@
               "ref": "elementalBurst.0"
             }
           },
-          "duration": 6000
+          "duration": 6000,
+          "offset": 1000
         },
         "use": {
           "when": "interval",
           "cooldown": 2000,
           "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "ultAbsorption",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 6100,
+          "offset": 3100
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalBurst.2"
+        },
+        "absorbElement": true
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "pyro"
+                }
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "element": "pyro"
+            }
+          },
+          "stats": {
+            "elementalMastery": 50
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "hydro"
+                }
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "element": "hydro"
+            }
+          },
+          "stats": {
+            "elementalMastery": 50
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "electro"
+                }
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "element": "electro"
+            }
+          },
+          "stats": {
+            "elementalMastery": 50
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "or": [
+                {
+                  "and": [
+                    {
+                      "reaction": "swirl"
+                    },
+                    {
+                      "elements": "cryo"
+                    }
+                  ]
+                },
+                {
+                  "reaction": "stellarSwirl"
+                }
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "element": "cryo"
+            }
+          },
+          "stats": {
+            "elementalMastery": 50
+          }
         }
       },
       {
@@ -13390,7 +13534,8 @@
             "action": {
               "ref": [
                 "elementalSkill.0",
-                "elementalBurst.1"
+                "elementalBurst.1",
+                "elementalBurst.2"
               ]
             }
           },
@@ -13402,6 +13547,83 @@
               "attr": "elementalMastery",
               "step": 1,
               "value": 0.2
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": 0.0571428,
+            "chargedAttackDmgBonus%": 0.0571428,
+            "plungingAttackDmgBonus%": 0.0571428,
+            "elementalSkillDmgBonus%": 0.0571428,
+            "elementalBurstDmgBonus%": 0.0571428
+          }
+        }
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "hexerei": true
+            }
+          },
+          "stats": {
+            "normalAttackDmgBonus%": 0.0714285,
+            "chargedAttackDmgBonus%": 0.0714285,
+            "plungingAttackDmgBonus%": 0.0714285,
+            "elementalSkillDmgBonus%": 0.0714285,
+            "elementalBurstDmgBonus%": 0.0714285
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "modify": {
+          "type": "effect",
+          "ref": "ultDot",
+          "spec": {
+            "apply": {
+              "duration": 2000
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "modify": {
+          "type": "effect",
+          "ref": "ultAbsorption",
+          "spec": {
+            "apply": {
+              "duration": 2000
             }
           }
         }
@@ -53400,7 +53622,13 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000120,
+      10000121,
+      10000116,
+      10000043
+    ]
   },
   "10000122": {
     "disabled": true,
