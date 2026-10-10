@@ -41,7 +41,8 @@ function stellarConductFormula(action, statMap, reactionMultiplier) {
       getAttr('stellarConductReactionBonus%', statMap) +
       getAttr('stellarGlimmerReactionBonus%', statMap)
     ) +
-    getAttr('stellarGlimmerFlat', statMap);
+    getAttr('stellarGlimmerFlat', statMap) +
+    getAttr('stellarConductFlat', statMap);
 
   damageValue *= getCritMult(statMap);
   damageValue *= getResMult(GI, element, statMap);
@@ -67,7 +68,8 @@ function stellarSwirlFormula(action, statMap) {
       getAttr('stellarSwirlReactionBonus%', statMap) +
       getAttr('stellarGlimmerReactionBonus%', statMap)
     ) +
-    getAttr('stellarGlimmerFlat', statMap);
+    getAttr('stellarGlimmerFlat', statMap) +
+    getAttr('stellarSwirlFlat', statMap);
 
   damageValue *= getCritMult(statMap);
   damageValue *= getResMult(GI, element, statMap);

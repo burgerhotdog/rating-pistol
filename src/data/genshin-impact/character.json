@@ -30592,7 +30592,13 @@
         "elementalBurst.0"
       ],
       "duration": 13000
-    }
+    },
+    "teamPreset": [
+      10000075,
+      10000123,
+      10000131,
+      10000076
+    ]
   },
   "10000076": {
     "name": "Faruzan",
@@ -30612,15 +30618,79 @@
     "energyMin": 1.8,
     "effects": [
       {
-        "stores": "global",
+        "ref": "manifestGale",
         "apply": {
-          "when": "start",
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 18000,
+          "uses": 1
+        },
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.5"
+            }
+          },
+          "action": "elementalSkill.1",
+          "commands": {
+            "type": "apply",
+            "ref": "perfidiousWindsBale",
+            "spec": {
+              "duration": 4000
+            }
+          }
+        }
+      },
+      {
+        "ref": "dazzlingPolyhedron",
+        "apply": {
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
             }
           },
           "duration": 12000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "perfidiousWindsBale",
+              "spec": {
+                "duration": 4000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "prayerfulWindsBenefit",
+              "spec": {
+                "duration": 4000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "hurricaneGuard",
+              "spec": {
+                "duration": 4000,
+                "uses": 1
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "perfidiousWindsBale",
+        "stores": "global",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "stats": {
@@ -30629,20 +30699,130 @@
         }
       },
       {
+        "ref": "prayerfulWindsBenefit",
         "stores": "$team",
         "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "elementalBurst.0"
-            }
-          },
-          "duration": 12000
+          "when": "command"
         },
         "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "element": "anemo"
+              }
+            }
+          },
           "statRefs": {
             "anemoDmgBonus%": "elementalBurst.1"
           }
+        }
+      },
+      {
+        "ref": "hurricaneGuard",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "and": [
+                  {
+                    "element": "anemo"
+                  },
+                  {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack",
+                      "plungingAttack",
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "statRefs": {
+            "damageFlat": "elementalBurst.2"
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "modify": {
+          "type": "effect",
+          "ref": "manifestGale",
+          "spec": {
+            "apply": {
+              "uses": 1
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "modify": {
+          "type": "effect",
+          "ref": "dazzlingPolyhedron",
+          "spec": {
+            "apply": {
+              "duration": 6000
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "modify": {
+          "type": "action",
+          "ref": "elementalSkill.1",
+          "spec": {
+            "restoreEnergy": {
+              "flat": 2
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "modify": {
+          "type": "effect",
+          "ref": "prayerfulWindsBenefit",
+          "spec": {
+            "buff": {
+              "stats": {
+                "critDmg%": 0.4
+              }
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "use": {
+          "by": "$team",
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "has": "damage"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "prayerfulWindsBenefit"
+                }
+              }
+            ]
+          },
+          "cooldown": 3000,
+          "action": "elementalSkill.1"
         }
       }
     ],
@@ -31012,6 +31192,17 @@
                     0.405,
                     0.4275
                   ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Hurricane Guard Buff",
+            "buff": {
+              "baseAttr": "baseAtk",
+              "multipliers": [
+                {
+                  "mv": 0.32
                 }
               ]
             }
@@ -61471,12 +61662,14 @@
             "stellarSwirlFlat": {
               "attr": "hp",
               "step": 1000,
+              "offset": 40000,
               "value": 260,
               "maxValue": 6500
             },
             "damageFlat": {
               "attr": "hp",
               "step": 1000,
+              "offset": 40000,
               "value": 140,
               "maxValue": 3500
             }
@@ -61566,12 +61759,14 @@
             "stellarSwirlFlat": {
               "attr": "hp",
               "step": 1000,
+              "offset": 40000,
               "value": 260,
               "maxValue": 6500
             },
             "damageFlat": {
               "attr": "hp",
               "step": 1000,
+              "offset": 40000,
               "value": 140,
               "maxValue": 3500
             }
