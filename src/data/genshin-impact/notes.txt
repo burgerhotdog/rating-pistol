@@ -56,7 +56,7 @@ Characters:
         No ult electro/hydro buff
         EM buff comes from self
     Nicole
-        coordinated attack uses own atk
+        coordinated attack uses own stats
         No constellations
     Odette
         Only plume

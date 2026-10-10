@@ -40,8 +40,8 @@
               "ref": "elementalBurst.0"
             }
           },
-          "offset": 5000,
-          "uses": 1
+          "uses": 1,
+          "offset": 5000
         },
         "use": {
           "when": "interval",
@@ -4142,8 +4142,8 @@
               "ref": "elementalSkill.0"
             }
           },
-          "offset": 2000,
-          "uses": 4
+          "uses": 4,
+          "offset": 2000
         },
         "use": {
           "when": "interval",
@@ -6677,8 +6677,8 @@
               "ref": "elementalSkill.0"
             }
           },
-          "offset": 1000,
-          "uses": 3
+          "uses": 3,
+          "offset": 1000
         },
         "use": {
           "when": "interval",
@@ -40342,8 +40342,8 @@
               "ref": "elementalBurst.0"
             }
           },
-          "uses": 8,
           "duration": 16000,
+          "uses": 8,
           "commands": [
             {
               "type": "apply",
@@ -46204,7 +46204,73 @@
       "critDmg%": 0.384
     },
     "nightsoul": true,
-    "effects": [],
+    "maxNightsoul": 80,
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "passiveDrain"
+          }
+        },
+        "remove": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "nightsoul": 0
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "passiveDrain",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "nightsoul": 0
+          }
+        },
+        "use": {
+          "cooldown": 1000,
+          "action": {
+            "nightsoul": -5
+          }
+        }
+      },
+      {
+        "ref": "fightingSpirit",
+        "apply": {
+          "by": "$team",
+          "when": "nightsoulUpdate",
+          "cooldown": 100
+        },
+        "maxStacks": 200
+      },
+      {
+        "apply": {
+          "by": "$team",
+          "when": "nightsoulBurst",
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.3
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Flames Weave Life",
@@ -46258,7 +46324,8 @@
                     0.8738,
                     0.9247,
                     0.9756
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
@@ -46285,7 +46352,8 @@
                     0.7958,
                     0.8422,
                     0.8885
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
@@ -46432,8 +46500,9 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
+            "nightsoul": 80,
             "damage": {
               "multipliers": [
                 {
@@ -46459,9 +46528,10 @@
             }
           },
           {
-            "name": "Ring of Searing Radiance DMG",
-            "type": "elementalSkill",
+            "name": "Ring of Searing Radiance",
+            "nightsoul": -3,
             "damage": {
+              "type": "elementalSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -46486,8 +46556,8 @@
             }
           },
           {
-            "name": "Flamestrider Normal Attack 1-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Flamestrider: Normal Attack: 1",
+            "type": "normalAttack",
             "damage": {
               "multipliers": [
                 {
@@ -46513,8 +46583,8 @@
             }
           },
           {
-            "name": "Flamestrider Normal Attack 2-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Flamestrider: Normal Attack: 2",
+            "type": "normalAttack",
             "damage": {
               "multipliers": [
                 {
@@ -46540,8 +46610,8 @@
             }
           },
           {
-            "name": "Flamestrider Normal Attack 3-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Flamestrider: Normal Attack: 3",
+            "type": "normalAttack",
             "damage": {
               "multipliers": [
                 {
@@ -46567,8 +46637,8 @@
             }
           },
           {
-            "name": "Flamestrider Normal Attack 4-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Flamestrider: Normal Attack: 4",
+            "type": "normalAttack",
             "damage": {
               "multipliers": [
                 {
@@ -46594,8 +46664,8 @@
             }
           },
           {
-            "name": "Flamestrider Normal Attack 5-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Flamestrider: Normal Attack: 5",
+            "type": "normalAttack",
             "damage": {
               "multipliers": [
                 {
@@ -46621,9 +46691,9 @@
             }
           },
           {
-            "name": "Flamestrider Sprint DMG",
-            "type": "elementalSkill",
+            "name": "Flamestrider: Sprint",
             "damage": {
+              "type": "elementalSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -46648,8 +46718,8 @@
             }
           },
           {
-            "name": "Flamestrider Charged Attack Cyclic DMG",
-            "type": "elementalSkill",
+            "name": "Flamestrider: Charged Attack: Cyclic",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -46675,8 +46745,8 @@
             }
           },
           {
-            "name": "Flamestrider Charged Attack Final DMG",
-            "type": "elementalSkill",
+            "name": "Flamestrider: Charged Attack: Final",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -46702,8 +46772,8 @@
             }
           },
           {
-            "name": "Flamestrider Plunge DMG",
-            "type": "elementalSkill",
+            "name": "Flamestrider: Plunging Attack",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -46735,7 +46805,7 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
               "multipliers": [
@@ -46763,8 +46833,7 @@
           },
           {
             "name": "Sunfell Slice DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
                   "mv": [
@@ -46790,8 +46859,7 @@
           },
           {
             "name": "Flamestrider Normal Attack DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
                   "mv": [
@@ -46817,8 +46885,7 @@
           },
           {
             "name": "Flamestrider Charged Attack DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
                   "mv": [
@@ -60545,6 +60612,7 @@
         }
       },
       {
+        "ref": "silentContemplation",
         "apply": {
           "when": "hit",
           "filter": {
@@ -60552,8 +60620,8 @@
               "ref": "elementalBurst.0"
             }
           },
-          "uses": 4,
-          "duration": 20000
+          "duration": 20000,
+          "uses": 4
         },
         "use": {
           "by": "$team",

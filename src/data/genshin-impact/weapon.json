@@ -3179,8 +3179,8 @@
               "type": "elementalBurst"
             }
           },
-          "uses": 8,
-          "duration": 20000
+          "duration": 20000,
+          "uses": 8
         },
         "use": {
           "when": "hit",

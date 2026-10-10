@@ -6990,8 +6990,8 @@
               "ref": "resonanceLiberation.3"
             }
           },
-          "offset": 500,
-          "uses": 3
+          "uses": 3,
+          "offset": 500
         },
         "use": {
           "when": "interval",
