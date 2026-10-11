@@ -50373,29 +50373,19 @@
                 },
                 {
                   "effectStacks": {
-                    "has": "sevenPhaseFlash"
+                    "and": [
+                      {
+                        "has": "sevenPhaseFlash"
+                      },
+                      {
+                        "not": {
+                          "has": "voidRifts"
+                        }
+                      }
+                    ]
                   }
                 }
               ]
-            },
-            "commands": {
-              "type": "use",
-              "ref": "allShallWitherSwitcher"
-            }
-          }
-        ]
-      },
-      {
-        "ref": "allShallWitherSwitcher",
-        "use": [
-          {
-            "when": "command",
-            "filter": {
-              "effectStacks": {
-                "not": {
-                  "has": "voidRifts"
-                }
-              }
             },
             "commands": {
               "type": "apply",
@@ -50406,11 +50396,27 @@
             }
           },
           {
-            "when": "command",
+            "when": "hit",
             "filter": {
-              "effectStacks": {
-                "voidRifts": 1
-              }
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "sevenPhaseFlash"
+                      },
+                      {
+                        "voidRifts": 1
+                      }
+                    ]
+                  }
+                }
+              ]
             },
             "commands": {
               "type": "apply",
@@ -50421,11 +50427,27 @@
             }
           },
           {
-            "when": "command",
+            "when": "hit",
             "filter": {
-              "effectStacks": {
-                "voidRifts": 2
-              }
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "sevenPhaseFlash"
+                      },
+                      {
+                        "voidRifts": 2
+                      }
+                    ]
+                  }
+                }
+              ]
             },
             "commands": {
               "type": "apply",
@@ -50436,11 +50458,27 @@
             }
           },
           {
-            "when": "command",
+            "when": "hit",
             "filter": {
-              "effectStacks": {
-                "voidRifts": 3
-              }
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "sevenPhaseFlash"
+                      },
+                      {
+                        "voidRifts": 3
+                      }
+                    ]
+                  }
+                }
+              ]
             },
             "commands": {
               "type": "apply",
@@ -50560,7 +50598,44 @@
               ]
             }
           },
-          "cooldown": 2500
+          "cooldown": 2500,
+          "uses": 1
+        },
+        "use": {
+          "when": "end",
+          "filter": {
+            "or": [
+              {
+                "action": {
+                  "ref": "elementalSkill.1"
+                }
+              },
+              {
+                "and": [
+                  {
+                    "action": {
+                      "ref": [
+                        "elementalSkill.7",
+                        "elementalBurst.0"
+                      ]
+                    }
+                  },
+                  {
+                    "effectStacks": {
+                      "has": "sevenPhaseFlash"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "serpentsSubtlety",
+            "spec": {
+              "stacks": 8
+            }
+          }
         },
         "maxStacks": 3
       }
