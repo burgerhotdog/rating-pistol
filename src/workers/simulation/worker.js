@@ -84,24 +84,6 @@ self.onmessage = async ({ data }) => {
   self.postMessage({ status: 'done' });
 };
 
-function findBenchmark1(dpsCeiling, dpsProgression, fit) {
-  let benchmarkDay = 0;
-  let benchmarkDps = estimateDps(0, dpsCeiling, dpsProgression, fit);
-
-  while (true) {
-    const nextDps = estimateDps(benchmarkDay + 1, dpsCeiling, dpsProgression, fit)
-
-    if (nextDps / benchmarkDps < 1.01) {
-      return {
-        benchmarkDay,
-        benchmarkDps,
-      };
-    }
-
-    benchmarkDay++;
-    benchmarkDps = nextDps;
-  }
-}
 function findBenchmark(dpsCeiling, dpsProgression, fit) {
   let benchmarkDay = 0;
   let benchmarkDps = estimateDps(0, dpsCeiling, dpsProgression, fit);

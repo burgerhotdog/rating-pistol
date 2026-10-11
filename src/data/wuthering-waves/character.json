@@ -34644,7 +34644,7 @@
     "effects": [],
     "skills": {
       "normalAttack": {
-        "name": "",
+        "name": "Manifold Bloom",
         "actions": [
           {
             "name": "Basic Attack - Answering Form Stage 1 DMG",
@@ -35804,7 +35804,7 @@
         ]
       },
       "resonanceSkill": {
-        "name": "",
+        "name": "Heartward by Moon",
         "actions": [
           {
             "name": "Resonance Skill - Answering Form DMG",
@@ -35995,7 +35995,7 @@
         ]
       },
       "resonanceLiberation": {
-        "name": "",
+        "name": "Nexus Alight",
         "actions": [
           {
             "name": "Pillars Across Heaven DMG",
@@ -36184,7 +36184,7 @@
         ]
       },
       "forteCircuit": {
-        "name": "",
+        "name": "Forms Turn, Heart Abides",
         "actions": [
           {
             "name": "Heavy Attack - Answering Form: Realm Wanderer DMG",
@@ -36572,7 +36572,7 @@
         ]
       },
       "introSkill": {
-        "name": "",
+        "name": "Glance on a Whim",
         "actions": [
           {
             "name": "Intro Skill - Answering Form DMG in Resonance Mode - Electro Flare",
@@ -37170,12 +37170,21 @@
         "actions": [
           {
             "name": "Herself a Thousand Lanterns",
-            "type": "outroSkill"
+            "type": "outroSkill",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": 1
+                }
+              ]
+            }
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 21050116
+    }
   },
   "1312": {
     "disabled": true,
