@@ -13962,8 +13962,8 @@
     },
     "teamPreset": [
       10000120,
-      10000125,
       10000116,
+      10000125,
       10000043
     ]
   },
@@ -37101,9 +37101,9 @@
     },
     "teamPreset": [
       10000086,
+      10000112,
       10000058,
-      10000150,
-      10000148
+      10000150
     ]
   },
   "10000087": {
@@ -52715,8 +52715,8 @@
     },
     "teamPreset": [
       10000120,
-      10000125,
       10000116,
+      10000125,
       10000043
     ]
   },
@@ -54140,8 +54140,8 @@
     },
     "teamPreset": [
       10000120,
-      10000125,
       10000116,
+      10000125,
       10000043
     ]
   },
@@ -57855,8 +57855,8 @@
     },
     "teamPreset": [
       10000120,
-      10000125,
       10000116,
+      10000125,
       10000043
     ]
   },
@@ -60612,6 +60612,7 @@
     },
     "teamPreset": [
       10000129,
+      10000131,
       {
         "id": 10000123,
         "rotation": [
@@ -60620,7 +60621,6 @@
           "elementalBurst.1"
         ]
       },
-      10000131,
       10000107
     ]
   },
@@ -63092,9 +63092,9 @@
     },
     "teamPreset": [
       10000133,
-      10000058,
       10000150,
-      10000148
+      10000112,
+      10000058
     ]
   },
   "10000140": {
@@ -64880,13 +64880,19 @@
             ]
           },
           "duration": 15000,
-          "commands": {
-            "type": "apply",
-            "ref": "radianceHuntersPrecision",
-            "spec": {
-              "duration": 15000
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "radianceHuntersPrecision",
+              "spec": {
+                "duration": 15000
+              }
+            },
+            {
+              "type": "remove",
+              "ref": "huntersMark"
             }
-          }
+          ]
         },
         "buff": {
           "statRefs": {
@@ -64895,6 +64901,7 @@
         }
       },
       {
+        "ref": "huntersAdvance",
         "apply": {
           "when": "hit",
           "filter": {
@@ -64914,6 +64921,7 @@
         }
       },
       {
+        "ref": "tugarin",
         "use": {
           "when": "hit",
           "filter": {
@@ -64972,6 +64980,116 @@
           },
           "stats": {
             "stellarConductReactionBonus%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "use": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "elements": "electro"
+            }
+          },
+          "cooldown": 18000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 15
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "modify": {
+          "type": "effect",
+          "ref": "huntersAdvance",
+          "spec": {
+            "apply": {
+              "duration": 6000
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "modify": {
+          "type": "effect",
+          "ref": "huntersMark",
+          "spec": {
+            "apply": {
+              "filter": {
+                "action": {
+                  "ref": "elementalBurst.2"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.2"
+            }
+          },
+          "action": {
+            "healing": {
+              "targets": [
+                "$lowest"
+              ],
+              "multipliers": [
+                {
+                  "mv": 0.6
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "modify": {
+          "type": "effect",
+          "ref": "huntersPrecision",
+          "spec": {
+            "maxStacks": 1
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "modify": {
+          "type": "effect",
+          "ref": "radianceHuntersPrecision",
+          "spec": {
+            "maxStacks": 1
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "stores": "$team",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "effectStacks": {
+                  "huntersPrecision": 2
+                }
+              }
+            ]
+          },
+          "stats": {
+            "elementalMastery": 100
           }
         }
       }
@@ -65392,8 +65510,8 @@
     },
     "teamPreset": [
       10000133,
-      10000058,
       10000150,
+      10000058,
       10000148
     ]
   },
@@ -66231,9 +66349,9 @@
     },
     "teamPreset": [
       10000133,
-      10000058,
       10000150,
-      10000148
+      10000112,
+      10000058
     ]
   }
 }

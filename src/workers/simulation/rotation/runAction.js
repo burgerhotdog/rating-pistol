@@ -112,6 +112,10 @@ export function runAction(ctx, action, options = {}) {
         let targetId = target;
         if (targetId === '$onField') {
           targetId = ctx.states.onFieldId;
+        } else if (targetId === '$lowest') {
+          targetId = Number(Object.keys(ctx.states.memberHealth).reduce((lowestId, id) =>
+            ctx.states.memberHealth[id] < ctx.states.memberHealth[lowestId] ? id : lowestId
+          ));
         }
 
         if (gameId === GI) {
@@ -147,7 +151,16 @@ function runDrain(ctx, action) {
   } = action.drain;
   const { memberHealth } = ctx.states;
 
-  for (const targetId of targets) {
+  for (const target of targets) {
+    let targetId = target;
+    if (targetId === '$onField') {
+      targetId = ctx.states.onFieldId;
+    } else if (targetId === '$lowest') {
+      targetId = Number(Object.keys(memberHealth).reduce((lowestId, id) =>
+        memberHealth[id] < memberHealth[lowestId] ? id : lowestId
+      ));
+    }
+
     const prev = memberHealth[targetId];
     if (value > 0 && prev <= minLimit) continue;
     if (value < 0 && prev >= maxLimit) continue;
