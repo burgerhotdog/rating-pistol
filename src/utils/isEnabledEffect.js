@@ -3,6 +3,16 @@ import { evaluateFilter } from './evaluateFilter';
 
 function evaluateSpecial(special, counts, memberIds, ownerElement, teamSize) {
   switch (special) {
+    case 'escoffier1':
+    case 'escoffier2':
+    case 'escoffier3':
+    case 'escoffier4': {
+      const eligible = (counts.element.hydro ?? 0) + (counts.element.cryo ?? 0);
+      const required = Number(special.at(-1));
+
+      return eligible === required;
+    }
+
     case 'vesnaPassive2Non1':
       return teamSize - (counts.element.cryo ?? 0) - (counts.element.anemo ?? 0) >= 1;
     case 'vesnaPassive2Non2':

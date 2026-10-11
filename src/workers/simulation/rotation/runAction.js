@@ -116,6 +116,7 @@ export function runAction(ctx, action, options = {}) {
 
         if (gameId === GI) {
           changeBondOfLife(ctx, targetId, -1);
+          runDrain(ctx, { drain: { targets: modifiedAction.healing.targets, value: -0.01 } });
         }
       }
     }

@@ -3622,7 +3622,6 @@
     "effects": []
   },
   "13405": {
-    "disabled": true,
     "name": "Deathmatch",
     "version": 1.0,
     "id": 13405,
@@ -3633,7 +3632,18 @@
       "baseAtk": 454,
       "critRate%": 0.368
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
   },
   "13406": {
     "disabled": true,

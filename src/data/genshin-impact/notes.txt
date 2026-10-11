@@ -21,6 +21,8 @@ Characters:
         No constellations
     Durin
         No constellations
+    Escoffier
+        No constellations
     Fischl
         No constellations
     Flins

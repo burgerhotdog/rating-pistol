@@ -38813,7 +38813,13 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000114,
+      10000140,
+      10000089,
+      10000112
+    ]
   },
   "10000090": {
     "name": "Chevreuse",
@@ -49456,7 +49462,6 @@
     }
   },
   "10000112": {
-    "disabled": true,
     "name": "Escoffier",
     "version": 5.6,
     "id": 10000112,
@@ -49471,7 +49476,163 @@
       "critRate%": 0.192
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 20000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "ref": "rehabDiet",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 9000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": {
+            "healing": {
+              "targets": [
+                "$onField"
+              ],
+              "multipliers": [
+                {
+                  "mv": 1.3824
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "escoffier1"
+        },
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "hydroResReduction%": 0.05,
+            "cryoResReduction%": 0.05
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "escoffier2"
+        },
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "hydroResReduction%": 0.1,
+            "cryoResReduction%": 0.1
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "escoffier3"
+        },
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "hydroResReduction%": 0.15,
+            "cryoResReduction%": 0.15
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "escoffier4"
+        },
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "hydroResReduction%": 0.55,
+            "cryoResReduction%": 0.55
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Kitchen Skills",
@@ -49691,9 +49852,14 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 1500
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -49718,9 +49884,14 @@
             }
           },
           {
-            "name": "Frosty Parfait DMG",
-            "type": "elementalSkill",
+            "name": "Frosty Parfait",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 1500
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -49745,9 +49916,9 @@
             }
           },
           {
-            "name": "Surging Blade DMG",
-            "type": "elementalSkill",
+            "name": "Surging Blade",
             "damage": {
+              "type": "elementalSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -49778,9 +49949,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -49802,12 +49974,9 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Healing",
-            "type": "elementalBurst",
-            "damage": {
+            },
+            "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "mv": [
@@ -49826,10 +49995,8 @@
                     3.6557,
                     3.8707,
                     4.0858
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     1078.5255,
                     1186.3931,
                     1303.2495,
@@ -49853,7 +50020,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13514,
+      "setCounts": {
+        "15032": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000114,
+      10000140,
+      10000089,
+      10000112
+    ]
   },
   "10000113": {
     "disabled": true,
@@ -50241,7 +50423,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "ref": "elementalBurst.1"
+              "ref": "elementalBurst.2"
             }
           },
           "stacks": 50
@@ -50250,13 +50432,13 @@
           "filter": {
             "action": {
               "ref": [
-                "elementalBurst.1",
-                "elementalBurst.2"
+                "elementalBurst.2",
+                "elementalBurst.3"
               ]
             }
           },
           "statRefs": {
-            "damageMv": "elementalBurst.3"
+            "damageMv": "elementalBurst.4"
           }
         },
         "maxStacks": 62
@@ -50287,20 +50469,6 @@
               }
             }
           ]
-        },
-        "modify": {
-          "type": "action",
-          "filter": {
-            "action": {
-              "ref": "elementalBurst.0"
-            }
-          },
-          "spec": {
-            "duration": 1000,
-            "hitOffsets": [
-              500
-            ]
-          }
         }
       },
       {
@@ -50331,182 +50499,61 @@
         }
       },
       {
-        "ref": "ultSwitcher",
-        "use": [
-          {
-            "when": "hit",
-            "filter": {
-              "and": [
-                {
-                  "action": {
-                    "ref": "elementalBurst.0"
-                  }
-                },
-                {
-                  "effectStacks": {
-                    "and": [
-                      {
-                        "not": {
-                          "has": "sevenPhaseFlash"
-                        }
-                      },
-                      {
-                        "serpentsSubtlety": {
-                          ">=": 50
-                        }
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            "action": [
-              "elementalBurst.1",
-              "elementalBurst.2"
-            ],
-            "commands": [
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
               {
-                "type": "remove",
-                "ref": "serpentsSubtlety"
+                "action": {
+                  "ref": "elementalBurst.0"
+                }
               },
               {
-                "type": "remove",
-                "ref": "ssUltBuff"
+                "effectStacks": {
+                  "serpentsSubtlety": {
+                    ">=": 50
+                  }
+                }
               }
             ]
           },
-          {
-            "when": "hit",
-            "filter": {
-              "and": [
-                {
-                  "action": {
-                    "ref": "elementalBurst.0"
-                  }
-                },
-                {
-                  "effectStacks": {
-                    "and": [
-                      {
-                        "has": "sevenPhaseFlash"
-                      },
-                      {
-                        "not": {
-                          "has": "voidRifts"
-                        }
-                      }
-                    ]
-                  }
-                }
-              ]
+          "action": [
+            "elementalBurst.2",
+            "elementalBurst.3"
+          ],
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "serpentsSubtlety"
             },
-            "commands": {
-              "type": "apply",
-              "ref": "allShallWither0",
-              "spec": {
-                "uses": 10
-              }
+            {
+              "type": "remove",
+              "ref": "ssUltBuff"
             }
-          },
-          {
-            "when": "hit",
-            "filter": {
-              "and": [
-                {
-                  "action": {
-                    "ref": "elementalBurst.0"
-                  }
-                },
-                {
-                  "effectStacks": {
-                    "and": [
-                      {
-                        "has": "sevenPhaseFlash"
-                      },
-                      {
-                        "voidRifts": 1
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            "commands": {
-              "type": "apply",
-              "ref": "allShallWither1",
-              "spec": {
-                "uses": 10
-              }
-            }
-          },
-          {
-            "when": "hit",
-            "filter": {
-              "and": [
-                {
-                  "action": {
-                    "ref": "elementalBurst.0"
-                  }
-                },
-                {
-                  "effectStacks": {
-                    "and": [
-                      {
-                        "has": "sevenPhaseFlash"
-                      },
-                      {
-                        "voidRifts": 2
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            "commands": {
-              "type": "apply",
-              "ref": "allShallWither2",
-              "spec": {
-                "uses": 10
-              }
-            }
-          },
-          {
-            "when": "hit",
-            "filter": {
-              "and": [
-                {
-                  "action": {
-                    "ref": "elementalBurst.0"
-                  }
-                },
-                {
-                  "effectStacks": {
-                    "and": [
-                      {
-                        "has": "sevenPhaseFlash"
-                      },
-                      {
-                        "voidRifts": 3
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            "commands": {
-              "type": "apply",
-              "ref": "allShallWither3",
-              "spec": {
-                "uses": 10
-              }
-            }
-          }
-        ]
+          ]
+        }
       },
       {
         "ref": "allShallWither0",
         "apply": {
-          "when": "command"
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.1"
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "voidRifts"
+                  }
+                }
+              }
+            ]
+          },
+          "uses": 10
         },
         "buff": {
           "filter": {
@@ -50525,7 +50572,22 @@
       {
         "ref": "allShallWither1",
         "apply": {
-          "when": "command"
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.1"
+                }
+              },
+              {
+                "effectStacks": {
+                  "voidRifts": 1
+                }
+              }
+            ]
+          },
+          "uses": 10
         },
         "buff": {
           "filter": {
@@ -50544,7 +50606,22 @@
       {
         "ref": "allShallWither2",
         "apply": {
-          "when": "command"
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.1"
+                }
+              },
+              {
+                "effectStacks": {
+                  "voidRifts": 2
+                }
+              }
+            ]
+          },
+          "uses": 10
         },
         "buff": {
           "filter": {
@@ -50563,7 +50640,22 @@
       {
         "ref": "allShallWither3",
         "apply": {
-          "when": "command"
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.1"
+                }
+              },
+              {
+                "effectStacks": {
+                  "voidRifts": 3
+                }
+              }
+            ]
+          },
+          "uses": 10
         },
         "buff": {
           "filter": {
@@ -50617,30 +50709,13 @@
         "use": {
           "when": "end",
           "filter": {
-            "or": [
-              {
-                "action": {
-                  "ref": "elementalSkill.1"
-                }
-              },
-              {
-                "and": [
-                  {
-                    "action": {
-                      "ref": [
-                        "elementalSkill.7",
-                        "elementalBurst.0"
-                      ]
-                    }
-                  },
-                  {
-                    "effectStacks": {
-                      "has": "sevenPhaseFlash"
-                    }
-                  }
-                ]
-              }
-            ]
+            "action": {
+              "ref": [
+                "elementalSkill.7",
+                "elementalBurst.1",
+                "elementalSkill.1"
+              ]
+            }
           },
           "commands": {
             "type": "apply",
@@ -50810,8 +50885,8 @@
               {
                 "action": {
                   "ref": [
-                    "elementalBurst.1",
-                    "elementalBurst.2"
+                    "elementalBurst.2",
+                    "elementalBurst.3"
                   ]
                 }
               },
@@ -50835,8 +50910,8 @@
               {
                 "action": {
                   "ref": [
-                    "elementalBurst.1",
-                    "elementalBurst.2"
+                    "elementalBurst.2",
+                    "elementalBurst.3"
                   ]
                 }
               },
@@ -50860,8 +50935,8 @@
               {
                 "action": {
                   "ref": [
-                    "elementalBurst.1",
-                    "elementalBurst.2"
+                    "elementalBurst.2",
+                    "elementalBurst.3"
                   ]
                 }
               },
@@ -51490,6 +51565,11 @@
             "type": "elementalBurst"
           },
           {
+            "name": "Seven-Phase Flash: Elemental Burst",
+            "type": "elementalBurst",
+            "duration": 1000
+          },
+          {
             "name": "Slash",
             "damage": {
               "type": "elementalBurst",
@@ -51701,7 +51781,7 @@
         "elementalSkill.4",
         "elementalSkill.5",
         "elementalSkill.6",
-        "elementalBurst.0",
+        "elementalBurst.1",
         "elementalSkill.2",
         "elementalSkill.3",
         "elementalSkill.4",
@@ -51714,7 +51794,13 @@
         "elementalSkill.5",
         "elementalSkill.6"
       ]
-    }
+    },
+    "teamPreset": [
+      10000114,
+      10000140,
+      10000089,
+      10000112
+    ]
   },
   "10000115": {
     "disabled": true,
