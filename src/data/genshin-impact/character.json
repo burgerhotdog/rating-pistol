@@ -50211,7 +50211,6 @@
     "memberPreset": {}
   },
   "10000114": {
-    "disabled": true,
     "name": "Skirk",
     "version": 5.7,
     "id": 10000114,
@@ -50288,6 +50287,20 @@
               }
             }
           ]
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "spec": {
+            "duration": 1000,
+            "hitOffsets": [
+              500
+            ]
+          }
         }
       },
       {
@@ -50638,6 +50651,231 @@
           }
         },
         "maxStacks": 3
+      },
+      {
+        "ref": "deathsCrossing",
+        "apply": {
+          "when": "command"
+        },
+        "maxStacks": 3
+      },
+      {
+        "stores": "$ally",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "or": [
+              {
+                "and": [
+                  {
+                    "character": {
+                      "element": "hydro"
+                    }
+                  },
+                  {
+                    "action": {
+                      "damage": {
+                        "element": "hydro"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "and": [
+                  {
+                    "character": {
+                      "element": "cryo"
+                    }
+                  },
+                  {
+                    "action": {
+                      "damage": {
+                        "element": "cryo"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "cooldown": 20000,
+          "commands": {
+            "type": "apply",
+            "ref": "deathsCrossing",
+            "spec": {
+              "duration": 20000
+            }
+          }
+        }
+      },
+      {
+        "ref": "deathsCrossingNA1",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "and": [
+                    {
+                      "deathsCrossing": 1
+                    },
+                    {
+                      "has": "sevenPhaseFlash"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "stats": {
+            "damageMv%": 0.1
+          }
+        }
+      },
+      {
+        "ref": "deathsCrossingNA2",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "and": [
+                    {
+                      "deathsCrossing": 2
+                    },
+                    {
+                      "has": "sevenPhaseFlash"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "stats": {
+            "damageMv%": 0.2
+          }
+        }
+      },
+      {
+        "ref": "deathsCrossingNA3",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "and": [
+                    {
+                      "deathsCrossing": 3
+                    },
+                    {
+                      "has": "sevenPhaseFlash"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "stats": {
+            "damageMv%": 0.7
+          }
+        }
+      },
+      {
+        "ref": "deathsCrossingBurst1",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": [
+                    "elementalBurst.1",
+                    "elementalBurst.2"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "deathsCrossing": 1
+                }
+              }
+            ]
+          },
+          "stats": {
+            "damageMv%": 0.05
+          }
+        }
+      },
+      {
+        "ref": "deathsCrossingBurst2",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": [
+                    "elementalBurst.1",
+                    "elementalBurst.2"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "deathsCrossing": 2
+                }
+              }
+            ]
+          },
+          "stats": {
+            "damageMv%": 0.15
+          }
+        }
+      },
+      {
+        "ref": "deathsCrossingBurst3",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": [
+                    "elementalBurst.1",
+                    "elementalBurst.2"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "deathsCrossing": 3
+                }
+              }
+            ]
+          },
+          "stats": {
+            "damageMv%": 0.6
+          }
+        }
       }
     ],
     "skills": {
@@ -51451,7 +51689,32 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11517,
+      "setCounts": {
+        "15040": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.4",
+        "elementalSkill.5",
+        "elementalSkill.6",
+        "elementalBurst.0",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.4",
+        "elementalSkill.5",
+        "elementalSkill.6",
+        "elementalSkill.7",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.4",
+        "elementalSkill.5",
+        "elementalSkill.6"
+      ]
+    }
   },
   "10000115": {
     "disabled": true,

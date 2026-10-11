@@ -1119,7 +1119,6 @@
     "effects": []
   },
   "11428": {
-    "disabled": true,
     "name": "Sword of Narzissenkreuz",
     "version": 4.2,
     "id": 11428,
@@ -1130,7 +1129,82 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "enable": {
+          "owner": {
+            "not": {
+              "has": "fontaine"
+            }
+          }
+        },
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "normalAttack"
+                }
+              }
+            },
+            "cooldown": 12000,
+            "action": {
+              "damage": {
+                "type": "normalAttack",
+                "multipliers": [
+                  {
+                    "mv": 1.6
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "chargedAttack"
+                }
+              }
+            },
+            "cooldown": 12000,
+            "action": {
+              "damage": {
+                "type": "chargedAttack",
+                "multipliers": [
+                  {
+                    "mv": 1.6
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "plungingAttack"
+                }
+              }
+            },
+            "cooldown": 12000,
+            "action": {
+              "damage": {
+                "type": "plungingAttack",
+                "multipliers": [
+                  {
+                    "mv": 1.6
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
   },
   "11430": {
     "name": "Sturdy Bone",
