@@ -50225,7 +50225,346 @@
       "baseDef": 806,
       "critDmg%": 0.384
     },
-    "effects": [],
+    "effects": [
+      {
+        "ref": "serpentsSubtlety",
+        "apply": {
+          "when": "command"
+        },
+        "maxStacks": 100
+      },
+      {
+        "ref": "ssUltBuff",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "stacks": 50
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalBurst.1",
+                "elementalBurst.2"
+              ]
+            }
+          },
+          "statRefs": {
+            "damageMv": "elementalBurst.3"
+          }
+        },
+        "maxStacks": 62
+      },
+      {
+        "ref": "sevenPhaseFlash",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 12500,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "serpentsSubtlety",
+              "spec": {
+                "stacks": 45
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "ssUltBuff",
+              "spec": {
+                "stacks": 45
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "holdE",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "serpentsSubtlety",
+              "spec": {
+                "stacks": 45
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "ssUltBuff",
+              "spec": {
+                "stacks": 45
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "ultSwitcher",
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "not": {
+                          "has": "sevenPhaseFlash"
+                        }
+                      },
+                      {
+                        "serpentsSubtlety": {
+                          ">=": 50
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "action": [
+              "elementalBurst.1",
+              "elementalBurst.2"
+            ],
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "serpentsSubtlety"
+              },
+              {
+                "type": "remove",
+                "ref": "ssUltBuff"
+              }
+            ]
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "has": "sevenPhaseFlash"
+                  }
+                }
+              ]
+            },
+            "commands": {
+              "type": "use",
+              "ref": "allShallWitherSwitcher"
+            }
+          }
+        ]
+      },
+      {
+        "ref": "allShallWitherSwitcher",
+        "use": [
+          {
+            "when": "command",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": "voidRifts"
+                }
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "allShallWither0",
+              "spec": {
+                "uses": 10
+              }
+            }
+          },
+          {
+            "when": "command",
+            "filter": {
+              "effectStacks": {
+                "voidRifts": 1
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "allShallWither1",
+              "spec": {
+                "uses": 10
+              }
+            }
+          },
+          {
+            "when": "command",
+            "filter": {
+              "effectStacks": {
+                "voidRifts": 2
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "allShallWither2",
+              "spec": {
+                "uses": 10
+              }
+            }
+          },
+          {
+            "when": "command",
+            "filter": {
+              "effectStacks": {
+                "voidRifts": 3
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "allShallWither3",
+              "spec": {
+                "uses": 10
+              }
+            }
+          }
+        ]
+      },
+      {
+        "ref": "allShallWither0",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 100,
+          "statRefs": {
+            "dmgBonus%": "elementalBurst.4"
+          }
+        }
+      },
+      {
+        "ref": "allShallWither1",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 100,
+          "statRefs": {
+            "dmgBonus%": "elementalBurst.5"
+          }
+        }
+      },
+      {
+        "ref": "allShallWither2",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 100,
+          "statRefs": {
+            "dmgBonus%": "elementalBurst.6"
+          }
+        }
+      },
+      {
+        "ref": "allShallWither3",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 100,
+          "statRefs": {
+            "dmgBonus%": "elementalBurst.7"
+          }
+        }
+      },
+      {
+        "ref": "voidRifts",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "or": [
+                {
+                  "reaction": [
+                    "frozen",
+                    "superconduct",
+                    "stellarConduct",
+                    "stellarSwirl"
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "reaction": [
+                        "swirl",
+                        "crystallize"
+                      ]
+                    },
+                    {
+                      "elements": "cryo"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "cooldown": 2500
+        },
+        "maxStacks": 3
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Havoc: Sunder",
@@ -50406,7 +50745,8 @@
                     1.6006,
                     1.6939,
                     1.7871
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
@@ -50499,9 +50839,23 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "1-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Elemental Skill: Hold",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Seven-Phase Flash: Normal Attack: 1",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50526,9 +50880,15 @@
             }
           },
           {
-            "name": "2-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Seven-Phase Flash: Normal Attack: 2",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50553,9 +50913,15 @@
             }
           },
           {
-            "name": "3-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Seven-Phase Flash: Normal Attack: 3",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50599,9 +50965,15 @@
             }
           },
           {
-            "name": "4-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Seven-Phase Flash: Normal Attack: 4",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50645,9 +51017,15 @@
             }
           },
           {
-            "name": "5-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Seven-Phase Flash: Normal Attack: 5",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50672,9 +51050,15 @@
             }
           },
           {
-            "name": "Charged Attack DMG",
-            "type": "elementalSkill",
+            "name": "Seven-Phase Flash: Charged Attack",
+            "type": "chargedAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50693,42 +51077,17 @@
                     1.0671,
                     1.1292,
                     1.1914
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
           },
           {
-            "name": "Plunge DMG",
-            "type": "elementalSkill",
+            "name": "Seven-Phase Flash: Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6393,
-                    0.6914,
-                    0.7434,
-                    0.8177,
-                    0.8698,
-                    0.9293,
-                    1.011,
-                    1.0928,
-                    1.1746,
-                    1.2638,
-                    1.353,
-                    1.4422,
-                    1.5314,
-                    1.6206,
-                    1.7098
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunging Attack: Low",
-            "type": "elementalSkill",
-            "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -50753,9 +51112,10 @@
             }
           },
           {
-            "name": "Plunging Attack: High",
-            "type": "elementalSkill",
+            "name": "Seven-Phase Flash: Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -50778,6 +51138,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Seven-Phase Flash: Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6393,
+                    0.6914,
+                    0.7434,
+                    0.8177,
+                    0.8698,
+                    0.9293,
+                    1.011,
+                    1.0928,
+                    1.1746,
+                    1.2638,
+                    1.353,
+                    1.4422,
+                    1.5314,
+                    1.6206,
+                    1.7098
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -50786,9 +51173,19 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Slash DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Slash",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50807,15 +51204,22 @@
                     2.6086,
                     2.7621,
                     2.9156
-                  ]
+                  ],
+                  "times": 5
                 }
               ]
             }
           },
           {
-            "name": "Final Slash DMG",
-            "type": "elementalBurst",
+            "name": "Final Slash",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50841,11 +51245,10 @@
           },
           {
             "name": "Serpent's Subtlety Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.1932,
                     0.2077,
                     0.2222,
@@ -50867,12 +51270,11 @@
             }
           },
           {
-            "name": "0/1/2/3 Void Rift Absorption DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "name": "0 Void Rift Absorption DMG Bonus",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.035,
                     0.04,
                     0.045,
@@ -50889,9 +51291,16 @@
                     0.1,
                     0.105
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "1 Void Rift Absorption DMG Bonus",
+            "buff": {
+              "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.066,
                     0.072,
                     0.078,
@@ -50908,9 +51317,16 @@
                     0.144,
                     0.15
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "2 Void Rift Absorption DMG Bonus",
+            "buff": {
+              "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.088,
                     0.096,
                     0.104,
@@ -50927,9 +51343,16 @@
                     0.192,
                     0.2
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "3 Void Rift Absorption DMG Bonus",
+            "buff": {
+              "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.11,
                     0.12,
                     0.13,
