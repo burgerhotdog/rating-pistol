@@ -45796,8 +45796,8 @@
         }
       },
       {
-        "stores": "$applier",
         "ref": "blessingOfTheWanLight",
+        "stores": "$applier",
         "apply": {
           "by": "$team",
           "when": "start",
@@ -45863,16 +45863,14 @@
               ]
             }
           },
-          "commands": [
-            {
-              "type": "apply",
-              "ref": "blessingOfTheWanLight",
-              "spec": {
-                "duration": 10000,
-                "stacks": 5
-              }
+          "commands": {
+            "type": "apply",
+            "ref": "blessingOfTheWanLight",
+            "spec": {
+              "duration": 10000,
+              "stacks": 5
             }
-          ]
+          }
         }
       },
       {

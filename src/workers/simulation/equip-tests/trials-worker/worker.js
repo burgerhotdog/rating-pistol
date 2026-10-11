@@ -5,7 +5,7 @@ import { createEvaluateEquipMap } from '../evaluateEquipMap';
 import { createAdvanceTrial } from './advance';
 
 const NUM_TRIALS = 125;
-const NUM_TRIALS_QUICK = 50;
+const NUM_TRIALS_QUICK = 25;
 
 const NUM_DAYS = 28;
 const NUM_DAYS_QUICK = 14;

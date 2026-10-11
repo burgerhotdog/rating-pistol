@@ -2,7 +2,7 @@ import { runRemoveEffect } from './runRemoveEffect';
 import { runUseEffect } from './runUseEffect';
 import { runApplyEffect } from './runApplyEffect';
 
-export function runCommands(ctx, effect, commands) {
+export function runCommands(ctx, effect, commands, applier) {
   const effectDefs = ctx.cache.member[effect.ownerId].effects;
   const { memberEffects, globalEffects } = ctx.states;
 
@@ -35,7 +35,7 @@ export function runCommands(ctx, effect, commands) {
         break;
 
       case 'apply':
-        runApplyEffect(ctx, effect, spec);
+        runApplyEffect(ctx, effect, spec, { applier });
         break;
     }
   }
