@@ -61,25 +61,11 @@ self.onmessage = async ({ data }) => {
     userDps: userTotals.damage / userRotationTime * 1000,
   });
 
-  console.time('runComparisonTests');
-  const { weaponResults, setResults } = runComparisonTests(cache, equipMaps, bonusEnergy);
-  console.timeEnd('runComparisonTests');
-  self.postMessage({ weaponResults, setResults });
-
   self.postMessage({ title: `Running ${langData.Equip} Farming Simulations` });
   console.time('runEquipTests');
   const results = await runEquipTests(cache, equipMaps, charId);
   console.timeEnd('runEquipTests');
-
-  self.postMessage({ title: 'Running Skill Level Tests' });
-  console.time('runSkillLevelTests');
-  const skillLevelResults = runSkillLevelTests(cache, equipMaps, charId);
-  console.timeEnd('runSkillLevelTests');
-
   self.postMessage({
-    status: 'done',
-    weaponResults,
-    setResults,
     dpsCeiling: results.dpsCeiling,
     dpsProgression: results.dpsProgression,
     fit: results.fit,
@@ -87,8 +73,20 @@ self.onmessage = async ({ data }) => {
     ...findBenchmark(results.dpsCeiling, results.dpsProgression, results.fit),
     extraSubstats: results.extraSubstats,
     extraSubstatsControl: results.extraSubstatsControl,
-    skillLevelResults,
   });
+
+  console.time('runComparisonTests');
+  const { weaponResults, setResults } = runComparisonTests(cache, equipMaps, bonusEnergy);
+  console.timeEnd('runComparisonTests');
+  self.postMessage({ weaponResults, setResults });
+
+  self.postMessage({ title: 'Running Skill Level Tests' });
+  console.time('runSkillLevelTests');
+  const skillLevelResults = runSkillLevelTests(cache, equipMaps, charId);
+  console.timeEnd('runSkillLevelTests');
+  self.postMessage({ skillLevelResults });
+
+  self.postMessage({ status: 'done' });
 };
 
 function findBenchmark(dpsCeiling, dpsProgression, fit) {

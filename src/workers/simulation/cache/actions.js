@@ -2,14 +2,26 @@ import { CHARACTER, ECHO, GI, WW } from '@/data';
 import { getMvIndex, normalizeAction } from '@/utils';
 
 const getSpecialOffset = (gameId, memberIds, category) => {
-  if (gameId !== GI || category !== 'elementalSkill') return 0;
-  if (!memberIds.includes(10000114)) return 0;
+  if (gameId !== GI) return 0;
 
-  const elements = new Set(memberIds.map((id) => CHARACTER[gameId][id].element));
+  if (
+    memberIds.includes(10000033) &&
+    category === 'normalAttack'
+  ) return 1;
 
-  return elements.size === 2 &&
-    elements.has('hydro') &&
-    elements.has('cryo') ? 1 : 0;
+  if (
+    memberIds.includes(10000114) &&
+    category === 'elementalSkill'
+  ) {
+    const elements = new Set(memberIds.map((id) => CHARACTER[gameId][id].element));
+    if (
+      elements.size === 2 &&
+      elements.has('hydro') &&
+      elements.has('cryo')
+    ) return 1;
+  }
+
+  return 0;
 };
 
 export const getActionDefs = (gameId, member, memberIds, baseMap) => {
