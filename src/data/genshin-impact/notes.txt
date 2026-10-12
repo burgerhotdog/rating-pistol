@@ -21,6 +21,8 @@ Characters:
         No constellations
     Durin
         No constellations
+    Emilie
+        No constellations
     Escoffier
         No constellations
     Fischl
@@ -31,7 +33,11 @@ Characters:
         Has temporary fixed buffs
         No healing interval decrease
         No constellations
+    Gorou
+        Swapping off active buff expires instantly
     Ineffa
+        No constellations
+    Itto
         No constellations
     Kaeya
         No constellations
@@ -170,9 +176,3 @@ Sets:
     Nighttime Whispers in the Echoing Woods
         No 1s grace period
         Can be any shield
-    Unfinished Reverie
-        Burning expiry is approximation
-
-    No stacking gleaming moon
-        Night of the Sky's Unveiling
-        Silken Moon's Serenade

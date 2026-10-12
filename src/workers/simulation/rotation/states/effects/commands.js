@@ -36,6 +36,9 @@ export function runCommands(ctx, effect, commands, applier) {
         break;
 
       case 'apply':
+        if (!effect) {
+          throw new Error(`Could not resolve effect: ${key}`);
+        }
         runApplyEffect(ctx, effect, spec, { applier });
         break;
 
