@@ -1950,8 +1950,7 @@
       {
         "bonus": 4,
         "use": {
-          "by": "$team",
-          "when": "start",
+          "when": "interval",
           "filter": {
             "and": [
               {
@@ -1963,8 +1962,8 @@
               },
               {
                 "effectStacks": {
-                  "burningBuff": {
-                    "<": 5
+                  "not": {
+                    "burningBuff": 5
                   }
                 }
               }
@@ -1980,8 +1979,7 @@
       {
         "bonus": 4,
         "use": {
-          "by": "$team",
-          "when": "start",
+          "when": "interval",
           "filter": {
             "and": [
               {
@@ -2023,8 +2021,13 @@
         "bonus": 4,
         "ref": "burningGrace",
         "apply": {
-          "by": "$team",
-          "when": "start",
+          "when": "command"
+        }
+      },
+      {
+        "bonus": 4,
+        "use": {
+          "when": "interval",
           "filter": {
             "states": {
               "aura": {
@@ -2032,7 +2035,13 @@
               }
             }
           },
-          "duration": 6000
+          "commands": {
+            "type": "apply",
+            "ref": "burningGrace",
+            "spec": {
+              "duration": 6000
+            }
+          }
         }
       }
     ]
@@ -2616,6 +2625,15 @@
             "critRate%": 0.3
           }
         }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "lunarReactionBonus%": 0.1
+          }
+        }
       }
     ]
   },
@@ -2679,6 +2697,15 @@
         "buff": {
           "stats": {
             "elementalMastery": 120
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "stores": "$team",
+        "buff": {
+          "stats": {
+            "lunarReactionBonus%": 0.1
           }
         }
       }

@@ -1,0 +1,4 @@
+to improve:
+    healthUpdate
+    infusion priority
+    attackSpd

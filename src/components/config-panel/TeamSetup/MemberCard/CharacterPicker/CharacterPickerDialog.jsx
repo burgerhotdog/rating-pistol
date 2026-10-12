@@ -135,7 +135,7 @@ const CharacterPickerDialog = ({ open, onClose, onSelect, allyIds }) => {
                     sx={{
                       width: 100,
                       height: 100,
-                      filter: isDisabled && 'brightness(50%)',
+                      filter: isDisabled && 'grayscale(100%) brightness(50%)',
                     }}
                   />
                   <Typography

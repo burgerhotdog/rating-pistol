@@ -11961,7 +11961,13 @@
       "rotation": [
         "elementalSkill.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000057,
+      10000038,
+      10000055,
+      10000123
+    ]
   },
   "10000039": {
     "disabled": true,
@@ -19951,7 +19957,6 @@
     }
   },
   "10000055": {
-    "disabled": true,
     "name": "Gorou",
     "version": 2.3,
     "id": 10000055,
@@ -19966,7 +19971,367 @@
       "geoDmgBonus%": 0.24
     },
     "energy": 80,
-    "effects": [],
+    "effects": [
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "geo": 1
+            }
+          }
+        },
+        "ref": "generalsWarBanner",
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "generalsGlory"
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "statRefs": {
+            "def": "elementalSkill.1"
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "geo": 2
+            }
+          }
+        },
+        "ref": "generalsWarBanner",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "geo": {
+                ">=": 3
+              }
+            }
+          }
+        },
+        "ref": "generalsWarBanner",
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "generalsGlory"
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "geoDmgBonus%": 0.15
+          },
+          "statRefs": {
+            "def": "elementalSkill.1"
+          }
+        }
+      },
+      {
+        "ref": "generalsGlory",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 9000,
+          "commands": {
+            "type": "remove",
+            "ref": "generalsWarBanner"
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1500,
+          "action": "elementalBurst.1"
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "geoDmgBonus%": 0.15
+          },
+          "statRefs": {
+            "def": "elementalSkill.1"
+          }
+        },
+        "maxExtensions": 3
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "def%": 0.25
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "def",
+              "step": 1,
+              "value": 1.56
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalBurst.0",
+                "elementalBurst.1"
+              ]
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "def",
+              "step": 1,
+              "value": 0.156
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "use": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "reaction": {
+                  "reaction": [
+                    "crystallize",
+                    "lunarCrystallize"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "generalsGlory"
+                }
+              }
+            ]
+          },
+          "cooldown": 100,
+          "commands": {
+            "type": "apply",
+            "ref": "generalsGlory",
+            "spec": {
+              "duration": 1000,
+              "extend": true
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "enable": {
+          "counts": {
+            "element": {
+              "geo": {
+                ">=": 2
+              }
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "has": "generalsGlory"
+            }
+          },
+          "cooldown": 1500,
+          "action": {
+            "healing": {
+              "targets": [
+                "$onField"
+              ],
+              "attr": "def",
+              "multipliers": [
+                {
+                  "mv": 0.5
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "enable": {
+          "counts": {
+            "element": {
+              "geo": 1
+            }
+          }
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "element": "geo"
+              }
+            }
+          },
+          "stats": {
+            "critDmg%": 0.1
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "enable": {
+          "counts": {
+            "element": {
+              "geo": 2
+            }
+          }
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "element": "geo"
+              }
+            }
+          },
+          "stats": {
+            "critDmg%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "enable": {
+          "counts": {
+            "element": {
+              "geo": {
+                ">=": 3
+              }
+            }
+          }
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "element": "geo"
+              }
+            }
+          },
+          "stats": {
+            "critDmg%": 0.4
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Ripping Fang Fletching",
@@ -20109,8 +20474,9 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "geo",
             "damage": {
+              "element": "geo",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -20222,9 +20588,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -20250,11 +20617,10 @@
           },
           {
             "name": "DEF Increase",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     206.16,
                     221.622,
                     237.084,
@@ -20282,9 +20648,11 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -20309,9 +20677,16 @@
             }
           },
           {
-            "name": "Crystal Collapse DMG",
-            "type": "elementalBurst",
+            "name": "Crystal Collapse",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -20338,7 +20713,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15401,
+      "setCounts": {
+        "15037": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000057,
+      10000038,
+      10000055,
+      10000123
+    ]
   },
   "10000056": {
     "disabled": true,
@@ -20758,7 +21148,6 @@
     "memberPreset": {}
   },
   "10000057": {
-    "disabled": true,
     "name": "Arataki Itto",
     "version": 2.3,
     "id": 10000057,
@@ -20773,7 +21162,114 @@
       "critRate%": 0.192
     },
     "energy": 70,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "superlativeSuperstrength",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.1",
+                "normalAttack.3"
+              ]
+            }
+          }
+        },
+        "maxStacks": 5
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 1,
+          "offset": 6000,
+          "commands": {
+            "type": "apply",
+            "ref": "superlativeSuperstrength"
+          }
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "superlativeSuperstrength"
+          }
+        }
+      },
+      {
+        "ref": "oniKing",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 11000
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.0",
+                "normalAttack.2"
+              ]
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "superlativeSuperstrength"
+          }
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "category": "normalAttack"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "geo"
+            }
+          }
+        },
+        "buff": {
+          "specRefs": {
+            "atk": {
+              "attr": "def",
+              "step": 1,
+              "value": "elementalBurst.1"
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.4",
+                "normalAttack.5"
+              ]
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "def",
+              "step": 1,
+              "value": 0.35
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Fight Club Legend",
@@ -20887,8 +21383,8 @@
             }
           },
           {
-            "name": "Arataki Kesagiri Combo Slash DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack: Arataki Kesagiri: Combo Slash",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -20911,11 +21407,12 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 500
           },
           {
-            "name": "Arataki Kesagiri Final Slash DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack: Arataki Kesagiri: Final Slash",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -20941,8 +21438,8 @@
             }
           },
           {
-            "name": "Saichimonji Slash DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack: Saichimonji Slash",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -21055,9 +21552,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -21088,12 +21586,16 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "ATK Bonus",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
-            "damage": {
+            "duration": 1200
+          },
+          {
+            "name": "ATK Bonus",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.576,
                     0.6192,
                     0.6624,
@@ -21121,8 +21623,39 @@
       "weaponId": 12510,
       "setCounts": {
         "15021": 4
-      }
-    }
+      },
+      "rotation": [
+        "normalAttack.0",
+        "elementalBurst.0",
+        "normalAttack.0",
+        "elementalSkill.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.5",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.5",
+        "elementalSkill.0",
+        "normalAttack.5"
+      ],
+      "duration": 12000
+    },
+    "teamPreset": [
+      10000057,
+      10000038,
+      10000055,
+      10000123
+    ]
   },
   "10000058": {
     "name": "Yae Miko",

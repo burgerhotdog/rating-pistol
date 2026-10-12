@@ -3336,7 +3336,6 @@
     "effects": []
   },
   "12510": {
-    "disabled": true,
     "name": "Redhorn Stonethresher",
     "version": 2.3,
     "id": 12510,
@@ -3347,7 +3346,42 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "def%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "def",
+              "step": 1,
+              "value": [
+                0.4,
+                0.8
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "12511": {
     "disabled": true,
