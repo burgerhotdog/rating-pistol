@@ -5320,7 +5320,7 @@
             ]
           },
           "stats": {
-            "dmgBonus%": 0.5
+            "damageMv%": 0.5
           }
         }
       }
