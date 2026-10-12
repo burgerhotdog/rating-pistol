@@ -1,9 +1,9 @@
 import { GI, WW } from '@/data';
-import { clamp } from '@/utils';
 import { applyGauge, consumeVerdantDew } from './reactions';
 import {
   advanceStates,
   decayBuffUses,
+  updateHealthPools,
   updateShielded,
   changeBondOfLife,
   grantBondOfLife,
@@ -110,6 +110,7 @@ export function runAction(ctx, action, options = {}) {
     if (modifiedAction.healing) {
       for (const target of modifiedAction.healing.targets) {
         let targetId = target;
+
         if (targetId === '$onField') {
           targetId = ctx.states.onFieldId;
         } else if (targetId === '$lowest') {
@@ -119,14 +120,14 @@ export function runAction(ctx, action, options = {}) {
         }
 
         if (gameId === GI) {
-          changeBondOfLife(ctx, targetId, -1);
-          runDrain(ctx, { drain: { targets: modifiedAction.healing.targets, value: -0.01 } });
+          changeBondOfLife(ctx, targetId, -0.1);
+          updateHealthPools(ctx, { drain: { targets: modifiedAction.healing.targets, value: -0.01 } });
         }
       }
     }
 
     if (modifiedAction.drain) {
-      runDrain(ctx, modifiedAction);
+      updateHealthPools(ctx, modifiedAction);
     }
 
     updateShielded(ctx, modifiedAction);
@@ -140,36 +141,4 @@ export function runAction(ctx, action, options = {}) {
 
   advanceTimeTo(duration);
   ctx.runEffects('end', modifiedAction);
-}
-
-function runDrain(ctx, action) {
-  const {
-    targets = [action.ownerId],
-    value,
-    minLimit = 0,
-    maxLimit = 1,
-  } = action.drain;
-  const { memberHealth } = ctx.states;
-
-  for (const target of targets) {
-    let targetId = target;
-    if (targetId === '$onField') {
-      targetId = ctx.states.onFieldId;
-    } else if (targetId === '$lowest') {
-      targetId = Number(Object.keys(memberHealth).reduce((lowestId, id) =>
-        memberHealth[id] < memberHealth[lowestId] ? id : lowestId
-      ));
-    }
-
-    const prev = memberHealth[targetId];
-    if (value > 0 && prev <= minLimit) continue;
-    if (value < 0 && prev >= maxLimit) continue;
-
-    const next = clamp(prev - value, minLimit, maxLimit);
-
-    if (next !== prev) {
-      memberHealth[targetId] = next;
-      ctx.runEffects('healthChange', action);
-    }
-  }
 }

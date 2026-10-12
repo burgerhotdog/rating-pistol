@@ -36605,7 +36605,7 @@
       {
         "ref": "prosecutionEdict",
         "apply": {
-          "when": "healthChange",
+          "when": "healthUpdate",
           "filter": {
             "effectStacks": {
               "has": "chillingPenalty"
@@ -53367,7 +53367,13 @@
         "elementalSkill.1",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000122,
+      10000043,
+      10000125,
+      10000119
+    ]
   },
   "10000120": {
     "name": "Flins",
@@ -54736,7 +54742,6 @@
     ]
   },
   "10000122": {
-    "disabled": true,
     "name": "Nefer",
     "version": 6.1,
     "id": 10000122,
@@ -54753,7 +54758,139 @@
     },
     "energy": 60,
     "moonsign": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "shadowDance",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 9000
+        },
+        "use": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.1"
+                }
+              },
+              {
+                "states": {
+                  "aura": {
+                    "lunarBloom": {
+                      "or": [
+                        {
+                          "verdantDew": {
+                            ">": 0
+                          }
+                        },
+                        {
+                          "moonridgeDew": {
+                            ">": 0
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "ref": "seedsOfDeceit",
+        "stores": "global",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 15000,
+          "commands": {
+            "type": "gameRule",
+            "gameRule": "seedsOfDeceit1",
+            "ref": "seedsOfDeceit"
+          }
+        },
+        "gameRule": "seedsOfDeceit"
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "type": "chargedAttack"
+            }
+          },
+          "commands": {
+            "type": "gameRule",
+            "gameRule": "seedsOfDeceit2",
+            "ref": "veilsOfFalsehood",
+            "spec": {
+              "uses": 1
+            }
+          }
+        }
+      },
+      {
+        "ref": "veilsOfFalsehood",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "statRefs": {
+            "dmgBonus%": "elementalBurst.1"
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "veilsOfFalsehoodEm",
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "veilsOfFalsehood": 3
+            }
+          },
+          "stats": {
+            "elementalMastery": 100
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "specs": {
+            "lunarBloomBaseDmg%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.000175,
+              "maxValue": 0.14
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Striking Serpent",
@@ -54834,7 +54971,8 @@
                     0.5363,
                     0.5679,
                     0.5995
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
@@ -54981,147 +55119,153 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
-                  "mv": [
-                    0.7638,
-                    0.8211,
-                    0.8784,
-                    0.9548,
-                    1.0121,
-                    1.0694,
-                    1.1458,
-                    1.2221,
-                    1.2985,
-                    1.3749,
-                    1.4513,
-                    1.5277,
-                    1.6232,
-                    1.7186,
-                    1.8141
-                  ]
-                },
-                {
-                  "mv": [
-                    1.5277,
-                    1.6423,
-                    1.7568,
-                    1.9096,
-                    2.0242,
-                    2.1388,
-                    2.2915,
-                    2.4443,
-                    2.5971,
-                    2.7498,
-                    2.9026,
-                    3.0554,
-                    3.2463,
-                    3.4373,
-                    3.6282
-                  ]
+                  "mv": {
+                    "atk": [
+                      0.7638,
+                      0.8211,
+                      0.8784,
+                      0.9548,
+                      1.0121,
+                      1.0694,
+                      1.1458,
+                      1.2221,
+                      1.2985,
+                      1.3749,
+                      1.4513,
+                      1.5277,
+                      1.6232,
+                      1.7186,
+                      1.8141
+                    ],
+                    "elementalMastery": [
+                      1.5277,
+                      1.6423,
+                      1.7568,
+                      1.9096,
+                      2.0242,
+                      2.1388,
+                      2.2915,
+                      2.4443,
+                      2.5971,
+                      2.7498,
+                      2.9026,
+                      3.0554,
+                      3.2463,
+                      3.4373,
+                      3.6282
+                    ]
+                  }
                 }
               ]
             }
           },
           {
-            "name": "Phantasm Performance 1-Hit DMG (Nefer)",
-            "type": "elementalSkill",
+            "name": "Charged Attack: Phantasm Performance",
+            "type": "chargedAttack",
+            "verdantDew": 1,
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
-                  "mv": [
-                    0.2464,
-                    0.2649,
-                    0.2834,
-                    0.308,
-                    0.3265,
-                    0.345,
-                    0.3696,
-                    0.3942,
-                    0.4189,
-                    0.4435,
-                    0.4682,
-                    0.4928,
-                    0.5236,
-                    0.5544,
-                    0.5852
-                  ]
+                  "mv": {
+                    "atk": [
+                      0.2464,
+                      0.2649,
+                      0.2834,
+                      0.308,
+                      0.3265,
+                      0.345,
+                      0.3696,
+                      0.3942,
+                      0.4189,
+                      0.4435,
+                      0.4682,
+                      0.4928,
+                      0.5236,
+                      0.5544,
+                      0.5852
+                    ],
+                    "elementalMastery": [
+                      0.4928,
+                      0.5298,
+                      0.5667,
+                      0.616,
+                      0.653,
+                      0.6899,
+                      0.7392,
+                      0.7885,
+                      0.8378,
+                      0.887,
+                      0.9363,
+                      0.9856,
+                      1.0472,
+                      1.1088,
+                      1.1704
+                    ]
+                  }
                 },
                 {
-                  "mv": [
-                    0.4928,
-                    0.5298,
-                    0.5667,
-                    0.616,
-                    0.653,
-                    0.6899,
-                    0.7392,
-                    0.7885,
-                    0.8378,
-                    0.887,
-                    0.9363,
-                    0.9856,
-                    1.0472,
-                    1.1088,
-                    1.1704
-                  ]
+                  "mv": {
+                    "atk": [
+                      0.3203,
+                      0.3443,
+                      0.3684,
+                      0.4004,
+                      0.4244,
+                      0.4484,
+                      0.4805,
+                      0.5125,
+                      0.5445,
+                      0.5766,
+                      0.6086,
+                      0.6406,
+                      0.6807,
+                      0.7207,
+                      0.7608
+                    ],
+                    "elementalMastery": [
+                      0.6406,
+                      0.6887,
+                      0.7367,
+                      0.8008,
+                      0.8488,
+                      0.8969,
+                      0.961,
+                      1.025,
+                      1.0891,
+                      1.1532,
+                      1.2172,
+                      1.2813,
+                      1.3614,
+                      1.4414,
+                      1.5215
+                    ]
+                  }
                 }
               ]
             }
           },
           {
-            "name": "Phantasm Performance 2-Hit DMG (Nefer)",
-            "type": "elementalSkill",
+            "name": "Phantasm Performance: Shades",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.3203,
-                    0.3443,
-                    0.3684,
-                    0.4004,
-                    0.4244,
-                    0.4484,
-                    0.4805,
-                    0.5125,
-                    0.5445,
-                    0.5766,
-                    0.6086,
-                    0.6406,
-                    0.6807,
-                    0.7207,
-                    0.7608
-                  ]
-                },
-                {
-                  "mv": [
-                    0.6406,
-                    0.6887,
-                    0.7367,
-                    0.8008,
-                    0.8488,
-                    0.8969,
-                    0.961,
-                    1.025,
-                    1.0891,
-                    1.1532,
-                    1.2172,
-                    1.2813,
-                    1.3614,
-                    1.4414,
-                    1.5215
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Phantasm Performance 1-Hit DMG (Shades)",
-            "type": "elementalSkill",
-            "damage": {
+              "type": "lunarBloom",
+              "attr": "elementalMastery",
               "multipliers": [
                 {
                   "mv": [
@@ -55141,15 +55285,7 @@
                     2.16,
                     2.28
                   ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Phantasm Performance 2-Hit DMG (Shades)",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
+                },
                 {
                   "mv": [
                     0.96,
@@ -55168,15 +55304,7 @@
                     2.16,
                     2.28
                   ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Phantasm Performance 3-Hit DMG (Shades)",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
+                },
                 {
                   "mv": [
                     1.28,
@@ -55206,104 +55334,101 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "1-Hit DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
-                  "mv": [
-                    2.2464,
-                    2.4149,
-                    2.5834,
-                    2.808,
-                    2.9765,
-                    3.145,
-                    3.3696,
-                    3.5942,
-                    3.8189,
-                    4.0435,
-                    4.2682,
-                    4.4928,
-                    4.7736,
-                    5.0544,
-                    5.3352
-                  ]
+                  "mv": {
+                    "atk": [
+                      2.2464,
+                      2.4149,
+                      2.5834,
+                      2.808,
+                      2.9765,
+                      3.145,
+                      3.3696,
+                      3.5942,
+                      3.8189,
+                      4.0435,
+                      4.2682,
+                      4.4928,
+                      4.7736,
+                      5.0544,
+                      5.3352
+                    ],
+                    "elementalMastery": [
+                      4.4928,
+                      4.8298,
+                      5.1667,
+                      5.616,
+                      5.953,
+                      6.2899,
+                      6.7392,
+                      7.1885,
+                      7.6378,
+                      8.087,
+                      8.5363,
+                      8.9856,
+                      9.5472,
+                      10.1088,
+                      10.6704
+                    ]
+                  }
                 },
                 {
-                  "mv": [
-                    4.4928,
-                    4.8298,
-                    5.1667,
-                    5.616,
-                    5.953,
-                    6.2899,
-                    6.7392,
-                    7.1885,
-                    7.6378,
-                    8.087,
-                    8.5363,
-                    8.9856,
-                    9.5472,
-                    10.1088,
-                    10.6704
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "2-Hit DMG",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    3.3696,
-                    3.6223,
-                    3.875,
-                    4.212,
-                    4.4647,
-                    4.7174,
-                    5.0544,
-                    5.3914,
-                    5.7283,
-                    6.0653,
-                    6.4022,
-                    6.7392,
-                    7.1604,
-                    7.5816,
-                    8.0028
-                  ]
-                },
-                {
-                  "mv": [
-                    6.7392,
-                    7.2446,
-                    7.7501,
-                    8.424,
-                    8.9294,
-                    9.4349,
-                    10.1088,
-                    10.7827,
-                    11.4566,
-                    12.1306,
-                    12.8045,
-                    13.4784,
-                    14.3208,
-                    15.1632,
-                    16.0056
-                  ]
+                  "mv": {
+                    "atk": [
+                      3.3696,
+                      3.6223,
+                      3.875,
+                      4.212,
+                      4.4647,
+                      4.7174,
+                      5.0544,
+                      5.3914,
+                      5.7283,
+                      6.0653,
+                      6.4022,
+                      6.7392,
+                      7.1604,
+                      7.5816,
+                      8.0028
+                    ],
+                    "elementalMastery": [
+                      6.7392,
+                      7.2446,
+                      7.7501,
+                      8.424,
+                      8.9294,
+                      9.4349,
+                      10.1088,
+                      10.7827,
+                      11.4566,
+                      12.1306,
+                      12.8045,
+                      13.4784,
+                      14.3208,
+                      15.1632,
+                      16.0056
+                    ]
+                  }
                 }
               ]
             }
           },
           {
             "name": "DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.13,
                     0.16,
                     0.19,
@@ -55327,7 +55452,29 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14521,
+      "setCounts": {
+        "15041": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000122,
+      10000043,
+      10000125,
+      10000119
+    ]
   },
   "10000123": {
     "name": "Durin",

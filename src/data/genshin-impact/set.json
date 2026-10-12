@@ -1903,7 +1903,7 @@
       {
         "bonus": 4,
         "apply": {
-          "when": "bondOfLifeChange",
+          "when": "bondOfLifeUpdate",
           "duration": 6000
         },
         "buff": {

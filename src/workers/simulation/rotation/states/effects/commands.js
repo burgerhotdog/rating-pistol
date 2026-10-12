@@ -1,12 +1,13 @@
 import { runRemoveEffect } from './runRemoveEffect';
 import { runUseEffect } from './runUseEffect';
 import { runApplyEffect } from './runApplyEffect';
+import { runGameRule } from '../gameRules';
 
 export function runCommands(ctx, effect, commands, applier) {
   const effectDefs = ctx.cache.member[effect.ownerId].effects;
   const { memberEffects, globalEffects } = ctx.states;
 
-  for (const { type, key, spec } of commands) {
+  for (const { type, key, spec, gameRule } of commands) {
     const effect = effectDefs[key];
 
     switch (type) {
@@ -36,6 +37,10 @@ export function runCommands(ctx, effect, commands, applier) {
 
       case 'apply':
         runApplyEffect(ctx, effect, spec, { applier });
+        break;
+
+      case 'gameRule':
+        runGameRule(ctx, gameRule, effect, spec);
         break;
     }
   }

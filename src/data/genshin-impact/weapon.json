@@ -1990,7 +1990,7 @@
       },
       {
         "apply": {
-          "when": "bondOfLifeChange",
+          "when": "bondOfLifeUpdate",
           "filter": {
             "action": {
               "bondOfLife": {
@@ -5196,7 +5196,6 @@
     "effects": []
   },
   "14434": {
-    "disabled": true,
     "name": "Dawning Frost",
     "version": 6.1,
     "id": 14434,
@@ -5207,7 +5206,50 @@
       "baseAtk": 510,
       "critDmg%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              72,
+              144
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              48,
+              96
+            ]
+          }
+        }
+      }
+    ]
   },
   "14435": {
     "name": "Clash of Kings",

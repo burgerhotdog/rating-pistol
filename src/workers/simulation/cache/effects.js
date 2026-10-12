@@ -60,6 +60,7 @@ export const getEffectDefs = (gameId, member, spec) => {
         sourceType: 'weapon',
         index,
       });
+
       normalizedWeapEffects[effect.key] = effect;
     }
   }
