@@ -2208,7 +2208,6 @@
     ]
   },
   "11519": {
-    "disabled": true,
     "name": "Lightbearing Moonshard",
     "version": 6.3,
     "id": 11519,
@@ -2219,7 +2218,37 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "def%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "lunarCrystallizeReactionBonus%": [
+              0.64,
+              1.28
+            ]
+          }
+        }
+      }
+    ]
   },
   "11520": {
     "name": "Whitelake Frostfeather",

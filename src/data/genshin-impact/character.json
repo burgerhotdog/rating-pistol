@@ -58834,7 +58834,6 @@
     ]
   },
   "10000126": {
-    "disabled": true,
     "name": "Zibai",
     "version": 6.3,
     "id": 10000126,
@@ -58850,7 +58849,232 @@
     },
     "energy": 60,
     "moonsign": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "lunarPhaseShift",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 15000
+        },
+        "maxExtensions": 1
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.6"
+            }
+          },
+          "action": "elementalSkill.7"
+        }
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.4"
+            }
+          },
+          "action": "elementalSkill.8"
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "lunarPhaseShift"
+                }
+              }
+            ]
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "lunarPhaseShift",
+            "spec": {
+              "duration": 1700,
+              "extend": true
+            }
+          }
+        }
+      },
+      {
+        "ref": "selenicDescent",
+        "apply": [
+          {
+            "when": "start",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              }
+            },
+            "duration": 4000
+          },
+          {
+            "by": "$team",
+            "when": "reaction",
+            "filter": {
+              "and": [
+                {
+                  "reaction": {
+                    "reaction": "lunarCrystallize"
+                  }
+                },
+                {
+                  "states": {
+                    "aura": {
+                      "lunarCrystallize": {
+                        "timesLeft": 0
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "duration": 4000
+          }
+        ],
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.7"
+            }
+          },
+          "specs": {
+            "lunarCrystallizeFlat": {
+              "attr": "def",
+              "step": 1,
+              "value": 0.6
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "geo": 2
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "def%": 0.15
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "geo": 3
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "def%": 0.3
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "geo": 4
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "def%": 0.45
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": 1
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 60
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": 2
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 120
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": 3
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 180
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "specs": {
+            "lunarCrystallizeBaseDmg%": {
+              "attr": "def",
+              "step": 100,
+              "value": 0.007,
+              "maxValue": 0.14
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Golden Blade's Petaled Touch",
@@ -59116,9 +59340,14 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Lunar Phase Shift 1-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Lunar Phase Shift: Normal Attack 1",
+            "type": "normalAttack",
             "damage": {
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59143,9 +59372,10 @@
             }
           },
           {
-            "name": "Lunar Phase Shift 2-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Lunar Phase Shift: Normal Attack 2",
+            "type": "normalAttack",
             "damage": {
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59170,9 +59400,10 @@
             }
           },
           {
-            "name": "Lunar Phase Shift 3-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Lunar Phase Shift: Normal Attack 3",
+            "type": "normalAttack",
             "damage": {
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59216,9 +59447,10 @@
             }
           },
           {
-            "name": "Lunar Phase Shift 4-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Lunar Phase Shift: Normal Attack 4",
+            "type": "normalAttack",
             "damage": {
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59243,9 +59475,10 @@
             }
           },
           {
-            "name": "Lunar Phase Shift Charged Attack DMG",
-            "type": "elementalSkill",
+            "name": "Lunar Phase Shift: Charged Attack",
+            "type": "chargedAttack",
             "damage": {
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59289,9 +59522,10 @@
             }
           },
           {
-            "name": "Spirit Steed's Stride 1-Hit DMG",
+            "name": "Lunar Phase Shift: Elemental Skill: Spirit Steed's Stride 1",
             "type": "elementalSkill",
             "damage": {
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59316,9 +59550,10 @@
             }
           },
           {
-            "name": "Spirit Steed's Stride 2-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Spirit Steed's Stride Additional Damage",
             "damage": {
+              "type": "lunarCrystallize",
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59343,9 +59578,10 @@
             }
           },
           {
-            "name": "Lunar Phase Shift 4-Hit Additional DMG",
-            "type": "elementalSkill",
+            "name": "Lunar Phase Shift: Additional Damage",
             "damage": {
+              "type": "lunarCrystallize",
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59376,9 +59612,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill 1-Hit DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59400,12 +59637,14 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 1700
           },
           {
-            "name": "Skill 2-Hit DMG",
-            "type": "elementalBurst",
+            "name": "Additional Damage",
             "damage": {
+              "type": "lunarCrystallize",
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59432,7 +59671,44 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11519,
+      "setCounts": {
+        "15041": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.4",
+        "elementalSkill.6",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.4",
+        "elementalSkill.6",
+        "elementalSkill.1",
+        "elementalBurst.0",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.4",
+        "elementalSkill.6",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.4",
+        "elementalSkill.6"
+      ],
+      "duration": 17500
+    },
+    "teamPreset": [
+      10000126,
+      10000130,
+      10000125,
+      10000043
+    ]
   },
   "10000127": {
     "disabled": true,
@@ -62252,7 +62528,13 @@
       "rotation": [
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000126,
+      10000130,
+      10000125,
+      10000043
+    ]
   },
   "10000131": {
     "name": "Nicole",

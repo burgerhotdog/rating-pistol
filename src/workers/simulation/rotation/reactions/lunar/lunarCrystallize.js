@@ -6,13 +6,13 @@ export function reactLunarCrystallize(ctx, ownerId) {
     timesLeft: 3,
   };
 
+  state.timesLeft--;
+
   ctx.runEffects('reaction', {
     reaction: 'lunarCrystallize',
     elements: ['geo', 'hydro'],
     ownerId,
   });
-
-  state.timesLeft--;
 
   if (state.timesLeft === 0) {
     const snapshot = buildElevationSnapshot(ctx, 'lunarCrystallize');
