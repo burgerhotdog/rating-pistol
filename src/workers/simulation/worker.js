@@ -1,4 +1,4 @@
-import { CHARACTER, LANG } from '@/data';
+import { CHARACTER } from '@/data';
 import { estimateDps, getTotals } from '@/utils';
 import { buildCache } from './cache';
 import { runRotation } from './rotation';
@@ -36,17 +36,14 @@ async function resolveEquipMaps(cache, allowBlank = false) {
 self.onmessage = async ({ data }) => {
   const cache = buildCache(data);
 
-  const { gameId, charId } = cache;
+  const { charId } = cache;
   self.postMessage({
     memberIds: cache.memberIds,
     userMember: cache.member[charId],
   });
 
-  const langData = LANG[gameId];
-
   const equipMaps = await resolveEquipMaps(cache);
 
-  self.postMessage({ title: 'Simulating rotation' });
   const { snapshots: userSnapshots, bonusEnergy } = runRotation(cache, equipMaps);
   const userTotals = getTotals(userSnapshots);
   const {
@@ -61,25 +58,10 @@ self.onmessage = async ({ data }) => {
     userDps: userTotals.damage / userRotationTime * 1000,
   });
 
-  console.time('runComparisonTests');
-  const { weaponResults, setResults } = runComparisonTests(cache, equipMaps, bonusEnergy);
-  console.timeEnd('runComparisonTests');
-  self.postMessage({ weaponResults, setResults });
-
-  self.postMessage({ title: `Running ${langData.Equip} Farming Simulations` });
   console.time('runEquipTests');
   const results = await runEquipTests(cache, equipMaps, charId);
   console.timeEnd('runEquipTests');
-
-  self.postMessage({ title: 'Running Skill Level Tests' });
-  console.time('runSkillLevelTests');
-  const skillLevelResults = runSkillLevelTests(cache, equipMaps, charId);
-  console.timeEnd('runSkillLevelTests');
-
   self.postMessage({
-    status: 'done',
-    weaponResults,
-    setResults,
     dpsCeiling: results.dpsCeiling,
     dpsProgression: results.dpsProgression,
     fit: results.fit,
@@ -87,25 +69,41 @@ self.onmessage = async ({ data }) => {
     ...findBenchmark(results.dpsCeiling, results.dpsProgression, results.fit),
     extraSubstats: results.extraSubstats,
     extraSubstatsControl: results.extraSubstatsControl,
-    skillLevelResults,
   });
+
+  console.time('runComparisonTests');
+  const { weaponResults, setResults } = runComparisonTests(cache, equipMaps, bonusEnergy);
+  console.timeEnd('runComparisonTests');
+  self.postMessage({ weaponResults, setResults });
+
+  console.time('runSkillLevelTests');
+  const skillLevelResults = runSkillLevelTests(cache, equipMaps, charId);
+  console.timeEnd('runSkillLevelTests');
+  self.postMessage({ skillLevelResults });
+
+  self.postMessage({ status: 'done' });
 };
 
 function findBenchmark(dpsCeiling, dpsProgression, fit) {
   let benchmarkDay = 0;
   let benchmarkDps = estimateDps(0, dpsCeiling, dpsProgression, fit);
+  let previousImprovement = null;
+  let increaseCount = 0;
 
-  while (true) {
-    const nextDps = estimateDps(benchmarkDay + 1, dpsCeiling, dpsProgression, fit)
+  while (benchmarkDay < 28) {
+    const nextDps = estimateDps(benchmarkDay + 1, dpsCeiling, dpsProgression, fit);
+    const improvement = nextDps / benchmarkDps - 1;
 
-    if (nextDps / benchmarkDps < 1.01) {
-      return {
-        benchmarkDay,
-        benchmarkDps,
-      };
+    if (previousImprovement !== null && improvement >= previousImprovement) {
+      increaseCount++;
     }
 
+    if (improvement < 0.005 || increaseCount >= 3) break;
+
+    previousImprovement = improvement;
     benchmarkDay++;
     benchmarkDps = nextDps;
   }
+
+  return { benchmarkDay, benchmarkDps };
 }

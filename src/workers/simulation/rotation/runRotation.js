@@ -78,7 +78,7 @@ export const runRotation = (cache, equipMaps, specId) => {
   function runCycle() {
     for (const memberId of memberOrder) {
       ctx.states.onFieldId = memberId;
-      ctx.runEffects('swap');
+      ctx.runEffects('swap', { ownerId: memberId });
 
       const { rotation } = cache.member[memberId];
       for (const action of rotation) {

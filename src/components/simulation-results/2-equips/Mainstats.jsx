@@ -17,8 +17,10 @@ const Mainstats = ({ equipListConfigs, equipList }) => {
   const userMainstatConfigKey = getMainstatConfigKey(gameId, equipList);
   const accent = useAccent();
 
+  const numTrials = Object.values(equipListConfigs).reduce((acc, { trialCount }) => acc + trialCount, 0);
+
   const data = Object.entries(equipListConfigs)
-    .filter(([, config]) => config.trialCount >= 50)
+    .filter(([, config]) => config.trialCount >= 10)
     .sort(([, a], [, b]) => b.trialCount - a.trialCount);
 
   return (
@@ -85,13 +87,13 @@ const Mainstats = ({ equipListConfigs, equipList }) => {
                   </Box>
                 )}
 
-                <Tooltip title={`${config.trialCount} of 1000 simulated builds`}>
+                <Tooltip title={`${config.trialCount} of ${numTrials} simulated builds`}>
                   <Typography
                     variant="caption"
                     color="textSecondary"
                     sx={{ minWidth: 30, textAlign: 'right' }}
                   >
-                    {(config.trialCount / 10).toFixed()}%
+                    {(config.trialCount / numTrials * 100).toFixed()}%
                   </Typography>
                 </Tooltip>
               </Box>
@@ -101,7 +103,7 @@ const Mainstats = ({ equipListConfigs, equipList }) => {
               <Box
                 sx={{
                   height: '100%',
-                  width: `${config.trialCount / 10}%`,
+                  width: `${config.trialCount / numTrials * 100}%`,
                   bgcolor: isUser ? accent : 'text.primary',
                   borderRadius: 1,
                 }}

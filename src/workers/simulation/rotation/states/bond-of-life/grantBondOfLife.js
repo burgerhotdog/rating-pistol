@@ -7,6 +7,6 @@ export function grantBondOfLife(ctx, action) {
 
   for (const memberId of targets) {
     store[memberId] = Math.max(store[memberId] + value, 0);
-    ctx.runEffects('bondOfLifeChange', action);
+    ctx.runEffects('bondOfLifeUpdate', { ownerId: memberId });
   }
 }

@@ -11,6 +11,8 @@ export function runUseEffect(ctx, state, use = {}, spec = {}) {
     state.isRunning = true;
 
     for (const [index, action] of use.action.entries()) {
+      if (action.damage && effect.absorbElement && !state.absorbElement) continue;
+
       const runOptions = {
         runtimeOffset: spec.runtimeOffset,
         noDuration: true,
@@ -20,8 +22,12 @@ export function runUseEffect(ctx, state, use = {}, spec = {}) {
         runOptions.snapshotBuffs = spec.snapshotBuffs[index];
       }
 
+      const modifiedAction = (action.damage && effect.absorbElement && state.absorbElement)
+        ? { ...action, damage: { ...action.damage, element: state.absorbElement } }
+        : action;
+
       for (let i = 0; i < useTimes; i++) {
-        ctx.runAction(action, runOptions);
+        ctx.runAction(modifiedAction, runOptions);
       }
     }
 

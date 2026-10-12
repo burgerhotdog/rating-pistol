@@ -79,6 +79,19 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
       );
     }
 
+    if (apply.absorbElement) {
+      const auraStore = ctx.states.aura;
+      if (auraStore.pyro) {
+        state.absorbElement = 'pyro';
+      } else if (auraStore.hydro) {
+        state.absorbElement = 'hydro';
+      } else if (auraStore.electro) {
+        state.absorbElement = 'electro';
+      } else if (auraStore.cryo) {
+        state.absorbElement = 'cryo';
+      }
+    }
+
     // If same effect was already applied by another member
     if (!effect.stackable) {
       for (const id in ctx.cache.member) {

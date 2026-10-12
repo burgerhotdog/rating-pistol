@@ -4,11 +4,11 @@ import { buildEquipMap, buildSkippable, getMainstatConfigKey, sumSubstatRolls } 
 import { createEvaluateEquipMap } from '../evaluateEquipMap';
 import { createAdvanceTrial } from './advance';
 
-const NUM_TRIALS = 250;
-const NUM_TRIALS_QUICK = 75;
+const NUM_TRIALS = 125;
+const NUM_TRIALS_QUICK = 25;
 
-const NUM_DAYS = 100;
-const NUM_DAYS_QUICK = 30;
+const NUM_DAYS = 28;
+const NUM_DAYS_QUICK = 14;
 
 let cache;
 let gameId;

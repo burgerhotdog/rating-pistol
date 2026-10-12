@@ -21,7 +21,7 @@ Characters:
         No constellations
     Durin
         No constellations
-    Faruzan
+    Escoffier
         No constellations
     Fischl
         No constellations
@@ -34,8 +34,6 @@ Characters:
     Ineffa
         No constellations
     Kaeya
-        No constellations
-    Kazuha
         No constellations
     Klee
         No constellations
@@ -60,8 +58,7 @@ Characters:
         No ult electro/hydro buff
         EM buff comes from self
     Nicole
-        onField character must be hexerei to get buff upgrade
-        coordinated attack uses own atk
+        coordinated attack uses own stats
         No constellations
     Odette
         Only plume
@@ -74,6 +71,12 @@ Characters:
         No constellations
     Sara
         Remember c6 no snapshot
+    Skirk
+        Deaths crossing not accurate
+        No constellations
+    Sucrose
+        Element must be there at apply time to be absorbed
+        No C6
     Vesna
         Disciplinary Action stacks not independent
         No constellations
@@ -164,6 +167,11 @@ Sets:
         Stacks not independent
     Shimenawa's Reminiscence
         4pc energy simplified
+    Nighttime Whispers in the Echoing Woods
+        No 1s grace period
+        Can be any shield
+    Unfinished Reverie
+        Burning expiry is approximation
 
     No stacking gleaming moon
         Night of the Sky's Unveiling

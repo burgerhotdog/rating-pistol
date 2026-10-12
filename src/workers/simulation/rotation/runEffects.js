@@ -24,7 +24,7 @@ function tryRemove(ctx, when, state, spec) {
 }
 
 function tryUse(ctx, when, state, spec) {
-  const { effect } = state;
+  const { effect, stacks } = state;
   if (!effect.use) return;
   const eventOwnerId = spec.fieldId;
 
@@ -32,6 +32,10 @@ function tryUse(ctx, when, state, spec) {
     if (use.when !== when) continue;
     if (!use.by.includes(eventOwnerId)) continue;
     if (state.isRunning || state.useCooldown) continue;
+
+    const ownerField = effect.ownerId === ctx.states.onFieldId ? 'onField' : 'offField';
+    if (use.field && use.field !== ownerField) continue;
+
     if (!ctx.eventFilter(use.filter, effect, spec)) continue;
 
     const useSpec = { inflict: spec.action?.inflict };
@@ -43,7 +47,9 @@ function tryUse(ctx, when, state, spec) {
 
     const commands = use.commands;
     if (commands) {
-      runCommands(ctx, effect, commands, eventOwnerId ?? effect.ownerId);
+      for (let i = 0; i < stacks; i++) {
+        runCommands(ctx, effect, commands, eventOwnerId ?? effect.ownerId);
+      }
     }
 
     if (removed) return;

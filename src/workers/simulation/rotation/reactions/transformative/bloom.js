@@ -1,17 +1,23 @@
 import { buildTransformativeReactionSnapshot } from '../../snapshot';
-import { consumeAura } from '../../states';
+import { consumeAura, hasGameRule } from '../../states';
 
 export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
   const auraStore = ctx.states.aura;
   const bloomState = auraStore.bloom ??= {
     reaction: 'bloom',
     cores: [],
+    seedsOfDeceit: 0,
   };
 
-  bloomState.cores.push({
-    timeLeft: 6000,
-    ownerId: applier,
-  });
+  if (hasGameRule(ctx, 'seedsOfDeceit')) {
+    bloomState.seedsOfDeceit++;
+  } else {
+    bloomState.cores.push({
+      timeLeft: 6000,
+      ownerId: applier,
+    });
+  }
+
 
   if (bloomState.cores.length > 5) {
     const oldestCore = bloomState.cores.shift();
@@ -37,4 +43,24 @@ export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
   });
 
   return excess;
+}
+
+export function convertSeedsOfDeceit(ctx) {
+  const state = ctx.states.aura.bloom;
+  if (!state) return;
+
+  const numCores = state.cores.length;
+  state.cores = [];
+
+  state.seedsOfDeceit += numCores;
+}
+
+export function consumeSeedsOfDeceit(ctx) {
+  const state = ctx.states.aura.bloom;
+  if (!state) return 0;
+
+  const consumedSeeds = Math.min(state.seedsOfDeceit, 3);
+
+  state.seedsOfDeceit -= consumedSeeds;
+  return consumedSeeds;
 }

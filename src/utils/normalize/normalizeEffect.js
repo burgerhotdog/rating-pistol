@@ -239,6 +239,8 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     }
   }
 
+  effect.maxStacks ??= 1;
+
   if (
     effect.buff?.stats &&
     !effect.buff?.filter &&

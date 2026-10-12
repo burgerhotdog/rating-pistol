@@ -6,6 +6,7 @@ export * from './tune';
 
 export * from './advanceStates';
 export * from './gameRules';
+export * from './healthPools';
 export * from './icd';
 export * from './initStates';
 export * from './nightsoul';
