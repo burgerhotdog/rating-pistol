@@ -13,9 +13,17 @@ export function runCommands(ctx, effect, commands, applier) {
     switch (type) {
       case 'remove':
         for (const target of effect.stores) {
-          const state = target === 'global'
-            ? globalEffects[effect.key]
-            : memberEffects[target][effect.key];
+          let state;
+
+          if (target === 'global') {
+            state = globalEffects[effect.key];
+          } else if (target === '$next') {
+            const index = ctx.cache.memberIds.indexOf(effect.ownerId);
+            const id = ctx.cache.memberIds.at(index - 1);
+            state = memberEffects[id][effect.key];
+          } else {
+            state = memberEffects[target][effect.key];
+          }
 
           if (state) {
             runRemoveEffect(state, spec);
@@ -25,9 +33,17 @@ export function runCommands(ctx, effect, commands, applier) {
 
       case 'use':
         for (const target of effect.stores) {
-          const state = target === 'global'
-            ? globalEffects[effect.key]
-            : memberEffects[target][effect.key];
+          let state;
+
+          if (target === 'global') {
+            state = globalEffects[effect.key];
+          } else if (target === '$next') {
+            const index = ctx.cache.memberIds.indexOf(effect.ownerId);
+            const id = ctx.cache.memberIds.at(index - 1);
+            state = memberEffects[id][effect.key];
+          } else {
+            state = memberEffects[target][effect.key];
+          }
 
           if (state) {
             runUseEffect(ctx, state, spec);

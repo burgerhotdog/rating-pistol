@@ -17,10 +17,10 @@ function advanceStore(store, elapsed) {
 }
 
 export function advanceIcds(ctx, elapsed) {
-  const { icd: stores } = ctx.states;
+  const icdStores = ctx.states.icd;
 
-  for (const memberId in stores) {
-    advanceStore(stores[memberId], elapsed);
+  for (const memberId in icdStores) {
+    advanceStore(icdStores[memberId], elapsed);
   }
 }
 

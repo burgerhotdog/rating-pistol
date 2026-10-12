@@ -1,11 +1,10 @@
 import { CHARACTER } from '@/data';
-import { estimateDps, getTotals } from '@/utils';
+import { estimateDps } from '@/utils';
 import { buildCache } from './cache';
-import { runRotation } from './rotation';
-import { computeDuration } from './duration';
 import { runComparisonTests } from './comparison-tests';
 import { runEquipTests, runTrials } from './equip-tests';
 import { runSkillLevelTests } from './skill-level-tests';
+import { getRotationOrder } from './rotation-order';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
@@ -34,28 +33,33 @@ async function resolveEquipMaps(cache, allowBlank = false) {
 }
 
 self.onmessage = async ({ data }) => {
-  const cache = buildCache(data);
+  const rawCache = buildCache(data);
 
-  const { charId } = cache;
+  const { charId } = rawCache;
   self.postMessage({
-    memberIds: cache.memberIds,
-    userMember: cache.member[charId],
+    memberIds: rawCache.memberIds,
+    userMember: rawCache.member[charId],
   });
 
-  const equipMaps = await resolveEquipMaps(cache);
+  const equipMaps = await resolveEquipMaps(rawCache);
 
-  const { snapshots: userSnapshots, bonusEnergy } = runRotation(cache, equipMaps);
-  const userTotals = getTotals(userSnapshots);
   const {
+    order,
+    snapshots: userSnapshots,
+    bonusEnergy,
     time: userRotationTime,
     source: userRotationTimeSource,
-  } = computeDuration(cache, equipMaps, bonusEnergy);
+    dps: userDps,
+  } = getRotationOrder(rawCache, equipMaps);
+
+  const cache = { ...rawCache, memberIds: order };
 
   self.postMessage({
+    rotationOrder: order,
     userSnapshots,
     userRotationTime,
     userRotationTimeSource,
-    userDps: userTotals.damage / userRotationTime * 1000,
+    userDps,
   });
 
   console.time('runEquipTests');

@@ -20,10 +20,6 @@ function normalizeScope(rawScope, { ownerId, memberIds }) {
       return [memberIds[0]];
     }
 
-    case '$next': {
-      return [memberIds.at(memberIds.indexOf(ownerId) - 1)];
-    }
-
     default: {
       return toArray(rawScope);
     }

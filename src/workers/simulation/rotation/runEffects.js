@@ -1,6 +1,20 @@
 import { GI } from '@/data';
 import { runCommands, runRemoveEffect, runUseEffect, runApplyEffect } from './states';
 
+function checkBy(ctx, effect, by, id) {
+  const { memberIds } = ctx.cache;
+  const { ownerId } = effect;
+
+  return by.some((option) => {
+    if (option === '$next') {
+      const index = memberIds.indexOf(ownerId);
+      return memberIds.at(index - 1) === id;
+    }
+
+    return option === id;
+  });
+}
+
 function tryRemove(ctx, when, state, spec) {
   const { effect } = state;
   if (!effect.remove) return;
@@ -8,11 +22,10 @@ function tryRemove(ctx, when, state, spec) {
 
   for (const remove of effect.remove) {
     if (remove.when !== when) continue;
-    if (!remove.by.includes(eventOwnerId)) continue;
+    if (!checkBy(ctx, effect, remove.by, eventOwnerId)) continue;
     if (!ctx.eventFilter(remove.filter, effect, spec)) continue;
 
     const removed = runRemoveEffect(state, remove);
-
 
     const commands = remove.commands;
     if (commands) {
@@ -30,7 +43,7 @@ function tryUse(ctx, when, state, spec) {
 
   for (const [index, use] of effect.use.entries()) {
     if (use.when !== when) continue;
-    if (!use.by.includes(eventOwnerId)) continue;
+    if (!checkBy(ctx, effect, use.by, eventOwnerId)) continue;
     if (state.isRunning || state.useCooldown) continue;
 
     const ownerField = effect.ownerId === ctx.states.onFieldId ? 'onField' : 'offField';
@@ -64,9 +77,10 @@ function tryApply(ctx, when, effect, spec) {
 
   for (const apply of effect.apply) {
     if (apply.when !== when) continue;
+    if (applyCooldowns[effect.key]) continue;
 
     const applier = eventOwnerId ?? effect.ownerId;
-    if (!apply.by.includes(applier) || applyCooldowns[effect.key]) continue;
+    if (!checkBy(ctx, effect, apply.by, applier)) continue;
 
     const ownerField = effect.ownerId === states.onFieldId ? 'onField' : 'offField';
     if (apply.field && apply.field !== ownerField) continue;
