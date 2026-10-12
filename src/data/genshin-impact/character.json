@@ -34713,6 +34713,7 @@
       "anemoDmgBonus%": 0.24
     },
     "energy": 70,
+    "arkhe": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -35140,6 +35141,7 @@
     },
     "energy": 60,
     "energyMax": 1.5,
+    "arkhe": true,
     "effects": [
       {
         "ref": "grinMalkinHat",
@@ -35895,6 +35897,7 @@
       "atk%": 0.24
     },
     "energy": 60,
+    "arkhe": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -36476,6 +36479,7 @@
     },
     "energy": 60,
     "energyMax": 1.2,
+    "arkhe": true,
     "effects": [
       {
         "ref": "chillingPenalty",
@@ -37122,6 +37126,7 @@
       "critDmg%": 0.384
     },
     "energy": 70,
+    "arkhe": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -37489,6 +37494,7 @@
       "atk%": 0.24
     },
     "energy": 80,
+    "arkhe": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -37996,6 +38002,7 @@
       "critRate%": 0.192
     },
     "energy": 60,
+    "arkhe": true,
     "effects": [
       {
         "ref": "arkheAlignment",
@@ -38836,6 +38843,7 @@
       "hp%": 0.24
     },
     "energy": 60,
+    "arkhe": true,
     "effects": [
       {
         "ref": "overchargedBall",
@@ -39610,6 +39618,7 @@
       "critDmg%": 0.384
     },
     "energy": 60,
+    "arkhe": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -41393,6 +41402,7 @@
       "hp%": 0.288
     },
     "energy": 70,
+    "arkhe": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -42647,6 +42657,7 @@
       "critRate%": 0.192
     },
     "energy": 60,
+    "arkhe": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -43167,7 +43178,6 @@
     }
   },
   "10000099": {
-    "disabled": true,
     "name": "Emilie",
     "version": 4.8,
     "id": 10000099,
@@ -43182,7 +43192,265 @@
       "critDmg%": 0.384
     },
     "energy": 50,
-    "effects": [],
+    "arkhe": true,
+    "effects": [
+      {
+        "ref": "lumidouceCase",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "aromaticExplication"
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 22000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "scents"
+            },
+            {
+              "type": "remove",
+              "ref": "level2"
+            }
+          ]
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": "level2"
+                }
+              }
+            },
+            "cooldown": 1500,
+            "action": "elementalSkill.1"
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "has": "level2"
+              }
+            },
+            "cooldown": 1500,
+            "action": "elementalSkill.2"
+          }
+        ]
+      },
+      {
+        "ref": "level2",
+        "apply": {
+          "when": "command"
+        }
+      },
+      {
+        "ref": "scents",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "maxStacks",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "level2",
+              "spec": {
+                "duration": 8000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "cleardewCologne",
+              "spec": {
+                "uses": 1
+              }
+            }
+          ]
+        },
+        "maxStacks": 2
+      },
+      {
+        "ref": "collectScents",
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "and": [
+                {
+                  "states": {
+                    "aura": {
+                      "has": "burning"
+                    }
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "lumidouceCase"
+                      },
+                      {
+                        "not": {
+                          "has": "aromaticExplication"
+                        }
+                      },
+                      {
+                        "not": {
+                          "has": "level2"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "cooldown": 2000,
+            "commands": {
+              "type": "apply",
+              "ref": "scents"
+            }
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "and": [
+                {
+                  "states": {
+                    "aura": {
+                      "has": "burning"
+                    }
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "lumidouceCase"
+                      },
+                      {
+                        "not": {
+                          "has": "aromaticExplication"
+                        }
+                      },
+                      {
+                        "has": "level2"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "cooldown": 2000,
+            "commands": [
+              {
+                "type": "apply",
+                "ref": "scents"
+              },
+              {
+                "type": "apply",
+                "ref": "level2",
+                "spec": {
+                  "duration": 8000
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "ref": "aromaticExplication",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 2800,
+          "commands": {
+            "type": "apply",
+            "ref": "ultMakeCase",
+            "spec": {
+              "uses": 1,
+              "offset": 2800
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 700,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "ultMakeCase",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "lumidouceCase",
+            "spec": {
+              "duration": 22000
+            }
+          }
+        }
+      },
+      {
+        "ref": "cleardewCologne",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "damage": {
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": 6
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": "burning"
+              }
+            }
+          },
+          "specs": {
+            "dmgBonus%": {
+              "attr": "atk",
+              "step": 1000,
+              "value": 0.15,
+              "maxValue": 0.36
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Shadow-Hunting Spear (Custom)",
@@ -43410,9 +43678,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -43437,9 +43706,14 @@
             }
           },
           {
-            "name": "Level 1 Lumidouce Case Attack DMG",
-            "type": "elementalSkill",
+            "name": "Lumidouce Case: Level 1",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -43464,9 +43738,14 @@
             }
           },
           {
-            "name": "Level 2 Lumidouce Case Attack DMG",
-            "type": "elementalSkill",
+            "name": "Lumidouce Case: Level 2",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -43485,15 +43764,16 @@
                     1.785,
                     1.89,
                     1.995
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
           },
           {
-            "name": "Spiritbreath Thorn DMG",
-            "type": "elementalSkill",
+            "name": "Spiritbreath Thorn",
             "damage": {
+              "type": "elementalSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -43524,9 +43804,19 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Level 3 Lumidouce Case Attack DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Lumidouce Case: Level 3",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -43557,7 +43847,10 @@
       "weaponId": 13513,
       "setCounts": {
         "15036": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0"
+      ]
     }
   },
   "10000100": {

@@ -1134,7 +1134,7 @@
         "enable": {
           "owner": {
             "not": {
-              "has": "fontaine"
+              "has": "arkhe"
             }
           }
         },
@@ -3842,7 +3842,6 @@
     "effects": []
   },
   "13419": {
-    "disabled": true,
     "name": "Missive Windspear",
     "version": 3.1,
     "id": 13419,
@@ -3853,7 +3852,26 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ],
+            "elementalMastery": [
+              48,
+              96
+            ]
+          }
+        }
+      }
+    ]
   },
   "13424": {
     "name": "Ballad of the Fjords",
@@ -4245,7 +4263,6 @@
     "effects": []
   },
   "13513": {
-    "disabled": true,
     "name": "Lumidouce Elegy",
     "version": 4.8,
     "id": 13513,
@@ -4256,7 +4273,114 @@
       "baseAtk": 608,
       "critRate%": 0.331
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.15,
+              0.3
+            ]
+          }
+        }
+      },
+      {
+        "ref": "buff",
+        "apply": [
+          {
+            "when": "reaction",
+            "field": "*",
+            "filter": {
+              "reaction": {
+                "reaction": "burning"
+              }
+            },
+            "duration": 8000,
+            "commands": {
+              "type": "apply",
+              "ref": "restoreEnergy",
+              "spec": {
+                "uses": 1
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "field": "*",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "damage": {
+                      "element": "dendro"
+                    }
+                  }
+                },
+                {
+                  "states": {
+                    "aura": {
+                      "has": "burning"
+                    }
+                  }
+                }
+              ]
+            },
+            "duration": 8000,
+            "commands": {
+              "type": "apply",
+              "ref": "restoreEnergy",
+              "spec": {
+                "uses": 1
+              }
+            }
+          }
+        ],
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.18,
+              0.36
+            ]
+          }
+        },
+        "maxStacks": 2
+      },
+      {
+        "ref": "restoreEnergy",
+        "apply": {
+          "when": "command"
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "buff": 2
+              }
+            },
+            "cooldown": 12000,
+            "action": {
+              "restoreEnergy": {
+                "flat": [
+                  12,
+                  16
+                ]
+              }
+            }
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "buff": 2
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
   },
   "13514": {
     "disabled": true,

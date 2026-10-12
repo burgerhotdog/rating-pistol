@@ -1937,6 +1937,9 @@
       {
         "bonus": 4,
         "ref": "burningBuff",
+        "apply": {
+          "when": "command"
+        },
         "buff": {
           "stats": {
             "dmgBonus%": 0.1
