@@ -31,7 +31,7 @@ function handleHealing(ctx, action) {
       changeBondOfLife(ctx, targetId, -0.1);
     }
 
-    updateHealth(ctx, targetId, { value: 0.1 });
+    updateHealth(ctx, action, targetId, { value: 0.1 });
 
     ctx.runEffects('healed', { ownerId: targetId });
   }
@@ -48,7 +48,7 @@ function handleHealth(ctx, action) {
 
   for (const target of action.health.targets) {
     const targetId = getTargetId(ctx, target);
-    updateHealth(ctx, targetId, action.health);
+    updateHealth(ctx, action, targetId, action.health);
   }
 }
 

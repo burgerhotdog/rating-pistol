@@ -1127,7 +1127,7 @@
         "bonus": 4,
         "ref": "buffWhenHpDrop",
         "apply": {
-          "when": "healthChange",
+          "when": "healthUpdate",
           "filter": {
             "and": [
               {
@@ -1720,7 +1720,7 @@
       {
         "bonus": 4,
         "apply": {
-          "when": "healthChange",
+          "when": "healthUpdate",
           "duration": 5000
         },
         "buff": {

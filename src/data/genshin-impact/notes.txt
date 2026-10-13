@@ -63,6 +63,10 @@ Characters:
         Dendro core trigger offset might be wrong
         No ult electro/hydro buff
         EM buff comes from self
+    Neuvillette
+        A1 stacks aren't independent
+        A4 is every 10%
+        No C4, C6
     Nicole
         coordinated attack uses own stats
         No constellations

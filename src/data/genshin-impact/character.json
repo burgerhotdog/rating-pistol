@@ -37644,7 +37644,6 @@
     ]
   },
   "10000087": {
-    "disabled": true,
     "name": "Neuvillette",
     "version": 4.1,
     "id": 10000087,
@@ -37660,7 +37659,336 @@
     },
     "energy": 70,
     "arkhe": true,
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.4"
+            }
+          },
+          "uses": 3,
+          "offset": 100
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 150,
+          "action": {
+            "health": {
+              "value": 0.16
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.4"
+            }
+          },
+          "duration": 3500,
+          "offset": 750
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 500,
+          "action": {
+            "health": {
+              "value": -0.08,
+              "min": 0.5
+            }
+          }
+        }
+      },
+      {
+        "ref": "sourcewaterDroplets",
+        "apply": {
+          "when": "command"
+        },
+        "maxStacks": 12
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 1,
+          "offset": 1000,
+          "commands": {
+            "type": "apply",
+            "ref": "sourcewaterDroplets",
+            "spec": {
+              "stacks": 3
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 2,
+          "offset": 500,
+          "commands": {
+            "type": "apply",
+            "ref": "sourcewaterDroplets",
+            "spec": {
+              "stacks": 6
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 250,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "pastDraconicGlories1",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "vaporize"
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "ref": "pastDraconicGlories2",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "frozen"
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "ref": "pastDraconicGlories3",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "electroCharged",
+                "lunarCharged"
+              ]
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "ref": "pastDraconicGlories4",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "bloom",
+                "lunarBloom"
+              ]
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "ref": "pastDraconicGlories5",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "hydro"
+                }
+              ]
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "ref": "pastDraconicGlories6",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": [
+                    "crystallize",
+                    "lunarCrystallize"
+                  ]
+                },
+                {
+                  "elements": "hydro"
+                }
+              ]
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "special": "neuvillette1"
+          },
+          "stats": {
+            "damageMv%": 0.1
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "special": "neuvillette2"
+          },
+          "stats": {
+            "damageMv%": 0.25
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "special": "neuvillette3"
+          },
+          "stats": {
+            "damageMv%": 0.6
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "health": {
+              ">=": 0.4
+            }
+          },
+          "stats": {
+            "hydroDmgBonus%": 0.06
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "health": {
+              ">=": 0.5
+            }
+          },
+          "stats": {
+            "hydroDmgBonus%": 0.06
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "health": {
+              ">=": 0.6
+            }
+          },
+          "stats": {
+            "hydroDmgBonus%": 0.06
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "health": {
+              ">=": 0.7
+            }
+          },
+          "stats": {
+            "hydroDmgBonus%": 0.06
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "health": {
+              ">=": 0.8
+            }
+          },
+          "stats": {
+            "hydroDmgBonus%": 0.06
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "ref": "pastDraconicGloriesFree",
+        "apply": {
+          "when": "swap"
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "special": "neuvillette1"
+          },
+          "stats": {
+            "critDmg%": 0.14
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "special": "neuvillette2"
+          },
+          "stats": {
+            "critDmg%": 0.28
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "special": "neuvillette3"
+          },
+          "stats": {
+            "critDmg%": 0.42
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "As Water Seeks Equilibrium",
@@ -37776,8 +38104,14 @@
           },
           {
             "name": "Charged Attack: Equitable Judgment",
-            "type": "normalAttack",
+            "type": "chargedAttack",
             "damage": {
+              "attr": "hp",
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -37796,10 +38130,22 @@
                     0.1753,
                     0.1855,
                     0.1957
-                  ]
+                  ],
+                  "times": 8
                 }
               ]
-            }
+            },
+            "duration": 3500,
+            "hitOffsets": [
+              500,
+              900,
+              1300,
+              1700,
+              2100,
+              2500,
+              2900,
+              3300
+            ]
           },
           {
             "name": "Plunging Attack: Low",
@@ -37888,9 +38234,11 @@
         "name": "O Tears, I Shall Repay",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -37915,8 +38263,7 @@
             }
           },
           {
-            "name": "Spiritbreath Thorn DMG",
-            "type": "elementalSkill",
+            "name": "Spiritbreath Thorn",
             "damage": {
               "multipliers": [
                 {
@@ -37948,9 +38295,16 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -37975,9 +38329,16 @@
             }
           },
           {
-            "name": "Waterfall DMG",
-            "type": "elementalBurst",
+            "name": "Waterfall",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -38008,7 +38369,14 @@
       "weaponId": 14514,
       "setCounts": {
         "15031": 4
-      }
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "normalAttack.4",
+        "normalAttack.4",
+        "elementalSkill.0",
+        "normalAttack.4"
+      ]
     }
   },
   "10000088": {

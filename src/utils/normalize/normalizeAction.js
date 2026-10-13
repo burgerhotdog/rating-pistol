@@ -148,18 +148,20 @@ export function normalizeAction(gameId, rawAction, spec) {
       );
 
       // hitOffsets
-      let offset = action.duration * 0.65;
-      const hitOffsets = action.hitOffsets = [Math.round(offset)];
-      let hitsLeft = damage.compressed.hitCount - 1;
-      while (hitsLeft) {
-        if (action.duration) {
-          offset += 100;
-          if (action.duration - offset <= 100) {
-            action.duration += 100;
+      if (!action.hitOffsets) {
+        let offset = action.duration * 0.65;
+        const hitOffsets = action.hitOffsets = [Math.round(offset)];
+        let hitsLeft = damage.compressed.hitCount - 1;
+        while (hitsLeft) {
+          if (action.duration) {
+            offset += 100;
+            if (action.duration - offset <= 100) {
+              action.duration += 100;
+            }
           }
+          hitOffsets.push(Math.round(offset));
+          hitsLeft--;
         }
-        hitOffsets.push(Math.round(offset));
-        hitsLeft--;
       }
     }
 

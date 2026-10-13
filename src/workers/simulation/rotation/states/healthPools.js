@@ -23,7 +23,7 @@ export function getTargetId(ctx, target) {
   return target;
 }
 
-export function updateHealth(ctx, ownerId, spec) {
+export function updateHealth(ctx, action, ownerId, spec) {
   const healthStore = ctx.states.memberHealth;
   const { value, min = 0, max = 1 } = spec;
 
@@ -36,5 +36,5 @@ export function updateHealth(ctx, ownerId, spec) {
   if (next === prev) return;
 
   healthStore[ownerId] = next;
-  ctx.runEffects('healthUpdate', { ownerId });
+  ctx.runEffects('healthUpdate', { ...action, ownerId });
 }

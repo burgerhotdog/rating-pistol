@@ -1917,7 +1917,7 @@
     "effects": [
       {
         "apply": {
-          "when": "healthChange",
+          "when": "healthUpdate",
           "field": "*",
           "cooldown": 200,
           "duration": 6000
@@ -1935,7 +1935,7 @@
       {
         "apply": {
           "by": "$ally",
-          "when": "healthChange",
+          "when": "healthUpdate",
           "field": "*",
           "cooldown": 200,
           "duration": 6000
@@ -6158,7 +6158,7 @@
       {
         "ref": "selfBuff",
         "apply": {
-          "when": "healthChange",
+          "when": "healthUpdate",
           "cooldown": 300,
           "duration": 4000
         },
@@ -6198,7 +6198,6 @@
     ]
   },
   "14514": {
-    "disabled": true,
     "name": "Tome of the Eternal Flow",
     "version": 4.1,
     "id": 14514,
@@ -6209,7 +6208,56 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.3,
+              0.6
+            ]
+          }
+        }
+      },
+      {
+        "ref": "tomeBuff",
+        "apply": {
+          "when": "healthUpdate",
+          "cooldown": 300,
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "chargedAttackDmgBonus%": [
+              0.14,
+              0.3
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "use": {
+          "when": "healthUpdate",
+          "filter": {
+            "effectStacks": {
+              "tomeBuff": {
+                ">=": 2
+              }
+            }
+          },
+          "cooldown": 12000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                8,
+                12
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "14515": {
     "name": "Crane's Echoing Call",
