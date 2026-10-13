@@ -5159,7 +5159,6 @@
     "effects": []
   },
   "14409": {
-    "disabled": true,
     "name": "Eye of Perception",
     "version": 1.0,
     "id": 14409,
@@ -5170,7 +5169,39 @@
       "baseAtk": 454,
       "atk%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": [
+            12000,
+            8000
+          ],
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    2.4,
+                    3.6
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "14410": {
     "disabled": true,
@@ -5273,7 +5304,6 @@
     "effects": []
   },
   "14415": {
-    "disabled": true,
     "name": "Oathsworn Eye",
     "version": 2.5,
     "id": 14415,
@@ -5284,7 +5314,27 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "energyRecharge%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
   },
   "14416": {
     "name": "Wandering Evenstar",

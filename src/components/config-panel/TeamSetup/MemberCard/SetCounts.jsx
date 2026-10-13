@@ -3,17 +3,19 @@ import { useData } from '@/hooks';
 import { MultiAutocomplete } from '../../../Autocomplete';
 
 const SetCounts = ({ memberId, setCounts = {}, onChange }) => {
+  const setDatas = useData('set');
   const { maxEquips } = useData('misc');
+
   const usedEquips = Object.values(setCounts).reduce((acc, count) => acc + count, 0);
   const maxBonus = maxEquips - usedEquips;
 
-  const setData = useData('set');
   const options = useMemo(() => {
     const options = [];
+
     for (let bonus = maxBonus; bonus > 0; bonus--) {
-      for (const { name, version, id, icon, bonuses } of Object.values(setData)) {
-        if (!bonuses.includes(bonus)) continue;
-        options.push({ id, bonus, version, name, icon });
+      for (const setData of Object.values(setDatas)) {
+        if (!setData.bonuses.includes(bonus)) continue;
+        options.push({ ...setData, bonus });
       }
     }
 
@@ -22,16 +24,16 @@ const SetCounts = ({ memberId, setCounts = {}, onChange }) => {
       b.version - a.version ||
       b.id - a.id
     );
-  }, [setData, maxBonus]);
+  }, [setDatas, maxBonus]);
 
   const value = useMemo(
     () => Object.entries(setCounts)
       .map(([id, bonus]) => ({ id, bonus,
-        name: setData[id].name,
-        icon: setData[id].icon,
+        name: setDatas[id].name,
+        icon: setDatas[id].icon,
       }))
       .sort((a, b) => Number(b.id) - Number(a.id)),
-    [setData, setCounts],
+    [setDatas, setCounts],
   );
 
   const handleChange = (newValue) => {

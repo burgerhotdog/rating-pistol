@@ -66,25 +66,34 @@ function parseSkills(skills, constellations) {
     const actions = [];
 
     for (const { desc, param } of promote[0]) {
-      const matches = [...desc.matchAll(/\{param(\d+):[^}]+\}/g)];
-      if (!matches.length) continue;
+      const [actionName, values] = desc.split('|');
+      if (!values) continue;
 
-      const actionName = desc.split('|')[0];
-      if (actionName === 'Energy Cost') {
-        const [, paramIndex] = matches[0];
-        energy = param[Number(paramIndex) - 1];
-        continue;
+      const parts = values.split('/');
+      const times = Number(values.match(/×(\d+)/)?.[1] ?? 1);
+
+      for (const [index, part] of parts.entries()) {
+        const matches = [...part.matchAll(/\{param(\d+):[^}]+\}/g)];
+        if (!matches.length) continue;
+
+        if (actionName === 'Energy Cost') {
+          energy = param[Number(matches[0][1]) - 1];
+          continue;
+        }
+
+        actions.push({
+          name: parts.length > 1 ? `${actionName} ${index + 1}` : actionName,
+          type,
+          damage: {
+            multipliers: matches.map((m) => ({
+              mv: Array.from({ length: 15 }, (_, level) =>
+                promote[level].param[Number(m[1]) - 1]
+              ),
+              ...(times > 1 && { times }),
+            })),
+          },
+        });
       }
-
-      actions.push({
-        name: actionName,
-        type,
-        damage: {
-          multipliers: matches.map((m) => ({
-            mv: Array.from({ length: 15 }, (_, level) => promote[level].param[Number(m[1]) - 1]),
-          })),
-        },
-      });
     }
 
     result[type] = { name, actions };

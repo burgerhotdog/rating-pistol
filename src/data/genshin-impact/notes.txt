@@ -127,6 +127,8 @@ Weapons:
         doesn't need enemies nearby
     Aquila Favonia
         Effect always hits
+    Eye of Perception
+        Effect always hits
     Ferrous Shadow
         No effect
     Fillet Blade
@@ -135,6 +137,8 @@ Weapons:
         Clear BoL gives fixed atk buff
     Heretic's Molten Blade
         No effect
+    Oathsworn Eye
+        ER might not work in calcs
     Sacrificial Jade
         No 5s buffer
     Sapwood Blade

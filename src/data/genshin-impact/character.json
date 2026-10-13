@@ -3854,8 +3854,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "anemo",
             "damage": {
+              "element": "anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -3963,8 +3963,8 @@
           {
             "name": "Windsunder Arrow",
             "type": "normalAttack",
-            "element": "anemo",
             "damage": {
+              "element": "anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -9041,8 +9041,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "hydro",
             "damage": {
+              "element": "hydro",
               "multipliers": [
                 {
                   "mv": [
@@ -12155,8 +12155,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "cryo",
             "damage": {
+              "element": "cryo",
               "multipliers": [
                 {
                   "mv": [
@@ -16844,8 +16844,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "pyro",
             "damage": {
+              "element": "pyro",
               "multipliers": [
                 {
                   "mv": [
@@ -20916,8 +20916,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "electro",
             "damage": {
+              "element": "electro",
               "multipliers": [
                 {
                   "mv": [
@@ -25013,8 +25013,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "cryo",
             "damage": {
+              "element": "cryo",
               "multipliers": [
                 {
                   "mv": [
@@ -27521,8 +27521,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "dendro",
             "damage": {
+              "element": "dendro",
               "multipliers": [
                 {
                   "mv": [
@@ -42052,8 +42052,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "hydro",
             "damage": {
+              "element": "hydro",
               "multipliers": [
                 {
                   "mv": [
@@ -46371,8 +46371,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "anemo",
             "damage": {
+              "element": "anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -46816,8 +46816,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "electro",
             "damage": {
+              "element": "electro",
               "multipliers": [
                 {
                   "mv": [
@@ -57374,7 +57374,9 @@
     },
     "energy": 70,
     "moonsign": true,
-    "effects": [],
+    "effects": [
+
+    ],
     "skills": {
       "normalAttack": {
         "name": "Strike While the Arrow's Hot",
@@ -57428,7 +57430,8 @@
                     0.4607,
                     0.4875,
                     0.5143
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
@@ -57490,8 +57493,9 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "anemo",
             "damage": {
+              "element": "anemo",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
