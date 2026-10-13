@@ -70,6 +70,9 @@ Characters:
         Only plume
         Marvelous Splendor applies to $ally
         No constellations
+    Prune
+        Effects are fragile, may need checking
+        No constellations
     Raiden
         Remember E no snapshot
     Sandrone
@@ -83,6 +86,8 @@ Characters:
     Sucrose
         Element must be there at apply time to be absorbed
         No C6
+    Varka
+        No constellations
     Vesna
         Disciplinary Action stacks not independent
         No constellations
@@ -146,6 +151,8 @@ Weapons:
         No effect
     Sturdy Bone
         No effect
+    Symphonist of Scents
+        Doesn't apply buff to healed
     The Alley Flash
         Taking dmg doesn't matter
     The Black Sword
