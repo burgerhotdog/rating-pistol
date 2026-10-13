@@ -9,10 +9,9 @@ export function advanceShielded(ctx, elapsed) {
   }
 }
 
-export function updateShielded(ctx, action) {
-  const { states } = ctx;
-  const duration = action.shield?.duration;
-  if (!duration) return;
+export function updateShielded(ctx, shield) {
+  const prev = ctx.states.shielded ?? 0;
+  const next = Math.max(shield.duration, prev);
 
-  states.shielded = Math.max(duration, states.shielded ?? 0);
+  ctx.states.shielded = next;
 }

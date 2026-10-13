@@ -5808,8 +5808,8 @@
           "when": "interval",
           "cooldown": 1000,
           "action": {
-            "drain": {
-              "value": 0.02
+            "health": {
+              "value": -0.02
             }
           }
         },
@@ -26716,9 +26716,9 @@
           {
             "name": "Elemental Skill",
             "type": "elementalSkill",
-            "drain": {
-              "value": 0.3,
-              "minLimit": 0.2
+            "health": {
+              "value": -0.3,
+              "min": 0.2
             },
             "damage": {
               "gauge": 1,
@@ -35749,9 +35749,9 @@
             ]
           },
           "action": {
-            "drain": {
-              "value": 0.2,
-              "minLimit": 0.6
+            "health": {
+              "value": -0.2,
+              "min": 0.6
             }
           },
           "commands": {
@@ -35786,8 +35786,8 @@
             }
           },
           "action": {
-            "drain": {
-              "value": -0.2
+            "health": {
+              "value": 0.2
             }
           }
         },
@@ -37049,8 +37049,8 @@
           },
           "cooldown": 100,
           "action": {
-            "drain": {
-              "value": 0.045
+            "health": {
+              "value": -0.045
             }
           }
         },
@@ -37112,8 +37112,8 @@
             ]
           },
           "spec": {
-            "drain": {
-              "value": -0.3
+            "health": {
+              "value": 0.3
             }
           }
         }

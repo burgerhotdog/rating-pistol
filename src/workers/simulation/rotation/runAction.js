@@ -3,9 +3,10 @@ import { applyGauge, consumeVerdantDew } from './reactions';
 import {
   advanceStates,
   decayBuffUses,
-  updateHealthPools,
+  updateHealth,
   updateShielded,
   changeBondOfLife,
+  getTargetId,
   grantBondOfLife,
   tryNightsoulBurst,
   updateNightsoulPoints,
@@ -19,6 +20,37 @@ import {
 import { canSnapshot, buildSnapshot } from './snapshot';
 import { getModifiedAction } from './getModifiedAction';
 import { runRestoreEnergy } from './restoreEnergy';
+
+function handleHealing(ctx, action) {
+  if (!action.healing) return;
+
+  for (const target of action.healing.targets) {
+    const targetId = getTargetId(ctx, target);
+
+    if (ctx.cache.gameId === GI) {
+      changeBondOfLife(ctx, targetId, -0.1);
+    }
+
+    updateHealth(ctx, targetId, { value: 0.1 });
+
+    ctx.runEffects('healed', { ownerId: targetId });
+  }
+}
+
+function handleShield(ctx, action) {
+  if (!action.shield) return;
+
+  updateShielded(ctx, action.shield);
+}
+
+function handleHealth(ctx, action) {
+  if (!action.health) return;
+
+  for (const target of action.health.targets) {
+    const targetId = getTargetId(ctx, target);
+    updateHealth(ctx, targetId, action.health);
+  }
+}
 
 export function runAction(ctx, action, options = {}) {
   const { noDuration } = options;
@@ -107,30 +139,10 @@ export function runAction(ctx, action, options = {}) {
       });
     }
 
-    if (modifiedAction.healing) {
-      for (const target of modifiedAction.healing.targets) {
-        let targetId = target;
+    handleHealth(ctx, modifiedAction);
 
-        if (targetId === '$onField') {
-          targetId = ctx.states.onFieldId;
-        } else if (targetId === '$lowest') {
-          targetId = Number(Object.keys(ctx.states.memberHealth).reduce((lowestId, id) =>
-            ctx.states.memberHealth[id] < ctx.states.memberHealth[lowestId] ? id : lowestId
-          ));
-        }
-
-        if (gameId === GI) {
-          changeBondOfLife(ctx, targetId, -0.1);
-          updateHealthPools(ctx, { drain: { targets: modifiedAction.healing.targets, value: -0.01 } });
-        }
-      }
-    }
-
-    if (modifiedAction.drain) {
-      updateHealthPools(ctx, modifiedAction);
-    }
-
-    updateShielded(ctx, modifiedAction);
+    handleHealing(ctx, modifiedAction);
+    handleShield(ctx, modifiedAction);
 
     if (gameId === GI) {
       tryNightsoulBurst(ctx, modifiedAction);

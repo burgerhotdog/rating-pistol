@@ -1,5 +1,6 @@
 import { GI, WW, ZZZ, CHARACTER } from '@/data';
 import { lerp } from '../math';
+import { toArray } from '../toArray';
 
 const DEFAULT_DURATIONS = {
   [GI]: {
@@ -271,12 +272,14 @@ export function normalizeAction(gameId, rawAction, spec) {
     }
   }
 
-  if (action.drain) {
-    const drain = action.drain = { ...action.drain };
-    if (drain.targets === '$team') {
-      drain.targets = spec.memberIds;
+  if (action.health) {
+    const health = action.health = { ...action.health };
+
+    if (health.targets === '$team') {
+      health.targets = spec.memberIds;
+    } else {
+      health.targets = toArray(health.targets ?? spec.ownerId);
     }
-    drain.targets ??= [spec.ownerId];
   }
 
   return action;

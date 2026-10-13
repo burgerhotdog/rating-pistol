@@ -1132,9 +1132,9 @@
             "and": [
               {
                 "action": {
-                  "drain": {
+                  "health": {
                     "value": {
-                      ">": 0
+                      "<": 0
                     }
                   }
                 }
