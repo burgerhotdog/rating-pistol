@@ -2208,7 +2208,6 @@
     ]
   },
   "11519": {
-    "disabled": true,
     "name": "Lightbearing Moonshard",
     "version": 6.3,
     "id": 11519,
@@ -2219,7 +2218,37 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "def%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "lunarCrystallizeReactionBonus%": [
+              0.64,
+              1.28
+            ]
+          }
+        }
+      }
+    ]
   },
   "11520": {
     "name": "Whitelake Frostfeather",
@@ -3440,7 +3469,6 @@
     "effects": []
   },
   "12515": {
-    "disabled": true,
     "name": "Gest of the Mighty Wolf",
     "version": 6.4,
     "id": 12515,
@@ -3451,7 +3479,96 @@
       "baseAtk": 608,
       "critRate%": 0.331
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "attackSpd%": 0.1
+          }
+        }
+      },
+      {
+        "apply": [
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "normalAttack"
+                }
+              }
+            },
+            "cooldown": 10,
+            "duration": 4000
+          },
+          {
+            "when": "start",
+            "filter": {
+              "action": {
+                "type": [
+                  "elementalSkill",
+                  "chargedAttack"
+                ]
+              }
+            },
+            "cooldown": 10,
+            "duration": 4000,
+            "stacks": 2
+          }
+        ],
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.075,
+              0.155
+            ]
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "apply": [
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "normalAttack"
+                }
+              }
+            },
+            "cooldown": 10,
+            "duration": 4000
+          },
+          {
+            "when": "start",
+            "filter": {
+              "action": {
+                "type": [
+                  "elementalSkill",
+                  "chargedAttack"
+                ]
+              }
+            },
+            "cooldown": 10,
+            "duration": 4000,
+            "stacks": 2
+          }
+        ],
+        "buff": {
+          "stats": {
+            "critDmg%": [
+              0.075,
+              0.155
+            ]
+          }
+        },
+        "maxStacks": 4
+      }
+    ]
   },
   "12516": {
     "name": "A Teaspoon of Transcendence",
@@ -4417,7 +4534,6 @@
     ]
   },
   "13514": {
-    "disabled": true,
     "name": "Symphonist of Scents",
     "version": 5.6,
     "id": 13514,
@@ -4428,7 +4544,51 @@
       "baseAtk": 608,
       "critDmg%": 0.662
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "field": "offField"
+          },
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "field": "*",
+          "filter": {
+            "action": {
+              "has": "healing"
+            }
+          },
+          "duration": 3
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.32,
+              0.64
+            ]
+          }
+        }
+      }
+    ]
   },
   "13515": {
     "name": "Fractured Halo",
@@ -5325,7 +5485,6 @@
     "effects": []
   },
   "14432": {
-    "disabled": true,
     "name": "Etherlight Spindlelute",
     "version": 6.0,
     "id": 14432,
@@ -5336,7 +5495,27 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              100,
+              200
+            ]
+          }
+        }
+      }
+    ]
   },
   "14433": {
     "disabled": true,

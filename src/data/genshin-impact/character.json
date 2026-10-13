@@ -11964,8 +11964,8 @@
     },
     "teamPreset": [
       10000057,
-      10000038,
       10000055,
+      10000038,
       10000123
     ]
   },
@@ -20725,8 +20725,8 @@
     },
     "teamPreset": [
       10000057,
-      10000038,
       10000055,
+      10000038,
       10000123
     ]
   },
@@ -21652,8 +21652,8 @@
     },
     "teamPreset": [
       10000057,
-      10000038,
       10000055,
+      10000038,
       10000123
     ]
   },
@@ -23302,7 +23302,7 @@
       10000133,
       10000058,
       10000150,
-      10000148
+      10000112
     ]
   },
   "10000059": {
@@ -37638,9 +37638,9 @@
     },
     "teamPreset": [
       10000086,
-      10000112,
       10000058,
-      10000150
+      10000150,
+      10000112
     ]
   },
   "10000087": {
@@ -39356,9 +39356,9 @@
     },
     "teamPreset": [
       10000114,
-      10000140,
       10000089,
-      10000112
+      10000112,
+      10000140
     ]
   },
   "10000090": {
@@ -50858,9 +50858,9 @@
     },
     "teamPreset": [
       10000114,
-      10000140,
       10000089,
-      10000112
+      10000112,
+      10000140
     ]
   },
   "10000113": {
@@ -52623,9 +52623,9 @@
     },
     "teamPreset": [
       10000114,
-      10000140,
       10000089,
-      10000112
+      10000112,
+      10000140
     ]
   },
   "10000115": {
@@ -54196,9 +54196,9 @@
     },
     "teamPreset": [
       10000122,
-      10000043,
+      10000119,
       10000125,
-      10000119
+      10000043
     ]
   },
   "10000120": {
@@ -55562,8 +55562,8 @@
     },
     "teamPreset": [
       10000120,
-      10000121,
       10000116,
+      10000121,
       10000043
     ]
   },
@@ -56297,9 +56297,9 @@
     },
     "teamPreset": [
       10000122,
-      10000043,
+      10000119,
       10000125,
-      10000119
+      10000043
     ]
   },
   "10000123": {
@@ -57349,7 +57349,13 @@
         "elementalBurst.0",
         "elementalSkill.1"
       ]
-    }
+    },
+    "teamPreset": [
+      10000128,
+      10000132,
+      10000131,
+      10000123
+    ]
   },
   "10000124": {
     "disabled": true,
@@ -58834,7 +58840,6 @@
     ]
   },
   "10000126": {
-    "disabled": true,
     "name": "Zibai",
     "version": 6.3,
     "id": 10000126,
@@ -58850,7 +58855,232 @@
     },
     "energy": 60,
     "moonsign": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "lunarPhaseShift",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 15000
+        },
+        "maxExtensions": 1
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.6"
+            }
+          },
+          "action": "elementalSkill.7"
+        }
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.4"
+            }
+          },
+          "action": "elementalSkill.8"
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "lunarPhaseShift"
+                }
+              }
+            ]
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "lunarPhaseShift",
+            "spec": {
+              "duration": 1700,
+              "extend": true
+            }
+          }
+        }
+      },
+      {
+        "ref": "selenicDescent",
+        "apply": [
+          {
+            "when": "start",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              }
+            },
+            "duration": 4000
+          },
+          {
+            "by": "$team",
+            "when": "reaction",
+            "filter": {
+              "and": [
+                {
+                  "reaction": {
+                    "reaction": "lunarCrystallize"
+                  }
+                },
+                {
+                  "states": {
+                    "aura": {
+                      "lunarCrystallize": {
+                        "timesLeft": 0
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "duration": 4000
+          }
+        ],
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.7"
+            }
+          },
+          "specs": {
+            "lunarCrystallizeFlat": {
+              "attr": "def",
+              "step": 1,
+              "value": 0.6
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "geo": 2
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "def%": 0.15
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "geo": 3
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "def%": 0.3
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "geo": 4
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "def%": 0.45
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": 1
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 60
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": 2
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 120
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": 3
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 180
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "buff": {
+          "specs": {
+            "lunarCrystallizeBaseDmg%": {
+              "attr": "def",
+              "step": 100,
+              "value": 0.007,
+              "maxValue": 0.14
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Golden Blade's Petaled Touch",
@@ -59116,9 +59346,14 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Lunar Phase Shift 1-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Lunar Phase Shift: Normal Attack 1",
+            "type": "normalAttack",
             "damage": {
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59143,9 +59378,10 @@
             }
           },
           {
-            "name": "Lunar Phase Shift 2-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Lunar Phase Shift: Normal Attack 2",
+            "type": "normalAttack",
             "damage": {
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59170,9 +59406,10 @@
             }
           },
           {
-            "name": "Lunar Phase Shift 3-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Lunar Phase Shift: Normal Attack 3",
+            "type": "normalAttack",
             "damage": {
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59216,9 +59453,10 @@
             }
           },
           {
-            "name": "Lunar Phase Shift 4-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Lunar Phase Shift: Normal Attack 4",
+            "type": "normalAttack",
             "damage": {
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59243,9 +59481,10 @@
             }
           },
           {
-            "name": "Lunar Phase Shift Charged Attack DMG",
-            "type": "elementalSkill",
+            "name": "Lunar Phase Shift: Charged Attack",
+            "type": "chargedAttack",
             "damage": {
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59289,9 +59528,10 @@
             }
           },
           {
-            "name": "Spirit Steed's Stride 1-Hit DMG",
+            "name": "Lunar Phase Shift: Elemental Skill: Spirit Steed's Stride 1",
             "type": "elementalSkill",
             "damage": {
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59316,9 +59556,10 @@
             }
           },
           {
-            "name": "Spirit Steed's Stride 2-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Spirit Steed's Stride Additional Damage",
             "damage": {
+              "type": "lunarCrystallize",
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59343,9 +59584,10 @@
             }
           },
           {
-            "name": "Lunar Phase Shift 4-Hit Additional DMG",
-            "type": "elementalSkill",
+            "name": "Lunar Phase Shift: Additional Damage",
             "damage": {
+              "type": "lunarCrystallize",
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59376,9 +59618,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill 1-Hit DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59400,12 +59643,14 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 1700
           },
           {
-            "name": "Skill 2-Hit DMG",
-            "type": "elementalBurst",
+            "name": "Additional Damage",
             "damage": {
+              "type": "lunarCrystallize",
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -59432,7 +59677,44 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11519,
+      "setCounts": {
+        "15041": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.4",
+        "elementalSkill.6",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.4",
+        "elementalSkill.6",
+        "elementalSkill.1",
+        "elementalBurst.0",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.4",
+        "elementalSkill.6",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.4",
+        "elementalSkill.6"
+      ],
+      "duration": 17500
+    },
+    "teamPreset": [
+      10000126,
+      10000130,
+      10000125,
+      10000043
+    ]
   },
   "10000127": {
     "disabled": true,
@@ -59901,7 +60183,6 @@
     "memberPreset": {}
   },
   "10000128": {
-    "disabled": true,
     "name": "Varka",
     "version": 6.4,
     "id": 10000128,
@@ -59917,7 +60198,543 @@
     },
     "energy": 60,
     "hexerei": true,
-    "effects": [],
+    "effects": [
+      {
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.2"
+              }
+            },
+            "action": "elementalSkill.3"
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.4"
+              }
+            },
+            "action": "elementalSkill.5"
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.6"
+              }
+            },
+            "action": "elementalSkill.7"
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.8"
+              }
+            },
+            "action": "elementalSkill.9"
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.10"
+              }
+            },
+            "action": "elementalSkill.11"
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.12"
+              }
+            },
+            "action": [
+              "elementalSkill.13",
+              "elementalSkill.14",
+              "elementalSkill.15"
+            ]
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.16"
+              }
+            },
+            "action": "elementalSkill.17"
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.0"
+              }
+            },
+            "action": "elementalBurst.1"
+          }
+        ]
+      },
+      {
+        "ref": "sturmUndDrang",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 12000
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "has": "pyro"
+            }
+          }
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalSkill.3",
+                "elementalSkill.5",
+                "elementalSkill.6",
+                "elementalSkill.8",
+                "elementalSkill.10",
+                "elementalSkill.12",
+                "elementalSkill.14",
+                "elementalSkill.16",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "pyro"
+            }
+          }
+        },
+        "buff": {
+          "specs": {
+            "anemoDmgBonus%": {
+              "attr": "atk",
+              "step": 1000,
+              "value": 0.1,
+              "maxValue": 0.25
+            },
+            "pyroDmgBonus%": {
+              "attr": "atk",
+              "step": 1000,
+              "value": 0.1,
+              "maxValue": 0.25
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "and": [
+                {
+                  "not": {
+                    "has": "pyro"
+                  }
+                },
+                {
+                  "has": "hydro"
+                }
+              ]
+            }
+          }
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalSkill.3",
+                "elementalSkill.5",
+                "elementalSkill.6",
+                "elementalSkill.8",
+                "elementalSkill.10",
+                "elementalSkill.12",
+                "elementalSkill.14",
+                "elementalSkill.16",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "hydro"
+            }
+          }
+        },
+        "buff": {
+          "specs": {
+            "anemoDmgBonus%": {
+              "attr": "atk",
+              "step": 1000,
+              "value": 0.1,
+              "maxValue": 0.25
+            },
+            "hydroDmgBonus%": {
+              "attr": "atk",
+              "step": 1000,
+              "value": 0.1,
+              "maxValue": 0.25
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "and": [
+                {
+                  "not": {
+                    "has": [
+                      "pyro",
+                      "hydro"
+                    ]
+                  }
+                },
+                {
+                  "has": "electro"
+                }
+              ]
+            }
+          }
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalSkill.3",
+                "elementalSkill.5",
+                "elementalSkill.6",
+                "elementalSkill.8",
+                "elementalSkill.10",
+                "elementalSkill.12",
+                "elementalSkill.14",
+                "elementalSkill.16",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "electro"
+            }
+          }
+        },
+        "buff": {
+          "specs": {
+            "anemoDmgBonus%": {
+              "attr": "atk",
+              "step": 1000,
+              "value": 0.1,
+              "maxValue": 0.25
+            },
+            "electroDmgBonus%": {
+              "attr": "atk",
+              "step": 1000,
+              "value": 0.1,
+              "maxValue": 0.25
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "and": [
+                {
+                  "not": {
+                    "has": [
+                      "pyro",
+                      "hydro",
+                      "electro"
+                    ]
+                  }
+                },
+                {
+                  "has": "cryo"
+                }
+              ]
+            }
+          }
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalSkill.3",
+                "elementalSkill.5",
+                "elementalSkill.6",
+                "elementalSkill.8",
+                "elementalSkill.10",
+                "elementalSkill.12",
+                "elementalSkill.14",
+                "elementalSkill.16",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "cryo"
+            }
+          }
+        },
+        "buff": {
+          "specs": {
+            "anemoDmgBonus%": {
+              "attr": "atk",
+              "step": 1000,
+              "value": 0.1,
+              "maxValue": 0.25
+            },
+            "cryoDmgBonus%": {
+              "attr": "atk",
+              "step": 1000,
+              "value": 0.1,
+              "maxValue": 0.25
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "or": [
+                {
+                  "and": [
+                    {
+                      "anemo": {
+                        ">=": 2
+                      }
+                    },
+                    {
+                      "not": {
+                        "or": [
+                          {
+                            "pyro": {
+                              ">=": 2
+                            }
+                          },
+                          {
+                            "hydro": {
+                              ">=": 2
+                            }
+                          },
+                          {
+                            "electro": {
+                              ">=": 2
+                            }
+                          },
+                          {
+                            "cryo": {
+                              ">=": 2
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "not": {
+                        "anemo": {
+                          ">=": 2
+                        }
+                      }
+                    },
+                    {
+                      "or": [
+                        {
+                          "pyro": {
+                            ">=": 2
+                          }
+                        },
+                        {
+                          "hydro": {
+                            ">=": 2
+                          }
+                        },
+                        {
+                          "electro": {
+                            ">=": 2
+                          }
+                        },
+                        {
+                          "cryo": {
+                            ">=": 2
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack",
+                      "elementalSkill"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "sturmUndDrang"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "damageMv%": 0.4
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "and": [
+                {
+                  "anemo": 2
+                },
+                {
+                  "or": [
+                    {
+                      "pyro": 2
+                    },
+                    {
+                      "hydro": 2
+                    },
+                    {
+                      "electro": 2
+                    },
+                    {
+                      "cryo": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack",
+                      "elementalSkill"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "sturmUndDrang"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "damageMv%": 1.2
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "use": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "swirl",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "cooldown": 1000,
+          "commands": {
+            "type": "apply",
+            "ref": "azureFangsOath",
+            "spec": {
+              "duration": 8000
+            }
+          }
+        }
+      },
+      {
+        "ref": "azureFangsOath",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack",
+                      "elementalSkill"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "sturmUndDrang"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "dmgBonus%": 0.075
+          }
+        },
+        "maxStacks": 4
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Favonius Bladework: Dancing Radiance",
@@ -60267,9 +61084,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -60294,9 +61112,15 @@
             }
           },
           {
-            "name": "Sturm und Drang 1-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Sturm und Drang: Normal Attack 1: Other",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack Other",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -60321,9 +61145,15 @@
             }
           },
           {
-            "name": "Sturm und Drang 2-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Sturm und Drang: Normal Attack 2: Anemo",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack Anemo",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -60343,7 +61173,21 @@
                     0.7601,
                     0.8019
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Sturm und Drang: Normal Attack 2: Other",
+            "damage": {
+              "type": "normalAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack Other",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
                 {
                   "mv": [
                     0.5569,
@@ -60367,9 +61211,15 @@
             }
           },
           {
-            "name": "Sturm und Drang 3-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Sturm und Drang: Normal Attack 3: Anemo",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack Anemo",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -60389,7 +61239,21 @@
                     1.0278,
                     1.0844
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Sturm und Drang: Normal Attack 3: Other",
+            "damage": {
+              "type": "normalAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack Other",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
                 {
                   "mv": [
                     0.753,
@@ -60413,9 +61277,15 @@
             }
           },
           {
-            "name": "Sturm und Drang 4-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Sturm und Drang: Normal Attack 4: Other",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack Other",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -60435,7 +61305,21 @@
                     1.7564,
                     1.8531
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Sturm und Drang: Normal Attack 4: Anemo",
+            "damage": {
+              "type": "normalAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack Anemo",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
                 {
                   "mv": [
                     0.3731,
@@ -60459,9 +61343,15 @@
             }
           },
           {
-            "name": "Sturm und Drang 5-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Sturm und Drang: Normal Attack 5: Other",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack Other",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -60481,7 +61371,21 @@
                     2.2101,
                     2.3318
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Sturm und Drang: Normal Attack 5: Anemo",
+            "damage": {
+              "type": "normalAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack Anemo",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
                 {
                   "mv": [
                     0.4695,
@@ -60505,9 +61409,15 @@
             }
           },
           {
-            "name": "Sturm und Drang Charged Attack DMG",
-            "type": "elementalSkill",
+            "name": "Sturm und Drang: Charged Attack: Other",
+            "type": "chargedAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Charged Attack Other",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -60527,7 +61437,21 @@
                     2.7136,
                     2.8629
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Sturm und Drang: Charged Attack: Anemo",
+            "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Charged Attack Anemo",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
                 {
                   "mv": [
                     0.5764,
@@ -60551,55 +61475,15 @@
             }
           },
           {
-            "name": "Four Winds' Ascension DMG",
-            "type": "elementalSkill",
+            "name": "Sturm und Drang: Charged Attack: Azure Devour: Other A",
+            "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.7576,
-                    1.8894,
-                    2.0212,
-                    2.197,
-                    2.3288,
-                    2.4606,
-                    2.6364,
-                    2.8122,
-                    2.9879,
-                    3.1637,
-                    3.3394,
-                    3.5152,
-                    3.7349,
-                    3.9546,
-                    4.1743
-                  ]
-                },
-                {
-                  "mv": [
-                    0.9464,
-                    1.0174,
-                    1.0884,
-                    1.183,
-                    1.254,
-                    1.325,
-                    1.4196,
-                    1.5142,
-                    1.6089,
-                    1.7035,
-                    1.7982,
-                    1.8928,
-                    2.0111,
-                    2.1294,
-                    2.2477
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Azure Devour DMG",
-            "type": "elementalSkill",
-            "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Charged Attack Other",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -60619,7 +61503,54 @@
                     2.106,
                     2.223
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Sturm und Drang: Charged Attack: Azure Devour: Anemo B",
+            "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Charged Attack Anemo",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    0.936,
+                    1.0062,
+                    1.0764,
+                    1.17,
+                    1.2402,
+                    1.3104,
+                    1.404,
+                    1.4976,
+                    1.5912,
+                    1.6848,
+                    1.7784,
+                    1.872,
+                    1.989,
+                    2.106,
+                    2.223
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Sturm und Drang: Charged Attack: Azure Devour: Other C",
+            "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Charged Attack Other",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
                 {
                   "mv": [
                     0.504,
@@ -60641,6 +61572,95 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Sturm und Drang: Charged Attack: Azure Devour: Anemo D",
+            "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Charged Attack Anemo",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    0.504,
+                    0.5418,
+                    0.5796,
+                    0.63,
+                    0.6678,
+                    0.7056,
+                    0.756,
+                    0.8064,
+                    0.8568,
+                    0.9072,
+                    0.9576,
+                    1.008,
+                    1.071,
+                    1.134,
+                    1.197
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Sturm und Drang: Elemental Skill: Four Winds' Ascension: Other",
+            "type": "elementalSkill",
+            "damage": {
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": [
+                    1.7576,
+                    1.8894,
+                    2.0212,
+                    2.197,
+                    2.3288,
+                    2.4606,
+                    2.6364,
+                    2.8122,
+                    2.9879,
+                    3.1637,
+                    3.3394,
+                    3.5152,
+                    3.7349,
+                    3.9546,
+                    4.1743
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Sturm und Drang: Elemental Skill: Four Winds' Ascension: Anemo",
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": [
+                    0.9464,
+                    1.0174,
+                    1.0884,
+                    1.183,
+                    1.254,
+                    1.325,
+                    1.4196,
+                    1.5142,
+                    1.6089,
+                    1.7035,
+                    1.7982,
+                    1.8928,
+                    2.0111,
+                    2.1294,
+                    2.2477
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -60649,9 +61669,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill 1-Hit DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -60676,9 +61697,10 @@
             }
           },
           {
-            "name": "Skill 2-Hit DMG",
-            "type": "elementalBurst",
+            "name": "Additional Damage",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -60705,7 +61727,36 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12515,
+      "setCounts": {
+        "15044": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.4",
+        "elementalSkill.6",
+        "elementalSkill.8",
+        "elementalSkill.16",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.4",
+        "elementalSkill.6",
+        "elementalSkill.8",
+        "elementalSkill.16",
+        "elementalSkill.1",
+        "elementalSkill.2"
+      ],
+      "duration": 12000
+    },
+    "teamPreset": [
+      10000128,
+      10000132,
+      10000131,
+      10000123
+    ]
   },
   "10000129": {
     "name": "Lohen",
@@ -61585,7 +62636,6 @@
     },
     "teamPreset": [
       10000129,
-      10000131,
       {
         "id": 10000123,
         "rotation": [
@@ -61594,6 +62644,7 @@
           "elementalBurst.1"
         ]
       },
+      10000131,
       10000107
     ]
   },
@@ -62252,7 +63303,13 @@
       "rotation": [
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000126,
+      10000130,
+      10000125,
+      10000043
+    ]
   },
   "10000131": {
     "name": "Nicole",
@@ -62875,10 +63932,15 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000128,
+      10000132,
+      10000131,
+      10000123
+    ]
   },
   "10000132": {
-    "disabled": true,
     "name": "Prune",
     "version": 6.6,
     "id": 10000132,
@@ -62893,7 +63955,459 @@
       "atk%": 0.24
     },
     "energy": 70,
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 1,
+          "uses": 1
+        },
+        "use": [
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "and": [
+                  {
+                    "reaction": "swirl"
+                  },
+                  {
+                    "elements": "pyro"
+                  }
+                ]
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "infuseEPyro",
+              "spec": {
+                "duration": 6000,
+                "uses": 1
+              }
+            }
+          },
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "and": [
+                  {
+                    "reaction": "swirl"
+                  },
+                  {
+                    "elements": "hydro"
+                  }
+                ]
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "infuseEHydro",
+              "spec": {
+                "duration": 6000,
+                "uses": 1
+              }
+            }
+          },
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "and": [
+                  {
+                    "reaction": "swirl"
+                  },
+                  {
+                    "elements": "electro"
+                  }
+                ]
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "infuseEElectro",
+              "spec": {
+                "duration": 6000,
+                "uses": 1
+              }
+            }
+          },
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "and": [
+                  {
+                    "reaction": [
+                      "swirl",
+                      "stellarSwirl"
+                    ]
+                  },
+                  {
+                    "elements": "cryo"
+                  }
+                ]
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "infuseECryo",
+              "spec": {
+                "duration": 6000,
+                "uses": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "ref": "infuseEPyro",
+        "apply": {
+          "when": "command"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "pyro"
+            }
+          }
+        }
+      },
+      {
+        "ref": "infuseEHydro",
+        "apply": {
+          "when": "command"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "hydro"
+            }
+          }
+        }
+      },
+      {
+        "ref": "infuseEElectro",
+        "apply": {
+          "when": "command"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "electro"
+            }
+          }
+        }
+      },
+      {
+        "ref": "infuseECryo",
+        "apply": {
+          "when": "command"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "cryo"
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "duration": 1,
+          "uses": 1
+        },
+        "use": [
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "and": [
+                  {
+                    "reaction": "swirl"
+                  },
+                  {
+                    "elements": "pyro"
+                  }
+                ]
+              }
+            },
+            "action": {
+              "damage": {
+                "element": "pyro",
+                "multipliers": [
+                  {
+                    "mv": 1.5
+                  }
+                ]
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "tollingRally",
+              "spec": {
+                "duration": 5000
+              }
+            }
+          },
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "and": [
+                  {
+                    "reaction": "swirl"
+                  },
+                  {
+                    "elements": "hydro"
+                  }
+                ]
+              }
+            },
+            "action": {
+              "damage": {
+                "element": "hydro",
+                "multipliers": [
+                  {
+                    "mv": 1.5
+                  }
+                ]
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "tollingRally",
+              "spec": {
+                "duration": 5000
+              }
+            }
+          },
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "and": [
+                  {
+                    "reaction": "swirl"
+                  },
+                  {
+                    "elements": "electro"
+                  }
+                ]
+              }
+            },
+            "action": {
+              "damage": {
+                "element": "electro",
+                "multipliers": [
+                  {
+                    "mv": 1.5
+                  }
+                ]
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "tollingRally",
+              "spec": {
+                "duration": 5000
+              }
+            }
+          },
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "and": [
+                  {
+                    "reaction": [
+                      "swirl",
+                      "stellarSwirl"
+                    ]
+                  },
+                  {
+                    "elements": "cryo"
+                  }
+                ]
+              }
+            },
+            "action": {
+              "damage": {
+                "element": "cryo",
+                "multipliers": [
+                  {
+                    "mv": 1.5
+                  }
+                ]
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "tollingRally",
+              "spec": {
+                "duration": 5000
+              }
+            }
+          }
+        ]
+      },
+      {
+        "ref": "tollingRally",
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack",
+                  "plungingAttack",
+                  "elementalSkill",
+                  "elementalBurst"
+                ]
+              }
+            }
+          },
+          "specs": {
+            "damageMv%": {
+              "attr": "atk",
+              "step": 1,
+              "offset": 2000,
+              "value": 0.00025,
+              "maxValue": 0.5
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "character": {
+                  "has": "hexerei"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "tollingRally"
+                }
+              }
+            ]
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.6
+          }
+        }
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "stores": "$applier",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "reaction": [
+                    "swirl",
+                    "stellarSwirl"
+                  ]
+                }
+              },
+              {
+                "character": {
+                  "has": "hexerei"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "tollingRally"
+                }
+              }
+            ]
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.3
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Badaboom! Hexbuster Hammer",
@@ -63094,9 +64608,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Ring-A-Ding-Ding! Hexhunter Chime DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -63121,9 +64636,10 @@
             }
           },
           {
-            "name": "Clang Clang! Witch-tribution Comes! DMG",
+            "name": "Elemental Skill: Clang Clang! Witch-tribution Comes!",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -63154,9 +64670,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -63181,9 +64698,10 @@
             }
           },
           {
-            "name": "Witchlure Bell DMG",
-            "type": "elementalBurst",
+            "name": "Witchlure Bell",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -63210,7 +64728,16 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14401,
+      "setCounts": {
+        "15002": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000133": {
     "name": "Sandrone",
@@ -64065,9 +65592,9 @@
     },
     "teamPreset": [
       10000133,
+      10000058,
       10000150,
-      10000112,
-      10000058
+      10000112
     ]
   },
   "10000140": {
@@ -66483,8 +68010,8 @@
     },
     "teamPreset": [
       10000133,
-      10000150,
       10000058,
+      10000150,
       10000148
     ]
   },
@@ -67322,9 +68849,9 @@
     },
     "teamPreset": [
       10000133,
+      10000058,
       10000150,
-      10000112,
-      10000058
+      10000112
     ]
   }
 }

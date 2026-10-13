@@ -52,6 +52,7 @@ const initAttrMaps = (buildMaps) => {
 };
 
 export const runRotation = (cache, equipMaps, specId) => {
+  console.log('runRotationBeingRun');
   const { gameId, memberIds } = cache;
 
   const ctx = {
