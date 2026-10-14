@@ -40523,7 +40523,24 @@
     },
     "energy": 60,
     "arkhe": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "crystalShrapnel",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "crystallize",
+                "lunarCrystallize"
+              ]
+            }
+          }
+        },
+        "maxStacks": 6
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Blunt Refusal",
@@ -40604,7 +40621,8 @@
                     0.8356,
                     0.8843,
                     0.933
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
@@ -40778,9 +40796,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Rosula Shardshot Base DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -40805,8 +40824,7 @@
             }
           },
           {
-            "name": "Surging Blade DMG",
-            "type": "elementalSkill",
+            "name": "Surging Blade",
             "damage": {
               "multipliers": [
                 {
