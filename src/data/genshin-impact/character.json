@@ -20211,9 +20211,7 @@
           "cooldown": 1500,
           "action": {
             "healing": {
-              "targets": [
-                "$onField"
-              ],
+              "targets": "$onField",
               "attr": "def",
               "multipliers": [
                 {
@@ -38383,7 +38381,6 @@
     }
   },
   "10000088": {
-    "disabled": true,
     "name": "Charlotte",
     "version": 4.2,
     "id": 10000088,
@@ -38399,7 +38396,125 @@
     },
     "energy": 80,
     "arkhe": true,
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 4,
+          "offset": 1500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1500,
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "uses": 8,
+          "offset": 1500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1500,
+          "action": "elementalSkill.3"
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 8,
+          "offset": 200
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 400,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "arkhe": 2
+          }
+        },
+        "buff": {
+          "stats": {
+            "healingBonus%": 0.05
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "arkhe": 3
+          }
+        },
+        "buff": {
+          "stats": {
+            "healingBonus%": 0.1
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "arkhe": 4
+          }
+        },
+        "buff": {
+          "stats": {
+            "healingBonus%": 0.15
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "charlotte1"
+        },
+        "buff": {
+          "stats": {
+            "cryoDmgBonus%": 0.05
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "charlotte2"
+        },
+        "buff": {
+          "stats": {
+            "cryoDmgBonus%": 0.1
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "charlotte3"
+        },
+        "buff": {
+          "stats": {
+            "cryoDmgBonus%": 0.15
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Cool-Color Capture",
@@ -38513,33 +38628,6 @@
             }
           },
           {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
             "damage": {
@@ -38594,8 +38682,34 @@
             }
           },
           {
-            "name": "Spiritbreath Thorn DMG",
-            "type": "normalAttack",
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Spiritbreath Thorn",
             "damage": {
               "multipliers": [
                 {
@@ -38630,6 +38744,12 @@
             "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -38654,9 +38774,15 @@
             }
           },
           {
-            "name": "Photo DMG (Hold)",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -38678,12 +38804,19 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 2000
           },
           {
-            "name": "\"Snappy Silhouette\" Mark DMG",
-            "type": "elementalSkill",
+            "name": "\"Snappy Silhouette\" Mark",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Charlotte Mark",
+                "time": 12000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -38708,9 +38841,15 @@
             }
           },
           {
-            "name": "\"Focused Impression\" Mark DMG",
-            "type": "elementalSkill",
+            "name": "\"Focused Impression\" Mark",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Charlotte Mark",
+                "time": 12000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -38741,55 +38880,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Cast Healing",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    2.5657,
-                    2.7582,
-                    2.9506,
-                    3.2072,
-                    3.3996,
-                    3.592,
-                    3.8486,
-                    4.1052,
-                    4.3617,
-                    4.6183,
-                    4.8749,
-                    5.1315,
-                    5.4522,
-                    5.7729,
-                    6.0936
-                  ]
-                },
-                {
-                  "mv": [
-                    1608.4863,
-                    1769.3573,
-                    1943.6342,
-                    2131.317,
-                    2332.4058,
-                    2546.9004,
-                    2774.801,
-                    3016.1074,
-                    3270.8198,
-                    3538.9382,
-                    3820.4624,
-                    4115.3926,
-                    4423.7285,
-                    4745.4707,
-                    5080.6187
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Skill DMG",
-            "type": "elementalBurst",
-            "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -38811,58 +38905,58 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Kamera Continuous Regeneration",
-            "type": "elementalBurst",
-            "damage": {
+            },
+            "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "mv": [
-                    0.0922,
-                    0.0991,
-                    0.106,
-                    0.1152,
-                    0.1221,
-                    0.129,
-                    0.1382,
-                    0.1475,
-                    0.1567,
-                    0.1659,
-                    0.1751,
-                    0.1843,
-                    0.1958,
-                    0.2074,
-                    0.2189
-                  ]
-                },
-                {
-                  "mv": [
-                    57.4471,
-                    63.1926,
-                    69.4169,
-                    76.12,
-                    83.3019,
-                    90.9626,
-                    99.102,
-                    107.7203,
-                    116.8174,
-                    126.3932,
-                    136.4478,
-                    146.9813,
-                    157.9935,
-                    169.4845,
-                    181.4543
+                    2.5657,
+                    2.7582,
+                    2.9506,
+                    3.2072,
+                    3.3996,
+                    3.592,
+                    3.8486,
+                    4.1052,
+                    4.3617,
+                    4.6183,
+                    4.8749,
+                    5.1315,
+                    5.4522,
+                    5.7729,
+                    6.0936
+                  ],
+                  "flat": [
+                    1608.4863,
+                    1769.3573,
+                    1943.6342,
+                    2131.317,
+                    2332.4058,
+                    2546.9004,
+                    2774.801,
+                    3016.1074,
+                    3270.8198,
+                    3538.9382,
+                    3820.4624,
+                    4115.3926,
+                    4423.7285,
+                    4745.4707,
+                    5080.6187
                   ]
                 }
               ]
             }
           },
           {
-            "name": "Kamera DMG",
-            "type": "elementalBurst",
+            "name": "Kamera",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 4000,
+                "hits": 4
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -38884,12 +38978,62 @@
                   ]
                 }
               ]
+            },
+            "healing": {
+              "targets": "$onField",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.0922,
+                    0.0991,
+                    0.106,
+                    0.1152,
+                    0.1221,
+                    0.129,
+                    0.1382,
+                    0.1475,
+                    0.1567,
+                    0.1659,
+                    0.1751,
+                    0.1843,
+                    0.1958,
+                    0.2074,
+                    0.2189
+                  ],
+                  "flat": [
+                    57.4471,
+                    63.1926,
+                    69.4169,
+                    76.12,
+                    83.3019,
+                    90.9626,
+                    99.102,
+                    107.7203,
+                    116.8174,
+                    126.3932,
+                    136.4478,
+                    146.9813,
+                    157.9935,
+                    169.4845,
+                    181.4543
+                  ]
+                }
+              ]
             }
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14401,
+      "setCounts": {
+        "15033": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000089": {
     "name": "Furina",
@@ -39749,9 +39893,7 @@
           {
             "name": "Singer of Many Waters Healing",
             "healing": {
-              "targets": [
-                "$onField"
-              ],
+              "targets": "$onField",
               "attr": "hp",
               "multipliers": [
                 {
@@ -50903,9 +51045,7 @@
           "cooldown": 1000,
           "action": {
             "healing": {
-              "targets": [
-                "$onField"
-              ],
+              "targets": "$onField",
               "multipliers": [
                 {
                   "mv": 1.3824
@@ -64164,9 +64304,7 @@
           {
             "name": "Continuous Healing",
             "healing": {
-              "targets": [
-                "$onField"
-              ],
+              "targets": "$onField",
               "attr": "def",
               "multipliers": [
                 {
@@ -67120,9 +67258,7 @@
           {
             "name": "Song of Ages Past Healing",
             "healing": {
-              "targets": [
-                "$onField"
-              ],
+              "targets": "$onField",
               "attr": "hp",
               "multipliers": [
                 {
@@ -68348,9 +68484,7 @@
           },
           "action": {
             "healing": {
-              "targets": [
-                "$onField"
-              ],
+              "targets": "$onField",
               "multipliers": [
                 {
                   "mv": 1.2
@@ -68457,9 +68591,7 @@
           },
           "action": {
             "healing": {
-              "targets": [
-                "$lowest"
-              ],
+              "targets": "$lowest",
               "multipliers": [
                 {
                   "mv": 0.6

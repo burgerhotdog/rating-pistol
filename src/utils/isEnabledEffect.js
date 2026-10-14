@@ -3,6 +3,15 @@ import { evaluateFilter } from './evaluateFilter';
 
 function evaluateSpecial(special, counts, memberIds, ownerElement, teamSize) {
   switch (special) {
+    case 'charlotte1':
+    case 'charlotte2':
+    case 'charlotte3': {
+      const required = Number(special.at(-1));
+      const eligible = teamSize - counts.arkhe;
+
+      return eligible === required;
+    }
+
     case 'escoffier1':
     case 'escoffier2':
     case 'escoffier3':
