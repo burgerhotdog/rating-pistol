@@ -33,7 +33,7 @@ Characters:
         A1 healing overflow cause can come from self (but not in default rotation)
         A1 healing effect considered health and not healing
         No healing interval decrease
-        No constellations
+        No C4, C6
     Gorou
         Swapping off active buff expires instantly
     Illuga
