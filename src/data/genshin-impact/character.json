@@ -39136,16 +39136,43 @@
         }
       },
       {
-        "ref": "tempSkillBuff",
+        "ref": "skillBuff1",
         "buff": {
           "filter": {
-            "action": {
-              "ref": [
-                "elementalSkill.2",
-                "elementalSkill.3",
-                "elementalSkill.4"
-              ]
-            }
+            "special": "furina1"
+          },
+          "stats": {
+            "damageMv%": 0.1
+          }
+        }
+      },
+      {
+        "ref": "skillBuff2",
+        "buff": {
+          "filter": {
+            "special": "furina2"
+          },
+          "stats": {
+            "damageMv%": 0.2
+          }
+        }
+      },
+      {
+        "ref": "skillBuff3",
+        "buff": {
+          "filter": {
+            "special": "furina3"
+          },
+          "stats": {
+            "damageMv%": 0.3
+          }
+        }
+      },
+      {
+        "ref": "skillBuff4",
+        "buff": {
+          "filter": {
+            "special": "furina4"
           },
           "stats": {
             "damageMv%": 0.4
@@ -39483,6 +39510,11 @@
           },
           {
             "name": "Gentilhomme Usher",
+            "health": {
+              "targets": "$team",
+              "value": -0.024,
+              "min": 0.5
+            },
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
@@ -39517,6 +39549,11 @@
           },
           {
             "name": "Surintendante Chevalmarin",
+            "health": {
+              "targets": "$team",
+              "value": -0.016,
+              "min": 0.5
+            },
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
@@ -39551,6 +39588,11 @@
           },
           {
             "name": "Mademoiselle Crabaletta",
+            "health": {
+              "targets": "$team",
+              "value": -0.036,
+              "min": 0.5
+            },
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
