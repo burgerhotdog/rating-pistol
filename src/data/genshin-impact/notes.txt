@@ -64,7 +64,6 @@ Characters:
         No ult electro/hydro buff
         EM buff comes from self
     Neuvillette
-        A1 stacks aren't independent
         A4 is every 10%
         No C4, C6
     Nicole
@@ -93,7 +92,6 @@ Characters:
     Varka
         No constellations
     Vesna
-        Disciplinary Action stacks not independent
         No constellations
     Vodyanitsa
         No constellations
@@ -147,8 +145,6 @@ Weapons:
         No 5s buffer
     Sapwood Blade
         Leaf buff applied to $first instantly
-    Silver Light
-        Stack durations are not independent
     Skyward Atlas
         Favor of the Clouds always triggers
     Skyward Harp
@@ -169,8 +165,6 @@ Weapons:
         No effect
     Wandering Evenstar
         buff is constant instead of snapshotting
-    Whitelake Frostfeather
-        Stacks not independent
     Wolf's Gravestone
         Team buff disabled
     Xiphos' Moonlight
@@ -184,8 +178,6 @@ Weapons:
 Sets:
     Bloodstained Chivalry
         4pc not active
-    Long Night's Oath
-        Stacks not independent
     Shimenawa's Reminiscence
         4pc energy simplified
     Nighttime Whispers in the Echoing Woods

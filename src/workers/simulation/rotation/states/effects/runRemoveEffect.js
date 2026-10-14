@@ -7,6 +7,9 @@ export function runRemoveEffect(state, remove = {}) {
   }
 
   state.stacks -= remove.stacks ?? state.stacks;
+  if (effect.independentStacks) {
+    state.independentStacks.splice(0, remove.stacks ?? state.stacks);
+  }
 
   if (state.stacks <= 0) {
     delete store[effect.key];

@@ -4,6 +4,21 @@ import { runUseEffect } from './runUseEffect';
 function advanceEffectState(state, elapsed) {
   const { store, effect } = state;
 
+  if (effect.independentStacks) {
+    for (let i = 0; i < state.independentStacks.length; i++) {
+      state.independentStacks[i] = Math.max(state.independentStacks[i] - elapsed, 0);
+    }
+
+    while (state.independentStacks[0] === 0) {
+      state.stacks--;
+      state.independentStacks.shift();
+    }
+
+    if (!state.independentStacks.length) {
+      return delete store[effect.key];
+    }
+  }
+
   if (state.timeLeft > 0) {
     state.timeLeft -= elapsed;
 

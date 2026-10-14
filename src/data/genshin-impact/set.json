@@ -2458,7 +2458,8 @@
             "plungingAttackDmgBonus%": 0.15
           }
         },
-        "maxStacks": 5
+        "maxStacks": 5,
+        "independentStacks": true
       }
     ]
   },

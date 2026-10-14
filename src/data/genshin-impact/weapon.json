@@ -1543,7 +1543,8 @@
             ]
           }
         },
-        "maxStacks": 2
+        "maxStacks": 2,
+        "independentStacks": true
       }
     ]
   },
@@ -2285,7 +2286,8 @@
             ]
           }
         },
-        "maxStacks": 3
+        "maxStacks": 3,
+        "independentStacks": true
       },
       {
         "buff": {

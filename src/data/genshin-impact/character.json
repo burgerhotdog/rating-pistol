@@ -37113,6 +37113,9 @@
           },
           "spec": {
             "health": {
+              "targets": [
+                10000086
+              ],
               "value": 0.3
             }
           }
@@ -66951,7 +66954,8 @@
             "damageMv%": 0.1
           }
         },
-        "maxStacks": 6
+        "maxStacks": 6,
+        "independentStacks": true
       },
       {
         "ref": "passive2Self",
