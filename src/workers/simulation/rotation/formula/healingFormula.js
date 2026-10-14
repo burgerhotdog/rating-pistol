@@ -8,7 +8,6 @@ export function runHealingFormula(action, statMap) {
   let healingValue = computeBase('healing', compressed, statMap);
 
   healingValue *= 1 + getAttr('healingBonus%', statMap);
-  healingValue *= 1 + getAttr('healingReceived%', statMap);
 
   return healingValue * times;
 }

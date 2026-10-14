@@ -39050,7 +39050,8 @@
               "ref": "elementalSkill.0"
             }
           },
-          "duration": 30000
+          "duration": 30000,
+          "offset": 1450
         },
         "use": {
           "when": "interval",
@@ -39074,7 +39075,8 @@
               "ref": "elementalSkill.0"
             }
           },
-          "duration": 30000
+          "duration": 30000,
+          "offset": 595
         },
         "use": {
           "when": "interval",
@@ -39098,7 +39100,8 @@
               "ref": "elementalSkill.0"
             }
           },
-          "duration": 30000
+          "duration": 30000,
+          "offset": 2400
         },
         "use": {
           "when": "interval",
@@ -39109,7 +39112,7 @@
               }
             }
           },
-          "cooldown": 2900,
+          "cooldown": 4800,
           "action": "elementalSkill.4"
         }
       },
@@ -39131,7 +39134,7 @@
               "has": "arkheAlignment"
             }
           },
-          "cooldown": 4800,
+          "cooldown": 2000,
           "action": "elementalSkill.5"
         }
       },
@@ -39189,19 +39192,42 @@
             }
           },
           "duration": 18000,
-          "commands": {
-            "type": "apply",
-            "ref": "trackFanfare",
-            "spec": {
-              "duration": 18000
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "fanfare"
+            },
+            {
+              "type": "remove",
+              "ref": "fanfareOverflow"
+            },
+            {
+              "type": "apply",
+              "ref": "trackFanfare",
+              "spec": {
+                "duration": 18000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "start150fanfare",
+              "spec": {
+                "uses": 1
+              }
             }
-          }
+          ]
         },
         "expire": {
-          "commands": {
-            "type": "remove",
-            "ref": "fanfare"
-          }
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "fanfare"
+            },
+            {
+              "type": "remove",
+              "ref": "fanfareOverflow"
+            }
+          ]
         }
       },
       {
@@ -39240,7 +39266,8 @@
               }
             ]
           },
-          "duration": 4000
+          "uses": 2,
+          "offset": 2000
         },
         "use": {
           "when": "interval",
@@ -39273,6 +39300,51 @@
             }
           }
         }
+      },
+      {
+        "rank": 1,
+        "modify": {
+          "type": "effect",
+          "ref": "fanfare",
+          "spec": {
+            "maxStacks": 100
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "ref": "start150fanfare",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "fanfare",
+            "spec": {
+              "stacks": 150
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "stores": "global",
+        "gameRule": "trackFanfareC2"
+      },
+      {
+        "rank": 2,
+        "ref": "fanfareOverflow",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "hp%": 0.0035
+          }
+        },
+        "maxStacks": 400
       }
     ],
     "skills": {

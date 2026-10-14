@@ -89,7 +89,6 @@ export function getUsedAttrs(gameId, action, part) {
 
     case 'healing':
       usedAttrs.add('healingBonus%');
-      usedAttrs.add('healingReceived%');
       break;
 
     case 'shield':

@@ -172,22 +172,22 @@ export function normalizeAction(gameId, rawAction, spec) {
       }
 
       // Icd
-      if (damage.type !== 'plunge') {
+      if (action.type !== 'plunge') {
         if (spec.weaponType === 'sword' || spec.weaponType === 'claymore') {
-          damage.icd = { tag: 'Normal Attack', time: 2500, hits: 3 };
+          damage.icd ??= { tag: 'Normal Attack', time: 2500, hits: 3 };
         }
 
         if (spec.weaponType === 'polearm') {
-          if (damage.type === 'normalAttack') {
-            damage.icd = { tag: 'Normal Attack', time: 2500, hits: 3 };
+          if (action.type === 'normalAttack') {
+            damage.icd ??= { tag: 'Normal Attack', time: 2500, hits: 3 };
           } else {
-            damage.icd = { tag: 'Charged Attack', time: 500 };
+            damage.icd ??= { tag: 'Charged Attack', time: 500 };
           }
         }
 
         if (spec.weaponType === 'catalyst') {
-          if (damage.type === 'normalAttack') {
-            damage.icd = { tag: 'Normal Attack', time: 2500, hits: 3 };
+          if (action.type === 'normalAttack') {
+            damage.icd ??= { tag: 'Normal Attack', time: 2500, hits: 3 };
           }
         }
       }

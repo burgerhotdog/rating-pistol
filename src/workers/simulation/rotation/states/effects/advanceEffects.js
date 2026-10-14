@@ -141,6 +141,7 @@ function advanceState(ctx, elapsed, state, storeOwnerId) {
     }
 
     if (remaining && !state.useCooldown) {
+      advanceEffectState(ctx, state, remaining, storeOwnerId);
       break;
     }
   }
@@ -160,6 +161,6 @@ export function advanceEffects(ctx, elapsed) {
 
   for (const memberId in memberEffects) {
     const store = memberEffects[memberId];
-    advanceStore(ctx, elapsed, store, memberId);
+    advanceStore(ctx, elapsed, store, Number(memberId));
   }
 }
