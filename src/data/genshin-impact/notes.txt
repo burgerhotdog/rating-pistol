@@ -30,11 +30,15 @@ Characters:
     Flins
         No constellations
     Furina
-        Has temporary fixed buffs
+        A1 healing overflow cause can come from self (but not in default rotation)
+        A1 healing effect considered health and not healing
         No healing interval decrease
-        No constellations
+        No C4, C6
     Gorou
         Swapping off active buff expires instantly
+    Illuga
+        Burst affects non-direct dmg too
+        No geo construct rule
     Ineffa
         No constellations
     Itto
@@ -63,6 +67,9 @@ Characters:
         Dendro core trigger offset might be wrong
         No ult electro/hydro buff
         EM buff comes from self
+    Neuvillette
+        A4 is every 10%
+        No C4, C6
     Nicole
         coordinated attack uses own stats
         No constellations
@@ -89,7 +96,6 @@ Characters:
     Varka
         No constellations
     Vesna
-        Disciplinary Action stacks not independent
         No constellations
     Vodyanitsa
         No constellations
@@ -127,6 +133,8 @@ Weapons:
         doesn't need enemies nearby
     Aquila Favonia
         Effect always hits
+    Eye of Perception
+        Effect always hits
     Ferrous Shadow
         No effect
     Fillet Blade
@@ -135,12 +143,12 @@ Weapons:
         Clear BoL gives fixed atk buff
     Heretic's Molten Blade
         No effect
+    Oathsworn Eye
+        ER might not work in calcs
     Sacrificial Jade
         No 5s buffer
     Sapwood Blade
         Leaf buff applied to $first instantly
-    Silver Light
-        Stack durations are not independent
     Skyward Atlas
         Favor of the Clouds always triggers
     Skyward Harp
@@ -161,8 +169,6 @@ Weapons:
         No effect
     Wandering Evenstar
         buff is constant instead of snapshotting
-    Whitelake Frostfeather
-        Stacks not independent
     Wolf's Gravestone
         Team buff disabled
     Xiphos' Moonlight
@@ -176,8 +182,6 @@ Weapons:
 Sets:
     Bloodstained Chivalry
         4pc not active
-    Long Night's Oath
-        Stacks not independent
     Shimenawa's Reminiscence
         4pc energy simplified
     Nighttime Whispers in the Echoing Woods

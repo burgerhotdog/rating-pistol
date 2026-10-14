@@ -6,16 +6,20 @@ import { Autocomplete } from '../../../Autocomplete';
 
 const WeaponId = ({ memberId, weaponId, member, setMember }) => {
   const { gameId } = useParams();
+  const charDatas = useData('character');
+  const weapDatas = useData('weapon');
 
-  const weaponData = useData('weapon');
-  const memberData = useData('character')[memberId];
-  const memberType = memberData?.type;
+  const memberType = charDatas[memberId]?.type;
 
   const options = useMemo(
-    () => Object.values(weaponData)
-      .filter((weapon) => weapon.type === memberType)
-      .sort((a, b) => b.quality - a.quality || a.name.localeCompare(b.name)),
-    [weaponData, memberType],
+    () => Object.values(weapDatas)
+      .filter((weapData) => weapData.type === memberType)
+      .sort((a, b) =>
+        b.quality - a.quality ||
+        b.version - a.version ||
+        b.id - a.id
+      ),
+    [weapDatas, memberType],
   );
 
   return (

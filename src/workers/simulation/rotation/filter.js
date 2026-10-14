@@ -11,6 +11,43 @@ function evaluateSpecial(ctx, special, effect, spec) {
   const nsStore = ctx.states.nightsoul;
 
   switch (special) {
+    case 'neuvillette1':
+    case 'neuvillette2':
+    case 'neuvillette3': {
+      if (spec.action?.ref !== 'normalAttack.4') return false;
+
+      const required = Number(special.at(-1));
+
+      const count = Object.values(ctx.states.memberEffects[10000087])
+        .filter(({ effect }) => effect.ref?.startsWith('pastDraconicGlories'))
+        .length;
+
+      if (required === 3) {
+        return count >= 3;
+      } else {
+        return count === required;
+      }
+    }
+
+    case 'furina1':
+    case 'furina2':
+    case 'furina3':
+    case 'furina4': {
+      if (
+        spec.action?.ref !== 'elementalSkill.2' &&
+        spec.action?.ref !== 'elementalSkill.3' &&
+        spec.action?.ref !== 'elementalSkill.4'
+      ) return false;
+
+      const required = Number(special.at(-1));
+
+      const count = Object.values(ctx.states.memberHealth)
+        .filter((health) => health > 0.5)
+        .length;
+
+      return count === required;
+    }
+
     case 'cinderCityPyro1':
       return rxnElems.includes('pyro') && rxnElems.includes(ownerElem);
     case 'cinderCityPyro2':

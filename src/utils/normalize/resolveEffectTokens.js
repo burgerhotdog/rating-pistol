@@ -8,7 +8,7 @@ export const resolveEffectTokens = (normalized) => {
       effect.ref === ref
     );
 
-    return effect.key;
+    return effect?.key;
   };
 
   function walkBooleanTree(node, onLeaf) {
@@ -89,10 +89,12 @@ export const resolveEffectTokens = (normalized) => {
         }
 
         if (commands) {
-          apply.commands = commands.map((command) => ({
-            ...command,
-            key: resolveEffectRef(command.ref, ownerId, sourceId),
-          }));
+          apply.commands = commands
+            .map((command) => ({
+              ...command,
+              key: resolveEffectRef(command.ref, ownerId, sourceId),
+            }))
+            .filter((command) => command.key);
         }
 
         return apply;
@@ -111,10 +113,12 @@ export const resolveEffectTokens = (normalized) => {
         }
 
         if (commands) {
-          remove.commands = commands.map((command) => ({
-            ...command,
-            key: resolveEffectRef(command.ref, ownerId, sourceId),
-          }));
+          remove.commands = commands
+            .map((command) => ({
+              ...command,
+              key: resolveEffectRef(command.ref, ownerId, sourceId),
+            }))
+            .filter((command) => command.key);
         }
 
         return remove;
@@ -133,10 +137,12 @@ export const resolveEffectTokens = (normalized) => {
         }
 
         if (commands) {
-          use.commands = commands.map((command) => ({
-            ...command,
-            key: resolveEffectRef(command.ref, ownerId, sourceId),
-          }));
+          use.commands = commands
+            .map((command) => ({
+              ...command,
+              key: resolveEffectRef(command.ref, ownerId, sourceId),
+            }))
+            .filter((command) => command.key);
         }
 
         return use;
@@ -148,9 +154,36 @@ export const resolveEffectTokens = (normalized) => {
       traverseFilter(effect.buff.filter, ownerId, sourceId);
     }
 
+    if (effect.buff?.commands) {
+      effect.buff.commands = effect.buff.commands
+        .map((command) => ({
+          ...command,
+          key: resolveEffectRef(command.ref, ownerId, sourceId),
+        }))
+        .filter((command) => command.key);
+    }
+
     if (effect.modify?.type === 'effect') {
       const modify = effect.modify = { ...effect.modify };
       modify.key = resolveEffectRef(modify.ref, ownerId, sourceId);
+    }
+
+    if (effect.expire) {
+      const expire = effect.expire = { ...effect.expire };
+
+      if (expire.filter) {
+        expire.filter = structuredClone(expire.filter);
+        traverseFilter(expire.filter, ownerId, sourceId);
+      }
+
+      if (expire.commands) {
+        expire.commands = expire.commands
+          .map((command) => ({
+            ...command,
+            key: resolveEffectRef(command.ref, ownerId, sourceId),
+          }))
+          .filter((command) => command.key);
+      }
     }
   }
 

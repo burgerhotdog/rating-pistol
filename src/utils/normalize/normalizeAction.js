@@ -1,5 +1,6 @@
 import { GI, WW, ZZZ, CHARACTER } from '@/data';
 import { lerp } from '../math';
+import { toArray } from '../toArray';
 
 const DEFAULT_DURATIONS = {
   [GI]: {
@@ -147,18 +148,20 @@ export function normalizeAction(gameId, rawAction, spec) {
       );
 
       // hitOffsets
-      let offset = action.duration * 0.65;
-      const hitOffsets = action.hitOffsets = [Math.round(offset)];
-      let hitsLeft = damage.compressed.hitCount - 1;
-      while (hitsLeft) {
-        if (action.duration) {
-          offset += 100;
-          if (action.duration - offset <= 100) {
-            action.duration += 100;
+      if (!action.hitOffsets) {
+        let offset = action.duration * 0.65;
+        const hitOffsets = action.hitOffsets = [Math.round(offset)];
+        let hitsLeft = damage.compressed.hitCount - 1;
+        while (hitsLeft) {
+          if (action.duration) {
+            offset += 100;
+            if (action.duration - offset <= 100) {
+              action.duration += 100;
+            }
           }
+          hitOffsets.push(Math.round(offset));
+          hitsLeft--;
         }
-        hitOffsets.push(Math.round(offset));
-        hitsLeft--;
       }
     }
 
@@ -169,22 +172,22 @@ export function normalizeAction(gameId, rawAction, spec) {
       }
 
       // Icd
-      if (damage.type !== 'plunge') {
+      if (action.type !== 'plunge') {
         if (spec.weaponType === 'sword' || spec.weaponType === 'claymore') {
-          damage.icd = { tag: 'Normal Attack', time: 2500, hits: 3 };
+          damage.icd ??= { tag: 'Normal Attack', time: 2500, hits: 3 };
         }
 
         if (spec.weaponType === 'polearm') {
-          if (damage.type === 'normalAttack') {
-            damage.icd = { tag: 'Normal Attack', time: 2500, hits: 3 };
+          if (action.type === 'normalAttack') {
+            damage.icd ??= { tag: 'Normal Attack', time: 2500, hits: 3 };
           } else {
-            damage.icd = { tag: 'Charged Attack', time: 500 };
+            damage.icd ??= { tag: 'Charged Attack', time: 500 };
           }
         }
 
         if (spec.weaponType === 'catalyst') {
-          if (damage.type === 'normalAttack') {
-            damage.icd = { tag: 'Normal Attack', time: 2500, hits: 3 };
+          if (action.type === 'normalAttack') {
+            damage.icd ??= { tag: 'Normal Attack', time: 2500, hits: 3 };
           }
         }
       }
@@ -271,12 +274,14 @@ export function normalizeAction(gameId, rawAction, spec) {
     }
   }
 
-  if (action.drain) {
-    const drain = action.drain = { ...action.drain };
-    if (drain.targets === '$team') {
-      drain.targets = spec.memberIds;
+  if (action.health) {
+    const health = action.health = { ...action.health };
+
+    if (health.targets === '$team') {
+      health.targets = spec.memberIds;
+    } else {
+      health.targets = toArray(health.targets ?? spec.ownerId);
     }
-    drain.targets ??= [spec.ownerId];
   }
 
   return action;

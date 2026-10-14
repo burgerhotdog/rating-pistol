@@ -13,6 +13,19 @@ function evaluateSpecial(special, counts, memberIds, ownerElement, teamSize) {
       return eligible === required;
     }
 
+    case 'illuga1':
+    case 'illuga2':
+    case 'illuga3': {
+      const eligible = (counts.element.hydro ?? 0) + (counts.element.geo ?? 0);
+      const required = Number(special.at(-1));
+
+      if (required === 3) {
+        return eligible >= required;
+      } else {
+        return eligible === required;
+      }
+    }
+
     case 'vesnaPassive2Non1':
       return teamSize - (counts.element.cryo ?? 0) - (counts.element.anemo ?? 0) >= 1;
     case 'vesnaPassive2Non2':

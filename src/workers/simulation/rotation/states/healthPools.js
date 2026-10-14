@@ -1,17 +1,20 @@
-import { clamp } from '@/utils';
+import { clamp, toMergedObj, getAttr } from '@/utils';
+import { hasGameRule } from './gameRules';
+import { runCommands } from './effects';
+import { getBuffMap } from '../getStatMap';
 
-function getLowest(healthPools) {
+function getLowest(healthStore) {
   let lowest;
 
-  for (const id in healthPools) {
-    if (healthPools[id] >= healthPools[lowest]) continue;
+  for (const id in healthStore) {
+    if (healthStore[id] >= healthStore[lowest]) continue;
     lowest = id;
   }
 
   return Number(lowest);
 }
 
-function getTargetId(ctx, target) {
+export function getTargetId(ctx, target) {
   if (target === '$onField') {
     return ctx.states.onFieldId;
   }
@@ -23,27 +26,74 @@ function getTargetId(ctx, target) {
   return target;
 }
 
-export function updateHealthPools(ctx, action) {
-  const {
-    targets = [action.ownerId],
-    value,
-    minLimit = 0,
-    maxLimit = 1,
-  } = action.drain;
-  const { memberHealth } = ctx.states;
+export function updateHealth(ctx, action, ownerId, spec) {
+  const healthStore = ctx.states.memberHealth;
+  const { value, min = 0, max = 1 } = spec;
 
-  for (const target of targets) {
-    const targetId = getTargetId(ctx, target);
+  const prev = healthStore[ownerId];
 
-    const prev = memberHealth[targetId];
-    if (value > 0 && prev <= minLimit) continue;
-    if (value < 0 && prev >= maxLimit) continue;
+  if (value > 0 && prev >= max) return;
+  if (value < 0 && prev <= min) return;
 
-    const next = clamp(prev - value, minLimit, maxLimit);
+  const next = clamp(prev + value, min, max);
+  const diff = next - prev;
+  if (diff === 0) return;
 
-    if (next !== prev) {
-      memberHealth[targetId] = next;
-      ctx.runEffects('healthUpdate', { ownerId: targetId });
+  healthStore[ownerId] = next;
+  ctx.runEffects('healthUpdate', { ...action, ownerId });
+
+  if (hasGameRule(ctx, 'trackFanfare')) {
+    const isC2 = hasGameRule(ctx, 'trackFanfareC2');
+    const c2Mult = isC2 ? 3.5 : 1;
+    const stacks = Math.round(Math.abs(diff) * 100 * c2Mult);
+
+    if (!isC2) {
+      runCommands(ctx, { ownerId: 10000089 }, [{
+        type: 'apply',
+        key: '10000089.10000089:effect15',
+        spec: { stacks },
+      }], action.ownerId);
+      return;
+    }
+
+    const currentStacks = ctx.states.memberEffects['10000089']['10000089.10000089:effect15']?.stacks ?? 0;
+    const roomLeft = 400 - currentStacks;
+    const toFanfare = Math.min(stacks, roomLeft);
+    const toOverflow = stacks - toFanfare;
+
+    if (toFanfare > 0) {
+      runCommands(ctx, { ownerId: 10000089 }, [{
+        type: 'apply',
+        key: '10000089.10000089:effect15',
+        spec: { stacks: toFanfare },
+      }], action.ownerId);
+    }
+
+    if (toOverflow > 0) {
+      runCommands(ctx, { ownerId: 10000089 }, [{
+        type: 'apply',
+        key: '10000089.10000089:effect21',
+        spec: { stacks: toOverflow },
+      }], action.ownerId);
     }
   }
+}
+
+export function convertHealingToValue(ctx, sharedSnapshot, targetId) {
+  const { action, buffMap, formula } = sharedSnapshot.unresolved;
+
+  const statMapOwnerId = action.ownerId;
+  const statMapOwnerIdBuildMap = ctx.buildMaps[statMapOwnerId];
+
+  const healingStatMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
+  const healingValue = formula(healingStatMap, 'healing');
+
+  const { buffMap: targetBuffMap } =  getBuffMap(ctx, { memberId: targetId, resolveNow: true });
+  const targetStatMap = toMergedObj(ctx.buildMaps[targetId], targetBuffMap);
+  const maxHp = getAttr('hp', targetStatMap);
+  const healingReceivedMultiplier = 1 + getAttr('healingReceived%', targetStatMap);
+
+  const ratio = (healingValue * healingReceivedMultiplier) / maxHp;
+
+  return ratio;
 }

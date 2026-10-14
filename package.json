@@ -23,7 +23,7 @@
     "@mui/icons-material": "^9.0.1",
     "@mui/material": "^9.0.1",
     "fastest-levenshtein": "^1.0.16",
-    "firebase": "^12.14.0",
+    "firebase": "^13.0.0",
     "jsqr": "^1.4.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",

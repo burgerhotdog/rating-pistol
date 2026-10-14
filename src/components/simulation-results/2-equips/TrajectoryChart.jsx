@@ -28,12 +28,12 @@ function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
     }
   }
 
-  const step = maxDay / 100;
+  const step = maxDay / dpsProgression.length;
 
   for (let i = step; i <= maxDay; i += step) {
     const day = Math.round(i);
 
-    if (day <= 100) continue;
+    if (day <= dpsProgression.length) continue;
 
     const mean = dpsCeiling - fit.A * day ** -fit.k;
 

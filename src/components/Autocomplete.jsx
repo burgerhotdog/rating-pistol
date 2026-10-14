@@ -14,8 +14,13 @@ const Icon = ({ src }) => <img src={src} alt="" width={ICON_SIZE} height={ICON_S
 
 const renderOption = (props, option) => {
   const { key, ...optionProps } = props;
+
   return (
-    <ListItem key={key} {...optionProps}>
+    <ListItem
+      key={key}
+      {...optionProps}
+      sx={{ opacity: option.disabled ? 0.4 : 1 }}
+    >
       <ListItemIcon>
         <Icon src={option?.icon} />
       </ListItemIcon>
@@ -51,7 +56,14 @@ export const Autocomplete = ({ options, valueId, label, onChange, ...props }) =>
   );
 };
 
-export const MultiAutocomplete = ({ options, value, label, onChange, getOptionKey = (option) => option.id, ...props }) => {
+export const MultiAutocomplete = ({
+  options,
+  value,
+  label,
+  onChange,
+  getOptionKey = (option) => option.id,
+  ...props
+}) => {
   return (
     <MuiAutocomplete
       {...props}

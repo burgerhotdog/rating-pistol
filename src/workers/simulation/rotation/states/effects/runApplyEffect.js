@@ -26,6 +26,9 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
       ...(effect.rampingInterval && {
         rampingTimer: effect.rampingOffset ?? 0,
       }),
+      ...(effect.independentStacks && {
+        independentStacks: [],
+      }),
     };
 
     let stackMult = 1;
@@ -36,12 +39,22 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
     state.stacks = Math.min(state.stacks + stacksToApply, maxStacks);
 
     if (apply.duration) {
-      state.timeLeft ??= 0;
-
-      if (apply.extend) {
-        state.timeLeft += apply.duration;
+      if (effect.independentStacks) {
+        for (let i = 0; i < stacksToApply; i++) {
+          state.independentStacks.push(apply.duration);
+        }
+        const excess = state.independentStacks.length - maxStacks;
+        if (excess > 0) {
+          state.independentStacks.splice(0, excess);
+        }
       } else {
-        state.timeLeft = Math.max(apply.duration, state.timeLeft);
+        state.timeLeft ??= 0;
+
+        if (apply.extend) {
+          state.timeLeft += apply.duration;
+        } else {
+          state.timeLeft = Math.max(apply.duration, state.timeLeft);
+        }
       }
     }
 
@@ -109,6 +122,11 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
 
     // If effect should be removed when reaching max stacks
     if (state.stacks === maxStacks) {
+      if (effect.key === '10000089.10000089:effect15' && ctx.saveSnapshots && !ctx.firstFanfare) {
+        ctx.firstFanfare = true;
+        // console.log(`Fanfare first maxed at: ${ctx.states.runtime}`, ctx.cache.memberIds);
+      }
+
       if (effect.remove) {
         for (const remove of effect.remove) {
           if (remove.when !== 'maxStacks') continue;

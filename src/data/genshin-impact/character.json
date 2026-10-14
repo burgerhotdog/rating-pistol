@@ -3854,8 +3854,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "anemo",
             "damage": {
+              "element": "anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -3963,8 +3963,8 @@
           {
             "name": "Windsunder Arrow",
             "type": "normalAttack",
-            "element": "anemo",
             "damage": {
+              "element": "anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -5808,8 +5808,8 @@
           "when": "interval",
           "cooldown": 1000,
           "action": {
-            "drain": {
-              "value": 0.02
+            "health": {
+              "value": -0.02
             }
           }
         },
@@ -9041,8 +9041,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "hydro",
             "damage": {
+              "element": "hydro",
               "multipliers": [
                 {
                   "mv": [
@@ -12155,8 +12155,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "cryo",
             "damage": {
+              "element": "cryo",
               "multipliers": [
                 {
                   "mv": [
@@ -16844,8 +16844,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "pyro",
             "damage": {
+              "element": "pyro",
               "multipliers": [
                 {
                   "mv": [
@@ -17889,7 +17889,7 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -17916,7 +17916,7 @@
             }
           },
           {
-            "name": "Hold DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -19231,7 +19231,7 @@
             }
           },
           {
-            "name": "#Fuufuu Whirlwind Kick {LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+            "name": "Fuufuu Whirlwind Kick: Tap",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -19258,7 +19258,7 @@
             }
           },
           {
-            "name": "Fuufuu Whirlwind Kick Hold DMG",
+            "name": "Fuufuu Whirlwind Kick: Hold",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -20916,8 +20916,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "electro",
             "damage": {
+              "element": "electro",
               "multipliers": [
                 {
                   "mv": [
@@ -25013,8 +25013,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "cryo",
             "damage": {
+              "element": "cryo",
               "multipliers": [
                 {
                   "mv": [
@@ -25624,7 +25624,7 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -25651,7 +25651,7 @@
             }
           },
           {
-            "name": "Hold Skill DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -26110,7 +26110,7 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -26716,9 +26716,9 @@
           {
             "name": "Elemental Skill",
             "type": "elementalSkill",
-            "drain": {
-              "value": 0.3,
-              "minLimit": 0.2
+            "health": {
+              "value": -0.3,
+              "min": 0.2
             },
             "damage": {
               "gauge": 1,
@@ -27521,8 +27521,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "dendro",
             "damage": {
+              "element": "dendro",
               "multipliers": [
                 {
                   "mv": [
@@ -35749,9 +35749,9 @@
             ]
           },
           "action": {
-            "drain": {
-              "value": 0.2,
-              "minLimit": 0.6
+            "health": {
+              "value": -0.2,
+              "min": 0.6
             }
           },
           "commands": {
@@ -35786,8 +35786,8 @@
             }
           },
           "action": {
-            "drain": {
-              "value": -0.2
+            "health": {
+              "value": 0.2
             }
           }
         },
@@ -37049,8 +37049,8 @@
           },
           "cooldown": 100,
           "action": {
-            "drain": {
-              "value": 0.045
+            "health": {
+              "value": -0.045
             }
           }
         },
@@ -37112,8 +37112,11 @@
             ]
           },
           "spec": {
-            "drain": {
-              "value": -0.3
+            "health": {
+              "targets": [
+                10000086
+              ],
+              "value": 0.3
             }
           }
         }
@@ -37644,7 +37647,6 @@
     ]
   },
   "10000087": {
-    "disabled": true,
     "name": "Neuvillette",
     "version": 4.1,
     "id": 10000087,
@@ -37660,7 +37662,336 @@
     },
     "energy": 70,
     "arkhe": true,
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.4"
+            }
+          },
+          "uses": 3,
+          "offset": 100
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 150,
+          "action": {
+            "health": {
+              "value": 0.16
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.4"
+            }
+          },
+          "duration": 3500,
+          "offset": 750
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 500,
+          "action": {
+            "health": {
+              "value": -0.08,
+              "min": 0.5
+            }
+          }
+        }
+      },
+      {
+        "ref": "sourcewaterDroplets",
+        "apply": {
+          "when": "command"
+        },
+        "maxStacks": 12
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 1,
+          "offset": 1000,
+          "commands": {
+            "type": "apply",
+            "ref": "sourcewaterDroplets",
+            "spec": {
+              "stacks": 3
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 2,
+          "offset": 500,
+          "commands": {
+            "type": "apply",
+            "ref": "sourcewaterDroplets",
+            "spec": {
+              "stacks": 6
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 250,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "pastDraconicGlories1",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "vaporize"
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "ref": "pastDraconicGlories2",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "frozen"
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "ref": "pastDraconicGlories3",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "electroCharged",
+                "lunarCharged"
+              ]
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "ref": "pastDraconicGlories4",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "bloom",
+                "lunarBloom"
+              ]
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "ref": "pastDraconicGlories5",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": "swirl"
+                },
+                {
+                  "elements": "hydro"
+                }
+              ]
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "ref": "pastDraconicGlories6",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": [
+                    "crystallize",
+                    "lunarCrystallize"
+                  ]
+                },
+                {
+                  "elements": "hydro"
+                }
+              ]
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "special": "neuvillette1"
+          },
+          "stats": {
+            "damageMv%": 0.1
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "special": "neuvillette2"
+          },
+          "stats": {
+            "damageMv%": 0.25
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "special": "neuvillette3"
+          },
+          "stats": {
+            "damageMv%": 0.6
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "health": {
+              ">=": 0.4
+            }
+          },
+          "stats": {
+            "hydroDmgBonus%": 0.06
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "health": {
+              ">=": 0.5
+            }
+          },
+          "stats": {
+            "hydroDmgBonus%": 0.06
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "health": {
+              ">=": 0.6
+            }
+          },
+          "stats": {
+            "hydroDmgBonus%": 0.06
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "health": {
+              ">=": 0.7
+            }
+          },
+          "stats": {
+            "hydroDmgBonus%": 0.06
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "health": {
+              ">=": 0.8
+            }
+          },
+          "stats": {
+            "hydroDmgBonus%": 0.06
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "ref": "pastDraconicGloriesFree",
+        "apply": {
+          "when": "swap"
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "special": "neuvillette1"
+          },
+          "stats": {
+            "critDmg%": 0.14
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "special": "neuvillette2"
+          },
+          "stats": {
+            "critDmg%": 0.28
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "special": "neuvillette3"
+          },
+          "stats": {
+            "critDmg%": 0.42
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "As Water Seeks Equilibrium",
@@ -37776,8 +38107,14 @@
           },
           {
             "name": "Charged Attack: Equitable Judgment",
-            "type": "normalAttack",
+            "type": "chargedAttack",
             "damage": {
+              "attr": "hp",
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -37796,10 +38133,22 @@
                     0.1753,
                     0.1855,
                     0.1957
-                  ]
+                  ],
+                  "times": 8
                 }
               ]
-            }
+            },
+            "duration": 3500,
+            "hitOffsets": [
+              500,
+              900,
+              1300,
+              1700,
+              2100,
+              2500,
+              2900,
+              3300
+            ]
           },
           {
             "name": "Plunging Attack: Low",
@@ -37888,9 +38237,11 @@
         "name": "O Tears, I Shall Repay",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -37915,8 +38266,7 @@
             }
           },
           {
-            "name": "Spiritbreath Thorn DMG",
-            "type": "elementalSkill",
+            "name": "Spiritbreath Thorn",
             "damage": {
               "multipliers": [
                 {
@@ -37948,9 +38298,16 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -37975,9 +38332,16 @@
             }
           },
           {
-            "name": "Waterfall DMG",
-            "type": "elementalBurst",
+            "name": "Waterfall",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -38008,7 +38372,14 @@
       "weaponId": 14514,
       "setCounts": {
         "15031": 4
-      }
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "normalAttack.4",
+        "normalAttack.4",
+        "elementalSkill.0",
+        "normalAttack.4"
+      ]
     }
   },
   "10000088": {
@@ -38256,7 +38627,7 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "#Photo DMG ({LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press})",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -38679,7 +39050,8 @@
               "ref": "elementalSkill.0"
             }
           },
-          "duration": 30000
+          "duration": 30000,
+          "offset": 1450
         },
         "use": {
           "when": "interval",
@@ -38703,7 +39075,8 @@
               "ref": "elementalSkill.0"
             }
           },
-          "duration": 30000
+          "duration": 30000,
+          "offset": 595
         },
         "use": {
           "when": "interval",
@@ -38727,7 +39100,8 @@
               "ref": "elementalSkill.0"
             }
           },
-          "duration": 30000
+          "duration": 30000,
+          "offset": 2400
         },
         "use": {
           "when": "interval",
@@ -38738,7 +39112,7 @@
               }
             }
           },
-          "cooldown": 2900,
+          "cooldown": 4800,
           "action": "elementalSkill.4"
         }
       },
@@ -38760,21 +39134,48 @@
               "has": "arkheAlignment"
             }
           },
-          "cooldown": 4800,
+          "cooldown": 2000,
           "action": "elementalSkill.5"
         }
       },
       {
-        "ref": "tempSkillBuff",
+        "ref": "skillBuff1",
         "buff": {
           "filter": {
-            "action": {
-              "ref": [
-                "elementalSkill.2",
-                "elementalSkill.3",
-                "elementalSkill.4"
-              ]
-            }
+            "special": "furina1"
+          },
+          "stats": {
+            "damageMv%": 0.1
+          }
+        }
+      },
+      {
+        "ref": "skillBuff2",
+        "buff": {
+          "filter": {
+            "special": "furina2"
+          },
+          "stats": {
+            "damageMv%": 0.2
+          }
+        }
+      },
+      {
+        "ref": "skillBuff3",
+        "buff": {
+          "filter": {
+            "special": "furina3"
+          },
+          "stats": {
+            "damageMv%": 0.3
+          }
+        }
+      },
+      {
+        "ref": "skillBuff4",
+        "buff": {
+          "filter": {
+            "special": "furina4"
           },
           "stats": {
             "damageMv%": 0.4
@@ -38782,24 +39183,102 @@
         }
       },
       {
-        "ref": "tempBurstBuff",
-        "stores": "$team",
+        "ref": "burstOnline",
         "apply": {
-          "when": "end",
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
             }
           },
           "duration": 18000,
-          "stacks": 300
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "fanfare"
+            },
+            {
+              "type": "remove",
+              "ref": "fanfareOverflow"
+            },
+            {
+              "type": "apply",
+              "ref": "trackFanfare",
+              "spec": {
+                "duration": 18000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "start150fanfare",
+              "spec": {
+                "uses": 1
+              }
+            }
+          ]
+        },
+        "expire": {
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "fanfare"
+            },
+            {
+              "type": "remove",
+              "ref": "fanfareOverflow"
+            }
+          ]
+        }
+      },
+      {
+        "ref": "trackFanfare",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "gameRule": "trackFanfare"
+      },
+      {
+        "ref": "fanfare",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "statRefs": {
-            "dmgBonus%": "elementalBurst.1"
+            "dmgBonus%": "elementalBurst.1",
+            "healingReceived%": "elementalBurst.2"
           }
         },
         "maxStacks": 300
+      },
+      {
+        "apply": {
+          "by": "$team",
+          "when": "healed",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "health": 1
+              }
+            ]
+          },
+          "uses": 2,
+          "offset": 2000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": {
+            "health": {
+              "targets": "$team",
+              "value": 0.02
+            }
+          }
+        }
       },
       {
         "buff": {
@@ -38821,6 +39300,51 @@
             }
           }
         }
+      },
+      {
+        "rank": 1,
+        "modify": {
+          "type": "effect",
+          "ref": "fanfare",
+          "spec": {
+            "maxStacks": 100
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "ref": "start150fanfare",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "fanfare",
+            "spec": {
+              "stacks": 150
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "stores": "global",
+        "gameRule": "trackFanfareC2"
+      },
+      {
+        "rank": 2,
+        "ref": "fanfareOverflow",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "hp%": 0.0035
+          }
+        },
+        "maxStacks": 400
       }
     ],
     "skills": {
@@ -39112,6 +39636,11 @@
           },
           {
             "name": "Gentilhomme Usher",
+            "health": {
+              "targets": "$team",
+              "value": -0.024,
+              "min": 0.5
+            },
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
@@ -39146,6 +39675,11 @@
           },
           {
             "name": "Surintendante Chevalmarin",
+            "health": {
+              "targets": "$team",
+              "value": -0.016,
+              "min": 0.5
+            },
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
@@ -39180,6 +39714,11 @@
           },
           {
             "name": "Mademoiselle Crabaletta",
+            "health": {
+              "targets": "$team",
+              "value": -0.036,
+              "min": 0.5
+            },
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
@@ -40152,7 +40691,24 @@
     },
     "energy": 60,
     "arkhe": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "crystalShrapnel",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "crystallize",
+                "lunarCrystallize"
+              ]
+            }
+          }
+        },
+        "maxStacks": 6
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Blunt Refusal",
@@ -40233,7 +40789,8 @@
                     0.8356,
                     0.8843,
                     0.933
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
@@ -40407,9 +40964,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Rosula Shardshot Base DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -40434,8 +40992,7 @@
             }
           },
           {
-            "name": "Surging Blade DMG",
-            "type": "elementalSkill",
+            "name": "Surging Blade",
             "damage": {
               "multipliers": [
                 {
@@ -42052,8 +42609,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "hydro",
             "damage": {
+              "element": "hydro",
               "multipliers": [
                 {
                   "mv": [
@@ -46371,8 +46928,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "anemo",
             "damage": {
+              "element": "anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -46816,8 +47373,8 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "electro",
             "damage": {
+              "element": "electro",
               "multipliers": [
                 {
                   "mv": [
@@ -57374,7 +57931,9 @@
     },
     "energy": 70,
     "moonsign": true,
-    "effects": [],
+    "effects": [
+
+    ],
     "skills": {
       "normalAttack": {
         "name": "Strike While the Arrow's Hot",
@@ -57428,7 +57987,8 @@
                     0.4607,
                     0.4875,
                     0.5143
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
@@ -57490,8 +58050,9 @@
           {
             "name": "Aimed Shot: Full Charge",
             "type": "chargedAttack",
-            "element": "anemo",
             "damage": {
+              "element": "anemo",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -59712,12 +60273,11 @@
     "teamPreset": [
       10000126,
       10000130,
-      10000125,
-      10000043
+      10000127,
+      10000125
     ]
   },
   "10000127": {
-    "disabled": true,
     "name": "Illuga",
     "version": 6.3,
     "id": 10000127,
@@ -59733,7 +60293,347 @@
     },
     "energy": 60,
     "moonsign": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "orioleSong",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 20000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "nightingalesSong1",
+              "spec": {
+                "duration": 20000,
+                "uses": 21
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "nightingalesSong2",
+              "spec": {
+                "duration": 20000,
+                "uses": 21
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "nightingalesSong1",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "and": [
+                  {
+                    "element": "geo"
+                  },
+                  {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack",
+                      "plungingAttack",
+                      "elementalSkill",
+                      "elementalBurst",
+                      "lunarCrystallize"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "specRefs": {
+            "damageFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": "elementalBurst.1"
+            },
+            "lunarCrystallizeFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": "elementalBurst.2"
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "stackCounter"
+          }
+        }
+      },
+      {
+        "ref": "nightingalesSong2",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "and": [
+                  {
+                    "element": "geo"
+                  },
+                  {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack",
+                      "plungingAttack",
+                      "elementalSkill",
+                      "elementalBurst",
+                      "lunarCrystallize"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "ref": "lightkeepersOath",
+        "stores": "$team",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "element": "geo"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": 0.05,
+            "critDmg%": 0.1
+          }
+        }
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "modify": {
+          "type": "effect",
+          "ref": "lightkeepersOath",
+          "spec": {
+            "buff": {
+              "stats": {
+                "elementalMastery": 50
+              }
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "illuga1"
+        },
+        "modify": {
+          "type": "effect",
+          "ref": "nightingalesSong2",
+          "spec": {
+            "buff": {
+              "specs": {
+                "damageFlat": {
+                  "attr": "elementalMastery",
+                  "step": 1,
+                  "value": 0.07
+                },
+                "lunarCrystallizeFlat": {
+                  "attr": "elementalMastery",
+                  "step": 1,
+                  "value": 0.48
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "illuga2"
+        },
+        "modify": {
+          "type": "effect",
+          "ref": "nightingalesSong2",
+          "spec": {
+            "buff": {
+              "specs": {
+                "damageFlat": {
+                  "attr": "elementalMastery",
+                  "step": 1,
+                  "value": 0.14
+                },
+                "lunarCrystallizeFlat": {
+                  "attr": "elementalMastery",
+                  "step": 1,
+                  "value": 0.96
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "illuga3"
+        },
+        "modify": {
+          "type": "effect",
+          "ref": "nightingalesSong2",
+          "spec": {
+            "buff": {
+              "specs": {
+                "damageFlat": {
+                  "attr": "elementalMastery",
+                  "step": 1,
+                  "value": 0.24
+                },
+                "lunarCrystallizeFlat": {
+                  "attr": "elementalMastery",
+                  "step": 1,
+                  "value": 1.6
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "elements": "geo"
+            }
+          },
+          "cooldown": 15000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 12
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "ref": "stackCounter",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "maxStacks",
+          "commands": {
+            "type": "apply",
+            "ref": "aedon",
+            "spec": {
+              "uses": 1
+            }
+          }
+        },
+        "maxStacks": 7
+      },
+      {
+        "rank": 2,
+        "ref": "aedon",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": {
+                    "elementalMastery": 4,
+                    "def": 2
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "stores": "$team",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "effectStacks": {
+                  "has": "orioleSong"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "def": 200
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "modify": {
+          "type": "effect",
+          "ref": "lightkeepersOath",
+          "spec": {
+            "buff": {
+              "stats": {
+                "critRate%": 0.05,
+                "critDmg%": 0.2
+              }
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "enable": {
+          "ascendantGleam": true
+        },
+        "modify": {
+          "type": "effect",
+          "ref": "lightkeepersOath",
+          "spec": {
+            "buff": {
+              "stats": {
+                "elementalMastery": 30
+              }
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Oathkeeper's Spear",
@@ -59980,93 +60880,95 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
-                  "mv": [
-                    4.8256,
-                    5.1875,
-                    5.5494,
-                    6.032,
-                    6.3939,
-                    6.7558,
-                    7.2384,
-                    7.721,
-                    8.2035,
-                    8.6861,
-                    9.1686,
-                    9.6512,
-                    10.2544,
-                    10.8576,
-                    11.4608
-                  ]
-                },
-                {
-                  "mv": [
-                    2.4128,
-                    2.5938,
-                    2.7747,
-                    3.016,
-                    3.197,
-                    3.3779,
-                    3.6192,
-                    3.8605,
-                    4.1018,
-                    4.343,
-                    4.5843,
-                    4.8256,
-                    5.1272,
-                    5.4288,
-                    5.7304
-                  ]
+                  "mv": {
+                    "elementalMastery": [
+                      4.8256,
+                      5.1875,
+                      5.5494,
+                      6.032,
+                      6.3939,
+                      6.7558,
+                      7.2384,
+                      7.721,
+                      8.2035,
+                      8.6861,
+                      9.1686,
+                      9.6512,
+                      10.2544,
+                      10.8576,
+                      11.4608
+                    ],
+                    "def": [
+                      2.4128,
+                      2.5938,
+                      2.7747,
+                      3.016,
+                      3.197,
+                      3.3779,
+                      3.6192,
+                      3.8605,
+                      4.1018,
+                      4.343,
+                      4.5843,
+                      4.8256,
+                      5.1272,
+                      5.4288,
+                      5.7304
+                    ]
+                  }
                 }
               ]
             }
           },
           {
-            "name": "Hold DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
-                  "mv": [
-                    6.032,
-                    6.4844,
-                    6.9368,
-                    7.54,
-                    7.9924,
-                    8.4448,
-                    9.048,
-                    9.6512,
-                    10.2544,
-                    10.8576,
-                    11.4608,
-                    12.064,
-                    12.818,
-                    13.572,
-                    14.326
-                  ]
-                },
-                {
-                  "mv": [
-                    3.016,
-                    3.2422,
-                    3.4684,
-                    3.77,
-                    3.9962,
-                    4.2224,
-                    4.524,
-                    4.8256,
-                    5.1272,
-                    5.4288,
-                    5.7304,
-                    6.032,
-                    6.409,
-                    6.786,
-                    7.163
-                  ]
+                  "mv": {
+                    "elementalMastery": [
+                      6.032,
+                      6.4844,
+                      6.9368,
+                      7.54,
+                      7.9924,
+                      8.4448,
+                      9.048,
+                      9.6512,
+                      10.2544,
+                      10.8576,
+                      11.4608,
+                      12.064,
+                      12.818,
+                      13.572,
+                      14.326
+                    ],
+                    "def": [
+                      3.016,
+                      3.2422,
+                      3.4684,
+                      3.77,
+                      3.9962,
+                      4.2224,
+                      4.524,
+                      4.8256,
+                      5.1272,
+                      5.4288,
+                      5.7304,
+                      6.032,
+                      6.409,
+                      6.786,
+                      7.163
+                    ]
+                  }
                 }
               ]
             }
@@ -60078,58 +60980,58 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
-                  "mv": [
-                    8.272,
-                    8.8924,
-                    9.5128,
-                    10.34,
-                    10.9604,
-                    11.5808,
-                    12.408,
-                    13.2352,
-                    14.0624,
-                    14.8896,
-                    15.7168,
-                    16.544,
-                    17.578,
-                    18.612,
-                    19.646
-                  ]
-                },
-                {
-                  "mv": [
-                    4.136,
-                    4.4462,
-                    4.7564,
-                    5.17,
-                    5.4802,
-                    5.7904,
-                    6.204,
-                    6.6176,
-                    7.0312,
-                    7.4448,
-                    7.8584,
-                    8.272,
-                    8.789,
-                    9.306,
-                    9.823
-                  ]
+                  "mv": {
+                    "elementalMastery": [
+                      8.272,
+                      8.8924,
+                      9.5128,
+                      10.34,
+                      10.9604,
+                      11.5808,
+                      12.408,
+                      13.2352,
+                      14.0624,
+                      14.8896,
+                      15.7168,
+                      16.544,
+                      17.578,
+                      18.612,
+                      19.646
+                    ],
+                    "def": [
+                      4.136,
+                      4.4462,
+                      4.7564,
+                      5.17,
+                      5.4802,
+                      5.7904,
+                      6.204,
+                      6.6176,
+                      7.0312,
+                      7.4448,
+                      7.8584,
+                      8.272,
+                      8.789,
+                      9.306,
+                      9.823
+                    ]
+                  }
                 }
               ]
             }
           },
           {
             "name": "Geo DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.336,
                     0.3612,
                     0.3864,
@@ -60152,11 +61054,10 @@
           },
           {
             "name": "Lunar-Crystallize Reaction DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     2.2592,
                     2.4286,
                     2.5981,
@@ -60180,7 +61081,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13401,
+      "setCounts": {
+        "15042": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000126,
+      10000130,
+      10000127,
+      10000125
+    ]
   },
   "10000128": {
     "name": "Varka",
@@ -63307,8 +64223,8 @@
     "teamPreset": [
       10000126,
       10000130,
-      10000125,
-      10000043
+      10000127,
+      10000125
     ]
   },
   "10000131": {
@@ -66579,7 +67495,8 @@
             "damageMv%": 0.1
           }
         },
-        "maxStacks": 6
+        "maxStacks": 6,
+        "independentStacks": true
       },
       {
         "ref": "passive2Self",

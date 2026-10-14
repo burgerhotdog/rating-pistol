@@ -158,7 +158,6 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
 
     // Resolve indexed buff stats
     if (effect.buff?.statRefs && spec.sourceType === 'character') {
-      const buff = effect.buff = { ...effect.buff };
       const buffStatRefsRaw = buff.statRefsRaw = {};
       const buffStats = buff.stats = {};
 
@@ -171,7 +170,6 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
 
     // Resolve indexed buff specs
     if (effect.buff?.specRefs && spec.sourceType === 'character') {
-      const buff = effect.buff = { ...effect.buff };
       const buffSpecRefsRaw = buff.specRefsRaw = {};
       const buffSpecs = buff.specs = {};
 
@@ -186,6 +184,18 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
           buffSpec[field] = value;
         }
       }
+    }
+
+    if (buff.commands) {
+      buff.commands = toArray(buff.commands);
+    }
+  }
+
+  if (effect.expire) {
+    const expire = effect.expire = { ...effect.expire };
+
+    if (expire.commands) {
+      expire.commands = toArray(expire.commands);
     }
   }
 

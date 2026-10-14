@@ -1,15 +1,46 @@
 import { runCommands } from './commands';
 import { runUseEffect } from './runUseEffect';
 
-function advanceEffectState(state, elapsed) {
+function expireEffectState(ctx, state, storeOwnerId) {
   const { store, effect } = state;
+  const { expire } = effect;
+
+  delete store[effect.key];
+
+  if (!expire) return;
+
+  const filterSpec = { fieldId: storeOwnerId ?? effect.ownerId };
+  if (ctx.eventFilter(expire.filter, effect, filterSpec)) {
+    runCommands(ctx, effect, expire.commands);
+  };
+}
+
+function advanceEffectState(ctx, state, elapsed, storeOwnerId) {
+  const { effect } = state;
+
+  if (effect.independentStacks) {
+    for (let i = 0; i < state.independentStacks.length; i++) {
+      state.independentStacks[i] = Math.max(state.independentStacks[i] - elapsed, 0);
+    }
+
+    while (state.independentStacks[0] === 0) {
+      state.stacks--;
+      state.independentStacks.shift();
+    }
+
+    if (!state.independentStacks.length) {
+      expireEffectState(ctx, state, storeOwnerId);
+      return true;
+    }
+  }
 
   if (state.timeLeft > 0) {
     state.timeLeft -= elapsed;
 
     if (!effect.decay) {
       if (state.timeLeft <= 0) {
-        return delete store[effect.key];
+        expireEffectState(ctx, state, storeOwnerId);
+        return true;
       }
     }
 
@@ -18,7 +49,8 @@ function advanceEffectState(state, elapsed) {
       state.stacks--;
 
       if (state.stacks <= 0) {
-        return delete store[effect.key];
+        expireEffectState(ctx, state, storeOwnerId);
+        return true;
       }
     }
   }
@@ -26,7 +58,8 @@ function advanceEffectState(state, elapsed) {
   if ('removeTimer' in state) {
     state.removeTimer -= elapsed;
     if (state.removeTimer <= 0) {
-      return delete store[effect.key];
+      expireEffectState(ctx, state, storeOwnerId);
+      return true;
     }
   }
 
@@ -71,7 +104,7 @@ function advanceState(ctx, elapsed, state, storeOwnerId) {
   }
 
   if (!hasInterval) {
-    advanceEffectState(state, elapsed);
+    advanceEffectState(ctx, state, elapsed, storeOwnerId);
     return;
   }
 
@@ -79,7 +112,7 @@ function advanceState(ctx, elapsed, state, storeOwnerId) {
 
   while (remaining) {
     const diff = Math.min(state.useCooldown ?? 0, remaining);
-    if (advanceEffectState(state, diff)) break;
+    if (advanceEffectState(ctx, state, diff, storeOwnerId)) break;
     remaining -= diff;
     if (state.useCooldown) continue;
 
@@ -108,6 +141,7 @@ function advanceState(ctx, elapsed, state, storeOwnerId) {
     }
 
     if (remaining && !state.useCooldown) {
+      advanceEffectState(ctx, state, remaining, storeOwnerId);
       break;
     }
   }
@@ -127,6 +161,6 @@ export function advanceEffects(ctx, elapsed) {
 
   for (const memberId in memberEffects) {
     const store = memberEffects[memberId];
-    advanceStore(ctx, elapsed, store, memberId);
+    advanceStore(ctx, elapsed, store, Number(memberId));
   }
 }

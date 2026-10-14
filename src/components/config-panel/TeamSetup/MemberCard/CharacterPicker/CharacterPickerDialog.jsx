@@ -26,12 +26,11 @@ const CharacterPickerDialog = ({ open, onClose, onSelect, allyIds }) => {
   const [typeFilter, setTypeFilter] = useState([]);
 
   const entries = useMemo(
-    () => Object.values(characters)
-      .sort((a, b) =>
-        b.quality - a.quality ||
-        b.version - a.version ||
-        b.id - a.id
-      ),
+    () => Object.values(characters).sort((a, b) =>
+      b.version - a.version ||
+      b.quality - a.quality ||
+      b.id - a.id
+    ),
     [characters],
   );
 

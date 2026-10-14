@@ -1543,7 +1543,8 @@
             ]
           }
         },
-        "maxStacks": 2
+        "maxStacks": 2,
+        "independentStacks": true
       }
     ]
   },
@@ -1917,7 +1918,7 @@
     "effects": [
       {
         "apply": {
-          "when": "healthChange",
+          "when": "healthUpdate",
           "field": "*",
           "cooldown": 200,
           "duration": 6000
@@ -1935,7 +1936,7 @@
       {
         "apply": {
           "by": "$ally",
-          "when": "healthChange",
+          "when": "healthUpdate",
           "field": "*",
           "cooldown": 200,
           "duration": 6000
@@ -2285,7 +2286,8 @@
             ]
           }
         },
-        "maxStacks": 3
+        "maxStacks": 3,
+        "independentStacks": true
       },
       {
         "buff": {
@@ -3716,7 +3718,6 @@
     }
   },
   "13401": {
-    "disabled": true,
     "name": "Dragon's Bane",
     "version": 1.0,
     "id": 13401,
@@ -3727,7 +3728,28 @@
       "baseAtk": 454,
       "elementalMastery": 221
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "hydro",
+                  "pyro"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.2,
+              0.36
+            ]
+          }
+        }
+      }
+    ]
   },
   "13402": {
     "disabled": true,
@@ -4728,7 +4750,6 @@
     ]
   },
   "13517": {
-    "disabled": true,
     "name": "Disaster and Remorse",
     "version": 6.6,
     "id": 13517,
@@ -4739,7 +4760,211 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "pathOfConflict",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 18000,
+          "uses": 1,
+          "offset": 17000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "unforgivable",
+              "spec": {
+                "duration": 3000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "irrepairable",
+              "spec": {
+                "duration": 3000
+              }
+            }
+          ]
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "use": {
+          "when": "interval",
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "unforgivable"
+            },
+            {
+              "type": "remove",
+              "ref": "irrepairable"
+            }
+          ]
+        }
+      },
+      {
+        "ref": "unforgivable",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.4,
+              0.8
+            ],
+            "chargedAttackDmgBonus%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      },
+      {
+        "ref": "irrepairable",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.4,
+              0.8
+            ],
+            "elementalBurstDmgBonus%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "pathOfConflict"
+                }
+              }
+            ]
+          },
+          "cooldown": 100,
+          "commands": {
+            "type": "apply",
+            "ref": "irrepairable",
+            "spec": {
+              "duration": 1000,
+              "extend": true
+            }
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "pathOfConflict"
+                }
+              }
+            ]
+          },
+          "cooldown": 100,
+          "commands": {
+            "type": "apply",
+            "ref": "unforgivable",
+            "spec": {
+              "duration": 1000,
+              "extend": true
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "modify": {
+          "type": "effect",
+          "ref": "unforgivable",
+          "spec": {
+            "buff": {
+              "stats": {
+                "normalAttackDmgBonus%": [
+                  0.3,
+                  0.6
+                ],
+                "chargedAttackDmgBonus%": [
+                  0.3,
+                  0.6
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "modify": {
+          "type": "effect",
+          "ref": "irrepairable",
+          "spec": {
+            "buff": {
+              "stats": {
+                "elementalSkillDmgBonus%": [
+                  0.3,
+                  0.6
+                ],
+                "elementalBurstDmgBonus%": [
+                  0.3,
+                  0.6
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
   },
   "14101": {
     "name": "Apprentice's Notes",
@@ -5159,7 +5384,6 @@
     "effects": []
   },
   "14409": {
-    "disabled": true,
     "name": "Eye of Perception",
     "version": 1.0,
     "id": 14409,
@@ -5170,7 +5394,39 @@
       "baseAtk": 454,
       "atk%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": [
+            12000,
+            8000
+          ],
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    2.4,
+                    3.6
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "14410": {
     "disabled": true,
@@ -5273,7 +5529,6 @@
     "effects": []
   },
   "14415": {
-    "disabled": true,
     "name": "Oathsworn Eye",
     "version": 2.5,
     "id": 14415,
@@ -5284,7 +5539,27 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "energyRecharge%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
   },
   "14416": {
     "name": "Wandering Evenstar",
@@ -6108,7 +6383,7 @@
       {
         "ref": "selfBuff",
         "apply": {
-          "when": "healthChange",
+          "when": "healthUpdate",
           "cooldown": 300,
           "duration": 4000
         },
@@ -6148,7 +6423,6 @@
     ]
   },
   "14514": {
-    "disabled": true,
     "name": "Tome of the Eternal Flow",
     "version": 4.1,
     "id": 14514,
@@ -6159,7 +6433,56 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.3,
+              0.6
+            ]
+          }
+        }
+      },
+      {
+        "ref": "tomeBuff",
+        "apply": {
+          "when": "healthUpdate",
+          "cooldown": 300,
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "chargedAttackDmgBonus%": [
+              0.14,
+              0.3
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "use": {
+          "when": "healthUpdate",
+          "filter": {
+            "effectStacks": {
+              "tomeBuff": {
+                ">=": 2
+              }
+            }
+          },
+          "cooldown": 12000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                8,
+                12
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "14515": {
     "name": "Crane's Echoing Call",

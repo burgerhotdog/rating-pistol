@@ -37,8 +37,6 @@ export function getRotationOrder(cache, equipMaps) {
     const order = [first, ...permutation];
     const testResults = testOrder(cache, equipMaps, order);
 
-    console.log(order, testResults.dps);
-
     if (testResults.dps > bestResults.dps) {
       bestResults = testResults;
     }
