@@ -16,22 +16,25 @@ import {
   runTuneBreak,
   applyOffTuneBuildup,
   inflictTuneShifting,
+  convertHealingToValue,
 } from './states'
 import { canSnapshot, buildSnapshot } from './snapshot';
 import { getModifiedAction } from './getModifiedAction';
 import { runRestoreEnergy } from './restoreEnergy';
 
-function handleHealing(ctx, action) {
+function handleHealing(ctx, action, sharedSnapshot) {
   if (!action.healing) return;
 
   for (const target of action.healing.targets) {
     const targetId = getTargetId(ctx, target);
 
+    const value = convertHealingToValue(ctx, sharedSnapshot, targetId);
+
     if (ctx.cache.gameId === GI) {
-      changeBondOfLife(ctx, targetId, -0.1);
+      changeBondOfLife(ctx, targetId, -value);
     }
 
-    updateHealth(ctx, action, targetId, { value: 0.1 });
+    updateHealth(ctx, action, targetId, { value });
 
     ctx.runEffects('healed', { ownerId: targetId });
   }
@@ -86,7 +89,7 @@ export function runAction(ctx, action, options = {}) {
 
   let sharedSnapshot;
   if (canSnapshot(modifiedAction)) {
-    if (ctx.saveSnapshots) {
+    if (ctx.saveSnapshots || modifiedAction.healing) {
       sharedSnapshot = buildSnapshot(ctx, modifiedAction, options);
     }
 
@@ -126,7 +129,7 @@ export function runAction(ctx, action, options = {}) {
       rxnScaleFlat = scaleFlat;
     }
 
-    if (sharedSnapshot) {
+    if (sharedSnapshot && ctx.saveSnapshots) {
       ctx.snapshots.push({
         ...sharedSnapshot,
         runtime: sharedSnapshot.runtime + actionRuntime - hitOffsets[0],
@@ -141,7 +144,7 @@ export function runAction(ctx, action, options = {}) {
 
     handleHealth(ctx, modifiedAction);
 
-    handleHealing(ctx, modifiedAction);
+    handleHealing(ctx, modifiedAction, sharedSnapshot);
     handleShield(ctx, modifiedAction);
 
     if (gameId === GI) {

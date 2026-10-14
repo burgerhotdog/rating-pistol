@@ -30,7 +30,8 @@ Characters:
     Flins
         No constellations
     Furina
-        Has temporary fixed buffs
+        A1 healing overflow cause can come from self (but not in default rotation)
+        A1 healing effect considered health and not healing
         No healing interval decrease
         No constellations
     Gorou

@@ -1,8 +1,22 @@
 import { runCommands } from './commands';
 import { runUseEffect } from './runUseEffect';
 
-function advanceEffectState(state, elapsed) {
+function expireEffectState(ctx, state, storeOwnerId) {
   const { store, effect } = state;
+  const { expire } = effect;
+
+  delete store[effect.key];
+
+  if (!expire) return;
+
+  const filterSpec = { fieldId: storeOwnerId ?? effect.ownerId };
+  if (ctx.eventFilter(expire.filter, effect, filterSpec)) {
+    runCommands(ctx, effect, expire.commands);
+  };
+}
+
+function advanceEffectState(ctx, state, elapsed, storeOwnerId) {
+  const { effect } = state;
 
   if (effect.independentStacks) {
     for (let i = 0; i < state.independentStacks.length; i++) {
@@ -15,7 +29,8 @@ function advanceEffectState(state, elapsed) {
     }
 
     if (!state.independentStacks.length) {
-      return delete store[effect.key];
+      expireEffectState(ctx, state, storeOwnerId);
+      return true;
     }
   }
 
@@ -24,7 +39,8 @@ function advanceEffectState(state, elapsed) {
 
     if (!effect.decay) {
       if (state.timeLeft <= 0) {
-        return delete store[effect.key];
+        expireEffectState(ctx, state, storeOwnerId);
+        return true;
       }
     }
 
@@ -33,7 +49,8 @@ function advanceEffectState(state, elapsed) {
       state.stacks--;
 
       if (state.stacks <= 0) {
-        return delete store[effect.key];
+        expireEffectState(ctx, state, storeOwnerId);
+        return true;
       }
     }
   }
@@ -41,7 +58,8 @@ function advanceEffectState(state, elapsed) {
   if ('removeTimer' in state) {
     state.removeTimer -= elapsed;
     if (state.removeTimer <= 0) {
-      return delete store[effect.key];
+      expireEffectState(ctx, state, storeOwnerId);
+      return true;
     }
   }
 
@@ -86,7 +104,7 @@ function advanceState(ctx, elapsed, state, storeOwnerId) {
   }
 
   if (!hasInterval) {
-    advanceEffectState(state, elapsed);
+    advanceEffectState(ctx, state, elapsed, storeOwnerId);
     return;
   }
 
@@ -94,7 +112,7 @@ function advanceState(ctx, elapsed, state, storeOwnerId) {
 
   while (remaining) {
     const diff = Math.min(state.useCooldown ?? 0, remaining);
-    if (advanceEffectState(state, diff)) break;
+    if (advanceEffectState(ctx, state, diff, storeOwnerId)) break;
     remaining -= diff;
     if (state.useCooldown) continue;
 

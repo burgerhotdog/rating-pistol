@@ -39180,24 +39180,78 @@
         }
       },
       {
-        "ref": "tempBurstBuff",
-        "stores": "$team",
+        "ref": "burstOnline",
         "apply": {
-          "when": "end",
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
             }
           },
           "duration": 18000,
-          "stacks": 300
+          "commands": {
+            "type": "apply",
+            "ref": "trackFanfare",
+            "spec": {
+              "duration": 18000
+            }
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "fanfare"
+          }
+        }
+      },
+      {
+        "ref": "trackFanfare",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "gameRule": "trackFanfare"
+      },
+      {
+        "ref": "fanfare",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "statRefs": {
-            "dmgBonus%": "elementalBurst.1"
+            "dmgBonus%": "elementalBurst.1",
+            "healingReceived%": "elementalBurst.2"
           }
         },
         "maxStacks": 300
+      },
+      {
+        "apply": {
+          "by": "$team",
+          "when": "healed",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "health": 1
+              }
+            ]
+          },
+          "duration": 4000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": {
+            "health": {
+              "targets": "$team",
+              "value": 0.02
+            }
+          }
+        }
       },
       {
         "buff": {

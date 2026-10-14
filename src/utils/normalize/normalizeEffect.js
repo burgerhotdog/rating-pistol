@@ -191,6 +191,14 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     }
   }
 
+  if (effect.expire) {
+    const expire = effect.expire = { ...effect.expire };
+
+    if (expire.commands) {
+      expire.commands = toArray(expire.commands);
+    }
+  }
+
   // Resolve ranked values
   if (spec.sourceType === 'weapon') {
     const resolveValue = (value) => resolveRankedValue(value, spec.weaponRank);

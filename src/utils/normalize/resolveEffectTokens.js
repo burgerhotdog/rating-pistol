@@ -167,6 +167,24 @@ export const resolveEffectTokens = (normalized) => {
       const modify = effect.modify = { ...effect.modify };
       modify.key = resolveEffectRef(modify.ref, ownerId, sourceId);
     }
+
+    if (effect.expire) {
+      const expire = effect.expire = { ...effect.expire };
+
+      if (expire.filter) {
+        expire.filter = structuredClone(expire.filter);
+        traverseFilter(expire.filter, ownerId, sourceId);
+      }
+
+      if (expire.commands) {
+        expire.commands = expire.commands
+          .map((command) => ({
+            ...command,
+            key: resolveEffectRef(command.ref, ownerId, sourceId),
+          }))
+          .filter((command) => command.key);
+      }
+    }
   }
 
   return resolved;
