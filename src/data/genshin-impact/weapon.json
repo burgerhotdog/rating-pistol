@@ -3718,7 +3718,6 @@
     }
   },
   "13401": {
-    "disabled": true,
     "name": "Dragon's Bane",
     "version": 1.0,
     "id": 13401,
@@ -3729,7 +3728,28 @@
       "baseAtk": 454,
       "elementalMastery": 221
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "hydro",
+                  "pyro"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.2,
+              0.36
+            ]
+          }
+        }
+      }
+    ]
   },
   "13402": {
     "disabled": true,

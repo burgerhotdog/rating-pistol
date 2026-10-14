@@ -1,3 +1,5 @@
+import { runCommands } from './commands';
+
 function decayBuffState(ctx, action, state) {
   const { effect, buffCooldown } = state;
   if (buffCooldown) return;
@@ -9,12 +11,18 @@ function decayBuffState(ctx, action, state) {
     state.buffCooldown = effect.buff.cooldown;
   }
 
+  const commands = effect.buff.commands;
+
   if (state.usesLeft) {
     state.usesLeft--;
 
     if (!state.usesLeft) {
       delete state.store[effect.key];
     }
+  }
+
+  if (commands) {
+    runCommands(ctx, effect, commands, effect.ownerId);
   }
 }
 

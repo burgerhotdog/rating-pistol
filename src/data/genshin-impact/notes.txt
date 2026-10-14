@@ -35,6 +35,9 @@ Characters:
         No constellations
     Gorou
         Swapping off active buff expires instantly
+    Illuga
+        Burst affects non-direct dmg too
+        No geo construct rule
     Ineffa
         No constellations
     Itto

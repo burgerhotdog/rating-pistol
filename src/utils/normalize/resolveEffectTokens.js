@@ -8,7 +8,7 @@ export const resolveEffectTokens = (normalized) => {
       effect.ref === ref
     );
 
-    return effect.key;
+    return effect?.key;
   };
 
   function walkBooleanTree(node, onLeaf) {
@@ -89,10 +89,12 @@ export const resolveEffectTokens = (normalized) => {
         }
 
         if (commands) {
-          apply.commands = commands.map((command) => ({
-            ...command,
-            key: resolveEffectRef(command.ref, ownerId, sourceId),
-          }));
+          apply.commands = commands
+            .map((command) => ({
+              ...command,
+              key: resolveEffectRef(command.ref, ownerId, sourceId),
+            }))
+            .filter((command) => command.key);
         }
 
         return apply;
@@ -111,10 +113,12 @@ export const resolveEffectTokens = (normalized) => {
         }
 
         if (commands) {
-          remove.commands = commands.map((command) => ({
-            ...command,
-            key: resolveEffectRef(command.ref, ownerId, sourceId),
-          }));
+          remove.commands = commands
+            .map((command) => ({
+              ...command,
+              key: resolveEffectRef(command.ref, ownerId, sourceId),
+            }))
+            .filter((command) => command.key);
         }
 
         return remove;
@@ -133,10 +137,12 @@ export const resolveEffectTokens = (normalized) => {
         }
 
         if (commands) {
-          use.commands = commands.map((command) => ({
-            ...command,
-            key: resolveEffectRef(command.ref, ownerId, sourceId),
-          }));
+          use.commands = commands
+            .map((command) => ({
+              ...command,
+              key: resolveEffectRef(command.ref, ownerId, sourceId),
+            }))
+            .filter((command) => command.key);
         }
 
         return use;
@@ -146,6 +152,15 @@ export const resolveEffectTokens = (normalized) => {
     if (effect.buff?.filter) {
       effect.buff.filter = structuredClone(effect.buff.filter);
       traverseFilter(effect.buff.filter, ownerId, sourceId);
+    }
+
+    if (effect.buff?.commands) {
+      effect.buff.commands = effect.buff.commands
+        .map((command) => ({
+          ...command,
+          key: resolveEffectRef(command.ref, ownerId, sourceId),
+        }))
+        .filter((command) => command.key);
     }
 
     if (effect.modify?.type === 'effect') {

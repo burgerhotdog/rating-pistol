@@ -17889,7 +17889,7 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -17916,7 +17916,7 @@
             }
           },
           {
-            "name": "Hold DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -19231,7 +19231,7 @@
             }
           },
           {
-            "name": "#Fuufuu Whirlwind Kick {LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+            "name": "Fuufuu Whirlwind Kick: Tap",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -19258,7 +19258,7 @@
             }
           },
           {
-            "name": "Fuufuu Whirlwind Kick Hold DMG",
+            "name": "Fuufuu Whirlwind Kick: Hold",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -25624,7 +25624,7 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -25651,7 +25651,7 @@
             }
           },
           {
-            "name": "Hold Skill DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -26110,7 +26110,7 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -38627,7 +38627,7 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "#Photo DMG ({LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press})",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
               "multipliers": [
@@ -60147,12 +60147,11 @@
     "teamPreset": [
       10000126,
       10000130,
-      10000125,
-      10000043
+      10000127,
+      10000125
     ]
   },
   "10000127": {
-    "disabled": true,
     "name": "Illuga",
     "version": 6.3,
     "id": 10000127,
@@ -60168,7 +60167,347 @@
     },
     "energy": 60,
     "moonsign": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "orioleSong",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 20000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "nightingalesSong1",
+              "spec": {
+                "duration": 20000,
+                "uses": 21
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "nightingalesSong2",
+              "spec": {
+                "duration": 20000,
+                "uses": 21
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "nightingalesSong1",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "and": [
+                  {
+                    "element": "geo"
+                  },
+                  {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack",
+                      "plungingAttack",
+                      "elementalSkill",
+                      "elementalBurst",
+                      "lunarCrystallize"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "specRefs": {
+            "damageFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": "elementalBurst.1"
+            },
+            "lunarCrystallizeFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": "elementalBurst.2"
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "stackCounter"
+          }
+        }
+      },
+      {
+        "ref": "nightingalesSong2",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "and": [
+                  {
+                    "element": "geo"
+                  },
+                  {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack",
+                      "plungingAttack",
+                      "elementalSkill",
+                      "elementalBurst",
+                      "lunarCrystallize"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "ref": "lightkeepersOath",
+        "stores": "$team",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "element": "geo"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": 0.05,
+            "critDmg%": 0.1
+          }
+        }
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "modify": {
+          "type": "effect",
+          "ref": "lightkeepersOath",
+          "spec": {
+            "buff": {
+              "stats": {
+                "elementalMastery": 50
+              }
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "illuga1"
+        },
+        "modify": {
+          "type": "effect",
+          "ref": "nightingalesSong2",
+          "spec": {
+            "buff": {
+              "specs": {
+                "damageFlat": {
+                  "attr": "elementalMastery",
+                  "step": 1,
+                  "value": 0.07
+                },
+                "lunarCrystallizeFlat": {
+                  "attr": "elementalMastery",
+                  "step": 1,
+                  "value": 0.48
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "illuga2"
+        },
+        "modify": {
+          "type": "effect",
+          "ref": "nightingalesSong2",
+          "spec": {
+            "buff": {
+              "specs": {
+                "damageFlat": {
+                  "attr": "elementalMastery",
+                  "step": 1,
+                  "value": 0.14
+                },
+                "lunarCrystallizeFlat": {
+                  "attr": "elementalMastery",
+                  "step": 1,
+                  "value": 0.96
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "special": "illuga3"
+        },
+        "modify": {
+          "type": "effect",
+          "ref": "nightingalesSong2",
+          "spec": {
+            "buff": {
+              "specs": {
+                "damageFlat": {
+                  "attr": "elementalMastery",
+                  "step": 1,
+                  "value": 0.24
+                },
+                "lunarCrystallizeFlat": {
+                  "attr": "elementalMastery",
+                  "step": 1,
+                  "value": 1.6
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "elements": "geo"
+            }
+          },
+          "cooldown": 15000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 12
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "ref": "stackCounter",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "maxStacks",
+          "commands": {
+            "type": "apply",
+            "ref": "aedon",
+            "spec": {
+              "uses": 1
+            }
+          }
+        },
+        "maxStacks": 7
+      },
+      {
+        "rank": 2,
+        "ref": "aedon",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": {
+                    "elementalMastery": 4,
+                    "def": 2
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "stores": "$team",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "effectStacks": {
+                  "has": "orioleSong"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "def": 200
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "modify": {
+          "type": "effect",
+          "ref": "lightkeepersOath",
+          "spec": {
+            "buff": {
+              "stats": {
+                "critRate%": 0.05,
+                "critDmg%": 0.2
+              }
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "enable": {
+          "ascendantGleam": true
+        },
+        "modify": {
+          "type": "effect",
+          "ref": "lightkeepersOath",
+          "spec": {
+            "buff": {
+              "stats": {
+                "elementalMastery": 30
+              }
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Oathkeeper's Spear",
@@ -60415,93 +60754,95 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "#{LAYOUT_MOBILE#Tap}{LAYOUT_PC#Press}{LAYOUT_PS#Press} DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
-                  "mv": [
-                    4.8256,
-                    5.1875,
-                    5.5494,
-                    6.032,
-                    6.3939,
-                    6.7558,
-                    7.2384,
-                    7.721,
-                    8.2035,
-                    8.6861,
-                    9.1686,
-                    9.6512,
-                    10.2544,
-                    10.8576,
-                    11.4608
-                  ]
-                },
-                {
-                  "mv": [
-                    2.4128,
-                    2.5938,
-                    2.7747,
-                    3.016,
-                    3.197,
-                    3.3779,
-                    3.6192,
-                    3.8605,
-                    4.1018,
-                    4.343,
-                    4.5843,
-                    4.8256,
-                    5.1272,
-                    5.4288,
-                    5.7304
-                  ]
+                  "mv": {
+                    "elementalMastery": [
+                      4.8256,
+                      5.1875,
+                      5.5494,
+                      6.032,
+                      6.3939,
+                      6.7558,
+                      7.2384,
+                      7.721,
+                      8.2035,
+                      8.6861,
+                      9.1686,
+                      9.6512,
+                      10.2544,
+                      10.8576,
+                      11.4608
+                    ],
+                    "def": [
+                      2.4128,
+                      2.5938,
+                      2.7747,
+                      3.016,
+                      3.197,
+                      3.3779,
+                      3.6192,
+                      3.8605,
+                      4.1018,
+                      4.343,
+                      4.5843,
+                      4.8256,
+                      5.1272,
+                      5.4288,
+                      5.7304
+                    ]
+                  }
                 }
               ]
             }
           },
           {
-            "name": "Hold DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
-                  "mv": [
-                    6.032,
-                    6.4844,
-                    6.9368,
-                    7.54,
-                    7.9924,
-                    8.4448,
-                    9.048,
-                    9.6512,
-                    10.2544,
-                    10.8576,
-                    11.4608,
-                    12.064,
-                    12.818,
-                    13.572,
-                    14.326
-                  ]
-                },
-                {
-                  "mv": [
-                    3.016,
-                    3.2422,
-                    3.4684,
-                    3.77,
-                    3.9962,
-                    4.2224,
-                    4.524,
-                    4.8256,
-                    5.1272,
-                    5.4288,
-                    5.7304,
-                    6.032,
-                    6.409,
-                    6.786,
-                    7.163
-                  ]
+                  "mv": {
+                    "elementalMastery": [
+                      6.032,
+                      6.4844,
+                      6.9368,
+                      7.54,
+                      7.9924,
+                      8.4448,
+                      9.048,
+                      9.6512,
+                      10.2544,
+                      10.8576,
+                      11.4608,
+                      12.064,
+                      12.818,
+                      13.572,
+                      14.326
+                    ],
+                    "def": [
+                      3.016,
+                      3.2422,
+                      3.4684,
+                      3.77,
+                      3.9962,
+                      4.2224,
+                      4.524,
+                      4.8256,
+                      5.1272,
+                      5.4288,
+                      5.7304,
+                      6.032,
+                      6.409,
+                      6.786,
+                      7.163
+                    ]
+                  }
                 }
               ]
             }
@@ -60513,58 +60854,58 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
-                  "mv": [
-                    8.272,
-                    8.8924,
-                    9.5128,
-                    10.34,
-                    10.9604,
-                    11.5808,
-                    12.408,
-                    13.2352,
-                    14.0624,
-                    14.8896,
-                    15.7168,
-                    16.544,
-                    17.578,
-                    18.612,
-                    19.646
-                  ]
-                },
-                {
-                  "mv": [
-                    4.136,
-                    4.4462,
-                    4.7564,
-                    5.17,
-                    5.4802,
-                    5.7904,
-                    6.204,
-                    6.6176,
-                    7.0312,
-                    7.4448,
-                    7.8584,
-                    8.272,
-                    8.789,
-                    9.306,
-                    9.823
-                  ]
+                  "mv": {
+                    "elementalMastery": [
+                      8.272,
+                      8.8924,
+                      9.5128,
+                      10.34,
+                      10.9604,
+                      11.5808,
+                      12.408,
+                      13.2352,
+                      14.0624,
+                      14.8896,
+                      15.7168,
+                      16.544,
+                      17.578,
+                      18.612,
+                      19.646
+                    ],
+                    "def": [
+                      4.136,
+                      4.4462,
+                      4.7564,
+                      5.17,
+                      5.4802,
+                      5.7904,
+                      6.204,
+                      6.6176,
+                      7.0312,
+                      7.4448,
+                      7.8584,
+                      8.272,
+                      8.789,
+                      9.306,
+                      9.823
+                    ]
+                  }
                 }
               ]
             }
           },
           {
             "name": "Geo DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.336,
                     0.3612,
                     0.3864,
@@ -60587,11 +60928,10 @@
           },
           {
             "name": "Lunar-Crystallize Reaction DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     2.2592,
                     2.4286,
                     2.5981,
@@ -60615,7 +60955,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13401,
+      "setCounts": {
+        "15042": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000126,
+      10000130,
+      10000127,
+      10000125
+    ]
   },
   "10000128": {
     "name": "Varka",
@@ -63742,8 +64097,8 @@
     "teamPreset": [
       10000126,
       10000130,
-      10000125,
-      10000043
+      10000127,
+      10000125
     ]
   },
   "10000131": {
