@@ -4730,7 +4730,6 @@
     ]
   },
   "13517": {
-    "disabled": true,
     "name": "Disaster and Remorse",
     "version": 6.6,
     "id": 13517,
@@ -4741,7 +4740,211 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "pathOfConflict",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 18000,
+          "uses": 1,
+          "offset": 17000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "unforgivable",
+              "spec": {
+                "duration": 3000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "irrepairable",
+              "spec": {
+                "duration": 3000
+              }
+            }
+          ]
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "use": {
+          "when": "interval",
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "unforgivable"
+            },
+            {
+              "type": "remove",
+              "ref": "irrepairable"
+            }
+          ]
+        }
+      },
+      {
+        "ref": "unforgivable",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.4,
+              0.8
+            ],
+            "chargedAttackDmgBonus%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      },
+      {
+        "ref": "irrepairable",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.4,
+              0.8
+            ],
+            "elementalBurstDmgBonus%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "pathOfConflict"
+                }
+              }
+            ]
+          },
+          "cooldown": 100,
+          "commands": {
+            "type": "apply",
+            "ref": "irrepairable",
+            "spec": {
+              "duration": 1000,
+              "extend": true
+            }
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "pathOfConflict"
+                }
+              }
+            ]
+          },
+          "cooldown": 100,
+          "commands": {
+            "type": "apply",
+            "ref": "unforgivable",
+            "spec": {
+              "duration": 1000,
+              "extend": true
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "modify": {
+          "type": "effect",
+          "ref": "unforgivable",
+          "spec": {
+            "buff": {
+              "stats": {
+                "normalAttackDmgBonus%": [
+                  0.3,
+                  0.6
+                ],
+                "chargedAttackDmgBonus%": [
+                  0.3,
+                  0.6
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "modify": {
+          "type": "effect",
+          "ref": "irrepairable",
+          "spec": {
+            "buff": {
+              "stats": {
+                "elementalSkillDmgBonus%": [
+                  0.3,
+                  0.6
+                ],
+                "elementalBurstDmgBonus%": [
+                  0.3,
+                  0.6
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
   },
   "14101": {
     "name": "Apprentice's Notes",
