@@ -51271,7 +51271,17 @@
       },
       {
         "enable": {
-          "special": "escoffier1"
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "hydro",
+                  "cryo"
+                ],
+                "==": 1
+              }
+            }
+          }
         },
         "stores": "global",
         "apply": {
@@ -51296,7 +51306,17 @@
       },
       {
         "enable": {
-          "special": "escoffier2"
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "hydro",
+                  "cryo"
+                ],
+                "==": 2
+              }
+            }
+          }
         },
         "stores": "global",
         "apply": {
@@ -51321,7 +51341,17 @@
       },
       {
         "enable": {
-          "special": "escoffier3"
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "hydro",
+                  "cryo"
+                ],
+                "==": 3
+              }
+            }
+          }
         },
         "stores": "global",
         "apply": {
@@ -51346,7 +51376,17 @@
       },
       {
         "enable": {
-          "special": "escoffier4"
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "hydro",
+                  "cryo"
+                ],
+                "==": 4
+              }
+            }
+          }
         },
         "stores": "global",
         "apply": {
@@ -60802,7 +60842,17 @@
       },
       {
         "enable": {
-          "special": "illuga1"
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "hydro",
+                  "geo"
+                ],
+                "==": 1
+              }
+            }
+          }
         },
         "modify": {
           "type": "effect",
@@ -60827,7 +60877,17 @@
       },
       {
         "enable": {
-          "special": "illuga2"
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "hydro",
+                  "geo"
+                ],
+                "==": 2
+              }
+            }
+          }
         },
         "modify": {
           "type": "effect",
@@ -60852,7 +60912,17 @@
       },
       {
         "enable": {
-          "special": "illuga3"
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "hydro",
+                  "geo"
+                ],
+                ">=": 3
+              }
+            }
+          }
         },
         "modify": {
           "type": "effect",

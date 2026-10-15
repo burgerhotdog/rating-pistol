@@ -4,6 +4,7 @@ export function getMemberCounts(gameId, memberIds) {
   const counts = {
     element: {},
     ...(gameId === GI && {
+      liyue: 0,
       arkhe: 0,
       nightsoul: 0,
       moonsign: 0,
@@ -12,15 +13,17 @@ export function getMemberCounts(gameId, memberIds) {
   };
 
   for (const memberId of memberIds) {
-    const { element, arkhe, nightsoul, moonsign, hexerei } = CHARACTER[gameId][memberId];
+    const charData = CHARACTER[gameId][memberId];
+    const charElem = charData.element;
 
-    counts.element[element] = (counts.element[element] ?? 0) + 1;
+    counts.element[charElem] = (counts.element[charElem] ?? 0) + 1;
 
     if (gameId === GI) {
-      if (arkhe) counts.arkhe++;
-      if (nightsoul) counts.nightsoul++;
-      if (moonsign) counts.moonsign++;
-      if (hexerei) counts.hexerei++;
+      if (charData.liyue) counts.liyue++;
+      if (charData.arkhe) counts.arkhe++;
+      if (charData.nightsoul) counts.nightsoul++;
+      if (charData.moonsign) counts.moonsign++;
+      if (charData.hexerei) counts.hexerei++;
     }
   }
 

@@ -283,6 +283,11 @@ export function normalizeAction(gameId, rawAction, spec) {
     } else {
       health.targets = toArray(health.targets ?? spec.ownerId);
     }
+
+    if (health.value && Array.isArray(health.value)) {
+      const [r1, r5] = health.value;
+      health.value = lerp(r1, r5, (spec.weaponRank - 1) / 4);
+    }
   }
 
   return action;

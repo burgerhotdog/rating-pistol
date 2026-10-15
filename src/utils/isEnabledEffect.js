@@ -12,29 +12,6 @@ function evaluateSpecial(special, counts, memberIds, ownerElement, teamSize) {
       return eligible === required;
     }
 
-    case 'escoffier1':
-    case 'escoffier2':
-    case 'escoffier3':
-    case 'escoffier4': {
-      const required = Number(special.at(-1));
-      const eligible = (counts.element.hydro ?? 0) + (counts.element.cryo ?? 0);
-
-      return eligible === required;
-    }
-
-    case 'illuga1':
-    case 'illuga2':
-    case 'illuga3': {
-      const required = Number(special.at(-1));
-      const eligible = (counts.element.hydro ?? 0) + (counts.element.geo ?? 0);
-
-      if (required === 3) {
-        return eligible >= required;
-      } else {
-        return eligible === required;
-      }
-    }
-
     case 'vesnaPassive2Non1':
     case 'vesnaPassive2Non2':
     case 'vesnaPassive2Non3': {

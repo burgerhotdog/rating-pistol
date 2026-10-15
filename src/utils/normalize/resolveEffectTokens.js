@@ -8,68 +8,74 @@ export const resolveEffectTokens = (normalized) => {
       effect.ref === ref
     );
 
+    if (!effect) {
+      console.warn(`Unresolved effect reference: ${ref}`);
+    }
+
     return effect?.key;
   };
 
-  function walkBooleanTree(node, onLeaf) {
+  function traverseFilter(node, ownerId, sourceId, inEffectStacks = false) {
     if (node == null || typeof node !== 'object') return;
 
     if (Array.isArray(node)) {
-      node.forEach((n) => walkBooleanTree(n, onLeaf));
+      node.forEach((subNode) =>
+        traverseFilter(subNode, ownerId, sourceId, inEffectStacks)
+      );
       return;
     }
 
-    if ('and' in node) {
-      node.and.forEach((n) => walkBooleanTree(n, onLeaf));
-      return;
-    }
-
-    if ('or' in node) {
-      node.or.forEach((n) => walkBooleanTree(n, onLeaf));
-      return;
+    for (const op of ['and', 'or', 'xor', 'nor']) {
+      if (op in node) {
+        traverseFilter(node[op], ownerId, sourceId, inEffectStacks);
+        return;
+      }
     }
 
     if ('not' in node) {
-      walkBooleanTree(node.not, onLeaf);
+      traverseFilter(node.not, ownerId, sourceId, inEffectStacks);
       return;
     }
 
-    onLeaf(node);
-  }
+    if ('count' in node) {
+      traverseFilter(node.count.conditions, ownerId, sourceId, inEffectStacks);
+      return;
+    }
 
-  function traverseFilter(node, ownerId, sourceId) {
-    walkBooleanTree(node, (leaf) => {
-      if ('has' in leaf) return; // generic has (e.g. action.has) - not an effect reference
-
-      const [key, value] = Object.entries(leaf)[0];
-
-      if (key === 'effectStacks') {
-        resolveEffectStacksKeys(value, ownerId, sourceId);
-        return;
+    if ('sum' in node) {
+      if (inEffectStacks) {
+        node.sum.keys = node.sum.keys.map((ref) =>
+          resolveEffectRef(ref, ownerId, sourceId)
+        );
       }
+      return;
+    }
 
-      traverseFilter(value, ownerId, sourceId);
-    });
-  }
-
-  function resolveEffectStacksKeys(value, ownerId, sourceId) {
-    walkBooleanTree(value, (leaf) => {
-      if ('has' in leaf) {
-        if (Array.isArray(leaf.has)) {
-          leaf.has = leaf.has.map((effectRef) => resolveEffectRef(effectRef, ownerId, sourceId));
-        } else if (leaf.has !== '*') {
-          leaf.has = resolveEffectRef(leaf.has, ownerId, sourceId);
+    if ('has' in node) {
+      if (inEffectStacks) {
+        if (Array.isArray(node.has)) {
+          node.has = node.has.map((ref) =>
+            resolveEffectRef(ref, ownerId, sourceId)
+          );
+        } else if (node.has !== '*') {
+          node.has = resolveEffectRef(node.has, ownerId, sourceId);
         }
-        return;
       }
+      return;
+    }
 
-      // remaining keys are effect ids being compared (stacks thresholds etc.)
-      for (const effectRef of Object.keys(leaf)) {
-        const effectKey = resolveEffectRef(effectRef, ownerId, sourceId);
-        leaf[effectKey] = leaf[effectRef];
-        delete leaf[effectRef];
+    for (const [key, value] of Object.entries(node)) {
+      if (inEffectStacks) {
+        const effectKey = resolveEffectRef(key, ownerId, sourceId);
+
+        if (effectKey !== key) {
+          node[effectKey] = value;
+          delete node[key];
+        }
+      } else {
+        traverseFilter(value, ownerId, sourceId, key === 'effectStacks');
       }
-    });
+    }
   }
 
   const resolved = structuredClone(normalized);

@@ -127,6 +127,8 @@ Characters:
         No constellations
 
 Weapons:
+    A Thousand Blazing Suns
+        Duration doesnt freeze when nightsoul off field
     A Thousand Floating Dreams
         Dmg bonus is generic, not element specific
     Alley Hunter
@@ -144,13 +146,21 @@ Weapons:
     Fillet Blade
         Effect always hits
     Finale of the Deep
-        Clear BoL gives fixed atk buff
+        Clear BoL gives max buff
+    Flowing Purity
+        Clear BoL gives max buff
+    Frostbearer
+        Effect always hits
     Heretic's Molten Blade
         No effect
     Jadefall's Splendor
         dmg bonus for all elements
+    Mistsplitter Reforged
+        Assumes 100% uptime on below full energy
     Oathsworn Eye
         ER might not work in calcs
+    Otherworldly Story
+        Effect disabled
     Sacrificial Jade
         No 5s buffer
     Sapwood Blade
@@ -167,10 +177,14 @@ Weapons:
         No effect
     Symphonist of Scents
         Doesn't apply buff to healed
+    Talking Stick
+        Effect disabled
     The Alley Flash
         Taking dmg doesn't matter
     The Black Sword
         Healing doesn't need a crit
+    The Dockhand's Assistant
+        Might double count healing performed on self
     Traveler's Handy Sword
         No effect
     Wandering Evenstar

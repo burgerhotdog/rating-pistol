@@ -1694,7 +1694,8 @@
             "elementalBurstDmgBonus%": 0.08
           }
         },
-        "maxStacks": 5
+        "maxStacks": 5,
+        "independentStacks": true
       }
     ]
   },
