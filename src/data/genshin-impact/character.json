@@ -34778,7 +34778,6 @@
     "memberPreset": {}
   },
   "10000082": {
-    "disabled": true,
     "name": "Baizhu",
     "version": 3.6,
     "id": 10000082,
@@ -34793,7 +34792,148 @@
       "hp%": 0.288
     },
     "energy": 80,
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 3,
+          "offset": 600
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 600,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 1,
+          "offset": 2400
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 14000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2500,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "action": "elementalBurst.2"
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "special": "baizhu1"
+          },
+          "stats": {
+            "healingBonus%": 0.2
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "special": "baizhu2"
+          },
+          "stats": {
+            "dendroDmgBonus%": 0.25
+          }
+        }
+      },
+      {
+        "ref": "yearOfVerdantFavor",
+        "stores": "$applier",
+        "apply": {
+          "by": "$team",
+          "when": "healed",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "specs": {
+            "burningReactionBonus%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 0.02,
+              "maxValue": 1
+            },
+            "bloomReactionBonus%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 0.02,
+              "maxValue": 1
+            },
+            "hyperbloomReactionBonus%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 0.02,
+              "maxValue": 1
+            },
+            "burgeonReactionBonus%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 0.02,
+              "maxValue": 1
+            },
+            "lunarBloomReactionBonus%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 0.007,
+              "maxValue": 1
+            },
+            "aggravateReactionBonus%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 0.008,
+              "maxValue": 1
+            },
+            "spreadReactionBonus%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 0.008,
+              "maxValue": 1
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "The Classics of Acupuncture",
@@ -35021,9 +35161,18 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Gossamer Sprite",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -35048,9 +35197,10 @@
             }
           },
           {
-            "name": "Healing",
-            "type": "elementalSkill",
-            "damage": {
+            "name": "Gossamer Sprite: Healing",
+            "healing": {
+              "targets": "$team",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -35069,10 +35219,8 @@
                     0.17,
                     0.18,
                     0.19
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     770.3755,
                     847.4238,
                     930.8927,
@@ -35100,9 +35248,57 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Seamless Shield DMG Absorption",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Seamless Shield",
             "type": "elementalBurst",
-            "damage": {
+            "healing": {
+              "targets": "$onField",
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.052,
+                    0.0559,
+                    0.0598,
+                    0.065,
+                    0.0689,
+                    0.0728,
+                    0.078,
+                    0.0832,
+                    0.0884,
+                    0.0936,
+                    0.0988,
+                    0.104,
+                    0.1105,
+                    0.117,
+                    0.1235
+                  ],
+                  "flat": [
+                    500.7441,
+                    550.8254,
+                    605.0803,
+                    663.5085,
+                    726.1102,
+                    792.8854,
+                    863.834,
+                    938.9561,
+                    1018.2515,
+                    1101.7205,
+                    1189.3629,
+                    1281.1787,
+                    1377.168,
+                    1477.3307,
+                    1581.6669
+                  ]
+                }
+              ]
+            },
+            "shield": {
+              "duration": 2500,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -35121,10 +35317,8 @@
                     0.017,
                     0.018,
                     0.019
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     77.0375,
                     84.7424,
                     93.0892,
@@ -35146,55 +35340,10 @@
             }
           },
           {
-            "name": "Seamless Shield Healing",
-            "type": "elementalBurst",
+            "name": "Spiritvein",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.052,
-                    0.0559,
-                    0.0598,
-                    0.065,
-                    0.0689,
-                    0.0728,
-                    0.078,
-                    0.0832,
-                    0.0884,
-                    0.0936,
-                    0.0988,
-                    0.104,
-                    0.1105,
-                    0.117,
-                    0.1235
-                  ]
-                },
-                {
-                  "mv": [
-                    500.7441,
-                    550.8254,
-                    605.0803,
-                    663.5085,
-                    726.1102,
-                    792.8854,
-                    863.834,
-                    938.9561,
-                    1018.2515,
-                    1101.7205,
-                    1189.3629,
-                    1281.1787,
-                    1377.168,
-                    1477.3307,
-                    1581.6669
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Spiritvein DMG",
-            "type": "elementalBurst",
-            "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -35225,7 +35374,11 @@
       "weaponId": 14505,
       "setCounts": {
         "15025": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
     }
   },
   "10000083": {
@@ -39088,7 +39241,13 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000086,
+      10000089,
+      10000088,
+      10000047
+    ]
   },
   "10000089": {
     "name": "Furina",
@@ -65846,7 +66005,13 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000128,
+      10000132,
+      10000131,
+      10000123
+    ]
   },
   "10000133": {
     "name": "Sandrone",

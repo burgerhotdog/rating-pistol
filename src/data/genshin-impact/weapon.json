@@ -6077,7 +6077,6 @@
     "effects": []
   },
   "14505": {
-    "disabled": true,
     "name": "Jadefall's Splendor",
     "version": 3.6,
     "id": 14505,
@@ -6088,7 +6087,55 @@
       "baseAtk": 608,
       "hp%": 0.496
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "type": "elementalBurst"
+                },
+                {
+                  "has": "shield"
+                }
+              ]
+            }
+          },
+          "duration": 3000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2500,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                4.5,
+                6.5
+              ]
+            }
+          }
+        },
+        "buff": {
+          "specs": {
+            "elementalDmgBonus%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": [
+                0.003,
+                0.011
+              ],
+              "maxValue": [
+                0.12,
+                0.44
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "14506": {
     "disabled": true,

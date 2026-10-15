@@ -11,6 +11,11 @@ function evaluateSpecial(ctx, special, effect, spec) {
   const nsStore = ctx.states.nightsoul;
 
   switch (special) {
+    case 'baizhu1':
+      return ctx.states.memberHealth[onFieldId] < 0.5;
+    case 'baizhu2':
+      return ctx.states.memberHealth[onFieldId] >= 0.5;
+
     case 'neuvillette1':
     case 'neuvillette2':
     case 'neuvillette3': {

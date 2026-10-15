@@ -16,8 +16,8 @@ function evaluateSpecial(special, counts, memberIds, ownerElement, teamSize) {
     case 'escoffier2':
     case 'escoffier3':
     case 'escoffier4': {
-      const eligible = (counts.element.hydro ?? 0) + (counts.element.cryo ?? 0);
       const required = Number(special.at(-1));
+      const eligible = (counts.element.hydro ?? 0) + (counts.element.cryo ?? 0);
 
       return eligible === required;
     }
@@ -25,8 +25,8 @@ function evaluateSpecial(special, counts, memberIds, ownerElement, teamSize) {
     case 'illuga1':
     case 'illuga2':
     case 'illuga3': {
-      const eligible = (counts.element.hydro ?? 0) + (counts.element.geo ?? 0);
       const required = Number(special.at(-1));
+      const eligible = (counts.element.hydro ?? 0) + (counts.element.geo ?? 0);
 
       if (required === 3) {
         return eligible >= required;
@@ -36,11 +36,14 @@ function evaluateSpecial(special, counts, memberIds, ownerElement, teamSize) {
     }
 
     case 'vesnaPassive2Non1':
-      return teamSize - (counts.element.cryo ?? 0) - (counts.element.anemo ?? 0) >= 1;
     case 'vesnaPassive2Non2':
-      return teamSize - (counts.element.cryo ?? 0) - (counts.element.anemo ?? 0) >= 2;
-    case 'vesnaPassive2Non3':
-      return teamSize - (counts.element.cryo ?? 0) - (counts.element.anemo ?? 0) >= 3;
+    case 'vesnaPassive2Non3': {
+      const required = Number(special.at(-1));
+      const eligible = (counts.element.cryo ?? 0) + (counts.element.anemo ?? 0);
+      const non = teamSize - eligible;
+
+      return non >= required;
+    }
 
     case 'chainBreaker1':
     case 'chainBreaker2':

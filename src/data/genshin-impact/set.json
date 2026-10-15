@@ -126,7 +126,6 @@
     ]
   },
   "14004": {
-    "disabled": true,
     "name": "Maiden Beloved",
     "version": 1.0,
     "id": 14004,
@@ -1034,7 +1033,6 @@
     ]
   },
   "15022": {
-    "disabled": true,
     "name": "Ocean-Hued Clam",
     "version": 2.3,
     "id": 15022,
@@ -1069,12 +1067,14 @@
         "use": {
           "when": "interval",
           "action": {
-            "element": "physical",
-            "multipliers": [
-              {
-                "flat": 27000
-              }
-            ]
+            "damage": {
+              "element": "physical",
+              "multipliers": [
+                {
+                  "flat": 27000
+                }
+              ]
+            }
           }
         }
       }

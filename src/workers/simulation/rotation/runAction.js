@@ -36,7 +36,7 @@ function handleHealing(ctx, action, sharedSnapshot) {
 
     updateHealth(ctx, action, targetId, { value });
 
-    ctx.runEffects('healed', { ownerId: targetId });
+    ctx.runEffects('healed', { ...action, ownerId: targetId });
   }
 }
 
