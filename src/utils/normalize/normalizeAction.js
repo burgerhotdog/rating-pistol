@@ -199,8 +199,9 @@ export function normalizeAction(gameId, rawAction, spec) {
 
     if (healing.targets === '$team') {
       healing.targets = spec.memberIds;
+    } else {
+      healing.targets = toArray(healing.targets ?? spec.ownerId);
     }
-    healing.targets ??= [spec.ownerId];
 
     healing.attr ??= 'atk';
     healing.compressed = getCompressed(
@@ -281,6 +282,11 @@ export function normalizeAction(gameId, rawAction, spec) {
       health.targets = spec.memberIds;
     } else {
       health.targets = toArray(health.targets ?? spec.ownerId);
+    }
+
+    if (health.value && Array.isArray(health.value)) {
+      const [r1, r5] = health.value;
+      health.value = lerp(r1, r5, (spec.weaponRank - 1) / 4);
     }
   }
 

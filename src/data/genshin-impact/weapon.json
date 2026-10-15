@@ -649,7 +649,6 @@
     ]
   },
   "11414": {
-    "disabled": true,
     "name": "Amenoma Kageuchi",
     "version": 2.0,
     "id": 11414,
@@ -661,7 +660,109 @@
       "baseAtk": 454,
       "atk%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "successionSeed",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 5000,
+          "duration": 30000
+        },
+        "maxStacks": 3
+      },
+      {
+        "apply": [
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": "elementalBurst"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "successionSeed": 1
+                  }
+                }
+              ]
+            },
+            "uses": 1,
+            "offset": 2000,
+            "commands": {
+              "type": "remove",
+              "ref": "successionSeed"
+            }
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": "elementalBurst"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "successionSeed": 2
+                  }
+                }
+              ]
+            },
+            "uses": 1,
+            "offset": 2000,
+            "stacks": 2,
+            "commands": {
+              "type": "remove",
+              "ref": "successionSeed"
+            }
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": "elementalBurst"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "successionSeed": 3
+                  }
+                }
+              ]
+            },
+            "uses": 1,
+            "offset": 2000,
+            "stacks": 3,
+            "commands": {
+              "type": "remove",
+              "ref": "successionSeed"
+            }
+          }
+        ],
+        "use": {
+          "when": "interval",
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                6,
+                12
+              ]
+            }
+          }
+        },
+        "maxStacks": 3
+      }
+    ]
   },
   "11415": {
     "name": "Cinnabar Spindle",
@@ -769,7 +870,6 @@
     },
     "effects": [
       {
-        "stores": "$first",
         "apply": {
           "when": "reaction",
           "field": "*",
@@ -788,7 +888,26 @@
             }
           },
           "cooldown": 20000,
-          "duration": 12000
+          "duration": 10000,
+          "uses": 1
+        },
+        "use": {
+          "by": "$first",
+          "when": "swap",
+          "commands": {
+            "type": "apply",
+            "ref": "leafBuff",
+            "spec": {
+              "duration": 12000
+            }
+          }
+        }
+      },
+      {
+        "ref": "leafBuff",
+        "stores": "$first",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "stats": {
@@ -1105,7 +1224,6 @@
     ]
   },
   "11427": {
-    "disabled": true,
     "name": "The Dockhand's Assistant",
     "version": 4.1,
     "id": 11427,
@@ -1116,7 +1234,174 @@
       "baseAtk": 510,
       "hp%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "stoicsSymbol",
+        "apply": [
+          {
+            "when": "healed",
+            "field": "*",
+            "duration": 30000
+          },
+          {
+            "when": "hit",
+            "field": "*",
+            "filter": {
+              "action": {
+                "has": "healing"
+              }
+            },
+            "duration": 30000
+          }
+        ],
+        "maxStacks": 3
+      },
+      {
+        "ref": "roused",
+        "apply": [
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "stoicsSymbol": 1
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "duration": 10000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "stoicsSymbol"
+              },
+              {
+                "type": "apply",
+                "ref": "rousedEnergy",
+                "spec": {
+                  "uses": 1,
+                  "offset": 2000,
+                  "stacks": 1
+                }
+              }
+            ]
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "stoicsSymbol": 2
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "duration": 10000,
+            "stacks": 2,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "stoicsSymbol"
+              },
+              {
+                "type": "apply",
+                "ref": "rousedEnergy",
+                "spec": {
+                  "uses": 1,
+                  "offset": 2000,
+                  "stacks": 2
+                }
+              }
+            ]
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "stoicsSymbol": 3
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "duration": 10000,
+            "stacks": 3,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "stoicsSymbol"
+              },
+              {
+                "type": "apply",
+                "ref": "rousedEnergy",
+                "spec": {
+                  "uses": 1,
+                  "offset": 2000,
+                  "stacks": 3
+                }
+              }
+            ]
+          }
+        ],
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              40,
+              80
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "rousedEnergy",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                2,
+                4
+              ]
+            }
+          }
+        },
+        "maxStacks": 3
+      }
+    ]
   },
   "11428": {
     "name": "Sword of Narzissenkreuz",
@@ -1253,7 +1538,6 @@
     ]
   },
   "11432": {
-    "disabled": true,
     "name": "Calamity of Eshu",
     "version": 5.2,
     "id": 11432,
@@ -1264,10 +1548,62 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "shielded": {
+                ">": 0
+              }
+            }
+          },
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.2,
+              0.4
+            ],
+            "chargedAttackDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "states": {
+                  "shielded": {
+                    ">": 0
+                  }
+                }
+              },
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "stats": {
+            "critRate%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      }
+    ]
   },
   "11433": {
-    "disabled": true,
     "name": "Serenity's Call",
     "version": 6.0,
     "id": 11433,
@@ -1279,7 +1615,41 @@
       "baseAtk": 454,
       "energyRecharge%": 0.613
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "11434": {
     "name": "Moonweaver's Dawn",
@@ -1754,7 +2124,6 @@
     ]
   },
   "11504": {
-    "disabled": true,
     "name": "Summit Shaper",
     "version": 1.2,
     "id": 11504,
@@ -1765,7 +2134,67 @@
       "baseAtk": 608,
       "atk%": 0.496
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "shieldStrength%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 300,
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.04,
+              0.08
+            ]
+          }
+        },
+        "maxStacks": 5
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 300,
+          "duration": 8000
+        },
+        "buff": {
+          "filter": {
+            "states": {
+              "shielded": {
+                ">": 0
+              }
+            }
+          },
+          "stats": {
+            "atk%": [
+              0.04,
+              0.08
+            ]
+          }
+        },
+        "maxStacks": 5
+      }
+    ]
   },
   "11505": {
     "name": "Primordial Jade Cutter",
@@ -1802,7 +2231,6 @@
     ]
   },
   "11509": {
-    "disabled": true,
     "name": "Mistsplitter Reforged",
     "version": 2.0,
     "id": 11509,
@@ -1813,10 +2241,134 @@
       "baseAtk": 674,
       "critDmg%": 0.441
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "elementalDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "ref": "stack1",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "and": [
+                  {
+                    "type": "normalAttack"
+                  },
+                  {
+                    "not": {
+                      "element": "physical"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "duration": 5000
+        }
+      },
+      {
+        "ref": "stack2",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalBurst"
+            }
+          },
+          "duration": 10000
+        }
+      },
+      {
+        "ref": "buff1",
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": [
+                  "stack1",
+                  "stack2"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "elementalDmgBonus%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      },
+      {
+        "ref": "buff2",
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "and": [
+                {
+                  "has": [
+                    "stack1",
+                    "stack2"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "has": "stack1"
+                      },
+                      {
+                        "has": "stack2"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "stats": {
+            "elementalDmgBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "ref": "buff3",
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "and": [
+                {
+                  "has": "stack1"
+                },
+                {
+                  "has": "stack2"
+                }
+              ]
+            }
+          },
+          "stats": {
+            "elementalDmgBonus%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      }
+    ]
   },
   "11510": {
-    "disabled": true,
     "name": "Haran Geppaku Futsu",
     "version": 2.6,
     "id": 11510,
@@ -1827,10 +2379,94 @@
       "baseAtk": 608,
       "critRate%": 0.331
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "ref": "wavespike",
+        "apply": {
+          "by": "$ally",
+          "field": "*",
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 300
+        },
+        "maxStacks": 2
+      },
+      {
+        "ref": "ripplingUpheaval",
+        "apply": [
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": "elementalSkill"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "wavespike": 1
+                  }
+                }
+              ]
+            },
+            "duration": 8000,
+            "commands": {
+              "type": "remove",
+              "ref": "wavespike"
+            }
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": "elementalSkill"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "wavespike": 2
+                  }
+                }
+              ]
+            },
+            "duration": 8000,
+            "stacks": 2,
+            "commands": {
+              "type": "remove",
+              "ref": "wavespike"
+            }
+          }
+        ],
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        },
+        "maxStacks": 2
+      }
+    ]
   },
   "11511": {
-    "disabled": true,
     "name": "Key of Khaj-Nisut",
     "version": 3.1,
     "id": 11511,
@@ -1841,7 +2477,94 @@
       "baseAtk": 542,
       "hp%": 0.662
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "ref": "grandHymn",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "cooldown": 300,
+          "duration": 20000,
+          "commands": {
+            "type": "apply",
+            "ref": "tryApply",
+            "spec": {
+              "duration": 1,
+              "uses": 1
+            }
+          }
+        },
+        "buff": {
+          "specs": {
+            "elementalMastery": {
+              "attr": "hp",
+              "step": 1,
+              "value": [
+                0.0012,
+                0.0024
+              ]
+            }
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "tryApply",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "grandHymn": 3
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "buff",
+            "spec": {
+              "duration": 20000
+            }
+          }
+        }
+      },
+      {
+        "ref": "buff",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "specs": {
+            "elementalMastery": {
+              "attr": "hp",
+              "step": 1,
+              "value": [
+                0.002,
+                0.004
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11512": {
     "name": "Light of Foliar Incision",
@@ -1954,7 +2677,6 @@
     ]
   },
   "11514": {
-    "disabled": true,
     "name": "Uraku Misugiri",
     "version": 4.5,
     "id": 11514,
@@ -1965,7 +2687,60 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "elementalSkillDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "by": "$team",
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "damage": {
+                    "element": "geo"
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "elementalSkillDmgBonus%": [
+              0.24,
+              0.48
+            ],
+            "def%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "11515": {
     "name": "Absolution",
@@ -2016,7 +2791,6 @@
     ]
   },
   "11516": {
-    "disabled": true,
     "name": "Peak Patrol Song",
     "version": 5.1,
     "id": 11516,
@@ -2027,7 +2801,91 @@
       "baseAtk": 542,
       "def%": 0.827
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "odeToFlowers",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "plungingAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 6000,
+          "commands": {
+            "type": "apply",
+            "ref": "applyTeamBuff",
+            "spec": {
+              "duration": 1,
+              "uses": 1
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "def%": [
+              0.08,
+              0.16
+            ],
+            "elementalDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        },
+        "maxStacks": 2
+      },
+      {
+        "ref": "applyTeamBuff",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "odeToFlowers": 2
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "teamBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "ref": "teamBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "specs": {
+            "elementalDmgBonus%": {
+              "attr": "def",
+              "step": 1000,
+              "value": [
+                0.08,
+                0.16
+              ],
+              "maxValue": [
+                0.256,
+                0.512
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11517": {
     "name": "Azurelight",
@@ -2799,7 +3657,6 @@
     ]
   },
   "12402": {
-    "disabled": true,
     "name": "The Bell",
     "version": 1.0,
     "id": 12402,
@@ -2810,7 +3667,60 @@
       "baseAtk": 510,
       "hp%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "shielded": {
+                ">": 0
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "interval",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "states": {
+                  "shielded": {
+                    "not": {
+                      ">": 0
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "cooldown": 45000,
+          "action": {
+            "shield": {
+              "duration": 10000,
+              "multipliers": [
+                {
+                  "mv": [
+                    0.2,
+                    0.32
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "12403": {
     "name": "Sacrificial Greatsword",
@@ -2866,7 +3776,6 @@
     ]
   },
   "12405": {
-    "disabled": true,
     "name": "Rainslasher",
     "version": 1.0,
     "id": 12405,
@@ -2877,10 +3786,30 @@
       "baseAtk": 510,
       "elementalMastery": 165
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": [
+                  "hydro",
+                  "electro"
+                ]
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.2,
+              0.36
+            ]
+          }
+        }
+      }
+    ]
   },
   "12406": {
-    "disabled": true,
     "name": "Prototype Archaic",
     "version": 1.0,
     "id": 12406,
@@ -2892,10 +3821,38 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 15000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    2.4,
+                    4.8
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "12407": {
-    "disabled": true,
     "name": "Whiteblind",
     "version": 1.0,
     "id": 12407,
@@ -2907,7 +3864,38 @@
       "baseAtk": 510,
       "def%": 0.517
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 500,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.06,
+              0.12
+            ],
+            "def%": [
+              0.06,
+              0.12
+            ]
+          }
+        },
+        "maxStacks": 4
+      }
+    ]
   },
   "12408": {
     "name": "Blackcliff Slasher",
@@ -2923,7 +3911,6 @@
     "effects": []
   },
   "12409": {
-    "disabled": true,
     "name": "Serpent Spine",
     "version": 1.0,
     "id": 12409,
@@ -2934,10 +3921,73 @@
       "baseAtk": 510,
       "critRate%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "serpentSpineStacks",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.06,
+              0.1
+            ]
+          }
+        },
+        "maxStacks": 5
+      },
+      {
+        "apply": {
+          "when": "swap",
+          "field": "onField",
+          "offset": 4000
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 4000,
+          "commands": {
+            "type": "apply",
+            "ref": "serpentSpineStacks"
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "interval",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "states": {
+                  "shielded": {
+                    "not": {
+                      ">": 0
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "cooldown": 1000,
+          "commands": {
+            "type": "remove",
+            "ref": "serpentSpineStacks",
+            "spec": {
+              "stacks": 1
+            }
+          }
+        }
+      }
+    ]
   },
   "12410": {
-    "disabled": true,
     "name": "Lithic Blade",
     "version": 1.3,
     "id": 12410,
@@ -2948,10 +3998,86 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "enable": {
+          "counts": {
+            "liyue": 1
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.07,
+              0.11
+            ],
+            "critRate%": [
+              0.03,
+              0.07
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "liyue": 2
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.14,
+              0.22
+            ],
+            "critRate%": [
+              0.06,
+              0.14
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "liyue": 3
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.21,
+              0.33
+            ],
+            "critRate%": [
+              0.09,
+              0.21
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "liyue": 4
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.28,
+              0.44
+            ],
+            "critRate%": [
+              0.12,
+              0.28
+            ]
+          }
+        }
+      }
+    ]
   },
   "12411": {
-    "disabled": true,
     "name": "Snow-Tombed Starsilver",
     "version": 1.2,
     "id": 12411,
@@ -2963,10 +4089,90 @@
       "baseAtk": 565,
       "physicalDmgBonus%": 0.345
     },
-    "effects": []
+    "effects": [
+      {
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "damage": {
+                      "type": [
+                        "normalAttack",
+                        "chargedAttack"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "states": {
+                    "aura": {
+                      "not": {
+                        "has": "cryo"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "cooldown": 10000,
+            "action": {
+              "damage": {
+                "multipliers": [
+                  {
+                    "mv": [
+                      0.8,
+                      1.4
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "damage": {
+                      "type": [
+                        "normalAttack",
+                        "chargedAttack"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "states": {
+                    "aura": {
+                      "has": "cryo"
+                    }
+                  }
+                }
+              ]
+            },
+            "cooldown": 10000,
+            "action": {
+              "damage": {
+                "multipliers": [
+                  {
+                    "mv": [
+                      2,
+                      3.6
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
   },
   "12412": {
-    "disabled": true,
     "name": "Luxurious Sea-Lord",
     "version": 2.1,
     "id": 12412,
@@ -2977,10 +4183,45 @@
       "baseAtk": 454,
       "atk%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "elementalBurstDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "cooldown": 15000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1,
+                    2
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "12414": {
-    "disabled": true,
     "name": "Katsuragikiri Nagamasa",
     "version": 2.0,
     "id": 12414,
@@ -2992,10 +4233,65 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.06,
+              0.12
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "cooldown": 10000,
+          "action": {
+            "restoreEnergy": {
+              "flat": -3
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "energyRegen",
+            "spec": {
+              "uses": 3,
+              "offset": 2000
+            }
+          }
+        }
+      },
+      {
+        "ref": "energyRegen",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                3,
+                5
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "12415": {
-    "disabled": true,
     "name": "Makhaira Aquamarine",
     "version": 3.1,
     "id": 12415,
@@ -3006,7 +4302,69 @@
       "baseAtk": 510,
       "elementalMastery": 165
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "interval",
+          "cooldown": 10000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "selfAtkBuff",
+              "spec": {
+                "duration": 12000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "teamAtkBuff",
+              "spec": {
+                "duration": 12000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "selfAtkBuff",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "specs": {
+            "atk": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                0.24,
+                0.48
+              ]
+            }
+          }
+        },
+        "stackable": true
+      },
+      {
+        "ref": "teamAtkBuff",
+        "stores": "$ally",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "specs": {
+            "atk": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                0.072,
+                0.144
+              ]
+            }
+          }
+        },
+        "stackable": true
+      }
+    ]
   },
   "12416": {
     "disabled": true,
@@ -3023,7 +4381,6 @@
     "effects": []
   },
   "12417": {
-    "disabled": true,
     "name": "Forest Regalia",
     "version": 3.0,
     "id": 12417,
@@ -3035,10 +4392,59 @@
       "baseAtk": 565,
       "energyRecharge%": 0.306
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "burning",
+                "quicken",
+                "aggravate",
+                "spread",
+                "bloom",
+                "lunarBloom",
+                "hyperbloom",
+                "burgeon"
+              ]
+            }
+          },
+          "cooldown": 20000,
+          "duration": 10000,
+          "uses": 1
+        },
+        "use": {
+          "by": "$first",
+          "when": "swap",
+          "commands": {
+            "type": "apply",
+            "ref": "leafBuff",
+            "spec": {
+              "duration": 12000
+            }
+          }
+        }
+      },
+      {
+        "ref": "leafBuff",
+        "stores": "$first",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              60,
+              120
+            ]
+          }
+        }
+      }
+    ]
   },
   "12418": {
-    "disabled": true,
     "name": "Mailed Flower",
     "version": 3.5,
     "id": 12418,
@@ -3049,10 +4455,41 @@
       "baseAtk": 565,
       "elementalMastery": 110
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": [
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "elementalSkill"
+                }
+              }
+            },
+            "duration": 8000
+          },
+          {
+            "when": "reaction",
+            "duration": 8000
+          }
+        ],
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ],
+            "elementalMastery": [
+              48,
+              96
+            ]
+          }
+        }
+      }
+    ]
   },
   "12424": {
-    "disabled": true,
     "name": "Talking Stick",
     "version": 4.0,
     "id": 12424,
@@ -3062,11 +4499,9 @@
     "stats": {
       "baseAtk": 565,
       "critRate%": 0.184
-    },
-    "effects": []
+    }
   },
   "12425": {
-    "disabled": true,
     "name": "Tidal Shadow",
     "version": 4.0,
     "id": 12425,
@@ -3078,7 +4513,23 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "healed",
+          "field": "*",
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
   },
   "12426": {
     "name": "\"Ultimate Overlord's Mega Magic Sword\"",
@@ -3105,7 +4556,6 @@
     ]
   },
   "12427": {
-    "disabled": true,
     "name": "Portable Power Saw",
     "version": 4.1,
     "id": 12427,
@@ -3116,10 +4566,176 @@
       "baseAtk": 454,
       "hp%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "stoicsSymbol",
+        "apply": [
+          {
+            "when": "healed",
+            "field": "*",
+            "duration": 30000
+          },
+          {
+            "when": "hit",
+            "field": "*",
+            "filter": {
+              "action": {
+                "has": "healing"
+              }
+            },
+            "duration": 30000
+          }
+        ],
+        "maxStacks": 3
+      },
+      {
+        "ref": "roused",
+        "apply": [
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "stoicsSymbol": 1
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "duration": 10000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "stoicsSymbol"
+              },
+              {
+                "type": "apply",
+                "ref": "rousedEnergy",
+                "spec": {
+                  "uses": 1,
+                  "offset": 2000,
+                  "stacks": 1
+                }
+              }
+            ]
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "stoicsSymbol": 2
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "duration": 10000,
+            "stacks": 2,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "stoicsSymbol"
+              },
+              {
+                "type": "apply",
+                "ref": "rousedEnergy",
+                "spec": {
+                  "uses": 1,
+                  "offset": 2000,
+                  "stacks": 2
+                }
+              }
+            ]
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "stoicsSymbol": 3
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "duration": 10000,
+            "stacks": 3,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "stoicsSymbol"
+              },
+              {
+                "type": "apply",
+                "ref": "rousedEnergy",
+                "spec": {
+                  "uses": 1,
+                  "offset": 2000,
+                  "stacks": 3
+                }
+              }
+            ]
+          }
+        ],
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              40,
+              80
+            ]
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "rousedEnergy",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                2,
+                4
+              ]
+            }
+          }
+        },
+        "maxStacks": 3
+      }
+    ]
   },
   "12430": {
-    "disabled": true,
     "name": "Fruitful Hook",
     "version": 5.1,
     "id": 12430,
@@ -3130,10 +4746,56 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "plungingAttack"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "plungingAttack"
+              }
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "chargedAttackDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "plungingAttackDmgBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "12431": {
-    "disabled": true,
     "name": "Earth Shaker",
     "version": 5.0,
     "id": 12431,
@@ -3145,7 +4807,31 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "elements": {
+                "has": "pyro"
+              }
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "12432": {
     "name": "Flame-Forged Insight",
@@ -3208,7 +4894,6 @@
     ]
   },
   "12433": {
-    "disabled": true,
     "name": "Master Key",
     "version": 6.0,
     "id": 12433,
@@ -3220,10 +4905,43 @@
       "baseAtk": 454,
       "energyRecharge%": 0.613
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              60,
+              120
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              60,
+              120
+            ]
+          }
+        }
+      }
+    ]
   },
   "12435": {
-    "disabled": true,
     "name": "Forged by the Golden Melody",
     "version": 7.0,
     "id": 12435,
@@ -3234,10 +4952,240 @@
       "baseAtk": 510,
       "critRate%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "whichBuff",
+        "apply": {
+          "when": "command"
+        }
+      },
+      {
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "whichBuff": 1
+              }
+            },
+            "cooldown": 10000,
+            "commands": {
+              "type": "apply",
+              "ref": "whichBuff"
+            }
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "whichBuff": 2
+              }
+            },
+            "cooldown": 10000,
+            "commands": {
+              "type": "remove",
+              "ref": "whichBuff"
+            }
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": "whichBuff"
+                }
+              }
+            },
+            "cooldown": 10000,
+            "commands": {
+              "type": "apply",
+              "ref": "whichBuff"
+            }
+          }
+        ]
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "whichBuff": 1
+            }
+          },
+          "stats": {
+            "atk%": [
+              0.18,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "whichBuff": 2
+            }
+          },
+          "stats": {
+            "elementalMastery": [
+              120,
+              240
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "whichBuff"
+              }
+            }
+          },
+          "stats": {
+            "stellarGlimmerReactionBonus%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      },
+      {
+        "use": [
+          {
+            "when": "reaction",
+            "filter": {
+              "and": [
+                {
+                  "reaction": {
+                    "reaction": [
+                      "stellarConduct",
+                      "stellarSwirl"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "whichBuff": 1
+                  }
+                }
+              ]
+            },
+            "cooldown": 12000,
+            "commands": {
+              "type": "apply",
+              "ref": "contrapuntal1",
+              "spec": {
+                "duration": 12000
+              }
+            }
+          },
+          {
+            "when": "reaction",
+            "filter": {
+              "and": [
+                {
+                  "reaction": {
+                    "reaction": [
+                      "stellarConduct",
+                      "stellarSwirl"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "whichBuff": 2
+                  }
+                }
+              ]
+            },
+            "cooldown": 12000,
+            "commands": {
+              "type": "apply",
+              "ref": "contrapuntal2",
+              "spec": {
+                "duration": 12000
+              }
+            }
+          },
+          {
+            "when": "reaction",
+            "filter": {
+              "and": [
+                {
+                  "reaction": {
+                    "reaction": [
+                      "stellarConduct",
+                      "stellarSwirl"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "not": {
+                      "has": "whichBuff"
+                    }
+                  }
+                }
+              ]
+            },
+            "cooldown": 12000,
+            "commands": {
+              "type": "apply",
+              "ref": "contrapuntal3",
+              "spec": {
+                "duration": 12000
+              }
+            }
+          }
+        ]
+      },
+      {
+        "ref": "contrapuntal1",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.18,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "ref": "contrapuntal2",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              120,
+              240
+            ]
+          }
+        }
+      },
+      {
+        "ref": "contrapuntal3",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "stellarGlimmerReactionBonus%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      }
+    ]
   },
   "12436": {
-    "disabled": true,
     "name": "Blade of Atonement",
     "version": 7.0,
     "id": 12436,
@@ -3249,7 +5197,46 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              64,
+              128
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "12501": {
     "name": "Skyward Pride",
@@ -3339,7 +5326,6 @@
     ]
   },
   "12503": {
-    "disabled": true,
     "name": "Song of Broken Pines",
     "version": 1.5,
     "id": 12503,
@@ -3350,10 +5336,93 @@
       "baseAtk": 741,
       "physicalDmgBonus%": 0.207
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "ref": "sigil",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "sigilCooldown"
+                  }
+                }
+              }
+            ]
+          },
+          "cooldown": 300
+        },
+        "remove": {
+          "when": "maxStacks",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "bannerHymn",
+              "spec": {
+                "duration": 12000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "sigilCooldown",
+              "spec": {
+                "duration": 20000
+              }
+            }
+          ]
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "bannerHymn",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "attackSpd%": [
+              0.12,
+              0.24
+            ],
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "ref": "sigilCooldown",
+        "apply": {
+          "when": "command"
+        }
+      }
+    ]
   },
   "12504": {
-    "disabled": true,
     "name": "The Unforged",
     "version": 1.1,
     "id": 12504,
@@ -3364,7 +5433,67 @@
       "baseAtk": 608,
       "atk%": 0.496
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "shieldStrength%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 300,
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.04,
+              0.08
+            ]
+          }
+        },
+        "maxStacks": 5
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 300,
+          "duration": 8000
+        },
+        "buff": {
+          "filter": {
+            "states": {
+              "shielded": {
+                ">": 0
+              }
+            }
+          },
+          "stats": {
+            "atk%": [
+              0.04,
+              0.08
+            ]
+          }
+        },
+        "maxStacks": 5
+      }
+    ]
   },
   "12510": {
     "name": "Redhorn Stonethresher",
@@ -3415,7 +5544,6 @@
     ]
   },
   "12511": {
-    "disabled": true,
     "name": "Beacon of the Reed Sea",
     "version": 3.5,
     "id": 12511,
@@ -3426,10 +5554,103 @@
       "baseAtk": 608,
       "critRate%": 0.331
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "ref": "takeDmgBuff",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "interval",
+          "filter": {
+            "or": [
+              {
+                "and": [
+                  {
+                    "field": "onField"
+                  },
+                  {
+                    "states": {
+                      "shielded": {
+                        "not": {
+                          ">": 0
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "character": {
+                  "id": 10000079
+                }
+              }
+            ]
+          },
+          "cooldown": 1000,
+          "commands": {
+            "type": "apply",
+            "ref": "takeDmgBuff",
+            "spec": {
+              "duration": 8000
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "states": {
+              "shielded": {
+                "not": {
+                  ">": 0
+                }
+              }
+            }
+          },
+          "stats": {
+            "hp%": [
+              0.32,
+              0.64
+            ]
+          }
+        }
+      }
+    ]
   },
   "12512": {
-    "disabled": true,
     "name": "Verdict",
     "version": 4.3,
     "id": 12512,
@@ -3440,10 +5661,78 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "ref": "seal",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "crystallize",
+                "lunarCrystallize"
+              ]
+            }
+          },
+          "cooldown": 1000,
+          "duration": 15000
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "sealRemoval",
+            "spec": {
+              "uses": 1,
+              "offset": 200
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.18,
+              0.36
+            ]
+          }
+        },
+        "maxStacks": 2
+      },
+      {
+        "ref": "sealRemoval",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "remove",
+            "ref": "seal"
+          }
+        }
+      }
+    ]
   },
   "12513": {
-    "disabled": true,
     "name": "Fang of the Mountain King",
     "version": 5.0,
     "id": 12513,
@@ -3454,10 +5743,63 @@
       "baseAtk": 741,
       "critRate%": 0.11
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "canopysFavor",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "cooldown": 500,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.1,
+              0.2
+            ],
+            "elementalBurstDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        },
+        "maxStacks": 6,
+        "independentStacks": true
+      },
+      {
+        "use": {
+          "by": "$team",
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "burning",
+                "burgeon"
+              ]
+            }
+          },
+          "cooldown": 2000,
+          "commands": {
+            "type": "apply",
+            "ref": "canopysFavor",
+            "spec": {
+              "duration": 6000,
+              "stacks": 3
+            }
+          }
+        }
+      }
+    ]
   },
   "12514": {
-    "disabled": true,
     "name": "A Thousand Blazing Suns",
     "version": 5.3,
     "id": 12514,
@@ -3468,7 +5810,87 @@
       "baseAtk": 741,
       "critRate%": 0.11
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "scorchingBrilliance",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": [
+                "elementalSkill",
+                "elementalBurst"
+              ]
+            }
+          },
+          "cooldown": 10000,
+          "duration": 6000
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 1000,
+          "commands": {
+            "type": "apply",
+            "ref": "scorchingBrilliance",
+            "spec": {
+              "duration": 2000,
+              "extend": true
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": [
+              0.2,
+              0.4
+            ],
+            "atk%": [
+              0.28,
+              0.56
+            ]
+          }
+        },
+        "maxExtensions": 3
+      },
+      {
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "nightsoul": {
+                  ">": 0
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "scorchingBrilliance"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "critDmg%": [
+              0.15,
+              0.3
+            ],
+            "atk%": [
+              0.21,
+              0.42
+            ]
+          }
+        }
+      }
+    ]
   },
   "12515": {
     "name": "Gest of the Mighty Wolf",
@@ -4408,7 +6830,6 @@
     "effects": []
   },
   "13511": {
-    "disabled": true,
     "name": "Staff of the Scarlet Sands",
     "version": 3.1,
     "id": 13511,
@@ -4419,10 +6840,50 @@
       "baseAtk": 542,
       "critRate%": 0.441
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "specs": {
+            "atk": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                0.52,
+                1.04
+              ]
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "specs": {
+            "atk": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                0.28,
+                0.56
+              ]
+            }
+          }
+        },
+        "maxStacks": 3
+      }
+    ]
   },
   "13512": {
-    "disabled": true,
     "name": "Crimson Moon's Semblance",
     "version": 4.6,
     "id": 13512,
@@ -4433,7 +6894,56 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "cooldown": 14000,
+          "action": {
+            "bondOfLife": {
+              "value": 0.25
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "bondOfLife": {
+              ">": 0
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.28
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "bondOfLife": {
+              ">": 0.3
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.24,
+              0.56
+            ]
+          }
+        }
+      }
+    ]
   },
   "13513": {
     "name": "Lumidouce Elegy",
@@ -5068,7 +7578,6 @@
     ]
   },
   "14303": {
-    "disabled": true,
     "name": "Otherworldly Story",
     "version": 1.0,
     "id": 14303,
@@ -5078,8 +7587,7 @@
     "stats": {
       "baseAtk": 401,
       "energyRecharge%": 0.39
-    },
-    "effects": []
+    }
   },
   "14304": {
     "name": "Emerald Orb",
@@ -5195,7 +7703,6 @@
     ]
   },
   "14402": {
-    "disabled": true,
     "name": "The Widsith",
     "version": 1.0,
     "id": 14402,
@@ -5206,7 +7713,31 @@
       "baseAtk": 510,
       "critDmg%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "swap",
+          "cooldown": 30000,
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ],
+            "elementalDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "elementalMastery": [
+              80,
+              160
+            ]
+          }
+        }
+      }
+    ]
   },
   "14403": {
     "name": "Sacrificial Fragments",
@@ -5326,7 +7857,6 @@
     ]
   },
   "14406": {
-    "disabled": true,
     "name": "Prototype Amber",
     "version": 1.0,
     "id": 14406,
@@ -5338,7 +7868,39 @@
       "baseAtk": 510,
       "hp%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalBurst"
+            }
+          },
+          "uses": 3,
+          "offset": 2000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                4,
+                6
+              ]
+            },
+            "health": {
+              "targets": "$team",
+              "value": [
+                0.04,
+                0.06
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "14407": {
     "name": "Mappa Mare",
@@ -5429,7 +7991,6 @@
     ]
   },
   "14410": {
-    "disabled": true,
     "name": "Wine and Song",
     "version": 1.4,
     "id": 14410,
@@ -5440,10 +8001,29 @@
       "baseAtk": 565,
       "energyRecharge%": 0.306
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "has": "type"
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "14412": {
-    "disabled": true,
     "name": "Frostbearer",
     "version": 1.2,
     "id": 14412,
@@ -5455,7 +8035,88 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "damage": {
+                      "type": [
+                        "normalAttack",
+                        "chargedAttack"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "states": {
+                    "aura": {
+                      "not": {
+                        "has": "cryo"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "cooldown": 10000,
+            "action": {
+              "damage": {
+                "multipliers": [
+                  {
+                    "mv": [
+                      0.8,
+                      1.4
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "damage": {
+                      "type": [
+                        "normalAttack",
+                        "chargedAttack"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "states": {
+                    "aura": {
+                      "has": "cryo"
+                    }
+                  }
+                }
+              ]
+            },
+            "cooldown": 10000,
+            "action": {
+              "damage": {
+                "multipliers": [
+                  {
+                    "mv": [
+                      2,
+                      3.6
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
   },
   "14413": {
     "name": "Dodoco Tales",
@@ -5514,7 +8175,6 @@
     ]
   },
   "14414": {
-    "disabled": true,
     "name": "Hakushin Ring",
     "version": 2.0,
     "id": 14414,
@@ -5526,7 +8186,239 @@
       "baseAtk": 565,
       "energyRecharge%": 0.306
     },
-    "effects": []
+    "effects": [
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "elements": {
+                "has": "electro"
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "element": "electro"
+            }
+          },
+          "stats": {
+            "electroDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "elements": {
+                "and": [
+                  {
+                    "has": "electro"
+                  },
+                  {
+                    "has": "pyro"
+                  }
+                ]
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "element": "pyro"
+            }
+          },
+          "stats": {
+            "pyroDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "elements": {
+                "and": [
+                  {
+                    "has": "electro"
+                  },
+                  {
+                    "has": "hydro"
+                  }
+                ]
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "element": "hydro"
+            }
+          },
+          "stats": {
+            "hydroDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "elements": {
+                "and": [
+                  {
+                    "has": "electro"
+                  },
+                  {
+                    "has": "dendro"
+                  }
+                ]
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "element": "dendro"
+            }
+          },
+          "stats": {
+            "dendroDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "elements": {
+                "and": [
+                  {
+                    "has": "electro"
+                  },
+                  {
+                    "has": "anemo"
+                  }
+                ]
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "element": "anemo"
+            }
+          },
+          "stats": {
+            "anemoDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "elements": {
+                "and": [
+                  {
+                    "has": "electro"
+                  },
+                  {
+                    "has": "geo"
+                  }
+                ]
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "element": "geo"
+            }
+          },
+          "stats": {
+            "geoDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "elements": {
+                "and": [
+                  {
+                    "has": "electro"
+                  },
+                  {
+                    "has": "cryo"
+                  }
+                ]
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "element": "cryo"
+            }
+          },
+          "stats": {
+            "cryoDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      }
+    ]
   },
   "14415": {
     "name": "Oathsworn Eye",
@@ -5688,7 +8580,6 @@
     ]
   },
   "14425": {
-    "disabled": true,
     "name": "Flowing Purity",
     "version": 4.0,
     "id": 14425,
@@ -5700,10 +8591,83 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 10000,
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "elementalDmgBonus%": [
+              0.08,
+              0.16
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 10000,
+          "action": {
+            "bondOfLife": {
+              "value": 0.24
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "applyClearBolBuff",
+            "spec": {
+              "uses": 1
+            }
+          }
+        }
+      },
+      {
+        "ref": "applyClearBolBuff",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "bondOfLifeClear",
+          "commands": {
+            "type": "apply",
+            "ref": "clearBolBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "ref": "clearBolBuff",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "elementalDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "14426": {
-    "disabled": true,
     "name": "Ballad of the Boundless Blue",
     "version": 4.1,
     "id": 14426,
@@ -5714,10 +8678,40 @@
       "baseAtk": 565,
       "energyRecharge%": 0.306
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 300,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.08,
+              0.16
+            ],
+            "chargedAttackDmgBonus%": [
+              0.06,
+              0.12
+            ]
+          }
+        },
+        "maxStacks": 3
+      }
+    ]
   },
   "14427": {
-    "disabled": true,
     "name": "Ash-Graven Drinking Horn",
     "version": 5.0,
     "id": 14427,
@@ -5728,10 +8722,34 @@
       "baseAtk": 510,
       "hp%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 15000,
+          "action": {
+            "damage": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.4,
+                    0.8
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "14430": {
-    "disabled": true,
     "name": "Waveriding Whirl",
     "version": 5.2,
     "id": 14430,
@@ -5742,10 +8760,88 @@
       "baseAtk": 454,
       "energyRecharge%": 0.613
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 15000,
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": {
+                ">=": 1
+              }
+            }
+          }
+        },
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 15000,
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": {
+                ">=": 2
+              }
+            }
+          }
+        },
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 15000,
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "14431": {
-    "disabled": true,
     "name": "Ring of Yaxche",
     "version": 5.0,
     "id": 14431,
@@ -5757,7 +8853,35 @@
       "baseAtk": 510,
       "hp%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "specs": {
+            "normalAttackDmgBonus%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": [
+                0.006,
+                0.01
+              ],
+              "maxValue": [
+                0.16,
+                0.32
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "14432": {
     "name": "Etherlight Spindlelute",
@@ -5793,7 +8917,6 @@
     ]
   },
   "14433": {
-    "disabled": true,
     "name": "Blackmarrow Lantern",
     "version": 6.0,
     "id": 14433,
@@ -5805,7 +8928,35 @@
       "baseAtk": 454,
       "elementalMastery": 221
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "bloomReactionBonus%": [
+              0.48,
+              0.96
+            ],
+            "lunarBloomReactionBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "buff": {
+          "stats": {
+            "lunarBloomReactionBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "14434": {
     "name": "Dawning Frost",
@@ -5933,7 +9084,6 @@
     ]
   },
   "14436": {
-    "disabled": true,
     "name": "Echoes of the Heart",
     "version": 7.0,
     "id": 14436,
@@ -5945,10 +9095,48 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              60,
+              120
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "stellarGlimmerReactionBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "14437": {
-    "disabled": true,
     "name": "Winter's Heavy Heart",
     "version": 7.1,
     "id": 14437,
@@ -5959,7 +9147,340 @@
       "baseAtk": 510,
       "critDmg%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "cryo": 1
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "not": {
+              "radiance": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "stats": {
+            "elementalMastery": [
+              24,
+              48
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "cryo": 2
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "not": {
+              "radiance": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "stats": {
+            "elementalMastery": [
+              48,
+              96
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "cryo": 3
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "not": {
+              "radiance": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "stats": {
+            "elementalMastery": [
+              72,
+              144
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "cryo": 4
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "not": {
+              "radiance": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "stats": {
+            "elementalMastery": [
+              96,
+              192
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "electro": 1
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "not": {
+              "radiance": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "stats": {
+            "atk%": [
+              0.048,
+              0.096
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "electro": 2
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "not": {
+              "radiance": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "stats": {
+            "atk%": [
+              0.096,
+              0.192
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "electro": 3
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "not": {
+              "radiance": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "stats": {
+            "atk%": [
+              0.144,
+              0.288
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "electro": 4
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "not": {
+              "radiance": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "stats": {
+            "atk%": [
+              0.192,
+              0.384
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "cryo",
+                  "electro"
+                ],
+                "==": 1
+              }
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "radiance": [
+              "stellarConduct",
+              "stellarSwirl"
+            ]
+          },
+          "stats": {
+            "elementalMastery": [
+              20,
+              40
+            ],
+            "stellarGlimmerReactionBonus%": [
+              0.06,
+              0.12
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "cryo",
+                  "electro"
+                ],
+                "==": 2
+              }
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "radiance": [
+              "stellarConduct",
+              "stellarSwirl"
+            ]
+          },
+          "stats": {
+            "elementalMastery": [
+              40,
+              80
+            ],
+            "stellarGlimmerReactionBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "cryo",
+                  "electro"
+                ],
+                "==": 3
+              }
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "radiance": [
+              "stellarConduct",
+              "stellarSwirl"
+            ]
+          },
+          "stats": {
+            "elementalMastery": [
+              60,
+              120
+            ],
+            "stellarGlimmerReactionBonus%": [
+              0.18,
+              0.36
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "cryo",
+                  "electro"
+                ],
+                "==": 4
+              }
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "radiance": [
+              "stellarConduct",
+              "stellarSwirl"
+            ]
+          },
+          "stats": {
+            "elementalMastery": [
+              80,
+              160
+            ],
+            "stellarGlimmerReactionBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
   },
   "14501": {
     "name": "Skyward Atlas",
@@ -6063,7 +9584,6 @@
     ]
   },
   "14504": {
-    "disabled": true,
     "name": "Memory of Dust",
     "version": 1.1,
     "id": 14504,
@@ -6074,10 +9594,69 @@
       "baseAtk": 608,
       "atk%": 0.496
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "shieldStrength%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 300,
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.04,
+              0.08
+            ]
+          }
+        },
+        "maxStacks": 5
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 300,
+          "duration": 8000
+        },
+        "buff": {
+          "filter": {
+            "states": {
+              "shielded": {
+                ">": 0
+              }
+            }
+          },
+          "stats": {
+            "atk%": [
+              0.04,
+              0.08
+            ]
+          }
+        },
+        "maxStacks": 5
+      }
+    ]
   },
   "14505": {
-    "disabled": true,
     "name": "Jadefall's Splendor",
     "version": 3.6,
     "id": 14505,
@@ -6088,10 +9667,57 @@
       "baseAtk": 608,
       "hp%": 0.496
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "type": "elementalBurst"
+                },
+                {
+                  "has": "shield"
+                }
+              ]
+            }
+          },
+          "duration": 3000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2500,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                4.5,
+                6.5
+              ]
+            }
+          }
+        },
+        "buff": {
+          "specs": {
+            "elementalDmgBonus%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": [
+                0.003,
+                0.011
+              ],
+              "maxValue": [
+                0.12,
+                0.44
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "14506": {
-    "disabled": true,
     "name": "Everlasting Moonglow",
     "version": 2.1,
     "id": 14506,
@@ -6102,7 +9728,66 @@
       "baseAtk": 608,
       "hp%": 0.496
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "healingBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "hp",
+              "step": 1,
+              "value": [
+                0.01,
+                0.03
+              ]
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalBurst"
+            }
+          },
+          "duration": 12000
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 100,
+          "action": {
+            "restoreEnergy": {
+              "flat": 0.6
+            }
+          }
+        }
+      }
+    ]
   },
   "14509": {
     "name": "Kagura's Verity",
@@ -8039,7 +11724,6 @@
     "effects": []
   },
   "15419": {
-    "disabled": true,
     "name": "Ibis Piercer",
     "version": 3.7,
     "id": 15419,
@@ -8050,7 +11734,31 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "cooldown": 500,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              40,
+              80
+            ]
+          }
+        },
+        "maxStacks": 2
+      }
+    ]
   },
   "15424": {
     "name": "Scion of the Blazing Sun",
@@ -8113,7 +11821,6 @@
     ]
   },
   "15425": {
-    "disabled": true,
     "name": "Song of Stillness",
     "version": 4.0,
     "id": 15425,
@@ -8125,7 +11832,23 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "healed",
+          "field": "*",
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "15426": {
     "disabled": true,
@@ -8142,7 +11865,6 @@
     "effects": []
   },
   "15427": {
-    "disabled": true,
     "name": "Range Gauge",
     "version": 4.1,
     "id": 15427,
@@ -8153,7 +11875,189 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "unitySymbol",
+        "apply": [
+          {
+            "when": "start",
+            "field": "*",
+            "filter": {
+              "action": {
+                "has": "healing"
+              }
+            },
+            "duration": 30000
+          },
+          {
+            "when": "healed",
+            "field": "*",
+            "duration": 30000
+          }
+        ],
+        "maxStacks": 3
+      },
+      {
+        "use": [
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "unitySymbol": 1
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "commands": [
+              {
+                "type": "apply",
+                "ref": "struggle1",
+                "spec": {
+                  "duration": 10000
+                }
+              },
+              {
+                "type": "remove",
+                "ref": "unitySymbol"
+              }
+            ]
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "unitySymbol": 2
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "commands": [
+              {
+                "type": "apply",
+                "ref": "struggle2",
+                "spec": {
+                  "duration": 10000
+                }
+              },
+              {
+                "type": "remove",
+                "ref": "unitySymbol"
+              }
+            ]
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "unitySymbol": 3
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "commands": [
+              {
+                "type": "apply",
+                "ref": "struggle3",
+                "spec": {
+                  "duration": 10000
+                }
+              },
+              {
+                "type": "remove",
+                "ref": "unitySymbol"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "ref": "struggle1",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.03,
+              0.07
+            ],
+            "elementalDmgBonus%": [
+              0.07,
+              0.13
+            ]
+          }
+        }
+      },
+      {
+        "ref": "struggle2",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.06,
+              0.14
+            ],
+            "elementalDmgBonus%": [
+              0.14,
+              0.26
+            ]
+          }
+        }
+      },
+      {
+        "ref": "struggle3",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.09,
+              0.21
+            ],
+            "elementalDmgBonus%": [
+              0.21,
+              0.39
+            ]
+          }
+        }
+      }
+    ]
   },
   "15430": {
     "disabled": true,
@@ -8756,7 +12660,6 @@
     ]
   },
   "15507": {
-    "disabled": true,
     "name": "Polar Star",
     "version": 2.2,
     "id": 15507,
@@ -8767,7 +12670,202 @@
       "baseAtk": 608,
       "critRate%": 0.331
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.12,
+              0.24
+            ],
+            "elementalBurstDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "ref": "stack1",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "duration": 12000
+        }
+      },
+      {
+        "ref": "stack2",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "duration": 12000
+        }
+      },
+      {
+        "ref": "stack3",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "duration": 12000
+        }
+      },
+      {
+        "ref": "stack4",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "duration": 12000
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "count": {
+                "conditions": [
+                  {
+                    "has": "stack1"
+                  },
+                  {
+                    "has": "stack2"
+                  },
+                  {
+                    "has": "stack3"
+                  },
+                  {
+                    "has": "stack4"
+                  }
+                ],
+                "==": 1
+              }
+            }
+          },
+          "stats": {
+            "atk%": [
+              0.1,
+              0.2
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "count": {
+                "conditions": [
+                  {
+                    "has": "stack1"
+                  },
+                  {
+                    "has": "stack2"
+                  },
+                  {
+                    "has": "stack3"
+                  },
+                  {
+                    "has": "stack4"
+                  }
+                ],
+                "==": 2
+              }
+            }
+          },
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "count": {
+                "conditions": [
+                  {
+                    "has": "stack1"
+                  },
+                  {
+                    "has": "stack2"
+                  },
+                  {
+                    "has": "stack3"
+                  },
+                  {
+                    "has": "stack4"
+                  }
+                ],
+                "==": 3
+              }
+            }
+          },
+          "stats": {
+            "atk%": [
+              0.3,
+              0.6
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "count": {
+                "conditions": [
+                  {
+                    "has": "stack1"
+                  },
+                  {
+                    "has": "stack2"
+                  },
+                  {
+                    "has": "stack3"
+                  },
+                  {
+                    "has": "stack4"
+                  }
+                ],
+                "==": 4
+              }
+            }
+          },
+          "stats": {
+            "atk%": [
+              0.48,
+              0.96
+            ]
+          }
+        }
+      }
+    ]
   },
   "15508": {
     "name": "Aqua Simulacra",
@@ -8798,7 +12896,6 @@
     ]
   },
   "15509": {
-    "disabled": true,
     "name": "Thundering Pulse",
     "version": 2.0,
     "id": 15509,
@@ -8809,7 +12906,107 @@
       "baseAtk": 608,
       "critDmg%": 0.662
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "ref": "stack1",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "duration": 5000
+        }
+      },
+      {
+        "ref": "stack2",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 10000
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2"
+                ],
+                "==": 0
+              }
+            }
+          },
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2"
+                ],
+                "==": 1
+              }
+            }
+          },
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2"
+                ],
+                "==": 2
+              }
+            }
+          },
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      }
+    ]
   },
   "15511": {
     "name": "Hunter's Path",
@@ -8934,7 +13131,6 @@
     ]
   },
   "15513": {
-    "disabled": true,
     "name": "Silvershower Heartstrings",
     "version": 4.7,
     "id": 15513,
@@ -8945,7 +13141,183 @@
       "baseAtk": 542,
       "hp%": 0.662
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "stack1",
+        "apply": {
+          "when": "start",
+          "field": "*",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 25000
+        }
+      },
+      {
+        "ref": "stack2",
+        "apply": {
+          "when": "bondOfLifeUpdate",
+          "field": "*",
+          "filter": {
+            "action": {
+              "bondOfLife": {
+                "value": {
+                  ">": 0
+                }
+              }
+            }
+          },
+          "duration": 25000
+        }
+      },
+      {
+        "ref": "stack3",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "has": "healing"
+            }
+          },
+          "duration": 20000
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "count": {
+                "conditions": [
+                  {
+                    "has": "stack1"
+                  },
+                  {
+                    "has": "stack2"
+                  },
+                  {
+                    "has": "stack3"
+                  }
+                ],
+                "==": 1
+              }
+            }
+          },
+          "stats": {
+            "hp%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "count": {
+                "conditions": [
+                  {
+                    "has": "stack1"
+                  },
+                  {
+                    "has": "stack2"
+                  },
+                  {
+                    "has": "stack3"
+                  }
+                ],
+                "==": 2
+              }
+            }
+          },
+          "stats": {
+            "hp%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "count": {
+                "conditions": [
+                  {
+                    "has": "stack1"
+                  },
+                  {
+                    "has": "stack2"
+                  },
+                  {
+                    "has": "stack3"
+                  }
+                ],
+                "==": 3
+              }
+            }
+          },
+          "stats": {
+            "hp%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "and": [
+                {
+                  "has": "stack1"
+                },
+                {
+                  "has": "stack2"
+                },
+                {
+                  "has": "stack3"
+                }
+              ]
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "burstCR4s",
+            "spec": {
+              "duration": 4000
+            }
+          }
+        }
+      },
+      {
+        "ref": "burstCR4s",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": [
+              0.28,
+              0.56
+            ]
+          }
+        }
+      }
+    ]
   },
   "15514": {
     "name": "Astral Vulture's Crimson Plumage",

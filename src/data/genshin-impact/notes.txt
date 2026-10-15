@@ -6,11 +6,15 @@ Characters:
     Amber
         C1 arrow damage hard coded at level 10 skill
         C2 popping baron bunny doesnt do 200% extra dmgBonus
+    Baizhu
+        No constellations
     Bennett
         No constellations
     Columbina
         Moonridge Dew has no 18s cooldown
         No constellations
+    Charlotte
+        No C4, C6
     Chevreuse
         No C1
         No C4 cooldown
@@ -123,6 +127,8 @@ Characters:
         No constellations
 
 Weapons:
+    A Thousand Blazing Suns
+        Duration doesnt freeze when nightsoul off field
     A Thousand Floating Dreams
         Dmg bonus is generic, not element specific
     Alley Hunter
@@ -140,11 +146,21 @@ Weapons:
     Fillet Blade
         Effect always hits
     Finale of the Deep
-        Clear BoL gives fixed atk buff
+        Clear BoL gives max buff
+    Flowing Purity
+        Clear BoL gives max buff
+    Frostbearer
+        Effect always hits
     Heretic's Molten Blade
         No effect
+    Jadefall's Splendor
+        dmg bonus for all elements
+    Mistsplitter Reforged
+        Assumes 100% uptime on below full energy
     Oathsworn Eye
         ER might not work in calcs
+    Otherworldly Story
+        Effect disabled
     Sacrificial Jade
         No 5s buffer
     Sapwood Blade
@@ -161,10 +177,14 @@ Weapons:
         No effect
     Symphonist of Scents
         Doesn't apply buff to healed
+    Talking Stick
+        Effect disabled
     The Alley Flash
         Taking dmg doesn't matter
     The Black Sword
         Healing doesn't need a crit
+    The Dockhand's Assistant
+        Might double count healing performed on self
     Traveler's Handy Sword
         No effect
     Wandering Evenstar
@@ -182,8 +202,12 @@ Weapons:
 Sets:
     Bloodstained Chivalry
         4pc not active
+    Ocean-Hued Clam
+        Always uses full healing amount
     Shimenawa's Reminiscence
         4pc energy simplified
+    Song of days Past
+        Always uses max amount
     Nighttime Whispers in the Echoing Woods
         No 1s grace period
         Can be any shield

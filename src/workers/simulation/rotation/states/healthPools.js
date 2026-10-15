@@ -88,7 +88,7 @@ export function convertHealingToValue(ctx, sharedSnapshot, targetId) {
   const healingStatMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
   const healingValue = formula(healingStatMap, 'healing');
 
-  const { buffMap: targetBuffMap } =  getBuffMap(ctx, { memberId: targetId, resolveNow: true });
+  const { buffMap: targetBuffMap } = getBuffMap(ctx, { memberId: targetId, resolveNow: true });
   const targetStatMap = toMergedObj(ctx.buildMaps[targetId], targetBuffMap);
   const maxHp = getAttr('hp', targetStatMap);
   const healingReceivedMultiplier = 1 + getAttr('healingReceived%', targetStatMap);

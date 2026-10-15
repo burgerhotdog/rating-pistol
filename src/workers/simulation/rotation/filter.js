@@ -11,6 +11,11 @@ function evaluateSpecial(ctx, special, effect, spec) {
   const nsStore = ctx.states.nightsoul;
 
   switch (special) {
+    case 'baizhu1':
+      return ctx.states.memberHealth[onFieldId] < 0.5;
+    case 'baizhu2':
+      return ctx.states.memberHealth[onFieldId] >= 0.5;
+
     case 'neuvillette1':
     case 'neuvillette2':
     case 'neuvillette3': {
@@ -104,6 +109,7 @@ export function createEventFilter(ctx) {
       character: CHARACTER[gameId][fieldId],
       field: fieldId === states.onFieldId ? 'onField' : 'offField',
       health: states.memberHealth[fieldId],
+      bondOfLife: states.bondOfLife[fieldId],
       attrMap: ctx.attrMaps[effect.ownerId],
       get effectStacks() {
         const value = {};
