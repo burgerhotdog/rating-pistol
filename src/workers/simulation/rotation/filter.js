@@ -109,6 +109,7 @@ export function createEventFilter(ctx) {
       character: CHARACTER[gameId][fieldId],
       field: fieldId === states.onFieldId ? 'onField' : 'offField',
       health: states.memberHealth[fieldId],
+      bondOfLife: states.bondOfLife[fieldId],
       attrMap: ctx.attrMaps[effect.ownerId],
       get effectStacks() {
         const value = {};

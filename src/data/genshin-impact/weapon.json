@@ -1830,7 +1830,6 @@
     "effects": []
   },
   "11511": {
-    "disabled": true,
     "name": "Key of Khaj-Nisut",
     "version": 3.1,
     "id": 11511,
@@ -1841,7 +1840,94 @@
       "baseAtk": 542,
       "hp%": 0.662
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "ref": "grandHymn",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "cooldown": 300,
+          "duration": 20000,
+          "commands": {
+            "type": "apply",
+            "ref": "tryApply",
+            "spec": {
+              "duration": 1,
+              "uses": 1
+            }
+          }
+        },
+        "buff": {
+          "specs": {
+            "elementalMastery": {
+              "attr": "hp",
+              "step": 1,
+              "value": [
+                0.0012,
+                0.0024
+              ]
+            }
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "tryApply",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "grandHymn": 3
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "buff",
+            "spec": {
+              "duration": 20000
+            }
+          }
+        }
+      },
+      {
+        "ref": "buff",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "specs": {
+            "elementalMastery": {
+              "attr": "hp",
+              "step": 1,
+              "value": [
+                0.002,
+                0.004
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11512": {
     "name": "Light of Foliar Incision",
@@ -1954,7 +2040,6 @@
     ]
   },
   "11514": {
-    "disabled": true,
     "name": "Uraku Misugiri",
     "version": 4.5,
     "id": 11514,
@@ -1965,7 +2050,60 @@
       "baseAtk": 542,
       "critDmg%": 0.882
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "elementalSkillDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "by": "$team",
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "damage": {
+                    "element": "geo"
+                  }
+                }
+              }
+            ]
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "elementalSkillDmgBonus%": [
+              0.24,
+              0.48
+            ],
+            "def%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "11515": {
     "name": "Absolution",
@@ -2016,7 +2154,6 @@
     ]
   },
   "11516": {
-    "disabled": true,
     "name": "Peak Patrol Song",
     "version": 5.1,
     "id": 11516,
@@ -2027,7 +2164,91 @@
       "baseAtk": 542,
       "def%": 0.827
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "odeToFlowers",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "plungingAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 6000,
+          "commands": {
+            "type": "apply",
+            "ref": "applyTeamBuff",
+            "spec": {
+              "duration": 1,
+              "uses": 1
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "def%": [
+              0.08,
+              0.16
+            ],
+            "elementalDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        },
+        "maxStacks": 2
+      },
+      {
+        "ref": "applyTeamBuff",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "odeToFlowers": 2
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "teamBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "ref": "teamBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "specs": {
+            "elementalDmgBonus%": {
+              "attr": "def",
+              "step": 1000,
+              "value": [
+                0.08,
+                0.16
+              ],
+              "maxValue": [
+                0.256,
+                0.512
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "11517": {
     "name": "Azurelight",
@@ -4408,7 +4629,6 @@
     "effects": []
   },
   "13511": {
-    "disabled": true,
     "name": "Staff of the Scarlet Sands",
     "version": 3.1,
     "id": 13511,
@@ -4419,10 +4639,50 @@
       "baseAtk": 542,
       "critRate%": 0.441
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "specs": {
+            "atk": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                0.52,
+                1.04
+              ]
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "specs": {
+            "atk": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": [
+                0.28,
+                0.56
+              ]
+            }
+          }
+        },
+        "maxStacks": 3
+      }
+    ]
   },
   "13512": {
-    "disabled": true,
     "name": "Crimson Moon's Semblance",
     "version": 4.6,
     "id": 13512,
@@ -4433,7 +4693,56 @@
       "baseAtk": 674,
       "critRate%": 0.221
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "cooldown": 14000,
+          "action": {
+            "bondOfLife": {
+              "value": 0.25
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "bondOfLife": {
+              ">": 0
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.12,
+              0.28
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "bondOfLife": {
+              ">": 0.3
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.24,
+              0.56
+            ]
+          }
+        }
+      }
+    ]
   },
   "13513": {
     "name": "Lumidouce Elegy",
