@@ -21706,18 +21706,12 @@
               },
               {
                 "effectStacks": {
-                  "and": [
-                    {
-                      "not": {
-                        "has": "turretGuard"
-                      }
-                    },
-                    {
-                      "not": {
-                        "has": "prevTurret"
-                      }
-                    }
-                  ]
+                  "not": {
+                    "has": [
+                      "turretGuard",
+                      "prevTurret"
+                    ]
+                  }
                 }
               }
             ]
@@ -22023,53 +22017,20 @@
                 },
                 {
                   "effectStacks": {
-                    "or": [
-                      {
-                        "and": [
-                          {
-                            "has": "turret1"
-                          },
-                          {
-                            "not": {
-                              "has": [
-                                "turret2",
-                                "turret3"
-                              ]
-                            }
-                          }
-                        ]
-                      },
-                      {
-                        "and": [
-                          {
-                            "has": "turret2"
-                          },
-                          {
-                            "not": {
-                              "has": [
-                                "turret1",
-                                "turret3"
-                              ]
-                            }
-                          }
-                        ]
-                      },
-                      {
-                        "and": [
-                          {
-                            "has": "turret3"
-                          },
-                          {
-                            "not": {
-                              "has": [
-                                "turret1",
-                                "turret2"
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    ]
+                    "count": {
+                      "conditions": [
+                        {
+                          "has": "turret1"
+                        },
+                        {
+                          "has": "turret2"
+                        },
+                        {
+                          "has": "turret3"
+                        }
+                      ],
+                      "==": 1
+                    }
                   }
                 }
               ]
@@ -22102,53 +22063,20 @@
                 },
                 {
                   "effectStacks": {
-                    "or": [
-                      {
-                        "and": [
-                          {
-                            "not": {
-                              "has": "turret1"
-                            }
-                          },
-                          {
-                            "has": "turret2"
-                          },
-                          {
-                            "has": "turret3"
-                          }
-                        ]
-                      },
-                      {
-                        "and": [
-                          {
-                            "not": {
-                              "has": "turret2"
-                            }
-                          },
-                          {
-                            "has": "turret1"
-                          },
-                          {
-                            "has": "turret3"
-                          }
-                        ]
-                      },
-                      {
-                        "and": [
-                          {
-                            "not": {
-                              "has": "turret3"
-                            }
-                          },
-                          {
-                            "has": "turret1"
-                          },
-                          {
-                            "has": "turret2"
-                          }
-                        ]
-                      }
-                    ]
+                    "count": {
+                      "conditions": [
+                        {
+                          "has": "turret1"
+                        },
+                        {
+                          "has": "turret2"
+                        },
+                        {
+                          "has": "turret3"
+                        }
+                      ],
+                      "==": 2
+                    }
                   }
                 }
               ]
@@ -22181,17 +22109,20 @@
                 },
                 {
                   "effectStacks": {
-                    "and": [
-                      {
-                        "has": "turret1"
-                      },
-                      {
-                        "has": "turret2"
-                      },
-                      {
-                        "has": "turret3"
-                      }
-                    ]
+                    "count": {
+                      "conditions": [
+                        {
+                          "has": "turret1"
+                        },
+                        {
+                          "has": "turret2"
+                        },
+                        {
+                          "has": "turret3"
+                        }
+                      ],
+                      "==": 3
+                    }
                   }
                 }
               ]
