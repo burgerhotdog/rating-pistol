@@ -1790,7 +1790,6 @@
     ]
   },
   "15033": {
-    "disabled": true,
     "name": "Song of Days Past",
     "version": 4.3,
     "id": 15033,
@@ -1806,6 +1805,65 @@
         "buff": {
           "stats": {
             "healingBonus%": 0.15
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "has": "healing"
+            }
+          },
+          "cooldown": 6000,
+          "uses": 1,
+          "offset": 6000
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "wavesOfDaysPast",
+            "spec": {
+              "duration": 10000,
+              "uses": 5
+            }
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "wavesOfDaysPast",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack",
+                      "plungingAttack",
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "stats": {
+            "damageFlat": 1200
           }
         }
       }

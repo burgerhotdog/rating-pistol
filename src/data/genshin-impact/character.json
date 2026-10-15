@@ -38406,7 +38406,14 @@
             }
           },
           "uses": 4,
-          "offset": 1500
+          "offset": 1500,
+          "commands": {
+            "type": "apply",
+            "ref": "skillC2",
+            "spec": {
+              "duration": 12000
+            }
+          }
         },
         "use": {
           "when": "interval",
@@ -38423,7 +38430,14 @@
             }
           },
           "uses": 8,
-          "offset": 1500
+          "offset": 1500,
+          "commands": {
+            "type": "apply",
+            "ref": "skillC2",
+            "spec": {
+              "duration": 12000
+            }
+          }
         },
         "use": {
           "when": "interval",
@@ -38440,7 +38454,15 @@
             }
           },
           "uses": 8,
-          "offset": 200
+          "offset": 200,
+          "commands": {
+            "type": "apply",
+            "ref": "ultC1",
+            "spec": {
+              "uses": 3,
+              "offset": 2000
+            }
+          }
         },
         "use": {
           "when": "interval",
@@ -38511,6 +38533,39 @@
         "buff": {
           "stats": {
             "cryoDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "ref": "ultC1",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": {
+            "healing": {
+              "targets": "$team",
+              "multipliers": [
+                {
+                  "mv": 0.8
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "ref": "skillC2",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.1
           }
         }
       }

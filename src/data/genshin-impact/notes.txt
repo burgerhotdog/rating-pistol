@@ -11,6 +11,8 @@ Characters:
     Columbina
         Moonridge Dew has no 18s cooldown
         No constellations
+    Charlotte
+        No C4, C6
     Chevreuse
         No C1
         No C4 cooldown

@@ -199,8 +199,9 @@ export function normalizeAction(gameId, rawAction, spec) {
 
     if (healing.targets === '$team') {
       healing.targets = spec.memberIds;
+    } else {
+      healing.targets = toArray(healing.targets ?? spec.ownerId);
     }
-    healing.targets ??= [spec.ownerId];
 
     healing.attr ??= 'atk';
     healing.compressed = getCompressed(
