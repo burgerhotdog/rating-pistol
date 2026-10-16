@@ -285,8 +285,12 @@ export function normalizeAction(gameId, rawAction, spec) {
     }
 
     if (health.value && Array.isArray(health.value)) {
-      const [r1, r5] = health.value;
-      health.value = lerp(r1, r5, (spec.weaponRank - 1) / 4);
+      if (health.value.length === 2) {
+        const [r1, r5] = health.value;
+        health.value = lerp(r1, r5, (spec.weaponRank - 1) / 4);
+      } else {
+        health.value = health.value[spec.mvIndex];
+      }
     }
   }
 

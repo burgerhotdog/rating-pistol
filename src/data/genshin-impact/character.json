@@ -4133,6 +4133,7 @@
     },
     "energy": 80,
     "energyMin": 2,
+    "liyue": true,
     "effects": [
       {
         "apply": {
@@ -4713,6 +4714,7 @@
       "electroDmgBonus%": 0.24
     },
     "energy": 80,
+    "liyue": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -5201,6 +5203,7 @@
       "atk%": 0.24
     },
     "energy": 80,
+    "liyue": true,
     "effects": [
       {
         "ref": "rainbowBladework",
@@ -5763,7 +5766,13 @@
         "elementalBurst.0",
         "elementalSkill.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000046,
+      10000025,
+      10000060,
+      10000030
+    ]
   },
   "10000026": {
     "name": "Xiao",
@@ -5781,6 +5790,7 @@
     },
     "energy": 70,
     "energyMin": 1.2,
+    "liyue": true,
     "effects": [
       {
         "ref": "yakshasMask",
@@ -6381,6 +6391,7 @@
       "geoDmgBonus%": 0.24
     },
     "energy": 40,
+    "liyue": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -7203,6 +7214,7 @@
     },
     "energy": 40,
     "energyMax": 1,
+    "liyue": true,
     "effects": [
       {
         "use": {
@@ -7777,7 +7789,13 @@
       "rotation": [
         "elementalSkill.1"
       ]
-    }
+    },
+    "teamPreset": [
+      10000046,
+      10000025,
+      10000060,
+      10000030
+    ]
   },
   "10000031": {
     "name": "Fischl",
@@ -10112,6 +10130,7 @@
       "healingBonus%": 0.222
     },
     "energy": 80,
+    "liyue": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -10665,6 +10684,7 @@
       "atk%": 0.24
     },
     "energy": 40,
+    "liyue": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -11032,6 +11052,7 @@
       "critDmg%": 0.384
     },
     "energy": 60,
+    "liyue": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -12888,6 +12909,7 @@
       "critDmg%": 0.384
     },
     "energy": 40,
+    "liyue": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -13989,6 +14011,7 @@
       "atk%": 0.24
     },
     "energy": 60,
+    "liyue": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -14920,7 +14943,6 @@
     "memberPreset": {}
   },
   "10000046": {
-    "disabled": true,
     "name": "Hu Tao",
     "version": 1.3,
     "id": 10000046,
@@ -14936,6 +14958,7 @@
       "critDmg%": 0.384
     },
     "energy": 60,
+    "liyue": true,
     "effects": [
       {
         "ref": "paramitaPapilio",
@@ -14952,11 +14975,7 @@
           "type": "action",
           "filter": {
             "action": {
-              "type": [
-                "normalAttack",
-                "chargedAttack",
-                "plungingAttack"
-              ]
+              "category": "normalAttack"
             }
           },
           "spec": {
@@ -14971,6 +14990,15 @@
               "attr": "hp",
               "step": 1,
               "value": "elementalSkill.1"
+            }
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "apply",
+            "ref": "A1",
+            "spec": {
+              "duration": 8000
             }
           }
         }
@@ -14992,12 +15020,79 @@
               }
             ]
           },
-          "duration": 8000
+          "uses": 2,
+          "offset": 4000
         },
         "use": {
           "when": "interval",
           "cooldown": 4000,
           "action": "elementalSkill.2"
+        }
+      },
+      {
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "health": {
+                    ">": 0.5
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "action": "elementalBurst.1"
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "health": {
+                    "<=": 0.5
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "action": "elementalBurst.2"
+          }
+        ]
+      },
+      {
+        "ref": "A1",
+        "stores": "$ally",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "critRate%": 0.12
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "health": {
+              "<=": 0.5
+            }
+          },
+          "stats": {
+            "pyroDmgBonus%": 0.33
+          }
         }
       }
     ],
@@ -15334,6 +15429,7 @@
             "name": "Blood Blossom",
             "damage": {
               "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -15364,9 +15460,34 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
+            "duration": 1500
+          },
+          {
+            "name": "High HP",
+            "health": {
+              "value": [
+                0.0626,
+                0.0664,
+                0.0701,
+                0.075,
+                0.0788,
+                0.0825,
+                0.0874,
+                0.0922,
+                0.0971,
+                0.102,
+                0.1069,
+                0.1118,
+                0.1166,
+                0.1215,
+                0.1264
+              ]
+            },
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -15391,9 +15512,29 @@
             }
           },
           {
-            "name": "Low HP Skill DMG",
-            "type": "elementalBurst",
+            "name": "Low HP",
+            "health": {
+              "value": [
+                0.0835,
+                0.0885,
+                0.0935,
+                0.1,
+                0.105,
+                0.11,
+                0.1165,
+                0.123,
+                0.1295,
+                0.136,
+                0.1425,
+                0.149,
+                0.1555,
+                0.162,
+                0.1685
+              ]
+            },
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -15416,60 +15557,6 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Skill HP Regeneration",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.0626,
-                    0.0664,
-                    0.0701,
-                    0.075,
-                    0.0788,
-                    0.0825,
-                    0.0874,
-                    0.0922,
-                    0.0971,
-                    0.102,
-                    0.1069,
-                    0.1118,
-                    0.1166,
-                    0.1215,
-                    0.1264
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Low HP Skill Regeneration",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.0835,
-                    0.0885,
-                    0.0935,
-                    0.1,
-                    0.105,
-                    0.11,
-                    0.1165,
-                    0.123,
-                    0.1295,
-                    0.136,
-                    0.1425,
-                    0.149,
-                    0.1555,
-                    0.162,
-                    0.1685
-                  ]
-                }
-              ]
-            }
           }
         ]
       }
@@ -15478,8 +15565,37 @@
       "weaponId": 13501,
       "setCounts": {
         "15006": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "normalAttack.0",
+        "normalAttack.6",
+        "normalAttack.0",
+        "normalAttack.6",
+        "normalAttack.0",
+        "normalAttack.6",
+        "normalAttack.0",
+        "normalAttack.6",
+        "normalAttack.0",
+        "normalAttack.6",
+        "normalAttack.0",
+        "normalAttack.6",
+        "normalAttack.0",
+        "normalAttack.6",
+        "normalAttack.0",
+        "normalAttack.6",
+        "normalAttack.0",
+        "normalAttack.6",
+        "elementalBurst.0"
+      ],
+      "duration": 10000
+    },
+    "teamPreset": [
+      10000046,
+      10000025,
+      10000060,
+      10000030
+    ]
   },
   "10000047": {
     "name": "Kaedehara Kazuha",
@@ -16290,6 +16406,7 @@
       "pyroDmgBonus%": 0.24
     },
     "energy": 80,
+    "liyue": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -23703,6 +23820,7 @@
       "critRate%": 0.192
     },
     "energy": 70,
+    "liyue": true,
     "effects": [
       {
         "apply": {
@@ -24223,7 +24341,13 @@
         "elementalBurst.0",
         "elementalSkill.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000046,
+      10000025,
+      10000060,
+      10000030
+    ]
   },
   "10000061": {
     "disabled": true,
@@ -25279,6 +25403,7 @@
       "atk%": 0.288
     },
     "energy": 80,
+    "liyue": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -25746,6 +25871,7 @@
       "energyRecharge%": 0.267
     },
     "energy": 60,
+    "liyue": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -32121,6 +32247,7 @@
       "hp%": 0.24
     },
     "energy": 80,
+    "liyue": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -34723,6 +34850,7 @@
       "hp%": 0.288
     },
     "energy": 80,
+    "liyue": true,
     "effects": [
       {
         "apply": {
@@ -41390,6 +41518,7 @@
       "atk%": 0.24
     },
     "energy": 60,
+    "liyue": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -41724,6 +41853,7 @@
       "atk%": 0.288
     },
     "energy": 70,
+    "liyue": true,
     "effects": [
       {
         "ref": "starwicker",
@@ -49174,6 +49304,7 @@
       "atk%": 0.24
     },
     "energy": 60,
+    "liyue": true,
     "effects": [],
     "skills": {
       "normalAttack": {
@@ -59740,6 +59871,7 @@
       "critDmg%": 0.384
     },
     "energy": 60,
+    "liyue": true,
     "moonsign": true,
     "effects": [
       {
