@@ -7,7 +7,9 @@ export function runCommands(ctx, effect, commands, applier) {
   const effectDefs = ctx.cache.member[effect.ownerId].effects;
   const { memberEffects, globalEffects } = ctx.states;
 
-  for (const { type, key, spec, gameRule } of commands) {
+  for (const { filter, type, key, spec, gameRule } of commands) {
+    if (!ctx.eventFilter(filter, effect, { fieldId: applier })) continue;
+
     const effect = effectDefs[key];
 
     switch (type) {
