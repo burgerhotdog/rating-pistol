@@ -3,11 +3,13 @@ import { runUseEffect } from './runUseEffect';
 import { runApplyEffect } from './runApplyEffect';
 import { runGameRule } from '../gameRules';
 
-export function runCommands(ctx, effect, commands, applier) {
-  const effectDefs = ctx.cache.member[effect.ownerId].effects;
+export function runCommands(ctx, sourceEffect, commands, applier) {
+  const effectDefs = ctx.cache.member[sourceEffect.ownerId].effects;
   const { memberEffects, globalEffects } = ctx.states;
 
-  for (const { type, key, spec, gameRule } of commands) {
+  for (const { filter, type, key, spec, gameRule } of commands) {
+    if (!ctx.eventFilter(filter, sourceEffect, { fieldId: applier })) continue;
+
     const effect = effectDefs[key];
 
     switch (type) {

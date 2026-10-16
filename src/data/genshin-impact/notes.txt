@@ -40,6 +40,8 @@ Characters:
         No C4, C6
     Gorou
         Swapping off active buff expires instantly
+    Hu Tao
+        No Constellations
     Illuga
         Burst affects non-direct dmg too
         No geo construct rule
@@ -204,8 +206,6 @@ Sets:
         4pc not active
     Ocean-Hued Clam
         Always uses full healing amount
-    Shimenawa's Reminiscence
-        4pc energy simplified
     Song of days Past
         Always uses max amount
     Nighttime Whispers in the Echoing Woods

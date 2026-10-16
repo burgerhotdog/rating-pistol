@@ -6671,7 +6671,6 @@
     "effects": []
   },
   "13501": {
-    "disabled": true,
     "name": "Staff of Homa",
     "version": 1.3,
     "id": 13501,
@@ -6682,7 +6681,51 @@
       "baseAtk": 608,
       "critDmg%": 0.662
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "specs": {
+            "atk": {
+              "attr": "hp",
+              "step": 1,
+              "value": [
+                0.008,
+                0.016
+              ]
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "health": {
+              "<": 0.5
+            }
+          },
+          "specs": {
+            "atk": {
+              "attr": "hp",
+              "step": 1,
+              "value": [
+                0.01,
+                0.018
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "13502": {
     "name": "Skyward Spine",

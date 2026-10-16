@@ -912,7 +912,14 @@
             }
           },
           "cooldown": 10000,
-          "duration": 10000
+          "duration": 10000,
+          "commands": {
+            "type": "apply",
+            "ref": "drainEnergy",
+            "spec": {
+              "uses": 1
+            }
+          }
         },
         "buff": {
           "stats": {
@@ -921,6 +928,21 @@
             "plungingAttackDmgBonus%": 0.5
           },
           "snapshot": false
+        }
+      },
+      {
+        "bonus": 4,
+        "ref": "drainEnergy",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "restoreEnergy": {
+              "flat": -15
+            }
+          }
         }
       }
     ]
