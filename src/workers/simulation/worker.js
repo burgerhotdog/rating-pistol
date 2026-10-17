@@ -5,6 +5,7 @@ import { runComparisonTests } from './comparison-tests';
 import { runEquipTests, runTrials } from './equip-tests';
 import { runSkillLevelTests } from './skill-level-tests';
 import { getRotationOrder } from './rotation-order';
+import { calibrate } from './calibrate';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
@@ -62,52 +63,62 @@ self.onmessage = async ({ data }) => {
     userDps,
   });
 
-  console.time('runEquipTests');
-  const results = await runEquipTests(cache, equipMaps, charId);
-  console.timeEnd('runEquipTests');
+  console.time('calibrate');
+  const { calibration, scoreCeiling, dpsCeiling } = calibrate(cache, equipMaps, charId);
+  console.timeEnd('calibrate');
   self.postMessage({
-    dpsCeiling: results.dpsCeiling,
-    dpsProgression: results.dpsProgression,
-    fit: results.fit,
-    equipListConfigs: results.equipListConfigs,
-    ...findBenchmark(results.dpsCeiling, results.dpsProgression, results.fit),
-    extraSubstats: results.extraSubstats,
-    extraSubstatsControl: results.extraSubstatsControl,
+    scoreCeiling,
+    dpsCeiling,
   });
 
-  console.time('runComparisonTests');
+  console.time('runEquipTests');
+  const results = await runEquipTests(cache, equipMaps, charId, calibration, scoreCeiling);
+  console.timeEnd('runEquipTests');
+  self.postMessage({
+    scoreProgression: results.scoreProgression,
+    fit: results.fit,
+    equipListConfigs: results.equipListConfigs,
+    ...findBenchmark(results.scoreCeiling, results.scoreProgression, results.dpsProgression, results.fit),
+    extraSubstats: results.extraSubstats,
+    extraSubstatsControl: results.extraSubstatsControl,
+    userScore: results.userScore,
+  });
+
+  // console.time('runComparisonTests');
   const { weaponResults, setResults } = runComparisonTests(cache, equipMaps, bonusEnergy);
-  console.timeEnd('runComparisonTests');
+  // console.timeEnd('runComparisonTests');
   self.postMessage({ weaponResults, setResults });
 
-  console.time('runSkillLevelTests');
+  // console.time('runSkillLevelTests');
   const skillLevelResults = runSkillLevelTests(cache, equipMaps, charId);
-  console.timeEnd('runSkillLevelTests');
+  // console.timeEnd('runSkillLevelTests');
   self.postMessage({ skillLevelResults });
 
   self.postMessage({ status: 'done' });
 };
 
-function findBenchmark(dpsCeiling, dpsProgression, fit) {
+function findBenchmark(scoreCeiling, scoreProgression, dpsProgression, fit) {
   let benchmarkDay = 0;
-  let benchmarkDps = estimateDps(0, dpsCeiling, dpsProgression, fit);
+  let benchmarkScore = estimateDps(0, scoreCeiling, scoreProgression, fit);
   let previousImprovement = null;
   let increaseCount = 0;
 
-  while (benchmarkDay < 28) {
-    const nextDps = estimateDps(benchmarkDay + 1, dpsCeiling, dpsProgression, fit);
-    const improvement = nextDps / benchmarkDps - 1;
+  while (benchmarkDay < 30) {
+    const nextDps = estimateDps(benchmarkDay + 1, scoreCeiling, scoreProgression, fit);
+    const improvement = nextDps / benchmarkScore - 1;
 
     if (previousImprovement !== null && improvement >= previousImprovement) {
       increaseCount++;
     }
 
-    if (improvement < 0.005 || increaseCount >= 3) break;
+    if (improvement < 0.005 && increaseCount >= 3) break;
 
     previousImprovement = improvement;
     benchmarkDay++;
-    benchmarkDps = nextDps;
+    benchmarkScore = nextDps;
   }
 
-  return { benchmarkDay, benchmarkDps };
+  const benchmarkDps = dpsProgression[benchmarkDay]?.mean ?? dpsProgression.at(-1)?.mean;
+
+  return { benchmarkDay, benchmarkScore, benchmarkDps };
 }

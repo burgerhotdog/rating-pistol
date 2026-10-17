@@ -80,7 +80,10 @@ export const resolveSnapshot = (ctx, snapshot) => {
         `${unresolved.reactionElement}ResReduction%`,
       ]);
 
+    // A function scaleFlat is a reaction flat bonus that reads EM and reaction bonus
+    // from the tested build, so any spec buff can feed into it
     const usesSpecs = buffSpecs.some(({ specs }) =>
+      typeof scaleFlat === 'function' ||
       Object.keys(specs).some((stat) => usedAttrs.has(stat))
     );
 
