@@ -1,4 +1,4 @@
-import { GI, WW, ZZZ, SUBSTAT } from '@/data';
+import { SUBSTAT, GI, WW, ZZZ } from '@/data';
 import { randomInt, randomMainstat } from '@/utils';
 import { weightedLottery } from './weightedLottery';
 
@@ -52,23 +52,36 @@ export function createEquipGenerator(skippable) {
   const canSkip = (substats) =>
     substats.reduce((acc, { id }) => acc + !skipSubstats.has(id), 0) < 2;
 
-  return (gameId) => {
+  return (gameId, trial, specId) => {
     const isSetMatch = Math.random() < 0.5;
     if (gameId !== GI && !isSetMatch) return;
 
     const { keyId, keyValue, mainstat } = randomMainstat(gameId);
     if (gameId === GI && (!isSetMatch && keyValue !== 3)) return;
-    if (skippable.mainstats[keyValue].has(mainstat.mainstatId)) return;
+
+    const force = gameId !== WW
+      ? !trial.equipList[keyValue]
+      : (specId === 1409 || specId === 1212)
+        ? keyValue === 4
+          ? !trial.equipList[0] || !trial.equipList[1]
+          : !trial.equipList[2] || !trial.equipList[3] || !trial.equipList[4]
+        : keyValue === 4
+          ? !trial.equipList[0]
+          : keyValue === 3
+            ? !trial.equipList[1] || !trial.equipList[2]
+            : !trial.equipList[3] || !trial.equipList[4]
+
+    if (skippable.mainstats[keyValue].has(mainstat.mainstatId) && !force) return;
 
     const substats = [];
     if (gameId === WW) {
       revealSubstatsWW(substats, 3);
-      if (canSkip(substats)) return; // Sub 2 and 3 are both bad
+      if (canSkip(substats) && !force) return; // Sub 2 and 3 are both bad
 
       revealSubstatsWW(substats, 2);
     } else {
       revealSubstats(substats, gameId, mainstat.mainstatId);
-      if (canSkip(substats)) return; // Bad starting 4 stats
+      if (canSkip(substats) && !force) return; // Bad starting 4 stats
       
       const upgradeTimes = Math.random() < 0.2 ? 5 : 4;
       for (let i = 0; i < upgradeTimes; i++) {

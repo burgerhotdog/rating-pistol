@@ -3,7 +3,7 @@ import { runRotation } from '../rotation';
 import { getTotals, toMergedObj } from '@/utils';
 import { createEquipDurationGetter } from '../duration';
 
-export function createEvaluateEquipMap(cache, equipMaps, evalId) {
+export function createEvaluateEquipMap(cache, equipMaps, evalId, calibration = { damage: 1 }) {
   const { gameId } = cache;
   const mCache = cache.member[evalId];
   const { snapshots: snapshotSpecs, bonusEnergy } = runRotation(cache, equipMaps, evalId);
@@ -16,14 +16,31 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId) {
 
   const durationGetter = createEquipDurationGetter(cache, equipMaps, evalId, bonusEnergy);
 
+  const partWeights = Object.entries(calibration);
+
   return (evalEquipMap = {}) => {
     const evalStatMap = toMergedObj(preMerged, evalEquipMap);
-
     const snapshots = snapshotSpecs(evalStatMap);
-    const totals = getTotals(snapshots);
-    const { time } = durationGetter(evalEquipMap);
-    const score = totals.damage / time * 1000;
 
-    return { snapshots, totals, score, actualRotationTime: time };
+    const totals = getTotals(snapshots);
+
+    const fullScore = partWeights.reduce(
+      (acc, [part, weight]) => acc + totals[part] * weight,
+      0
+    );
+
+    const { time } = durationGetter(evalEquipMap);
+    const score = fullScore / time * 1000;
+
+    const dps = totals.damage / time * 1000;
+
+    return {
+      snapshots,
+      totals,
+      fullScore,
+      score,
+      actualRotationTime: time,
+      dps,
+    };
   };
 }

@@ -39,20 +39,27 @@ function mergeEquipListConfigs(equipListConfigs) {
 export function collectResults(workers, payload, isMainChar) {
   return new Promise((resolve) => {
     const pending = new Map();
-    const mpsUpdates = [];
+    const scoreUpdates = [];
+    const dpsUpdates = [];
     const workerMeanEquipMaps = [];
     const workerEquipListConfigs = [];
 
-    const handleProgress = ({ day, mean: workerMean }) => {
-      const workerMeans = pending.get(day) ?? [];
-      workerMeans.push(workerMean);
+    const handleProgress = ({ day, score: workerScore, dps: workerDps }) => {
+      const workerMeans = pending.get(day) ?? { score: [], dps: [] };
+      workerMeans.score.push(workerScore);
+      workerMeans.dps.push(workerDps);
       pending.set(day, workerMeans);
 
-      if (workerMeans.length !== workers.length) return;
+      if (workerMeans.score.length !== workers.length) return;
 
-      mpsUpdates.push({
+      scoreUpdates.push({
         day,
-        mean: mean(workerMeans),
+        mean: mean(workerMeans.score),
+      });
+
+      dpsUpdates.push({
+        day,
+        mean: mean(workerMeans.dps),
       });
 
       if (isMainChar) {
@@ -81,7 +88,8 @@ export function collectResults(workers, payload, isMainChar) {
           workerEquipListConfigs.push(data.equipListConfigs);
           if (workerEquipListConfigs.length === workers.length) {
             resolve({
-              mpsUpdates,
+              scoreUpdates,
+              dpsUpdates,
               equipListConfigs: mergeEquipListConfigs(workerEquipListConfigs),
             });
           }
@@ -96,7 +104,7 @@ export function collectResults(workers, payload, isMainChar) {
   });
 }
 
-export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
+export async function runTrials(cache, equipMaps, currId, isMainChar = false, calibration = { damage: 1 }) {
   if (isMainChar) self.postMessage({ message: `Running Trials` });
 
   const workers = Array.from({ length: 4 }, () => new Worker(
@@ -109,6 +117,7 @@ export async function runTrials(cache, equipMaps, currId, isMainChar = false) {
     equipMaps,
     currId,
     quick: !isMainChar,
+    calibration,
   };
 
   const results = await collectResults(workers, payload, isMainChar);

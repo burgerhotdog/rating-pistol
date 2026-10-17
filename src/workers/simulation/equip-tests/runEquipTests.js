@@ -1,8 +1,6 @@
 import { linearRegression } from 'simple-statistics';
-import { buildSkippable } from '@/utils';
 import { runTrials } from './runTrials';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
-import { computeCeiling } from './computeCeiling';
 import { testExtraSubstat } from './testExtraSubstat';
 
 const getFit = (mpsProgression, mpsCeiling) => {
@@ -18,24 +16,23 @@ const getFit = (mpsProgression, mpsCeiling) => {
   return { k: -m, A: Math.exp(b) };
 };
 
-export async function runEquipTests(cache, equipMaps, currId, userDps) {
-  const { gameId } = cache;
+export async function runEquipTests(cache, equipMaps, currId, calibration, scoreCeiling) {
+  const { scoreUpdates, dpsUpdates, equipListConfigs } = await runTrials(cache, equipMaps, currId, true, calibration);
 
-  const { mpsUpdates, equipListConfigs } = await runTrials(cache, equipMaps, currId, true);
+  const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId, calibration);
+  const { score, dps } = evaluateEquipMap();
+  const { score: userScore } = evaluateEquipMap(equipMaps[currId]);
 
-  const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
-  const { score } = evaluateEquipMap();
-  const skippable = buildSkippable(gameId, score, evaluateEquipMap);
-  const mpsCeiling = computeCeiling(gameId, evaluateEquipMap, currId, skippable);
+  const scoreProgression = [{ day: 0, mean: score }, ...scoreUpdates];
+  const dpsProgression = [{ day: 0, mean: dps }, ...dpsUpdates];
 
-  const mpsProgression = [{ day: 0, mean: score }, ...mpsUpdates];
-
-  const extraSubstatsResults = testExtraSubstat(cache, equipMaps, currId, evaluateEquipMap, userDps);
+  const extraSubstatsResults = testExtraSubstat(cache, equipMaps, currId, evaluateEquipMap);
 
   return {
-    dpsProgression: mpsProgression,
-    dpsCeiling: mpsCeiling,
-    fit: getFit(mpsProgression, mpsCeiling),
+    scoreProgression,
+    dpsProgression,
+    userScore,
+    fit: getFit(scoreProgression, scoreCeiling),
     equipListConfigs,
     extraSubstats: extraSubstatsResults.results,
     extraSubstatsControl: extraSubstatsResults.control,

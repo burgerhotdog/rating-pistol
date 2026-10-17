@@ -7,7 +7,7 @@ import { createAdvanceTrial } from './advance';
 const NUM_TRIALS = 125;
 const NUM_TRIALS_QUICK = 25;
 
-const NUM_DAYS = 28;
+const NUM_DAYS = 30;
 const NUM_DAYS_QUICK = 14;
 
 let cache;
@@ -17,12 +17,11 @@ let trials;
 
 function initTrials(numTrials) {
   const { maxEquips } = MISC[cache.gameId];
-  const { snapshots, score } = evaluateEquipMap();
+  const results = evaluateEquipMap();
 
   return Array.from({ length: numTrials }, () => ({
     equipList: new Array(maxEquips).fill(null),
-    snapshots,
-    score,
+    results,
   }));
 }
 
@@ -39,7 +38,8 @@ function runTrials(numDays, currId) {
     self.postMessage({
       type: 'progress',
       day,
-      mean: mean(trials.map((trial) => trial.score)),
+      score: mean(trials.map(({ results }) => results.score)),
+      dps: mean(trials.map(({ results }) => results.dps)),
     });
   }
 }
@@ -87,14 +87,14 @@ function reportEquipListConfigs() {
 }
 
 self.onmessage = ({ data }) => {
-  const { equipMaps, currId, quick } = data;
+  const { equipMaps, currId, quick, calibration } = data;
 
   const numTrials = quick ? NUM_TRIALS_QUICK : NUM_TRIALS;
   const numDays = quick ? NUM_DAYS_QUICK : NUM_DAYS;
 
   cache = data.cache;
   gameId = cache.gameId;
-  evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId);
+  evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId, calibration);
   trials = initTrials(numTrials);
 
   runTrials(numDays, currId);

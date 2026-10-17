@@ -29,7 +29,7 @@ function resolveBonusEnergy(memberBonusEnergy, statMapOf) {
 
   let { flat, erScaled } = memberBonusEnergy;
 
-  for (const entry of memberBonusEnergy.critScaled) {
+  for (const entry of memberBonusEnergy.critScaled ?? []) {
     const ownerStatMap = statMapOf(entry.ownerId);
     const critRate = clamp((ownerStatMap['critRate%'] ?? 0) + (entry.buffMap['critRate%'] ?? 0), 0, 1);
     const mult = 1 - ((1 - critRate) ** 2);

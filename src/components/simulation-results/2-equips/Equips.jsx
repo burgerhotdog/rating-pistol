@@ -12,9 +12,9 @@ import Mainstats from './Mainstats';
 import SubstatsChart from './SubstatsChart';
 import TrajectoryChart from './TrajectoryChart';
 
-const ExtraSubstat = ({ userDps, extraSubstats }) => {
+const ExtraSubstat = ({ userScore, extraSubstats }) => {
   const extraSubstatsList = Object.entries(extraSubstats)
-    .map(([stat, mps]) => ({ stat, diff: mps / userDps - 1 }))
+    .map(([stat, mps]) => ({ stat, diff: mps / userScore - 1 }))
     .filter(({ diff }) => diff >= 0.0005)
     .toSorted((a, b) => b.diff - a.diff);
 
@@ -56,13 +56,13 @@ const Equips = ({ results }) => {
     results.userMember?.equipList;
 
   const extraSubstatsReady =
-    results.userDps &&
+    results.userScore &&
     results.extraSubstats;
 
   const trajectoryReady =
-    results.dpsProgression &&
-    results.userDps &&
-    results.dpsCeiling &&
+    results.scoreProgression &&
+    results.userScore &&
+    results.scoreCeiling &&
     results.fit &&
     results.benchmarkDay != null;
 
@@ -103,7 +103,7 @@ const Equips = ({ results }) => {
           {extraSubstatsReady ? (
             <CardContent component={Stack} sx={{ flex: 1, overflow: 'hidden' }}>
               <ExtraSubstat
-                userDps={results.userDps}
+                userScore={results.userScore}
                 extraSubstats={results.extraSubstats}
               />
             </CardContent>
@@ -118,9 +118,9 @@ const Equips = ({ results }) => {
           <CardHeader title="Estimated Farming Trajectory" />
           {trajectoryReady ? (
             <TrajectoryChart
-              dpsProgression={results.dpsProgression}
-              userDps={results.userDps}
-              dpsCeiling={results.dpsCeiling}
+              scoreProgression={results.scoreProgression}
+              userScore={results.userScore}
+              scoreCeiling={results.scoreCeiling}
               fit={results.fit}
               benchmarkDay={results.benchmarkDay}
             />

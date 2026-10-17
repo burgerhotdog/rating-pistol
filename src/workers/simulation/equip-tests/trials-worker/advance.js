@@ -9,10 +9,10 @@ function createEquipEvaluator(gameId, evaluateEquipMap, id) {
     for (const equipIndex of slots) {
       const equipList = prev.equipList.with(equipIndex, equip);
       const equipMap = buildEquipMap(equipList, true);
-      const { snapshots, score } = evaluateEquipMap(equipMap);
+      const results = evaluateEquipMap(equipMap);
 
-      if (score > next.score) {
-        Object.assign(next, { equipList, snapshots, score });
+      if (results.score > next.results.score) {
+        Object.assign(next, { equipList, results });
       }
     }
 
@@ -23,7 +23,7 @@ function createEquipEvaluator(gameId, evaluateEquipMap, id) {
     return (equip, trial) => trySlots([equip.index], equip, trial);
   }
 
-  if (id === 1409) {
+  if (id === 1409 || id === 1212) {
     return (equip, trial) => {
       switch (equip.cost) {
         case 4:
@@ -59,7 +59,7 @@ export function createAdvanceTrial(cache, evaluateEquipMap, currId, skippable) {
 
   return (trial) => {
     for (let i = 0; i < equipsPerDay; i++) {
-      const equip = generateEquip(gameId);
+      const equip = generateEquip(gameId, trial, currId);
       if (!equip) continue;
 
       Object.assign(trial, evaluateEquip(equip, trial));

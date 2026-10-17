@@ -59,14 +59,14 @@ function buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit) {
   return data;
 }
 
-const TrajectoryChart = ({ dpsProgression, userDps, dpsCeiling, fit, benchmarkDay }) => {
+const TrajectoryChart = ({ scoreProgression, userScore, scoreCeiling, fit, benchmarkDay }) => {
   const { palette } = useTheme();
   const accent = useAccent();
 
-  const userDay = estimateDay(userDps, dpsCeiling, dpsProgression, fit);
+  const userDay = estimateDay(userScore, scoreCeiling, scoreProgression, fit);
 
   const maxDay = Math.ceil(Math.max(userDay, benchmarkDay, 1) * 1.25);
-  const data = buildData(dpsProgression, userDay, userDps, maxDay, dpsCeiling, fit);
+  const data = buildData(scoreProgression, userDay, userScore, maxDay, scoreCeiling, fit);
 
   const ticks = useMemo(() => {
     const interval = Math.max(1, Math.ceil(maxDay / 6));
@@ -106,11 +106,11 @@ const TrajectoryChart = ({ dpsProgression, userDps, dpsCeiling, fit, benchmarkDa
       />
 
       <YAxis
-        domain={[0, dpsCeiling]}
+        domain={[0, scoreCeiling]}
         tick={{ fontSize: 12 }}
         tickFormatter={formatDmg}
         label={{
-          value: 'Team DPS',
+          value: 'Team Score',
           angle: -90,
           position: 'insideLeft',
           fontSize: 12,
@@ -118,7 +118,7 @@ const TrajectoryChart = ({ dpsProgression, userDps, dpsCeiling, fit, benchmarkDa
       />
 
       <ReferenceLine
-        y={dpsCeiling}
+        y={scoreCeiling}
         stroke={palette.warning.main}
         strokeDasharray="4 4"
         label={{
@@ -147,7 +147,7 @@ const TrajectoryChart = ({ dpsProgression, userDps, dpsCeiling, fit, benchmarkDa
         activeDot={false}
       />
 
-      {fit && dpsCeiling != null && (
+      {fit && scoreCeiling != null && (
         <Area
           type="monotone"
           dataKey="dottedMean"
@@ -164,7 +164,7 @@ const TrajectoryChart = ({ dpsProgression, userDps, dpsCeiling, fit, benchmarkDa
           const { solidMean, dottedMean, day = 0 } = payload[0].payload;
           const value = solidMean ?? dottedMean;
 
-          const nextDps = estimateDps(day + 1, dpsCeiling, dpsProgression, fit);
+          const nextDps = estimateDps(day + 1, scoreCeiling, scoreProgression, fit);
           const diff = nextDps - value;
           const diffPct = diff / value * 100;
 
@@ -175,7 +175,7 @@ const TrajectoryChart = ({ dpsProgression, userDps, dpsCeiling, fit, benchmarkDa
                   Day {Math.round(day)}
                 </Typography>
                 <Typography variant="caption">
-                  DPS: {formatNum(value ?? 0)}
+                  Score: {formatNum(value ?? 0)}
                 </Typography>
                 <Typography variant="caption">
                   Rate: {Math.abs(diffPct).toFixed(2)}% per day
