@@ -1,147 +1,164 @@
+
 import { createRunEquipMapFactory } from './runEquipMap';
 import { buildSkippable } from './skippable';
 import { getCeil } from './getCeil';
 
 function getDiff(prev, next) {
-  if (prev === 0 && next === 0) return 0;
+  if (prev === 0) return 0;
   return next / prev * 100 - 100;
+}
+
+function getRates({ totals, time }) {
+  return {
+    damage: totals.damage / time * 1000,
+    healing: totals.healing / time * 1000,
+    shield: totals.shield / time * 1000,
+  };
+}
+
+function getWeight(dpsRates, outputRates, reference, parts) {
+  const dpsLoss = Math.max(
+    0,
+    dpsRates.damage - outputRates.damage,
+  ) / reference.damage;
+
+  const outputGain = parts.reduce((sum, part) =>
+    sum + Math.max(
+      0,
+      outputRates[part] - dpsRates[part],
+    ) / reference[part]
+  , 0);
+
+  if (outputGain <= 0) return 0;
+
+  const maxLoss = dpsRates.damage * 0.1 / reference.damage;
+
+  if (maxLoss <= 0) return 0;
+
+  const effectiveLoss = dpsLoss / (1 + dpsLoss / maxLoss);
+
+  return effectiveLoss / outputGain;
 }
 
 export function calibrate(cache, equipMaps, specId) {
   const { gameId } = cache;
 
-  const createRunEquipMap = createRunEquipMapFactory(cache, equipMaps, specId);
-
-  const runEquipMapDamageFocus = createRunEquipMap();
-  const skippableDamageFocus = buildSkippable(gameId, runEquipMapDamageFocus);
-  const {
-    totals: damageOptimizedTotals,
-    score: damageOptimizedScoreCeiling,
-    dps: dpsCeiling,
-  } = getCeil(gameId, runEquipMapDamageFocus, specId, skippableDamageFocus);
-
-  const { totals: baseTotals } = runEquipMapDamageFocus();
-
-  const isDamageSignificant = getDiff(baseTotals.damage, damageOptimizedTotals.damage) > 10;
-  const isHealingSignificant = getDiff(baseTotals.healing, damageOptimizedTotals.healing) > 10;
-  const isShieldSignificant = getDiff(baseTotals.shield, damageOptimizedTotals.shield) > 10;
-
-  console.log(
-    getDiff(baseTotals.damage, damageOptimizedTotals.damage),
-    getDiff(baseTotals.healing, damageOptimizedTotals.healing),
-    getDiff(baseTotals.shield, damageOptimizedTotals.shield),
+  const createRunEquipMap = createRunEquipMapFactory(
+    cache,
+    equipMaps,
+    specId,
   );
 
-  if (
-    isDamageSignificant ||
-    (!isHealingSignificant && !isShieldSignificant)
-  ) {
+  const optimize = (calibration) => {
+    const runEquipMap = createRunEquipMap(calibration);
+    const skippable = buildSkippable(gameId, runEquipMap);
+
+    return getCeil(gameId, runEquipMap, specId, skippable);
+  };
+
+  // Baseline
+  const runEquipMap = createRunEquipMap();
+  const base = runEquipMap();
+  const baseRates = getRates(base);
+
+  // DPS ceiling
+  const dpsCeiling = optimize({ damage: 1 });
+  const dpsRates = getRates(dpsCeiling);
+
+  const dpsCeilDamageDiff = getDiff(
+    base.totals.damage,
+    dpsCeiling.totals.damage,
+  );
+
+  const dpsCeilHealingDiff = getDiff(
+    base.totals.healing,
+    dpsCeiling.totals.healing,
+  );
+
+  const dpsCeilShieldDiff = getDiff(
+    base.totals.shield,
+    dpsCeiling.totals.shield,
+  );
+
+  console.log(
+    'Total gains over baseline for DPS Ceiling Build:\n\n' +
+    `${dpsCeilDamageDiff.toFixed()}% Damage\n` +
+    `${dpsCeilHealingDiff.toFixed()}% Healing\n` +
+    `${dpsCeilShieldDiff.toFixed()}% Shield`
+  );
+
+  const isHealingVariable =
+    dpsCeiling.totals.healing !== base.totals.healing;
+
+  const isShieldVariable =
+    dpsCeiling.totals.shield !== base.totals.shield;
+
+  if (!isHealingVariable && !isShieldVariable) {
     return {
       calibration: { damage: 1 },
-      scoreCeiling: damageOptimizedScoreCeiling,
-      dpsCeiling,
+      scoreCeiling: dpsCeiling.score,
+      dpsCeiling: dpsCeiling.dps,
     };
   }
 
-  if (isHealingSignificant) {
-    const runEquipMapHealingFocus = createRunEquipMap({ healing: 1 });
-    const skippableHealingFocus = buildSkippable(gameId, runEquipMapHealingFocus);
-    const {
-      totals: healingOptimizedTotals,
-      score: healingOptimizedScoreCeiling,
-    } = getCeil(gameId, runEquipMapHealingFocus, specId, skippableHealingFocus);
+  // Fixed baseline reference
+  const reference = {
+    damage: baseRates.damage || 1,
+    healing: baseRates.healing || 1,
+    shield: baseRates.shield || 1,
+  };
 
-    const damageDiff = getDiff(damageOptimizedTotals.damage, healingOptimizedTotals.damage);
-    const healingDiff = getDiff(damageOptimizedTotals.healing, healingOptimizedTotals.healing);
+  // Select relevant sustain objectives
+  const parts = [
+    ...(isHealingVariable ? ['healing'] : []),
+    ...(isShieldVariable ? ['shield'] : []),
+  ];
 
-    console.log('Switching from Damage focus to Healing focus tradeoffs:');
-    console.log(`${damageDiff.toFixed(1)}% Team Damage`);
-    console.log(`+${healingDiff.toFixed(1)}% Team Healing`);
+  // Healing only, shielding only, or combined sustain ceiling
+  const sustainCalibration = {
+    damage: 0.1,
+    ...Object.fromEntries(parts.map((part) => [part, 1])),
+    reference,
+  };
 
-    if (Math.abs(damageDiff) > 10) {
-      console.log('Final Decision: Damage focus');
-      return {
-        calibration: { damage: 1 },
-        scoreCeiling: damageOptimizedScoreCeiling,
-        dpsCeiling,
-      };
-    }
+  const sustainCeiling = optimize(sustainCalibration);
+  const sustainRates = getRates(sustainCeiling);
 
-    if (
-      Math.abs(damageDiff) < 10 &&
-      Math.abs(damageDiff) < healingDiff / cache.teamSize
-    ) {
-      console.log('Final Decision: Healing focus');
-      return {
-        calibration: { healing: 1 },
-        scoreCeiling: healingOptimizedScoreCeiling,
-        dpsCeiling,
-      };
-    }
+  // Share the DPS opportunity cost across all active sustain objectives
+  const sustainWeight = getWeight(
+    dpsRates,
+    sustainRates,
+    reference,
+    parts,
+  );
 
-    console.log('Final Decision: Hybrid focus');
+  const calibration = {
+    damage: 1,
+    ...(sustainWeight > 0
+      ? Object.fromEntries(parts.map((part) => [part, sustainWeight]))
+      : {}),
+    reference,
+  };
 
-    const runEquipMapHybridFocus = createRunEquipMap({ damage: 0.5, healing: 0.5 });
-    const skippableHybridFocus = buildSkippable(gameId, runEquipMapHybridFocus);
-    const {
-      score: hybridOptimizedScoreCeiling,
-    } = getCeil(gameId, runEquipMapHybridFocus, specId, skippableHybridFocus);
+  // Final multi-objective optimization
+  const hybridCeiling = optimize(calibration);
+  const hybridRates = getRates(hybridCeiling);
 
-    return {
-      calibration: { damage: 0.5, healing: 0.5 },
-      scoreCeiling: hybridOptimizedScoreCeiling,
-      dpsCeiling,
-    };
-  }
+  console.log(
+    'Calibration Results:\n\n' +
+    `Active Sustain: ${parts.join(', ')}\n` +
+    `Sustain Weight: ${sustainWeight.toFixed(3)}\n\n` +
+    `Sustain Ceiling DPS: ${getDiff(dpsRates.damage, sustainRates.damage).toFixed(1)}%\n` +
+    `Sustain Ceiling HPS: ${getDiff(dpsRates.healing, sustainRates.healing).toFixed(1)}%\n` +
+    `Sustain Ceiling SPS: ${getDiff(dpsRates.shield, sustainRates.shield).toFixed(1)}%\n\n` +
+    `Final DPS: ${getDiff(dpsRates.damage, hybridRates.damage).toFixed(1)}%\n` +
+    `Final HPS: ${getDiff(dpsRates.healing, hybridRates.healing).toFixed(1)}%\n` +
+    `Final SPS: ${getDiff(dpsRates.shield, hybridRates.shield).toFixed(1)}%`
+  );
 
-  if (isShieldSignificant) {
-    const runEquipMapShieldFocus = createRunEquipMap({ shield: 1 });
-    const skippableShieldFocus = buildSkippable(gameId, runEquipMapShieldFocus);
-    const {
-      totals: shieldOptimizedTotals,
-      score: shieldOptimizedScoreCeiling,
-    } = getCeil(gameId, runEquipMapShieldFocus, specId, skippableShieldFocus);
-
-    const damageDiff = getDiff(damageOptimizedTotals.damage, shieldOptimizedTotals.damage);
-    const shieldDiff = getDiff(damageOptimizedTotals.shield, shieldOptimizedTotals.shield);
-
-    console.log('Switching from Damage focus to Shield focus tradeoffs:');
-    console.log(`${damageDiff.toFixed(1)}% Team Damage`);
-    console.log(`+${shieldDiff.toFixed(1)}% Team Shield`);
-
-    if (Math.abs(damageDiff) > 10) {
-      console.log('Final Decision: Damage focus');
-      return {
-        calibration: { damage: 1 },
-        scoreCeiling: damageOptimizedScoreCeiling,
-        dpsCeiling,
-      };
-    }
-
-    if (
-      Math.abs(damageDiff) < 10 &&
-      Math.abs(damageDiff) < shieldDiff / cache.teamSize
-    ) {
-      console.log('Final Decision: Shield focus');
-      return {
-        calibration: { shield: 1 },
-        scoreCeiling: shieldOptimizedScoreCeiling,
-        dpsCeiling,
-      };
-    }
-
-    console.log('Final Decision: Hybrid focus');
-
-    const runEquipMapHybridFocus = createRunEquipMap({ damage: 0.5, shield: 0.5 });
-    const skippableHybridFocus = buildSkippable(gameId, runEquipMapHybridFocus);
-    const {
-      score: hybridOptimizedScoreCeiling,
-    } = getCeil(gameId, runEquipMapHybridFocus, specId, skippableHybridFocus);
-
-    return {
-      calibration: { damage: 0.5, shield: 0.5 },
-      scoreCeiling: hybridOptimizedScoreCeiling,
-      dpsCeiling,
-    };
-  }
+  return {
+    calibration,
+    scoreCeiling: hybridCeiling.score,
+    dpsCeiling: dpsCeiling.dps,
+  };
 }
