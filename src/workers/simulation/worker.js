@@ -1,3 +1,4 @@
+import { linearRegression } from 'simple-statistics';
 import { CHARACTER } from '@/data';
 import { estimateDps } from '@/utils';
 import { buildCache } from './cache';
@@ -45,56 +46,69 @@ self.onmessage = async ({ data }) => {
   const equipMaps = await resolveEquipMaps(rawCache);
 
   const {
-    order,
+    rotationOrder,
     snapshots: userSnapshots,
     bonusEnergy,
     time: userRotationTime,
     source: userRotationTimeSource,
     dps: userDps,
   } = getRotationOrder(rawCache, equipMaps);
-
-  const cache = { ...rawCache, memberIds: order };
-
   self.postMessage({
-    rotationOrder: order,
+    rotationOrder,
     userSnapshots,
     userRotationTime,
     userRotationTimeSource,
     userDps,
   });
 
-  console.time('calibrate');
+  const cache = { ...rawCache, memberIds: rotationOrder };
   const { calibration, scoreCeiling, dpsCeiling } = calibrate(cache, equipMaps, charId);
-  console.timeEnd('calibrate');
+  self.postMessage({ scoreCeiling, dpsCeiling });
+
+  const {
+    scoreProgression,
+    dpsProgression,
+    equipListConfigs,
+    extraSubstats,
+    extraSubstatsControl,
+    userScore,
+  } = await runEquipTests(cache, equipMaps, charId, calibration);
   self.postMessage({
-    scoreCeiling,
-    dpsCeiling,
+    scoreProgression,
+    equipListConfigs,
+    extraSubstats,
+    extraSubstatsControl,
+    userScore,
   });
 
-  console.time('runEquipTests');
-  const results = await runEquipTests(cache, equipMaps, charId, calibration, scoreCeiling);
-  console.timeEnd('runEquipTests');
-  self.postMessage({
-    scoreProgression: results.scoreProgression,
-    fit: results.fit,
-    equipListConfigs: results.equipListConfigs,
-    ...findBenchmark(results.scoreCeiling, results.scoreProgression, results.dpsProgression, results.fit),
-    extraSubstats: results.extraSubstats,
-    extraSubstatsControl: results.extraSubstatsControl,
-    userScore: results.userScore,
-  });
+  const fit = getFit(scoreProgression, scoreCeiling);
+  const {
+    benchmarkDay,
+    benchmarkScore,
+    benchmarkDps,
+  } = findBenchmark(scoreCeiling, scoreProgression, dpsProgression, fit);
+  self.postMessage({ fit, benchmarkDay, benchmarkScore, benchmarkDps });
 
-  // console.time('runComparisonTests');
   const { weaponResults, setResults } = runComparisonTests(cache, equipMaps, bonusEnergy);
-  // console.timeEnd('runComparisonTests');
   self.postMessage({ weaponResults, setResults });
 
-  // console.time('runSkillLevelTests');
   const skillLevelResults = runSkillLevelTests(cache, equipMaps, charId);
-  // console.timeEnd('runSkillLevelTests');
   self.postMessage({ skillLevelResults });
 
   self.postMessage({ status: 'done' });
+};
+
+const getFit = (mpsProgression, mpsCeiling) => {
+  const logPoints = mpsProgression
+    .slice(-5)
+    .map(({ day, mean }) => [
+      Math.log(day),
+      Math.log(mpsCeiling - mean),
+    ]);
+
+  const { m, b } = linearRegression(logPoints);
+
+  return { k: -m, A: Math.exp(b) };
 };
 
 function findBenchmark(scoreCeiling, scoreProgression, dpsProgression, fit) {

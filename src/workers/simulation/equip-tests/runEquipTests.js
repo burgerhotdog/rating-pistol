@@ -1,22 +1,8 @@
-import { linearRegression } from 'simple-statistics';
 import { runTrials } from './runTrials';
 import { createEvaluateEquipMap } from './evaluateEquipMap';
 import { testExtraSubstat } from './testExtraSubstat';
 
-const getFit = (mpsProgression, mpsCeiling) => {
-  const logPoints = mpsProgression
-    .slice(-5)
-    .map(({ day, mean }) => [
-      Math.log(day),
-      Math.log(mpsCeiling - mean),
-    ]);
-
-  const { m, b } = linearRegression(logPoints);
-
-  return { k: -m, A: Math.exp(b) };
-};
-
-export async function runEquipTests(cache, equipMaps, currId, calibration, scoreCeiling) {
+export async function runEquipTests(cache, equipMaps, currId, calibration) {
   const { scoreUpdates, dpsUpdates, equipListConfigs } = await runTrials(cache, equipMaps, currId, true, calibration);
 
   const evaluateEquipMap = createEvaluateEquipMap(cache, equipMaps, currId, calibration);
@@ -32,7 +18,6 @@ export async function runEquipTests(cache, equipMaps, currId, calibration, score
     scoreProgression,
     dpsProgression,
     userScore,
-    fit: getFit(scoreProgression, scoreCeiling),
     equipListConfigs,
     extraSubstats: extraSubstatsResults.results,
     extraSubstatsControl: extraSubstatsResults.control,

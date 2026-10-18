@@ -43,11 +43,7 @@ function getWeight(dpsRates, outputRates, reference, parts) {
 export function calibrate(cache, equipMaps, specId) {
   const { gameId } = cache;
 
-  const createRunEquipMap = createRunEquipMapFactory(
-    cache,
-    equipMaps,
-    specId,
-  );
+  const createRunEquipMap = createRunEquipMapFactory(cache, equipMaps, specId);
 
   const optimize = (calibration) => {
     const runEquipMap = createRunEquipMap(calibration);
@@ -56,65 +52,34 @@ export function calibrate(cache, equipMaps, specId) {
     return getCeil(gameId, runEquipMap, specId, skippable);
   };
 
-  // Baseline
   const runEquipMap = createRunEquipMap();
-  const base = runEquipMap();
-  const baseRates = getRates(base);
+  const baseResults = runEquipMap();
+  const baseTotals = baseResults.totals;
+  const baseRates = getRates(baseResults);
 
-  // DPS ceiling
-  const dpsCeiling = optimize({ damage: 1 });
-  const dpsRates = getRates(dpsCeiling);
+  const dpsCeilResults = optimize({ damage: 1 });
+  const dpsCeilTotals = dpsCeilResults.totals;
+  const dpsCeilRates = getRates(dpsCeilResults);
 
-  const dpsCeilDamageDiff = getDiff(
-    base.totals.damage,
-    dpsCeiling.totals.damage,
-  );
-
-  const dpsCeilHealingDiff = getDiff(
-    base.totals.healing,
-    dpsCeiling.totals.healing,
-  );
-
-  const dpsCeilShieldDiff = getDiff(
-    base.totals.shield,
-    dpsCeiling.totals.shield,
-  );
-
-  console.log(
-    'Total gains over baseline for DPS Ceiling Build:\n\n' +
-    `${dpsCeilDamageDiff.toFixed()}% Damage\n` +
-    `${dpsCeilHealingDiff.toFixed()}% Healing\n` +
-    `${dpsCeilShieldDiff.toFixed()}% Shield`
-  );
-
-  const isHealingVariable =
-    dpsCeiling.totals.healing !== base.totals.healing;
-
-  const isShieldVariable =
-    dpsCeiling.totals.shield !== base.totals.shield;
-
-  if (!isHealingVariable && !isShieldVariable) {
-    return {
-      calibration: { damage: 1 },
-      scoreCeiling: dpsCeiling.score,
-      dpsCeiling: dpsCeiling.dps,
-    };
-  }
-
-  // Fixed baseline reference
   const reference = {
     damage: baseRates.damage || 1,
     healing: baseRates.healing || 1,
     shield: baseRates.shield || 1,
   };
 
-  // Select relevant sustain objectives
   const parts = [
-    ...(isHealingVariable ? ['healing'] : []),
-    ...(isShieldVariable ? ['shield'] : []),
+    ...(dpsCeilTotals.healing !== baseTotals.healing ? ['healing'] : []),
+    ...(dpsCeilTotals.shield !== baseTotals.shield ? ['shield'] : []),
   ];
 
-  // Healing only, shielding only, or combined sustain ceiling
+  if (parts.length === 0) {
+    return {
+      calibration: { damage: 1 },
+      scoreCeiling: dpsCeilResults.score,
+      dpsCeiling: dpsCeilResults.dps,
+    };
+  }
+
   const sustainCalibration = {
     damage: 0.1,
     ...Object.fromEntries(parts.map((part) => [part, 1])),
@@ -124,13 +89,7 @@ export function calibrate(cache, equipMaps, specId) {
   const sustainCeiling = optimize(sustainCalibration);
   const sustainRates = getRates(sustainCeiling);
 
-  // Share the DPS opportunity cost across all active sustain objectives
-  const sustainWeight = getWeight(
-    dpsRates,
-    sustainRates,
-    reference,
-    parts,
-  );
+  const sustainWeight = getWeight(dpsCeilRates, sustainRates, reference, parts);
 
   const calibration = {
     damage: 1,
@@ -140,25 +99,20 @@ export function calibrate(cache, equipMaps, specId) {
     reference,
   };
 
-  // Final multi-objective optimization
-  const hybridCeiling = optimize(calibration);
-  const hybridRates = getRates(hybridCeiling);
+  const { score: hybridCeilScore } = optimize(calibration);
 
   console.log(
     'Calibration Results:\n\n' +
     `Active Sustain: ${parts.join(', ')}\n` +
     `Sustain Weight: ${sustainWeight.toFixed(3)}\n\n` +
-    `Sustain Ceiling DPS: ${getDiff(dpsRates.damage, sustainRates.damage).toFixed(1)}%\n` +
-    `Sustain Ceiling HPS: ${getDiff(dpsRates.healing, sustainRates.healing).toFixed(1)}%\n` +
-    `Sustain Ceiling SPS: ${getDiff(dpsRates.shield, sustainRates.shield).toFixed(1)}%\n\n` +
-    `Final DPS: ${getDiff(dpsRates.damage, hybridRates.damage).toFixed(1)}%\n` +
-    `Final HPS: ${getDiff(dpsRates.healing, hybridRates.healing).toFixed(1)}%\n` +
-    `Final SPS: ${getDiff(dpsRates.shield, hybridRates.shield).toFixed(1)}%`
+    `Sustain Ceiling DPS: ${getDiff(dpsCeilRates.damage, sustainRates.damage).toFixed(1)}%\n` +
+    `Sustain Ceiling HPS: ${getDiff(dpsCeilRates.healing, sustainRates.healing).toFixed(1)}%\n` +
+    `Sustain Ceiling SPS: ${getDiff(dpsCeilRates.shield, sustainRates.shield).toFixed(1)}%\n\n`
   );
 
   return {
     calibration,
-    scoreCeiling: hybridCeiling.score,
-    dpsCeiling: dpsCeiling.dps,
+    scoreCeiling: hybridCeilScore,
+    dpsCeiling: dpsCeilResults.dps,
   };
 }
