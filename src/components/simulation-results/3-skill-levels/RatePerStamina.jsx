@@ -36,7 +36,7 @@ const RatePerStamina = ({ data }) => {
                   Cost: {staminaCost.toFixed()} {langData.Stamina}
                 </Typography>
                 <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                  Rate: {rate.toFixed(4)}% per {langData.Stamina}
+                  Rate: {rate.toFixed(1)}% per day
                 </Typography>
               </Stack>
             </Paper>

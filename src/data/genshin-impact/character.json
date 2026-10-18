@@ -31101,7 +31101,6 @@
     ]
   },
   "10000074": {
-    "disabled": true,
     "name": "Layla",
     "version": 3.2,
     "id": 10000074,
@@ -31116,7 +31115,227 @@
       "hp%": 0.24
     },
     "energy": 40,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "curtainOfSlumber",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 12000,
+          "offset": 1500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1500,
+          "commands": {
+            "type": "apply",
+            "ref": "nightStar",
+            "spec": {
+              "uses": 1
+            }
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "nightStar"
+          }
+        }
+      },
+      {
+        "ref": "nightStar",
+        "apply": {
+          "by": "$team",
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "type": "elementalSkill"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "curtainOfSlumber"
+                }
+              }
+            ]
+          },
+          "cooldown": 300,
+          "stacks": 2
+        },
+        "remove": {
+          "when": "maxStacks",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "shootingStars",
+              "spec": {
+                "uses": 4,
+                "offset": 500
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "dawnStar",
+              "spec": {
+                "duration": 3000,
+                "uses": 1
+              }
+            }
+          ]
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "shootingStars",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 500,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "celestialDreamsphere",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 8,
+          "offset": 1500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1500,
+          "action": "elementalBurst.1",
+          "commands": {
+            "type": "apply",
+            "ref": "nightStar",
+            "filter": {
+              "effectStacks": {
+                "has": "curtainOfSlumber"
+              }
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "hp",
+              "step": 1,
+              "value": 0.015
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "stats": {
+            "shieldMv%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "action": {
+            "restoreEnergy": {
+              "flat": 1
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "ref": "dawnStar",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "hp",
+              "step": 1,
+              "value": 0.05
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalBurst.1"
+              ]
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.4
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "modify": {
+          "type": "effect",
+          "ref": "curtainOfSlumber",
+          "spec": {
+            "apply": {
+              "cooldown": -300
+            },
+            "use": {
+              "cooldown": -300
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Sword of the Radiant Path",
@@ -31336,9 +31555,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -31360,12 +31580,60 @@
                   ]
                 }
               ]
+            },
+            "shield": {
+              "duration": 12000,
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.108,
+                    0.1161,
+                    0.1242,
+                    0.135,
+                    0.1431,
+                    0.1512,
+                    0.162,
+                    0.1728,
+                    0.1836,
+                    0.1944,
+                    0.2052,
+                    0.216,
+                    0.2295,
+                    0.243,
+                    0.2565
+                  ],
+                  "flat": [
+                    1040.007,
+                    1144.0221,
+                    1256.7052,
+                    1378.0562,
+                    1508.0751,
+                    1646.762,
+                    1794.1167,
+                    1950.1394,
+                    2114.83,
+                    2288.1887,
+                    2470.215,
+                    2660.9097,
+                    2860.272,
+                    3068.3022,
+                    3285.0005
+                  ]
+                }
+              ]
             }
           },
           {
-            "name": "Shooting Star DMG",
-            "type": "elementalSkill",
+            "name": "Shooting Star",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 3000,
+                "hits": 7
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -31388,52 +31656,6 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Base Shield DMG Absorption",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.108,
-                    0.1161,
-                    0.1242,
-                    0.135,
-                    0.1431,
-                    0.1512,
-                    0.162,
-                    0.1728,
-                    0.1836,
-                    0.1944,
-                    0.2052,
-                    0.216,
-                    0.2295,
-                    0.243,
-                    0.2565
-                  ]
-                },
-                {
-                  "mv": [
-                    1040.007,
-                    1144.0221,
-                    1256.7052,
-                    1378.0562,
-                    1508.0751,
-                    1646.762,
-                    1794.1167,
-                    1950.1394,
-                    2114.83,
-                    2288.1887,
-                    2470.215,
-                    2660.9097,
-                    2860.272,
-                    3068.3022,
-                    3285.0005
-                  ]
-                }
-              ]
-            }
           }
         ]
       },
@@ -31442,9 +31664,20 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Starlight Slug DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Starlight Slug",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -31471,7 +31704,16 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11427,
+      "setCounts": {
+        "15017": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000075": {
     "name": "Wanderer",
