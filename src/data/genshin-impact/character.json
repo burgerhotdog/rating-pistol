@@ -50675,7 +50675,6 @@
     "memberPreset": {}
   },
   "10000111": {
-    "disabled": true,
     "name": "Varesa",
     "version": 5.5,
     "id": 10000111,
@@ -50691,8 +50690,102 @@
     },
     "energy": 70,
     "nightsoul": true,
+    "maxNightsoul": 40,
     "energyMax": 1.5,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "rainbowCrash",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 5000,
+          "commands": {
+            "type": "apply",
+            "ref": "rainbowCrashFiery",
+            "spec": {
+              "duration": 5000
+            }
+          }
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "type": "plungingAttack"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.4",
+                "normalAttack.5"
+              ]
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": 0.5
+            }
+          }
+        }
+      },
+      {
+        "ref": "rainbowCrashFiery",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "type": "plungingAttack"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.11",
+                "normalAttack.12"
+              ]
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": 1.8
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "by": "$team",
+          "when": "nightsoulBurst",
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.35
+          }
+        },
+        "maxStacks": 2,
+        "independentStacks": true
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "By the Horns",
@@ -50814,6 +50907,7 @@
           {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
+            "nightsoul": 25,
             "damage": {
               "multipliers": [
                 {
@@ -50841,6 +50935,7 @@
           {
             "name": "Plunging Attack: High",
             "type": "plungingAttack",
+            "nightsoul": 25,
             "damage": {
               "multipliers": [
                 {
@@ -51008,6 +51103,7 @@
           {
             "name": "Fiery Passion: Plunging Attack: Low",
             "type": "plungingAttack",
+            "nightsoul": -40,
             "damage": {
               "multipliers": [
                 {
@@ -51035,6 +51131,7 @@
           {
             "name": "Fiery Passion: Plunging Attack: High",
             "type": "plungingAttack",
+            "nightsoul": -40,
             "damage": {
               "multipliers": [
                 {
@@ -51094,6 +51191,7 @@
           {
             "name": "Elemental Skill",
             "type": "elementalSkill",
+            "nightsoul": 20,
             "damage": {
               "gauge": 1,
               "icd": {
@@ -51166,7 +51264,9 @@
           {
             "name": "Elemental Burst",
             "type": "elementalBurst",
+            "nightsoul": 40,
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -51194,6 +51294,7 @@
             "name": "Fiery Passion: Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -51259,8 +51360,41 @@
       "weaponId": 14519,
       "setCounts": {
         "15039": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "normalAttack.3",
+        "normalAttack.5",
+        "normalAttack.6",
+        "elementalSkill.1",
+        "normalAttack.10",
+        "normalAttack.12",
+        "normalAttack.13",
+        "elementalBurst.2",
+        "elementalSkill.0",
+        "normalAttack.3",
+        "normalAttack.5",
+        "normalAttack.6",
+        "elementalSkill.1",
+        "normalAttack.10",
+        "normalAttack.12",
+        "normalAttack.13",
+        "elementalBurst.2",
+        "normalAttack.3",
+        "normalAttack.5",
+        "normalAttack.6",
+        "normalAttack.3",
+        "normalAttack.5",
+        "normalAttack.6"
+      ],
+      "duration": 15000
+    },
+    "teamPreset": [
+      10000111,
+      10000123,
+      10000131,
+      10000090
+    ]
   },
   "10000112": {
     "name": "Escoffier",
