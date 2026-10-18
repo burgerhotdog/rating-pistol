@@ -16,7 +16,8 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId, calibration = {
 
   const durationGetter = createEquipDurationGetter(cache, equipMaps, evalId, bonusEnergy);
 
-  const partWeights = Object.entries(calibration);
+  const { reference, ...weights } = calibration;
+  const partWeights = Object.entries(weights);
 
   return (evalEquipMap = {}) => {
     const evalStatMap = toMergedObj(preMerged, evalEquipMap);
@@ -24,10 +25,12 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId, calibration = {
 
     const totals = getTotals(snapshots);
 
-    const fullScore = partWeights.reduce(
-      (acc, [part, weight]) => acc + totals[part] * weight,
-      0
-    );
+    const fullScore = partWeights.reduce((acc, [part, weight]) => {
+      const value = totals[part] ?? 0;
+      const divisor = reference?.[part] ?? 1;
+
+      return acc + value / divisor * weight;
+    }, 0);
 
     const { time } = durationGetter(evalEquipMap);
     const score = fullScore / time * 1000;

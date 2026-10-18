@@ -17,20 +17,23 @@ export function createRunEquipMapFactory(cache, equipMaps, specId) {
   const durationGetter = createEquipDurationGetter(cache, equipMaps, specId, bonusEnergy);
 
   return (calibration = { damage: 1 }) => {
-    const partWeights = Object.entries(calibration);
+    const { reference, ...weights } = calibration;
+    const partWeights = Object.entries(weights);
 
     return (equipMap = {}) => {
       const statMap = toMergedObj(preMerged, equipMap);
       const snapshots = resolveSnapshots(statMap);
-
       const totals = getTotals(snapshots);
 
-      const fullScore = partWeights.reduce(
-        (acc, [part, weight]) => acc + totals[part] * weight,
-        0
-      );
+      const fullScore = partWeights.reduce((acc, [part, weight]) => {
+        const value = totals[part] ?? 0;
+        const divisor = reference?.[part] ?? 1;
+
+        return acc + value / divisor * weight;
+      }, 0);
 
       const { time } = durationGetter(equipMap);
+
       const score = fullScore / time * 1000;
       const dps = totals.damage / time * 1000;
 

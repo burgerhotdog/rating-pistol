@@ -14524,7 +14524,6 @@
     "memberPreset": {}
   },
   "10000045": {
-    "disabled": true,
     "name": "Rosaria",
     "version": 1.4,
     "id": 10000045,
@@ -14539,7 +14538,129 @@
       "atk%": 0.24
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "iceLance",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 4,
+          "offset": 1500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "critRate%": 0.12
+          }
+        }
+      },
+      {
+        "stores": "$ally",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "specs": {
+            "critRate%": {
+              "attr": "critRate%",
+              "step": 1,
+              "value": 0.15,
+              "maxValue": 0.15
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "attackSpd%": 0.1,
+            "normalAttackDmgBonus%": 0.1
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "modify": {
+          "type": "effect",
+          "ref": "iceLance",
+          "spec": {
+            "apply": {
+              "uses": 2
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "cooldown": 6000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 5
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "cooldown": 10000
+        },
+        "buff": {
+          "stats": {
+            "physicalResReduction%": 0.2
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Spear of the Church",
@@ -14620,7 +14741,8 @@
                     0.7622,
                     0.8066,
                     0.851
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
@@ -14813,9 +14935,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -14865,9 +14988,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -14912,8 +15036,9 @@
           },
           {
             "name": "Ice Lance DoT",
-            "type": "elementalBurst",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -14940,7 +15065,16 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13407,
+      "setCounts": {
+        "15007": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000046": {
     "name": "Hu Tao",
@@ -50675,7 +50809,6 @@
     "memberPreset": {}
   },
   "10000111": {
-    "disabled": true,
     "name": "Varesa",
     "version": 5.5,
     "id": 10000111,
@@ -50691,8 +50824,102 @@
     },
     "energy": 70,
     "nightsoul": true,
+    "maxNightsoul": 40,
     "energyMax": 1.5,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "rainbowCrash",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 5000,
+          "commands": {
+            "type": "apply",
+            "ref": "rainbowCrashFiery",
+            "spec": {
+              "duration": 5000
+            }
+          }
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "type": "plungingAttack"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.4",
+                "normalAttack.5"
+              ]
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": 0.5
+            }
+          }
+        }
+      },
+      {
+        "ref": "rainbowCrashFiery",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "type": "plungingAttack"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.11",
+                "normalAttack.12"
+              ]
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": 1.8
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "by": "$team",
+          "when": "nightsoulBurst",
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.35
+          }
+        },
+        "maxStacks": 2,
+        "independentStacks": true
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "By the Horns",
@@ -50814,6 +51041,7 @@
           {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
+            "nightsoul": 25,
             "damage": {
               "multipliers": [
                 {
@@ -50841,6 +51069,7 @@
           {
             "name": "Plunging Attack: High",
             "type": "plungingAttack",
+            "nightsoul": 25,
             "damage": {
               "multipliers": [
                 {
@@ -51008,6 +51237,7 @@
           {
             "name": "Fiery Passion: Plunging Attack: Low",
             "type": "plungingAttack",
+            "nightsoul": -40,
             "damage": {
               "multipliers": [
                 {
@@ -51035,6 +51265,7 @@
           {
             "name": "Fiery Passion: Plunging Attack: High",
             "type": "plungingAttack",
+            "nightsoul": -40,
             "damage": {
               "multipliers": [
                 {
@@ -51094,6 +51325,7 @@
           {
             "name": "Elemental Skill",
             "type": "elementalSkill",
+            "nightsoul": 20,
             "damage": {
               "gauge": 1,
               "icd": {
@@ -51166,7 +51398,9 @@
           {
             "name": "Elemental Burst",
             "type": "elementalBurst",
+            "nightsoul": 40,
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -51194,6 +51428,7 @@
             "name": "Fiery Passion: Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -51259,8 +51494,41 @@
       "weaponId": 14519,
       "setCounts": {
         "15039": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "normalAttack.3",
+        "normalAttack.5",
+        "normalAttack.6",
+        "elementalSkill.1",
+        "normalAttack.10",
+        "normalAttack.12",
+        "normalAttack.13",
+        "elementalBurst.2",
+        "elementalSkill.0",
+        "normalAttack.3",
+        "normalAttack.5",
+        "normalAttack.6",
+        "elementalSkill.1",
+        "normalAttack.10",
+        "normalAttack.12",
+        "normalAttack.13",
+        "elementalBurst.2",
+        "normalAttack.3",
+        "normalAttack.5",
+        "normalAttack.6",
+        "normalAttack.3",
+        "normalAttack.5",
+        "normalAttack.6"
+      ],
+      "duration": 15000
+    },
+    "teamPreset": [
+      10000111,
+      10000123,
+      10000131,
+      10000090
+    ]
   },
   "10000112": {
     "name": "Escoffier",
@@ -54549,7 +54817,7 @@
         "15043": 4
       },
       "rotation": [
-        "elementalBurst.0"
+        "elementalSkill.0"
       ]
     },
     "teamPreset": [

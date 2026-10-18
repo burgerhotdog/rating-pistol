@@ -12,16 +12,24 @@ export function useSortedBuilds() {
   const builds = useBuilds();
   const { gameId } = useParams();
   const pinnedId = useUser().pinnedIds[gameId];
-  const characterData = useData('character');
+  const characterDatas = useData('character');
 
   const sortedKeys = useMemo(
     () => Object.values(builds)
       .sort((a, b) => {
         if (a.id === pinnedId) return -1;
         if (b.id === pinnedId) return 1;
-        return characterData[b.id].version - characterData[a.id].version;
+
+        const aData = characterDatas[a.id];
+        const bData = characterDatas[b.id];
+
+        return (
+          bData.version - aData.version ||
+          bData.quality - aData.quality ||
+          bData.id - aData.id
+        );
       }),
-    [builds, pinnedId, characterData],
+    [builds, pinnedId, characterDatas],
   );
 
   return { builds, sortedKeys };

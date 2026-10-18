@@ -88,6 +88,8 @@ Characters:
         No constellations
     Raiden
         Remember E no snapshot
+    Rosaria
+        C1 assumes always hits
     Sandrone
         A1 doesn't apply to non stellar dmg
         No constellations
@@ -99,6 +101,8 @@ Characters:
     Sucrose
         Element must be there at apply time to be absorbed
         No C6
+    Varesa
+        No constellations
     Varka
         No constellations
     Vesna

@@ -20,7 +20,7 @@ function testOrder(cache, equipMaps, order) {
   const dps = totals.damage / time * 1000;
 
   return {
-    order,
+    rotationOrder: order,
     snapshots,
     bonusEnergy,
     time,
