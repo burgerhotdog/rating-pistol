@@ -17820,7 +17820,59 @@
       "critDmg%": 0.384
     },
     "energy": 80,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "grimheart",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "cooldown": 300,
+          "duration": 18000
+        },
+        "use": {
+          "when": "hit",
+          "flter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "action": "elementalSkill.2",
+          "commands": {
+            "type": "apply",
+            "ref": "resDown",
+            "spec": {
+              "duration": 7000
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "def%": 0.3
+          }
+        },
+        "maxStacks": 2
+      },
+      {
+        "ref": "resDown",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "statRefs": {
+            "physicalResReduction%": "elementalSkill.3",
+            "cryoResReduction%": "elementalSkill.3"
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Favonius Bladework - Edel",
@@ -17999,8 +18051,8 @@
             }
           },
           {
-            "name": "Charged Attack Spinning DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -18194,9 +18246,9 @@
             }
           },
           {
-            "name": "Icewhirl Brand DMG",
-            "type": "elementalSkill",
+            "name": "Icewhirl Brand",
             "damage": {
+              "type": "elementalSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -18221,39 +18273,11 @@
             }
           },
           {
-            "name": "Physical RES Decrease",
-            "type": "elementalSkill",
-            "damage": {
+            "name": "RES Decrease",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
-                    0.16,
-                    0.17,
-                    0.18,
-                    0.19,
-                    0.2,
-                    0.21,
-                    0.22,
-                    0.23,
-                    0.24,
-                    0.25,
-                    0.25,
-                    0.25,
-                    0.25,
-                    0.25,
-                    0.25
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Cryo RES Decrease",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
+                  "flat": [
                     0.16,
                     0.17,
                     0.18,
