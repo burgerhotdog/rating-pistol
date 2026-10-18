@@ -125,7 +125,8 @@ function findBenchmark(scoreCeiling, scoreProgression, dpsProgression, fit) {
       increaseCount++;
     }
 
-    if (improvement < 0.005 && increaseCount >= 3) break;
+    if (improvement < 0.001) break;
+    if (improvement < 0.01 && increaseCount >= 3) break;
 
     previousImprovement = improvement;
     benchmarkDay++;

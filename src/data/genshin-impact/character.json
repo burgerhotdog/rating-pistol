@@ -31713,7 +31713,13 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000087,
+      10000031,
+      10000074,
+      10000047
+    ]
   },
   "10000075": {
     "name": "Wanderer",
