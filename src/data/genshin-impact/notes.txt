@@ -53,6 +53,8 @@ Characters:
         No constellations
     Kaeya
         No constellations
+    Kinich
+        No constellations
     Klee
         No constellations
     Lauma

@@ -46489,7 +46489,6 @@
     "memberPreset": {}
   },
   "10000101": {
-    "disabled": true,
     "name": "Kinich",
     "version": 5.0,
     "id": 10000101,
@@ -46505,7 +46504,121 @@
     },
     "energy": 70,
     "nightsoul": true,
-    "effects": [],
+    "maxNightsoul": 20,
+    "effects": [
+      {
+        "ref": "blessing",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 10000,
+          "offset": 1000,
+          "commands": {
+            "type": "apply",
+            "ref": "desolation",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": {
+            "nightsoul": 2
+          }
+        }
+      },
+      {
+        "ref": "ajaw",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 7,
+          "offset": 2000,
+          "commands": {
+            "type": "apply",
+            "ref": "blessing",
+            "spec": {
+              "duration": 1700,
+              "extend": true
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "desolation",
+        "apply": {
+          "when": "command"
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "states": {
+                "aura": {
+                  "has": "burning"
+                }
+              }
+            },
+            "cooldown": 800,
+            "action": {
+              "nightsoul": 7
+            }
+          },
+          {
+            "by": "$team",
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "reaction": "burgeon"
+              }
+            },
+            "cooldown": 800,
+            "action": {
+              "nightsoul": 7
+            }
+          }
+        ]
+      },
+      {
+        "ref": "huntersExperience",
+        "apply": {
+          "by": "$team",
+          "when": "nightsoulBurst",
+          "duration": 15000,
+          "uses": 1
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": 3.2
+            }
+          }
+        },
+        "maxStacks": 2
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Nightsun Style",
@@ -46592,7 +46705,7 @@
             }
           },
           {
-            "name": "Mid-Air Normal Attack DMG",
+            "name": "Mid-Air Normal Attack",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -46640,7 +46753,8 @@
                     1.1598,
                     1.2273,
                     1.2949
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
@@ -46733,9 +46847,15 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Loop Shot DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Normal Attack: Loop Shot",
+            "type": "normalAttack",
+            "nightsoul": 3,
             "damage": {
+              "type": "elementalSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -46754,14 +46874,16 @@
                     1.2172,
                     1.2888,
                     1.3604
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
           },
           {
-            "name": "Scalespiker Cannon DMG",
+            "name": "Elemental Skill: Scalespiker Cannon",
             "type": "elementalSkill",
+            "nightsoul": -20,
             "damage": {
               "multipliers": [
                 {
@@ -46793,9 +46915,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -46817,12 +46945,19 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 2200
           },
           {
-            "name": "Dragon Breath DMG",
-            "type": "elementalBurst",
+            "name": "Dragon Breath",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -46853,7 +46988,27 @@
       "weaponId": 12513,
       "setCounts": {
         "15038": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.2"
+      ],
+      "duration": 11700
     }
   },
   "10000102": {
