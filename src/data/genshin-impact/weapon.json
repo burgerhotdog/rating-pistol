@@ -6515,7 +6515,6 @@
     "effects": []
   },
   "13426": {
-    "disabled": true,
     "name": "Dialogues of the Desert Sages",
     "version": 4.5,
     "id": 13426,
@@ -6526,7 +6525,27 @@
       "baseAtk": 510,
       "hp%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "healing"
+            }
+          },
+          "cooldown": 10000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                8,
+                16
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "13427": {
     "disabled": true,

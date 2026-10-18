@@ -17805,7 +17805,6 @@
     "memberPreset": {}
   },
   "10000051": {
-    "disabled": true,
     "name": "Eula",
     "version": 1.5,
     "id": 10000051,
@@ -17836,9 +17835,17 @@
           "cooldown": 300,
           "duration": 18000
         },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          }
+        },
         "use": {
           "when": "hit",
-          "flter": {
+          "filter": {
             "action": {
               "ref": "elementalSkill.1"
             }
@@ -17869,6 +17876,99 @@
           "statRefs": {
             "physicalResReduction%": "elementalSkill.3",
             "cryoResReduction%": "elementalSkill.3"
+          }
+        }
+      },
+      {
+        "ref": "lightfallSword",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 1,
+          "offset": 7000
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "energyStacks",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "normalAttack",
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "lightfallSword"
+                }
+              }
+            ]
+          },
+          "cooldown": 100,
+          "uses": 1
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "statRefs": {
+            "damageMv": "elementalBurst.2"
+          }
+        },
+        "maxStacks": 30
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.1"
+                }
+              },
+              {
+                "effectStacks": {
+                  "grimheart": 2
+                }
+              }
+            ]
+          },
+          "uses": 1,
+          "offset": 500
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.3"
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.3"
+            }
+          },
+          "stats": {
+            "damageMv%": -0.5
           }
         }
       }
@@ -18195,6 +18295,7 @@
             "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -18222,6 +18323,7 @@
             "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -18249,6 +18351,12 @@
             "name": "Icewhirl Brand",
             "damage": {
               "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -18305,9 +18413,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -18333,8 +18442,9 @@
           },
           {
             "name": "Lightfall Sword Base DMG",
-            "type": "elementalBurst",
             "damage": {
+              "type": "elementalBurst",
+              "element": "physical",
               "multipliers": [
                 {
                   "mv": [
@@ -18360,8 +18470,7 @@
           },
           {
             "name": "DMG Per Stack",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
                   "mv": [
@@ -18384,6 +18493,34 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Shattered Lightfall Sword",
+            "damage": {
+              "type": "elementalBurst",
+              "element": "physical",
+              "multipliers": [
+                {
+                  "mv": [
+                    3.6705,
+                    3.9692,
+                    4.268,
+                    4.6948,
+                    4.9936,
+                    5.335,
+                    5.8045,
+                    6.274,
+                    6.7434,
+                    7.2556,
+                    7.8425,
+                    8.5326,
+                    9.2227,
+                    9.9129,
+                    10.6657
+                  ]
+                }
+              ]
+            }
           }
         ]
       }
@@ -18392,7 +18529,20 @@
       "weaponId": 12503,
       "setCounts": {
         "15018": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "elementalSkill.1",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3"
+      ]
     }
   },
   "10000052": {
@@ -34132,7 +34282,6 @@
     }
   },
   "10000080": {
-    "disabled": true,
     "name": "Mika",
     "version": 3.5,
     "id": 10000080,
@@ -34147,7 +34296,205 @@
       "hp%": 0.24
     },
     "energy": 70,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "soulwind",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 12000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "detector"
+            },
+            {
+              "type": "apply",
+              "ref": "soulwindAllowGain"
+            }
+          ]
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "detector"
+          }
+        },
+        "buff": {
+          "statRefs": {
+            "attackSpd%": "elementalSkill.3"
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "action": "elementalSkill.2",
+          "commands": {
+            "type": "apply",
+            "ref": "detector"
+          }
+        }
+      },
+      {
+        "ref": "eagleplume",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000
+        },
+        "use": {
+          "by": "$team",
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              }
+            ]
+          },
+          "cooldown": 2500,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "detector",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "physicalDmgBonus%": 0.1
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "soulwindAllowGain",
+        "apply": {
+          "when": "command"
+        }
+      },
+      {
+        "use": {
+          "by": "$team",
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "effectStacks": {
+                  "and": [
+                    {
+                      "has": "eagleplume"
+                    },
+                    {
+                      "has": "soulwind"
+                    },
+                    {
+                      "has": "soulwindAllowGain"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "action": {
+            "type": "apply",
+            "ref": "detector"
+          },
+          "commands": {
+            "type": "remove",
+            "ref": "soulwindAllowGain"
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "detector"
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "modify": {
+          "type": "effect",
+          "ref": "detector",
+          "spec": {
+            "maxStacks": 1
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "stores": "$team",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "damage": {
+                    "element": "physical"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "soulwind"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "critDmg%": 0.6
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Spear of Favonius - Arrow's Passage",
@@ -34421,9 +34768,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Flowfrost Arrow DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -34448,9 +34796,15 @@
             }
           },
           {
-            "name": "Rimestar Flare DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -34475,9 +34829,15 @@
             }
           },
           {
-            "name": "Rimestar Shard DMG",
-            "type": "elementalSkill",
+            "name": "Rimestar Shard",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -34503,11 +34863,10 @@
           },
           {
             "name": "ATK SPD Bonus",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.13,
                     0.14,
                     0.15,
@@ -34537,7 +34896,9 @@
           {
             "name": "Cast Healing",
             "type": "elementalBurst",
-            "damage": {
+            "healing": {
+              "targets": "$team",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -34556,10 +34917,8 @@
                     0.2586,
                     0.2738,
                     0.289
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     1172.0355,
                     1289.2554,
                     1416.2435,
@@ -34582,8 +34941,9 @@
           },
           {
             "name": "Eagleplume Healing",
-            "type": "elementalBurst",
-            "damage": {
+            "healing": {
+              "targets": "$onField",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -34602,10 +34962,8 @@
                     0.0517,
                     0.0547,
                     0.0578
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     233.9543,
                     257.353,
                     282.7015,
@@ -34629,7 +34987,16 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13407,
+      "setCounts": {
+        "15007": 4
+      },
+      "rotation": [
+        "elementalSkill.1",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000081": {
     "disabled": true,
