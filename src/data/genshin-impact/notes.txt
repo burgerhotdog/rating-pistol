@@ -97,13 +97,21 @@ Characters:
         No constellations
     Raiden
         Remember E no snapshot
+        E no 20% less for offField proc
+        E burst buff hardcoded
+        Resolve stacks gained hardcoded
+        A1 is simulated
+        A4 no energy restoration
+        No C1, C4, C6
     Rosaria
         C1 assumes always hits
     Sandrone
         A1 doesn't apply to non stellar dmg
         No constellations
     Sara
+        A4 hard coded
         Remember c6 no snapshot
+        Numbers are sus
     Skirk
         Deaths crossing not accurate
         No constellations

@@ -6878,7 +6878,6 @@
     "effects": []
   },
   "13509": {
-    "disabled": true,
     "name": "Engulfing Lightning",
     "version": 2.1,
     "id": 13509,
@@ -6889,7 +6888,46 @@
       "baseAtk": 608,
       "energyRecharge%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "specs": {
+            "atk%": {
+              "attr": "energyRecharge%",
+              "step": 1,
+              "offset": 1,
+              "value": [
+                0.28,
+                0.56
+              ],
+              "maxValue": [
+                0.8,
+                1.2
+              ]
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalBurst"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "energyRecharge%": [
+              0.3,
+              0.5
+            ]
+          }
+        }
+      }
+    ]
   },
   "13511": {
     "name": "Staff of the Scarlet Sands",

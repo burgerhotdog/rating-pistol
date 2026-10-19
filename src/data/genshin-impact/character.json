@@ -15460,7 +15460,13 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000051,
+      10000052,
+      10000045,
+      10000080
+    ]
   },
   "10000046": {
     "name": "Hu Tao",
@@ -18929,10 +18935,15 @@
         "normalAttack.2",
         "normalAttack.3"
       ]
-    }
+    },
+    "teamPreset": [
+      10000051,
+      10000052,
+      10000089,
+      10000080
+    ]
   },
   "10000052": {
-    "disabled": true,
     "name": "Raiden Shogun",
     "version": 2.1,
     "id": 10000052,
@@ -18947,7 +18958,164 @@
       "energyRecharge%": 0.32
     },
     "energy": 90,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "eyeOfStormJudgment",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 25000,
+          "commands": {
+            "type": "apply",
+            "ref": "burstBuff",
+            "spec": {
+              "duration": 25000
+            }
+          }
+        },
+        "use": {
+          "by": "$team",
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 900,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "burstBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "elementalBurstDmgBonus%": 0.24
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 7000,
+          "uses": 5
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalBurst.1",
+                "elementalBurst.2",
+                "elementalBurst.3",
+                "elementalBurst.4",
+                "elementalBurst.5",
+                "elementalBurst.6",
+                "elementalBurst.7",
+                "elementalBurst.8",
+                "elementalBurst.9"
+              ]
+            }
+          },
+          "cooldown": 1000,
+          "action": {
+            "restoreEnergy": {
+              "targets": "$team",
+              "flat": 2.5
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "statRefs": {
+            "damageMv": "elementalBurst.10"
+          }
+        }
+      },
+      {
+        "ref": "resolve",
+        "apply": {
+          "by": "$ally",
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 1,
+          "stacks": 15
+        },
+        "buff": {
+          "statRefs": {
+            "damageMv": "elementalBurst.11"
+          }
+        },
+        "maxStacks": 60
+      },
+      {
+        "use": {
+          "when": "interval",
+          "cooldown": 3000,
+          "commands": {
+            "type": "apply",
+            "ref": "resolve",
+            "spec": {
+              "uses": 1,
+              "stacks": 2
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "specs": {
+            "electroDmgBonus%": {
+              "attr": "energyRecharge%",
+              "step": 0.01,
+              "offset": 1,
+              "value": 0.004
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalBurst.0",
+                "elementalBurst.1",
+                "elementalBurst.2",
+                "elementalBurst.3",
+                "elementalBurst.4",
+                "elementalBurst.5",
+                "elementalBurst.6",
+                "elementalBurst.7",
+                "elementalBurst.8",
+                "elementalBurst.9"
+              ]
+            }
+          },
+          "stats": {
+            "defIgnore%": 0.6
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Origin",
@@ -19221,9 +19389,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -19248,9 +19417,15 @@
             }
           },
           {
-            "name": "Coordinated ATK DMG",
-            "type": "elementalSkill",
+            "name": "Coordinated ATK",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -19276,11 +19451,10 @@
           },
           {
             "name": "Elemental Burst DMG Bonus",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.0022,
                     0.0023,
                     0.0024,
@@ -19308,9 +19482,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Musou no Hitotachi Base DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -19335,82 +19510,16 @@
             }
           },
           {
-            "name": "Resolve Bonus",
-            "type": "elementalBurst",
+            "name": "Musou Isshin: Normal Attack 1",
+            "type": "normalAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.0389,
-                    0.0418,
-                    0.0447,
-                    0.0486,
-                    0.0515,
-                    0.0544,
-                    0.0583,
-                    0.0622,
-                    0.0661,
-                    0.07,
-                    0.0739,
-                    0.0778,
-                    0.0826,
-                    0.0875,
-                    0.0923
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0073,
-                    0.0078,
-                    0.0084,
-                    0.0091,
-                    0.0096,
-                    0.0102,
-                    0.0109,
-                    0.0116,
-                    0.0123,
-                    0.0131,
-                    0.0138,
-                    0.0145,
-                    0.0154,
-                    0.0163,
-                    0.0172
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Resolve Stacks Gained",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.15,
-                    0.16,
-                    0.16,
-                    0.17,
-                    0.17,
-                    0.18,
-                    0.18,
-                    0.19,
-                    0.19,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "1-Hit DMG",
-            "type": "elementalBurst",
-            "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Musou Isshin Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -19435,9 +19544,16 @@
             }
           },
           {
-            "name": "2-Hit DMG",
-            "type": "elementalBurst",
+            "name": "Musou Isshin: Normal Attack 2",
+            "type": "normalAttack",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Musou Isshin Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -19462,9 +19578,16 @@
             }
           },
           {
-            "name": "3-Hit DMG",
-            "type": "elementalBurst",
+            "name": "Musou Isshin: Normal Attack 3",
+            "type": "normalAttack",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Musou Isshin Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -19489,9 +19612,16 @@
             }
           },
           {
-            "name": "4-Hit DMG",
-            "type": "elementalBurst",
+            "name": "Musou Isshin: Normal Attack 4",
+            "type": "normalAttack",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Musou Isshin Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -19535,9 +19665,16 @@
             }
           },
           {
-            "name": "5-Hit DMG",
-            "type": "elementalBurst",
+            "name": "Musou Isshin: Normal Attack 5",
+            "type": "normalAttack",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Musou Isshin Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -19562,9 +19699,16 @@
             }
           },
           {
-            "name": "Charged Attack DMG",
-            "type": "elementalBurst",
+            "name": "Musou Isshin: Charged Attack",
+            "type": "chargedAttack",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Musou Isshin Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -19608,36 +19752,11 @@
             }
           },
           {
-            "name": "Plunge DMG",
-            "type": "elementalBurst",
+            "name": "Musou Isshin: Plunging Attack: Low",
+            "type": "plungingAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6393,
-                    0.6914,
-                    0.7434,
-                    0.8177,
-                    0.8698,
-                    0.9293,
-                    1.011,
-                    1.0928,
-                    1.1746,
-                    1.2638,
-                    1.353,
-                    1.4422,
-                    1.5314,
-                    1.6206,
-                    1.7098
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunging Attack: Low",
-            "type": "elementalBurst",
-            "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -19662,9 +19781,11 @@
             }
           },
           {
-            "name": "Plunging Attack: High",
-            "type": "elementalBurst",
+            "name": "Musou Isshin: Plunging Attack: High",
+            "type": "plungingAttack",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -19689,12 +19810,116 @@
             }
           },
           {
-            "name": "Musou Isshin Energy Restoration",
-            "type": "elementalBurst",
+            "name": "Musou Isshin: Plunge Collision",
             "damage": {
+              "type": "elementalBurst",
               "multipliers": [
                 {
                   "mv": [
+                    0.6393,
+                    0.6914,
+                    0.7434,
+                    0.8177,
+                    0.8698,
+                    0.9293,
+                    1.011,
+                    1.0928,
+                    1.1746,
+                    1.2638,
+                    1.353,
+                    1.4422,
+                    1.5314,
+                    1.6206,
+                    1.7098
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Resolve Bonus: Initial",
+            "buff": {
+              "multipliers": [
+                {
+                  "flat": [
+                    0.0389,
+                    0.0418,
+                    0.0447,
+                    0.0486,
+                    0.0515,
+                    0.0544,
+                    0.0583,
+                    0.0622,
+                    0.0661,
+                    0.07,
+                    0.0739,
+                    0.0778,
+                    0.0826,
+                    0.0875,
+                    0.0923
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Resolve Bonus: Per Stack",
+            "buff": {
+              "multipliers": [
+                {
+                  "flat": [
+                    0.0073,
+                    0.0078,
+                    0.0084,
+                    0.0091,
+                    0.0096,
+                    0.0102,
+                    0.0109,
+                    0.0116,
+                    0.0123,
+                    0.0131,
+                    0.0138,
+                    0.0145,
+                    0.0154,
+                    0.0163,
+                    0.0172
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Resolve Stacks Gained",
+            "buff": {
+              "multipliers": [
+                {
+                  "flat": [
+                    0.15,
+                    0.16,
+                    0.16,
+                    0.17,
+                    0.17,
+                    0.18,
+                    0.18,
+                    0.19,
+                    0.19,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Musou Isshin Energy Restoration",
+            "buff": {
+              "multipliers": [
+                {
+                  "flat": [
                     1.6,
                     1.7,
                     1.8,
@@ -19722,8 +19947,35 @@
       "weaponId": 13509,
       "setCounts": {
         "15020": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalBurst.1",
+        "elementalBurst.2",
+        "elementalBurst.3",
+        "elementalBurst.4",
+        "elementalBurst.1",
+        "elementalBurst.2",
+        "elementalBurst.3",
+        "elementalBurst.4",
+        "elementalBurst.1",
+        "elementalBurst.2",
+        "elementalBurst.3",
+        "elementalBurst.4",
+        "elementalBurst.1",
+        "elementalBurst.2",
+        "elementalBurst.3",
+        "elementalBurst.4",
+        "elementalSkill.0"
+      ],
+      "duration": 8500
+    },
+    "teamPreset": [
+      10000052,
+      10000056,
+      10000032,
+      10000090
+    ]
   },
   "10000053": {
     "disabled": true,
@@ -21540,7 +21792,6 @@
     ]
   },
   "10000056": {
-    "disabled": true,
     "name": "Kujou Sara",
     "version": 2.1,
     "id": 10000056,
@@ -21555,7 +21806,175 @@
       "atk%": 0.24
     },
     "energy": 80,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "crowfeatherCover",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 18000,
+          "uses": 1
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.6"
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "crowfeather",
+            "spec": {
+              "uses": 1,
+              "offset": 2000
+            }
+          }
+        }
+      },
+      {
+        "ref": "crowfeather",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "stores": "$onField",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalBurst.0",
+                "elementalBurst.1",
+                "elementalSkill.3"
+              ]
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "statRefs": {
+            "atk": "elementalSkill.2"
+          }
+        }
+      },
+      {
+        "ref": "stormcluster",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 4,
+          "offset": 500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 500,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "cooldown": 3000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 2.4
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 1,
+          "offset": 2000
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.3"
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.3"
+            }
+          },
+          "stats": {
+            "damageMv%": -0.7
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "modify": {
+          "type": "effect",
+          "ref": "stormcluster",
+          "spec": {
+            "apply": {
+              "uses": 2
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "stores": "$onField",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalBurst.0",
+                "elementalBurst.1",
+                "elementalSkill.3"
+              ]
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "element": "electro"
+              }
+            }
+          },
+          "stats": {
+            "critDmg%": 0.6
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Tengu Bowmanship",
@@ -21727,6 +22146,7 @@
             "type": "chargedAttack",
             "damage": {
               "element": "electro",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -21838,9 +22258,14 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Tengu Juurai: Ambush DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Tengu Juurai: Ambush",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -21866,8 +22291,8 @@
           },
           {
             "name": "ATK Bonus Ratio",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
+              "baseAttr": "atk",
               "multipliers": [
                 {
                   "mv": [
@@ -21890,6 +22315,34 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Tengu Juurai: Ambush (Weak)",
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": [
+                    1.2576,
+                    1.3519,
+                    1.4462,
+                    1.572,
+                    1.6663,
+                    1.7606,
+                    1.8864,
+                    2.0122,
+                    2.1379,
+                    2.2637,
+                    2.3894,
+                    2.5152,
+                    2.6724,
+                    2.8296,
+                    2.9868
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -21898,9 +22351,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Tengu Juurai: Titanbreaker DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -21925,9 +22379,15 @@
             }
           },
           {
-            "name": "Tengu Juurai: Stormcluster DMG",
-            "type": "elementalBurst",
+            "name": "Stormcluster",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -21954,7 +22414,21 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15411,
+      "setCounts": {
+        "15007": 4
+      },
+      "rotation": [
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000052,
+      10000056,
+      10000032,
+      10000090
+    ]
   },
   "10000057": {
     "name": "Arataki Itto",
@@ -35635,7 +36109,13 @@
         "elementalSkill.1",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000051,
+      10000052,
+      10000089,
+      10000080
+    ]
   },
   "10000081": {
     "disabled": true,

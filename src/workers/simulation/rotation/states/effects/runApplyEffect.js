@@ -150,7 +150,10 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
       updateState(globalEffects);
     } else if (target === '$applier') {
       updateState(memberEffects[spec.applier]);
-    } else if (target === '$next') {
+    } else if (target === '$onField') {
+      const { onFieldId } = ctx.states;
+      updateState(memberEffects[onFieldId]);
+    }else if (target === '$next') {
       const index = ctx.cache.memberIds.indexOf(effect.ownerId);
       const id = ctx.cache.memberIds.at(index - 1);
       updateState(memberEffects[id]);
