@@ -11991,7 +11991,6 @@
     ]
   },
   "10000039": {
-    "disabled": true,
     "name": "Diona",
     "version": 1.1,
     "id": 10000039,
@@ -12006,7 +12005,258 @@
       "cryoDmgBonus%": 0.24
     },
     "energy": 80,
-    "effects": [],
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "stats": {
+            "shieldMv%": 0.75
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 6,
+          "offset": 2000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "c1refund",
+              "spec": {
+                "uses": 1,
+                "offset": 12000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "c6lowHealth",
+              "spec": {
+                "duration": 12000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "c6highHealth",
+              "spec": {
+                "duration": 12000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "c6stellarConduct",
+              "spec": {
+                "duration": 12000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "c6stellarSwirl",
+              "spec": {
+                "duration": 12000
+              }
+            }
+          ]
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 20000
+        },
+        "use": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "and": [
+                {
+                  "reaction": [
+                    "stellarConduct",
+                    "superconduct",
+                    "swirl",
+                    "stellarSwirl"
+                  ]
+                },
+                {
+                  "elements": "cryo"
+                }
+              ]
+            }
+          },
+          "cooldown": 3500,
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "rank": 1,
+        "ref": "c1refund",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "restoreEnergy": {
+              "flat": 15
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1",
+                "elementalSkill.2"
+              ]
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.15,
+            "shieldMv%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "ref": "c6lowHealth",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "health": {
+                  "<=": 0.5
+                }
+              }
+            ]
+          },
+          "stats": {
+            "healingReceived%": 0.3
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "ref": "c6highHealth",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "health": {
+                  ">": 0.5
+                }
+              }
+            ]
+          },
+          "stats": {
+            "elementalMastery": 200
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "buff": {
+          "stats": {
+            "hp%": 0.25
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "ref": "c6stellarConduct",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "radiance": "stellarConduct"
+              },
+              {
+                "field": "onField"
+              }
+            ]
+          },
+          "stats": {
+            "superconductReactionBonus%": 0.4,
+            "stellarConductReactionBonus%": 0.4
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "ref": "c6stellarSwirl",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "radiance": "stellarSwirl"
+              },
+              {
+                "action": {
+                  "damage": {
+                    "element": "cryo"
+                  }
+                }
+              },
+              {
+                "field": "onField"
+              }
+            ]
+          },
+          "stats": {
+            "swirlReactionBonus%": 0.4,
+            "stellarSwirlReactionBonus%": 0.4
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Kätzlein Style",
@@ -12178,6 +12428,7 @@
             "type": "chargedAttack",
             "damage": {
               "element": "cryo",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -12289,9 +12540,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Icy Paw DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -12310,15 +12567,14 @@
                     0.8908,
                     0.9432,
                     0.9956
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
-            }
-          },
-          {
-            "name": "Base Shield DMG Absorption",
-            "type": "elementalSkill",
-            "damage": {
+            },
+            "shield": {
+              "duration": 4800,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -12337,10 +12593,8 @@
                     0.153,
                     0.162,
                     0.171
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     692.8066,
                     762.0969,
                     837.1613,
@@ -12362,9 +12616,118 @@
             }
           },
           {
-            "name": "Duration",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    0.4192,
+                    0.4506,
+                    0.4821,
+                    0.524,
+                    0.5554,
+                    0.5869,
+                    0.6288,
+                    0.6707,
+                    0.7126,
+                    0.7546,
+                    0.7965,
+                    0.8384,
+                    0.8908,
+                    0.9432,
+                    0.9956
+                  ],
+                  "times": 5
+                }
+              ]
+            },
+            "shield": {
+              "duration": 12000,
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.072,
+                    0.0774,
+                    0.0828,
+                    0.09,
+                    0.0954,
+                    0.1008,
+                    0.108,
+                    0.1152,
+                    0.1224,
+                    0.1296,
+                    0.1368,
+                    0.144,
+                    0.153,
+                    0.162,
+                    0.171
+                  ],
+                  "flat": [
+                    692.8066,
+                    762.0969,
+                    837.1613,
+                    918,
+                    1004.6128,
+                    1096.9999,
+                    1195.1611,
+                    1299.0966,
+                    1408.8062,
+                    1524.29,
+                    1645.548,
+                    1772.5802,
+                    1905.3866,
+                    2043.9672,
+                    2188.322
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "3 Icy Paws",
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    0.4192,
+                    0.4506,
+                    0.4821,
+                    0.524,
+                    0.5554,
+                    0.5869,
+                    0.6288,
+                    0.6707,
+                    0.7126,
+                    0.7546,
+                    0.7965,
+                    0.8384,
+                    0.8908,
+                    0.9432,
+                    0.9956
+                  ],
+                  "times": 3
+                }
+              ]
+            }
+          },
+          {
+            "name": "Duration Per Paw",
+            "buff": {
               "multipliers": [
                 {
                   "mv": [
@@ -12395,9 +12758,15 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -12422,9 +12791,15 @@
             }
           },
           {
-            "name": "Continuous Field DMG",
-            "type": "elementalBurst",
+            "name": "Continuous Field Ticks",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst DMG",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -12446,12 +12821,10 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "HP Regeneration Over Time",
-            "type": "elementalBurst",
-            "damage": {
+            },
+            "healing": {
+              "targets": "$onField",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -12470,10 +12843,8 @@
                     0.1134,
                     0.1201,
                     0.1267
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     513.1901,
                     564.5162,
                     620.1195,
@@ -12497,7 +12868,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15401,
+      "setCounts": {
+        "15007": 4
+      },
+      "rotation": [
+        "elementalSkill.1",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000133,
+      10000058,
+      10000150,
+      10000039
+    ]
   },
   "10000041": {
     "disabled": true,

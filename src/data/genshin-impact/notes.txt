@@ -23,6 +23,8 @@ Characters:
         No constellations
     Diluc
         No constellations
+    Diona
+        Shield Duration is fixed
     Durin
         No constellations
     Emilie
