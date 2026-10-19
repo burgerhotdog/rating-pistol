@@ -79,7 +79,7 @@ function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, s
     const mSource = source[memberId] = { duration, added: 0 };
     fullTime += duration;
 
-    const { energy } = CHARACTER[gameId][memberId];
+    const { energy } = cache.member[memberId];
     if (!energy) continue;
 
     if (gameId === WW && concertoPenalty) {

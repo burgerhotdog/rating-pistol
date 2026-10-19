@@ -1,4 +1,4 @@
-import { GI, WW, CHARACTER, WEAPON } from '@/data';
+import { CHARACTER, WEAPON, GI, WW } from '@/data';
 import {
   buildEquipMap,
   buildBaseMap,
@@ -64,6 +64,16 @@ function buildCacheMember(cache, member) {
   );
 
   const charData = CHARACTER[gameId][member.id];
+
+  const usesUlt = mCache.rotation.some((action) =>
+    action.category === 'elementalBurst' ||
+    action.category === 'ultimate' ||
+    action.category === 'resonanceLiberation'
+  );
+
+  if (charData.energy && usesUlt) {
+    mCache.energy = charData.energy;
+  }
 
   if (gameId === WW) {
     if (charData.concertoReq) {
