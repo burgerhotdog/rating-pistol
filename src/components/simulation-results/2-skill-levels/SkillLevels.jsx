@@ -70,7 +70,7 @@ const SkillLevels = ({ results }) => {
 
         <Card component={Stack} sx={{ flex: 1 }}>
           <CardHeader title={`${langData.Stamina} Cost per Skill Level Upgrade`} />
-          <UpgradeCosts data={costData} />
+          <UpgradeCosts />
         </Card>
       </Stack>
 
