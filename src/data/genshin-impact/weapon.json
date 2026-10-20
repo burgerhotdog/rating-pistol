@@ -2292,11 +2292,12 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": [
+              "sum": {
+                "keys": [
                   "stack1",
                   "stack2"
-                ]
+                ],
+                "==": 0
               }
             }
           },
@@ -2313,26 +2314,13 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "and": [
-                {
-                  "has": [
-                    "stack1",
-                    "stack2"
-                  ]
-                },
-                {
-                  "not": {
-                    "and": [
-                      {
-                        "has": "stack1"
-                      },
-                      {
-                        "has": "stack2"
-                      }
-                    ]
-                  }
-                }
-              ]
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2"
+                ],
+                "==": 1
+              }
             }
           },
           "stats": {
@@ -2348,14 +2336,13 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "and": [
-                {
-                  "has": "stack1"
-                },
-                {
-                  "has": "stack2"
-                }
-              ]
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2"
+                ],
+                "==": 2
+              }
             }
           },
           "stats": {
@@ -12869,20 +12856,12 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "count": {
-                "conditions": [
-                  {
-                    "has": "stack1"
-                  },
-                  {
-                    "has": "stack2"
-                  },
-                  {
-                    "has": "stack3"
-                  },
-                  {
-                    "has": "stack4"
-                  }
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3",
+                  "stack4"
                 ],
                 "==": 1
               }
@@ -12900,20 +12879,12 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "count": {
-                "conditions": [
-                  {
-                    "has": "stack1"
-                  },
-                  {
-                    "has": "stack2"
-                  },
-                  {
-                    "has": "stack3"
-                  },
-                  {
-                    "has": "stack4"
-                  }
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3",
+                  "stack4"
                 ],
                 "==": 2
               }
@@ -12931,20 +12902,12 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "count": {
-                "conditions": [
-                  {
-                    "has": "stack1"
-                  },
-                  {
-                    "has": "stack2"
-                  },
-                  {
-                    "has": "stack3"
-                  },
-                  {
-                    "has": "stack4"
-                  }
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3",
+                  "stack4"
                 ],
                 "==": 3
               }
@@ -12962,20 +12925,12 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "count": {
-                "conditions": [
-                  {
-                    "has": "stack1"
-                  },
-                  {
-                    "has": "stack2"
-                  },
-                  {
-                    "has": "stack3"
-                  },
-                  {
-                    "has": "stack4"
-                  }
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3",
+                  "stack4"
                 ],
                 "==": 4
               }
@@ -13313,17 +13268,11 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "count": {
-                "conditions": [
-                  {
-                    "has": "stack1"
-                  },
-                  {
-                    "has": "stack2"
-                  },
-                  {
-                    "has": "stack3"
-                  }
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3"
                 ],
                 "==": 1
               }
@@ -13341,17 +13290,11 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "count": {
-                "conditions": [
-                  {
-                    "has": "stack1"
-                  },
-                  {
-                    "has": "stack2"
-                  },
-                  {
-                    "has": "stack3"
-                  }
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3"
                 ],
                 "==": 2
               }
@@ -13369,17 +13312,11 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "count": {
-                "conditions": [
-                  {
-                    "has": "stack1"
-                  },
-                  {
-                    "has": "stack2"
-                  },
-                  {
-                    "has": "stack3"
-                  }
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3"
                 ],
                 "==": 3
               }
@@ -13398,17 +13335,14 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "and": [
-                {
-                  "has": "stack1"
-                },
-                {
-                  "has": "stack2"
-                },
-                {
-                  "has": "stack3"
-                }
-              ]
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3"
+                ],
+                "==": 3
+              }
             }
           },
           "commands": {
