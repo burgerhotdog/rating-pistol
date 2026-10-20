@@ -12395,7 +12395,6 @@
     "effects": []
   },
   "15415": {
-    "disabled": true,
     "name": "Predator",
     "version": 2.1,
     "id": 15415,
@@ -12406,7 +12405,40 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "element": "cryo"
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": 0.1,
+            "chargedAttackDmgBonus%": 0.1
+          }
+        },
+        "maxStacks": 2
+      },
+      {
+        "enable": {
+          "owner": {
+            "id": 10000062
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk": 66
+          }
+        }
+      }
+    ]
   },
   "15416": {
     "disabled": true,

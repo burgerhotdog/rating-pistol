@@ -89,11 +89,11 @@ self.onmessage = async ({ data }) => {
   } = findBenchmark(scoreCeiling, scoreProgression, dpsProgression, fit);
   self.postMessage({ fit, benchmarkDay, benchmarkScore, benchmarkDps });
 
-  const { weaponResults, setResults } = runComparisonTests(cache, equipMaps, bonusEnergy);
-  self.postMessage({ weaponResults, setResults });
-
   const skillLevelResults = runSkillLevelTests(cache, equipMaps, charId);
   self.postMessage({ skillLevelResults });
+
+  const { weaponResults, setResults } = runComparisonTests(cache, equipMaps, bonusEnergy);
+  self.postMessage({ weaponResults, setResults });
 
   self.postMessage({ status: 'done' });
 };
