@@ -142,6 +142,9 @@ Characters:
         no orbitals from skill
     Yelan
         No barb reset
+    Yoimiya
+        No second half a4
+        No constellations
     Yumemizuki Mizuki
         Ult always does damage
         A1 always extended

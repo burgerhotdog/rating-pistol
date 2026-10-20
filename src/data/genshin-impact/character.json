@@ -17302,7 +17302,6 @@
     "memberPreset": {}
   },
   "10000049": {
-    "disabled": true,
     "name": "Yoimiya",
     "version": 2.0,
     "id": 10000049,
@@ -17317,7 +17316,125 @@
       "critRate%": 0.192
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "niwabiFireDance",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 10000
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "type": "normalAttack"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "pyro",
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              }
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "type": "normalAttack"
+            }
+          },
+          "statRefs": {
+            "damageMv%": "elementalSkill.1"
+          }
+        }
+      },
+      {
+        "ref": "aurousBlaze",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 10000,
+          "commands": {
+            "type": "apply",
+            "ref": "a4",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        },
+        "use": {
+          "by": "$ally",
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack",
+                  "plungingAttack",
+                  "elementalSkill",
+                  "elementalBurst"
+                ]
+              }
+            }
+          },
+          "cooldown": 2000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": "normalAttack"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "niwabiFireDance"
+                }
+              }
+            ]
+          },
+          "duration": 3000
+        },
+        "buff": {
+          "stats": {
+            "pyroDmgBonus%": 0.02
+          }
+        },
+        "maxStacks": 10
+      },
+      {
+        "ref": "a4",
+        "stores": "$ally",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.1
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Firework Flare-Up",
@@ -17489,6 +17606,7 @@
             "type": "chargedAttack",
             "damage": {
               "element": "pyro",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -17513,9 +17631,15 @@
             }
           },
           {
-            "name": "Kindling Arrow DMG",
-            "type": "normalAttack",
+            "name": "Kindling Arrow",
             "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -17627,27 +17751,30 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Blazing Arrow DMG",
-            "type": "elementalSkill",
-            "damage": {
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Blazing Arrow",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
-                    1.3791,
-                    1.4018,
-                    1.4245,
-                    1.454,
-                    1.4767,
-                    1.4994,
-                    1.5289,
-                    1.5584,
-                    1.5879,
-                    1.6174,
-                    1.6469,
-                    1.6765,
-                    1.706,
-                    1.7355,
-                    1.765
+                  "flat": [
+                    0.3791,
+                    0.4018,
+                    0.4245,
+                    0.454,
+                    0.4767,
+                    0.4994,
+                    0.5289,
+                    0.5584,
+                    0.5879,
+                    0.6174,
+                    0.6469,
+                    0.6765,
+                    0.706,
+                    0.7355,
+                    0.765
                   ]
                 }
               ]
@@ -17660,9 +17787,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -17687,9 +17820,14 @@
             }
           },
           {
-            "name": "Aurous Blaze Explosion DMG",
-            "type": "elementalBurst",
+            "name": "Aurous Blaze Explosion",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -17720,7 +17858,26 @@
       "weaponId": 15509,
       "setCounts": {
         "15019": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4"
+      ],
+      "duration": 10500
     }
   },
   "10000050": {
