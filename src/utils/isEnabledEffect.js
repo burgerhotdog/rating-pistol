@@ -49,6 +49,7 @@ export const isEnabled = (gameId, effect, ownerId, counts, memberIds) => {
   return evaluateFilter(effect.enable, {
     owner,
     counts,
+    uniqueElementCount: Object.values(counts.element).filter((count) => count > 0).length,
     sameElementTeamMembers: counts.element[ownerElement],
     diffElementTeamMembers: teamSize - counts.element[ownerElement],
     ...(gameId === GI && {

@@ -17878,7 +17878,13 @@
         "normalAttack.4"
       ],
       "duration": 10500
-    }
+    },
+    "teamPreset": [
+      10000049,
+      10000064,
+      10000060,
+      10000030
+    ]
   },
   "10000050": {
     "disabled": true,
@@ -25210,10 +25216,44 @@
         }
       },
       {
-        "buff": {
-          "stats": {}
+        "enable": {
+          "uniqueElementCount": 1
         },
-        "special": "yelanA1"
+        "buff": {
+          "stats": {
+            "hp%": 0.06
+          }
+        }
+      },
+      {
+        "enable": {
+          "uniqueElementCount": 2
+        },
+        "buff": {
+          "stats": {
+            "hp%": 0.12
+          }
+        }
+      },
+      {
+        "enable": {
+          "uniqueElementCount": 3
+        },
+        "buff": {
+          "stats": {
+            "hp%": 0.18
+          }
+        }
+      },
+      {
+        "enable": {
+          "uniqueElementCount": 4
+        },
+        "buff": {
+          "stats": {
+            "hp%": 0.3
+          }
+        }
       },
       {
         "ref": "rampingBuffFixed",
@@ -27181,7 +27221,6 @@
     }
   },
   "10000064": {
-    "disabled": true,
     "name": "Yun Jin",
     "version": 2.4,
     "id": 10000064,
@@ -27197,7 +27236,211 @@
     },
     "energy": 60,
     "liyue": true,
-    "effects": [],
+    "effects": [
+      {
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "uses": 30,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "a4",
+              "spec": {
+                "duration": 12000,
+                "uses": 30
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "c2",
+              "spec": {
+                "duration": 12000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "c6",
+              "spec": {
+                "duration": 12000
+              }
+            }
+          ]
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "specRefs": {
+            "damageFlat": {
+              "attr": "def",
+              "step": 1,
+              "value": "elementalBurst.1"
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "uniqueElementCount": 1
+        },
+        "ref": "a4",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "def",
+              "step": 1,
+              "value": 0.025
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "uniqueElementCount": 2
+        },
+        "ref": "a4",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "def",
+              "step": 1,
+              "value": 0.05
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "uniqueElementCount": 3
+        },
+        "ref": "a4",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "def",
+              "step": 1,
+              "value": 0.075
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "uniqueElementCount": 4
+        },
+        "ref": "a4",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "def",
+              "step": 1,
+              "value": 0.11
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "ref": "c2",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "crystallize",
+                "lunarCrystallize"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "def%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "ref": "c6",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "attackSpd%": 0.12
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Cloud-Grazing Strike",
@@ -27493,6 +27736,8 @@
             "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 2,
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -27517,9 +27762,11 @@
             }
           },
           {
-            "name": "Charge Level 1 DMG",
+            "name": "Elemental Skill: Charge Level 1",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 2,
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -27544,9 +27791,11 @@
             }
           },
           {
-            "name": "Charge Level 2 DMG",
+            "name": "Elemental Skill: Charge Level 2",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 4,
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -27572,8 +27821,8 @@
           },
           {
             "name": "Shield DMG Absorption",
-            "type": "elementalSkill",
-            "damage": {
+            "shield": {
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -27592,10 +27841,8 @@
                     0.255,
                     0.27,
                     0.285
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     1155.4323,
                     1270.9916,
                     1396.1808,
@@ -27623,9 +27870,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -27651,11 +27899,10 @@
           },
           {
             "name": "DMG Increase",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.3216,
                     0.3457,
                     0.3698,
@@ -27679,7 +27926,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13431,
+      "setCounts": {
+        "15021": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000049,
+      10000064,
+      10000060,
+      10000030
+    ]
   },
   "10000065": {
     "name": "Kuki Shinobu",

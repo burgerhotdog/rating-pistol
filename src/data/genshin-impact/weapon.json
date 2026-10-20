@@ -6174,7 +6174,6 @@
     ]
   },
   "13402": {
-    "disabled": true,
     "name": "Prototype Starglitter",
     "version": 1.0,
     "id": 13402,
@@ -6186,7 +6185,32 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.08,
+              0.16
+            ],
+            "chargedAttackDmgBonus%": [
+              0.08,
+              0.16
+            ]
+          }
+        },
+        "maxStacks": 2
+      }
+    ]
   },
   "13403": {
     "disabled": true,
