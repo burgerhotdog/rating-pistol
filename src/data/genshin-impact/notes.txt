@@ -165,6 +165,8 @@ Weapons:
         doesn't need enemies nearby
     Aquila Favonia
         Effect always hits
+    Dragonspine Spear
+        Effect always hits
     Eye of Perception
         Effect always hits
     Ferrous Shadow
@@ -187,6 +189,8 @@ Weapons:
         ER might not work in calcs
     Otherworldly Story
         Effect disabled
+    Prospectors Drill
+        Might double count healing performed on self
     Sacrificial Jade
         No 5s buffer
     Sapwood Blade
