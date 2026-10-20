@@ -95,7 +95,7 @@ const SummaryCard = ({ userDps, benchmarkDps, dpsCeiling }) => {
     >
       <Stack direction="row" spacing={1} sx={{ alignItems: 'baseline' }}>
         <Typography variant="h4" sx={{ color, fontWeight: 'bold' }}>
-          {allReady ? grade : <CircularProgress size={28} />}
+          {allReady ? grade : <CircularProgress size={28} color="textSecondary" />}
         </Typography>
 
         <Typography variant="body1" sx={{ color, opacity: 0.7 }}>

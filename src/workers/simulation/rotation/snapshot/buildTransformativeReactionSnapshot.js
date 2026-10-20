@@ -1,6 +1,9 @@
 import { formatStr } from '@/utils';
 import { getBuffMap } from '../getStatMap';
-import { transformativeReactionFormula } from '../formula';
+import {
+  transformativeReactionFormula,
+  transformativeReactionUsedAttrs,
+} from '../formula';
 
 export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reactionElement) {
   const mockAction = { damage: { type: rxnKey, element: reactionElement } };
@@ -29,6 +32,7 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
       parts: ['damage'],
       reactionElement,
       formula: (statMap) => transformativeReactionFormula(statMap, rxnKey, reactionElement),
+      usedAttrs: transformativeReactionUsedAttrs(rxnKey, reactionElement),
     },
   };
 }

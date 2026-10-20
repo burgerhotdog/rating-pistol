@@ -72,13 +72,7 @@ export const resolveSnapshot = (ctx, snapshot) => {
       continue;
     }
 
-    const usedAttrs = action
-      ? getUsedAttrs(gameId, action, part)
-      : new Set([
-        'elementalMastery',
-        `${snapshot.damageType}ReactionBonus%`,
-        `${unresolved.reactionElement}ResReduction%`,
-      ]);
+    const usedAttrs = unresolved.usedAttrs ?? getUsedAttrs(gameId, action, part);
 
     // A function scaleFlat is a reaction flat bonus that reads EM and reaction bonus
     // from the tested build, so any spec buff can feed into it

@@ -5,7 +5,7 @@ import DistributionChart from './DistributionChart';
 import TimelineChart from './TimelineChart';
 
 const Overview = ({ results }) => {
-  const timelineReady = 
+  const timelineReady =
     results.memberIds &&
     results.userSnapshots &&
     results.userRotationTime &&
