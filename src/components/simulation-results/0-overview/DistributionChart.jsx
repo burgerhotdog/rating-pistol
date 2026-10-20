@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { Box, Paper, Skeleton, Typography } from '@mui/material';
+import { Paper, Typography } from '@mui/material';
 import { alpha, darken } from '@mui/material/styles';
 import { Pie, PieChart, Sector, Tooltip } from 'recharts';
-import { useAccent } from '@/hooks';
+import { useAccent, usePageParams } from '@/hooks';
 import { formatNum, formatStr } from '@/utils';
 
 const buildData = (snapshots, charId) => {
@@ -32,14 +32,13 @@ const buildData = (snapshots, charId) => {
   }));
 };
 
-const DistributionChart = ({ userSnapshots, userMember }) => {
+const DistributionChart = ({ snapshots }) => {
   const accent = useAccent();
+  const { charId } = usePageParams();
 
-  if (!userSnapshots || !userMember) {
-    return;
-  }
+  if (!snapshots) return;
 
-  const data = buildData(userSnapshots, userMember.id);
+  const data = buildData(snapshots, charId);
 
   return (
     <PieChart
