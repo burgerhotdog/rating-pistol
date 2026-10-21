@@ -53,6 +53,21 @@ function evaluateSpecial(ctx, special, effect, spec) {
       return count === required;
     }
 
+    case 'iansanMovement': {
+      const { fieldId, action } = spec;
+      if (fieldId !== onFieldId) return false;
+      if (!action) return false;
+
+      if (action.type === 'plungingAttack') return true;
+
+      if (
+        action.ownerId === 10000111 &&
+        (action.type === 'chargedAttack' || action.type === 'elementalSkill')
+      ) return true;
+
+      break;
+    }
+
     case 'cinderCityPyro1':
       return rxnElems.includes('pyro') && rxnElems.includes(ownerElem);
     case 'cinderCityPyro2':

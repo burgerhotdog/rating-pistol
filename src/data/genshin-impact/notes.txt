@@ -48,7 +48,7 @@ Characters:
         No constellations
     Iansan
         Movement is approximated
-        No constellations
+        Overflow handling is inaccurate
     Illuga
         Burst affects non-direct dmg too
         No geo construct rule

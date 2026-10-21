@@ -51,7 +51,7 @@ const initAttrMaps = (buildMaps) => {
   return attrMaps;
 };
 
-export const runRotation = (cache, equipMaps, specId) => {
+export const runRotation = (cache, equipMaps, specId, logFilter = false) => {
   const { gameId, memberIds } = cache;
 
   const ctx = {
@@ -65,6 +65,7 @@ export const runRotation = (cache, equipMaps, specId) => {
     ...(gameId === WW && {
       offTuneBuildup: [],
     }),
+    logFilter,
   };
 
   ctx.attrMaps = initAttrMaps(ctx.buildMaps);

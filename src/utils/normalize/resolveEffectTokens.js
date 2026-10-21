@@ -78,6 +78,21 @@ export const resolveEffectTokens = (normalized) => {
     }
   }
 
+  function resolveCommands(commands, ownerId, sourceId) {
+    return commands
+      .map((command) => {
+        const key = resolveEffectRef(command.ref, ownerId, sourceId);
+        if (!key) return null;
+
+        if (command.filter) {
+          traverseFilter(command.filter, ownerId, sourceId);
+        }
+
+        return { ...command, key };
+      })
+      .filter(Boolean);
+  }
+
   const resolved = structuredClone(normalized);
 
   for (const effect of Object.values(resolved)) {
@@ -95,12 +110,7 @@ export const resolveEffectTokens = (normalized) => {
         }
 
         if (commands) {
-          apply.commands = commands
-            .map((command) => ({
-              ...command,
-              key: resolveEffectRef(command.ref, ownerId, sourceId),
-            }))
-            .filter((command) => command.key);
+          apply.commands = resolveCommands(commands, ownerId, sourceId);
         }
 
         return apply;
@@ -119,12 +129,7 @@ export const resolveEffectTokens = (normalized) => {
         }
 
         if (commands) {
-          remove.commands = commands
-            .map((command) => ({
-              ...command,
-              key: resolveEffectRef(command.ref, ownerId, sourceId),
-            }))
-            .filter((command) => command.key);
+          remove.commands = resolveCommands(commands, ownerId, sourceId);
         }
 
         return remove;
@@ -143,12 +148,7 @@ export const resolveEffectTokens = (normalized) => {
         }
 
         if (commands) {
-          use.commands = commands
-            .map((command) => ({
-              ...command,
-              key: resolveEffectRef(command.ref, ownerId, sourceId),
-            }))
-            .filter((command) => command.key);
+          use.commands = resolveCommands(commands, ownerId, sourceId);
         }
 
         return use;
@@ -161,12 +161,7 @@ export const resolveEffectTokens = (normalized) => {
     }
 
     if (effect.buff?.commands) {
-      effect.buff.commands = effect.buff.commands
-        .map((command) => ({
-          ...command,
-          key: resolveEffectRef(command.ref, ownerId, sourceId),
-        }))
-        .filter((command) => command.key);
+      effect.buff.commands = resolveCommands(effect.buff.commands, ownerId, sourceId);
     }
 
     if (effect.modify?.type === 'effect') {
@@ -183,12 +178,7 @@ export const resolveEffectTokens = (normalized) => {
       }
 
       if (expire.commands) {
-        expire.commands = expire.commands
-          .map((command) => ({
-            ...command,
-            key: resolveEffectRef(command.ref, ownerId, sourceId),
-          }))
-          .filter((command) => command.key);
+        expire.commands = resolveCommands(expire.commands, ownerId, sourceId);
       }
     }
   }

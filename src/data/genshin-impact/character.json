@@ -52863,7 +52863,7 @@
               ]
             }
           },
-          "offset": 1000
+          "offset": 167
         },
         "remove": {
           "when": "nightsoulUpdate",
@@ -52873,18 +52873,56 @@
                 ">": 0
               }
             }
-          }
+          },
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "kineticEnergyScaleLow"
+            },
+            {
+              "type": "remove",
+              "ref": "kineticEnergyScaleHigh"
+            },
+            {
+              "type": "remove",
+              "ref": "monitorMovement"
+            },
+            {
+              "type": "remove",
+              "ref": "convertMovement"
+            },
+            {
+              "type": "remove",
+              "ref": "preciseMovement"
+            },
+            {
+              "type": "remove",
+              "ref": "preciseMovementRegen"
+            },
+            {
+              "type": "remove",
+              "ref": "preciseMovementRegenExtra"
+            },
+            {
+              "type": "remove",
+              "ref": "canApplySurgingForce"
+            },
+            {
+              "type": "remove",
+              "ref": "surgingForce"
+            }
+          ]
         },
         "use": {
           "when": "interval",
-          "cooldown": 1000,
+          "cooldown": 167,
           "action": {
-            "nightsoul": -6
+            "nightsoul": -1
           }
         }
       },
       {
-        "ref": "scaleLow",
+        "ref": "kineticEnergyScaleLow",
         "stores": "$team",
         "apply": {
           "when": "hit",
@@ -52897,17 +52935,24 @@
           "commands": [
             {
               "type": "apply",
-              "ref": "scaleHigh",
+              "ref": "kineticEnergyScaleHigh"
+            },
+            {
+              "type": "apply",
+              "ref": "monitorMovement"
+            },
+            {
+              "type": "apply",
+              "ref": "convertMovement",
               "spec": {
-                "duration": 12000
+                "offset": 1000
               }
             },
             {
               "type": "apply",
-              "ref": "distanceMeasure",
+              "ref": "canApplySurgingForce",
               "spec": {
-                "duration": 12000,
-                "offset": 1000
+                "uses": 1
               }
             }
           ]
@@ -52942,13 +52987,41 @@
             },
             {
               "type": "remove",
+              "ref": "kineticEnergyScaleHigh"
+            },
+            {
+              "type": "remove",
+              "ref": "monitorMovement"
+            },
+            {
+              "type": "remove",
+              "ref": "convertMovement"
+            },
+            {
+              "type": "remove",
               "ref": "preciseMovement"
+            },
+            {
+              "type": "remove",
+              "ref": "preciseMovementRegen"
+            },
+            {
+              "type": "remove",
+              "ref": "preciseMovementRegenExtra"
+            },
+            {
+              "type": "remove",
+              "ref": "canApplySurgingForce"
+            },
+            {
+              "type": "remove",
+              "ref": "surgingForce"
             }
           ]
         }
       },
       {
-        "ref": "scaleHigh",
+        "ref": "kineticEnergyScaleHigh",
         "stores": "$team",
         "apply": {
           "when": "command"
@@ -52977,7 +53050,31 @@
         }
       },
       {
-        "ref": "distanceMeasure",
+        "ref": "moved",
+        "apply": {
+          "when": "command"
+        },
+        "maxStacks": 2
+      },
+      {
+        "ref": "monitorMovement",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "by": "$ally",
+          "when": "hit",
+          "filter": {
+            "special": "iansanMovement"
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "moved"
+          }
+        }
+      },
+      {
+        "ref": "convertMovement",
         "apply": {
           "when": "command"
         },
@@ -52986,80 +53083,55 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "and": [
-                  {
-                    "has": "moved"
-                  },
-                  {
-                    "not": {
-                      "has": "preciseMovement"
-                    }
-                  }
-                ]
+                "moved": 1
               }
             },
             "cooldown": 1000,
             "action": {
-              "nightsoul": 1
-            },
-            "commands": {
-              "type": "remove",
-              "ref": "moved"
-            }
-          },
-          {
-            "when": "interval",
-            "filter": {
-              "effectStacks": {
-                "and": [
-                  {
-                    "has": "moved"
-                  },
-                  {
-                    "has": "preciseMovement"
-                  },
-                  {
-                    "not": {
-                      "has": "a1moreNightsoul"
-                    }
-                  }
-                ]
-              }
-            },
-            "cooldown": 1000,
-            "action": {
-              "nightsoul": 2
-            },
-            "commands": {
-              "type": "remove",
-              "ref": "moved"
-            }
-          },
-          {
-            "when": "interval",
-            "filter": {
-              "effectStacks": {
-                "and": [
-                  {
-                    "has": "moved"
-                  },
-                  {
-                    "has": "preciseMovement"
-                  },
-                  {
-                    "has": "a1moreNightsoul"
-                  }
-                ]
-              }
-            },
-            "cooldown": 1000,
-            "action": {
-              "nightsoul": 5
+              "nightsoul": 3
             },
             "commands": [
               {
+                "type": "apply",
+                "ref": "preciseMovementRegen",
+                "filter": {
+                  "effectStacks": {
+                    "has": "preciseMovement"
+                  }
+                },
+                "spec": {
+                  "uses": 1
+                }
+              },
+              {
                 "type": "remove",
-                "ref": "a1MoreNightsoul"
+                "ref": "moved"
+              }
+            ]
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "moved": 2
+              }
+            },
+            "cooldown": 1000,
+            "action": {
+              "nightsoul": 6
+            },
+            "commands": [
+              {
+                "type": "apply",
+                "ref": "preciseMovementRegen",
+                "filter": {
+                  "effectStacks": {
+                    "has": "preciseMovement"
+                  }
+                },
+                "spec": {
+                  "uses": 1
+                }
               },
               {
                 "type": "remove",
@@ -53070,25 +53142,6 @@
         ]
       },
       {
-        "ref": "moved",
-        "apply": {
-          "by": "$ally",
-          "when": "hit",
-          "filter": {
-            "and": [
-              {
-                "field": "onField"
-              },
-              {
-                "action": {
-                  "type": "plungingAttack"
-                }
-              }
-            ]
-          }
-        }
-      },
-      {
         "ref": "preciseMovement",
         "apply": {
           "when": "hit",
@@ -53097,13 +53150,18 @@
               "ref": "normalAttack.4"
             }
           },
-          "duration": 15000,
+          "duration": 15000
+        },
+        "use": {
+          "by": "$team",
+          "when": "nightsoulUpdate",
+          "filter": {
+            "field": "onField"
+          },
+          "cooldown": 2800,
           "commands": {
             "type": "apply",
-            "ref": "a1MoreNightsoul",
-            "spec": {
-              "duration": 15000
-            }
+            "ref": "preciseMovementRegenExtra"
           }
         },
         "buff": {
@@ -53113,23 +53171,45 @@
         }
       },
       {
-        "ref": "a1MoreNightsoul",
+        "ref": "preciseMovementRegen",
         "apply": {
-          "by": "$team",
-          "when": "nightsoulUpdate",
-          "filter": {
-            "and": [
-              {
-                "field": "onField"
-              },
-              {
-                "effectStacks": {
-                  "has": "preciseMovement"
+          "when": "command"
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": "preciseMovementRegenExtra"
                 }
               }
-            ]
+            },
+            "action": {
+              "nightsoul": 1
+            }
           },
-          "cooldown": 2800
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "has": "preciseMovementRegenExtra"
+              }
+            },
+            "action": {
+              "nightsoul": 4
+            },
+            "commands": {
+              "type": "remove",
+              "ref": "preciseMovementRegenExtra"
+            }
+          }
+        ]
+      },
+      {
+        "ref": "preciseMovementRegenExtra",
+        "apply": {
+          "when": "command"
         }
       },
       {
@@ -53140,11 +53220,11 @@
           "duration": 10000
         },
         "use": {
-          "when": "hit",
+          "when": "nightsoulUpdate",
           "filter": {
             "action": {
               "nightsoul": {
-                ">": 0
+                ">=": 1
               }
             }
           },
@@ -53158,6 +53238,200 @@
                 }
               ]
             }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "action": {
+              "nightsoul": {
+                "<": 0
+              }
+            }
+          },
+          "cooldown": 18000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 15
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "preciseMovement",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "ref": "preciseOffFieldBuff",
+        "stores": "$team",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "character": {
+                  "not": {
+                    "id": 10000110
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "preciseMovement"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "atk%": 0.3
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "ref": "canApplySurgingForce",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "by": "$ally",
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "type": "elementalBurst"
+                }
+              }
+            ]
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "surgingForce",
+            "spec": {
+              "uses": 2
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "ref": "surgingForce",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "action": {
+              "nightsoul": {
+                ">": 0
+              }
+            }
+          },
+          "action": {
+            "nightsoul": 4
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "apply": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "nightsoul": {
+                    ">": 0
+                  }
+                }
+              },
+              {
+                "nightsoul": 54
+              },
+              {
+                "effectStacks": {
+                  "has": "kineticEnergyScaleLow"
+                }
+              }
+            ]
+          },
+          "uses": 1
+        },
+        "use": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "nightsoul": {
+                    ">": 0
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "kineticEnergyScaleLow"
+                }
+              }
+            ]
+          },
+          "action": {
+            "nightsoul": 2
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "modify": {
+          "type": "effect",
+          "ref": "kineticEnergyScaleLow",
+          "spec": {
+            "duration": 3000
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "ref": "extremeForce",
+        "stores": "$team",
+        "apply": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "nightsoul": 54
+          },
+          "duration": 3000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "dmgBonus%": 0.25
           }
         }
       }
@@ -53497,7 +53771,11 @@
         "normalAttack.4",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000111,
+      10000110
+    ]
   },
   "10000111": {
     "name": "Varesa",
