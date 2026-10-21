@@ -3,14 +3,12 @@ import { Stack, Tab, CircularProgress } from '@mui/material';
 import {
   Info,
   Timeline,
-  BarChart,
   Science,
 } from '@mui/icons-material';
 import { Tabs } from '@/components/Colored';
 import { useAccent, useData, useSimulation } from '@/hooks';
 import Overview from './0-overview';
 import Equips from './1-equips';
-import SkillLevels from './2-skill-levels';
 import Lab from './3-lab';
 
 const SimulationResults = ({ team }) => {
@@ -21,20 +19,13 @@ const SimulationResults = ({ team }) => {
 
   if (results.disabled) return;
 
-  const skillLevelsReady =
-    results.userDps &&
-    results.skillLevelResults;
-
   const labReady =
     results.userMember &&
     results.userDps &&
     results.weaponResults &&
     results.setResults;
 
-  if (
-    (tab === 2 && !skillLevelsReady) ||
-    (tab === 3 && !labReady)
-  ) {
+  if (tab === 2 && !labReady) {
     setTab(0);
   }
 
@@ -64,18 +55,6 @@ const SimulationResults = ({ team }) => {
         <Tab
           value={2}
           icon={
-            skillLevelsReady
-              ? <BarChart />
-              : <CircularProgress size={20} color="inherit" />
-          }
-          iconPosition="start"
-          label="Skill Levels"
-          disabled={!skillLevelsReady}
-        />
-
-        <Tab
-          value={3}
-          icon={
             labReady
               ? <Science />
               : <CircularProgress size={20} color="inherit" />
@@ -88,8 +67,7 @@ const SimulationResults = ({ team }) => {
 
       {tab === 0 && <Overview results={results} />}
       {tab === 1 && <Equips results={results} />}
-      {tab === 2 && <SkillLevels results={results} />}
-      {tab === 3 && <Lab results={results} />}
+      {tab === 2 && <Lab results={results} />}
     </Stack>
   );
 };

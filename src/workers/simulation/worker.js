@@ -4,7 +4,7 @@ import { estimateDps } from '@/utils';
 import { buildCache } from './cache';
 import { runComparisonTests } from './comparison-tests';
 import { runEquipTests, runTrials } from './equip-tests';
-import { runSkillLevelTests } from './skill-level-tests';
+import { benchmarkSkillLevels } from './skill-level-tests';
 import { getRotationOrder } from './rotation-order';
 import { calibrate } from './calibrate';
 
@@ -62,6 +62,10 @@ self.onmessage = async ({ data }) => {
   });
 
   const cache = { ...rawCache, memberIds: rotationOrder };
+
+  const { benchmarkLevels, benchmarkLevelsSource } = benchmarkSkillLevels(cache, equipMaps, charId, userDps);
+  self.postMessage({ benchmarkLevels, benchmarkLevelsSource });
+
   const { calibration, scoreCeiling, dpsCeiling } = calibrate(cache, equipMaps, charId);
   self.postMessage({ scoreCeiling, dpsCeiling });
 
@@ -88,9 +92,6 @@ self.onmessage = async ({ data }) => {
     benchmarkDps,
   } = findBenchmark(scoreCeiling, scoreProgression, dpsProgression, fit);
   self.postMessage({ fit, benchmarkDay, benchmarkScore, benchmarkDps });
-
-  const skillLevelResults = runSkillLevelTests(cache, equipMaps, charId);
-  self.postMessage({ skillLevelResults });
 
   const { weaponResults, setResults } = runComparisonTests(cache, equipMaps, bonusEnergy);
   self.postMessage({ weaponResults, setResults });
