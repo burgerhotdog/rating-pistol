@@ -26753,7 +26753,6 @@
     "memberPreset": {}
   },
   "10000063": {
-    "disabled": true,
     "name": "Shenhe",
     "version": 2.4,
     "id": 10000063,
@@ -26769,7 +26768,133 @@
     },
     "energy": 80,
     "liyue": true,
-    "effects": [],
+    "effects": [
+      {
+        "stores": "$team",
+        "apply": [
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              }
+            },
+            "duration": 10000,
+            "uses": 5,
+            "commands": {
+              "type": "apply",
+              "ref": "a4tap",
+              "spec": {
+                "duration": 10000
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.1"
+              }
+            },
+            "duration": 15000,
+            "uses": 7,
+            "commands": {
+              "type": "apply",
+              "ref": "a4hold",
+              "spec": {
+                "duration": 15000
+              }
+            }
+          }
+        ],
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "element": "cryo"
+              }
+            }
+          },
+          "specRefs": {
+            "damageFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": "elementalSkill.2"
+            }
+          }
+        }
+      },
+      {
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "commands": {
+            "type": "apply",
+            "ref": "a1",
+            "spec": {
+              "duration": 12000
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalBurst.2"
+        },
+        "buff": {
+          "statRefs": {
+            "cryoResReduction%": "elementalBurst.1",
+            "physicalResReduction%": "elementalBurst.1"
+          }
+        }
+      },
+      {
+        "ref": "a1",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "cryoDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "ref": "a1tap",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": 0.15,
+            "elementalBurstDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "ref": "a1hold",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": 0.15,
+            "chargedAttackDmgBonus%": 0.15,
+            "plungingAttackDmgBonus%": 0.15
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Dawnstar Piercer",
@@ -27046,6 +27171,11 @@
             "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 100
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -27073,6 +27203,7 @@
             "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -27098,11 +27229,10 @@
           },
           {
             "name": "DMG Bonus",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.4566,
                     0.4908,
                     0.525,
@@ -27130,9 +27260,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27158,11 +27289,10 @@
           },
           {
             "name": "RES Decrease",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.06,
                     0.07,
                     0.08,
@@ -27185,8 +27315,14 @@
           },
           {
             "name": "DoT",
-            "type": "elementalBurst",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -27217,8 +27353,18 @@
       "weaponId": 13507,
       "setCounts": {
         "15007": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000002,
+      10000089,
+      10000112,
+      10000063
+    ]
   },
   "10000064": {
     "name": "Yun Jin",

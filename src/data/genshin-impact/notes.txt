@@ -112,6 +112,8 @@ Characters:
         A4 hard coded
         Remember c6 no snapshot
         Numbers are sus
+    Shenhe
+        No constellations
     Skirk
         Deaths crossing not accurate
         No constellations
