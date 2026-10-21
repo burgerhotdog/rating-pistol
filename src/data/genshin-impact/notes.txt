@@ -45,7 +45,10 @@ Characters:
     Gorou
         Swapping off active buff expires instantly
     Hu Tao
-        No Constellations
+        No constellations
+    Iansan
+        Movement is approximated
+        No constellations
     Illuga
         Burst affects non-direct dmg too
         No geo construct rule

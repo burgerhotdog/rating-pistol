@@ -52834,7 +52834,6 @@
     ]
   },
   "10000110": {
-    "disabled": true,
     "name": "Iansan",
     "version": 5.5,
     "id": 10000110,
@@ -52850,7 +52849,319 @@
     },
     "energy": 70,
     "nightsoul": true,
-    "effects": [],
+    "maxNightsoul": 54,
+    "effects": [
+      {
+        "ref": "blessing",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "offset": 1000
+        },
+        "remove": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "nightsoul": {
+              "not": {
+                ">": 0
+              }
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": {
+            "nightsoul": -6
+          }
+        }
+      },
+      {
+        "ref": "scaleLow",
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "scaleHigh",
+              "spec": {
+                "duration": 12000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "distanceMeasure",
+              "spec": {
+                "duration": 12000,
+                "offset": 1000
+              }
+            }
+          ]
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "nightsoul": {
+                  "<": 42
+                }
+              }
+            ]
+          },
+          "specRefs": {
+            "atk": {
+              "attr": "atk",
+              "step": 1,
+              "value": 0.105,
+              "maxValue": "elementalBurst.1"
+            }
+          }
+        },
+        "expire": {
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "blessing"
+            },
+            {
+              "type": "remove",
+              "ref": "preciseMovement"
+            }
+          ]
+        }
+      },
+      {
+        "ref": "scaleHigh",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "nightsoul": {
+                  ">=": 42
+                }
+              }
+            ]
+          },
+          "specRefs": {
+            "atk": {
+              "attr": "atk",
+              "step": 1,
+              "value": 0.27,
+              "maxValue": "elementalBurst.1"
+            }
+          }
+        }
+      },
+      {
+        "ref": "distanceMeasure",
+        "apply": {
+          "when": "command"
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "moved"
+                  },
+                  {
+                    "not": {
+                      "has": "preciseMovement"
+                    }
+                  }
+                ]
+              }
+            },
+            "cooldown": 1000,
+            "action": {
+              "nightsoul": 1
+            },
+            "commands": {
+              "type": "remove",
+              "ref": "moved"
+            }
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "moved"
+                  },
+                  {
+                    "has": "preciseMovement"
+                  },
+                  {
+                    "not": {
+                      "has": "a1moreNightsoul"
+                    }
+                  }
+                ]
+              }
+            },
+            "cooldown": 1000,
+            "action": {
+              "nightsoul": 2
+            },
+            "commands": {
+              "type": "remove",
+              "ref": "moved"
+            }
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "moved"
+                  },
+                  {
+                    "has": "preciseMovement"
+                  },
+                  {
+                    "has": "a1moreNightsoul"
+                  }
+                ]
+              }
+            },
+            "cooldown": 1000,
+            "action": {
+              "nightsoul": 5
+            },
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "a1MoreNightsoul"
+              },
+              {
+                "type": "remove",
+                "ref": "moved"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "ref": "moved",
+        "apply": {
+          "by": "$ally",
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "type": "plungingAttack"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "ref": "preciseMovement",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.4"
+            }
+          },
+          "duration": 15000,
+          "commands": {
+            "type": "apply",
+            "ref": "a1MoreNightsoul",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.2
+          }
+        }
+      },
+      {
+        "ref": "a1MoreNightsoul",
+        "apply": {
+          "by": "$team",
+          "when": "nightsoulUpdate",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "effectStacks": {
+                  "has": "preciseMovement"
+                }
+              }
+            ]
+          },
+          "cooldown": 2800
+        }
+      },
+      {
+        "ref": "warmingUp",
+        "apply": {
+          "by": "$team",
+          "when": "nightsoulBurst",
+          "duration": 10000
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "nightsoul": {
+                ">": 0
+              }
+            }
+          },
+          "cooldown": 2800,
+          "action": {
+            "healing": {
+              "targets": "$onField",
+              "multipliers": [
+                {
+                  "mv": 0.6
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Weighted Spike",
@@ -52964,9 +53275,10 @@
             }
           },
           {
-            "name": "Swift Stormflight DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack: Swift Stormflight",
+            "type": "chargedAttack",
             "damage": {
+              "element": "electro",
               "multipliers": [
                 {
                   "mv": [
@@ -53078,9 +53390,16 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
+            "nightsoul": 54,
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -53111,9 +53430,11 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
+            "nightsoul": 15,
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -53139,11 +53460,10 @@
           },
           {
             "name": "Max ATK Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     330,
                     370,
                     410,
@@ -53167,7 +53487,17 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13407,
+      "setCounts": {
+        "15037": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "normalAttack.4",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000111": {
     "name": "Varesa",
