@@ -421,7 +421,6 @@
     }
   },
   "10000003": {
-    "disabled": true,
     "name": "Jean",
     "version": 1.0,
     "id": 10000003,
@@ -436,7 +435,43 @@
       "healingBonus%": 0.222
     },
     "energy": 80,
-    "effects": [],
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 10000,
+          "offset": 1000,
+          "commands": {
+            "type": "apply",
+            "ref": "enterExit",
+            "spec": {
+              "uses": 2
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalBurst.2"
+        }
+      },
+      {
+        "ref": "enterExit",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 10000,
+          "action": "elementalBurst.1"
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Favonius Bladework",
@@ -691,9 +726,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Gale Blade",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -724,9 +760,13 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Dandelion Breeze",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
+            "restoreEnergy": {
+              "flat": 20
+            },
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -748,12 +788,54 @@
                   ]
                 }
               ]
+            },
+            "healing": {
+              "targets": "$team",
+              "multipliers": [
+                {
+                  "mv": [
+                    2.512,
+                    2.7004,
+                    2.8888,
+                    3.14,
+                    3.3284,
+                    3.5168,
+                    3.768,
+                    4.0192,
+                    4.2704,
+                    4.5216,
+                    4.7728,
+                    5.024,
+                    5.338,
+                    5.652,
+                    5.966
+                  ],
+                  "flat": [
+                    1540,
+                    1694,
+                    1861,
+                    2041,
+                    2234,
+                    2439,
+                    2657,
+                    2888,
+                    3132,
+                    3389,
+                    3659,
+                    3941,
+                    4236,
+                    4544,
+                    4865
+                  ]
+                }
+              ]
             }
           },
           {
-            "name": "Dandelion Breeze: Field Entering/Exiting",
+            "name": "Entering/Exiting",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -778,70 +860,11 @@
             }
           },
           {
-            "name": "Dandelion Breeze: Field Activation Healing",
+            "name": "Continuous Regeneration",
             "healing": {
+              "targets": "$onField",
               "multipliers": [
                 {
-                  "flat": [
-                    1540,
-                    1694,
-                    1861,
-                    2041,
-                    2234,
-                    2439,
-                    2657,
-                    2888,
-                    3132,
-                    3389,
-                    3659,
-                    3941,
-                    4236,
-                    4544,
-                    4865
-                  ],
-                  "mv": [
-                    2.512,
-                    2.7004,
-                    2.8888,
-                    3.14,
-                    3.3284,
-                    3.5168,
-                    3.768,
-                    4.0192,
-                    4.2704,
-                    4.5216,
-                    4.7728,
-                    5.024,
-                    5.338,
-                    5.652,
-                    5.966
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Dandelion Breeze: Continuous Regeneration",
-            "healing": {
-              "multipliers": [
-                {
-                  "flat": [
-                    154,
-                    169,
-                    186,
-                    204,
-                    223,
-                    244,
-                    266,
-                    289,
-                    313,
-                    339,
-                    366,
-                    394,
-                    424,
-                    454,
-                    487
-                  ],
                   "mv": [
                     0.2512,
                     0.27,
@@ -858,6 +881,23 @@
                     0.5338,
                     0.5652,
                     0.5966
+                  ],
+                  "flat": [
+                    154,
+                    169,
+                    186,
+                    204,
+                    223,
+                    244,
+                    266,
+                    289,
+                    313,
+                    339,
+                    366,
+                    394,
+                    424,
+                    454,
+                    487
                   ]
                 }
               ]
@@ -870,7 +910,11 @@
       "weaponId": 11401,
       "setCounts": {
         "15002": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
     }
   },
   "10000006": {
