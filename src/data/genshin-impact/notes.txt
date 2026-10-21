@@ -53,9 +53,6 @@ Characters:
         No constellations
     Itto
         No constellations
-    Jean
-        No A1
-        No constellations
     Kaeya
         No constellations
     Kinich

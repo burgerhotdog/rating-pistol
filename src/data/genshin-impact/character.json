@@ -437,6 +437,7 @@
     "energy": 80,
     "effects": [
       {
+        "ref": "dandelionField",
         "apply": {
           "when": "hit",
           "filter": {
@@ -446,13 +447,22 @@
           },
           "duration": 10000,
           "offset": 1000,
-          "commands": {
-            "type": "apply",
-            "ref": "enterExit",
-            "spec": {
-              "uses": 2
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "enterExit",
+              "spec": {
+                "uses": 2
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "c4Buff",
+              "spec": {
+                "duration": 10000
+              }
             }
-          }
+          ]
         },
         "use": {
           "when": "interval",
@@ -469,6 +479,83 @@
           "when": "interval",
           "cooldown": 10000,
           "action": "elementalBurst.1"
+        }
+      },
+      {
+        "chance": 0.5,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "action": {
+            "healing": {
+              "targets": "$team",
+              "multipliers": [
+                {
+                  "mv": 0.15
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "apply": {
+          "when": "hit",
+          "field": "onField",
+          "filter": {
+            "action": {
+              "has": "type"
+            }
+          },
+          "uses": 1,
+          "offset": 1000
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "c2Buff",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "ref": "c2Buff",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "attackSpd%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "ref": "c4Buff",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "anemoResReduction%": 0.4
+          }
         }
       }
     ],
