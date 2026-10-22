@@ -17048,7 +17048,6 @@
     }
   },
   "10000048": {
-    "disabled": true,
     "name": "Yanfei",
     "version": 1.5,
     "id": 10000048,
@@ -17064,7 +17063,293 @@
     },
     "energy": 80,
     "liyue": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "scarletSeal",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          }
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.3"
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "a1",
+            "spec": {
+              "duration": 6000
+            }
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "normalAttack.3"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "not": {
+                      "has": "scarletSeal"
+                    }
+                  }
+                }
+              ]
+            },
+            "cooldown": 1,
+            "action": "normalAttack.4"
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "normalAttack.3"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "scarletSeal": 1
+                  }
+                }
+              ]
+            },
+            "cooldown": 1,
+            "action": "normalAttack.5",
+            "commands": {
+              "type": "remove",
+              "ref": "scarletSeal"
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "normalAttack.3"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "scarletSeal": 2
+                  }
+                }
+              ]
+            },
+            "cooldown": 1,
+            "action": "normalAttack.6",
+            "commands": {
+              "type": "remove",
+              "ref": "scarletSeal"
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "normalAttack.3"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "scarletSeal": 3
+                  }
+                }
+              ]
+            },
+            "cooldown": 1,
+            "action": "normalAttack.7",
+            "commands": {
+              "type": "remove",
+              "ref": "scarletSeal"
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "normalAttack.3"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "scarletSeal": 4
+                  }
+                }
+              ]
+            },
+            "cooldown": 1,
+            "action": "normalAttack.8",
+            "commands": {
+              "type": "remove",
+              "ref": "scarletSeal"
+            }
+          }
+        ]
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "scarletSeal",
+            "spec": {
+              "stacks": 4
+            }
+          }
+        }
+      },
+      {
+        "ref": "brilliance",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000,
+          "offset": 1300,
+          "commands": {
+            "type": "apply",
+            "ref": "scarletSeal",
+            "spec": {
+              "stacks": 4
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "commands": {
+            "type": "apply",
+            "ref": "scarletSeal"
+          }
+        },
+        "buff": {
+          "statRefs": {
+            "chargedAttackDmgBonus%": "elementalBurst.1"
+          }
+        }
+      },
+      {
+        "ref": "a1",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.3"
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "pyroDmgBonus%": 0.05
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "a4",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "action": {
+            "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": 0.8
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "chance": 0.5,
+        "buff": {
+          "stats": {
+            "critRate%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "action": {
+            "shield": {
+              "duration": 15000,
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": 0.45
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "modify": {
+          "type": "effect",
+          "ref": "scarletSeal",
+          "spec": {
+            "maxStacks": 1
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Seal of Approval",
@@ -17152,8 +17437,13 @@
           },
           {
             "name": "Charged Attack",
-            "type": "chargedAttack",
+            "type": "chargedAttack"
+          },
+          {
+            "name": "0 Seals DMG",
             "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -17173,7 +17463,17 @@
                     1.9058,
                     1.9822
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "1 Seal DMG",
+            "type": "chargedAttack",
+            "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
+              "multipliers": [
                 {
                   "mv": [
                     1.1556,
@@ -17192,7 +17492,16 @@
                     2.2421,
                     2.332
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "2 Seals DMG",
+            "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
+              "multipliers": [
                 {
                   "mv": [
                     1.329,
@@ -17211,7 +17520,16 @@
                     2.5784,
                     2.6818
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "3 Seals DMG",
+            "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
+              "multipliers": [
                 {
                   "mv": [
                     1.5023,
@@ -17230,7 +17548,16 @@
                     2.9147,
                     3.0317
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "4 Seals DMG",
+            "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
+              "multipliers": [
                 {
                   "mv": [
                     1.6757,
@@ -17341,9 +17668,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -17374,9 +17702,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -17402,8 +17731,7 @@
           },
           {
             "name": "Charged Attack DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
                   "mv": [
@@ -17430,7 +17758,39 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14502,
+      "setCounts": {
+        "15003": 4
+      },
+      "rotation": [
+        "normalAttack.0",
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.0",
+        "elementalSkill.0",
+        "normalAttack.3"
+      ],
+      "duration": 15000
+    },
+    "teamPreset": [
+      10000048,
+      10000032,
+      10000025,
+      10000031
+    ]
   },
   "10000049": {
     "name": "Yoimiya",
@@ -29282,7 +29642,6 @@
     }
   },
   "10000067": {
-    "disabled": true,
     "name": "Collei",
     "version": 3.0,
     "id": 10000067,
@@ -29297,7 +29656,302 @@
       "atk%": 0.24
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "floralRing",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 2
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 3500,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "cuileinAmbar",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 6000,
+          "offset": 500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 500,
+          "action": "elementalBurst.1"
+        },
+        "maxExtensions": 3
+      },
+      {
+        "rank": -2,
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "reaction": [
+                    "burning",
+                    "quicken",
+                    "aggravate",
+                    "spread",
+                    "bloom",
+                    "hyperbloom",
+                    "burgeon",
+                    "lunarBloom"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "floralRing"
+                }
+              }
+            ]
+          },
+          "uses": 1
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "floralRing"
+              }
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "sprout",
+            "spec": {
+              "duration": 3000,
+              "offset": 1500
+            }
+          }
+        }
+      },
+      {
+        "ref": "sprout",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1500,
+          "action": {
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Sprout",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": 0.4
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "use": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "reaction": [
+                    "burning",
+                    "quicken",
+                    "aggravate",
+                    "spread",
+                    "bloom",
+                    "hyperbloom",
+                    "burgeon",
+                    "lunarBloom"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "cuileinAmbar"
+                }
+              }
+            ]
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "cuileinAmbar",
+            "spec": {
+              "duration": 1000,
+              "extend": true
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "buff": {
+          "filter": {
+            "field": "offField"
+          },
+          "stats": {
+            "energyRecharge%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 1,
+          "offset": 3500
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "sprout",
+            "spec": {
+              "duration": 3000,
+              "offset": 1500
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "ref": "canExtendSprout",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 6500,
+          "uses": 1
+        },
+        "use": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "burning",
+                "quicken",
+                "aggravate",
+                "spread",
+                "bloom",
+                "hyperbloom",
+                "burgeon",
+                "lunarBloom"
+              ]
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "extendSprout",
+            "spec": {
+              "uses": 1
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "ref": "extendSprout",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "has": "sprout"
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "sprout",
+            "spec": {
+              "duration": 3000,
+              "extend": true
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "stores": "$ally",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 60
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 3500,
+          "uses": 1
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "action": {
+            "damage": {
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": 2
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Supplicant's Bowmanship",
@@ -29442,6 +30096,7 @@
             "type": "chargedAttack",
             "damage": {
               "element": "dendro",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -29553,9 +30208,14 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Floral Ring",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -29586,9 +30246,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Explosion DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -29613,9 +30279,14 @@
             }
           },
           {
-            "name": "Leap DMG",
-            "type": "elementalBurst",
+            "name": "Leap",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 3000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -29642,7 +30313,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15401,
+      "setCounts": {
+        "15025": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000078,
+      10000058,
+      10000067,
+      10000065
+    ]
   },
   "10000068": {
     "disabled": true,

@@ -148,6 +148,8 @@ Characters:
         No energy recovery
         3 sword always
         no orbitals from skill
+    Yanfei
+        a4 always happens
     Yelan
         No barb reset
     Yoimiya
