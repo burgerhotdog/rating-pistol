@@ -79,6 +79,9 @@ Characters:
     Mika
         No C1
         No C4
+    Mavuika
+        Double check logic
+        No A4 decay
     Mualani
         No constellations
     Nahida

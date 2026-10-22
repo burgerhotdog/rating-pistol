@@ -50490,7 +50490,6 @@
     "memberPreset": {}
   },
   "10000106": {
-    "disabled": true,
     "name": "Mavuika",
     "version": 5.3,
     "id": 10000106,
@@ -50517,13 +50516,20 @@
           },
           "commands": {
             "type": "apply",
-            "ref": "passiveDrain"
+            "ref": "passiveDrain",
+            "spec": {
+              "offset": 200
+            }
           }
         },
         "remove": {
           "when": "nightsoulUpdate",
           "filter": {
-            "nightsoul": 0
+            "nightsoul": {
+              "not": {
+                ">": 0
+              }
+            }
           }
         },
         "use": {
@@ -50540,13 +50546,17 @@
         "remove": {
           "when": "nightsoulUpdate",
           "filter": {
-            "nightsoul": 0
+            "nightsoul": {
+              "not": {
+                ">": 0
+              }
+            }
           }
         },
         "use": {
-          "cooldown": 1000,
+          "cooldown": 200,
           "action": {
-            "nightsoul": -5
+            "nightsoul": -1
           }
         }
       },
@@ -50554,10 +50564,133 @@
         "ref": "fightingSpirit",
         "apply": {
           "by": "$team",
-          "when": "nightsoulUpdate",
-          "cooldown": 100
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 200,
+          "stacks": 3
+        },
+        "use": {
+          "when": "start",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "fightingSpirit": {
+                    ">=": 100
+                  }
+                }
+              }
+            ]
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "crucibleOfDeathAndLife",
+              "spec": {
+                "duration": 9000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "crucibleOfDeathAndLifeOnField",
+              "spec": {
+                "duration": 9000
+              }
+            },
+            {
+              "type": "remove",
+              "ref": "fightingSpirit",
+              "spec": {
+                "stacks": 1
+              }
+            }
+          ]
         },
         "maxStacks": 200
+      },
+      {
+        "ref": "crucibleOfDeathAndLife",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalBurst.1",
+                "elementalSkill.2",
+                "elementalSkill.3",
+                "elementalSkill.4",
+                "elementalSkill.5",
+                "elementalSkill.6",
+                "elementalSkill.8",
+                "elementalSkill.9"
+              ]
+            }
+          },
+          "statRefs": {
+            "damageMv": "elementalBurst.2"
+          }
+        },
+        "maxStacks": 200
+      },
+      {
+        "ref": "crucibleOfDeathAndLifeOnField",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "dmgBonus%": 0.002
+          }
+        },
+        "maxStacks": 200
+      },
+      {
+        "stores": "global",
+        "gameRule": "fightingSpirit"
+      },
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "crucibleOfDeathAndLife": {
+                    ">=": 100
+                  }
+                }
+              }
+            ]
+          },
+          "action": [
+            {
+              "nightsoul": 10
+            },
+            "elementalBurst.1"
+          ]
+        }
       },
       {
         "apply": {
@@ -50568,6 +50701,13 @@
         "buff": {
           "stats": {
             "atk%": 0.3
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "field": "onField"
           }
         }
       }
@@ -50805,6 +50945,7 @@
             "type": "elementalSkill",
             "nightsoul": 80,
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -50833,6 +50974,7 @@
             "nightsoul": -3,
             "damage": {
               "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -50860,6 +51002,12 @@
             "name": "Flamestrider: Normal Attack: 1",
             "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Flamestrider",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50887,6 +51035,12 @@
             "name": "Flamestrider: Normal Attack: 2",
             "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Flamestrider",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50914,6 +51068,12 @@
             "name": "Flamestrider: Normal Attack: 3",
             "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Flamestrider",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50941,6 +51101,12 @@
             "name": "Flamestrider: Normal Attack: 4",
             "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Flamestrider",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50968,6 +51134,12 @@
             "name": "Flamestrider: Normal Attack: 5",
             "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Flamestrider",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -50994,7 +51166,12 @@
           {
             "name": "Flamestrider: Sprint",
             "damage": {
-              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Flamestrider",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -51022,6 +51199,12 @@
             "name": "Flamestrider: Charged Attack: Cyclic",
             "type": "chargedAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Flamestrider",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -51049,6 +51232,12 @@
             "name": "Flamestrider: Charged Attack: Final",
             "type": "chargedAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Flamestrider",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -51076,6 +51265,12 @@
             "name": "Flamestrider: Plunging Attack",
             "type": "plungingAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Flamestrider",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -51107,8 +51302,13 @@
         "actions": [
           {
             "name": "Elemental Burst",
-            "type": "elementalBurst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Sunfell Slice",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -51137,7 +51337,7 @@
             "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.016,
                     0.0172,
                     0.0184,
@@ -51163,7 +51363,7 @@
             "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.0026,
                     0.0028,
                     0.003,
@@ -51189,7 +51389,7 @@
             "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.0052,
                     0.0056,
                     0.006,
@@ -51213,7 +51413,16 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12514,
+      "setCounts": {
+        "15038": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000107": {
     "name": "Citlali",
