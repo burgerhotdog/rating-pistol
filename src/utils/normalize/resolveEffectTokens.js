@@ -155,13 +155,23 @@ export const resolveEffectTokens = (normalized) => {
       });
     }
 
-    if (effect.buff?.filter) {
-      effect.buff.filter = structuredClone(effect.buff.filter);
-      traverseFilter(effect.buff.filter, ownerId, sourceId);
-    }
+    if (effect.buff) {
+      effect.buff = effect.buff.map((rawBuff) => {
+        const { filter, commands } = rawBuff;
+        if (!filter && !commands) return rawBuff;
+        const buff = { ...rawBuff };
 
-    if (effect.buff?.commands) {
-      effect.buff.commands = resolveCommands(effect.buff.commands, ownerId, sourceId);
+        if (filter) {
+          buff.filter = structuredClone(filter);
+          traverseFilter(buff.filter, ownerId, sourceId);
+        }
+
+        if (commands) {
+          buff.commands = resolveCommands(commands, ownerId, sourceId);
+        }
+
+        return buff;
+      });
     }
 
     if (effect.modify?.type === 'effect') {

@@ -51,7 +51,7 @@ function buildCacheMember(cache, member) {
 
   mCache.staticMap = Object.values(effectDefs)
     .filter((effect) => effect.static)
-    .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
+    .reduce((acc, effect) => toMergedObj(acc, ...effect.buff.map(({ stats }) => stats)), {});
 
   mCache.staticEffects = Object.fromEntries(
     Object.entries(effectDefs)

@@ -10,8 +10,7 @@ export const getBuffMap = (ctx, options = {}) => {
   const buffMap = {};
   const buffSpecs = [];
 
-  function addToBuffSpecs(effect, buffMult) {
-    const { buff = {} } = effect;
+  function addToBuffSpecs(buff, buffMult) {
     const { specs = {} } = buff;
 
     buffSpecs.push({ specs, buffMult });
@@ -27,30 +26,36 @@ export const getBuffMap = (ctx, options = {}) => {
     if (buffCooldown) continue;
 
     // Global effects (enemy debuffs) are never snapshotted
-    const isLiveOnly = effect.buff?.snapshot === false || store === ctx.states.globalEffects;
-    if (snapshot === 'frozen' && isLiveOnly) continue;
-    if (snapshot === 'live' && !isLiveOnly) continue;
+    const isGlobal = store === ctx.states.globalEffects;
 
-    if (!ctx.eventFilter(effect.buff?.filter, effect, { action, fieldId: memberId })) continue;
+    // Only the first buff whose filter passes is used
+    const buff = effect.buff.find((candidate) => {
+      const isLiveOnly = candidate.snapshot === false || isGlobal;
+      if (snapshot === 'frozen' && isLiveOnly) return false;
+      if (snapshot === 'live' && !isLiveOnly) return false;
 
-    const linkedStacks = effect.buff?.statusStacks
-      ? ctx.states.negativeStatuses[effect.buff.statusStacks]?.stacks ?? 0
+      return ctx.eventFilter(candidate.filter, effect, { action, fieldId: memberId });
+    });
+    if (!buff) continue;
+
+    const linkedStacks = buff.statusStacks
+      ? ctx.states.negativeStatuses[buff.statusStacks]?.stacks ?? 0
       : 1;
     const buffMult = (effect.chance ?? 1) * stacks * linkedStacks;
 
-    if (effect.buff?.stats) {
-      for (const stat in effect.buff.stats) {
-        buffMap[stat] = (buffMap[stat] ?? 0) + effect.buff.stats[stat] * buffMult;
+    if (buff.stats) {
+      for (const stat in buff.stats) {
+        buffMap[stat] = (buffMap[stat] ?? 0) + buff.stats[stat] * buffMult;
       }
     }
 
-    if (effect.buff?.specs && !ignoreSpecs) {
+    if (buff.specs && !ignoreSpecs) {
       if (effect.ownerId === ctx.specId && !resolveNow) {
-        addToBuffSpecs(effect, buffMult);
+        addToBuffSpecs(buff, buffMult);
         continue;
       }
 
-      const resolvedStatMap = resolveSpecs(effect.buff.specs, getSpecsSourceMap(effect.ownerId));
+      const resolvedStatMap = resolveSpecs(buff.specs, getSpecsSourceMap(effect.ownerId));
 
       for (const stat in resolvedStatMap) {
         buffMap[stat] = (buffMap[stat] ?? 0) + resolvedStatMap[stat] * buffMult;

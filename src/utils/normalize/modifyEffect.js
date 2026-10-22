@@ -31,7 +31,7 @@ function mergeValues(base, addition) {
   return addition;
 }
 
-const OPERATION_FIELDS = new Set(['apply', 'remove', 'use']);
+const OPERATION_FIELDS = new Set(['apply', 'remove', 'use', 'buff']);
 
 function modifyOperationField(values, addition) {
   return values.map((value) => mergeValues(value, addition));

@@ -43,26 +43,28 @@ function renormalizeBaseEffects(nonWeapBaseEffects, baseMap) {
   const renormalized = structuredClone(nonWeapBaseEffects);
 
   for (const effect of Object.values(renormalized)) {
-    if (effect.buff.statRefs) {
-      for (const [id, { baseAttr, multipliers, mvIndex }] of Object.entries(effect.buff.statRefsRaw)) {
-        const baseAttrValue = baseMap[baseAttr] ?? 0;
-
-        const { mv, flat } = multipliers[0];
-        const mvBuffValue = mv?.[mvIndex] ?? 0;
-        const flatBuffValue = flat?.[mvIndex] ?? 0;
-        effect.buff.stats[id] = mvBuffValue * baseAttrValue + flatBuffValue;
-      }
-    }
-
-    if (effect.buff.specRefs) {
-      for (const [id, fieldMap] of Object.entries(effect.buff.specRefsRaw)) {
-        for (const [field, { baseAttr, multipliers, mvIndex }] of Object.entries(fieldMap)) {
+    for (const buff of effect.buff) {
+      if (buff.statRefs) {
+        for (const [id, { baseAttr, multipliers, mvIndex }] of Object.entries(buff.statRefsRaw)) {
           const baseAttrValue = baseMap[baseAttr] ?? 0;
 
           const { mv, flat } = multipliers[0];
           const mvBuffValue = mv?.[mvIndex] ?? 0;
           const flatBuffValue = flat?.[mvIndex] ?? 0;
-          effect.buff.specs[id][field] = mvBuffValue * baseAttrValue + flatBuffValue;
+          buff.stats[id] = mvBuffValue * baseAttrValue + flatBuffValue;
+        }
+      }
+
+      if (buff.specRefs) {
+        for (const [id, fieldMap] of Object.entries(buff.specRefsRaw)) {
+          for (const [field, { baseAttr, multipliers, mvIndex }] of Object.entries(fieldMap)) {
+            const baseAttrValue = baseMap[baseAttr] ?? 0;
+
+            const { mv, flat } = multipliers[0];
+            const mvBuffValue = mv?.[mvIndex] ?? 0;
+            const flatBuffValue = flat?.[mvIndex] ?? 0;
+            buff.specs[id][field] = mvBuffValue * baseAttrValue + flatBuffValue;
+          }
         }
       }
     }
@@ -80,7 +82,7 @@ export function runWeaponTests(cache, equipMaps, charId, durationGetter) {
     Object.entries(mCache.effects)
       .filter(([, effect]) =>
         effect.sourceId !== mCache.weaponId &&
-        (!effect.buff?.statRefs && !effect.buff?.specRefs)
+        (!effect.buff?.some((buff) => buff.statRefs || buff.specRefs))
       )
   );
 
@@ -88,7 +90,7 @@ export function runWeaponTests(cache, equipMaps, charId, durationGetter) {
     Object.entries(mCache.effects)
       .filter(([, effect]) =>
         effect.sourceId !== mCache.weaponId &&
-        (effect.buff?.statRefs || effect.buff?.specRefs)
+        (effect.buff?.some((buff) => buff.statRefs || buff.specRefs))
       )
   );
 
@@ -97,7 +99,7 @@ export function runWeaponTests(cache, equipMaps, charId, durationGetter) {
 
   const oldStaticMapPart = Object.values(mCache.staticEffects)
     .filter((effect) => effect.sourceId !== mCache.weaponId)
-    .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
+    .reduce((acc, effect) => toMergedObj(acc, ...effect.buff.map(({ stats }) => stats)), {});
 
   const weaponResults = [];
 
@@ -120,7 +122,7 @@ export function runWeaponTests(cache, equipMaps, charId, durationGetter) {
 
     const overrideStaticMap = Object.values(normedWeapEffs)
       .filter((effect) => effect.static)
-      .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
+      .reduce((acc, effect) => toMergedObj(acc, ...effect.buff.map(({ stats }) => stats)), {});
 
     const mCacheOverrides = {
       baseMap,

@@ -37183,7 +37183,11 @@
       }
     },
     "memberPreset": {
-      "weaponId": 21050116
+      "weaponId": 21050116,
+      "setCounts": {
+        "36": 5
+      },
+      "mainEcho": 6000225
     }
   },
   "1312": {
@@ -37202,10 +37206,28 @@
       "atk%": 0.12,
       "critRate%": 0.08
     },
-    "effects": [],
+    "effects": [
+      {
+        "stores": "$next",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "outroSkill.0"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgAmp%": 0.2
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
-        "name": "",
+        "name": "Furled Canopy",
         "actions": [
           {
             "name": "Basic Attack Stage 1 DMG",
@@ -37893,7 +37915,7 @@
         ]
       },
       "resonanceSkill": {
-        "name": "",
+        "name": "Furled Canopy: Rift Cleaver",
         "actions": [
           {
             "name": "Resonance Skill - Furled Canopy: Rift Cleaver DMG",
@@ -38011,7 +38033,7 @@
         ]
       },
       "resonanceLiberation": {
-        "name": "",
+        "name": "Umbral Canopy: Miasma Lock",
         "actions": [
           {
             "name": "Resonance Liberation - Umbral Canopy: Miasma Lock DMG",
@@ -38105,7 +38127,7 @@
         ]
       },
       "forteCircuit": {
-        "name": "",
+        "name": "Bound Obsession, Forged Mind",
         "actions": [
           {
             "name": "Resonance Skill - Furled Canopy: Sealed Delusion DMG",
@@ -38290,7 +38312,7 @@
         ]
       },
       "introSkill": {
-        "name": "",
+        "name": "Furled Canopy: Flash Rift",
         "actions": [
           {
             "name": "Intro Skill - Furled Canopy: Flash Rift DMG",
@@ -38624,13 +38646,19 @@
         "name": "Canopy Rumble",
         "actions": [
           {
-            "name": "Canopy Rumble",
+            "name": "Outro Skill",
             "type": "outroSkill"
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 21020107,
+      "setCounts": {
+        "36": 5
+      },
+      "mainEcho": 6000224
+    }
   },
   "1402": {
     "name": "Yangyang",

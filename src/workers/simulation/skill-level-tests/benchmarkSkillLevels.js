@@ -71,27 +71,29 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
           }
         }
 
-        if (effect.buff?.statRefsRaw) {
-          for (const [id, { mvIndex: refMvIndex, baseAttrValue, multipliers }] of Object.entries(effect.buff.statRefsRaw)) {
-            // only re-index refs pointing at the skill currently under test; otherwise keep the ref's real level
-            const refMvIndexToUse = effect.buff.statRefs[id].split('.')[0] === skillId ? mvIndex : refMvIndex;
-
-            const { mv, flat } = multipliers[0];
-            const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
-            const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
-            effect.buff.stats[id] = mvBuffValue * baseAttrValue + flatBuffValue;
-          }
-        }
-
-        if (effect.buff?.specRefsRaw) {
-          for (const [id, fieldMap] of Object.entries(effect.buff.specRefsRaw)) {
-            for (const [field, { mvIndex: refMvIndex, baseAttrValue, multipliers }] of Object.entries(fieldMap)) {
-              const refMvIndexToUse = effect.buff.specRefs[id][field].split('.')[0] === skillId ? mvIndex : refMvIndex;
+        for (const buff of effect.buff ?? []) {
+          if (buff.statRefsRaw) {
+            for (const [id, { mvIndex: refMvIndex, baseAttrValue, multipliers }] of Object.entries(buff.statRefsRaw)) {
+              // only re-index refs pointing at the skill currently under test; otherwise keep the ref's real level
+              const refMvIndexToUse = buff.statRefs[id].split('.')[0] === skillId ? mvIndex : refMvIndex;
 
               const { mv, flat } = multipliers[0];
               const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
               const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
-              effect.buff.specs[id][field] = mvBuffValue * baseAttrValue + flatBuffValue;
+              buff.stats[id] = mvBuffValue * baseAttrValue + flatBuffValue;
+            }
+          }
+
+          if (buff.specRefsRaw) {
+            for (const [id, fieldMap] of Object.entries(buff.specRefsRaw)) {
+              for (const [field, { mvIndex: refMvIndex, baseAttrValue, multipliers }] of Object.entries(fieldMap)) {
+                const refMvIndexToUse = buff.specRefs[id][field].split('.')[0] === skillId ? mvIndex : refMvIndex;
+
+                const { mv, flat } = multipliers[0];
+                const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
+                const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
+                buff.specs[id][field] = mvBuffValue * baseAttrValue + flatBuffValue;
+              }
             }
           }
         }
