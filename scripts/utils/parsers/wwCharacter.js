@@ -92,6 +92,8 @@ function skills(data) {
   for (const group of ['1', '2', '3', '7', '6']) {
     const actions = [];
 
+    const name = data.skill_trees[group].skill.name;
+
     for (const v of Object.values(data.skill_trees[group].skill.level)) {
       if (!v.param[0][0].includes('%')) continue;
 
@@ -123,7 +125,7 @@ function skills(data) {
     }
 
     result[ids[group]] = {
-      name: '',
+      name,
       actions,
     };
   }
@@ -134,7 +136,7 @@ function skills(data) {
     name,
     actions: [
       {
-        name,
+        name: 'Outro Skill',
         type: 'outroSkill',
       },
     ],

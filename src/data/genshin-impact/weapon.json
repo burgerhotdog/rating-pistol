@@ -355,26 +355,13 @@
     "effects": [
       {
         "buff": {
-          "filter": {
-            "field": "onField"
-          },
-          "stats": {
-            "critRate%": [
-              0.2172,
-              0.39848
-            ]
-          },
           "specs": {
             "critRate%": {
+              "formula": "royalCrit",
               "attr": "critRate%",
-              "step": 0.01,
-              "offset": [
-                0.2172,
-                0.39848
-              ],
               "value": [
-                -0.0015196,
-                -0.0026086
+                0.08,
+                0.16
               ]
             }
           }
@@ -3735,26 +3722,13 @@
     "effects": [
       {
         "buff": {
-          "filter": {
-            "field": "onField"
-          },
-          "stats": {
-            "critRate%": [
-              0.2172,
-              0.39848
-            ]
-          },
           "specs": {
             "critRate%": {
+              "formula": "royalCrit",
               "attr": "critRate%",
-              "step": 0.01,
-              "offset": [
-                0.2172,
-                0.39848
-              ],
               "value": [
-                -0.0015196,
-                -0.0026086
+                0.08,
+                0.16
               ]
             }
           }
@@ -6402,26 +6376,13 @@
     "effects": [
       {
         "buff": {
-          "filter": {
-            "field": "onField"
-          },
-          "stats": {
-            "critRate%": [
-              0.2172,
-              0.39848
-            ]
-          },
           "specs": {
             "critRate%": {
+              "formula": "royalCrit",
               "attr": "critRate%",
-              "step": 0.01,
-              "offset": [
-                0.2172,
-                0.39848
-              ],
               "value": [
-                -0.0015196,
-                -0.0026086
+                0.08,
+                0.16
               ]
             }
           }
@@ -8463,26 +8424,13 @@
     "effects": [
       {
         "buff": {
-          "filter": {
-            "field": "onField"
-          },
-          "stats": {
-            "critRate%": [
-              0.2172,
-              0.39848
-            ]
-          },
           "specs": {
             "critRate%": {
+              "formula": "royalCrit",
               "attr": "critRate%",
-              "step": 0.01,
-              "offset": [
-                0.2172,
-                0.39848
-              ],
               "value": [
-                -0.0015196,
-                -0.0026086
+                0.08,
+                0.16
               ]
             }
           }
@@ -12109,26 +12057,13 @@
     "effects": [
       {
         "buff": {
-          "filter": {
-            "field": "onField"
-          },
-          "stats": {
-            "critRate%": [
-              0.2172,
-              0.39848
-            ]
-          },
           "specs": {
             "critRate%": {
+              "formula": "royalCrit",
               "attr": "critRate%",
-              "step": 0.01,
-              "offset": [
-                0.2172,
-                0.39848
-              ],
               "value": [
-                -0.0015196,
-                -0.0026086
+                0.08,
+                0.16
               ]
             }
           }
