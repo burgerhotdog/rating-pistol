@@ -68805,7 +68805,7 @@
     "effects": [
       {
         "apply": {
-          "when": "inflict",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"

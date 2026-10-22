@@ -7,7 +7,19 @@ export const canSnapshot = (action = {}) =>
   action.healing?.compressed ||
   action.shield?.compressed;
 
-export const buildSnapshot = (ctx, action, options = {}) => {
+function getSplitScale(action, part) {
+  if (part === 'damage') {
+    return 1 / (action.hitOffsets?.length ?? 1);
+  }
+
+  if (part === 'healing') {
+    return action.healing.targets.length;
+  }
+
+  return 1;
+}
+
+export const buildSnapshot = (ctx, action, part, options = {}) => {
   const { gameId } = ctx.cache;
   const { runtimeOffset = 0, snapshotBuffs } = options;
   const snapshotOwnerId = action.ownerId;
@@ -33,7 +45,7 @@ export const buildSnapshot = (ctx, action, options = {}) => {
 
   const { multiplier } = ctx.states.aura?.stellarConduct ?? {};
 
-  const snapshot = {
+  return {
     key: action.key,
     name: action.name,
     ownerId: action.ownerId,
@@ -43,24 +55,14 @@ export const buildSnapshot = (ctx, action, options = {}) => {
     runtime: ctx.states.runtime + runtimeOffset,
     damageType: action.damage?.type,
     unresolved: {
-      memo: {},
+      memo: new Map(),
       action,
       buffMap,
       buffSpecs,
       specSourceBuffMap,
-      splitScale: 1 / (action.hitOffsets?.length ?? 1),
-      formula: (statMap, part) => runFormula(gameId, part, action, statMap, multiplier),
-      parts: [
-        ...(action.damage ? ['damage'] : []),
-        ...(action.healing ? ['healing'] : []),
-        ...(action.shield ? ['shield'] : []),
-      ],
+      splitScale: getSplitScale(action, part),
+      formula: (statMap) => runFormula(gameId, part, action, statMap, multiplier),
+      part,
     },
   };
-
-  if (action.healing) {
-    snapshot.unresolved.splitScale *= action.healing.targets.length;
-  }
-
-  return snapshot;
 }

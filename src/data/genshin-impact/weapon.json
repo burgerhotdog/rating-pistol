@@ -6854,7 +6854,7 @@
             "duration": 30000
           },
           {
-            "when": "inflict",
+            "when": "use",
             "field": "*",
             "filter": {
               "action": {

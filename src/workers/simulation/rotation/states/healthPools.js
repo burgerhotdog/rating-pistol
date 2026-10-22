@@ -79,14 +79,14 @@ export function updateHealth(ctx, action, ownerId, spec) {
   }
 }
 
-export function convertHealingToValue(ctx, sharedSnapshot, targetId) {
-  const { action, buffMap, formula } = sharedSnapshot.unresolved;
+export function convertHealingToValue(ctx, healingSnapshot, targetId) {
+  const { action, buffMap, formula } = healingSnapshot.unresolved;
 
   const statMapOwnerId = action.ownerId;
   const statMapOwnerIdBuildMap = ctx.buildMaps[statMapOwnerId];
 
   const healingStatMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
-  const healingValue = formula(healingStatMap, 'healing');
+  const healingValue = formula(healingStatMap);
 
   const { buffMap: targetBuffMap } = getBuffMap(ctx, { memberId: targetId, resolveNow: true });
   const targetStatMap = toMergedObj(ctx.buildMaps[targetId], targetBuffMap);
