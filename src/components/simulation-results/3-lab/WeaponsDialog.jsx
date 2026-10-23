@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Dialog, DialogContent, DialogTitle, Paper, Stack, Typography } from '@mui/material';
+import { Paper, Stack, Typography } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import {
   Bar,
@@ -44,15 +44,21 @@ const renderTooltip = ({ payload, label }) => {
   );
 };
 
-const WeaponsDialog = ({ userMember, userDps, weaponResults, open, onClose }) => {
+const WeaponsDialog = ({ userMember, userDps, weaponResults, normalize }) => {
   const { palette, qualityColors } = useTheme();
   const weapDatas = useData('weapon');
-  const langData = useData('lang');
   const userWeaponId = userMember.weaponId;
 
+  const getDps = (obj = {}) => {
+    if (!normalize) return obj.dps ?? 0;
+    return Math.max(obj.normalized ?? 0, obj.dps ?? 0);
+  };
+
   const data = weaponResults
-    .toSorted((a, b) => b.dps - a.dps)
-    .map(({ weaponId, weaponRank, dps }) => {
+    .toSorted((a, b) => getDps(b) - getDps(a))
+    .map((result) => {
+      const { weaponId, weaponRank } = result;
+      const dps = getDps(result);
       const { name, icon, quality } = weapDatas[weaponId];
       const isUser = weaponId === userWeaponId;
 
@@ -72,85 +78,70 @@ const WeaponsDialog = ({ userMember, userDps, weaponResults, open, onClose }) =>
   const chartHeight = data.length * 64 + 40;
 
   return (
-    <Dialog
-      open={open}
-      onClose={onClose}
-      fullWidth
-      maxWidth="md"
+    <BarChart
+      data={data}
+      layout="vertical"
+      style={{
+        width: '100%',
+        height: chartHeight,
+      }}
+      responsive
     >
-      <DialogTitle>
-        {`${langData.Weapon} Rankings`}
-      </DialogTitle>
-      <DialogContent
-        dividers
-        sx={{ overflowY: 'auto', p: 2 }}
+      <XAxis
+        type="number"
+        tickFormatter={formatDmg}
+      />
+
+      <YAxis
+        type="category"
+        dataKey="name"
+        tick={false}
+      />
+
+      <Bar
+        dataKey="dps"
+        barSize={48}
+        animationMatchBy={matchByDataKey('name')}
       >
-        <BarChart
-          data={data}
-          layout="vertical"
-          style={{
-            width: '100%',
-            height: chartHeight,
+        <LabelList
+          content={({ x, y, height, index }) => {
+            const entry = data[index];
+            if (!entry?.icon) return null;
+
+            const size = Math.max(height - 8, 48);
+            const ix = x + 8;
+            const iy = y + (height - size) / 2;
+
+            return (
+              <image
+                x={ix}
+                y={iy}
+                width={size}
+                height={size}
+                href={entry.icon}
+                {...(!entry.isUser && { opacity: 0.75 })}
+                filter={entry.filter}
+              />
+            );
           }}
-          responsive
-        >
-          <XAxis
-            type="number"
-            tickFormatter={formatDmg}
-          />
+        />
+      </Bar>
 
-          <YAxis
-            type="category"
-            dataKey="name"
-            tick={false}
-          />
+      <Tooltip
+        content={renderTooltip}
+        cursor={{ fill: alpha(palette.text.primary, 0.1) }}
+        isAnimationActive={false}
+      />
 
-          <Bar
-            dataKey="dps"
-            barSize={48}
-            animationMatchBy={matchByDataKey('name')}
-          >
-            <LabelList
-              content={({ x, y, height, index }) => {
-                const entry = data[index];
-                if (!entry?.icon) return null;
-
-                const size = Math.max(height - 8, 48);
-                const ix = x + 8;
-                const iy = y + (height - size) / 2;
-
-                return (
-                  <image
-                    x={ix}
-                    y={iy}
-                    width={size}
-                    height={size}
-                    href={entry.icon}
-                    {...(!entry.isUser && { opacity: 0.75 })}
-                    filter={entry.filter}
-                  />
-                );
-              }}
-            />
-          </Bar>
-
-          <Tooltip
-            content={renderTooltip}
-            cursor={{ fill: alpha(palette.text.primary, 0.1) }}
-            isAnimationActive={false}
-          />
-
-          <defs>
-            {Object.entries(qualityColors).map(([q, qColor]) => (
-              <linearGradient key={q} id={`gradient${q}`} x1="1" y1="0" x2="0" y2="0">
-                <stop offset="0%" stopColor={qColor} stopOpacity={1} />
-                <stop offset="100%" stopColor={qColor} stopOpacity={0} />
-              </linearGradient>
-            ))}
-          </defs>
-        </BarChart>
-      </DialogContent>
-    </Dialog>
+      <defs>
+        {Object.entries(qualityColors).map(([q, qColor]) => (
+          <linearGradient key={q} id={`gradient${q}`} x1="1" y1="0" x2="0" y2="0">
+            <stop offset="0%" stopColor={qColor} stopOpacity={1} />
+            <stop offset="100%" stopColor={qColor} stopOpacity={0} />
+          </linearGradient>
+        ))}
+      </defs>
+    </BarChart>
   );
 };
 

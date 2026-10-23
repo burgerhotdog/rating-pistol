@@ -244,8 +244,6 @@ Weapons:
 Sets:
     Bloodstained Chivalry
         4pc not active
-    Ocean-Hued Clam
-        Always uses full healing amount
     Song of days Past
         Always uses max amount
     Nighttime Whispers in the Echoing Woods

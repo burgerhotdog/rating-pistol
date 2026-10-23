@@ -1,4 +1,4 @@
-import { CHARACTER, WEAPON } from '@/data';
+import { CHARACTER, WEAPON, GI, HSR, WW, ZZZ } from '@/data';
 import {
   buildBaseMap,
   getDefaultWeapRank,
@@ -73,6 +73,33 @@ function renormalizeBaseEffects(nonWeapBaseEffects, baseMap) {
   return renormalized;
 }
 
+const critStatValues = {
+  [GI]: {
+    crMain: 0.311,
+    cdMain: 0.622,
+    crSub: 0.0389,
+    cdSub: 0.0777,
+  },
+  [HSR]: {
+    crMain: 0.311,
+    cdMain: 0.622,
+    crSub: 0.0389,
+    cdSub: 0.0777,
+  },
+  [WW]: {
+    crMain: 0.311,
+    cdMain: 0.622,
+    crSub: 0.0389,
+    cdSub: 0.0777,
+  },
+  [ZZZ]: {
+    crMain: 0.311,
+    cdMain: 0.622,
+    crSub: 0.0389,
+    cdSub: 0.0777,
+  },
+};
+
 export function runWeaponTests(cache, equipMaps, charId, durationGetter) {
   const { gameId } = cache;
   const { type: charType, concertoReq } = CHARACTER[gameId][charId];
@@ -102,6 +129,87 @@ export function runWeaponTests(cache, equipMaps, charId, durationGetter) {
     .reduce((acc, effect) => toMergedObj(acc, ...effect.buff.map(({ stats }) => stats)), {});
 
   const weaponResults = [];
+
+  const existingWeaponSubstat = Object.entries(WEAPON[gameId][mCache.weaponId].stats).find(([stat]) => !stat.startsWith('base'));
+  const existingCritEquip = mCache.equipList.find(({ mainstatId }) => mainstatId.startsWith('crit'));
+
+  function testInverseCrit(weapData, mCacheOverrides) {
+    const testWeaponSubstat = Object.entries(weapData.stats).find(([stat]) => !stat.startsWith('base'));
+
+    if (
+      !existingWeaponSubstat ||
+      !existingCritEquip ||
+      !testWeaponSubstat
+    ) return;
+
+    if (
+      existingWeaponSubstat[0] === 'critRate%' &&
+      testWeaponSubstat[0] === 'critDmg%'
+    ) {
+      if (existingCritEquip.mainstatId === 'critDmg%') {
+        const inverseCritEquipMap = {
+          ...mCache.equipMap,
+          'critDmg%': mCache.equipMap['critDmg%'] - critStatValues[gameId].cdMain,
+          'critRate%': mCache.equipMap['critRate%'] + critStatValues[gameId].crMain,
+        };
+
+        if (gameId !== WW) {
+          const existingCrSub = existingCritEquip.substats.find(({ stat }) => stat === 'critRate%');
+
+          if (existingCrSub) {
+            inverseCritEquipMap['critRate%'] = inverseCritEquipMap['critRate%'] - existingCrSub.value;
+            inverseCritEquipMap['critDmg%'] = inverseCritEquipMap['critDmg%'] + (existingCrSub.value * 2);
+          }
+        }
+
+        const inverseCritOverrides = {
+          ...mCacheOverrides,
+          equipMap: inverseCritEquipMap,
+        };
+
+        const inverseCritEquipMaps = {
+          ...equipMaps,
+          [charId]: inverseCritEquipMap,
+        };
+
+        return runVariantDps(cache, inverseCritEquipMaps, charId, inverseCritOverrides, durationGetter);
+      }
+    }
+
+    if (
+      existingWeaponSubstat[0] === 'critDmg%' &&
+      testWeaponSubstat[0] === 'critRate%'
+    ) {
+      if (existingCritEquip.mainstatId === 'critRate%') {
+        const inverseCritEquipMap = {
+          ...mCache.equipMap,
+          'critRate%': mCache.equipMap['critRate%'] - critStatValues[gameId].crMain,
+          'critDmg%': mCache.equipMap['critDmg%'] + critStatValues[gameId].cdMain,
+        };
+
+        if (gameId !== WW) {
+          const existingCdSub = existingCritEquip.substats.find(({ stat }) => stat === 'critDmg%');
+
+          if (existingCdSub) {
+            inverseCritEquipMap['critDmg%'] = inverseCritEquipMap['critDmg%'] - existingCdSub.value;
+            inverseCritEquipMap['critRate%'] = inverseCritEquipMap['critRate%'] + (existingCdSub.value / 2);
+          }
+        }
+
+        const inverseCritOverrides = {
+          ...mCacheOverrides,
+          equipMap: inverseCritEquipMap,
+        };
+
+        const inverseCritEquipMaps = {
+          ...equipMaps,
+          [charId]: inverseCritEquipMap,
+        };
+
+        return runVariantDps(cache, inverseCritEquipMaps, charId, inverseCritOverrides, durationGetter);
+      }
+    }
+  }
 
   for (const weapData of weapDatasToTest) {
     const baseMap = buildBaseMap(gameId, charId, weapData.id);
@@ -134,10 +242,13 @@ export function runWeaponTests(cache, equipMaps, charId, durationGetter) {
       }),
     };
 
+    const inverseCritDps = testInverseCrit(weapData, mCacheOverrides);
+
     weaponResults.push({
       weaponId: weapData.id,
       weaponRank: testRank,
       dps: runVariantDps(cache, equipMaps, charId, mCacheOverrides, durationGetter),
+      ...(inverseCritDps && { normalized: inverseCritDps }),
     });
   }
 

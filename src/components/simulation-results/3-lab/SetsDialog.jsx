@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Dialog, DialogContent, DialogTitle, Paper, Stack, Typography } from '@mui/material';
+import { Paper, Stack, Typography } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import {
   Bar,
@@ -181,101 +181,85 @@ const renderTooltip = ({ gameId, payload, label = '' }) => {
   );
 };
 
-const SetsDialog = ({ userMember, userDps, setResults, open, onClose }) => {
+const SetsDialog = ({ userMember, userDps, setResults }) => {
   const { gameId } = useParams();
   const { palette } = useTheme();
   const accent = useAccent();
   const setDatas = useData('set');
-  const langData = useData('lang');
 
   const data = buildData(gameId, setResults, userDps, userMember.setCounts);
 
   const chartHeight = data.length * 64 + 40;
 
   return (
-    <Dialog
-      open={open}
-      onClose={onClose}
-      fullWidth
-      maxWidth="md"
+    <BarChart
+      data={data}
+      layout="vertical"
+      style={{
+        width: '100%',
+        height: chartHeight,
+      }}
+      responsive
     >
-      <DialogTitle>
-        {`${langData.Equip} Set Bonus Rankings`}
-      </DialogTitle>
-      <DialogContent
-        dividers
-        sx={{ overflowY: 'auto', p: 2 }}
+      <XAxis
+        type="number"
+        tickFormatter={formatDmg}
+      />
+
+      <YAxis
+        type="category"
+        dataKey="name"
+        tick={false}
+      />
+
+      <Bar
+        dataKey="dps"
+        barSize={48}
       >
-        <BarChart
-          data={data}
-          layout="vertical"
-          style={{
-            width: '100%',
-            height: chartHeight,
+        <LabelList
+          content={({ x, y, height, index }) => {
+            const entry = data[index];
+            if (!entry?.comboKey || entry.empty || entry.comboKey === 'none') return null;
+
+            const size = Math.max(height - 8, 48);
+            const ix = x + 8;
+            const iy = y + (height - size) / 2;
+
+            const icons = getComboIcons(entry.comboKey, setDatas).toReversed();
+
+            return (
+              <g>
+                {icons.map((icon, i) => (
+                  <image
+                    key={i}
+                    x={ix + i * (size + 8)}
+                    y={iy}
+                    width={size}
+                    height={size}
+                    href={icon}
+                    {...(!entry.isUser && { opacity: 0.75 })}
+                    filter={entry.filter}
+                  />
+                ))}
+              </g>
+            );
           }}
-          responsive
-        >
-          <XAxis
-            type="number"
-            tickFormatter={formatDmg}
-          />
+        />
+      </Bar>
 
-          <YAxis
-            type="category"
-            dataKey="name"
-            tick={false}
-          />
+      <Tooltip
+        content={(props) => renderTooltip({ gameId, ...props })}
+        cursor={{ fill: alpha(palette.text.primary, 0.1) }}
+        isAnimationActive={false}
+      />
 
-          <Bar
-            dataKey="dps"
-            barSize={48}
-          >
-            <LabelList
-              content={({ x, y, height, index }) => {
-                const entry = data[index];
-                if (!entry?.comboKey || entry.empty || entry.comboKey === 'none') return null;
-
-                const size = Math.max(height - 8, 48);
-                const ix = x + 8;
-                const iy = y + (height - size) / 2;
-
-                const icons = getComboIcons(entry.comboKey, setDatas).toReversed();
-
-                return (
-                  <g>
-                    {icons.map((icon, i) => (
-                      <image
-                        key={i}
-                        x={ix + i * (size + 8)}
-                        y={iy}
-                        width={size}
-                        height={size}
-                        href={icon}
-                        {...(!entry.isUser && { opacity: 0.75 })}
-                        filter={entry.filter}
-                      />
-                    ))}
-                  </g>
-                );
-              }}
-            />
-          </Bar>
-
-          <Tooltip
-            content={(props) => renderTooltip({ gameId, ...props })}
-            cursor={{ fill: alpha(palette.text.primary, 0.1) }}
-            isAnimationActive={false}
-          />
-
-          <defs>
-            <linearGradient id={`accentGradient`} x1="1" y1="0" x2="0" y2="0">
-              <stop offset="0%" stopColor={accent} stopOpacity={1} />
-              <stop offset="100%" stopColor={accent} stopOpacity={0} />
-            </linearGradient>
-          </defs>
-        </BarChart>
-      </DialogContent>
-    </Dialog>
+      <defs>
+        <linearGradient id={`accentGradient`} x1="1" y1="0" x2="0" y2="0">
+          <stop offset="0%" stopColor={accent} stopOpacity={1} />
+          <stop offset="100%" stopColor={accent} stopOpacity={0} />
+        </linearGradient>
+      </defs>
+    </BarChart>
   );
 };
 

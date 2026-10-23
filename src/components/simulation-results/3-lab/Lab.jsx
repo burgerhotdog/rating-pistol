@@ -1,22 +1,20 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import {
-  Button,
+  Box,
   Card,
   CardHeader,
+  FormControlLabel,
   Skeleton,
   Stack,
 } from '@mui/material';
+import { Switch } from '@/components/Colored';
 import { useData } from '@/hooks';
 import WeaponsDialog from './WeaponsDialog';
 import SetsDialog from './SetsDialog';
 
 const Lab = ({ results }) => {
   const langData = useData('lang');
-  const [weaponOpen, setWeaponOpen] = useState(false);
-  const [setsOpen, setSetsOpen] = useState(false);
-
-  const handleWeaponClose = useCallback(() => setWeaponOpen(false), []);
-  const handleSetsClose = useCallback(() => setSetsOpen(false), []);
+  const [normalize, setNormalize] = useState(true);
 
   const weaponsReady =
     results.userMember &&
@@ -32,20 +30,30 @@ const Lab = ({ results }) => {
     <Stack spacing={1} sx={{ flex: 1 }}>
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
         <Card component={Stack} sx={{ flex: 1 }}>
-          <CardHeader title={`${langData.Weapon} Comparisons`}/>
+          <CardHeader
+            title={`${langData.Weapon} Comparisons`}
+            action={
+              <FormControlLabel
+                label="Normalize"
+                control={
+                  <Switch
+                    color="#your-color"
+                    checked={normalize}
+                    onChange={(event) => setNormalize(event.target.checked)}
+                  />
+                }
+              />
+            }
+          />
           {weaponsReady ? (
-            <>
-              <Button onClick={() => setWeaponOpen(true)}>
-                Open
-              </Button>
+            <Box sx={{ flex: 1, minHeight: 0, overflowY: 'auto', px: 2 }}>
               <WeaponsDialog
                 userMember={results.userMember}
                 userDps={results.userDps}
                 weaponResults={results.weaponResults}
-                open={weaponOpen}
-                onClose={handleWeaponClose}
+                normalize={normalize}
               />
-            </>
+            </Box>
           ) : (
             <Skeleton variant="rectangular" sx={{ flex: 1 }} />
           )}
@@ -54,18 +62,13 @@ const Lab = ({ results }) => {
         <Card component={Stack} sx={{ flex: 1 }}>
           <CardHeader title={`${langData.Equip} Set Comparisons`} />
           {setsReady ? (
-            <>
-              <Button onClick={() => setSetsOpen(true)}>
-                Open
-              </Button>
+            <Box sx={{ flex: 1, minHeight: 0, overflowY: 'auto', px: 2 }}>
               <SetsDialog
                 userMember={results.userMember}
                 userDps={results.userDps}
                 setResults={results.setResults}
-                open={setsOpen}
-                onClose={handleSetsClose}
               />
-            </>
+            </Box>
           ) : (
             <Skeleton variant="rectangular" sx={{ flex: 1 }} />
           )}

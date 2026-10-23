@@ -15,10 +15,23 @@ function expireEffectState(ctx, state, storeOwnerId) {
   };
 }
 
-function advanceEffectState(ctx, state, elapsed, storeOwnerId) {
+function advanceEffectState(ctx, state, elapsed, storeOwnerId, deferExpiration = false) {
   const { effect } = state;
+  let pending = false;
+
+  const expire = (timeLeft) => {
+    if (deferExpiration && timeLeft === 0) {
+      pending = true;
+      return false;
+    }
+
+    expireEffectState(ctx, state, storeOwnerId);
+    return true;
+  };
 
   if (effect.independentStacks) {
+    const lastTime = state.independentStacks.at(-1);
+
     for (let i = 0; i < state.independentStacks.length; i++) {
       state.independentStacks[i] = Math.max(state.independentStacks[i] - elapsed, 0);
     }
@@ -29,8 +42,7 @@ function advanceEffectState(ctx, state, elapsed, storeOwnerId) {
     }
 
     if (!state.independentStacks.length) {
-      expireEffectState(ctx, state, storeOwnerId);
-      return true;
+      if (expire(lastTime - elapsed)) return 'expired';
     }
   }
 
@@ -39,27 +51,28 @@ function advanceEffectState(ctx, state, elapsed, storeOwnerId) {
 
     if (!effect.decay) {
       if (state.timeLeft <= 0) {
-        expireEffectState(ctx, state, storeOwnerId);
-        return true;
+        if (expire(state.timeLeft)) return 'expired';
       }
-    }
+    } else {
+      while (state.timeLeft <= 0) {
+        const timeLeft = state.timeLeft;
 
-    while (state.timeLeft <= 0) {
-      state.timeLeft += effect.decayDuration;
-      state.stacks--;
+        state.timeLeft += effect.decayDuration;
+        state.stacks--;
 
-      if (state.stacks <= 0) {
-        expireEffectState(ctx, state, storeOwnerId);
-        return true;
+        if (state.stacks <= 0) {
+          if (expire(timeLeft)) return 'expired';
+          break;
+        }
       }
     }
   }
 
   if ('removeTimer' in state) {
     state.removeTimer -= elapsed;
+
     if (state.removeTimer <= 0) {
-      expireEffectState(ctx, state, storeOwnerId);
-      return true;
+      if (expire(state.removeTimer)) return 'expired';
     }
   }
 
@@ -91,17 +104,14 @@ function advanceEffectState(ctx, state, elapsed, storeOwnerId) {
       state.rampingTimer += rampingInterval;
     }
   }
+
+  if (pending) return 'pending';
 }
 
 function advanceState(ctx, elapsed, state, storeOwnerId) {
   const { effect } = state;
-  let hasInterval = false;
-  for (const use of effect.use ?? []) {
-    if (use.when === 'interval') {
-      hasInterval = true;
-      break;
-    }
-  }
+
+  const hasInterval = effect.use?.some((use) => use.when === 'interval');
 
   if (!hasInterval) {
     advanceEffectState(ctx, state, elapsed, storeOwnerId);
@@ -111,8 +121,12 @@ function advanceState(ctx, elapsed, state, storeOwnerId) {
   let remaining = elapsed;
 
   while (remaining) {
-    const diff = Math.min(state.useCooldown ?? 0, remaining);
-    if (advanceEffectState(ctx, state, diff, storeOwnerId)) break;
+    const cooldown = state.useCooldown ?? 0;
+    const diff = Math.min(cooldown, remaining);
+
+    const status = advanceEffectState(ctx, state, diff, storeOwnerId, diff === cooldown);
+    if (status === 'expired') break;
+
     remaining -= diff;
     if (state.useCooldown) continue;
 
@@ -140,6 +154,20 @@ function advanceState(ctx, elapsed, state, storeOwnerId) {
       }
     }
 
+    if (status === 'pending') {
+      const stillExpired =
+        (effect.independentStacks && !state.independentStacks.length) ||
+        (!effect.decay && state.timeLeft === 0) ||
+        (effect.decay && state.stacks <= 0) ||
+        ('removeTimer' in state && state.removeTimer <= 0);
+
+      if (state.store[effect.key] === state && stillExpired) {
+        expireEffectState(ctx, state, storeOwnerId);
+      }
+
+      break;
+    }
+
     if (remaining && !state.useCooldown) {
       advanceEffectState(ctx, state, remaining, storeOwnerId);
       break;
@@ -148,8 +176,9 @@ function advanceState(ctx, elapsed, state, storeOwnerId) {
 }
 
 function advanceStore(ctx, elapsed, store, storeOwnerId) {
-  for (const effectKey in store) {
-    const state = store[effectKey];
+  for (const [effectKey, state] of Object.entries(store)) {
+    if (store[effectKey] !== state) continue;
+
     advanceState(ctx, elapsed, state, storeOwnerId);
   }
 }
