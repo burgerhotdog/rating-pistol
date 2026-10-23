@@ -60,6 +60,8 @@ Characters:
         No constellations
     Kinich
         No constellations
+    Kokomi
+        No constellations
     Klee
         No constellations
     Lauma

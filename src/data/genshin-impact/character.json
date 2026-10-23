@@ -21213,7 +21213,6 @@
     "memberPreset": {}
   },
   "10000054": {
-    "disabled": true,
     "name": "Sangonomiya Kokomi",
     "version": 2.1,
     "id": 10000054,
@@ -21230,7 +21229,217 @@
       "hydroDmgBonus%": 0.288
     },
     "energy": 70,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "bakeKurage",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 12000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "ceremonialGarment",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 10000
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "action": "elementalBurst.4"
+        },
+        "buff": [
+          {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "normalAttack"
+                }
+              }
+            },
+            "specRefs": {
+              "damageFlat": {
+                "attr": "hp",
+                "step": 1,
+                "value": "elementalBurst.1"
+              }
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "chargedAttack"
+                }
+              }
+            },
+            "specRefs": {
+              "damageFlat": {
+                "attr": "hp",
+                "step": 1,
+                "value": "elementalBurst.2"
+              }
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": "elementalSkill"
+                }
+              }
+            },
+            "specRefs": {
+              "damageFlat": {
+                "attr": "hp",
+                "step": 1,
+                "value": "elementalBurst.3"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "use": {
+          "when": "use",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "bakeKurage"
+                }
+              }
+            ]
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "bakeKurage",
+            "spec": {
+              "duration": 12000
+            }
+          }
+        }
+      },
+      {
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": "normalAttack"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "has": "ceremonialGarment"
+                  }
+                }
+              ]
+            },
+            "action": {
+              "name": "A4",
+              "damage": {
+                "type": "normalAttack",
+                "attr": "hp",
+                "multipliers": [
+                  {
+                    "mv": 0.001
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": "chargedAttack"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "has": "ceremonialGarment"
+                  }
+                }
+              ]
+            },
+            "action": {
+              "name": "A4",
+              "damage": {
+                "type": "chargedAttack",
+                "attr": "hp",
+                "multipliers": [
+                  {
+                    "mv": 0.001
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "name": "A4"
+            }
+          },
+          "specs": {
+            "damageMv": {
+              "attr": "healingBonus%",
+              "step": 1,
+              "value": 0.15
+            }
+          }
+        }
+      },
+      {
+        "buff": {
+          "stats": {
+            "healingBonus%": 0.25,
+            "critRate%": -1
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "The Shape of Water",
@@ -21431,55 +21640,14 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Regeneration",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.044,
-                    0.0473,
-                    0.0506,
-                    0.055,
-                    0.0583,
-                    0.0616,
-                    0.066,
-                    0.0704,
-                    0.0748,
-                    0.0792,
-                    0.0836,
-                    0.088,
-                    0.0935,
-                    0.099,
-                    0.1045
-                  ]
-                },
-                {
-                  "mv": [
-                    423.7063,
-                    466.0828,
-                    511.9907,
-                    561.43,
-                    614.4006,
-                    670.9026,
-                    730.9361,
-                    794.5009,
-                    861.597,
-                    932.2246,
-                    1006.3835,
-                    1084.0737,
-                    1165.2954,
-                    1250.0485,
-                    1338.3329
-                  ]
-                }
-              ]
-            }
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
           },
           {
-            "name": "Ripple DMG",
-            "type": "elementalSkill",
+            "name": "Bake-Kurage",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -21501,6 +21669,48 @@
                   ]
                 }
               ]
+            },
+            "healing": {
+              "targets": "$onField",
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.044,
+                    0.0473,
+                    0.0506,
+                    0.055,
+                    0.0583,
+                    0.0616,
+                    0.066,
+                    0.0704,
+                    0.0748,
+                    0.0792,
+                    0.0836,
+                    0.088,
+                    0.0935,
+                    0.099,
+                    0.1045
+                  ],
+                  "flat": [
+                    423.7063,
+                    466.0828,
+                    511.9907,
+                    561.43,
+                    614.4006,
+                    670.9026,
+                    730.9361,
+                    794.5009,
+                    861.597,
+                    932.2246,
+                    1006.3835,
+                    1084.0737,
+                    1165.2954,
+                    1250.0485,
+                    1338.3329
+                  ]
+                }
+              ]
             }
           }
         ]
@@ -21510,9 +21720,11 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -21538,11 +21750,10 @@
           },
           {
             "name": "Normal Attack DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.0484,
                     0.052,
                     0.0557,
@@ -21565,11 +21776,10 @@
           },
           {
             "name": "Charged Attack DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.0678,
                     0.0728,
                     0.0779,
@@ -21592,11 +21802,10 @@
           },
           {
             "name": "Bake-Kurage DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.071,
                     0.0763,
                     0.0816,
@@ -21619,8 +21828,9 @@
           },
           {
             "name": "HP Regeneration Per Hit",
-            "type": "elementalBurst",
-            "damage": {
+            "healing": {
+              "targets": "$team",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -21639,10 +21849,8 @@
                     0.0172,
                     0.0182,
                     0.0192
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     77.0374,
                     84.7422,
                     93.0891,
@@ -21670,8 +21878,35 @@
       "weaponId": 14506,
       "setCounts": {
         "15022": 4
+      },
+      "rotation": [
+        "elementalSkill.0"
+      ]
+    },
+    "teamPreset": [
+      { 
+        "id": 10000054,
+        "rotation": [
+          "elementalBurst.0",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "normalAttack.0",
+          "normalAttack.1",
+          "normalAttack.2",
+          "elementalSkill.0"
+        ]
       }
-    }
+    ]
   },
   "10000055": {
     "name": "Gorou",
