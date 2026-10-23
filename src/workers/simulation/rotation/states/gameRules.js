@@ -1,5 +1,6 @@
 import { convertSeedsOfDeceit, consumeSeedsOfDeceit } from '../reactions';
 import { runApplyEffect } from './effects';
+import { buildTransformativeReactionSnapshot } from '../snapshot';
 
 export function hasGameRule(ctx, rule) {
   const { globalEffects } = ctx.states;
@@ -14,6 +15,19 @@ export function hasGameRule(ctx, rule) {
 }
 
 export function runGameRule(ctx, rule, effect, spec) {
+  if (rule === 'oceanHuedClam') {
+    ctx.states.gameRule.oceanHuedClam = { ownerId: effect.ownerId, value: 0 };
+  }
+
+  if (rule === 'seaDyedFoam') {
+    if (ctx.saveSnapshots) {
+      const snapshot = buildTransformativeReactionSnapshot(ctx, effect.ownerId, 'seaDyedFoam', 'physical');
+      ctx.snapshots.push(snapshot);
+    }
+
+    delete ctx.states.gameRule.oceanHuedClam;
+  }
+
   if (rule === 'seedsOfDeceit1') {
     convertSeedsOfDeceit(ctx);
   }

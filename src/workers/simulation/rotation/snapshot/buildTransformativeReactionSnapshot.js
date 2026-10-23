@@ -14,6 +14,10 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
     ? getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true }).buffMap
     : null;
 
+  const foamHealing = rxnKey === 'seaDyedFoam'
+    ? ctx.states.gameRule.oceanHuedClam?.value
+    : null;
+
   return {
     key: `system:${rxnKey}`,
     name: formatStr(rxnKey),
@@ -31,7 +35,7 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
       scale: 1,
       part: 'damage',
       reactionElement,
-      formula: (statMap) => transformativeReactionFormula(statMap, rxnKey, reactionElement),
+      formula: (statMap) => transformativeReactionFormula(statMap, rxnKey, reactionElement, foamHealing),
       usedAttrs: transformativeReactionUsedAttrs(rxnKey, reactionElement),
     },
   };

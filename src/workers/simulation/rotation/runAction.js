@@ -25,10 +25,17 @@ import { runRestoreEnergy } from './restoreEnergy';
 function handleHealing(ctx, action, healingSnapshot) {
   if (!action.healing) return;
 
+  const foamState = ctx.states.gameRule.oceanHuedClam;
+  const isFoamOwner = foamState?.ownerId === action.ownerId;
+
   for (const target of action.healing.targets) {
     const targetId = getTargetId(ctx, target);
 
-    const value = convertHealingToValue(ctx, healingSnapshot, targetId);
+    const { healing, value } = convertHealingToValue(ctx, healingSnapshot, targetId);
+
+    if (isFoamOwner && healing > 0) {
+      foamState.value = Math.min(foamState.value + healing, 30000);
+    }
 
     if (ctx.cache.gameId === GI) {
       changeBondOfLife(ctx, targetId, -value);

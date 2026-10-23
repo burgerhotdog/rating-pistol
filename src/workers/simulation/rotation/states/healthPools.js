@@ -93,7 +93,8 @@ export function convertHealingToValue(ctx, healingSnapshot, targetId) {
   const maxHp = getAttr('hp', targetStatMap);
   const healingReceivedMultiplier = 1 + getAttr('healingReceived%', targetStatMap);
 
-  const ratio = (healingValue * healingReceivedMultiplier) / maxHp;
+  const healing = healingValue * healingReceivedMultiplier;
+  const value = healing / maxHp;
 
-  return ratio;
+  return { healing, value };
 }
