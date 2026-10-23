@@ -48384,7 +48384,13 @@
       "rotation": [
         "elementalSkill.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000101,
+      10000106,
+      10000099,
+      10000032
+    ]
   },
   "10000100": {
     "disabled": true,
@@ -49262,7 +49268,13 @@
         "elementalSkill.2"
       ],
       "duration": 11700
-    }
+    },
+    "teamPreset": [
+      10000101,
+      10000106,
+      10000099,
+      10000032
+    ]
   },
   "10000102": {
     "name": "Mualani",
@@ -57776,7 +57788,6 @@
     ]
   },
   "10000115": {
-    "disabled": true,
     "name": "Dahlia",
     "version": 5.7,
     "id": 10000115,
@@ -57791,7 +57802,242 @@
       "hp%": 0.24
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "favonianFavor",
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "commands": {
+            "type": "apply",
+            "ref": "benisonStackGain",
+            "spec": {
+              "uses": 4
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "specs": {
+            "attackSpd%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 0.005,
+              "maxValue": 0.2
+            }
+          }
+        }
+      },
+      {
+        "ref": "benisonStackGain",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "benisonPreStack": 4
+            }
+          },
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "benisonPreStack"
+            },
+            {
+              "type": "apply",
+              "ref": "benisonEnergy",
+              "spec": {
+                "uses": 1
+              }
+            }
+          ]
+        }
+      },
+      {
+        "use": [
+          {
+            "by": "$team",
+            "when": "reaction",
+            "filter": {
+              "and": [
+                {
+                  "reaction": {
+                    "reaction": "frozen"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "favonianFavor"
+                      },
+                      {
+                        "benisonStackGain": {
+                          ">=": 2
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "cooldown": 8000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "benisonStackGain",
+                "spec": {
+                  "stacks": 2
+                }
+              },
+              {
+                "type": "apply",
+                "ref": "benisonEnergy",
+                "spec": {
+                  "uses": 2
+                }
+              }
+            ]
+          },
+          {
+            "by": "$team",
+            "when": "reaction",
+            "filter": {
+              "and": [
+                {
+                  "reaction": {
+                    "reaction": "frozen"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "favonianFavor"
+                      },
+                      {
+                        "benisonStackGain": 1
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "cooldown": 8000,
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "benisonStackGain",
+                "spec": {
+                  "stacks": 1
+                }
+              },
+              {
+                "type": "apply",
+                "ref": "benisonEnergy",
+                "spec": {
+                  "uses": 1
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "ref": "benisonPreStack",
+        "apply": {
+          "by": "$team",
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "benisonStackGain"
+                }
+              }
+            ]
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "rank": 1,
+        "ref": "benisonEnergy",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "restoreEnergy": {
+              "flat": 2.5
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "modify": {
+          "type": "effect",
+          "ref": "favonianFavor",
+          "spec": {
+            "apply": {
+              "duration": 3000
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "spec": {
+            "shield": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "modify": {
+          "type": "effect",
+          "ref": "favonianFavor",
+          "spec": {
+            "buff": {
+              "stats": {
+                "attackSpd%": 0.1
+              }
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Favonius Bladework - Ritual",
@@ -58057,9 +58303,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -58090,9 +58337,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -58114,12 +58362,10 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Shield of Sacred Favor DMG Absorption",
-            "type": "elementalBurst",
-            "damage": {
+            },
+            "shield": {
+              "duration": 12000,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -58138,10 +58384,8 @@
                     0.0714,
                     0.0756,
                     0.0798
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     323.5577,
                     355.918,
                     390.9749,
@@ -58165,7 +58409,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11401,
+      "setCounts": {
+        "15007": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000114,
+      10000115,
+      10000089,
+      10000112
+    ]
   },
   "10000116": {
     "name": "Ineffa",
