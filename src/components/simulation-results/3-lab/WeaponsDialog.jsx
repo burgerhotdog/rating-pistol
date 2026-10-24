@@ -44,9 +44,11 @@ const renderTooltip = ({ payload, label }) => {
   );
 };
 
-const WeaponsDialog = ({ userMember, userDps, weaponResults, normalize }) => {
+const WeaponsDialog = ({ userMember, userDps, weaponResults, normalize, hideLimited }) => {
   const { palette, qualityColors } = useTheme();
+  const charDatas = useData('character');
   const weapDatas = useData('weapon');
+  const { memberPreset } = charDatas[userMember.id];
   const userWeaponId = userMember.weaponId;
 
   const getDps = (obj = {}) => {
@@ -55,6 +57,16 @@ const WeaponsDialog = ({ userMember, userDps, weaponResults, normalize }) => {
   };
 
   const data = weaponResults
+    .filter(({ weaponId }) => {
+      if (!hideLimited || weaponId === userWeaponId) return true;
+      const { quality, standard } = weapDatas[weaponId];
+
+      return (
+        quality < 5 ||
+        standard ||
+        weaponId === memberPreset?.weaponId
+      );
+    })
     .toSorted((a, b) => getDps(b) - getDps(a))
     .map((result) => {
       const { weaponId, weaponRank } = result;

@@ -65,6 +65,12 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
         apply.cooldown = resolveRankedValue(cooldown, spec.weaponRank)
       }
 
+      if (apply.durationRef) {
+        const { value, ...rest } = spec.actionDefs[apply.durationRef].buff;
+        apply.duration = value;
+        apply.durationRefRaw = rest;
+      }
+
       if (apply.commands) {
         apply.commands = toArray(apply.commands);
       }
@@ -103,6 +109,11 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
       const hasRankedCooldown = cooldown && Array.isArray(cooldown);
       if (hasRankedCooldown) {
         use.cooldown = resolveRankedValue(cooldown, spec.weaponRank)
+      }
+      if (use.cooldownRef) {
+        const { value, ...rest } = spec.actionDefs[use.cooldownRef].buff;
+        use.cooldown = value;
+        use.cooldownRefRaw = rest;
       }
 
       if (use.action) {
@@ -205,7 +216,7 @@ function normalizeBuff(gameId, rawBuff, effect, spec) {
 
     for (const [id, ref] of Object.entries(buff.statRefs)) {
       const { value, ...rest } = spec.actionDefs[ref].buff;
-      buffStatRefsRaw[id] = rest
+      buffStatRefsRaw[id] = rest;
       buffStats[id] = value;
     }
   }

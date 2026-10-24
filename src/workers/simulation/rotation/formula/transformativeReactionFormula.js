@@ -18,7 +18,7 @@ const RXN_MULTIPLIERS = {
 };
 
 function transformativeBaseDamage(statMap, rxnKey, foamHealing) {
-  if (rxnKey === 'seaDyedFoam') {
+  if (rxnKey === 'oceanHuedClam') {
     return foamHealing * 0.9;
   }
 
@@ -35,15 +35,16 @@ function transformativeBaseDamage(statMap, rxnKey, foamHealing) {
   );
 }
 
-export function transformativeReactionFormula(statMap, rxnKey, rxnElement, foamHealing) {
+export function transformativeReactionFormula(statMap, rxnKey, rxnElement, specialCritMult, foamHealing) {
   return (
     transformativeBaseDamage(statMap, rxnKey, foamHealing) *
+    specialCritMult *
     getResMult(GI, rxnElement, statMap)
   );
 }
 
 export function transformativeReactionUsedAttrs(rxnKey, rxnElement) {
-  if (rxnKey === 'seaDyedFoam') {
+  if (rxnKey === 'oceanHuedClam') {
     return new Set([
       `physicalResReduction%`,
     ]);

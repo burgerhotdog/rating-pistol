@@ -67,7 +67,7 @@ Characters:
     Lauma
         Always gain 3 stacks of Moon song
         Pale Hymn might not be decaying properly
-        Nascent Gleam Passive 1 not in effect
+        No constellations
     Linnea
         Passive 2 always buffs linnea
         No constellations
@@ -88,8 +88,8 @@ Characters:
         No constellations
     Nahida
         Dendro core trigger offset might be wrong
-        No ult electro/hydro buff
         EM buff comes from self
+        No C6
     Neuvillette
         A4 is every 10%
         No C4, C6

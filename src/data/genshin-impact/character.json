@@ -32919,6 +32919,7 @@
     "energy": 50,
     "effects": [
       {
+        "ref": "seedOfSkandha",
         "apply": {
           "when": "hit",
           "filter": {
@@ -32935,12 +32936,222 @@
           {
             "by": "$team",
             "when": "reaction",
+            "filter": {
+              "effectStacks": {
+                "or": [
+                  {
+                    "not": {
+                      "has": "shrineOfMaya"
+                    }
+                  },
+                  {
+                    "and": [
+                      {
+                        "not": {
+                          "has": "c1"
+                        }
+                      },
+                      {
+                        "not": {
+                          "has": [
+                            "mayaElectro1",
+                            "mayaElectro2"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
             "cooldown": 2500,
             "action": "elementalSkill.2"
           },
           {
             "when": "dendroCore",
+            "filter": {
+              "effectStacks": {
+                "or": [
+                  {
+                    "not": {
+                      "has": "shrineOfMaya"
+                    }
+                  },
+                  {
+                    "and": [
+                      {
+                        "not": {
+                          "has": "c1"
+                        }
+                      },
+                      {
+                        "not": {
+                          "has": [
+                            "mayaElectro1",
+                            "mayaElectro2"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
             "cooldown": 2500,
+            "action": "elementalSkill.2"
+          },
+          {
+            "by": "$team",
+            "when": "reaction",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "shrineOfMaya"
+                  },
+                  {
+                    "or": [
+                      {
+                        "and": [
+                          {
+                            "not": {
+                              "has": "c1"
+                            }
+                          },
+                          {
+                            "has": "mayaElectro1"
+                          }
+                        ]
+                      },
+                      {
+                        "and": [
+                          {
+                            "has": "c1"
+                          },
+                          {
+                            "not": {
+                              "has": [
+                                "mayaElectro1",
+                                "mayaElectro2"
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "cooldownRef": "elementalBurst.3",
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "dendroCore",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "shrineOfMaya"
+                  },
+                  {
+                    "or": [
+                      {
+                        "and": [
+                          {
+                            "not": {
+                              "has": "c1"
+                            }
+                          },
+                          {
+                            "has": "mayaElectro1"
+                          }
+                        ]
+                      },
+                      {
+                        "and": [
+                          {
+                            "has": "c1"
+                          },
+                          {
+                            "not": {
+                              "has": [
+                                "mayaElectro1",
+                                "mayaElectro2"
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "cooldownRef": "elementalBurst.3",
+            "action": "elementalSkill.2"
+          },
+          {
+            "by": "$team",
+            "when": "reaction",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "shrineOfMaya"
+                  },
+                  {
+                    "or": [
+                      {
+                        "has": "mayaElectro2"
+                      },
+                      {
+                        "and": [
+                          {
+                            "has": "c1"
+                          },
+                          {
+                            "has": "mayaElectro1"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "cooldownRef": "elementalBurst.4",
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "dendroCore",
+            "filter": {
+              "effectStacks": {
+                "and": [
+                  {
+                    "has": "shrineOfMaya"
+                  },
+                  {
+                    "or": [
+                      {
+                        "has": "mayaElectro2"
+                      },
+                      {
+                        "and": [
+                          {
+                            "has": "c1"
+                          },
+                          {
+                            "has": "mayaElectro1"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "cooldownRef": "elementalBurst.4",
             "action": "elementalSkill.2"
           }
         ]
@@ -32948,15 +33159,118 @@
       {
         "ref": "shrineOfMaya",
         "stores": "$team",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "ref": "elementalBurst.0"
-            }
+        "apply": [
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "not": {
+                          "has": "c1"
+                        }
+                      },
+                      {
+                        "not": {
+                          "has": [
+                            "mayaHydro1",
+                            "mayaHydro2"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "duration": 15000
           },
-          "duration": 15000
-        },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "or": [
+                      {
+                        "and": [
+                          {
+                            "not": {
+                              "has": "c1"
+                            }
+                          },
+                          {
+                            "has": "mayaHydro1"
+                          }
+                        ]
+                      },
+                      {
+                        "and": [
+                          {
+                            "has": "c1"
+                          },
+                          {
+                            "not": {
+                              "has": [
+                                "mayaHydro1",
+                                "mayaHydro2"
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "durationRef": "elementalBurst.5"
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalBurst.0"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "or": [
+                      {
+                        "has": "mayaHydro2"
+                      },
+                      {
+                        "and": [
+                          {
+                            "has": "c1"
+                          },
+                          {
+                            "has": "mayaHydro1"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "durationRef": "elementalBurst.6"
+          }
+        ],
         "buff": {
           "filter": {
             "field": "onField"
@@ -32972,6 +33286,105 @@
         }
       },
       {
+        "ref": "triKarmaPurificationPyroBuff",
+        "buff": [
+          {
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.2"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "shrineOfMaya"
+                      },
+                      {
+                        "or": [
+                          {
+                            "and": [
+                              {
+                                "not": {
+                                  "has": "c1"
+                                }
+                              },
+                              {
+                                "has": "mayaPyro1"
+                              }
+                            ]
+                          },
+                          {
+                            "and": [
+                              {
+                                "has": "c1"
+                              },
+                              {
+                                "not": {
+                                  "has": [
+                                    "mayaPyro1",
+                                    "mayaPyro2"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "statRefs": {
+              "dmgBonus%": "elementalBurst.1"
+            }
+          },
+          {
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.2"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
+                      {
+                        "has": "shrineOfMaya"
+                      },
+                      {
+                        "or": [
+                          {
+                            "has": "mayaPyro2"
+                          },
+                          {
+                            "and": [
+                              {
+                                "has": "c1"
+                              },
+                              {
+                                "has": "mayaPyro1"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "statRefs": {
+              "dmgBonus%": "elementalBurst.2"
+            }
+          }
+        ]
+      },
+      {
         "enable": {
           "counts": {
             "element": {
@@ -32979,25 +33392,7 @@
             }
           }
         },
-        "buff": {
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "ref": "elementalSkill.2"
-                }
-              },
-              {
-                "effectStacks": {
-                  "has": "shrineOfMaya"
-                }
-              }
-            ]
-          },
-          "statRefs": {
-            "dmgBonus%": "elementalBurst.1"
-          }
-        }
+        "ref": "mayaPyro1"
       },
       {
         "enable": {
@@ -33009,27 +33404,54 @@
             }
           }
         },
-        "buff": {
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "ref": "elementalSkill.2"
-                }
-              },
-              {
-                "effectStacks": {
-                  "has": "shrineOfMaya"
-                }
-              }
-            ]
-          },
-          "statRefs": {
-            "dmgBonus%": "elementalBurst.2"
-          }
-        }
+        "ref": "mayaPyro2"
       },
       {
+        "enable": {
+          "counts": {
+            "element": {
+              "electro": 1
+            }
+          }
+        },
+        "ref": "mayaElectro1"
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "electro": {
+                ">=": 2
+              }
+            }
+          }
+        },
+        "ref": "mayaElectro2"
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": 1
+            }
+          }
+        },
+        "ref": "mayaHydro1"
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": {
+                ">=": 2
+              }
+            }
+          }
+        },
+        "ref": "mayaHydro2"
+      },
+      {
+        "ref": "a4",
         "buff": {
           "filter": {
             "action": {
@@ -33051,6 +33473,86 @@
               "value": 0.0003,
               "maxValue": 0.24
             }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "ref": "c1"
+      },
+      {
+        "rank": 2,
+        "stores": "global",
+        "gameRule": "nahidaC2"
+      },
+      {
+        "rank": 2,
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "reaction": [
+                    "quicken",
+                    "aggravate",
+                    "spread"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "seedOfSkandha"
+                }
+              }
+            ]
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "defReduction%": 0.3
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "stores": "global",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "lunarBloom"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "seedOfSkandha"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "critRate%": 0.1,
+            "critDmg%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "has": "seedOfSkandha"
+            }
+          },
+          "stats": {
+            "elementalMastery": 100
           }
         }
       }
@@ -33456,21 +33958,21 @@
               "multipliers": [
                 {
                   "flat": [
-                    0.248,
-                    0.2666,
-                    0.2852,
-                    0.31,
-                    0.3286,
-                    0.3472,
-                    0.372,
-                    0.3968,
-                    0.4216,
-                    0.4464,
-                    0.4712,
-                    0.496,
-                    0.527,
-                    0.558,
-                    0.589
+                    2252,
+                    2233,
+                    2215,
+                    2190,
+                    2171,
+                    2153,
+                    2128,
+                    2103,
+                    2078,
+                    2054,
+                    2029,
+                    2004,
+                    1973,
+                    1942,
+                    1911
                   ]
                 }
               ]
@@ -33482,21 +33984,21 @@
               "multipliers": [
                 {
                   "flat": [
-                    0.372,
-                    0.3999,
-                    0.4278,
-                    0.465,
-                    0.4929,
-                    0.5208,
-                    0.558,
-                    0.5952,
-                    0.6324,
-                    0.6696,
-                    0.7068,
-                    0.744,
-                    0.7905,
-                    0.837,
-                    0.8835
+                    2128,
+                    2100,
+                    2072,
+                    2035,
+                    2007,
+                    1979,
+                    1942,
+                    1905,
+                    1868,
+                    1830,
+                    1793,
+                    1756,
+                    1710,
+                    1663,
+                    1617
                   ]
                 }
               ]
@@ -33508,21 +34010,21 @@
               "multipliers": [
                 {
                   "flat": [
-                    3.344,
-                    3.5948,
-                    3.8456,
-                    4.18,
-                    4.4308,
-                    4.6816,
-                    5.016,
-                    5.3504,
-                    5.6848,
-                    6.0192,
-                    6.3536,
-                    6.688,
-                    7.106,
-                    7.524,
-                    7.942
+                    18344,
+                    18595,
+                    18846,
+                    19180,
+                    19431,
+                    19682,
+                    20016,
+                    20350,
+                    20685,
+                    21019,
+                    21354,
+                    21688,
+                    22106,
+                    22524,
+                    22942
                   ]
                 }
               ]
@@ -33534,21 +34036,21 @@
               "multipliers": [
                 {
                   "flat": [
-                    5.016,
-                    5.3922,
-                    5.7684,
-                    6.27,
-                    6.6462,
-                    7.0224,
-                    7.524,
-                    8.0256,
-                    8.5272,
-                    9.0288,
-                    9.5304,
-                    10.032,
-                    10.659,
-                    11.286,
-                    11.913
+                    20016,
+                    20392,
+                    20768,
+                    21270,
+                    21646,
+                    22022,
+                    22524,
+                    23026,
+                    23527,
+                    24029,
+                    24530,
+                    25032,
+                    25659,
+                    26286,
+                    26913
                   ]
                 }
               ]
@@ -59341,11 +59843,30 @@
       },
       {
         "enable": {
+          "nascentGleam": true
+        },
+        "stores": "global",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 20000
+        },
+        "gameRule": "laumaA1"
+      },
+      {
+        "enable": {
           "ascendantGleam": true
         },
         "stores": "$team",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": [
