@@ -2,11 +2,11 @@ import { linearRegression } from 'simple-statistics';
 import { CHARACTER } from '@/data';
 import { estimateDps } from '@/utils';
 import { buildCache } from './cache';
-import { runComparisonTests } from './comparison-tests';
-import { runEquipTests, runTrials } from './equip-tests';
-import { benchmarkSkillLevels } from './skill-level-tests';
 import { getRotationOrder } from './rotation-order';
 import { calibrate } from './calibrate';
+import { benchmarkSkillLevels } from './skill-level-tests';
+import { runEquipTests, runTrials } from './equip-tests';
+import { runLabTests } from './lab-tests';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
@@ -32,6 +32,46 @@ async function resolveEquipMaps(cache, allowBlank = false) {
   }
 
   return equipMaps;
+}
+
+const getFit = (mpsProgression, mpsCeiling) => {
+  const logPoints = mpsProgression
+    .slice(-5)
+    .map(({ day, mean }) => [
+      Math.log(day),
+      Math.log(mpsCeiling - mean),
+    ]);
+
+  const { m, b } = linearRegression(logPoints);
+
+  return { k: -m, A: Math.exp(b) };
+};
+
+function findBenchmark(scoreCeiling, scoreProgression, dpsProgression, fit) {
+  let benchmarkDay = 0;
+  let benchmarkScore = estimateDps(0, scoreCeiling, scoreProgression, fit);
+  let previousImprovement = null;
+  let increaseCount = 0;
+
+  while (benchmarkDay < 30) {
+    const nextDps = estimateDps(benchmarkDay + 1, scoreCeiling, scoreProgression, fit);
+    const improvement = nextDps / benchmarkScore - 1;
+
+    if (previousImprovement !== null && improvement >= previousImprovement) {
+      increaseCount++;
+    }
+
+    if (improvement < 0.001) break;
+    if (improvement < 0.01 && increaseCount >= 3) break;
+
+    previousImprovement = improvement;
+    benchmarkDay++;
+    benchmarkScore = nextDps;
+  }
+
+  const benchmarkDps = dpsProgression[benchmarkDay]?.mean ?? dpsProgression.at(-1)?.mean;
+
+  return { benchmarkDay, benchmarkScore, benchmarkDps };
 }
 
 self.onmessage = async ({ data }) => {
@@ -93,48 +133,8 @@ self.onmessage = async ({ data }) => {
   } = findBenchmark(scoreCeiling, scoreProgression, dpsProgression, fit);
   self.postMessage({ fit, benchmarkDay, benchmarkScore, benchmarkDps });
 
-  const { weaponResults, setResults } = runComparisonTests(cache, equipMaps, bonusEnergy);
+  const { weaponResults, setResults } = runLabTests(cache, equipMaps, bonusEnergy);
   self.postMessage({ weaponResults, setResults });
 
   self.postMessage({ status: 'done' });
 };
-
-const getFit = (mpsProgression, mpsCeiling) => {
-  const logPoints = mpsProgression
-    .slice(-5)
-    .map(({ day, mean }) => [
-      Math.log(day),
-      Math.log(mpsCeiling - mean),
-    ]);
-
-  const { m, b } = linearRegression(logPoints);
-
-  return { k: -m, A: Math.exp(b) };
-};
-
-function findBenchmark(scoreCeiling, scoreProgression, dpsProgression, fit) {
-  let benchmarkDay = 0;
-  let benchmarkScore = estimateDps(0, scoreCeiling, scoreProgression, fit);
-  let previousImprovement = null;
-  let increaseCount = 0;
-
-  while (benchmarkDay < 30) {
-    const nextDps = estimateDps(benchmarkDay + 1, scoreCeiling, scoreProgression, fit);
-    const improvement = nextDps / benchmarkScore - 1;
-
-    if (previousImprovement !== null && improvement >= previousImprovement) {
-      increaseCount++;
-    }
-
-    if (improvement < 0.001) break;
-    if (improvement < 0.01 && increaseCount >= 3) break;
-
-    previousImprovement = improvement;
-    benchmarkDay++;
-    benchmarkScore = nextDps;
-  }
-
-  const benchmarkDps = dpsProgression[benchmarkDay]?.mean ?? dpsProgression.at(-1)?.mean;
-
-  return { benchmarkDay, benchmarkScore, benchmarkDps };
-}
