@@ -5,20 +5,25 @@ import { computeDuration } from '../duration';
 
 const parts = ['damage', 'healing', 'shield'];
 
-export function runSkillLevelTests(cache, equipMaps, charId) {
+export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
   const gameId = cache.gameId;
   const mCache = cache.member[charId];
   const charSkills = CHARACTER[gameId][charId].skills;
-  const { skillIds, maxSkillLevel } = MISC[gameId];
+  const { skillIds, maxSkillLevel, skillLevelUpgradeCostsPrecomputed, staminaPerDay } = MISC[gameId];
 
-  const results = {};
+  const benchmarkLevels = {};
+  const benchmarkLevelsSource = {};
 
   for (const skillId of skillIds) {
     const userLevel = mCache.skillLevels[skillId];
-    results[skillId] = { skillId, userLevel, dpsArr: [] };
 
-    for (let testSkillLevel = 1; testSkillLevel <= maxSkillLevel; testSkillLevel++) {
-      const mvIndex = getMvIndex(gameId, charId, mCache.rank, skillId, testSkillLevel);
+    let benchmarkLevel = userLevel;
+    let benchmarkDps = userDps;
+
+    const currentSource = benchmarkLevelsSource[skillId] = { skillId, userLevel, benchmarkLevel, dpsArr: [userDps] };
+
+    while (benchmarkLevel < maxSkillLevel) {
+      const mvIndex = getMvIndex(gameId, charId, mCache.rank, skillId, benchmarkLevel + 1);
       const rotation = structuredClone(mCache.rotation);
       const effects = structuredClone(mCache.effects);
 
@@ -66,27 +71,29 @@ export function runSkillLevelTests(cache, equipMaps, charId) {
           }
         }
 
-        if (effect.buff?.statRefsRaw) {
-          for (const [id, { mvIndex: refMvIndex, baseAttrValue, multipliers }] of Object.entries(effect.buff.statRefsRaw)) {
-            // only re-index refs pointing at the skill currently under test; otherwise keep the ref's real level
-            const refMvIndexToUse = effect.buff.statRefs[id].split('.')[0] === skillId ? mvIndex : refMvIndex;
-
-            const { mv, flat } = multipliers[0];
-            const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
-            const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
-            effect.buff.stats[id] = mvBuffValue * baseAttrValue + flatBuffValue;
-          }
-        }
-
-        if (effect.buff?.specRefsRaw) {
-          for (const [id, fieldMap] of Object.entries(effect.buff.specRefsRaw)) {
-            for (const [field, { mvIndex: refMvIndex, baseAttrValue, multipliers }] of Object.entries(fieldMap)) {
-              const refMvIndexToUse = effect.buff.specRefs[id][field].split('.')[0] === skillId ? mvIndex : refMvIndex;
+        for (const buff of effect.buff ?? []) {
+          if (buff.statRefsRaw) {
+            for (const [id, { mvIndex: refMvIndex, baseAttrValue, multipliers }] of Object.entries(buff.statRefsRaw)) {
+              // only re-index refs pointing at the skill currently under test; otherwise keep the ref's real level
+              const refMvIndexToUse = buff.statRefs[id].split('.')[0] === skillId ? mvIndex : refMvIndex;
 
               const { mv, flat } = multipliers[0];
               const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
               const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
-              effect.buff.specs[id][field] = mvBuffValue * baseAttrValue + flatBuffValue;
+              buff.stats[id] = mvBuffValue * baseAttrValue + flatBuffValue;
+            }
+          }
+
+          if (buff.specRefsRaw) {
+            for (const [id, fieldMap] of Object.entries(buff.specRefsRaw)) {
+              for (const [field, { mvIndex: refMvIndex, baseAttrValue, multipliers }] of Object.entries(fieldMap)) {
+                const refMvIndexToUse = buff.specRefs[id][field].split('.')[0] === skillId ? mvIndex : refMvIndex;
+
+                const { mv, flat } = multipliers[0];
+                const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
+                const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
+                buff.specs[id][field] = mvBuffValue * baseAttrValue + flatBuffValue;
+              }
             }
           }
         }
@@ -109,9 +116,21 @@ export function runSkillLevelTests(cache, equipMaps, charId) {
       const totals = getTotals(snapshots);
       const dps = totals.damage / time * 1000;
 
-      results[skillId].dpsArr.push(dps);
+      const improvement = dps / benchmarkDps - 1;
+      const cost = skillLevelUpgradeCostsPrecomputed[benchmarkLevel - 1];
+      const costInDays = cost / staminaPerDay;
+      const improvementRate = improvement / costInDays;
+
+      if (improvementRate < 0.01) break;
+
+      benchmarkLevel++;
+      benchmarkDps = dps;
+      currentSource.dpsArr.push(dps);
     }
+
+    benchmarkLevels[skillId] = benchmarkLevel;
+    currentSource.benchmarkLevel = benchmarkLevel;
   }
 
-  return results;
+  return { benchmarkLevels, benchmarkLevelsSource };
 }

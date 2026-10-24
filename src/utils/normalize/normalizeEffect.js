@@ -131,64 +131,7 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
   }
 
   if (effect.buff) {
-    const buff = effect.buff = { ...effect.buff };
-
-    const cooldown = buff.cooldown;
-    const hasRankedCooldown = cooldown && Array.isArray(cooldown);
-    if (hasRankedCooldown) {
-      buff.cooldown = resolveRankedValue(cooldown, spec.weaponRank)
-    }
-
-    if (buff.replaceToken) {
-      const replaceStr = buff.replaceToken === 'ownerElement'
-        ? CHARACTER[gameId][ownerId].element
-        : '';
-
-      if (buff.stats) {
-        const resolved = {};
-
-        for (const stat in buff.stats) {
-          const value = buff.stats[stat];
-          resolved[stat.replace('$', replaceStr)] = value;
-        }
-
-        buff.stats = resolved;
-      }
-    }
-
-    // Resolve indexed buff stats
-    if (effect.buff?.statRefs && spec.sourceType === 'character') {
-      const buffStatRefsRaw = buff.statRefsRaw = {};
-      const buffStats = buff.stats = {};
-
-      for (const [id, ref] of Object.entries(buff.statRefs)) {
-        const { value, ...rest } = spec.actionDefs[ref].buff;
-        buffStatRefsRaw[id] = rest
-        buffStats[id] = value;
-      }
-    }
-
-    // Resolve indexed buff specs
-    if (effect.buff?.specRefs && spec.sourceType === 'character') {
-      const buffSpecRefsRaw = buff.specRefsRaw = {};
-      const buffSpecs = buff.specs = {};
-
-      for (const [id, specRef] of Object.entries(buff.specRefs)) {
-        const buffSpec = buffSpecs[id] = { ...specRef };
-        buffSpecRefsRaw[id] = {};
-
-        for (const [field, ref] of Object.entries(buffSpec)) {
-          if (field === 'attr' || typeof ref === 'number') continue;
-          const { value, ...rest } = spec.actionDefs[ref].buff;
-          buffSpecRefsRaw[id][field] = rest;
-          buffSpec[field] = value;
-        }
-      }
-    }
-
-    if (buff.commands) {
-      buff.commands = toArray(buff.commands);
-    }
+    effect.buff = toArray(effect.buff).map((rawBuff) => normalizeBuff(gameId, rawBuff, effect, spec));
   }
 
   if (effect.expire) {
@@ -212,9 +155,88 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
           : valueRange;
       }
     }
+  }
 
-    if (effect.buff?.stats) {
-      const buff = effect.buff = { ...effect.buff };
+  effect.maxStacks ??= 1;
+
+  if (
+    effect.buff?.length &&
+    effect.buff.every((buff) => buff.stats && !buff.filter) &&
+    !effect.apply &&
+    !effect.remove &&
+    !rawEffect.stores
+  ) {
+    effect.static = true;
+  }
+
+  return effect;
+};
+
+function normalizeBuff(gameId, rawBuff, effect, spec) {
+  const buff = { ...rawBuff };
+
+  const cooldown = buff.cooldown;
+  const hasRankedCooldown = cooldown && Array.isArray(cooldown);
+  if (hasRankedCooldown) {
+    buff.cooldown = resolveRankedValue(cooldown, spec.weaponRank)
+  }
+
+  if (buff.replaceToken) {
+    const replaceStr = buff.replaceToken === 'ownerElement'
+      ? CHARACTER[gameId][effect.ownerId].element
+      : '';
+
+    if (buff.stats) {
+      const resolved = {};
+
+      for (const stat in buff.stats) {
+        const value = buff.stats[stat];
+        resolved[stat.replace('$', replaceStr)] = value;
+      }
+
+      buff.stats = resolved;
+    }
+  }
+
+  // Resolve indexed buff stats
+  if (buff.statRefs && spec.sourceType === 'character') {
+    const buffStatRefsRaw = buff.statRefsRaw = {};
+    const buffStats = buff.stats = {};
+
+    for (const [id, ref] of Object.entries(buff.statRefs)) {
+      const { value, ...rest } = spec.actionDefs[ref].buff;
+      buffStatRefsRaw[id] = rest
+      buffStats[id] = value;
+    }
+  }
+
+  // Resolve indexed buff specs
+  if (buff.specRefs && spec.sourceType === 'character') {
+    const buffSpecRefsRaw = buff.specRefsRaw = {};
+    const buffSpecs = buff.specs = {};
+
+    for (const [id, specRef] of Object.entries(buff.specRefs)) {
+      const buffSpec = buffSpecs[id] = { ...specRef };
+      buffSpecRefsRaw[id] = {};
+
+      for (const [field, ref] of Object.entries(buffSpec)) {
+        if (field === 'attr' || typeof ref === 'number') continue;
+        const { value, ...rest } = spec.actionDefs[ref].buff;
+        buffSpecRefsRaw[id][field] = rest;
+        buffSpec[field] = value;
+      }
+    }
+  }
+
+  if (buff.commands) {
+    buff.commands = toArray(buff.commands);
+  }
+
+  // Resolve ranked values
+  if (spec.sourceType === 'weapon') {
+    const resolveValue = (value) => resolveRankedValue(value, spec.weaponRank);
+
+    if (buff.stats) {
       const buffStats = buff.stats = { ...buff.stats };
 
       for (const [stat, valueRange] of Object.entries(buffStats)) {
@@ -224,8 +246,7 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
       }
     }
 
-    if (effect.buff?.specs) {
-      const buff = effect.buff = { ...effect.buff };
+    if (buff.specs) {
       const buffSpecs = buff.specs = { ...buff.specs };
 
       for (const [id, rankedSpec] of Object.entries(buffSpecs)) {
@@ -238,24 +259,7 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
         }
       }
     }
-
-    if (effect.buff?.cooldown && Array.isArray(effect.buff.cooldown)) {
-      const buff = effect.buff = { ...effect.buff };
-      buff.cooldown = resolveValue(buff.cooldown);
-    }
   }
 
-  effect.maxStacks ??= 1;
-
-  if (
-    effect.buff?.stats &&
-    !effect.buff?.filter &&
-    !effect.apply &&
-    !effect.remove &&
-    !rawEffect.stores
-  ) {
-    effect.static = true;
-  }
-
-  return effect;
-};
+  return buff;
+}

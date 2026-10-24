@@ -5,13 +5,14 @@ function decayBuffState(ctx, action, state) {
   if (buffCooldown) return;
   if (!effect.buff) return;
   const spec = { action, fieldId: action.ownerId };
-  if (!ctx.eventFilter(effect.buff?.filter, effect, spec)) return;
+  const buff = effect.buff.find((candidate) => ctx.eventFilter(candidate.filter, effect, spec));
+  if (!buff) return;
 
-  if (effect.buff?.cooldown) {
-    state.buffCooldown = effect.buff.cooldown;
+  if (buff.cooldown) {
+    state.buffCooldown = buff.cooldown;
   }
 
-  const commands = effect.buff.commands;
+  const commands = buff.commands;
 
   if (state.usesLeft) {
     state.usesLeft--;

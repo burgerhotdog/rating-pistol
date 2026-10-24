@@ -1,4 +1,5 @@
 import { CHARACTER, GI } from '@/data';
+import { toArray } from '../toArray';
 
 export function handleSpecialEffect(gameId, effect, spec = {}) {
   const { memberIds, counts } = spec;
@@ -6,7 +7,7 @@ export function handleSpecialEffect(gameId, effect, spec = {}) {
   switch (effect.special) {
     case 'gildedDreams': {
       const ownerElement = CHARACTER[GI][effect.ownerId].element;
-      const { stats } = effect.buff;
+      const [{ stats }] = toArray(effect.buff);
 
       const numSameAlly = counts.element[ownerElement] - 1;
       if (numSameAlly) {
@@ -23,7 +24,7 @@ export function handleSpecialEffect(gameId, effect, spec = {}) {
 
     case 'yelanA1': {
       const numDiffElements = Object.keys(counts.element).length;
-      const { stats } = effect.buff;
+      const [{ stats }] = toArray(effect.buff);
 
       if (numDiffElements === 4) {
         stats['hp%'] = 0.3;

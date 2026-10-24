@@ -54,12 +54,11 @@ function getRequiredEr(cache, memberId, statMapOf, bonusEnergy = {}) {
 }
 
 function getRequiredErMap(cache, equipMaps, bonusEnergy) {
-  const { gameId } = cache;
   const requiredErMap = {};
   const statMapOf = createStatMapLookup(cache, (id) => equipMaps[id]);
 
   for (const memberId in cache.member) {
-    const { energy } = CHARACTER[gameId][memberId];
+    const { energy } = cache.member[memberId];
     if (!energy) continue;
 
     requiredErMap[memberId] = getRequiredEr(cache, memberId, statMapOf, bonusEnergy);
@@ -79,7 +78,7 @@ function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, s
     const mSource = source[memberId] = { duration, added: 0 };
     fullTime += duration;
 
-    const { energy } = CHARACTER[gameId][memberId];
+    const { energy } = cache.member[memberId];
     if (!energy) continue;
 
     if (gameId === WW && concertoPenalty) {

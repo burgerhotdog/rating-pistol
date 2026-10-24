@@ -17,7 +17,11 @@ const RXN_MULTIPLIERS = {
   burning: 0.25,
 };
 
-function transformativeBaseDamage(statMap, rxnKey) {
+function transformativeBaseDamage(statMap, rxnKey, foamHealing) {
+  if (rxnKey === 'seaDyedFoam') {
+    return foamHealing * 0.9;
+  }
+
   const emValue = getAttr('elementalMastery', statMap);
 
   const rxnBonusMult = 1 +
@@ -31,14 +35,20 @@ function transformativeBaseDamage(statMap, rxnKey) {
   );
 }
 
-export function transformativeReactionFormula(statMap, rxnKey, rxnElement) {
+export function transformativeReactionFormula(statMap, rxnKey, rxnElement, foamHealing) {
   return (
-    transformativeBaseDamage(statMap, rxnKey) *
+    transformativeBaseDamage(statMap, rxnKey, foamHealing) *
     getResMult(GI, rxnElement, statMap)
   );
 }
 
 export function transformativeReactionUsedAttrs(rxnKey, rxnElement) {
+  if (rxnKey === 'seaDyedFoam') {
+    return new Set([
+      `physicalResReduction%`,
+    ]);
+  }
+
   return new Set([
     'elementalMastery',
     `${rxnKey}ReactionBonus%`,

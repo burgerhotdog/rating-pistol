@@ -11,7 +11,7 @@ const SkillLevels = ({ results }) => {
   const { userDps, skillLevelResults } = results;
   const { gameId } = useParams();
   const accent = useAccent();
-  const { maxSkillLevel, skillLevelUpgradeCosts } = useData('misc');
+  const { maxSkillLevel, skillLevelUpgradeCosts, staminaPerDay } = useData('misc');
   const langData = useData('lang');
 
   const improvementData = useMemo(
@@ -39,14 +39,15 @@ const SkillLevels = ({ results }) => {
 
         const upgradeCosts = skillLevelUpgradeCosts[newLevel - 2];
         const stamina = computeStaminaToUpgradeSkill(gameId, upgradeCosts);
-        const rate = diff / stamina;
+        const rate = diff / stamina * staminaPerDay;
+
         return {
           ...entry,
           staminaCost: stamina,
           rate,
         };
       }),
-    [improvementData, gameId, skillLevelUpgradeCosts],
+    [improvementData, gameId, skillLevelUpgradeCosts, staminaPerDay],
   );
 
   const costData = useMemo(
@@ -63,13 +64,13 @@ const SkillLevels = ({ results }) => {
     <Stack spacing={1} sx={{ flex: 1 }}>
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
         <Card component={Stack} sx={{ flex: 1 }}>
-          <CardHeader title={`Current Improvement Rate per ${langData.Stamina}`} />
+          <CardHeader title={`Current improvement rate per day`} />
           <RatePerStamina data={rateData} />
         </Card>
 
         <Card component={Stack} sx={{ flex: 1 }}>
           <CardHeader title={`${langData.Stamina} Cost per Skill Level Upgrade`} />
-          <UpgradeCosts data={costData} />
+          <UpgradeCosts />
         </Card>
       </Stack>
 

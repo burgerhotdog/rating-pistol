@@ -67,7 +67,7 @@ export function buildElevationSnapshot(ctx, rxnKey, spec = {}) {
       memo: {},
       allMemberBuffs,
       scale: 1,
-      parts: ['damage'],
+      part: 'damage',
     },
   };
 

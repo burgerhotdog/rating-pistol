@@ -12,7 +12,7 @@ export function createRunEquipMapFactory(cache, equipMaps, specId) {
     ...(gameId === GI ? [cache.teamResonance.stats] : []),
   ]);
 
-  const { snapshots: resolveSnapshots, bonusEnergy } = runRotation(cache, equipMaps, specId);
+  const { snapshots: resolveSnapshots, bonusEnergy } = runRotation(cache, equipMaps, specId, true);
 
   const durationGetter = createEquipDurationGetter(cache, equipMaps, specId, bonusEnergy);
 

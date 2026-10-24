@@ -22,13 +22,20 @@ import { canSnapshot, buildSnapshot } from './snapshot';
 import { getModifiedAction } from './getModifiedAction';
 import { runRestoreEnergy } from './restoreEnergy';
 
-function handleHealing(ctx, action, sharedSnapshot) {
+function handleHealing(ctx, action, healingSnapshot) {
   if (!action.healing) return;
+
+  const foamState = ctx.states.gameRule.oceanHuedClam;
+  const isFoamOwner = foamState?.ownerId === action.ownerId;
 
   for (const target of action.healing.targets) {
     const targetId = getTargetId(ctx, target);
 
-    const value = convertHealingToValue(ctx, sharedSnapshot, targetId);
+    const { healing, value } = convertHealingToValue(ctx, healingSnapshot, targetId);
+
+    if (isFoamOwner && healing > 0) {
+      foamState.value = Math.min(foamState.value + healing, 30000);
+    }
 
     if (ctx.cache.gameId === GI) {
       changeBondOfLife(ctx, targetId, -value);
@@ -59,6 +66,7 @@ export function runAction(ctx, action, options = {}) {
   const { noDuration } = options;
   const { gameId } = ctx.cache;
   const modifiedAction = getModifiedAction(ctx, action);
+  const runEffectsWhen = (when) => ctx.runEffects(when, modifiedAction);
   const { duration = 0, hitOffsets = [0] } = modifiedAction;
   let actionRuntime = 0;
 
@@ -74,23 +82,36 @@ export function runAction(ctx, action, options = {}) {
 
   if (modifiedAction.key === 'system:tuneBreak') {
     runTuneBreak(ctx, modifiedAction);
-    ctx.runEffects('tuneBreak', modifiedAction);
+    runEffectsWhen('tuneBreak');
     return;
   }
 
   // Action timeline
-  ctx.runEffects('start', modifiedAction);
+  runEffectsWhen('start');
   advanceTimeTo(hitOffsets[0]);
+
+  runEffectsWhen('use');
 
   let verdantDewMultiplier = 1;
   if (gameId === GI && modifiedAction.verdantDew && ctx.cache.lunarBloom) {
     verdantDewMultiplier = consumeVerdantDew(ctx, modifiedAction.verdantDew);
   }
 
-  let sharedSnapshot;
+  let damageSnapshot;
+  let healingSnapshot;
+  let shieldSnapshot;
   if (canSnapshot(modifiedAction)) {
-    if (ctx.saveSnapshots || modifiedAction.healing) {
-      sharedSnapshot = buildSnapshot(ctx, modifiedAction, options);
+    if (modifiedAction.damage && ctx.saveSnapshots) {
+      damageSnapshot = buildSnapshot(ctx, modifiedAction, 'damage', options);
+    }
+
+    // Built even when snapshots aren't saved; the live heal is converted from it below
+    if (modifiedAction.healing) {
+      healingSnapshot = buildSnapshot(ctx, modifiedAction, 'healing', options);
+    }
+
+    if (modifiedAction.shield && ctx.saveSnapshots) {
+      shieldSnapshot = buildSnapshot(ctx, modifiedAction, 'shield', options);
     }
 
     if (gameId === WW && modifiedAction.damage) {
@@ -116,9 +137,9 @@ export function runAction(ctx, action, options = {}) {
     inflictTuneShifting(ctx, modifiedAction);
   }
 
-  ctx.runEffects('inflict', modifiedAction);
+  runEffectsWhen('inflict');
 
-  for (const offset of hitOffsets) {
+  for (const [i, offset] of hitOffsets.entries()) {
     advanceTimeTo(offset);
 
     let rxnScaleMult = 1;
@@ -129,12 +150,12 @@ export function runAction(ctx, action, options = {}) {
       rxnScaleFlat = scaleFlat;
     }
 
-    if (sharedSnapshot && ctx.saveSnapshots) {
+    if (damageSnapshot && ctx.saveSnapshots) {
       ctx.snapshots.push({
-        ...sharedSnapshot,
-        runtime: sharedSnapshot.runtime + actionRuntime - hitOffsets[0],
+        ...damageSnapshot,
+        runtime: damageSnapshot.runtime + actionRuntime - hitOffsets[0],
         unresolved: {
-          ...sharedSnapshot.unresolved,
+          ...damageSnapshot.unresolved,
           scale: rxnScaleMult,
           scaleFlat: rxnScaleFlat,
           dew: verdantDewMultiplier,
@@ -142,18 +163,26 @@ export function runAction(ctx, action, options = {}) {
       });
     }
 
-    handleHealth(ctx, modifiedAction);
+    // Healing/shield are a single occurrence regardless of hit count, so only
+    // handle them once, on the first hit, instead of once per hit
+    if (i === 0) {
+      handleHealth(ctx, modifiedAction);
+      handleHealing(ctx, modifiedAction, healingSnapshot);
+      handleShield(ctx, modifiedAction);
 
-    handleHealing(ctx, modifiedAction, sharedSnapshot);
-    handleShield(ctx, modifiedAction);
+      if (ctx.saveSnapshots) {
+        if (healingSnapshot) ctx.snapshots.push(healingSnapshot);
+        if (shieldSnapshot) ctx.snapshots.push(shieldSnapshot);
+      }
+    }
 
     if (gameId === GI) {
       tryNightsoulBurst(ctx, modifiedAction);
     }
 
-    ctx.runEffects('hit', modifiedAction);
+    runEffectsWhen('hit');
   }
 
   advanceTimeTo(duration);
-  ctx.runEffects('end', modifiedAction);
+  runEffectsWhen('end');
 }

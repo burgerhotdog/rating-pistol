@@ -178,7 +178,7 @@ const TrajectoryChart = ({ scoreProgression, userScore, scoreCeiling, fit, bench
                   Score: {formatNum(value ?? 0)}
                 </Typography>
                 <Typography variant="caption">
-                  Rate: {Math.abs(diffPct).toFixed(2)}% per day
+                  Rate: {Math.abs(diffPct).toFixed(1)}% per day
                 </Typography>
               </Stack>
             </Paper>

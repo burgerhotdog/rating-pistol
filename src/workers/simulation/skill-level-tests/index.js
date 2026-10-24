@@ -1,1 +1,1 @@
-export * from './runSkillLevelTests';
+export * from './benchmarkSkillLevels';

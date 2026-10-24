@@ -355,26 +355,13 @@
     "effects": [
       {
         "buff": {
-          "filter": {
-            "field": "onField"
-          },
-          "stats": {
-            "critRate%": [
-              0.2172,
-              0.39848
-            ]
-          },
           "specs": {
             "critRate%": {
+              "formula": "royalCrit",
               "attr": "critRate%",
-              "step": 0.01,
-              "offset": [
-                0.2172,
-                0.39848
-              ],
               "value": [
-                -0.0015196,
-                -0.0026086
+                0.08,
+                0.16
               ]
             }
           }
@@ -2292,11 +2279,12 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": [
+              "sum": {
+                "keys": [
                   "stack1",
                   "stack2"
-                ]
+                ],
+                "==": 0
               }
             }
           },
@@ -2313,26 +2301,13 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "and": [
-                {
-                  "has": [
-                    "stack1",
-                    "stack2"
-                  ]
-                },
-                {
-                  "not": {
-                    "and": [
-                      {
-                        "has": "stack1"
-                      },
-                      {
-                        "has": "stack2"
-                      }
-                    ]
-                  }
-                }
-              ]
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2"
+                ],
+                "==": 1
+              }
             }
           },
           "stats": {
@@ -2348,14 +2323,13 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "and": [
-                {
-                  "has": "stack1"
-                },
-                {
-                  "has": "stack2"
-                }
-              ]
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2"
+                ],
+                "==": 2
+              }
             }
           },
           "stats": {
@@ -3748,26 +3722,13 @@
     "effects": [
       {
         "buff": {
-          "filter": {
-            "field": "onField"
-          },
-          "stats": {
-            "critRate%": [
-              0.2172,
-              0.39848
-            ]
-          },
           "specs": {
             "critRate%": {
+              "formula": "royalCrit",
               "attr": "critRate%",
-              "step": 0.01,
-              "offset": [
-                0.2172,
-                0.39848
-              ],
               "value": [
-                -0.0015196,
-                -0.0026086
+                0.08,
+                0.16
               ]
             }
           }
@@ -6174,7 +6135,6 @@
     ]
   },
   "13402": {
-    "disabled": true,
     "name": "Prototype Starglitter",
     "version": 1.0,
     "id": 13402,
@@ -6186,7 +6146,32 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.08,
+              0.16
+            ],
+            "chargedAttackDmgBonus%": [
+              0.08,
+              0.16
+            ]
+          }
+        },
+        "maxStacks": 2
+      }
+    ]
   },
   "13403": {
     "disabled": true,
@@ -6241,7 +6226,6 @@
     ]
   },
   "13406": {
-    "disabled": true,
     "name": "Lithic Spear",
     "version": 1.3,
     "id": 13406,
@@ -6252,7 +6236,84 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "enable": {
+          "counts": {
+            "liyue": 1
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.07,
+              0.11
+            ],
+            "critRate%": [
+              0.03,
+              0.07
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "liyue": 2
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.14,
+              0.22
+            ],
+            "critRate%": [
+              0.06,
+              0.14
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "liyue": 3
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.21,
+              0.33
+            ],
+            "critRate%": [
+              0.09,
+              0.21
+            ]
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "liyue": 4
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.28,
+              0.44
+            ],
+            "critRate%": [
+              0.12,
+              0.28
+            ]
+          }
+        }
+      }
+    ]
   },
   "13407": {
     "name": "Favonius Lance",
@@ -6315,26 +6376,13 @@
     "effects": [
       {
         "buff": {
-          "filter": {
-            "field": "onField"
-          },
-          "stats": {
-            "critRate%": [
-              0.2172,
-              0.39848
-            ]
-          },
           "specs": {
             "critRate%": {
+              "formula": "royalCrit",
               "attr": "critRate%",
-              "step": 0.01,
-              "offset": [
-                0.2172,
-                0.39848
-              ],
               "value": [
-                -0.0015196,
-                -0.0026086
+                0.08,
+                0.16
               ]
             }
           }
@@ -6343,7 +6391,6 @@
     ]
   },
   "13409": {
-    "disabled": true,
     "name": "Dragonspine Spear",
     "version": 1.2,
     "id": 13409,
@@ -6355,10 +6402,90 @@
       "baseAtk": 454,
       "physicalDmgBonus%": 0.69
     },
-    "effects": []
+    "effects": [
+      {
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "damage": {
+                      "type": [
+                        "normalAttack",
+                        "chargedAttack"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "states": {
+                    "aura": {
+                      "not": {
+                        "has": "cryo"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "cooldown": 10000,
+            "action": {
+              "damage": {
+                "multipliers": [
+                  {
+                    "mv": [
+                      0.8,
+                      1.4
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "damage": {
+                      "type": [
+                        "normalAttack",
+                        "chargedAttack"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "states": {
+                    "aura": {
+                      "has": "cryo"
+                    }
+                  }
+                }
+              ]
+            },
+            "cooldown": 10000,
+            "action": {
+              "damage": {
+                "multipliers": [
+                  {
+                    "mv": [
+                      2,
+                      3.6
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
   },
   "13414": {
-    "disabled": true,
     "name": "Kitain Cross Spear",
     "version": 2.0,
     "id": 13414,
@@ -6370,7 +6497,63 @@
       "baseAtk": 565,
       "elementalMastery": 110
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.06,
+              0.12
+            ]
+          }
+        }
+      },
+      {
+        "use": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "cooldown": 10000,
+          "action": {
+            "restoreEnergy": {
+              "flat": -3
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "energyRegen",
+            "spec": {
+              "uses": 3,
+              "offset": 2000
+            }
+          }
+        }
+      },
+      {
+        "ref": "energyRegen",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                3,
+                5
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "13415": {
     "name": "\"The Catch\"",
@@ -6422,7 +6605,6 @@
     "effects": []
   },
   "13417": {
-    "disabled": true,
     "name": "Moonpiercer",
     "version": 3.0,
     "id": 13417,
@@ -6434,7 +6616,57 @@
       "baseAtk": 565,
       "elementalMastery": 110
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "burning",
+                "quicken",
+                "aggravate",
+                "spread",
+                "bloom",
+                "lunarBloom",
+                "hyperbloom",
+                "burgeon"
+              ]
+            }
+          },
+          "cooldown": 20000,
+          "duration": 10000,
+          "uses": 1
+        },
+        "use": {
+          "by": "$first",
+          "when": "swap",
+          "commands": {
+            "type": "apply",
+            "ref": "leafBuff",
+            "spec": {
+              "duration": 12000
+            }
+          }
+        }
+      },
+      {
+        "ref": "leafBuff",
+        "stores": "$first",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "13419": {
     "name": "Missive Windspear",
@@ -6500,7 +6732,6 @@
     ]
   },
   "13425": {
-    "disabled": true,
     "name": "Rightful Reward",
     "version": 4.0,
     "id": 13425,
@@ -6512,10 +6743,25 @@
       "baseAtk": 565,
       "hp%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "healed",
+          "field": "*",
+          "cooldown": 10000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                8,
+                16
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "13426": {
-    "disabled": true,
     "name": "Dialogues of the Desert Sages",
     "version": 4.5,
     "id": 13426,
@@ -6526,10 +6772,29 @@
       "baseAtk": 510,
       "hp%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "healing"
+            }
+          },
+          "cooldown": 10000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                8,
+                16
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "13427": {
-    "disabled": true,
     "name": "Prospector's Drill",
     "version": 4.1,
     "id": 13427,
@@ -6540,10 +6805,130 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "unitySymbol",
+        "apply": [
+          {
+            "when": "healed",
+            "field": "*",
+            "duration": 30000
+          },
+          {
+            "when": "use",
+            "field": "*",
+            "filter": {
+              "action": {
+                "has": "healing"
+              }
+            },
+            "duration": 30000
+          }
+        ],
+        "maxStacks": 3
+      },
+      {
+        "ref": "struggle",
+        "apply": [
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "unitySymbol": 1
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "duration": 10000,
+            "stacks": 1,
+            "commands": {
+              "type": "remove",
+              "ref": "unitySymbol"
+            }
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "unitySymbol": 2
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "duration": 10000,
+            "stacks": 2,
+            "commands": {
+              "type": "remove",
+              "ref": "unitySymbol"
+            }
+          },
+          {
+            "when": "start",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "type": [
+                      "elementalSkill",
+                      "elementalBurst"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "unitySymbol": 3
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "duration": 10000,
+            "stacks": 3,
+            "commands": {
+              "type": "remove",
+              "ref": "unitySymbol"
+            }
+          }
+        ],
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.03,
+              0.07
+            ],
+            "elementalDmgBonus%": [
+              0.07,
+              0.13
+            ]
+          }
+        },
+        "maxStacks": 3
+      }
+    ]
   },
   "13430": {
-    "disabled": true,
     "name": "Mountain-Bracing Bolt",
     "version": 5.1,
     "id": 13430,
@@ -6554,10 +6939,41 @@
       "baseAtk": 565,
       "energyRecharge%": 0.306
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "by": "$ally",
+          "when": "start",
+          "field": "*",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "13431": {
-    "disabled": true,
     "name": "Footprint of the Rainbow",
     "version": 5.0,
     "id": 13431,
@@ -6569,10 +6985,29 @@
       "baseAtk": 510,
       "def%": 0.517
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "def%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   },
   "13432": {
-    "disabled": true,
     "name": "Tamayuratei no Ohanashi",
     "version": 5.4,
     "id": 13432,
@@ -6583,7 +7018,27 @@
       "baseAtk": 565,
       "energyRecharge%": 0.306
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "13433": {
     "name": "Prospector's Shovel",
@@ -6628,7 +7083,6 @@
     ]
   },
   "13434": {
-    "disabled": true,
     "name": "Sacrificer's Staff",
     "version": 6.1,
     "id": 13434,
@@ -6639,10 +7093,37 @@
       "baseAtk": 620,
       "critRate%": 0.092
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.08,
+              0.16
+            ],
+            "energyRecharge%": [
+              0.06,
+              0.12
+            ]
+          }
+        },
+        "maxStacks": 3
+      }
+    ]
   },
   "13435": {
-    "disabled": true,
     "name": "Frostbreath",
     "version": 7.0,
     "id": 13435,
@@ -6653,10 +7134,58 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "elements": [
+                "cryo",
+                "hydro"
+              ]
+            }
+          },
+          "cooldown": 16000,
+          "duration": 15000,
+          "commands": {
+            "type": "apply",
+            "ref": "teamEnergy",
+            "spec": {
+              "uses": 1
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "ref": "teamEnergy",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "restoreEnergy": {
+              "targets": "$ally",
+              "flat": [
+                6,
+                12
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "13436": {
-    "disabled": true,
     "name": "Song of the Vigil",
     "version": 7.0,
     "id": 13436,
@@ -6668,7 +7197,56 @@
       "baseAtk": 565,
       "elementalMastery": 110
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "not": {
+                "reaction": [
+                  "stellarConduct",
+                  "stellarSwirl"
+                ]
+              }
+            }
+          },
+          "cooldown": 9000,
+          "action": {
+            "restoreEnergy": {
+              "flat": [
+                4,
+                8
+              ]
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "reaction",
+          "field": "*",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "stellarConduct",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      }
+    ]
   },
   "13501": {
     "name": "Staff of Homa",
@@ -6859,7 +7437,6 @@
     "effects": []
   },
   "13509": {
-    "disabled": true,
     "name": "Engulfing Lightning",
     "version": 2.1,
     "id": 13509,
@@ -6870,7 +7447,46 @@
       "baseAtk": 608,
       "energyRecharge%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "specs": {
+            "atk%": {
+              "attr": "energyRecharge%",
+              "step": 1,
+              "offset": 1,
+              "value": [
+                0.28,
+                0.56
+              ],
+              "maxValue": [
+                0.8,
+                1.2
+              ]
+            }
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalBurst"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "energyRecharge%": [
+              0.3,
+              0.5
+            ]
+          }
+        }
+      }
+    ]
   },
   "13511": {
     "name": "Staff of the Scarlet Sands",
@@ -7808,26 +8424,13 @@
     "effects": [
       {
         "buff": {
-          "filter": {
-            "field": "onField"
-          },
-          "stats": {
-            "critRate%": [
-              0.2172,
-              0.39848
-            ]
-          },
           "specs": {
             "critRate%": {
+              "formula": "royalCrit",
               "attr": "critRate%",
-              "step": 0.01,
-              "offset": [
-                0.2172,
-                0.39848
-              ],
               "value": [
-                -0.0015196,
-                -0.0026086
+                0.08,
+                0.16
               ]
             }
           }
@@ -11454,26 +12057,13 @@
     "effects": [
       {
         "buff": {
-          "filter": {
-            "field": "onField"
-          },
-          "stats": {
-            "critRate%": [
-              0.2172,
-              0.39848
-            ]
-          },
           "specs": {
             "critRate%": {
+              "formula": "royalCrit",
               "attr": "critRate%",
-              "step": 0.01,
-              "offset": [
-                0.2172,
-                0.39848
-              ],
               "value": [
-                -0.0015196,
-                -0.0026086
+                0.08,
+                0.16
               ]
             }
           }
@@ -11522,7 +12112,6 @@
     "effects": []
   },
   "15407": {
-    "disabled": true,
     "name": "Compound Bow",
     "version": 1.0,
     "id": 15407,
@@ -11534,7 +12123,38 @@
       "baseAtk": 454,
       "physicalDmgBonus%": 0.69
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 300,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.04,
+              0.08
+            ],
+            "attackSpd%": [
+              0.012,
+              0.024
+            ]
+          }
+        },
+        "maxStacks": 4
+      }
+    ]
   },
   "15408": {
     "name": "Blackcliff Warbow",
@@ -11710,7 +12330,6 @@
     "effects": []
   },
   "15415": {
-    "disabled": true,
     "name": "Predator",
     "version": 2.1,
     "id": 15415,
@@ -11721,7 +12340,40 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "element": "cryo"
+              }
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": 0.1,
+            "chargedAttackDmgBonus%": 0.1
+          }
+        },
+        "maxStacks": 2
+      },
+      {
+        "enable": {
+          "owner": {
+            "id": 10000062
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk": 66
+          }
+        }
+      }
+    ]
   },
   "15416": {
     "disabled": true,
@@ -11753,7 +12405,6 @@
     "effects": []
   },
   "15418": {
-    "disabled": true,
     "name": "End of the Line",
     "version": 3.0,
     "id": 15418,
@@ -11764,7 +12415,42 @@
       "baseAtk": 510,
       "energyRecharge%": 0.459
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "cooldown": 12000,
+          "duration": 15000,
+          "uses": 3
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "cooldown": 2000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.8,
+                    1.6
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "15419": {
     "name": "Ibis Piercer",
@@ -12788,20 +13474,12 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "count": {
-                "conditions": [
-                  {
-                    "has": "stack1"
-                  },
-                  {
-                    "has": "stack2"
-                  },
-                  {
-                    "has": "stack3"
-                  },
-                  {
-                    "has": "stack4"
-                  }
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3",
+                  "stack4"
                 ],
                 "==": 1
               }
@@ -12819,20 +13497,12 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "count": {
-                "conditions": [
-                  {
-                    "has": "stack1"
-                  },
-                  {
-                    "has": "stack2"
-                  },
-                  {
-                    "has": "stack3"
-                  },
-                  {
-                    "has": "stack4"
-                  }
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3",
+                  "stack4"
                 ],
                 "==": 2
               }
@@ -12850,20 +13520,12 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "count": {
-                "conditions": [
-                  {
-                    "has": "stack1"
-                  },
-                  {
-                    "has": "stack2"
-                  },
-                  {
-                    "has": "stack3"
-                  },
-                  {
-                    "has": "stack4"
-                  }
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3",
+                  "stack4"
                 ],
                 "==": 3
               }
@@ -12881,20 +13543,12 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "count": {
-                "conditions": [
-                  {
-                    "has": "stack1"
-                  },
-                  {
-                    "has": "stack2"
-                  },
-                  {
-                    "has": "stack3"
-                  },
-                  {
-                    "has": "stack4"
-                  }
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3",
+                  "stack4"
                 ],
                 "==": 4
               }
@@ -13232,17 +13886,11 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "count": {
-                "conditions": [
-                  {
-                    "has": "stack1"
-                  },
-                  {
-                    "has": "stack2"
-                  },
-                  {
-                    "has": "stack3"
-                  }
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3"
                 ],
                 "==": 1
               }
@@ -13260,17 +13908,11 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "count": {
-                "conditions": [
-                  {
-                    "has": "stack1"
-                  },
-                  {
-                    "has": "stack2"
-                  },
-                  {
-                    "has": "stack3"
-                  }
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3"
                 ],
                 "==": 2
               }
@@ -13288,17 +13930,11 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "count": {
-                "conditions": [
-                  {
-                    "has": "stack1"
-                  },
-                  {
-                    "has": "stack2"
-                  },
-                  {
-                    "has": "stack3"
-                  }
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3"
                 ],
                 "==": 3
               }
@@ -13317,17 +13953,14 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "and": [
-                {
-                  "has": "stack1"
-                },
-                {
-                  "has": "stack2"
-                },
-                {
-                  "has": "stack3"
-                }
-              ]
+              "sum": {
+                "keys": [
+                  "stack1",
+                  "stack2",
+                  "stack3"
+                ],
+                "==": 3
+              }
             }
           },
           "commands": {

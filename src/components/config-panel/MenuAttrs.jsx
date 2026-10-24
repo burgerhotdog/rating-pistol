@@ -60,9 +60,11 @@ const ATTR_ROWS = {
   ],
 };
 
+const getBuffs = (effect) => toArray(effect.buff ?? []);
+
 const isStaticBuff = (effect) => (
-  effect.buff?.stats &&
-  !effect.buff?.filter &&
+  getBuffs(effect).length > 0 &&
+  getBuffs(effect).every((buff) => buff.stats && !buff.filter) &&
   !effect.apply
 );
 
@@ -95,7 +97,7 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
       !appliesToCharId(effect, charId)
     ) continue;
 
-    effectMaps.push(effect.buff.stats);
+    effectMaps.push(...getBuffs(effect).map(({ stats }) => stats));
   }
 
   const weapData = WEAPON[gameId][member.weaponId] ?? {};
@@ -108,10 +110,12 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
       ) continue;
 
       const resolvedMap = {};
-      for (const [stat, value] of Object.entries(effect.buff.stats)) {
-        resolvedMap[stat] = Array.isArray(value)
-          ? resolveRankedValue(value, member.weaponRank)
-          : value;
+      for (const { stats } of getBuffs(effect)) {
+        for (const [stat, value] of Object.entries(stats)) {
+          resolvedMap[stat] = (resolvedMap[stat] ?? 0) + (Array.isArray(value)
+            ? resolveRankedValue(value, member.weaponRank)
+            : value);
+        }
       }
 
       effectMaps.push(resolvedMap);
@@ -128,7 +132,7 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
       !appliesToCharId(effect, charId)
     ) continue;
 
-    effectMaps.push(effect.buff.stats);
+    effectMaps.push(...getBuffs(effect).map(({ stats }) => stats));
   }
 
   if (gameId === WW) {
@@ -140,7 +144,7 @@ function buildMenuMap(gameId, charId, team, spec = {}) {
         !appliesToCharId(effect, charId)
       ) continue;
 
-      effectMaps.push(effect.buff.stats);
+      effectMaps.push(...getBuffs(effect).map(({ stats }) => stats));
     }
   }
 

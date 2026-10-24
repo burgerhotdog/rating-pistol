@@ -14,6 +14,7 @@ export const initStates = (gameId, memberIds) => {
     globalEffects: {},
     memberEffects: initPerMember(),
     memberHealth: initPerMember(() => 1),
+    gameRule: {},
     ...(gameId === GI && {
       aura: {},
       icd: initPerMember(),

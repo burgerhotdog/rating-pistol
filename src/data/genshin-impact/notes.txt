@@ -23,9 +23,13 @@ Characters:
         No constellations
     Diluc
         No constellations
+    Diona
+        Shield Duration is fixed
     Durin
         No constellations
     Emilie
+        No constellations
+    Eula
         No constellations
     Escoffier
         No constellations
@@ -41,7 +45,10 @@ Characters:
     Gorou
         Swapping off active buff expires instantly
     Hu Tao
-        No Constellations
+        No constellations
+    Iansan
+        Movement is approximated
+        Overflow handling is inaccurate
     Illuga
         Burst affects non-direct dmg too
         No geo construct rule
@@ -50,6 +57,10 @@ Characters:
     Itto
         No constellations
     Kaeya
+        No constellations
+    Kinich
+        No constellations
+    Kokomi
         No constellations
     Klee
         No constellations
@@ -67,6 +78,12 @@ Characters:
         Hats dont snapshot stats
         No hp restrictions on A1
         No constellations
+    Mika
+        No C1
+        No C4
+    Mavuika
+        Double check logic
+        No A4 decay
     Mualani
         No constellations
     Nahida
@@ -88,13 +105,23 @@ Characters:
         No constellations
     Raiden
         Remember E no snapshot
+        E no 20% less for offField proc
+        E burst buff hardcoded
+        Resolve stacks gained hardcoded
+        A1 is simulated
+        A4 no energy restoration
+        No C1, C4, C6
     Rosaria
         C1 assumes always hits
     Sandrone
         A1 doesn't apply to non stellar dmg
         No constellations
     Sara
+        A4 hard coded
         Remember c6 no snapshot
+        Numbers are sus
+    Shenhe
+        No constellations
     Skirk
         Deaths crossing not accurate
         No constellations
@@ -123,8 +150,13 @@ Characters:
         No energy recovery
         3 sword always
         no orbitals from skill
+    Yanfei
+        a4 always happens
     Yelan
         No barb reset
+    Yoimiya
+        No second half a4
+        No constellations
     Yumemizuki Mizuki
         Ult always does damage
         A1 always extended
@@ -144,6 +176,8 @@ Weapons:
     Aqua Simulacra
         doesn't need enemies nearby
     Aquila Favonia
+        Effect always hits
+    Dragonspine Spear
         Effect always hits
     Eye of Perception
         Effect always hits
@@ -167,6 +201,8 @@ Weapons:
         ER might not work in calcs
     Otherworldly Story
         Effect disabled
+    Prospectors Drill
+        Might double count healing performed on self
     Sacrificial Jade
         No 5s buffer
     Sapwood Blade
@@ -208,8 +244,6 @@ Weapons:
 Sets:
     Bloodstained Chivalry
         4pc not active
-    Ocean-Hued Clam
-        Always uses full healing amount
     Song of days Past
         Always uses max amount
     Nighttime Whispers in the Echoing Woods

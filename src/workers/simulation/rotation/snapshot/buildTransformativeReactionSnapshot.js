@@ -1,6 +1,9 @@
 import { formatStr } from '@/utils';
 import { getBuffMap } from '../getStatMap';
-import { transformativeReactionFormula } from '../formula';
+import {
+  transformativeReactionFormula,
+  transformativeReactionUsedAttrs,
+} from '../formula';
 
 export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reactionElement) {
   const mockAction = { damage: { type: rxnKey, element: reactionElement } };
@@ -9,6 +12,10 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
 
   const specSourceBuffMap = ctx.specId
     ? getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true }).buffMap
+    : null;
+
+  const foamHealing = rxnKey === 'seaDyedFoam'
+    ? ctx.states.gameRule.oceanHuedClam?.value
     : null;
 
   return {
@@ -20,15 +27,16 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
     onFieldId: ctx.states.onFieldId,
     runtime: ctx.states.runtime,
     unresolved: {
-      memo: {},
+      memo: new Map(),
       ownerId,
       buffMap,
       buffSpecs,
       specSourceBuffMap,
       scale: 1,
-      parts: ['damage'],
+      part: 'damage',
       reactionElement,
-      formula: (statMap) => transformativeReactionFormula(statMap, rxnKey, reactionElement),
+      formula: (statMap) => transformativeReactionFormula(statMap, rxnKey, reactionElement, foamHealing),
+      usedAttrs: transformativeReactionUsedAttrs(rxnKey, reactionElement),
     },
   };
 }

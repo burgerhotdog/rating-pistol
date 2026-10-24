@@ -67,11 +67,13 @@ function cacheMoonsignResonance(cache) {
       index: 0,
     });
 
+    const [buff] = effect.buff;
+
     switch (element) {
       case 'pyro':
       case 'electro':
       case 'cryo':
-        effect.buff.specs = {
+        buff.specs = {
           'lunarReactionBonus%': {
             attr: 'atk',
             step: 100,
@@ -82,7 +84,7 @@ function cacheMoonsignResonance(cache) {
         break;
 
       case 'hydro':
-        effect.buff.specs = {
+        buff.specs = {
           'lunarReactionBonus%': {
             attr: 'hp',
             step: 1000,
@@ -93,7 +95,7 @@ function cacheMoonsignResonance(cache) {
         break;
 
       case 'geo':
-        effect.buff.specs = {
+        buff.specs = {
           'lunarReactionBonus%': {
             attr: 'def',
             step: 100,
@@ -105,7 +107,7 @@ function cacheMoonsignResonance(cache) {
 
       case 'anemo':
       case 'dendro':
-        effect.buff.specs = {
+        buff.specs = {
           'lunarReactionBonus%': {
             attr: 'elementalMastery',
             step: 100,

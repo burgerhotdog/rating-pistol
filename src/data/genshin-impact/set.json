@@ -1075,28 +1075,42 @@
       },
       {
         "bonus": 4,
+        "ref": "oceanHuedClam",
         "apply": {
-          "when": "hit",
+          "when": "use",
           "filter": {
-            "action": {
-              "has": "healing"
-            }
+            "and": [
+              {
+                "action": {
+                  "has": "healing"
+                }
+              },
+              {
+                "states": {
+                  "gameRule": {
+                    "not": {
+                      "has": "oceanHuedClam"
+                    }
+                  }
+                }
+              }
+            ]
           },
           "cooldown": 3500,
           "uses": 1,
-          "offset": 3000
+          "offset": 3000,
+          "commands": {
+            "type": "gameRule",
+            "gameRule": "oceanHuedClam",
+            "ref": "oceanHuedClam"
+          }
         },
         "use": {
           "when": "interval",
-          "action": {
-            "damage": {
-              "element": "physical",
-              "multipliers": [
-                {
-                  "flat": 27000
-                }
-              ]
-            }
+          "commands": {
+            "type": "gameRule",
+            "gameRule": "seaDyedFoam",
+            "ref": "oceanHuedClam"
           }
         }
       }

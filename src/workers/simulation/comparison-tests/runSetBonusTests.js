@@ -171,7 +171,7 @@ export function runSetBonusTests(cache, equipMaps, charId, durationGetter) {
       mCache.setCounts[effect.sourceId] ||
       effect.sourceId === mCache.mainEcho
     ))
-    .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
+    .reduce((acc, effect) => toMergedObj(acc, ...effect.buff.map(({ stats }) => stats)), {});
 
   const nonEchoRotation = mCache.rotation.filter((action) =>
     action.type !== 'echoSkill' || action.ownerId !== charId
@@ -195,7 +195,7 @@ export function runSetBonusTests(cache, equipMaps, charId, durationGetter) {
 
       const newStaticMap = Object.values({ ...setEffects, ...echoEffects })
         .filter((effect) => effect.static)
-        .reduce((acc, effect) => toMergedObj(acc, effect.buff.stats), {});
+        .reduce((acc, effect) => toMergedObj(acc, ...effect.buff.map(({ stats }) => stats)), {});
 
       const echoAction = echoId != null ? buildEchoAction(gameId, echoId, charId, cache.memberIds) : undefined;
       const rotation = withEchoAction(nonEchoRotation, echoAction, ECHO[echoId]?.timing);

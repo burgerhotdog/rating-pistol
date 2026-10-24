@@ -10,14 +10,12 @@ function applyAmpScale(value, scale) {
   return (buildMap) => value * scale(buildMap);
 }
 
-function getPartMemo(memo, part, scaleFlat) {
-  const partMemo = memo[part] ??= new Map();
-
-  let entry = partMemo.get(scaleFlat);
+function getMemoEntry(memo, scaleFlat) {
+  let entry = memo.get(scaleFlat);
 
   if (!entry) {
     entry = {};
-    partMemo.set(scaleFlat, entry);
+    memo.set(scaleFlat, entry);
   }
 
   return entry;
@@ -35,6 +33,7 @@ export const resolveSnapshot = (ctx, snapshot) => {
 
   const {
     memo,
+    part,
     ownerId,
     action,
     buffMap,
@@ -55,110 +54,75 @@ export const resolveSnapshot = (ctx, snapshot) => {
 
   const applyScale = (value) => applyAmpScale(value * splitScale * dew, scale);
 
-  for (const part of unresolved.parts) {
-    const partMemo = getPartMemo(memo, part, scaleFlat);
+  const partMemo = getMemoEntry(memo, scaleFlat);
 
-    // Can be resolved now
-    // Not in spec mode
-    if (!ctx.specId) {
-      const statMap = toMergedObj(
-        statMapOwnerIdBuildMap,
-        buffMap,
-        { damageFlat: scaleFlat },
-      );
-
-      const value = partMemo.value ??= formula(statMap, part);
-      snapshot[part] = applyScale(value);
-      continue;
-    }
-
-    const usedAttrs = action
-      ? getUsedAttrs(gameId, action, part)
-      : new Set([
-        'elementalMastery',
-        `${snapshot.damageType}ReactionBonus%`,
-        `${unresolved.reactionElement}ResReduction%`,
-      ]);
-
-    // A function scaleFlat is a reaction flat bonus that reads EM and reaction bonus
-    // from the tested build, so any spec buff can feed into it
-    const usesSpecs = buffSpecs.some(({ specs }) =>
-      typeof scaleFlat === 'function' ||
-      Object.keys(specs).some((stat) => usedAttrs.has(stat))
+  // Can be resolved now
+  // Not in spec mode
+  if (!ctx.specId) {
+    const statMap = toMergedObj(
+      statMapOwnerIdBuildMap,
+      buffMap,
+      { damageFlat: scaleFlat },
     );
 
-    // Can be resolved now
-    // Action is not from specId and uses no variable buffs from specId
-    if (!isSpecIdAction && !usesSpecs) {
-      const statMap = toMergedObj(
-        statMapOwnerIdBuildMap,
-        buffMap,
-        { damageFlat: scaleFlat },
-      );
+    const value = partMemo.value ??= formula(statMap);
+    snapshot[part] = applyScale(value);
+    return;
+  }
 
-      const value = partMemo.value ??= formula(statMap, part);
-      snapshot[part] = applyScale(value);
-      continue;
-    }
+  const usedAttrs = unresolved.usedAttrs ?? getUsedAttrs(gameId, action, part);
 
-    // Action is from specId but has no variable buffs from specId
-    if (!usesSpecs) {
-      snapshot[part] = (testBuildMap) => {
-        if (partMemo.buildMap !== testBuildMap) {
-          const damageFlat = typeof scaleFlat !== 'function'
-            ? scaleFlat
-            : scaleFlat(testBuildMap);
+  // A function scaleFlat is a reaction flat bonus that reads EM and reaction bonus
+  // from the tested build, so any spec buff can feed into it
+  const usesSpecs = buffSpecs.some(({ specs }) =>
+    typeof scaleFlat === 'function' ||
+    Object.keys(specs).some((stat) => usedAttrs.has(stat))
+  );
 
-          const statMap = toMergedObj(
-            testBuildMap,
-            buffMap,
-            { damageFlat },
-          );
+  // Can be resolved now
+  // Action is not from specId and uses no variable buffs from specId
+  if (!isSpecIdAction && !usesSpecs) {
+    const statMap = toMergedObj(
+      statMapOwnerIdBuildMap,
+      buffMap,
+      { damageFlat: scaleFlat },
+    );
 
-          partMemo.buildMap = testBuildMap;
-          partMemo.value = formula(statMap, part) * splitScale * dew;
-        }
+    const value = partMemo.value ??= formula(statMap);
+    snapshot[part] = applyScale(value);
+    return;
+  }
 
-        const value = partMemo.value;
+  // Action is from specId but has no variable buffs from specId
+  if (!usesSpecs) {
+    snapshot[part] = (testBuildMap) => {
+      if (partMemo.buildMap !== testBuildMap) {
+        const damageFlat = typeof scaleFlat !== 'function'
+          ? scaleFlat
+          : scaleFlat(testBuildMap);
 
-        return typeof scale !== 'function'
-          ? value * scale
-          : value * scale(testBuildMap);
-      };
-      continue;
-    }
+        const statMap = toMergedObj(
+          testBuildMap,
+          buffMap,
+          { damageFlat },
+        );
 
-    // Action is not from specId but has variable buffs from specId
-    if (!isSpecIdAction) {
-      const partiallyBuffedMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
-      snapshot[part] = (testBuildMap) => {
-        if (partMemo.buildMap !== testBuildMap) {
-          const testBuffedMap = toMergedObj(testBuildMap, specSourceBuffMap);
-          const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
-          const damageFlat = typeof scaleFlat !== 'function'
-            ? scaleFlat
-            : scaleFlat(testBuildMap);
+        partMemo.buildMap = testBuildMap;
+        partMemo.value = formula(statMap) * splitScale * dew;
+      }
 
-          const statMap = toMergedObj(
-            partiallyBuffedMap,
-            resolvedBuffs,
-            { damageFlat },
-          );
+      const value = partMemo.value;
 
-          partMemo.buildMap = testBuildMap;
-          partMemo.value = formula(statMap, part) * splitScale * dew;
-        }
+      return typeof scale !== 'function'
+        ? value * scale
+        : value * scale(testBuildMap);
+    };
+    return;
+  }
 
-        const value = partMemo.value;
-
-        return typeof scale !== 'function'
-          ? value * scale
-          : value * scale(testBuildMap);
-      };
-      continue;
-    }
-
-    // Action is from specId and has variable buffs from specId
+  // Action is not from specId but has variable buffs from specId
+  if (!isSpecIdAction) {
+    const partiallyBuffedMap = toMergedObj(statMapOwnerIdBuildMap, buffMap);
     snapshot[part] = (testBuildMap) => {
       if (partMemo.buildMap !== testBuildMap) {
         const testBuffedMap = toMergedObj(testBuildMap, specSourceBuffMap);
@@ -168,14 +132,13 @@ export const resolveSnapshot = (ctx, snapshot) => {
           : scaleFlat(testBuildMap);
 
         const statMap = toMergedObj(
-          testBuildMap,
-          buffMap,
+          partiallyBuffedMap,
           resolvedBuffs,
           { damageFlat },
         );
 
         partMemo.buildMap = testBuildMap;
-        partMemo.value = formula(statMap, part) * splitScale * dew;
+        partMemo.value = formula(statMap) * splitScale * dew;
       }
 
       const value = partMemo.value;
@@ -184,5 +147,33 @@ export const resolveSnapshot = (ctx, snapshot) => {
         ? value * scale
         : value * scale(testBuildMap);
     };
+    return;
   }
+
+  // Action is from specId and has variable buffs from specId
+  snapshot[part] = (testBuildMap) => {
+    if (partMemo.buildMap !== testBuildMap) {
+      const testBuffedMap = toMergedObj(testBuildMap, specSourceBuffMap);
+      const resolvedBuffs = resolveBuffSpecs(buffSpecs, testBuffedMap);
+      const damageFlat = typeof scaleFlat !== 'function'
+        ? scaleFlat
+        : scaleFlat(testBuildMap);
+
+      const statMap = toMergedObj(
+        testBuildMap,
+        buffMap,
+        resolvedBuffs,
+        { damageFlat },
+      );
+
+      partMemo.buildMap = testBuildMap;
+      partMemo.value = formula(statMap) * splitScale * dew;
+    }
+
+    const value = partMemo.value;
+
+    return typeof scale !== 'function'
+      ? value * scale
+      : value * scale(testBuildMap);
+  };
 };

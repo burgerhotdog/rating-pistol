@@ -4,7 +4,7 @@ import { estimateDps } from '@/utils';
 import { buildCache } from './cache';
 import { runComparisonTests } from './comparison-tests';
 import { runEquipTests, runTrials } from './equip-tests';
-import { runSkillLevelTests } from './skill-level-tests';
+import { benchmarkSkillLevels } from './skill-level-tests';
 import { getRotationOrder } from './rotation-order';
 import { calibrate } from './calibrate';
 
@@ -62,6 +62,10 @@ self.onmessage = async ({ data }) => {
   });
 
   const cache = { ...rawCache, memberIds: rotationOrder };
+
+  const { benchmarkLevels, benchmarkLevelsSource } = benchmarkSkillLevels(cache, equipMaps, charId, userDps);
+  self.postMessage({ benchmarkLevels, benchmarkLevelsSource });
+
   const { calibration, scoreCeiling, dpsCeiling } = calibrate(cache, equipMaps, charId);
   self.postMessage({ scoreCeiling, dpsCeiling });
 
@@ -91,9 +95,6 @@ self.onmessage = async ({ data }) => {
 
   const { weaponResults, setResults } = runComparisonTests(cache, equipMaps, bonusEnergy);
   self.postMessage({ weaponResults, setResults });
-
-  const skillLevelResults = runSkillLevelTests(cache, equipMaps, charId);
-  self.postMessage({ skillLevelResults });
 
   self.postMessage({ status: 'done' });
 };
@@ -125,7 +126,8 @@ function findBenchmark(scoreCeiling, scoreProgression, dpsProgression, fit) {
       increaseCount++;
     }
 
-    if (improvement < 0.005 && increaseCount >= 3) break;
+    if (improvement < 0.001) break;
+    if (improvement < 0.01 && increaseCount >= 3) break;
 
     previousImprovement = improvement;
     benchmarkDay++;

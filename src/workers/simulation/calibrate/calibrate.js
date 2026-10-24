@@ -17,17 +17,9 @@ function getRates({ totals, time }) {
 }
 
 function getWeight(dpsRates, outputRates, reference, parts) {
-  const dpsLoss = Math.max(
-    0,
-    dpsRates.damage - outputRates.damage,
-  ) / reference.damage;
+  const dpsLoss = Math.max(0, dpsRates.damage - outputRates.damage) / reference.damage;
 
-  const outputGain = parts.reduce((sum, part) =>
-    sum + Math.max(
-      0,
-      outputRates[part] - dpsRates[part],
-    ) / reference[part]
-  , 0);
+  const outputGain = parts.reduce((sum, part) => sum + Math.max(0, outputRates[part] - dpsRates[part]) / reference[part], 0);
 
   if (outputGain <= 0) return 0;
 
@@ -35,7 +27,7 @@ function getWeight(dpsRates, outputRates, reference, parts) {
 
   if (maxLoss <= 0) return 0;
 
-  const effectiveLoss = dpsLoss / (1 + dpsLoss / maxLoss);
+  const effectiveLoss = dpsLoss / (1 + 4 * dpsLoss / maxLoss);
 
   return effectiveLoss / outputGain;
 }

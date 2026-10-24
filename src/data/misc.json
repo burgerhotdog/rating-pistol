@@ -54,6 +54,17 @@
         "weekly": 2
       }
     ],
+    "skillLevelUpgradeCostsPrecomputed": [
+      10.1,
+      17.69,
+      32.05,
+      45.57,
+      65.86,
+      145.27,
+      227.51,
+      431.69,
+      586.17
+    ],
     "domains": {
       "money": {
         "stamina": 20,
@@ -155,6 +166,17 @@
         "material": 162,
         "weekly": 1
       }
+    ],
+    "skillLevelUpgradeCostsPrecomputed": [
+      2.21,
+      3.19,
+      6.62,
+      9.58,
+      27.79,
+      59.33,
+      75.57,
+      105.27,
+      180.06
     ],
     "domains": {
       "money": {
