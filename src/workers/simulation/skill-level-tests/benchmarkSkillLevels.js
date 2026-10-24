@@ -48,24 +48,49 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
 
       // effects
       for (const effect of Object.values(effects)) {
+        if (effect.apply) {
+          for (const apply of effect.apply) {
+            if (apply.durationRefRaw) {
+              const { mvIndex: refMvIndex, baseAttrValue, multipliers } = apply.durationRefRaw;
+              const refMvIndexToUse = apply.durationRef.split('.')[0] === skillId ? mvIndex : refMvIndex;
+
+              const { mv, flat } = multipliers[0];
+              const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
+              const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
+              apply.duration = mvBuffValue * baseAttrValue + flatBuffValue;
+            }
+          }
+        }
+
         if (effect.use) {
           for (const use of effect.use) {
-            if (!use.action) continue;
-            for (const action of use.action) {
-              if (action.category !== skillId) continue;
+            if (use.cooldownRefRaw) {
+              const { mvIndex: refMvIndex, baseAttrValue, multipliers } = use.cooldownRefRaw;
+              const refMvIndexToUse = use.cooldownRef.split('.')[0] === skillId ? mvIndex : refMvIndex;
 
-              for (const part of parts) {
-                const actionPart = action[part];
-                if (!actionPart) continue;
+              const { mv, flat } = multipliers[0];
+              const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
+              const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
+              use.cooldown = mvBuffValue * baseAttrValue + flatBuffValue;
+            }
 
-                const rawPartDef = charSkills[skillId].actions[action.index]?.[part];
-                if (!rawPartDef) continue;
+            if (use.action) {
+              for (const action of use.action) {
+                if (action.category !== skillId) continue;
 
-                actionPart.compressed = getCompressed(
-                  rawPartDef.multipliers,
-                  rawPartDef.attr ?? 'atk',
-                  { index: mvIndex },
-                );
+                for (const part of parts) {
+                  const actionPart = action[part];
+                  if (!actionPart) continue;
+
+                  const rawPartDef = charSkills[skillId].actions[action.index]?.[part];
+                  if (!rawPartDef) continue;
+
+                  actionPart.compressed = getCompressed(
+                    rawPartDef.multipliers,
+                    rawPartDef.attr ?? 'atk',
+                    { index: mvIndex },
+                  );
+                }
               }
             }
           }

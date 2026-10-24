@@ -3,6 +3,7 @@ import {
   transformativeReactionFormula,
   transformativeReactionUsedAttrs,
 } from '../formula';
+import { hasGameRule } from '../states';
 
 export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reactionElement) {
   const mockAction = { damage: { type: rxnKey, element: reactionElement } };
@@ -16,6 +17,31 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
   const foamHealing = rxnKey === 'oceanHuedClam'
     ? ctx.states.gameRule.oceanHuedClam?.value
     : null;
+
+  let specialCritRate = 0;
+
+  if (
+    rxnKey === 'burning' ||
+    rxnKey === 'bloom' ||
+    rxnKey === 'hyperbloom' ||
+    rxnKey === 'burgeon'
+  ) {
+    if (hasGameRule(ctx, 'nahidaC2')) {
+      specialCritRate += 0.2;
+    }
+  }
+
+  if (
+    rxnKey === 'bloom' ||
+    rxnKey === 'hyperbloom' ||
+    rxnKey === 'burgeon'
+  ) {
+    if (hasGameRule(ctx, 'laumaA1')) {
+      specialCritRate += 0.15;
+    }
+  }
+
+  const specialCritMult = (specialCritRate * 2) + (1 - specialCritRate);
 
   return {
     key: `system:${rxnKey}`,
@@ -33,7 +59,7 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
       scale: 1,
       part: 'damage',
       reactionElement,
-      formula: (statMap) => transformativeReactionFormula(statMap, rxnKey, reactionElement, foamHealing),
+      formula: (statMap) => transformativeReactionFormula(statMap, rxnKey, reactionElement, specialCritMult, foamHealing),
       usedAttrs: transformativeReactionUsedAttrs(rxnKey, reactionElement),
     },
   };

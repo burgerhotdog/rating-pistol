@@ -35,9 +35,10 @@ function transformativeBaseDamage(statMap, rxnKey, foamHealing) {
   );
 }
 
-export function transformativeReactionFormula(statMap, rxnKey, rxnElement, foamHealing) {
+export function transformativeReactionFormula(statMap, rxnKey, rxnElement, specialCritMult, foamHealing) {
   return (
     transformativeBaseDamage(statMap, rxnKey, foamHealing) *
+    specialCritMult *
     getResMult(GI, rxnElement, statMap)
   );
 }
