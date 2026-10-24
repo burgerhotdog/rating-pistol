@@ -59843,11 +59843,30 @@
       },
       {
         "enable": {
+          "nascentGleam": true
+        },
+        "stores": "global",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 20000
+        },
+        "gameRule": "laumaA1"
+      },
+      {
+        "enable": {
           "ascendantGleam": true
         },
         "stores": "$team",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": [
