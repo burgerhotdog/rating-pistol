@@ -21,7 +21,7 @@ export function runGameRule(ctx, rule, effect, spec) {
 
   if (rule === 'seaDyedFoam') {
     if (ctx.saveSnapshots) {
-      const snapshot = buildTransformativeReactionSnapshot(ctx, effect.ownerId, 'seaDyedFoam', 'physical');
+      const snapshot = buildTransformativeReactionSnapshot(ctx, effect.ownerId, 'oceanHuedClam', 'physical');
       ctx.snapshots.push(snapshot);
     }
 

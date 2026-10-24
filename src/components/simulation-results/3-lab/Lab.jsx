@@ -4,17 +4,26 @@ import {
   Card,
   CardHeader,
   FormControlLabel,
+  IconButton,
+  Menu,
   Skeleton,
   Stack,
+  Tooltip,
 } from '@mui/material';
+import SettingsIcon from '@mui/icons-material/Settings';
 import { Switch } from '@/components/Colored';
-import { useData } from '@/hooks';
+import { useAccent, useData } from '@/hooks';
 import WeaponsDialog from './WeaponsDialog';
 import SetsDialog from './SetsDialog';
 
 const Lab = ({ results }) => {
   const langData = useData('lang');
   const [normalize, setNormalize] = useState(true);
+  const [hideLimited, setHide5Star] = useState(true);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const accent = useAccent();
+
+  const menuOpen = Boolean(anchorEl);
 
   const weaponsReady =
     results.userMember &&
@@ -33,16 +42,43 @@ const Lab = ({ results }) => {
           <CardHeader
             title={`${langData.Weapon} Comparisons`}
             action={
-              <FormControlLabel
-                label="Normalize"
-                control={
-                  <Switch
-                    color="#your-color"
-                    checked={normalize}
-                    onChange={(event) => setNormalize(event.target.checked)}
-                  />
-                }
-              />
+              <>
+                <Tooltip title="Options">
+                  <IconButton onClick={(event) => setAnchorEl(event.currentTarget)}>
+                    <SettingsIcon />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  anchorEl={anchorEl}
+                  open={menuOpen}
+                  onClose={() => setAnchorEl(null)}
+                  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                  transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+                >
+                  <Stack sx={{ px: 2, py: 0.5 }}>
+                    <FormControlLabel
+                      label="Normalize crit ratio & energy"
+                      control={
+                        <Switch
+                          color={accent}
+                          checked={normalize}
+                          onChange={(event) => setNormalize(event.target.checked)}
+                        />
+                      }
+                    />
+                    <FormControlLabel
+                      label="Hide other limited 5-Stars"
+                      control={
+                        <Switch
+                          color={accent}
+                          checked={hideLimited}
+                          onChange={(event) => setHide5Star(event.target.checked)}
+                        />
+                      }
+                    />
+                  </Stack>
+                </Menu>
+              </>
             }
           />
           {weaponsReady ? (
@@ -52,6 +88,7 @@ const Lab = ({ results }) => {
                 userDps={results.userDps}
                 weaponResults={results.weaponResults}
                 normalize={normalize}
+                hideLimited={hideLimited}
               />
             </Box>
           ) : (

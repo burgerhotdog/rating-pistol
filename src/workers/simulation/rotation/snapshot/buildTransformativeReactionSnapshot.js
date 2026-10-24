@@ -1,4 +1,3 @@
-import { formatStr } from '@/utils';
 import { getBuffMap } from '../getStatMap';
 import {
   transformativeReactionFormula,
@@ -14,13 +13,12 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
     ? getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true }).buffMap
     : null;
 
-  const foamHealing = rxnKey === 'seaDyedFoam'
+  const foamHealing = rxnKey === 'oceanHuedClam'
     ? ctx.states.gameRule.oceanHuedClam?.value
     : null;
 
   return {
     key: `system:${rxnKey}`,
-    name: formatStr(rxnKey),
     ownerId: 'system',
     type: 'transformativeReaction',
     damageType: rxnKey,

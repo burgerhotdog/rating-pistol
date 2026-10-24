@@ -18,7 +18,7 @@ const RXN_MULTIPLIERS = {
 };
 
 function transformativeBaseDamage(statMap, rxnKey, foamHealing) {
-  if (rxnKey === 'seaDyedFoam') {
+  if (rxnKey === 'oceanHuedClam') {
     return foamHealing * 0.9;
   }
 
@@ -43,7 +43,7 @@ export function transformativeReactionFormula(statMap, rxnKey, rxnElement, foamH
 }
 
 export function transformativeReactionUsedAttrs(rxnKey, rxnElement) {
-  if (rxnKey === 'seaDyedFoam') {
+  if (rxnKey === 'oceanHuedClam') {
     return new Set([
       `physicalResReduction%`,
     ]);
