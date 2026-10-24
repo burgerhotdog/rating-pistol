@@ -88,9 +88,8 @@ Characters:
         No constellations
     Nahida
         Dendro core trigger offset might be wrong
-        Electro/Hydro effects are sus
         EM buff comes from self
-        No C4, C6
+        No C6
     Neuvillette
         A4 is every 10%
         No C4, C6
