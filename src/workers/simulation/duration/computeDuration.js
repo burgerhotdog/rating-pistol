@@ -124,7 +124,7 @@ export function createEquipDurationGetter(cache, equipMaps, specId, bonusEnergy 
 export function createVariantDurationGetter(cache, equipMaps, bonusEnergy = {}) {
   const requiredErMap = getRequiredErMap(cache, equipMaps, bonusEnergy);
 
-  return (variantCache, variantBonusEnergy = bonusEnergy) => resolveDuration(
-    variantCache, equipMaps, requiredErMap, variantBonusEnergy,
+  return (variantCache, variantBonusEnergy = bonusEnergy, variantEquipMaps = equipMaps) => resolveDuration(
+    variantCache, variantEquipMaps, requiredErMap, variantBonusEnergy
   );
 }

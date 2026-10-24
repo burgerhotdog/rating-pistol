@@ -5,7 +5,7 @@ import {
   toMergedObj,
 } from '@/utils';
 import { runVariantDps } from '../variantDps';
-import { createTestNormCrit } from './testNormCrit';
+import { createTestNormStats } from './testNormStats';
 import { getNormWeapEffs } from './normWeapEffs';
 import { reNormBaseEffs } from './reNormBaseEffs';
 
@@ -17,7 +17,7 @@ function testWeapon(
   nonWeapNonBaseEffs,
   nonWeapBaseEffs,
   nonWeapStaticMap,
-  testNormCrit,
+  testNormStats,
   weapData,
 ) {
   const { gameId, member } = cache;
@@ -58,13 +58,13 @@ function testWeapon(
     }),
   };
 
-  const normCritDps = testNormCrit(weapData, memberOverrides);
+  const normStatsDps = testNormStats(weapData, memberOverrides);
 
   return {
     weaponId: testWeapId,
     weaponRank: testWeapRank,
     dps: runVariantDps(cache, equipMaps, charId, memberOverrides, durationGetter),
-    ...(normCritDps && { normalized: normCritDps }),
+    ...(normStatsDps && { normalized: normStatsDps }),
   };
 }
 
@@ -93,7 +93,7 @@ export function runWeaponTests(cache, equipMaps, charId, durationGetter) {
     .filter((effect) => effect.sourceId !== mCache.weaponId)
     .reduce((acc, effect) => toMergedObj(acc, ...effect.buff.map(({ stats }) => stats)), {});
 
-  const testNormCrit = createTestNormCrit(cache, equipMaps, charId, durationGetter);
+  const testNormStats = createTestNormStats(cache, equipMaps, charId, durationGetter);
 
   const results = [];
 
@@ -108,7 +108,7 @@ export function runWeaponTests(cache, equipMaps, charId, durationGetter) {
       nonWeapNonBaseEffs,
       nonWeapBaseEffs,
       nonWeapStaticMap,
-      testNormCrit,
+      testNormStats,
       weapData,
     );
 
