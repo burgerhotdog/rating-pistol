@@ -47161,8 +47161,12 @@
               }
             ]
           },
-          "statRefs": {
-            "damageMv": "normalAttack.10"
+          "specRefs": {
+            "damageFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": "normalAttack.10"
+            }
           },
           "gameRule": "arlecchinoMasque"
         }
@@ -47173,11 +47177,11 @@
           "when": "use",
           "filter": {
             "action": {
-              "ref": "elementalSkill.1"
+              "ref": "elementalSkill.0"
             }
           },
           "uses": 1,
-          "offset": 300
+          "offset": 100
         },
         "use": {
           "when": "interval",
@@ -47194,15 +47198,100 @@
             }
           },
           "duration": 30000,
-          "commands": {
-            "type": "apply",
-            "ref": "bloodDebtDirectiveTicks",
-            "spec": {
-              "uses": 2,
-              "offset": 5000
+          "uses": 1,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "bloodDebtDirectiveTicks",
+              "spec": {
+                "uses": 2,
+                "offset": 5000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "bloodDebtDueApplier",
+              "spec": {
+                "uses": 1,
+                "offset": 5000
+              }
             }
+          ]
+        },
+        "use": [
+          {
+            "when": "use",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": [
+                      "normalAttack.6",
+                      "elementalBurst.0"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "not": {
+                      "has": "bloodDebtDue"
+                    }
+                  }
+                }
+              ]
+            },
+            "action": {
+              "bondOfLife": {
+                "value": 0.65
+              }
+            },
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "bloodDebtDirectiveTicks"
+              },
+              {
+                "type": "remove",
+                "ref": "bloodDebtDueApplier"
+              }
+            ]
+          },
+          {
+            "when": "use",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": [
+                      "normalAttack.6",
+                      "elementalBurst.0"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "has": "bloodDebtDue"
+                  }
+                }
+              ]
+            },
+            "action": {
+              "bondOfLife": {
+                "value": 1.3
+              }
+            },
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "bloodDebtDirectiveTicks"
+              },
+              {
+                "type": "remove",
+                "ref": "bloodDebtDue"
+              }
+            ]
           }
-        }
+        ]
       },
       {
         "ref": "bloodDebtDirectiveTicks",
@@ -47228,6 +47317,48 @@
             "type": "gameRule",
             "ref": "balemoonRising",
             "gameRule": "arlecchinoBalemoon"
+          }
+        }
+      },
+      {
+        "ref": "bloodDebtDueApplier",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "bloodDebtDue"
+          }
+        }
+      },
+      {
+        "ref": "bloodDebtDue",
+        "apply": {
+          "when": "command"
+        }
+      },
+      {
+        "buff": {
+          "stats": {
+            "pyroDmgBonus%": 0.4
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "modify": {
+          "type": "effect",
+          "ref": "masqueOfTheRedDeath",
+          "spec": {
+            "buff": {
+              "specs": {
+                "damageFlat": {
+                  "step": -0.3
+                }
+              }
+            }
           }
         }
       }
@@ -47692,8 +47823,33 @@
       "weaponId": 13512,
       "setCounts": {
         "15035": 4
-      }
-    }
+      },
+      "rotation": [
+        "normalAttack.6",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "elementalSkill.0"
+      ]
+    },
+    "teamPreset": [
+      10000096,
+      10000060,
+      10000032,
+      10000030
+    ]
   },
   "10000097": {
     "disabled": true,

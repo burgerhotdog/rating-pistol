@@ -39,7 +39,9 @@ function handleHealing(ctx, action, healingSnapshot) {
     }
 
     if (ctx.cache.gameId === GI) {
-      if (
+      if (targetId === 10000096) {
+        continue;
+      } else if (
         targetId === 10000098 &&
         !(action.ownerId === 10000098 && (action.ref === 'elementalSkill.6' || action.ref === 'elementalSkill.7')) &&
         hasGameRule(ctx, 'clorindeNightVigil')
