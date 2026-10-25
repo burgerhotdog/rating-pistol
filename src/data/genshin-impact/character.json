@@ -8401,7 +8401,7 @@
     "effects": [
       {
         "apply": {
-          "when": "hit",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
@@ -8895,6 +8895,7 @@
           {
             "name": "Healing Tick",
             "healing": {
+              "targets": "$onField",
               "attr": "hp",
               "multipliers": [
                 {
@@ -8975,7 +8976,13 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000096,
+      10000060,
+      10000032,
+      10000030
+    ]
   },
   "10000033": {
     "disabled": true,
@@ -44847,7 +44854,13 @@
         "elementalBurst.0",
         "elementalSkill.1"
       ]
-    }
+    },
+    "teamPreset": [
+      10000098,
+      10000090,
+      10000123,
+      10000031
+    ]
   },
   "10000091": {
     "disabled": true,
@@ -47069,7 +47082,6 @@
     }
   },
   "10000096": {
-    "disabled": true,
     "name": "Arlecchino",
     "version": 4.6,
     "id": 10000096,
@@ -47084,39 +47096,284 @@
       "critDmg%": 0.384
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "masqueOfTheRedDeath",
+        "modify": {
+          "type": "action",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": [
+                    "normalAttack",
+                    "chargedAttack",
+                    "plungingAttack"
+                  ]
+                }
+              },
+              {
+                "bondOfLife": {
+                  ">=": 0.3
+                }
+              }
+            ]
+          },
+          "spec": {
+            "damage": {
+              "element": "pyro"
+            }
+          }
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "bondOfLife": {
+                  ">=": 0.3
+                }
+              }
+            ]
+          },
+          "cooldown": 30,
+          "action": {
+            "bondOfLife": {
+              "value": -0.075
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "bondOfLife": {
+                  ">=": 0.3
+                }
+              }
+            ]
+          },
+          "specRefs": {
+            "damageFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": "normalAttack.10"
+            }
+          },
+          "gameRule": "arlecchinoMasque"
+        }
+      },
+      {
+        "ref": "skillCleave",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 1,
+          "offset": 100
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "bloodDebtDirective",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "duration": 30000,
+          "uses": 1,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "bloodDebtDirectiveTicks",
+              "spec": {
+                "uses": 2,
+                "offset": 5000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "bloodDebtDueApplier",
+              "spec": {
+                "uses": 1,
+                "offset": 5000
+              }
+            }
+          ]
+        },
+        "use": [
+          {
+            "when": "use",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": [
+                      "normalAttack.6",
+                      "elementalBurst.0"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "not": {
+                      "has": "bloodDebtDue"
+                    }
+                  }
+                }
+              ]
+            },
+            "action": {
+              "bondOfLife": {
+                "value": 0.65
+              }
+            },
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "bloodDebtDirectiveTicks"
+              },
+              {
+                "type": "remove",
+                "ref": "bloodDebtDueApplier"
+              }
+            ]
+          },
+          {
+            "when": "use",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": [
+                      "normalAttack.6",
+                      "elementalBurst.0"
+                    ]
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "has": "bloodDebtDue"
+                  }
+                }
+              ]
+            },
+            "action": {
+              "bondOfLife": {
+                "value": 1.3
+              }
+            },
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "bloodDebtDirectiveTicks"
+              },
+              {
+                "type": "remove",
+                "ref": "bloodDebtDue"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "ref": "bloodDebtDirectiveTicks",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 5000,
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "ref": "balemoonRising",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "commands": {
+            "type": "gameRule",
+            "ref": "balemoonRising",
+            "gameRule": "arlecchinoBalemoon"
+          }
+        }
+      },
+      {
+        "ref": "bloodDebtDueApplier",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "bloodDebtDue"
+          }
+        }
+      },
+      {
+        "ref": "bloodDebtDue",
+        "apply": {
+          "when": "command"
+        }
+      },
+      {
+        "buff": {
+          "stats": {
+            "pyroDmgBonus%": 0.4
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "modify": {
+          "type": "effect",
+          "ref": "masqueOfTheRedDeath",
+          "spec": {
+            "buff": {
+              "specs": {
+                "damageFlat": {
+                  "step": -0.3
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Invitation to a Beheading",
         "rankModify": 3,
         "actions": [
-          {
-            "name": "Masque of the Red Death Increase",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.204,
-                    1.302,
-                    1.4,
-                    1.54,
-                    1.638,
-                    1.75,
-                    1.904,
-                    2.058,
-                    2.212,
-                    2.38,
-                    2.548,
-                    2.716,
-                    2.884,
-                    3.052,
-                    3.22
-                  ]
-                }
-              ]
-            }
-          },
           {
             "name": "Normal Attack 1",
             "type": "normalAttack",
@@ -47405,6 +47662,32 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Masque of the Red Death Increase",
+            "buff": {
+              "multipliers": [
+                {
+                  "flat": [
+                    1.204,
+                    1.302,
+                    1.4,
+                    1.54,
+                    1.638,
+                    1.75,
+                    1.904,
+                    2.058,
+                    2.212,
+                    2.38,
+                    2.548,
+                    2.716,
+                    2.884,
+                    3.052,
+                    3.22
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -47412,9 +47695,15 @@
         "name": "All Is Ash",
         "actions": [
           {
-            "name": "Spike DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 10000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -47439,9 +47728,15 @@
             }
           },
           {
-            "name": "Cleave DMG",
-            "type": "elementalSkill",
+            "name": "Cleave",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 10000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -47466,9 +47761,10 @@
             }
           },
           {
-            "name": "Blood-Debt Directive DMG",
-            "type": "elementalSkill",
+            "name": "Blood-Debt Directive",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -47499,9 +47795,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -47532,8 +47829,33 @@
       "weaponId": 13512,
       "setCounts": {
         "15035": 4
-      }
-    }
+      },
+      "rotation": [
+        "normalAttack.6",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "elementalSkill.0"
+      ]
+    },
+    "teamPreset": [
+      10000096,
+      10000060,
+      10000032,
+      10000030
+    ]
   },
   "10000097": {
     "disabled": true,
@@ -47909,7 +48231,6 @@
     "memberPreset": {}
   },
   "10000098": {
-    "disabled": true,
     "name": "Clorinde",
     "version": 4.7,
     "id": 10000098,
@@ -47925,7 +48246,241 @@
     },
     "energy": 60,
     "arkhe": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "nightVigil",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 7500,
+          "commands": {
+            "type": "apply",
+            "ref": "nightVigilGameRule",
+            "spec": {
+              "duration": 7500
+            }
+          }
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField",
+          "commands": {
+            "type": "remove",
+            "ref": "nightVigilGameRule"
+          }
+        },
+        "use": [
+          {
+            "when": "use",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                },
+                {
+                  "bondOfLife": {
+                    ">=": 1
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "use",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                },
+                {
+                  "bondOfLife": {
+                    "<": 1
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.3"
+          },
+          {
+            "when": "use",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.4"
+                  }
+                },
+                {
+                  "bondOfLife": {
+                    "not": {
+                      ">": 0
+                    }
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.5"
+          },
+          {
+            "when": "use",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.4"
+                  }
+                },
+                {
+                  "bondOfLife": {
+                    "and": [
+                      {
+                        "<": 1
+                      },
+                      {
+                        ">": 0
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.6"
+          },
+          {
+            "when": "use",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.4"
+                  }
+                },
+                {
+                  "bondOfLife": {
+                    ">": 1
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.7"
+          }
+        ]
+      },
+      {
+        "ref": "nightVigilGameRule",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "gameRule": "clorindeNightVigil"
+      },
+      {
+        "ref": "surgingBlade",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.2",
+                "elementalSkill.3"
+              ]
+            }
+          },
+          "cooldown": 10000,
+          "action": "elementalSkill.8"
+        }
+      },
+      {
+        "ref": "a1",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "elements": "electro"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "or": [
+                {
+                  "damage": {
+                    "and": [
+                      {
+                        "type": "normalAttack"
+                      },
+                      {
+                        "element": "electro"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "ref": "elementalBurst.0"
+                }
+              ]
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": 0.2,
+              "maxValue": 600
+            }
+          }
+        },
+        "maxStacks": 3,
+        "independentStacks": true
+      },
+      {
+        "ref": "a4",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "critRate%": 0.1
+          }
+        },
+        "maxStacks": 2,
+        "independentStacks": true
+      },
+      {
+        "ref": "applyA4",
+        "apply": {
+          "when": "bondOfLifeUpdate",
+          "filter": {
+            "bondOfLife": {
+              ">=": 1
+            }
+          },
+          "uses": 1
+        },
+        "use": {
+          "when": "bondOfLifeUpdate",
+          "commands": {
+            "type": "apply",
+            "ref": "a4",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Oath of Hunting Shadows",
@@ -48237,9 +48792,25 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Swift Hunt DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
+            "duration": 500
+          },
+          {
+            "name": "Normal Attack: Swift Hunt",
+            "type": "normalAttack",
+            "duration": 300
+          },
+          {
+            "name": "Swift Hunt: Level 1",
             "damage": {
+              "type": "normalAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -48259,7 +48830,24 @@
                     0.6784,
                     0.7158
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Swift Hunt: Level 2",
+            "bondOfLife": {
+              "value": 0.35
+            },
+            "damage": {
+              "type": "normalAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
                 {
                   "mv": [
                     0.3879,
@@ -48283,9 +48871,20 @@
             }
           },
           {
-            "name": "Impale the Night DMG",
+            "name": "Elemental Skill: Impale the Night",
             "type": "elementalSkill",
+            "duration": 400
+          },
+          {
+            "name": "Impale the Night: Level 1",
             "damage": {
+              "type": "normalAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -48305,7 +48904,21 @@
                     0.8358,
                     0.8818
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Impale the Night: Level 2",
+            "damage": {
+              "type": "normalAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
                 {
                   "mv": [
                     0.4396,
@@ -48324,7 +48937,29 @@
                     1.1144,
                     1.1758
                   ]
-                },
+                }
+              ]
+            },
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": 1.04
+                }
+              ]
+            }
+          },
+          {
+            "name": "Impale the Night: Level 3",
+            "damage": {
+              "type": "normalAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
                 {
                   "mv": [
                     0.2511,
@@ -48342,14 +48977,22 @@
                     0.6015,
                     0.6366,
                     0.6716
-                  ]
+                  ],
+                  "times": 3
+                }
+              ]
+            },
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": 1.1
                 }
               ]
             }
           },
           {
-            "name": "Surging Blade DMG",
-            "type": "elementalSkill",
+            "name": "Surging Blade",
             "damage": {
               "multipliers": [
                 {
@@ -48381,9 +49024,34 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
+            "bondOfLife": {
+              "value": [
+                0.66,
+                0.72,
+                0.78,
+                0.84,
+                0.9,
+                0.96,
+                1.02,
+                1.08,
+                1.14,
+                1.2,
+                1.26,
+                1.32,
+                1.38,
+                1.44,
+                1.5
+              ]
+            },
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -48402,34 +49070,8 @@
                     2.6962,
                     2.8548,
                     3.0134
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Bond of Life Gain",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.66,
-                    0.72,
-                    0.78,
-                    0.84,
-                    0.9,
-                    0.96,
-                    1.02,
-                    1.08,
-                    1.14,
-                    1.2,
-                    1.26,
-                    1.32,
-                    1.38,
-                    1.44,
-                    1.5
-                  ]
+                  ],
+                  "times": 5
                 }
               ]
             }
@@ -48441,8 +49083,39 @@
       "weaponId": 11515,
       "setCounts": {
         "15035": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalSkill.0",
+        "elementalSkill.4",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.4",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.4",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.4",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.4",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.4"
+      ]
+    },
+    "teamPreset": [
+      10000098,
+      10000090,
+      10000123,
+      10000031
+    ]
   },
   "10000099": {
     "name": "Emilie",

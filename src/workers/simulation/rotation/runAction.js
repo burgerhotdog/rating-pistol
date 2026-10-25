@@ -17,6 +17,7 @@ import {
   applyOffTuneBuildup,
   inflictTuneShifting,
   convertHealingToValue,
+  hasGameRule,
 } from './states'
 import { canSnapshot, buildSnapshot } from './snapshot';
 import { getModifiedAction } from './getModifiedAction';
@@ -38,10 +39,23 @@ function handleHealing(ctx, action, healingSnapshot) {
     }
 
     if (ctx.cache.gameId === GI) {
-      changeBondOfLife(ctx, targetId, -value);
+      if (targetId === 10000096) {
+        continue;
+      } else if (
+        targetId === 10000098 &&
+        !(action.ownerId === 10000098 && (action.ref === 'elementalSkill.6' || action.ref === 'elementalSkill.7')) &&
+        hasGameRule(ctx, 'clorindeNightVigil')
+      ) {
+        changeBondOfLife(ctx, targetId, value);
+      } else {
+        const overflow = changeBondOfLife(ctx, targetId, -value);
+        if (overflow) {
+          updateHealth(ctx, action, targetId, { value: overflow });
+        }
+      }
+    } else {
+      updateHealth(ctx, action, targetId, { value });
     }
-
-    updateHealth(ctx, action, targetId, { value });
 
     ctx.runEffects('healed', { ...action, ownerId: targetId });
   }
