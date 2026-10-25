@@ -44848,7 +44848,13 @@
         "elementalBurst.0",
         "elementalSkill.1"
       ]
-    }
+    },
+    "teamPreset": [
+      10000098,
+      10000090,
+      10000123,
+      10000031
+    ]
   },
   "10000091": {
     "disabled": true,
@@ -48788,7 +48794,13 @@
         "elementalSkill.1",
         "elementalSkill.4"
       ]
-    }
+    },
+    "teamPreset": [
+      10000098,
+      10000090,
+      10000123,
+      10000031
+    ]
   },
   "10000099": {
     "name": "Emilie",

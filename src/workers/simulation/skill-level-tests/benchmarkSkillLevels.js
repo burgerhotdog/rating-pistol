@@ -46,8 +46,8 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
         }
 
         for (const nonPart of ['health', 'bondOfLife']) {
+          if (!action[nonPart]) continue;
           const actionNonPart = action[nonPart] = { ...action[nonPart] };
-          if (!actionNonPart) continue;
 
           const rawNonPartDef = charSkills[skillId].actions[action.index]?.[nonPart];
           if (!rawNonPartDef) continue;
@@ -105,8 +105,8 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
                 }
 
                 for (const nonPart of ['health', 'bondOfLife']) {
+                  if (!action[nonPart]) continue;
                   const actionNonPart = action[nonPart] = { ...action[nonPart] };
-                  if (!actionNonPart) continue;
 
                   const rawNonPartDef = charSkills[skillId].actions[action.index]?.[nonPart];
                   if (!rawNonPartDef) continue;

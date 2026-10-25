@@ -22,7 +22,6 @@ Characters:
     Citlali
         No constellations
     Clorinde
-        No healing increase from skill and a4
         No constellations
     Diluc
         No constellations
