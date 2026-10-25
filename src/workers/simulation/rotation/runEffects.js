@@ -25,14 +25,14 @@ function tryRemove(ctx, when, state, spec) {
     if (!checkBy(ctx, effect, remove.by, eventOwnerId)) continue;
     if (!ctx.eventFilter(remove.filter, effect, spec)) continue;
 
-    const removed = runRemoveEffect(state, remove);
+    runRemoveEffect(state, remove);
 
     const commands = remove.commands;
     if (commands) {
       runCommands(ctx, effect, commands, eventOwnerId ?? effect.ownerId);
     }
 
-    if (removed) return;
+    break;
   }
 }
 
@@ -56,7 +56,7 @@ function tryUse(ctx, when, state, spec) {
       useSpec.snapshotBuffs = state.snapshotBuffs[index];
     }
 
-    const removed = runUseEffect(ctx, state, use, useSpec);
+    runUseEffect(ctx, state, use, useSpec);
 
     const commands = use.commands;
     if (commands) {
@@ -65,7 +65,7 @@ function tryUse(ctx, when, state, spec) {
       }
     }
 
-    if (removed) return;
+    break;
   }
 }
 
@@ -87,18 +87,14 @@ function tryApply(ctx, when, effect, spec) {
 
     if (!ctx.eventFilter(apply.filter, effect, { ...spec, fieldId: applier })) continue;
 
-    const isMaxStacks = runApplyEffect(ctx, effect, apply, { applier, inflict: spec.action?.inflict });
+    runApplyEffect(ctx, effect, apply, { applier, inflict: spec.action?.inflict });
 
     const commands = apply.commands;
     if (commands) {
       runCommands(ctx, effect, commands, applier);
     }
 
-    if (!isMaxStacks) continue;
-    if (!effect.remove) continue;
-    for (const remove of effect.remove) {
-      if (remove.when !== 'maxStacks') continue;
-    }
+    break;
   }
 }
 

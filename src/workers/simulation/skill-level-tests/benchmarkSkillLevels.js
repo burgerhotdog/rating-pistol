@@ -44,6 +44,18 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
             { index: mvIndex },
           );
         }
+
+        for (const nonPart of ['health', 'bondOfLife']) {
+          const actionNonPart = action[nonPart] = { ...action[nonPart] };
+          if (!actionNonPart) continue;
+
+          const rawNonPartDef = charSkills[skillId].actions[action.index]?.[nonPart];
+          if (!rawNonPartDef) continue;
+
+          if (Array.isArray(rawNonPartDef.value) && rawNonPartDef.value.length !== 2) {
+            actionNonPart.value = rawNonPartDef.value[mvIndex];
+          }
+        }
       }
 
       // effects
@@ -90,6 +102,18 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
                     rawPartDef.attr ?? 'atk',
                     { index: mvIndex },
                   );
+                }
+
+                for (const nonPart of ['health', 'bondOfLife']) {
+                  const actionNonPart = action[nonPart] = { ...action[nonPart] };
+                  if (!actionNonPart) continue;
+
+                  const rawNonPartDef = charSkills[skillId].actions[action.index]?.[nonPart];
+                  if (!rawNonPartDef) continue;
+
+                  if (Array.isArray(rawNonPartDef.value) && rawNonPartDef.value.length !== 2) {
+                    actionNonPart.value = rawNonPartDef.value[mvIndex];
+                  }
                 }
               }
             }

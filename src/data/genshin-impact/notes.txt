@@ -21,6 +21,9 @@ Characters:
         C6 Buff goes to first not healed
     Citlali
         No constellations
+    Clorinde
+        No healing increase from skill and a4
+        No constellations
     Diluc
         No constellations
     Diona
