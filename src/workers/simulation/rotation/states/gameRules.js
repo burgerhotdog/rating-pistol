@@ -1,6 +1,10 @@
+import { toMergedObj, getAttr } from '@/utils';
 import { convertSeedsOfDeceit, consumeSeedsOfDeceit } from '../reactions';
 import { runApplyEffect } from './effects';
 import { buildTransformativeReactionSnapshot } from '../snapshot';
+import { getBuffMap } from '../getStatMap';
+import { changeBondOfLife } from './bond-of-life';
+import { updateHealth } from './healthPools';
 
 export function hasGameRule(ctx, rule) {
   const { globalEffects } = ctx.states;
@@ -26,6 +30,23 @@ export function runGameRule(ctx, rule, effect, spec) {
     }
 
     delete ctx.states.gameRule.oceanHuedClam;
+  }
+
+  if (rule === 'arlecchinoBalemoon') {
+    const { buffMap } = getBuffMap(ctx, { memberId: 10000096, resolveNow: true });
+    const statMap = toMergedObj(ctx.buildMaps['10000096'], buffMap);
+    const bolValue = ctx.states.bondOfLife['10000096'];
+    const hpValue = getAttr('hp', statMap);
+    const atkValue = getAttr('atk', statMap);
+    const healValue = bolValue * hpValue * 1.5 + atkValue * 1.5;
+    const healRatio = healValue / hpValue;
+
+    const overflow = changeBondOfLife(ctx, 10000096, -healRatio);
+    if (overflow) {
+      updateHealth(ctx, { ownerId: 10000096 }, 10000096, { value: overflow });
+    }
+
+    ctx.runEffects('healed', { ownerId: 10000096 });
   }
 
   if (rule === 'seedsOfDeceit1') {

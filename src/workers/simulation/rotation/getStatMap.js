@@ -41,7 +41,15 @@ export const getBuffMap = (ctx, options = {}) => {
     const linkedStacks = buff.statusStacks
       ? ctx.states.negativeStatuses[buff.statusStacks]?.stacks ?? 0
       : 1;
-    const buffMult = (effect.chance ?? 1) * stacks * linkedStacks;
+
+    let gameRuleMult = 1;
+    if (buff.gameRule) {
+      if (buff.gameRule === 'arlecchinoMasque') {
+        gameRuleMult = ctx.states.bondOfLife['10000096'] ?? 0;
+      }
+    }
+
+    const buffMult = (effect.chance ?? 1) * stacks * linkedStacks * gameRuleMult;
 
     if (buff.stats) {
       for (const stat in buff.stats) {

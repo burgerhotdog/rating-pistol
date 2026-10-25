@@ -47076,7 +47076,6 @@
     }
   },
   "10000096": {
-    "disabled": true,
     "name": "Arlecchino",
     "version": 4.6,
     "id": 10000096,
@@ -47091,39 +47090,153 @@
       "critDmg%": 0.384
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "masqueOfTheRedDeath",
+        "modify": {
+          "type": "action",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "type": [
+                    "normalAttack",
+                    "chargedAttack",
+                    "plungingAttack"
+                  ]
+                }
+              },
+              {
+                "bondOfLife": {
+                  ">=": 0.3
+                }
+              }
+            ]
+          },
+          "spec": {
+            "damage": {
+              "element": "pyro"
+            }
+          }
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "bondOfLife": {
+                  ">=": 0.3
+                }
+              }
+            ]
+          },
+          "cooldown": 30,
+          "action": {
+            "bondOfLife": {
+              "value": -0.075
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "bondOfLife": {
+                  ">=": 0.3
+                }
+              }
+            ]
+          },
+          "statRefs": {
+            "damageMv": "normalAttack.10"
+          },
+          "gameRule": "arlecchinoMasque"
+        }
+      },
+      {
+        "ref": "skillCleave",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "uses": 1,
+          "offset": 300
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "bloodDebtDirective",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "duration": 30000,
+          "commands": {
+            "type": "apply",
+            "ref": "bloodDebtDirectiveTicks",
+            "spec": {
+              "uses": 2,
+              "offset": 5000
+            }
+          }
+        }
+      },
+      {
+        "ref": "bloodDebtDirectiveTicks",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 5000,
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "ref": "balemoonRising",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "commands": {
+            "type": "gameRule",
+            "ref": "balemoonRising",
+            "gameRule": "arlecchinoBalemoon"
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Invitation to a Beheading",
         "rankModify": 3,
         "actions": [
-          {
-            "name": "Masque of the Red Death Increase",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.204,
-                    1.302,
-                    1.4,
-                    1.54,
-                    1.638,
-                    1.75,
-                    1.904,
-                    2.058,
-                    2.212,
-                    2.38,
-                    2.548,
-                    2.716,
-                    2.884,
-                    3.052,
-                    3.22
-                  ]
-                }
-              ]
-            }
-          },
           {
             "name": "Normal Attack 1",
             "type": "normalAttack",
@@ -47412,6 +47525,32 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Masque of the Red Death Increase",
+            "buff": {
+              "multipliers": [
+                {
+                  "flat": [
+                    1.204,
+                    1.302,
+                    1.4,
+                    1.54,
+                    1.638,
+                    1.75,
+                    1.904,
+                    2.058,
+                    2.212,
+                    2.38,
+                    2.548,
+                    2.716,
+                    2.884,
+                    3.052,
+                    3.22
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -47419,9 +47558,15 @@
         "name": "All Is Ash",
         "actions": [
           {
-            "name": "Spike DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 10000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -47446,9 +47591,15 @@
             }
           },
           {
-            "name": "Cleave DMG",
-            "type": "elementalSkill",
+            "name": "Cleave",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 10000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -47473,9 +47624,10 @@
             }
           },
           {
-            "name": "Blood-Debt Directive DMG",
-            "type": "elementalSkill",
+            "name": "Blood-Debt Directive",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -47506,9 +47658,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
