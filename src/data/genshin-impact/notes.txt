@@ -11,7 +11,8 @@ Characters:
     Baizhu
         No constellations
     Bennett
-        No constellations
+        No 70% health restriction for healing
+        No C4
     Columbina
         Moonridge Dew has no 18s cooldown
         No constellations

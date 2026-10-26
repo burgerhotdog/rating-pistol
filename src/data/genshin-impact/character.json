@@ -8400,8 +8400,9 @@
     "energy": 60,
     "effects": [
       {
+        "ref": "inspirationField",
         "apply": {
-          "when": "use",
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
@@ -8416,6 +8417,37 @@
         }
       },
       {
+        "rank": -1,
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "health": {
+                  ">": 0.7
+                }
+              }
+            ]
+          },
+          "statRefs": {
+            "atk": "elementalBurst.2"
+          }
+        }
+      },
+      {
+        "rank": 1,
         "stores": "$team",
         "apply": {
           "when": "hit",
@@ -8432,6 +8464,103 @@
           },
           "statRefs": {
             "atk": "elementalBurst.2"
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "statRefs": {
+            "atk": "elementalBurst.3"
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "health": {
+              "<": 0.7
+            }
+          },
+          "stats": {
+            "energyRecharge%": 0.3
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "character": {
+                  "type": [
+                    "sword",
+                    "claymore",
+                    "polearm"
+                  ]
+                }
+              },
+              {
+                "action": {
+                  "category": "normalAttack"
+                }
+              }
+            ]
+          },
+          "spec": {
+            "damage": {
+              "element": "pyro"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "character": {
+                  "type": [
+                    "sword",
+                    "claymore",
+                    "polearm"
+                  ]
+                }
+              }
+            ]
+          },
+          "stats": {
+            "pyroDmgBonus%": 0.15
           }
         }
       }
@@ -8960,6 +9089,17 @@
                     1.26,
                     1.33
                   ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Base ATK Buff Ratio: C1",
+            "buff": {
+              "baseAttr": "baseAtk",
+              "multipliers": [
+                {
+                  "mv": 0.2
                 }
               ]
             }

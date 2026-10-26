@@ -75,8 +75,12 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
               const refMvIndexToUse = apply.durationRef.split('.')[0] === skillId ? mvIndex : refMvIndex;
 
               const { mv, flat } = multipliers[0];
-              const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
-              const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
+              const mvBuffValue = (mv && Array.isArray(mv)) 
+                ? mv[refMvIndexToUse]
+                : mv ?? 0;
+              const flatBuffValue = (flat && Array.isArray(mv)) 
+                ? flat[refMvIndexToUse]
+                : flat ?? 0;
               apply.duration = mvBuffValue * baseAttrValue + flatBuffValue;
             }
           }
@@ -89,8 +93,12 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
               const refMvIndexToUse = use.cooldownRef.split('.')[0] === skillId ? mvIndex : refMvIndex;
 
               const { mv, flat } = multipliers[0];
-              const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
-              const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
+              const mvBuffValue = (mv && Array.isArray(mv)) 
+                ? mv[refMvIndexToUse]
+                : mv ?? 0;
+              const flatBuffValue = (flat && Array.isArray(mv)) 
+                ? flat[refMvIndexToUse]
+                : flat ?? 0;
               use.cooldown = mvBuffValue * baseAttrValue + flatBuffValue;
             }
 
@@ -143,8 +151,12 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
               const refMvIndexToUse = buff.statRefs[id].split('.')[0] === skillId ? mvIndex : refMvIndex;
 
               const { mv, flat } = multipliers[0];
-              const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
-              const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
+              const mvBuffValue = (mv && Array.isArray(mv)) 
+                ? mv[refMvIndexToUse]
+                : mv ?? 0;
+              const flatBuffValue = (flat && Array.isArray(mv)) 
+                ? flat[refMvIndexToUse]
+                : flat ?? 0;
               buff.stats[id] = mvBuffValue * baseAttrValue + flatBuffValue;
             }
           }
@@ -155,8 +167,12 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
                 const refMvIndexToUse = buff.specRefs[id][field].split('.')[0] === skillId ? mvIndex : refMvIndex;
 
                 const { mv, flat } = multipliers[0];
-                const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
-                const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
+                const mvBuffValue = (mv && Array.isArray(mv)) 
+                  ? mv[refMvIndexToUse]
+                  : mv ?? 0;
+                const flatBuffValue = (flat && Array.isArray(mv)) 
+                  ? flat[refMvIndexToUse]
+                  : flat ?? 0;
                 buff.specs[id][field] = mvBuffValue * baseAttrValue + flatBuffValue;
               }
             }
