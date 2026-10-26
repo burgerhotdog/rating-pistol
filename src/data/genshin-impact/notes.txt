@@ -39,7 +39,7 @@ Characters:
     Escoffier
         No constellations
     Fischl
-        No constellations
+        No A1
     Flins
         No constellations
     Furina

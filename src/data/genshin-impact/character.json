@@ -7949,7 +7949,7 @@
       {
         "ref": "oz",
         "apply": {
-          "when": "hit",
+          "when": "use",
           "filter": {
             "action": {
               "ref": [
@@ -7958,7 +7958,8 @@
               ]
             }
           },
-          "duration": 10000
+          "duration": 10000,
+          "offset": 1000
         },
         "use": {
           "when": "interval",
@@ -7968,6 +7969,7 @@
         "snapshotBuffs": true
       },
       {
+        "ref": "a4",
         "use": {
           "when": "reaction",
           "filter": {
@@ -7984,6 +7986,7 @@
               }
             ]
           },
+          "cooldown": 500,
           "action": {
             "damage": {
               "type": "elementalSkill",
@@ -7995,6 +7998,312 @@
               ]
             }
           }
+        }
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "stores": "$team",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "reaction": "overloaded"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "oz"
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "buff": [
+          {
+            "filter": {
+              "and": [
+                {
+                  "or": [
+                    {
+                      "character": {
+                        "id": 10000031
+                      }
+                    },
+                    {
+                      "field": "onField"
+                    }
+                  ]
+                },
+                {
+                  "effectStacks": {
+                    "not": {
+                      "has": "doubleHexBuff"
+                    }
+                  }
+                }
+              ]
+            },
+            "stats": {
+              "atk%": 0.225
+            }
+          },
+          {
+            "filter": {
+              "and": [
+                {
+                  "or": [
+                    {
+                      "character": {
+                        "id": 10000031
+                      }
+                    },
+                    {
+                      "field": "onField"
+                    }
+                  ]
+                },
+                {
+                  "effectStacks": {
+                    "has": "doubleHexBuff"
+                  }
+                }
+              ]
+            },
+            "stats": {
+              "atk%": 0.45
+            }
+          }
+        ]
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "stores": "$team",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "and": [
+              {
+                "reaction": {
+                  "reaction": [
+                    "electroCharged",
+                    "lunarCharged"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "oz"
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "buff": [
+          {
+            "filter": {
+              "and": [
+                {
+                  "or": [
+                    {
+                      "character": {
+                        "id": 10000031
+                      }
+                    },
+                    {
+                      "field": "onField"
+                    }
+                  ]
+                },
+                {
+                  "effectStacks": {
+                    "not": {
+                      "has": "doubleHexBuff"
+                    }
+                  }
+                }
+              ]
+            },
+            "stats": {
+              "elementalMastery": 90
+            }
+          },
+          {
+            "filter": {
+              "and": [
+                {
+                  "or": [
+                    {
+                      "character": {
+                        "id": 10000031
+                      }
+                    },
+                    {
+                      "field": "onField"
+                    }
+                  ]
+                },
+                {
+                  "effectStacks": {
+                    "has": "doubleHexBuff"
+                  }
+                }
+              ]
+            },
+            "stats": {
+              "elementalMastery": 180
+            }
+          }
+        ]
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "action": {
+            "damage": {
+              "type": "normalAttack",
+              "element": "physical",
+              "multipliers": [
+                {
+                  "mv": 0.22
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "stats": {
+            "damageMv": 2
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.0"
+              }
+            },
+            "action": {
+              "damage": {
+                "gauge": 2,
+                "icd": {
+                  "tag": "Elemental Burst",
+                  "time": 5000,
+                  "hits": 4
+                },
+                "multipliers": [
+                  {
+                    "mv": 2.22
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "when": "end",
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.0"
+              }
+            },
+            "action": {
+              "health": {
+                "value": 0.2
+              }
+            }
+          }
+        ]
+      },
+      {
+        "rank": 6,
+        "modify": {
+          "type": "effect",
+          "ref": "oz",
+          "spec": {
+            "apply": {
+              "duration": 2000
+            }
+          }
+        },
+        "use": {
+          "by": "$team",
+          "when": "use",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "type": "normalAttack"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "oz"
+                }
+              }
+            ]
+          },
+          "action": {
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 5000,
+                "hits": 4
+              },
+              "multipliers": [
+                {
+                  "mv": 0.3
+                }
+              ]
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "doubleHexBuff",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "ref": "doubleHexBuff",
+        "apply": {
+          "when": "command"
         }
       }
     ],
