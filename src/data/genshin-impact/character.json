@@ -33055,34 +33055,50 @@
             "action": "elementalSkill.2"
           },
           {
-            "when": "dendroCore",
+            "by": "$any",
+            "when": "hit",
             "filter": {
-              "effectStacks": {
-                "or": [
-                  {
-                    "not": {
-                      "has": "shrineOfMaya"
+              "and": [
+                {
+                  "action": {
+                    "damage": {
+                      "type": [
+                        "bloom",
+                        "hyperbloom",
+                        "burgeon"
+                      ]
                     }
-                  },
-                  {
-                    "and": [
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "or": [
                       {
                         "not": {
-                          "has": "c1"
+                          "has": "shrineOfMaya"
                         }
                       },
                       {
-                        "not": {
-                          "has": [
-                            "mayaElectro1",
-                            "mayaElectro2"
-                          ]
-                        }
+                        "and": [
+                          {
+                            "not": {
+                              "has": "c1"
+                            }
+                          },
+                          {
+                            "not": {
+                              "has": [
+                                "mayaElectro1",
+                                "mayaElectro2"
+                              ]
+                            }
+                          }
+                        ]
                       }
                     ]
                   }
-                ]
-              }
+                }
+              ]
             },
             "cooldown": 2500,
             "action": "elementalSkill.2"
@@ -33134,46 +33150,62 @@
             "action": "elementalSkill.2"
           },
           {
-            "when": "dendroCore",
+            "by": "$any",
+            "when": "hit",
             "filter": {
-              "effectStacks": {
-                "and": [
-                  {
-                    "has": "shrineOfMaya"
-                  },
-                  {
-                    "or": [
+              "and": [
+                {
+                  "action": {
+                    "damage": {
+                      "type": [
+                        "bloom",
+                        "hyperbloom",
+                        "burgeon"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
                       {
-                        "and": [
-                          {
-                            "not": {
-                              "has": "c1"
-                            }
-                          },
-                          {
-                            "has": "mayaElectro1"
-                          }
-                        ]
+                        "has": "shrineOfMaya"
                       },
                       {
-                        "and": [
+                        "or": [
                           {
-                            "has": "c1"
+                            "and": [
+                              {
+                                "not": {
+                                  "has": "c1"
+                                }
+                              },
+                              {
+                                "has": "mayaElectro1"
+                              }
+                            ]
                           },
                           {
-                            "not": {
-                              "has": [
-                                "mayaElectro1",
-                                "mayaElectro2"
-                              ]
-                            }
+                            "and": [
+                              {
+                                "has": "c1"
+                              },
+                              {
+                                "not": {
+                                  "has": [
+                                    "mayaElectro1",
+                                    "mayaElectro2"
+                                  ]
+                                }
+                              }
+                            ]
                           }
                         ]
                       }
                     ]
                   }
-                ]
-              }
+                }
+              ]
             },
             "cooldownRef": "elementalBurst.3",
             "action": "elementalSkill.2"
@@ -33211,32 +33243,48 @@
             "action": "elementalSkill.2"
           },
           {
-            "when": "dendroCore",
+            "by": "$any",
+            "when": "hit",
             "filter": {
-              "effectStacks": {
-                "and": [
-                  {
-                    "has": "shrineOfMaya"
-                  },
-                  {
-                    "or": [
+              "and": [
+                {
+                  "action": {
+                    "damage": {
+                      "type": [
+                        "bloom",
+                        "hyperbloom",
+                        "burgeon"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "and": [
                       {
-                        "has": "mayaElectro2"
+                        "has": "shrineOfMaya"
                       },
                       {
-                        "and": [
+                        "or": [
                           {
-                            "has": "c1"
+                            "has": "mayaElectro2"
                           },
                           {
-                            "has": "mayaElectro1"
+                            "and": [
+                              {
+                                "has": "c1"
+                              },
+                              {
+                                "has": "mayaElectro1"
+                              }
+                            ]
                           }
                         ]
                       }
                     ]
                   }
-                ]
-              }
+                }
+              ]
             },
             "cooldownRef": "elementalBurst.4",
             "action": "elementalSkill.2"

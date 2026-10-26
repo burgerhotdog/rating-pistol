@@ -25,7 +25,5 @@ export function advanceBloom(ctx, bloomState, elapsed) {
         },
       });
     }
-
-    ctx.runEffects('dendroCore');
   }
 }
