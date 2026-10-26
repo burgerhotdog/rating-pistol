@@ -8,7 +8,7 @@ function evaluateSpecial(ctx, special, effect, spec) {
   const ownerElem = CHARACTER[gameId][effOwnerId]?.element;
   const actionElem = spec.action?.damage?.element;
   const rxnElems = spec.reaction?.elements ?? [];
-  const nsStore = ctx.states.nightsoul;
+  const nsState = ctx.states.nightsoul[effOwnerId];
 
   switch (special) {
     case 'baizhu1':
@@ -71,31 +71,31 @@ function evaluateSpecial(ctx, special, effect, spec) {
     case 'cinderCityPyro1':
       return rxnElems.includes('pyro') && rxnElems.includes(ownerElem);
     case 'cinderCityPyro2':
-      return rxnElems.includes('pyro') && rxnElems.includes(ownerElem) && nsStore[effOwnerId];
+      return rxnElems.includes('pyro') && rxnElems.includes(ownerElem) && nsState.blessing;
     case 'cinderCityElectro1':
       return rxnElems.includes('electro') && rxnElems.includes(ownerElem);
     case 'cinderCityElectro2':
-      return rxnElems.includes('electro') && rxnElems.includes(ownerElem) && nsStore[effOwnerId];
+      return rxnElems.includes('electro') && rxnElems.includes(ownerElem) && nsState.blessing;
     case 'cinderCityHydro1':
       return rxnElems.includes('hydro') && rxnElems.includes(ownerElem);
     case 'cinderCityHydro2':
-      return rxnElems.includes('hydro') && rxnElems.includes(ownerElem) && nsStore[effOwnerId];
+      return rxnElems.includes('hydro') && rxnElems.includes(ownerElem) && nsState.blessing;
     case 'cinderCityDendro1':
       return rxnElems.includes('dendro') && rxnElems.includes(ownerElem);
     case 'cinderCityDendro2':
-      return rxnElems.includes('dendro') && rxnElems.includes(ownerElem) && nsStore[effOwnerId];
+      return rxnElems.includes('dendro') && rxnElems.includes(ownerElem) && nsState.blessing;
     case 'cinderCityAnemo1':
       return rxnElems.includes('anemo') && rxnElems.includes(ownerElem);
     case 'cinderCityAnemo2':
-      return rxnElems.includes('anemo') && rxnElems.includes(ownerElem) && nsStore[effOwnerId];
+      return rxnElems.includes('anemo') && rxnElems.includes(ownerElem) && nsState.blessing;
     case 'cinderCityGeo1':
       return rxnElems.includes('geo') && rxnElems.includes(ownerElem);
     case 'cinderCityGeo2':
-      return rxnElems.includes('geo') && rxnElems.includes(ownerElem) && nsStore[effOwnerId];
+      return rxnElems.includes('geo') && rxnElems.includes(ownerElem) && nsState.blessing;
     case 'cinderCityCryo1':
       return rxnElems.includes('cryo') && rxnElems.includes(ownerElem);
     case 'cinderCityCryo2':
-      return rxnElems.includes('cryo') && rxnElems.includes(ownerElem) && nsStore[effOwnerId];
+      return rxnElems.includes('cryo') && rxnElems.includes(ownerElem) && nsState.blessing;
 
     case 'celestialGift1':
       return actionElem === ownerElem;

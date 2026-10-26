@@ -154,6 +154,8 @@ Characters:
     Xiao
         Ult drain is fixed
         No constellations
+    Xilonen
+        No constellations
     Xingqiu
         No energy recovery
         3 sword always

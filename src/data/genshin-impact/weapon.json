@@ -5825,7 +5825,7 @@
             "and": [
               {
                 "nightsoul": {
-                  ">": 0
+                  "blessing": true
                 }
               },
               {

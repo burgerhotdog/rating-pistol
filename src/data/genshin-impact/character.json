@@ -49790,7 +49790,13 @@
     },
     "teamPreset": [
       10000101,
-      10000106,
+      {
+        "id": 10000106,
+        "rotation": [
+          "elementalSkill.0",
+          "elementalBurst.0"
+        ]
+      },
       10000099,
       10000032
     ]
@@ -50178,7 +50184,7 @@
             }
           },
           "duration": 10000,
-          "offset": 1000,
+          "offset": 500,
           "commands": {
             "type": "apply",
             "ref": "desolation",
@@ -50189,9 +50195,34 @@
         },
         "use": {
           "when": "interval",
-          "cooldown": 1000,
+          "cooldown": 500,
           "action": {
-            "nightsoul": 2
+            "nightsoul": {
+              "value": 1
+            }
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "apply",
+            "ref": "exitBlessing",
+            "spec": {
+              "uses": 1
+            }
+          }
+        }
+      },
+      {
+        "ref": "endBlessing",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "nightsoul": {
+              "blessing": false
+            }
           }
         }
       },
@@ -50238,7 +50269,9 @@
             },
             "cooldown": 800,
             "action": {
-              "nightsoul": 7
+              "nightsoul": {
+                "value": 7
+              }
             }
           },
           {
@@ -50251,7 +50284,9 @@
             },
             "cooldown": 800,
             "action": {
-              "nightsoul": 7
+              "nightsoul": {
+                "value": 7
+              }
             }
           }
         ]
@@ -50259,7 +50294,7 @@
       {
         "ref": "huntersExperience",
         "apply": {
-          "by": "$team",
+          "by": "$any",
           "when": "nightsoulBurst",
           "duration": 15000,
           "uses": 1
@@ -50510,12 +50545,18 @@
         "actions": [
           {
             "name": "Elemental Skill",
-            "type": "elementalSkill"
+            "type": "elementalSkill",
+            "nightsoul": {
+              "blessing": true,
+              "reset": true
+            }
           },
           {
             "name": "Normal Attack: Loop Shot",
             "type": "normalAttack",
-            "nightsoul": 3,
+            "nightsoul": {
+              "value": 3
+            },
             "damage": {
               "type": "elementalSkill",
               "multipliers": [
@@ -50545,7 +50586,9 @@
           {
             "name": "Elemental Skill: Scalespiker Cannon",
             "type": "elementalSkill",
-            "nightsoul": -20,
+            "nightsoul": {
+              "value": -20
+            },
             "damage": {
               "multipliers": [
                 {
@@ -50674,7 +50717,13 @@
     },
     "teamPreset": [
       10000101,
-      10000106,
+      {
+        "id": 10000106,
+        "rotation": [
+          "elementalSkill.0",
+          "elementalBurst.0"
+        ]
+      },
       10000099,
       10000032
     ]
@@ -50706,19 +50755,44 @@
               "ref": "elementalSkill.0"
             }
           },
-          "offset": 1000
+          "offset": 100
         },
         "remove": {
           "when": "nightsoulUpdate",
           "filter": {
-            "nightsoul": 0
+            "nightsoul": {
+              "points": 0
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "endBlessing",
+            "spec": {
+              "uses": 1
+            }
           }
         },
         "use": {
           "when": "interval",
-          "cooldown": 1000,
+          "cooldown": 100,
           "action": {
-            "nightsoul": -10
+            "nightsoul": {
+              "value": -1
+            }
+          }
+        }
+      },
+      {
+        "ref": "endBlessing",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "nightsoul": {
+              "blessing": false
+            }
           }
         }
       },
@@ -50804,7 +50878,7 @@
       {
         "ref": "wavechasersExploits",
         "apply": {
-          "by": "$team",
+          "by": "$any",
           "when": "nightsoulBurst",
           "duration": 20000,
           "uses": 1
@@ -51046,7 +51120,10 @@
           {
             "name": "Elemental Skill",
             "type": "elementalSkill",
-            "nightsoul": 60
+            "nightsoul": {
+              "blessing": true,
+              "value": 60
+            }
           },
           {
             "name": "Apply Marked as Prey",
@@ -51055,7 +51132,9 @@
           {
             "name": "Normal Attack: Sharky's Bite",
             "type": "normalAttack",
-            "nightsoul": 20,
+            "nightsoul": {
+              "value": 20
+            },
             "damage": {
               "gauge": 1,
               "attr": "hp",
@@ -51194,10 +51273,21 @@
         "elementalSkill.2",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000102,
+      {
+        "id": 10000106,
+        "rotation": [
+          "elementalSkill.0",
+          "elementalBurst.0"
+        ]
+      },
+      10000107,
+      10000103
+    ]
   },
   "10000103": {
-    "disabled": true,
     "name": "Xilonen",
     "version": 5.1,
     "id": 10000103,
@@ -51216,21 +51306,357 @@
     "maxNightsoul": 90,
     "effects": [
       {
-        "ref": "nightsoulTimer",
+        "ref": "blessing",
         "apply": {
-          "when": "end",
+          "when": "hit",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
             }
           },
-          "uses": 1,
-          "offset": 9000
+          "duration": 9000,
+          "offset": 200
+        },
+        "remove": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "nightsoul": {
+              "points": 0
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "endBlessing",
+            "spec": {
+              "uses": 1
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 200,
+          "action": {
+            "nightsoul": {
+              "value": -1
+            }
+          }
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "plungingAttack"
+                ]
+              }
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "geo"
+            }
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "apply",
+            "ref": "endBlessing",
+            "spec": {
+              "uses": 1
+            }
+          }
+        }
+      },
+      {
+        "ref": "endBlessing",
+        "apply": {
+          "when": "command"
         },
         "use": {
           "when": "interval",
           "action": {
-            "nightsoul": -90
+            "nightsoul": {
+              "blessing": false,
+              "reset": true
+            }
+          }
+        }
+      },
+      {
+        "ref": "activateSamples",
+        "use": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "nightsoul": {
+              "points": 90
+            }
+          },
+          "action": {
+            "nightsoul": {
+              "value": -90
+            }
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "pyroSample",
+              "spec": {
+                "duration": 15000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "hydroSample",
+              "spec": {
+                "duration": 15000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "cryoSample",
+              "spec": {
+                "duration": 15000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "electroSample",
+              "spec": {
+                "duration": 15000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "has": "pyro"
+            }
+          }
+        },
+        "ref": "pyroSample",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "statRefs": {
+            "pyroResReduction%": "elementalSkill.1"
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "has": "hydro"
+            }
+          }
+        },
+        "ref": "hydroSample",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "statRefs": {
+            "hydroResReduction%": "elementalSkill.1"
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "has": "cryo"
+            }
+          }
+        },
+        "ref": "cryoSample",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "statRefs": {
+            "cryoResReduction%": "elementalSkill.1"
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "has": "electro"
+            }
+          }
+        },
+        "ref": "electroSample",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "statRefs": {
+            "electroResReduction%": "elementalSkill.1"
+          }
+        }
+      },
+      {
+        "ref": "geoSample",
+        "stores": "global",
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "has": "blessing"
+            }
+          },
+          "statRefs": {
+            "geoResReduction%": "elementalSkill.1"
+          }
+        }
+      },
+      {
+        "enable": {
+          "diffElementTeamMembers": {
+            ">=": 2
+          }
+        },
+        "ref": "ebullientRhythm",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "offset": 1500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1500,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "enable": {
+          "diffElementTeamMembers": {
+            "<": 2
+          }
+        },
+        "ref": "ardentRhythm",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "action": [
+            "elementalBurst.2",
+            "elementalBurst.2"
+          ]
+        }
+      },
+      {
+        "enable": {
+          "diffElementTeamMembers": {
+            ">=": 2
+          }
+        },
+        "ref": "a1_1",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "normalAttack",
+                      "plungingAttack"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "blessing"
+                }
+              }
+            ]
+          },
+          "cooldown": 100,
+          "action": {
+            "nightsoul": {
+              "value": 35
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "diffElementTeamMembers": {
+            "<": 2
+          }
+        },
+        "ref": "a1_2",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "normalAttack",
+                      "plungingAttack"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "blessing"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "dmgBonus%": 0.3
+          }
+        }
+      },
+      {
+        "ref": "a4_1",
+        "use": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "nightsoul": {
+              "points": 90
+            }
+          },
+          "commands": {
+            "type": "gameRule",
+            "ref": "a4_1",
+            "gameRule": "xilonenFakeNightsoulBurst"
+          }
+        }
+      },
+      {
+        "ref": "a4_2",
+        "apply": {
+          "by": "$any",
+          "when": "nightsoulBurst",
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "def%": 0.2
           }
         }
       }
@@ -51343,13 +51769,12 @@
             "name": "Normal Attack: Blade Roller 1",
             "type": "normalAttack",
             "damage": {
-              "element": "geo",
-              "attr": "def",
               "icd": {
                 "tag": "Blade Roller",
                 "time": 2500,
                 "hits": 3
               },
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -51377,13 +51802,12 @@
             "name": "Normal Attack: Blade Roller 2",
             "type": "normalAttack",
             "damage": {
-              "element": "geo",
-              "attr": "def",
               "icd": {
                 "tag": "Blade Roller",
                 "time": 2500,
                 "hits": 3
               },
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -51411,13 +51835,12 @@
             "name": "Normal Attack: Blade Roller 3",
             "type": "normalAttack",
             "damage": {
-              "element": "geo",
-              "attr": "def",
               "icd": {
                 "tag": "Blade Roller",
                 "time": 2500,
                 "hits": 3
               },
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -51445,13 +51868,12 @@
             "name": "Normal Attack: Blade Roller 4",
             "type": "normalAttack",
             "damage": {
-              "element": "geo",
-              "attr": "def",
               "icd": {
                 "tag": "Blade Roller",
                 "time": 2500,
                 "hits": 3
               },
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -51595,7 +52017,10 @@
           {
             "name": "Elemental Skill",
             "type": "elementalSkill",
-            "nightsoul": 45,
+            "nightsoul": {
+              "blessing": true,
+              "value": 45
+            },
             "damage": {
               "gauge": 1,
               "icd": {
@@ -51696,6 +52121,7 @@
           {
             "name": "Continuous Healing",
             "healing": {
+              "targets": "$onField",
               "attr": "def",
               "multipliers": [
                 {
@@ -51778,7 +52204,12 @@
       "weaponId": 11516,
       "setCounts": {
         "15037": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "normalAttack.3",
+        "normalAttack.4"
+      ]
     }
   },
   "10000104": {
@@ -52263,10 +52694,12 @@
       {
         "ref": "a1_1",
         "use": {
-          "by": "$team",
+          "by": "$any",
           "when": "nightsoulBurst",
           "action": {
-            "nightsoul": 40
+            "nightsoul": {
+              "value": 40
+            }
           }
         }
       },
@@ -52297,7 +52730,9 @@
           },
           "cooldown": 300,
           "action": {
-            "nightsoul": 5
+            "nightsoul": {
+              "value": 5
+            }
           }
         }
       },
@@ -52320,27 +52755,58 @@
               },
               {
                 "nightsoul": {
-                  ">=": 10
+                  "points": {
+                    ">=": 10
+                  }
                 }
               }
             ]
           },
           "cooldown": 1800,
+          "action": [
+            {
+              "nightsoul": {
+                "blessing": true,
+                "value": -10
+              }
+            },
+            {
+              "name": "Hypersense",
+              "damage": {
+                "gauge": 1,
+                "icd": {
+                  "tag": "Elemental Skill",
+                  "time": 2500,
+                  "hits": 3
+                },
+                "multipliers": [
+                  {
+                    "mv": 1.6
+                  }
+                ]
+              }
+            }
+          ],
+          "commands": {
+            "type": "apply",
+            "ref": "endBlessing",
+            "spec": {
+              "uses": 1,
+              "offset": 6000
+            }
+          }
+        }
+      },
+      {
+        "ref": "endBlessing",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
           "action": {
-            "name": "Hypersense",
-            "nightsoul": -10,
-            "damage": {
-              "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
-              "multipliers": [
-                {
-                  "mv": 1.6
-                }
-              ]
+            "nightsoul": {
+              "blessing": false
             }
           }
         }
@@ -52514,7 +52980,6 @@
           },
           "action": {
             "name": "Hypersense",
-            "nightsoul": -10,
             "damage": {
               "gauge": 1,
               "icd": {
@@ -52875,6 +53340,7 @@
               "ref": "elementalSkill.0"
             }
           },
+          "offset": 2000,
           "commands": {
             "type": "apply",
             "ref": "passiveDrain",
@@ -52887,9 +53353,7 @@
           "when": "nightsoulUpdate",
           "filter": {
             "nightsoul": {
-              "not": {
-                ">": 0
-              }
+              "points": 0
             }
           }
         },
@@ -52908,16 +53372,38 @@
           "when": "nightsoulUpdate",
           "filter": {
             "nightsoul": {
-              "not": {
-                ">": 0
-              }
+              "points": 0
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "endBlessing",
+            "spec": {
+              "uses": 1
             }
           }
         },
         "use": {
+          "when": "interval",
           "cooldown": 200,
           "action": {
-            "nightsoul": -1
+            "nightsoul": {
+              "value": -1
+            }
+          }
+        }
+      },
+      {
+        "ref": "endBlessing",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "nightsoul": {
+              "blessing": false
+            }
           }
         }
       },
@@ -53047,7 +53533,10 @@
           },
           "action": [
             {
-              "nightsoul": 10
+              "nightsoul": {
+                "blessing": true,
+                "value": 10
+              }
             },
             "elementalBurst.1"
           ]
@@ -53055,20 +53544,13 @@
       },
       {
         "apply": {
-          "by": "$team",
+          "by": "$any",
           "when": "nightsoulBurst",
           "duration": 10000
         },
         "buff": {
           "stats": {
             "atk%": 0.3
-          }
-        }
-      },
-      {
-        "buff": {
-          "filter": {
-            "field": "onField"
           }
         }
       }
@@ -53304,7 +53786,10 @@
           {
             "name": "Elemental Skill",
             "type": "elementalSkill",
-            "nightsoul": 80,
+            "nightsoul": {
+              "blessing": true,
+              "value": 80
+            },
             "damage": {
               "gauge": 1,
               "multipliers": [
@@ -53332,7 +53817,9 @@
           },
           {
             "name": "Ring of Searing Radiance",
-            "nightsoul": -3,
+            "nightsoul": {
+              "value": -3
+            },
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
@@ -53554,7 +54041,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 600
           },
           {
             "name": "Flamestrider: Charged Attack: Cyclic",
@@ -53587,7 +54075,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 800
           },
           {
             "name": "Flamestrider: Charged Attack: Final",
@@ -53781,9 +54270,25 @@
       },
       "rotation": [
         "elementalSkill.0",
-        "elementalBurst.0"
+        "elementalBurst.0",
+        "elementalSkill.7",
+        "elementalSkill.8",
+        "elementalSkill.8",
+        "elementalSkill.8",
+        "elementalSkill.8",
+        "elementalSkill.8",
+        "elementalSkill.8",
+        "elementalSkill.8",
+        "elementalSkill.8",
+        "elementalSkill.9"
       ]
-    }
+    },
+    "teamPreset": [
+      10000106,
+      10000032,
+      10000107,
+      10000103
+    ]
   },
   "10000107": {
     "name": "Citlali",
@@ -53823,6 +54328,29 @@
           },
           "cooldown": 1000,
           "action": "elementalSkill.1"
+        },
+        "expire": {
+          "commands": {
+            "type": "apply",
+            "ref": "endBlessing",
+            "spec": {
+              "uses": 1
+            }
+          }
+        }
+      },
+      {
+        "ref": "endBlessing",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "nightsoul": {
+              "blessing": false
+            }
+          }
         }
       },
       {
@@ -53833,7 +54361,9 @@
             "and": [
               {
                 "nightsoul": {
-                  ">=": 50
+                  "points": {
+                    ">=": 50
+                  }
                 }
               },
               {
@@ -53847,7 +54377,9 @@
         "remove": {
           "when": "nightsoulUpdate",
           "filter": {
-            "nightsoul": 0
+            "nightsoul": {
+              "points": 0
+            }
           }
         }
       },
@@ -53921,7 +54453,9 @@
           },
           "cooldown": 8000,
           "action": {
-            "nightsoul": 16
+            "nightsoul": {
+              "value": 16
+            }
           }
         }
       },
@@ -53959,10 +54493,12 @@
       },
       {
         "use": {
-          "by": "$team",
+          "by": "$any",
           "when": "nightsoulBurst",
           "action": {
-            "nightsoul": 4
+            "nightsoul": {
+              "value": 4
+            }
           }
         }
       }
@@ -54169,7 +54705,10 @@
           {
             "name": "Elemental Skill",
             "type": "elementalSkill",
-            "nightsoul": 24,
+            "nightsoul": {
+              "blessing": true,
+              "value": 24
+            },
             "damage": {
               "gauge": 1,
               "multipliers": [
@@ -54239,7 +54778,9 @@
           },
           {
             "name": "Frostfall Storm",
-            "nightsoul": -8,
+            "nightsoul": {
+              "value": -8
+            },
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
@@ -54279,7 +54820,9 @@
           {
             "name": "Elemental Burst",
             "type": "elementalBurst",
-            "nightsoul": 24,
+            "nightsoul": {
+              "value": 24
+            },
             "damage": {
               "gauge": 2,
               "multipliers": [
@@ -54307,7 +54850,9 @@
           },
           {
             "name": "Spiritvessel Skull",
-            "nightsoul": 3,
+            "nightsoul": {
+              "value": 3
+            },
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
@@ -54351,7 +54896,13 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000106,
+      10000032,
+      10000107,
+      10000103
+    ]
   },
   "10000108": {
     "disabled": true,
@@ -55439,9 +55990,7 @@
           "when": "nightsoulUpdate",
           "filter": {
             "nightsoul": {
-              "not": {
-                ">": 0
-              }
+              "points": 0
             }
           },
           "commands": [
@@ -55480,6 +56029,13 @@
             {
               "type": "remove",
               "ref": "surgingForce"
+            },
+            {
+              "type": "apply",
+              "ref": "endBlessing",
+              "spec": {
+                "uses": 1
+              }
             }
           ]
         },
@@ -55488,6 +56044,20 @@
           "cooldown": 167,
           "action": {
             "nightsoul": -1
+          }
+        }
+      },
+      {
+        "ref": "endBlessing",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "nightsoul": {
+              "blessing": false
+            }
           }
         }
       },
@@ -55535,7 +56105,9 @@
               },
               {
                 "nightsoul": {
-                  "<": 42
+                  "points": {
+                    "<": 42
+                  }
                 }
               }
             ]
@@ -55604,7 +56176,9 @@
               },
               {
                 "nightsoul": {
-                  ">=": 42
+                  "points": {
+                    ">=": 42
+                  }
                 }
               }
             ]
@@ -55658,7 +56232,9 @@
             },
             "cooldown": 1000,
             "action": {
-              "nightsoul": 3
+              "nightsoul": {
+                "value": 3
+              }
             },
             "commands": [
               {
@@ -55688,7 +56264,9 @@
             },
             "cooldown": 1000,
             "action": {
-              "nightsoul": 6
+              "nightsoul": {
+                "value": 6
+              }
             },
             "commands": [
               {
@@ -55756,7 +56334,9 @@
               }
             },
             "action": {
-              "nightsoul": 1
+              "nightsoul": {
+                "value": 1
+              }
             }
           },
           {
@@ -55767,7 +56347,9 @@
               }
             },
             "action": {
-              "nightsoul": 4
+              "nightsoul": {
+                "value": 4
+              }
             },
             "commands": {
               "type": "remove",
@@ -55785,7 +56367,7 @@
       {
         "ref": "warmingUp",
         "apply": {
-          "by": "$team",
+          "by": "$any",
           "when": "nightsoulBurst",
           "duration": 10000
         },
@@ -55818,7 +56400,9 @@
           "filter": {
             "action": {
               "nightsoul": {
-                "<": 0
+                "value": {
+                  "<": 0
+                }
               }
             }
           },
@@ -55918,7 +56502,9 @@
           "filter": {
             "action": {
               "nightsoul": {
-                ">": 0
+                "value": {
+                  ">": 0
+                }
               }
             }
           },
@@ -55936,12 +56522,16 @@
               {
                 "action": {
                   "nightsoul": {
-                    ">": 0
+                    "value": {
+                      ">": 0
+                    }
                   }
                 }
               },
               {
-                "nightsoul": 54
+                "nightsoul": {
+                  "points": 54
+                }
               },
               {
                 "effectStacks": {
@@ -55959,7 +56549,9 @@
               {
                 "action": {
                   "nightsoul": {
-                    ">": 0
+                    "value": {
+                      ">": 0
+                    }
                   }
                 }
               },
@@ -55971,7 +56563,9 @@
             ]
           },
           "action": {
-            "nightsoul": 2
+            "nightsoul": {
+              "value": 2
+            }
           }
         }
       },
@@ -55992,7 +56586,9 @@
         "apply": {
           "when": "nightsoulUpdate",
           "filter": {
-            "nightsoul": 54
+            "nightsoul": {
+              "points": 54
+            }
           },
           "duration": 3000
         },
@@ -56236,7 +56832,10 @@
           {
             "name": "Elemental Skill",
             "type": "elementalSkill",
-            "nightsoul": 54,
+            "nightsoul": {
+              "blessing": true,
+              "value": 54
+            },
             "damage": {
               "gauge": 1,
               "icd": {
@@ -56276,7 +56875,9 @@
           {
             "name": "Elemental Burst",
             "type": "elementalBurst",
-            "nightsoul": 15,
+            "nightsoul": {
+              "value": 15
+            },
             "damage": {
               "gauge": 1,
               "multipliers": [
@@ -56344,7 +56945,13 @@
     },
     "teamPreset": [
       10000111,
-      10000106,
+      {
+        "id": 10000106,
+        "rotation": [
+          "elementalSkill.0",
+          "elementalBurst.0"
+        ]
+      },
       10000110,
       10000090
     ]
@@ -56368,6 +56975,48 @@
     "maxNightsoul": 40,
     "energyMax": 1.5,
     "effects": [
+      {
+        "use": [
+          {
+            "when": "nightsoulUpdate",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": [
+                      "normalAttack.4",
+                      "normalAttack.5"
+                    ]
+                  }
+                },
+                {
+                  "nightsoul": {
+                    "points": 40
+                  }
+                }
+              ]
+            },
+            "action": {
+              "nightsoul": {
+                "blessing": true
+              }
+            }
+          },
+          {
+            "when": "nightsoulUpdate",
+            "filter": {
+              "nightsoul": {
+                "points": 0
+              }
+            },
+            "action": {
+              "nightsoul": {
+                "blessing": false
+              }
+            }
+          }
+        ]
+      },
       {
         "ref": "rainbowCrash",
         "apply": {
@@ -56448,7 +57097,7 @@
       },
       {
         "apply": {
-          "by": "$team",
+          "by": "$any",
           "when": "nightsoulBurst",
           "duration": 12000
         },
@@ -56582,7 +57231,9 @@
           {
             "name": "Plunging Attack: Low",
             "type": "plungingAttack",
-            "nightsoul": 25,
+            "nightsoul": {
+              "value": 25
+            },
             "damage": {
               "multipliers": [
                 {
@@ -56610,7 +57261,9 @@
           {
             "name": "Plunging Attack: High",
             "type": "plungingAttack",
-            "nightsoul": 25,
+            "nightsoul": {
+              "value": 25
+            },
             "damage": {
               "multipliers": [
                 {
@@ -56778,7 +57431,9 @@
           {
             "name": "Fiery Passion: Plunging Attack: Low",
             "type": "plungingAttack",
-            "nightsoul": -40,
+            "nightsoul": {
+              "value": -40
+            },
             "damage": {
               "multipliers": [
                 {
@@ -56806,7 +57461,9 @@
           {
             "name": "Fiery Passion: Plunging Attack: High",
             "type": "plungingAttack",
-            "nightsoul": -40,
+            "nightsoul": {
+              "value": -40
+            },
             "damage": {
               "multipliers": [
                 {
@@ -56866,7 +57523,9 @@
           {
             "name": "Elemental Skill",
             "type": "elementalSkill",
-            "nightsoul": 20,
+            "nightsoul": {
+              "value": 20
+            },
             "damage": {
               "gauge": 1,
               "icd": {
@@ -56939,7 +57598,9 @@
           {
             "name": "Elemental Burst",
             "type": "elementalBurst",
-            "nightsoul": 40,
+            "nightsoul": {
+              "value": 40
+            },
             "damage": {
               "gauge": 1,
               "multipliers": [
@@ -57066,7 +57727,13 @@
     },
     "teamPreset": [
       10000111,
-      10000106,
+      {
+        "id": 10000106,
+        "rotation": [
+          "elementalSkill.0",
+          "elementalBurst.0"
+        ]
+      },
       10000110,
       10000090
     ]

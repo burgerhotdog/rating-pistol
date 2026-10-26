@@ -34,6 +34,11 @@ export const getBuffMap = (ctx, options = {}) => {
       if (snapshot === 'frozen' && isLiveOnly) return false;
       if (snapshot === 'live' && !isLiveOnly) return false;
 
+      if (candidate.field) {
+        const ownerField = effect.ownerId === ctx.states.onFieldId ? 'onField' : 'offField';
+        if (candidate.field !== ownerField) return false;
+      }
+
       return ctx.eventFilter(candidate.filter, effect, { action, fieldId: memberId });
     });
     if (!buff) continue;
