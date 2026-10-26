@@ -32,5 +32,12 @@ export function reactSwirl(ctx, ownerId, auraKey, gaugeUnits) {
     ownerId,
   });
 
+  ctx.runEffects('hit', {
+    damage: {
+      type: 'swirl',
+      element: auraElement,
+    },
+  });
+
   return excess * 2;
 }

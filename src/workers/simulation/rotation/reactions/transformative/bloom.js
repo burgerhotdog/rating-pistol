@@ -29,6 +29,13 @@ export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
         const snapshot = buildTransformativeReactionSnapshot(ctx, oldestCore.ownerId, 'bloom', 'dendro');
         ctx.snapshots.push(snapshot);
       }
+
+      ctx.runEffects('hit', {
+        damage: {
+          type: 'bloom',
+          element: 'dendro',
+        },
+      });
     }
   }
 

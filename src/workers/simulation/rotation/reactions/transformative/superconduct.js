@@ -27,5 +27,12 @@ export function reactSuperconduct(ctx, ownerId, auraKey, gaugeUnits) {
     ownerId,
   });
 
+  ctx.runEffects('hit', {
+    damage: {
+      type: 'superconduct',
+      element: 'cryo',
+    },
+  });
+
   return excess;
 }

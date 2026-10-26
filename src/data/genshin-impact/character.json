@@ -52178,7 +52178,6 @@
     "memberPreset": {}
   },
   "10000105": {
-    "disabled": true,
     "name": "Ororon",
     "version": 5.2,
     "id": 10000105,
@@ -52194,7 +52193,297 @@
     },
     "energy": 60,
     "nightsoul": true,
-    "effects": [],
+    "maxNightsoul": 80,
+    "effects": [
+      {
+        "ref": "supersonicOculus",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 9000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "a1_1",
+        "use": {
+          "by": "$team",
+          "when": "nightsoulBurst",
+          "action": {
+            "nightsoul": 40
+          }
+        }
+      },
+      {
+        "ref": "a1_2",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 15000,
+          "uses": 10
+        },
+        "use": {
+          "by": "$ally",
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "element": [
+                  "hydro",
+                  "electro"
+                ]
+              }
+            }
+          },
+          "cooldown": 300,
+          "action": {
+            "nightsoul": 5
+          }
+        }
+      },
+      {
+        "ref": "a1_hypersense",
+        "use": {
+          "by": "$any",
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "electroCharged",
+                      "lunarCharged"
+                    ]
+                  }
+                }
+              },
+              {
+                "nightsoul": {
+                  ">=": 10
+                }
+              }
+            ]
+          },
+          "cooldown": 1800,
+          "action": {
+            "name": "Hypersense",
+            "nightsoul": -10,
+            "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": 1.6
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "ref": "a4_aspectSigil",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 15000,
+          "uses": 3
+        },
+        "use": [
+          {
+            "when": "hit",
+            "field": "onField",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "normalAttack",
+                    "chargedAttack",
+                    "plungingAttack"
+                  ]
+                }
+              }
+            },
+            "cooldown": 1000,
+            "action": {
+              "restoreEnergy": {
+                "flat": 3
+              }
+            }
+          },
+          {
+            "by": "$team",
+            "when": "hit",
+            "field": "offField",
+            "filter": {
+              "and": [
+                {
+                  "field": "onField"
+                },
+                {
+                  "action": {
+                    "damage": {
+                      "type": [
+                        "normalAttack",
+                        "chargedAttack",
+                        "plungingAttack"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "cooldown": 1000,
+            "action": {
+              "restoreEnergy": {
+                "targets": [
+                  "$onField",
+                  10000105
+                ],
+                "flat": 3
+              }
+            }
+          }
+        ]
+      },
+      {
+        "rank": 1,
+        "ref": "nighttide",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "name": "Hypersense"
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.5
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "ref": "spiritualSupersense",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 9000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.16
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "modify": {
+          "type": "effect",
+          "ref": "supersonicOculus",
+          "spec": {
+            "use": {
+              "cooldown": -200
+            }
+          }
+        },
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "action": {
+            "restoreEnergy": {
+              "flat": 8
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "stores": "$team",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "name": "Hypersense"
+            }
+          },
+          "duration": 9000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "atk%": 0.1
+          }
+        },
+        "maxStacks": 3,
+        "independentStacks": true
+      },
+      {
+        "rank": 6,
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "action": {
+            "name": "Hypersense",
+            "nightsoul": -10,
+            "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": 3.2
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Spiritvessel Snapshot",
@@ -52395,9 +52684,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Spirit Orb DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52428,9 +52723,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Ritual DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -52455,9 +52751,14 @@
             }
           },
           {
-            "name": "Soundwave Collision DMG",
-            "type": "elementalBurst",
+            "name": "Soundwave Collision",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 3000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52484,7 +52785,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15431,
+      "setCounts": {
+        "15037": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000113,
+      10000105,
+      10000121,
+      10000116
+    ]
   },
   "10000106": {
     "name": "Mavuika",
@@ -57673,7 +57989,13 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {},
+    "teamPreset": [
+      10000113,
+      10000105,
+      10000121,
+      10000116
+    ]
   },
   "10000114": {
     "name": "Skirk",

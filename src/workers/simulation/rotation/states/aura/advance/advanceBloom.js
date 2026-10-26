@@ -17,6 +17,13 @@ export function advanceBloom(ctx, bloomState, elapsed) {
 
         ctx.snapshots.push({ ...snapshot, runtime });
       }
+
+      ctx.runEffects('hit', {
+        damage: {
+          type: 'bloom',
+          element: 'dendro',
+        },
+      });
     }
 
     ctx.runEffects('dendroCore');

@@ -25,6 +25,13 @@ function tickBurning(ctx, burningState, offset = 0) {
     ctx.states.globalCooldowns.burning = 2000;
     applyPyro(ctx, 1, burningState.ownerId);
   }
+
+  ctx.runEffects('hit', {
+    damage: {
+      type: 'burning',
+      element: 'pyro',
+    },
+  });
 }
 
 export function advanceBurning(ctx, elapsed) {

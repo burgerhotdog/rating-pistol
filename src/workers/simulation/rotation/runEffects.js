@@ -5,6 +5,8 @@ function checkBy(ctx, effect, by, id) {
   const { memberIds } = ctx.cache;
   const { ownerId } = effect;
 
+  if (by[0] === '$any') return true;
+
   return by.some((option) => {
     if (option === '$next') {
       const index = memberIds.indexOf(ownerId);

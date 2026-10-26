@@ -27,4 +27,11 @@ export function reactHyperbloom(ctx, applier) {
       }
     }
   }
+
+  ctx.runEffects('hit', {
+    damage: {
+      type: 'hyperbloom',
+      element: 'dendro',
+    },
+  });
 }

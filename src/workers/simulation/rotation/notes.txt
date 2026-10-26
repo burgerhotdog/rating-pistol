@@ -1,3 +1,7 @@
 to improve:
     healthUpdate
     attackSpd
+    separate nightsoul blessing from points
+    remove low Plunge
+    combine high plunge with collision
+    nightsoul aligned damage

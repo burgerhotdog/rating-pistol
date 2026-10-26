@@ -105,6 +105,9 @@ Characters:
         Only plume
         Marvelous Splendor applies to $ally
         No constellations
+    Ororon
+        No tracking of nightsoul aligned damage
+        C2 simplified for single target
     Prune
         Effects are fragile, may need checking
         No constellations

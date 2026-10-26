@@ -21,6 +21,13 @@ function tickStellarSwirl(ctx, state, offset) {
   }
 
   applyCryo(ctx, 1, state.ownerId);
+
+  ctx.runEffects('hit', {
+    damage: {
+      type: 'stellarSwirl',
+      element: 'cryo',
+    },
+  });
 }
 
 export function advanceStellarSwirl(ctx, elapsed) {

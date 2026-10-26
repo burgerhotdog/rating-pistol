@@ -30,5 +30,12 @@ export function reactOverloaded(ctx, ownerId, auraElement, gaugeUnits) {
     ownerId,
   });
 
+  ctx.runEffects('hit', {
+    damage: {
+      type: 'overloaded',
+      element: 'pyro',
+    },
+  });
+
   return excess;
 }

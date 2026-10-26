@@ -27,6 +27,13 @@ function tickCharged(ctx, chargedState, offset = 0) {
   chargedState.timer = isLunar ? 2000 : 1000;
   consumeAura(auraStore, 'electro', 0.4);
   consumeAura(auraStore, 'hydro', 0.4);
+
+  ctx.runEffects('hit', {
+    damage: {
+      type: isLunar ? 'lunarCharged' : 'electroCharged',
+      element: 'electro',
+    },
+  });
 }
 
 export function advanceCharged(ctx, elapsed) {
