@@ -3227,7 +3227,7 @@
       {
         "ref": "baronBunny",
         "apply": {
-          "when": "hit",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
@@ -3276,7 +3276,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "ref": "normalAttack.6"
+              "ref": "normalAttack.5"
             }
           },
           "duration": 10000
@@ -3293,7 +3293,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "ref": "normalAttack.6"
+              "ref": "normalAttack.5"
             }
           },
           "action": {
@@ -3321,7 +3321,7 @@
             "and": [
               {
                 "action": {
-                  "ref": "normalAttack.6"
+                  "ref": "normalAttack.5"
                 }
               },
               {
@@ -3497,37 +3497,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "pyro",
               "gauge": 2,
               "icd": {
                 "tag": "Charged Attack",
@@ -3956,37 +3928,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9371,
-                    1.0196,
-                    1.1021,
-                    1.1845,
-                    1.2745
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -4005,33 +3949,6 @@
                     2.6982,
                     2.8669,
                     3.0355
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge Collision",
-            "damage": {
-              "type": "plungingAttack",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.5683,
-                    0.6145,
-                    0.6608,
-                    0.7269,
-                    0.7731,
-                    0.826,
-                    0.8987,
-                    0.9714,
-                    1.0441,
-                    1.1234,
-                    1.2027,
-                    1.282,
-                    1.3612,
-                    1.4405,
-                    1.5198
                   ]
                 }
               ]
@@ -4086,6 +4003,33 @@
                     3.3998,
                     3.5979,
                     3.7959
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Plunge Collision",
+            "damage": {
+              "type": "plungingAttack",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.5683,
+                    0.6145,
+                    0.6608,
+                    0.7269,
+                    0.7731,
+                    0.826,
+                    0.8987,
+                    0.9714,
+                    1.0441,
+                    1.1234,
+                    1.2027,
+                    1.282,
+                    1.3612,
+                    1.4405,
+                    1.5198
                   ]
                 }
               ]
@@ -8447,38 +8391,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "electro",
-              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -9617,37 +9532,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "hydro",
               "multipliers": [
                 {
                   "mv": [
@@ -11808,35 +11695,8 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot Charge Level 1",
-            "type": "normalAttack",
             "damage": {
               "multipliers": [
                 {
@@ -11862,8 +11722,8 @@
             }
           },
           {
-            "name": "Frostflake Arrow DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack: Frostflake Arrow",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -11889,9 +11749,9 @@
             }
           },
           {
-            "name": "Frostflake Arrow Bloom DMG",
-            "type": "normalAttack",
+            "name": "Frostflake Arrow Bloom",
             "damage": {
+              "type": "chargedAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -12984,38 +12844,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9371,
-                    1.0196,
-                    1.1021,
-                    1.1845,
-                    1.2745
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "cryo",
-              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -18522,38 +18353,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "pyro",
-              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -22848,38 +22650,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "geo",
-              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -23165,7 +22938,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "ref": "normalAttack.6"
+              "ref": "normalAttack.5"
             }
           },
           "commands": {
@@ -23457,38 +23230,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "electro",
-              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -26600,38 +26344,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "hydro",
-              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -27581,37 +27296,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "cryo",
               "multipliers": [
                 {
                   "mv": [
@@ -30753,38 +30440,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "dendro",
-              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -31575,35 +31233,8 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Level 1 Aimed Shot",
-            "type": "normalAttack",
             "damage": {
               "multipliers": [
                 {
@@ -31629,8 +31260,8 @@
             }
           },
           {
-            "name": "Wreath Arrow DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack: Wreath Arrow",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -31656,9 +31287,9 @@
             }
           },
           {
-            "name": "Clusterbloom Arrow DMG",
-            "type": "normalAttack",
+            "name": "Clusterbloom Arrow",
             "damage": {
+              "type": "chargedAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -35631,7 +35262,7 @@
           "when": "end",
           "filter": {
             "action": {
-              "ref": "normalAttack.5"
+              "ref": "normalAttack.4"
             }
           },
           "action": "elementalSkill.1",
@@ -35937,37 +35568,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -40108,7 +39711,7 @@
           "filter": {
             "action": {
               "ref": [
-                "normalAttack.6",
+                "normalAttack.5",
                 "elementalBurst.2"
               ]
             }
@@ -40121,7 +39724,7 @@
           "filter": {
             "action": {
               "ref": [
-                "normalAttack.6",
+                "normalAttack.5",
                 "elementalBurst.2"
               ]
             }
@@ -40131,7 +39734,7 @@
             "ref": "pyrotechnicStrike",
             "spec": {
               "action": [
-                "normalAttack.7"
+                "normalAttack.6"
               ]
             }
           }
@@ -40143,7 +39746,7 @@
             "ref": "pyrotechnicStrike",
             "spec": {
               "action": [
-                "normalAttack.7"
+                "normalAttack.6"
               ]
             }
           }
@@ -40153,7 +39756,7 @@
         "ref": "pyrotechnicStrike",
         "use": {
           "when": "command",
-          "action": "normalAttack.7"
+          "action": "normalAttack.6"
         }
       },
       {
@@ -40163,7 +39766,7 @@
             "and": [
               {
                 "action": {
-                  "ref": "normalAttack.6"
+                  "ref": "normalAttack.5"
                 }
               },
               {
@@ -40234,7 +39837,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "ref": "normalAttack.6"
+              "ref": "normalAttack.5"
             }
           },
           "cooldown": 6000,
@@ -40243,7 +39846,7 @@
         },
         "use": {
           "when": "interval",
-          "action": "normalAttack.11"
+          "action": "normalAttack.10"
         }
       },
       {
@@ -40269,7 +39872,7 @@
         "buff": {
           "filter": {
             "action": {
-              "ref": "normalAttack.6"
+              "ref": "normalAttack.5"
             }
           },
           "stats": {
@@ -40465,37 +40068,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Level 1",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "pyro",
               "multipliers": [
                 {
                   "mv": [
@@ -40520,11 +40095,9 @@
             }
           },
           {
-            "name": "Aimed Shot: Level 2",
+            "name": "Charged Attack: Level 2",
             "type": "chargedAttack",
             "damage": {
-              "element": "pyro",
-              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -40552,8 +40125,6 @@
             "name": "Pyrotechnic Strike",
             "damage": {
               "type": "chargedAttack",
-              "element": "pyro",
-              "gauge": 1,
               "icd": {
                 "tag": "Pyrotechnic Strike",
                 "time": 1000
@@ -40823,11 +40394,11 @@
         "15031": 4
       },
       "rotation": [
-        "normalAttack.6",
-        "normalAttack.6",
+        "normalAttack.5",
+        "normalAttack.5",
         "elementalBurst.0",
-        "normalAttack.6",
-        "normalAttack.6",
+        "normalAttack.5",
+        "normalAttack.5",
         "elementalSkill.0"
       ]
     },
@@ -47214,37 +46785,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "hydro",
               "multipliers": [
                 {
                   "mv": [
@@ -48417,35 +47960,8 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot Charge Level 1",
-            "type": "normalAttack",
             "damage": {
               "multipliers": [
                 {
@@ -52348,37 +51864,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -52793,37 +52281,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "electro",
               "multipliers": [
                 {
                   "mv": [
@@ -64727,38 +64187,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "anemo",
-              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -70604,38 +70035,9 @@
             }
           },
           {
-            "name": "Aimed Shot",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.4386,
-                    0.4743,
-                    0.51,
-                    0.561,
-                    0.5967,
-                    0.6375,
-                    0.6936,
-                    0.7497,
-                    0.8058,
-                    0.867,
-                    0.9282,
-                    0.9894,
-                    1.0506,
-                    1.1118,
-                    1.173
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Aimed Shot: Full Charge",
-            "type": "chargedAttack",
-            "damage": {
-              "element": "geo",
-              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [

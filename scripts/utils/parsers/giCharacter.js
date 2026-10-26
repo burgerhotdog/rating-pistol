@@ -68,6 +68,7 @@ function parseSkills(skills, constellations) {
     for (const { desc, param } of promote[0]) {
       const [actionName, values] = desc.split('|');
       if (!values) continue;
+      if (actionName === 'Aimed Shot') continue;
 
       const parts = values.split('/');
       const times = Number(values.match(/×(\d+)/)?.[1] ?? 1);

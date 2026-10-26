@@ -140,7 +140,12 @@ export function normalizeAction(gameId, rawAction, spec) {
       damage.type = damage.type[modeIndex];
     }
 
-    const isGiPhysNa = gameId === GI && category === 'normalAttack' && spec.weaponType !== 'catalyst';
+    const isGiPhysNa =
+      gameId === GI &&
+      category === 'normalAttack' &&
+      spec.weaponType !== 'catalyst' &&
+      !(spec.weaponType === 'bow' && (action.type === 'chargedAttack' || action.damage?.type === 'chargedAttack'))
+
     damage.element ??= isGiPhysNa ? 'physical' : spec.charElement;
 
     if (damage.multipliers) {
@@ -171,7 +176,10 @@ export function normalizeAction(gameId, rawAction, spec) {
 
     if (gameId === GI && category === 'normalAttack') {
       // Gauge
-      if (spec.weaponType !== 'bow') {
+      if (
+        spec.weaponType !== 'bow' ||
+        (action.type === 'chargedAttack' || action.damage?.type === 'chargedAttack')
+      ) {
         damage.gauge ??= 1;
       }
 
