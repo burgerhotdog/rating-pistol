@@ -1115,9 +1115,7 @@
           },
           "cooldown": 10000,
           "action": {
-            "bondOfLife": {
-              "value": 0.25
-            }
+            "bondOfLife": 0.25
           },
           "commands": {
             "type": "apply",
@@ -2744,9 +2742,7 @@
           "filter": {
             "action": {
               "bondOfLife": {
-                "value": {
-                  ">": 0
-                }
+                ">": 0
               }
             }
           },
@@ -7566,9 +7562,7 @@
           },
           "cooldown": 14000,
           "action": {
-            "bondOfLife": {
-              "value": 0.25
-            }
+            "bondOfLife": 0.25
           }
         }
       },
@@ -9268,9 +9262,7 @@
           },
           "cooldown": 10000,
           "action": {
-            "bondOfLife": {
-              "value": 0.24
-            }
+            "bondOfLife": 0.24
           },
           "commands": {
             "type": "apply",
@@ -13860,9 +13852,7 @@
           "filter": {
             "action": {
               "bondOfLife": {
-                "value": {
-                  ">": 0
-                }
+                ">": 0
               }
             }
           },

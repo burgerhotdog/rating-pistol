@@ -11,7 +11,7 @@ export function changeBondOfLife(ctx, memberId, value) {
   store[memberId] = Math.max(prev + value, 0);
   ctx.runEffects('bondOfLifeUpdate', {
     ownerId: memberId,
-    bondOfLife: { value },
+    bondOfLife: value,
   });
 
   if (store[memberId] === 0) {

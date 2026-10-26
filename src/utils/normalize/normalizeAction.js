@@ -295,20 +295,14 @@ export function normalizeAction(gameId, rawAction, spec) {
   }
 
   if (action.bondOfLife) {
-    const bondOfLife = action.bondOfLife = { ...action.bondOfLife };
+    const bondOfLife = action.bondOfLife;
 
-    if (bondOfLife.targets === '$team') {
-      bondOfLife.targets = spec.memberIds;
-    } else {
-      bondOfLife.targets = toArray(bondOfLife.targets ?? spec.ownerId);
-    }
-
-    if (bondOfLife.value && Array.isArray(bondOfLife.value)) {
-      if (bondOfLife.value.length === 2) {
-        const [r1, r5] = bondOfLife.value;
-        bondOfLife.value = lerp(r1, r5, (spec.weaponRank - 1) / 4);
+    if (bondOfLife && Array.isArray(bondOfLife)) {
+      if (bondOfLife.length === 2) {
+        const [r1, r5] = bondOfLife;
+        action.bondOfLife = lerp(r1, r5, (spec.weaponRank - 1) / 4);
       } else {
-        bondOfLife.value = bondOfLife.value[spec.mvIndex];
+        action.bondOfLife = bondOfLife[spec.mvIndex];
       }
     }
   }
