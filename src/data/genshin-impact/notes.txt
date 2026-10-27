@@ -20,6 +20,11 @@ Characters:
         No constellations
     Charlotte
         No C4, C6
+    Chasca
+        Skill element order is fixed ECHPA
+        A1 is not 33%/66%/100% but 0%/100% with starting with 2 PHCE elements
+        A1 shell follows reverse priority order (ECHP)
+        No constellations
     Chevreuse
         No C1
         No C4 cooldown

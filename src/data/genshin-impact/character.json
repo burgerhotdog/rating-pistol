@@ -52642,7 +52642,6 @@
     }
   },
   "10000104": {
-    "disabled": true,
     "name": "Chasca",
     "version": 5.2,
     "id": 10000104,
@@ -52658,7 +52657,1295 @@
     },
     "energy": 60,
     "nightsoul": true,
-    "effects": [],
+    "maxNightsoul": 80,
+    "effects": [
+      {
+        "ref": "blessing",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "offset": 125
+        },
+        "remove": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "nightsoul": {
+              "points": 0
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "endBlessing",
+            "spec": {
+              "uses": 1
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 125,
+          "action": {
+            "nightsoul": {
+              "value": -1
+            }
+          }
+        }
+      },
+      {
+        "ref": "endBlessing",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "blessing": false
+          }
+        }
+      },
+      {
+        "ref": "fixedShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.4"
+        },
+        "maxStacks": 2
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "pyro",
+                  "hydro",
+                  "cryo",
+                  "electro"
+                ],
+                "==": 2
+              }
+            }
+          }
+        },
+        "ref": "anemoShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.4"
+        },
+        "maxStacks": 1
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "pyro",
+                  "hydro",
+                  "cryo",
+                  "electro"
+                ],
+                "==": 1
+              }
+            }
+          }
+        },
+        "ref": "anemoShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.4"
+        },
+        "maxStacks": 2
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "pyro",
+                  "hydro",
+                  "cryo",
+                  "electro"
+                ],
+                "==": 0
+              }
+            }
+          }
+        },
+        "ref": "anemoShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.4"
+        },
+        "maxStacks": 3
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "pyro": 1
+            }
+          }
+        },
+        "ref": "pyroShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.5"
+        },
+        "maxStacks": 1
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "pyro": 2
+            }
+          }
+        },
+        "ref": "pyroShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.5"
+        },
+        "maxStacks": 2
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "pyro": 3
+            }
+          }
+        },
+        "ref": "pyroShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.5"
+        },
+        "maxStacks": 3
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": 1
+            }
+          }
+        },
+        "ref": "hydroShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.6"
+        },
+        "maxStacks": 1
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": 2
+            }
+          }
+        },
+        "ref": "hydroShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.6"
+        },
+        "maxStacks": 2
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": 3
+            }
+          }
+        },
+        "ref": "hydroShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.6"
+        },
+        "maxStacks": 3
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "cryo": 1
+            }
+          }
+        },
+        "ref": "cryoShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.7"
+        },
+        "maxStacks": 1
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "cryo": 2
+            }
+          }
+        },
+        "ref": "cryoShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.7"
+        },
+        "maxStacks": 2
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "cryo": 3
+            }
+          }
+        },
+        "ref": "cryoShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.7"
+        },
+        "maxStacks": 3
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "electro": 1
+            }
+          }
+        },
+        "ref": "electroShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.8"
+        },
+        "maxStacks": 1
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "electro": 2
+            }
+          }
+        },
+        "ref": "electroShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.8"
+        },
+        "maxStacks": 2
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "electro": 3
+            }
+          }
+        },
+        "ref": "electroShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.8"
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "fireShells",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.3"
+            }
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "electroShells",
+              "spec": {
+                "uses": 1,
+                "stacks": 3
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "cryoShells",
+              "spec": {
+                "uses": 1,
+                "offset": 10,
+                "stacks": 3
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "hydroShells",
+              "spec": {
+                "uses": 1,
+                "offset": 20,
+                "stacks": 3
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "pyroShells",
+              "spec": {
+                "uses": 1,
+                "offset": 30,
+                "stacks": 3
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "anemoShells",
+              "spec": {
+                "uses": 1,
+                "offset": 40,
+                "stacks": 3
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "a1_1",
+              "spec": {
+                "uses": 1,
+                "offset": 50,
+                "stacks": 1
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "fixedShells",
+              "spec": {
+                "uses": 1,
+                "offset": 60,
+                "stacks": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "pyro",
+                  "hydro",
+                  "cryo",
+                  "electro"
+                ],
+                "==": 2
+              }
+            }
+          }
+        },
+        "ref": "anemoSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        },
+        "maxStacks": 2
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "pyro",
+                  "hydro",
+                  "cryo",
+                  "electro"
+                ],
+                "==": 1
+              }
+            }
+          }
+        },
+        "ref": "anemoSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        },
+        "maxStacks": 4
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "sum": {
+                "keys": [
+                  "pyro",
+                  "hydro",
+                  "cryo",
+                  "electro"
+                ],
+                "==": 0
+              }
+            }
+          }
+        },
+        "ref": "anemoSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        },
+        "maxStacks": 6
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "pyro": 1
+            }
+          }
+        },
+        "ref": "pyroSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        },
+        "maxStacks": 2
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "pyro": 2
+            }
+          }
+        },
+        "ref": "pyroSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        },
+        "maxStacks": 4
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "pyro": 3
+            }
+          }
+        },
+        "ref": "pyroSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        },
+        "maxStacks": 6
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": 1
+            }
+          }
+        },
+        "ref": "hydroSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        },
+        "maxStacks": 2
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": 2
+            }
+          }
+        },
+        "ref": "hydroSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        },
+        "maxStacks": 4
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "hydro": 3
+            }
+          }
+        },
+        "ref": "hydroSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        },
+        "maxStacks": 6
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "cryo": 1
+            }
+          }
+        },
+        "ref": "cryoSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        },
+        "maxStacks": 2
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "cryo": 2
+            }
+          }
+        },
+        "ref": "cryoSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        },
+        "maxStacks": 4
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "cryo": 3
+            }
+          }
+        },
+        "ref": "cryoSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        },
+        "maxStacks": 6
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "electro": 1
+            }
+          }
+        },
+        "ref": "electroSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        },
+        "maxStacks": 2
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "electro": 2
+            }
+          }
+        },
+        "ref": "electroSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        },
+        "maxStacks": 4
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "electro": 3
+            }
+          }
+        },
+        "ref": "electroSoulseekerShells",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        },
+        "maxStacks": 6
+      },
+      {
+        "ref": "fireSoulseekerShells",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "electroSoulseekerShells",
+              "spec": {
+                "uses": 1,
+                "stacks": 6
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "cryoSoulseekerShells",
+              "spec": {
+                "uses": 1,
+                "offset": 10,
+                "stacks": 6
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "hydroSoulseekerShells",
+              "spec": {
+                "uses": 1,
+                "offset": 20,
+                "stacks": 6
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "pyroSoulseekerShells",
+              "spec": {
+                "uses": 1,
+                "offset": 30,
+                "stacks": 6
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "anemoSoulseekerShells",
+              "spec": {
+                "uses": 1,
+                "offset": 40,
+                "stacks": 6
+              }
+            }
+          ]
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "count": {
+                "conditions": [
+                  {
+                    "has": "pyro"
+                  },
+                  {
+                    "has": "hydro"
+                  },
+                  {
+                    "has": "cryo"
+                  },
+                  {
+                    "has": "electro"
+                  }
+                ],
+                "<": 2
+              }
+            }
+          }
+        },
+        "ref": "a1_1",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.4"
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "and": [
+                {
+                  "count": {
+                    "conditions": [
+                      {
+                        "has": "pyro"
+                      },
+                      {
+                        "has": "hydro"
+                      },
+                      {
+                        "has": "cryo"
+                      },
+                      {
+                        "has": "electro"
+                      }
+                    ],
+                    ">=": 2
+                  }
+                },
+                {
+                  "has": "electro"
+                }
+              ]
+            }
+          }
+        },
+        "ref": "a1_1",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.8"
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "and": [
+                {
+                  "count": {
+                    "conditions": [
+                      {
+                        "has": "pyro"
+                      },
+                      {
+                        "has": "hydro"
+                      },
+                      {
+                        "has": "cryo"
+                      },
+                      {
+                        "has": "electro"
+                      }
+                    ],
+                    ">=": 2
+                  }
+                },
+                {
+                  "has": "cryo"
+                },
+                {
+                  "not": {
+                    "has": "electro"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "ref": "a1_1",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.7"
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "and": [
+                {
+                  "count": {
+                    "conditions": [
+                      {
+                        "has": "pyro"
+                      },
+                      {
+                        "has": "hydro"
+                      },
+                      {
+                        "has": "cryo"
+                      },
+                      {
+                        "has": "electro"
+                      }
+                    ],
+                    ">=": 2
+                  }
+                },
+                {
+                  "has": "hydro"
+                },
+                {
+                  "not": {
+                    "has": [
+                      "electro",
+                      "cryo"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "ref": "a1_1",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.6"
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "count": {
+                "conditions": [
+                  {
+                    "has": "pyro"
+                  },
+                  {
+                    "has": "hydro"
+                  },
+                  {
+                    "has": "cryo"
+                  },
+                  {
+                    "has": "electro"
+                  }
+                ],
+                "==": 1
+              }
+            }
+          }
+        },
+        "ref": "a1_2",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.5",
+                "elementalSkill.6",
+                "elementalSkill.7",
+                "elementalSkill.8"
+              ]
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "count": {
+                "conditions": [
+                  {
+                    "has": "pyro"
+                  },
+                  {
+                    "has": "hydro"
+                  },
+                  {
+                    "has": "cryo"
+                  },
+                  {
+                    "has": "electro"
+                  }
+                ],
+                "==": 2
+              }
+            }
+          }
+        },
+        "ref": "a1_2",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.5",
+                "elementalSkill.6",
+                "elementalSkill.7",
+                "elementalSkill.8"
+              ]
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.35
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "count": {
+                "conditions": [
+                  {
+                    "has": "pyro"
+                  },
+                  {
+                    "has": "hydro"
+                  },
+                  {
+                    "has": "cryo"
+                  },
+                  {
+                    "has": "electro"
+                  }
+                ],
+                "==": 3
+              }
+            }
+          }
+        },
+        "ref": "a1_2",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.5",
+                "elementalSkill.6",
+                "elementalSkill.7",
+                "elementalSkill.8"
+              ]
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.65
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "not": {
+                "has": [
+                  "pyro",
+                  "hydro",
+                  "cryo",
+                  "electro"
+                ]
+              }
+            }
+          }
+        },
+        "ref": "a4",
+        "use": {
+          "by": "$any",
+          "when": "nightsoulBurst",
+          "action": "elementalSkill.9"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.9"
+            }
+          },
+          "stats": {
+            "damageMv%": 0.5
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "has": "pyro"
+            }
+          }
+        },
+        "ref": "a4",
+        "use": {
+          "by": "$any",
+          "when": "nightsoulBurst",
+          "action": "elementalSkill.10"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.10"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "pyro"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.10"
+            }
+          },
+          "stats": {
+            "damageMv%": 0.5
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "and": [
+                {
+                  "has": "hydro"
+                },
+                {
+                  "not": {
+                    "has": "pyro"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "ref": "a4",
+        "use": {
+          "by": "$any",
+          "when": "nightsoulBurst",
+          "action": "elementalSkill.10"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.10"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "hydro"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.10"
+            }
+          },
+          "stats": {
+            "damageMv%": 0.5
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "and": [
+                {
+                  "has": "cryo"
+                },
+                {
+                  "not": {
+                    "has": [
+                      "pyro",
+                      "hydro"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "ref": "a4",
+        "use": {
+          "by": "$any",
+          "when": "nightsoulBurst",
+          "action": "elementalSkill.10"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.10"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "cryo"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.10"
+            }
+          },
+          "stats": {
+            "damageMv%": 0.5
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "and": [
+                {
+                  "has": "electro"
+                },
+                {
+                  "not": {
+                    "has": [
+                      "pyro",
+                      "hydro",
+                      "cryo"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "ref": "a4",
+        "use": {
+          "by": "$any",
+          "when": "nightsoulBurst",
+          "action": "elementalSkill.10"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.10"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "electro"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.10"
+            }
+          },
+          "stats": {
+            "damageMv%": 0.5
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Phantom Feather Flurry",
@@ -52739,7 +54026,8 @@
                     0.7114,
                     0.7528,
                     0.7942
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
@@ -52766,7 +54054,8 @@
                     0.61,
                     0.6456,
                     0.6811
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
@@ -52886,9 +54175,14 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Resonance DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
+            "nightsoul": {
+              "blessing": true,
+              "value": 80
+            },
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -52913,9 +54207,15 @@
             }
           },
           {
-            "name": "Multitarget Fire Tap DMG",
-            "type": "elementalSkill",
+            "name": "Normal Attack: Multitarget Fire",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Tap",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52940,9 +54240,23 @@
             }
           },
           {
-            "name": "Shadowhunt Shell DMG",
-            "type": "elementalSkill",
+            "name": "Load Shells",
+            "duration": 1500
+          },
+          {
+            "name": "Fire Shells",
+            "type": "chargedAttack",
+            "duration": 500
+          },
+          {
+            "name": "Shadowhunt Shell",
             "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Shadowhunt Shell",
+                "time": 1500
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -52967,9 +54281,183 @@
             }
           },
           {
-            "name": "Shining Shadowhunt Shell DMG",
-            "type": "elementalSkill",
+            "name": "Shining Shadowhunt Shell: Pyro",
             "damage": {
+              "type": "chargedAttack",
+              "element": "pyro",
+              "gauge": 1,
+              "icd": {
+                "tag": "Shining Shadowhunt Shell",
+                "time": 1500,
+                "hits": 2
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    1.6657,
+                    1.7906,
+                    1.9156,
+                    2.0821,
+                    2.2071,
+                    2.332,
+                    2.4986,
+                    2.6652,
+                    2.8317,
+                    2.9983,
+                    3.1649,
+                    3.3314,
+                    3.5397,
+                    3.7479,
+                    3.9561
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Shining Shadowhunt Shell: Hydro",
+            "damage": {
+              "type": "chargedAttack",
+              "element": "hydro",
+              "gauge": 1,
+              "icd": {
+                "tag": "Shining Shadowhunt Shell",
+                "time": 1500,
+                "hits": 2
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    1.6657,
+                    1.7906,
+                    1.9156,
+                    2.0821,
+                    2.2071,
+                    2.332,
+                    2.4986,
+                    2.6652,
+                    2.8317,
+                    2.9983,
+                    3.1649,
+                    3.3314,
+                    3.5397,
+                    3.7479,
+                    3.9561
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Shining Shadowhunt Shell: Cryo",
+            "damage": {
+              "type": "chargedAttack",
+              "element": "cryo",
+              "gauge": 1,
+              "icd": {
+                "tag": "Shining Shadowhunt Shell",
+                "time": 1500,
+                "hits": 2
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    1.6657,
+                    1.7906,
+                    1.9156,
+                    2.0821,
+                    2.2071,
+                    2.332,
+                    2.4986,
+                    2.6652,
+                    2.8317,
+                    2.9983,
+                    3.1649,
+                    3.3314,
+                    3.5397,
+                    3.7479,
+                    3.9561
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Shining Shadowhunt Shell: Electro",
+            "damage": {
+              "type": "chargedAttack",
+              "element": "electro",
+              "gauge": 1,
+              "icd": {
+                "tag": "Shining Shadowhunt Shell",
+                "time": 1500,
+                "hits": 2
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    1.6657,
+                    1.7906,
+                    1.9156,
+                    2.0821,
+                    2.2071,
+                    2.332,
+                    2.4986,
+                    2.6652,
+                    2.8317,
+                    2.9983,
+                    3.1649,
+                    3.3314,
+                    3.5397,
+                    3.7479,
+                    3.9561
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Burning Shadowhunt Shot: Shadowhunt Shell",
+            "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Shadowhunt Shell",
+                "time": 1500
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    0.488,
+                    0.5246,
+                    0.5612,
+                    0.61,
+                    0.6466,
+                    0.6832,
+                    0.732,
+                    0.7808,
+                    0.8296,
+                    0.8784,
+                    0.9272,
+                    0.976,
+                    1.037,
+                    1.098,
+                    1.159
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Burning Shadowhunt Shot: Shining Shadowhunt Shell",
+            "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
+              "icd": {
+                "tag": "Shining Shadowhunt Shell",
+                "time": 1500,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -53000,9 +54488,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Galesplitting Soulseeker Shell DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -53027,9 +54516,15 @@
             }
           },
           {
-            "name": "Soulseeker Shell DMG",
-            "type": "elementalBurst",
+            "name": "Soulseeker Shell",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 1500,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -53054,9 +54549,118 @@
             }
           },
           {
-            "name": "Radiant Soulseeker Shell DMG",
-            "type": "elementalBurst",
+            "name": "Radiant Soulseeker Shell: Pyro",
             "damage": {
+              "type": "elementalBurst",
+              "element": "pyro",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 1500,
+                "hits": 2
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    2.068,
+                    2.2231,
+                    2.3782,
+                    2.585,
+                    2.7401,
+                    2.8952,
+                    3.102,
+                    3.3088,
+                    3.5156,
+                    3.7224,
+                    3.9292,
+                    4.136,
+                    4.3945,
+                    4.653,
+                    4.9115
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Radiant Soulseeker Shell: Hydro",
+            "damage": {
+              "type": "elementalBurst",
+              "element": "hydro",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 1500,
+                "hits": 2
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    2.068,
+                    2.2231,
+                    2.3782,
+                    2.585,
+                    2.7401,
+                    2.8952,
+                    3.102,
+                    3.3088,
+                    3.5156,
+                    3.7224,
+                    3.9292,
+                    4.136,
+                    4.3945,
+                    4.653,
+                    4.9115
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Radiant Soulseeker Shell: Cryo",
+            "damage": {
+              "type": "elementalBurst",
+              "element": "cryo",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 1500,
+                "hits": 2
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    2.068,
+                    2.2231,
+                    2.3782,
+                    2.585,
+                    2.7401,
+                    2.8952,
+                    3.102,
+                    3.3088,
+                    3.5156,
+                    3.7224,
+                    3.9292,
+                    4.136,
+                    4.3945,
+                    4.653,
+                    4.9115
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Radiant Soulseeker Shell: Electro",
+            "damage": {
+              "type": "elementalBurst",
+              "element": "electro",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 1500,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -53083,7 +54687,30 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15514,
+      "setCounts": {
+        "15038": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000104,
+      10000089,
+      10000110,
+      10000032
+    ]
   },
   "10000105": {
     "name": "Ororon",
