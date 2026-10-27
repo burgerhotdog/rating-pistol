@@ -23378,7 +23378,7 @@
           {
             "name": "ATK Bonus Ratio",
             "buff": {
-              "baseAttr": "atk",
+              "baseAttr": "baseAtk",
               "multipliers": [
                 {
                   "mv": [

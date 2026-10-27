@@ -5769,7 +5769,7 @@
       {
         "ref": "scorchingBrilliance",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": [
@@ -5779,16 +5779,92 @@
             }
           },
           "cooldown": 10000,
-          "duration": 6000
+          "duration": 6000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "extendScorchingBrilliance",
+              "spec": {
+                "uses": 3
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "freezeScorchingBrilliance"
+            }
+          ]
+        },
+        "buff": [
+          {
+            "filter": {
+              "nightsoul": {
+                "blessing": false
+              }
+            },
+            "stats": {
+              "critDmg%": [
+                0.2,
+                0.4
+              ],
+              "atk%": [
+                0.28,
+                0.56
+              ]
+            }
+          },
+          {
+            "filter": {
+              "nightsoul": {
+                "blessing": true
+              }
+            },
+            "stats": {
+              "critDmg%": [
+                0.35,
+                0.7
+              ],
+              "atk%": [
+                0.49,
+                0.98
+              ]
+            }
+          }
+        ],
+        "expire": {
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "extendScorchingBrilliance"
+            },
+            {
+              "type": "remove",
+              "ref": "freezeScorchingBrilliance"
+            }
+          ]
+        }
+      },
+      {
+        "ref": "extendScorchingBrilliance",
+        "apply": {
+          "when": "command"
         },
         "use": {
           "when": "hit",
           "filter": {
             "action": {
               "damage": {
-                "type": [
-                  "normalAttack",
-                  "chargedAttack"
+                "and": [
+                  {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "element": "physical"
+                    }
+                  }
                 ]
               }
             }
@@ -5802,46 +5878,29 @@
               "extend": true
             }
           }
-        },
-        "buff": {
-          "stats": {
-            "critDmg%": [
-              0.2,
-              0.4
-            ],
-            "atk%": [
-              0.28,
-              0.56
-            ]
-          }
-        },
-        "maxExtensions": 3
+        }
       },
       {
-        "buff": {
+        "ref": "freezeScorchingBrilliance",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "field": "offField",
           "filter": {
-            "and": [
-              {
-                "nightsoul": {
-                  "blessing": true
-                }
-              },
-              {
-                "effectStacks": {
-                  "has": "scorchingBrilliance"
-                }
-              }
-            ]
+            "nightsoul": {
+              "blessing": true
+            }
           },
-          "stats": {
-            "critDmg%": [
-              0.15,
-              0.3
-            ],
-            "atk%": [
-              0.21,
-              0.42
-            ]
+          "cooldown": 500,
+          "commands": {
+            "type": "apply",
+            "ref": "scorchingBrilliance",
+            "spec": {
+              "duration": 500,
+              "extend": true
+            }
           }
         }
       }
