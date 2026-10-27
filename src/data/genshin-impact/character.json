@@ -29542,7 +29542,6 @@
     ]
   },
   "10000066": {
-    "disabled": true,
     "name": "Kamisato Ayato",
     "version": 2.6,
     "id": 10000066,
@@ -29557,7 +29556,155 @@
       "critDmg%": 0.384
     },
     "energy": 80,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "takimeguriKanka",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 6000
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "namisen"
+          }
+        }
+      },
+      {
+        "ref": "waterIllusion",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "action": "elementalSkill.5"
+        }
+      },
+      {
+        "ref": "namisen",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalSkill.2",
+                "elementalSkill.3"
+              ]
+            }
+          },
+          "cooldown": 100
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalSkill.2",
+                "elementalSkill.3"
+              ]
+            }
+          },
+          "specRefs": {
+            "damageFlat": {
+              "attr": "hp",
+              "step": 1,
+              "value": "elementalSkill.4"
+            }
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "bloomwaterBlades",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 18000,
+          "offset": 500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 500,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "gardenOfPurity",
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 18000
+        },
+        "buff": {
+          "statRefs": {
+            "normalAttackDmgBonus%": "elementalBurst.2"
+          }
+        }
+      },
+      {
+        "ref": "a1",
+        "use": [
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "namisen",
+              "spec": {
+                "stacks": 2
+              }
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.5"
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "namisen",
+              "spec": {
+                "stacks": 4
+              }
+            }
+          }
+        ]
+      },
+      {
+        "ref": "a4",
+        "use": {
+          "when": "interval",
+          "field": "offField",
+          "cooldown": 1000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 1
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Kamisato Art: Marobashi",
@@ -29812,9 +29959,19 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Shunsuiken 1-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Normal Attack: Shunsuiken 1",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -29836,12 +29993,19 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 400
           },
           {
-            "name": "Shunsuiken 2-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Normal Attack: Shunsuiken 2",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -29863,12 +30027,19 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 400
           },
           {
-            "name": "Shunsuiken 3-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Normal Attack: Shunsuiken 3",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -29890,15 +30061,15 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 400
           },
           {
             "name": "Namisen DMG Bonus",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.0056,
                     0.0061,
                     0.0065,
@@ -29920,9 +30091,10 @@
             }
           },
           {
-            "name": "Water Illusion DMG",
-            "type": "elementalSkill",
+            "name": "Water Illusion",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -29953,9 +30125,19 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Bloomwater Blade DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Bloomwater Blade",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -29981,11 +30163,10 @@
           },
           {
             "name": "Normal Attack DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.11,
                     0.12,
                     0.13,
@@ -30013,8 +30194,33 @@
       "weaponId": 11510,
       "setCounts": {
         "15024": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.3"
+      ]
+    },
+    "teamPreset": [
+      10000066,
+      10000119,
+      10000065,
+      10000073
+    ]
   },
   "10000067": {
     "name": "Collei",
@@ -51506,8 +51712,8 @@
           "elementalBurst.0"
         ]
       },
-      10000107,
-      10000103
+      10000103,
+      10000043
     ]
   },
   "10000103": {
