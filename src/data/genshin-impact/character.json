@@ -53311,7 +53311,7 @@
     "teamPreset": [
       10000113,
       10000105,
-      10000121,
+      10000125,
       10000116
     ]
   },
@@ -58352,7 +58352,6 @@
     ]
   },
   "10000113": {
-    "disabled": true,
     "name": "Ifa",
     "version": 5.6,
     "id": 10000113,
@@ -58368,7 +58367,122 @@
     },
     "energy": 60,
     "nightsoul": true,
-    "effects": [],
+    "maxNightsoul": 80,
+    "effects": [
+      {
+        "ref": "blessing",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "offset": 125
+        },
+        "remove": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "nightsoul": {
+              "points": 0
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "endBlessing",
+            "spec": {
+              "uses": 1
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 125,
+          "action": {
+            "nightsoul": {
+              "value": -1
+            }
+          }
+        }
+      },
+      {
+        "ref": "endBlessing",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "nightsoul": {
+              "blessing": false
+            }
+          }
+        }
+      },
+      {
+        "ref": "sedationMark",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.0"
+                }
+              },
+              {
+                "states": {
+                  "aura": {
+                    "has": [
+                      "hydro",
+                      "pyro",
+                      "cryo",
+                      "electro"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "uses": 1,
+          "offset": 2000
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "a4",
+        "apply": {
+          "by": "$any",
+          "when": "nightsoulBurst",
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 80
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "cooldown": 8000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 6
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Rite of Dispelling Winds",
@@ -58569,9 +58683,23 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Tonicshot DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
+            "nightsoul": {
+              "blessing": true,
+              "value": 80
+            }
+          },
+          {
+            "name": "Normal Attack: Tonicshot",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack 2",
+                "time": 12000,
+                "hits": 2
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -58593,12 +58721,10 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Tonicshot Healing On Hit",
-            "type": "elementalSkill",
-            "damage": {
+            },
+            "healing": {
+              "targets": "$team",
+              "attr": "elementalMastery",
               "multipliers": [
                 {
                   "mv": [
@@ -58617,10 +58743,8 @@
                     0.4284,
                     0.4536,
                     0.4788
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     48.1485,
                     52.964,
                     58.1808,
@@ -58639,7 +58763,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 600
           }
         ]
       },
@@ -58648,9 +58773,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -58675,9 +58801,13 @@
             }
           },
           {
-            "name": "Sedation Mark DMG",
-            "type": "elementalBurst",
+            "name": "Sedation Mark",
             "damage": {
+              "type": "elementalBurst",
+              "icd": {
+                "tag": "Sedation Mark",
+                "time": 2000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -58704,11 +58834,33 @@
         ]
       }
     },
-    "memberPreset": {},
+    "memberPreset": {
+      "weaponId": 14403,
+      "setCounts": {
+        "15002": 4
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1",
+        "elementalSkill.1"
+      ]
+    },
     "teamPreset": [
       10000113,
       10000105,
-      10000121,
+      10000125,
       10000116
     ]
   },
