@@ -60,12 +60,40 @@ function evaluateSpecial(ctx, special, effect, spec) {
 
       if (action.type === 'plungingAttack') return true;
 
-      if (
-        action.ownerId === 10000111 &&
-        (action.type === 'chargedAttack' || action.type === 'elementalSkill')
+      if ( // Kinich
+        action.ownerId === 10000101 &&
+        action.category === 'elementalSkill'
       ) return true;
 
-      break;
+      if ( // Mualani
+        action.ownerId === 10000102 &&
+        action.category === 'elementalSkill'
+      ) return true;
+
+      if ( // Chasca
+        action.ownerId === 10000104 &&
+        action.category === 'elementalSkill'
+      ) {
+        return true;
+      }
+
+      if ( // Mavuika
+        action.ownerId === 10000106 &&
+        (
+          action.type === 'chargedAttack' ||
+          action.type === 'elementalBurst'
+        )
+      ) return true;
+
+      if ( // Varesa
+        action.ownerId === 10000111 &&
+        (
+          action.type === 'chargedAttack' ||
+          action.type === 'elementalSkill'
+        )
+      ) return true;
+
+      return false;
     }
 
     case 'cinderCityPyro1':

@@ -14206,7 +14206,7 @@
             }
           },
           "duration": 6000,
-          "offset": 1000
+          "offset": 2000
         },
         "use": {
           "when": "interval",
@@ -14224,7 +14224,7 @@
             }
           },
           "duration": 6100,
-          "offset": 3100
+          "offset": 4100
         },
         "use": {
           "when": "interval",
@@ -25606,7 +25606,6 @@
     ]
   },
   "10000059": {
-    "disabled": true,
     "name": "Shikanoin Heizou",
     "version": 2.8,
     "id": 10000059,
@@ -25621,7 +25620,351 @@
       "anemoDmgBonus%": 0.24
     },
     "energy": 40,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "declension",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "statRefs": {
+            "damageMv": "elementalSkill.1"
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "conviction",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "declension": 4
+                }
+              }
+            ]
+          },
+          "statRefs": {
+            "damageMv": "elementalSkill.2"
+          }
+        }
+      },
+      {
+        "ref": "windmusterIrisHydro",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.0"
+                }
+              },
+              {
+                "states": {
+                  "aura": {
+                    "has": "hydro"
+                  }
+                }
+              }
+            ]
+          },
+          "uses": 1,
+          "offset": 300
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "hydro"
+            }
+          }
+        }
+      },
+      {
+        "ref": "windmusterIrisPyro",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.0"
+                }
+              },
+              {
+                "states": {
+                  "aura": {
+                    "and": [
+                      {
+                        "has": "pyro"
+                      },
+                      {
+                        "not": {
+                          "has": "hydro"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "uses": 1,
+          "offset": 300
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "pyro"
+            }
+          }
+        }
+      },
+      {
+        "ref": "windmusterIrisCryo",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.0"
+                }
+              },
+              {
+                "states": {
+                  "aura": {
+                    "and": [
+                      {
+                        "has": "cryo"
+                      },
+                      {
+                        "not": {
+                          "has": [
+                            "hydro",
+                            "pyro"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "uses": 1,
+          "offset": 300
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "cryo"
+            }
+          }
+        }
+      },
+      {
+        "ref": "windmusterIrisElectro",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.0"
+                }
+              },
+              {
+                "states": {
+                  "aura": {
+                    "and": [
+                      {
+                        "has": "electro"
+                      },
+                      {
+                        "not": {
+                          "has": [
+                            "hydro",
+                            "pyro",
+                            "cryo"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "uses": 1,
+          "offset": 300
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "electro"
+            }
+          }
+        }
+      },
+      {
+        "ref": "a1",
+        "use": {
+          "when": "reaction",
+          "field": "onField",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "swirl",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "cooldown": 100,
+          "commands": {
+            "type": "apply",
+            "ref": "declension",
+            "spec": {
+              "uses": 1
+            }
+          }
+        }
+      },
+      {
+        "ref": "a4",
+        "stores": "$ally",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 80
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "apply": {
+          "when": "swap",
+          "field": "onField",
+          "cooldown": 10000,
+          "duration": 5000,
+          "commands": {
+            "type": "apply",
+            "ref": "declension",
+            "spec": {
+              "uses": 1
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "attackSpd%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "action": {
+            "restoreEnergy": {
+              "flat": 9
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "modify": {
+          "type": "effect",
+          "ref": "declension",
+          "spec": {
+            "buff": {
+              "stats": {
+                "critRate%": 0.04
+              }
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "modify": {
+          "type": "effect",
+          "ref": "conviction",
+          "spec": {
+            "buff": {
+              "stats": {
+                "critDmg%": 0.32
+              }
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Fudou Style Martial Arts",
@@ -25914,9 +26257,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -25942,11 +26286,10 @@
           },
           {
             "name": "Declension DMG Bonus",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.5688,
                     0.6115,
                     0.6541,
@@ -25969,11 +26312,10 @@
           },
           {
             "name": "Conviction DMG Bonus",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     1.1376,
                     1.2229,
                     1.3082,
@@ -26001,9 +26343,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Fudou Style Vacuum Slugger DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -26028,9 +26371,10 @@
             }
           },
           {
-            "name": "Windmuster Iris DMG",
-            "type": "elementalBurst",
+            "name": "Windmuster Iris",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -26057,7 +26401,38 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14402,
+      "setCounts": {
+        "15002": 4
+      },
+      "rotation": [
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.5",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.5",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.5",
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ],
+      "duration": 11000
+    },
+    "teamPreset": [
+      10000059,
+      10000025,
+      10000031,
+      10000024
+    ]
   },
   "10000060": {
     "name": "Yelan",
@@ -58099,7 +58474,9 @@
           "when": "interval",
           "cooldown": 167,
           "action": {
-            "nightsoul": -1
+            "nightsoul": {
+              "value": -1
+            }
           }
         }
       },

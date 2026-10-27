@@ -4772,9 +4772,7 @@
           "field": "*",
           "filter": {
             "reaction": {
-              "elements": {
-                "has": "pyro"
-              }
+              "elements": "pyro"
             }
           },
           "duration": 8000
@@ -8833,9 +8831,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "elements": {
-                "has": "electro"
-              }
+              "elements": "electro"
             }
           },
           "duration": 6000
@@ -8860,16 +8856,14 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "elements": {
-                "and": [
-                  {
-                    "has": "electro"
-                  },
-                  {
-                    "has": "pyro"
-                  }
-                ]
-              }
+              "and": [
+                {
+                  "elements": "electro"
+                },
+                {
+                  "elements": "pyro"
+                }
+              ]
             }
           },
           "duration": 6000
@@ -8894,16 +8888,14 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "elements": {
-                "and": [
-                  {
-                    "has": "electro"
-                  },
-                  {
-                    "has": "hydro"
-                  }
-                ]
-              }
+              "and": [
+                {
+                  "elements": "hydro"
+                },
+                {
+                  "elements": "pyro"
+                }
+              ]
             }
           },
           "duration": 6000
@@ -8928,16 +8920,14 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "elements": {
-                "and": [
-                  {
-                    "has": "electro"
-                  },
-                  {
-                    "has": "dendro"
-                  }
-                ]
-              }
+              "and": [
+                {
+                  "elements": "electro"
+                },
+                {
+                  "elements": "dendro"
+                }
+              ]
             }
           },
           "duration": 6000
@@ -8962,16 +8952,14 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "elements": {
-                "and": [
-                  {
-                    "has": "electro"
-                  },
-                  {
-                    "has": "anemo"
-                  }
-                ]
-              }
+              "and": [
+                {
+                  "elements": "electro"
+                },
+                {
+                  "elements": "anemo"
+                }
+              ]
             }
           },
           "duration": 6000
@@ -8996,16 +8984,14 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "elements": {
-                "and": [
-                  {
-                    "has": "electro"
-                  },
-                  {
-                    "has": "geo"
-                  }
-                ]
-              }
+              "and": [
+                {
+                  "elements": "electro"
+                },
+                {
+                  "elements": "geo"
+                }
+              ]
             }
           },
           "duration": 6000
@@ -9030,16 +9016,14 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "elements": {
-                "and": [
-                  {
-                    "has": "electro"
-                  },
-                  {
-                    "has": "cryo"
-                  }
-                ]
-              }
+              "and": [
+                {
+                  "elements": "electro"
+                },
+                {
+                  "elements": "cryo"
+                }
+              ]
             }
           },
           "duration": 6000
