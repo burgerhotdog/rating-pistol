@@ -49802,7 +49802,6 @@
     ]
   },
   "10000100": {
-    "disabled": true,
     "name": "Kachina",
     "version": 5.0,
     "id": 10000100,
@@ -49818,7 +49817,185 @@
     },
     "energy": 70,
     "nightsoul": true,
-    "effects": [],
+    "maxNightsoul": 60,
+    "effects": [
+      {
+        "ref": "turboTwirly",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "offset": 2000
+        },
+        "remove": {
+          "when": "nightsoulUpdate",
+          "filter": {
+            "nightsoul": {
+              "points": 0
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "endBlessing",
+            "spec": {
+              "uses": 1
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "ref": "endBlessing",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "nightsoul": {
+              "blessing": false
+            }
+          }
+        }
+      },
+      {
+        "ref": "a1",
+        "apply": {
+          "by": "$any",
+          "when": "nightsoulBurst",
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "geoDmgBonus%": 0.2
+          }
+        }
+      },
+      {
+        "ref": "a4",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalSkill.2"
+              ]
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "def",
+              "step": 1,
+              "value": 0.2
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "use": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "crystallize",
+                "lunarCrystallize"
+              ]
+            }
+          },
+          "cooldown": 5000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 3
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "action": {
+            "nightsoul": {
+              "blessing": true,
+              "value": 20
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "turboTwirly",
+            "filter": {
+              "effectStacks": {
+                "not": {
+                  "has": "turboTwirly"
+                }
+              }
+            },
+            "spec": {
+              "offset": 2000
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "def%": 0.08
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "use": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "crystallize"
+            }
+          },
+          "cooldown": 5000,
+          "action": {
+            "damage": {
+              "gauge": 1,
+              "attr": "def",
+              "multipliers": [
+                {
+                  "mv": 2
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Cragbiter",
@@ -50065,9 +50242,28 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Turbo Twirly Mounted DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
+            "nightsoul": {
+              "blessing": true,
+              "value": 60
+            }
+          },
+          {
+            "name": "Normal Attack: Turbo Twirly Slam",
+            "type": "normalAttack",
+            "nightsoul": {
+              "value": -10
+            },
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -50092,9 +50288,19 @@
             }
           },
           {
-            "name": "Turbo Twirly Independent DMG",
-            "type": "elementalSkill",
+            "name": "Turbo Twirly Independent",
+            "nightsoul": {
+              "value": -10
+            },
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -50125,9 +50331,11 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -50154,7 +50362,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13407,
+      "setCounts": {
+        "15037": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000091,
+      10000100,
+      10000032,
+      10000023
+    ]
   },
   "10000101": {
     "name": "Kinich",
