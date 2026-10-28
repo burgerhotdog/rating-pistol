@@ -29096,7 +29096,6 @@
     }
   },
   "10000070": {
-    "disabled": true,
     "name": "Nilou",
     "version": 3.1,
     "id": 10000070,
@@ -29111,7 +29110,159 @@
       "hp%": 0.288
     },
     "energy": 70,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "tranquilityAura",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.6"
+            }
+          },
+          "duration": 12000,
+          "offset": 500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 500,
+          "action": {
+            "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Tranquility Aura",
+                "time": 1900,
+                "hits": 4
+              },
+              "multipliers": [
+                {
+                  "flat": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "ref": "lingeringAeon",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 1,
+          "offset": 2000
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "and": [
+                {
+                  "not": {
+                    "has": [
+                      "pyro",
+                      "electro",
+                      "anemo",
+                      "geo",
+                      "cryo"
+                    ]
+                  }
+                },
+                {
+                  "has": "dendro"
+                }
+              ]
+            }
+          }
+        },
+        "ref": "a1_1",
+        "stores": "$team",
+        "apply": {
+          "by": "$any",
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "bloom"
+              }
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 100
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "and": [
+                {
+                  "not": {
+                    "has": [
+                      "pyro",
+                      "electro",
+                      "anemo",
+                      "geo",
+                      "cryo"
+                    ]
+                  }
+                },
+                {
+                  "has": "dendro"
+                }
+              ]
+            }
+          }
+        },
+        "ref": "a1_2",
+        "stores": "global",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.3",
+                "elementalSkill.6"
+              ]
+            }
+          },
+          "duration": 30000
+        },
+        "gameRule": "nilouBountifulCores"
+      },
+      {
+        "ref": "a4",
+        "stores": "global",
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "has": "a1_2"
+            }
+          },
+          "specs": {
+            "bloomReactionBonus%": {
+              "attr": "hp",
+              "step": 1000,
+              "offset": 30000,
+              "value": 0.09,
+              "maxValue": 4
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Dance of Samser",
@@ -29277,9 +29428,16 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -29304,9 +29462,17 @@
             }
           },
           {
-            "name": "Sword Dance/Whirling Steps 1-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Normal Attack: Sword Dance 1",
+            "type": "normalAttack",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -29326,7 +29492,92 @@
                     0.1024,
                     0.1081
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Normal Attack: Sword Dance 2",
+            "type": "normalAttack",
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.0514,
+                    0.0553,
+                    0.0592,
+                    0.0643,
+                    0.0682,
+                    0.072,
+                    0.0772,
+                    0.0823,
+                    0.0875,
+                    0.0926,
+                    0.0977,
+                    0.1029,
+                    0.1093,
+                    0.1158,
+                    0.1222
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Normal Attack: Luminous Illusion",
+            "type": "normalAttack",
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.0717,
+                    0.0771,
+                    0.0824,
+                    0.0896,
+                    0.095,
+                    0.1004,
+                    0.1075,
+                    0.1147,
+                    0.1219,
+                    0.129,
+                    0.1362,
+                    0.1434,
+                    0.1523,
+                    0.1613,
+                    0.1703
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Elemental Skill: Whirling Steps 1",
+            "type": "elementalSkill",
+            "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "hp",
+              "multipliers": [
                 {
                   "mv": [
                     0.0326,
@@ -29350,29 +29601,17 @@
             }
           },
           {
-            "name": "Sword Dance/Whirling Steps 2-Hit DMG",
+            "name": "Elemental Skill: Whirling Steps 2",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "hp",
               "multipliers": [
-                {
-                  "mv": [
-                    0.0514,
-                    0.0553,
-                    0.0592,
-                    0.0643,
-                    0.0682,
-                    0.072,
-                    0.0772,
-                    0.0823,
-                    0.0875,
-                    0.0926,
-                    0.0977,
-                    0.1029,
-                    0.1093,
-                    0.1158,
-                    0.1222
-                  ]
-                },
                 {
                   "mv": [
                     0.0396,
@@ -29396,29 +29635,17 @@
             }
           },
           {
-            "name": "Luminous Illusion/Water Wheel DMG",
+            "name": "Elemental Skill: Water Wheel",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "attr": "hp",
               "multipliers": [
-                {
-                  "mv": [
-                    0.0717,
-                    0.0771,
-                    0.0824,
-                    0.0896,
-                    0.095,
-                    0.1004,
-                    0.1075,
-                    0.1147,
-                    0.1219,
-                    0.129,
-                    0.1362,
-                    0.1434,
-                    0.1523,
-                    0.1613,
-                    0.1703
-                  ]
-                },
                 {
                   "mv": [
                     0.0506,
@@ -29448,9 +29675,11 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -29475,9 +29704,11 @@
             }
           },
           {
-            "name": "Lingering Aeon DMG",
-            "type": "elementalBurst",
+            "name": "Lingering Aeon",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -29508,7 +29739,13 @@
       "weaponId": 11511,
       "setCounts": {
         "15028": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.6"
+      ]
     }
   },
   "10000071": {
