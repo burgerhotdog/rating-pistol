@@ -122,11 +122,6 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
 
     // If effect should be removed when reaching max stacks
     if (state.stacks === maxStacks) {
-      if (effect.key === '10000089.10000089:effect15' && ctx.saveSnapshots && !ctx.firstFanfare) {
-        ctx.firstFanfare = true;
-        // console.log(`Fanfare first maxed at: ${ctx.states.runtime}`, ctx.cache.memberIds);
-      }
-
       if (effect.remove) {
         for (const remove of effect.remove) {
           if (remove.when !== 'maxStacks') continue;

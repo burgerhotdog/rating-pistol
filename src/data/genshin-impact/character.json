@@ -1,6 +1,5 @@
 {
   "10000002": {
-    "disabled": true,
     "name": "Kamisato Ayaka",
     "version": 2.0,
     "id": 10000002,
@@ -17,14 +16,16 @@
     "energy": 80,
     "effects": [
       {
+        "ref": "soumetsuCutting",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
             }
           },
-          "duration": 5000
+          "uses": 19,
+          "offset": 250
         },
         "use": {
           "when": "interval",
@@ -33,8 +34,9 @@
         }
       },
       {
+        "ref": "soumetsuBloom",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
@@ -49,8 +51,38 @@
         }
       },
       {
+        "ref": "altSprint",
         "apply": {
-          "when": "start",
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.7"
+            }
+          },
+          "duration": 5000
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "type": [
+                "normalAttack",
+                "chargedAttack",
+                "plungingAttack"
+              ]
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "cryo"
+            }
+          }
+        }
+      },
+      {
+        "ref": "a1",
+        "apply": {
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
@@ -62,6 +94,23 @@
           "stats": {
             "normalAttackDmgBonus%": 0.3,
             "chargedAttackDmgBonus%": 0.3
+          }
+        }
+      },
+      {
+        "ref": "a4",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.7"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "cryoDmgBonus%": 0.18
           }
         }
       }
@@ -95,7 +144,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 500
           },
           {
             "name": "Normal Attack 2",
@@ -122,7 +172,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 500
           },
           {
             "name": "Normal Attack 3",
@@ -173,7 +224,8 @@
                     0.5425,
                     0.5741,
                     0.6057
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
@@ -209,6 +261,10 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 500
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -227,7 +283,8 @@
                     1.3205,
                     1.3974,
                     1.4743
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
@@ -258,6 +315,25 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Sprint",
+            "type": "sprint",
+            "damage": {
+              "element": "cryo",
+              "gauge": 1,
+              "icd": {
+                "tag": "Alternate Sprint",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "flat": 0
+                }
+              ]
+            },
+            "duration": 500
           }
         ]
       },
@@ -269,6 +345,7 @@
             "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -303,9 +380,15 @@
             "type": "elementalBurst"
           },
           {
-            "name": "Elemental Burst: Cutting",
+            "name": "Cutting",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -330,9 +413,10 @@
             }
           },
           {
-            "name": "Elemental Burst: Bloom",
+            "name": "Bloom",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -363,8 +447,30 @@
       "weaponId": 11509,
       "setCounts": {
         "14001": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "normalAttack.7",
+        "normalAttack.0",
+        "elementalBurst.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.5",
+        "normalAttack.7",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.5",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.5"
+      ]
+    },
+    "teamPreset": [
+      10000002,
+      10000089,
+      10000063,
+      10000112
+    ]
   },
   "10000003": {
     "name": "Jean",
@@ -4276,7 +4382,8 @@
           },
           "cooldown": 1000,
           "action": "elementalBurst.1"
-        }
+        },
+        "snapshotBuffs": true
       },
       {
         "rank": 1,
@@ -4812,7 +4919,7 @@
       }
     },
     "memberPreset": {
-      "weaponId": 12412,
+      "weaponId": 12401,
       "setCounts": {
         "15007": 4
       },
@@ -16949,7 +17056,6 @@
     ]
   },
   "10000050": {
-    "disabled": true,
     "name": "Thoma",
     "version": 2.2,
     "id": 10000050,
@@ -16964,7 +17070,99 @@
       "atk%": 0.24
     },
     "energy": 80,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "scorchingOoyoroi",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000
+        },
+        "use": {
+          "by": "$team",
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "normalAttack"
+            }
+          },
+          "cooldown": 1000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "a4",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "hp",
+              "step": 1,
+              "value": 0.022
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "modify": {
+          "type": "effect",
+          "ref": "scorchingOoyoroi",
+          "spec": {
+            "apply": {
+              "duration": 3000
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "action": {
+            "restoreEnergy": {
+              "flat": 15
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.1"
+              ]
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": 0.15,
+            "chargedAttackDmgBonus%": 0.15,
+            "plungingAttackDmgBonus%": 0.15
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Swiftshatter Spear",
@@ -17045,7 +17243,8 @@
                     0.6417,
                     0.6791,
                     0.7165
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
@@ -17138,9 +17337,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -17162,12 +17362,10 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Shield DMG Absorption",
-            "type": "elementalSkill",
-            "damage": {
+            },
+            "shield": {
+              "duration": 8000,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -17186,10 +17384,8 @@
                     0.153,
                     0.162,
                     0.171
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     693.3348,
                     762.678,
                     837.7997,
@@ -17212,8 +17408,8 @@
           },
           {
             "name": "Max Shield DMG Absorption",
-            "type": "elementalSkill",
-            "damage": {
+            "shield": {
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -17232,10 +17428,8 @@
                     0.4165,
                     0.441,
                     0.4655
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     1887.4199,
                     2076.1882,
                     2280.687,
@@ -17263,9 +17457,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -17290,9 +17485,15 @@
             }
           },
           {
-            "name": "Fiery Collapse DMG",
-            "type": "elementalBurst",
+            "name": "Fiery Collapse",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -17314,12 +17515,10 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Shield DMG Absorption",
-            "type": "elementalBurst",
-            "damage": {
+            },
+            "shield": {
+              "duration": 8000,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -17338,10 +17537,8 @@
                     0.0243,
                     0.0257,
                     0.0272
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     110.034,
                     121.0389,
                     132.9609,
@@ -17365,7 +17562,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13414,
+      "setCounts": {
+        "15028": 4
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalSkill.0"
+      ]
+    },
+    "teamPreset": [
+      10000054,
+      10000073,
+      10000050,
+      10000119
+    ]
   },
   "10000051": {
     "name": "Eula",
@@ -33096,10 +33308,14 @@
       },
       {
         "rank": 4,
-        "modify": {
-          "type": "action",
-          "ref": "elementalSkill.1",
-          "spec": {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "action": {
             "restoreEnergy": {
               "flat": 2
             }

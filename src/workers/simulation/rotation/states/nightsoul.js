@@ -43,13 +43,5 @@ export function updateNightsoulPoints(ctx, action) {
     state.points = 0;
   }
 
-  if (
-    ctx.logFilter &&
-    ctx.saveSnapshots &&
-    action.ownerId === 10000110
-  ) {
-    console.log(ctx.states.runtime, state.points);
-  }
-
   ctx.runEffects('nightsoulUpdate', action);
 }

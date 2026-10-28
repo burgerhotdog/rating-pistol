@@ -8,6 +8,8 @@ Characters:
         C2 popping baron bunny doesnt do 200% extra dmgBonus
     Arlecchino
         No C2, C4, C6
+    Ayaka
+        No constellations
     Ayato
         No constellations
     Baizhu

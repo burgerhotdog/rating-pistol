@@ -105,8 +105,9 @@ export function normalizeAction(gameId, rawAction, spec) {
 
     if (restoreEnergy.targets === '$team') {
       restoreEnergy.targets = spec.memberIds;
+    } else {
+      restoreEnergy.targets = toArray(restoreEnergy.targets ?? spec.ownerId);
     }
-    restoreEnergy.targets ??= [spec.ownerId];
 
     if (restoreEnergy.flat && Array.isArray(restoreEnergy.flat)) {
       const [r1, r5] = restoreEnergy.flat;
