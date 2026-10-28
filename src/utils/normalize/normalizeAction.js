@@ -235,6 +235,17 @@ export function normalizeAction(gameId, rawAction, spec) {
     );
   }
 
+  if (action.daze) {
+    const daze = action.daze = { ...action.daze };
+
+    daze.attr ??= 'impact';
+    daze.compressed = getCompressed(
+      daze.multipliers,
+      daze.attr,
+      { index: spec.mvIndex, weaponRank: spec.weaponRank },
+    );
+  }
+
   // Resolve inflict status $mode
   if (action.inflict?.status) {
     action.inflict = { ...action.inflict };

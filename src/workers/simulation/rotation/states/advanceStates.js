@@ -1,4 +1,4 @@
-import { GI, WW } from '@/data';
+import { GI, WW, ZZZ } from '@/data';
 import { advanceIcds } from './icd';
 import { getAuraBoundary, advanceAuraTimers, fireAuraTicks } from './aura';
 import {
@@ -15,6 +15,7 @@ import {
 } from './effects';
 import { advanceCooldowns } from './cooldowns';
 import { advanceShielded } from './shielded';
+import { advanceDaze } from './daze';
 
 const getBoundary = (ctx) => {
   const { gameId } = ctx.cache;
@@ -48,6 +49,10 @@ const advanceTimers = (ctx, step) => {
   if (gameId === WW) {
     advanceNegativeStatusTimers(ctx, step);
     advanceTuneTimers(ctx, step);
+  }
+
+  if (gameId === ZZZ) {
+    advanceDaze(ctx, step);
   }
 
   advanceEffectTimers(ctx, step);

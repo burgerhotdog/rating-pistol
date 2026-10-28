@@ -1,4 +1,4 @@
-import { GI, WW } from '@/data';
+import { GI, WW, ZZZ } from '@/data';
 
 export const initStates = (gameId, memberIds) => {
   const initPerMember = (init = () => ({})) =>
@@ -27,6 +27,12 @@ export const initStates = (gameId, memberIds) => {
     ...(gameId === WW && {
       negativeStatuses: {},
       tune: { offTune: 0 },
+    }),
+    ...(gameId === ZZZ && {
+      daze: {
+        stunned: false,
+        gauge: 0,
+      },
     }),
   };
 };
