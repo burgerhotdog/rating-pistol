@@ -271,6 +271,19 @@
         "material": 135
       }
     ],
+    "skillLevelUpgradeCostsPrecomputed": [
+      4.21,
+      6.32,
+      12.64,
+      18.96,
+      25.29,
+      37.93,
+      94.82,
+      148.12,
+      189.65,
+      231.18,
+      284.47
+    ],
     "domains": {
       "money": {
         "stamina": 20,

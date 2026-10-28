@@ -1,6 +1,5 @@
 {
   "1011": {
-    "disabled": true,
     "name": "Anby",
     "version": 1.0,
     "id": 1011,
@@ -18,13 +17,14 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
-        "name": "Basic Attack: Turbo Volt 1st-Hit DMG Multiplier",
+      "basicAttack": {
+        "name": "Basic Attack",
         "actions": [
           {
-            "name": "Basic Attack: Turbo Volt 1st-Hit DMG Multiplier",
+            "name": "Basic Attack: Turbo Volt 1",
             "type": "basicAttack",
             "damage": {
+              "element": "physical",
               "multipliers": [
                 {
                   "mv": [
@@ -47,97 +47,8 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Basic Attack: Turbo Volt 2nd-Hit DMG Multiplier",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.337,
-                    0.368,
-                    0.399,
-                    0.43,
-                    0.461,
-                    0.492,
-                    0.523,
-                    0.554,
-                    0.585,
-                    0.616,
-                    0.647,
-                    0.678,
-                    0.709,
-                    0.74,
-                    0.771,
-                    0.802
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Basic Attack: Turbo Volt 3rd-Hit DMG Multiplier",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.136,
-                    1.24,
-                    1.344,
-                    1.448,
-                    1.552,
-                    1.656,
-                    1.76,
-                    1.864,
-                    1.968,
-                    2.072,
-                    2.176,
-                    2.28,
-                    2.384,
-                    2.488,
-                    2.592,
-                    2.696
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Basic Attack: Turbo Volt 4th-Hit DMG Multiplier",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    2.391,
-                    2.609,
-                    2.827,
-                    3.045,
-                    3.263,
-                    3.481,
-                    3.699,
-                    3.917,
-                    4.135,
-                    4.353,
-                    4.571,
-                    4.789,
-                    5.007,
-                    5.225,
-                    5.443,
-                    5.661
-                  ],
-                  "anomaly": 17247
-                }
-              ]
-            }
-          },
-          {
-            "name": "Basic Attack: Turbo Volt 1st-Hit Daze Multiplier",
-            "type": "basicAttack",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -163,9 +74,34 @@
             }
           },
           {
-            "name": "Basic Attack: Turbo Volt 2nd-Hit Daze Multiplier",
+            "name": "Basic Attack: Turbo Volt 2",
             "type": "basicAttack",
             "damage": {
+              "element": "physical",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.337,
+                    0.368,
+                    0.399,
+                    0.43,
+                    0.461,
+                    0.492,
+                    0.523,
+                    0.554,
+                    0.585,
+                    0.616,
+                    0.647,
+                    0.678,
+                    0.709,
+                    0.74,
+                    0.771,
+                    0.802
+                  ]
+                }
+              ]
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -191,9 +127,34 @@
             }
           },
           {
-            "name": "Basic Attack: Turbo Volt 3rd-Hit Daze Multiplier",
+            "name": "Basic Attack: Turbo Volt 3",
             "type": "basicAttack",
             "damage": {
+              "element": "physical",
+              "multipliers": [
+                {
+                  "mv": [
+                    1.136,
+                    1.24,
+                    1.344,
+                    1.448,
+                    1.552,
+                    1.656,
+                    1.76,
+                    1.864,
+                    1.968,
+                    2.072,
+                    2.176,
+                    2.28,
+                    2.384,
+                    2.488,
+                    2.592,
+                    2.696
+                  ]
+                }
+              ]
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -219,9 +180,34 @@
             }
           },
           {
-            "name": "Basic Attack: Turbo Volt 4th-Hit Daze Multiplier",
+            "name": "Basic Attack: Turbo Volt 4",
             "type": "basicAttack",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    2.391,
+                    2.609,
+                    2.827,
+                    3.045,
+                    3.263,
+                    3.481,
+                    3.699,
+                    3.917,
+                    4.135,
+                    4.353,
+                    4.571,
+                    4.789,
+                    5.007,
+                    5.225,
+                    5.443,
+                    5.661
+                  ],
+                  "anomaly": 17247
+                }
+              ]
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -247,7 +233,7 @@
             }
           },
           {
-            "name": "Basic Attack: Thunderbolt DMG Multiplier",
+            "name": "Basic Attack: Thunderbolt",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -273,12 +259,8 @@
                   "anomaly": 12750
                 }
               ]
-            }
-          },
-          {
-            "name": "Basic Attack: Thunderbolt Daze Multiplier",
-            "type": "basicAttack",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -306,12 +288,13 @@
         ]
       },
       "dodge": {
-        "name": "Dash Attack: Taser Blast DMG Multiplier",
+        "name": "Dodge",
         "actions": [
           {
-            "name": "Dash Attack: Taser Blast DMG Multiplier",
-            "type": "dodge",
+            "name": "Dash Attack: Taser Blast",
+            "type": "dashAttack",
             "damage": {
+              "element": "physical",
               "multipliers": [
                 {
                   "mv": [
@@ -334,12 +317,8 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Dash Attack: Taser Blast Daze Multiplier",
-            "type": "dodge",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -365,8 +344,8 @@
             }
           },
           {
-            "name": "Dodge Counter: Thunderclap DMG Multiplier",
-            "type": "dodge",
+            "name": "Dodge Counter: Thunderclap",
+            "type": "dodgeCounter",
             "damage": {
               "multipliers": [
                 {
@@ -391,12 +370,8 @@
                   "anomaly": 6163
                 }
               ]
-            }
-          },
-          {
-            "name": "Dodge Counter: Thunderclap Daze Multiplier",
-            "type": "dodge",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -424,11 +399,11 @@
         ]
       },
       "assist": {
-        "name": "Quick Assist: Thunderfall DMG Multiplier",
+        "name": "Assist",
         "actions": [
           {
-            "name": "Quick Assist: Thunderfall DMG Multiplier",
-            "type": "assist",
+            "name": "Quick Assist: Thunderfall",
+            "type": "quickAssist",
             "damage": {
               "multipliers": [
                 {
@@ -452,12 +427,8 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Quick Assist: Thunderfall Daze Multiplier",
-            "type": "assist",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -483,9 +454,9 @@
             }
           },
           {
-            "name": "Defensive Assist: Flash Light Defensive Daze Multiplier",
-            "type": "assist",
-            "damage": {
+            "name": "Defensive Assist: Flash Light Defensive",
+            "type": "defensiveAssist",
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -511,9 +482,9 @@
             }
           },
           {
-            "name": "Defensive Assist: Flash Heavy Defensive Daze Multiplier",
-            "type": "assist",
-            "damage": {
+            "name": "Defensive Assist: Flash Heavy Defensive",
+            "type": "defensiveAssist",
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -539,9 +510,9 @@
             }
           },
           {
-            "name": "Defensive Assist: Flash Chain Defensive Daze Multiplier",
-            "type": "assist",
-            "damage": {
+            "name": "Defensive Assist: Flash Chain Defensive",
+            "type": "defensiveAssist",
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -567,8 +538,8 @@
             }
           },
           {
-            "name": "Assist Follow-Up: Lightning Whirl DMG Multiplier",
-            "type": "assist",
+            "name": "Assist Follow-Up: Lightning Whirl",
+            "type": "assistFollowUp",
             "damage": {
               "multipliers": [
                 {
@@ -593,12 +564,8 @@
                   "anomaly": 31322
                 }
               ]
-            }
-          },
-          {
-            "name": "Assist Follow-Up: Lightning Whirl Daze Multiplier",
-            "type": "assist",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -625,11 +592,11 @@
           }
         ]
       },
-      "special": {
-        "name": "Special Attack: Fork Lightning DMG Multiplier",
+      "specialAttack": {
+        "name": "Special Attack",
         "actions": [
           {
-            "name": "Special Attack: Fork Lightning DMG Multiplier",
+            "name": "Special Attack: Fork Lightning",
             "type": "specialAttack",
             "damage": {
               "multipliers": [
@@ -654,12 +621,8 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Special Attack: Fork Lightning Daze Multiplier",
-            "type": "specialAttack",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -685,8 +648,8 @@
             }
           },
           {
-            "name": "EX Special Attack: Lightning Bolt DMG Multiplier",
-            "type": "specialAttack",
+            "name": "EX Special Attack: Lightning Bolt",
+            "type": "exSpecialAttack",
             "damage": {
               "multipliers": [
                 {
@@ -711,12 +674,8 @@
                   "anomaly": 53237
                 }
               ]
-            }
-          },
-          {
-            "name": "EX Special Attack: Lightning Bolt Daze Multiplier",
-            "type": "specialAttack",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -743,11 +702,11 @@
           }
         ]
       },
-      "chain": {
-        "name": "Chain Attack: Electro Engine DMG Multiplier",
+      "chainAttack": {
+        "name": "Chain Attack",
         "actions": [
           {
-            "name": "Chain Attack: Electro Engine DMG Multiplier",
+            "name": "Chain Attack: Electro Engine",
             "type": "chainAttack",
             "damage": {
               "multipliers": [
@@ -773,12 +732,8 @@
                   "anomaly": 34283
                 }
               ]
-            }
-          },
-          {
-            "name": "Chain Attack: Electro Engine Daze Multiplier",
-            "type": "chainAttack",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -804,8 +759,8 @@
             }
           },
           {
-            "name": "Ultimate: Overdrive Engine DMG Multiplier",
-            "type": "chainAttack",
+            "name": "Ultimate: Overdrive Engine",
+            "type": "ultimate",
             "damage": {
               "multipliers": [
                 {
@@ -830,12 +785,8 @@
                   "anomaly": 21003
                 }
               ]
-            }
-          },
-          {
-            "name": "Ultimate: Overdrive Engine Daze Multiplier",
-            "type": "chainAttack",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -863,7 +814,19 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13101,
+      "setCounts": {
+        "33200": 4,
+        "31200": 2
+      },
+      "rotation": [
+        "basicAttack.0",
+        "basicAttack.1",
+        "basicAttack.2",
+        "specialAttack.1"
+      ]
+    }
   },
   "1021": {
     "disabled": true,
@@ -885,7 +848,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Kitty Slash 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -1553,7 +1516,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Surprise Attack DMG Multiplier",
         "actions": [
           {
@@ -1671,7 +1634,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Claw Swipe DMG Multiplier",
         "actions": [
           {
@@ -1813,7 +1776,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Cunning Combo 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -2586,7 +2549,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Sugarcoated Bullet DMG Multiplier",
         "actions": [
           {
@@ -2819,7 +2782,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Ether Shellacking Bombard DMG Multiplier",
         "actions": [
           {
@@ -3075,7 +3038,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Warmup Sparks 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -4107,7 +4070,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Raging Fire DMG Multiplier",
         "actions": [
           {
@@ -4225,7 +4188,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Uplifting Flame DMG Multiplier",
         "actions": [
           {
@@ -4367,7 +4330,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Crushing Strike 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -5207,7 +5170,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Cease Thoughts DMG Multiplier",
         "actions": [
           {
@@ -5468,7 +5431,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Frostbound Oath DMG Multiplier",
         "actions": [
           {
@@ -5667,7 +5630,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Wipeout 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -6278,7 +6241,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Clean Sweep Spinning Slash DMG Multiplier",
         "actions": [
           {
@@ -6622,7 +6585,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Sorry... DMG Multiplier",
         "actions": [
           {
@@ -6763,7 +6726,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Rampaging Slash 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -7545,7 +7508,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Stance Switch Impact Increase",
         "actions": [
           {
@@ -7945,7 +7908,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Road Rage Slam DMG Multiplier",
         "actions": [
           {
@@ -8113,7 +8076,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Full Firepower Standing Fire DMG Multiplier",
         "actions": [
           {
@@ -8753,7 +8716,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Stand Still 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -8983,7 +8946,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Starlight Mirage DMG Multiplier",
         "actions": [
           {
@@ -9124,7 +9087,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Kazahana 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -9903,7 +9866,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Miyuki DMG Multiplier",
         "actions": [
           {
@@ -10078,7 +10041,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Spring's Call DMG Multiplier",
         "actions": [
           {
@@ -10219,7 +10182,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Smash 'n' Bash 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -10939,7 +10902,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Hammer Time Strike DMG Multiplier",
         "actions": [
           {
@@ -11283,7 +11246,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Natural Disaster DMG Multiplier",
         "actions": [
           {
@@ -11482,7 +11445,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Enthusiastic Drills 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -12315,7 +12278,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Spin, Bro! DMG Multiplier",
         "actions": [
           {
@@ -12489,7 +12452,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Go Go Go! DMG Multiplier",
         "actions": [
           {
@@ -12631,7 +12594,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Debt Reconciliation 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -13124,7 +13087,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Fiscal Fist Active Attack DMG Multiplier",
         "actions": [
           {
@@ -13469,7 +13432,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Signed and Sealed DMG Multiplier",
         "actions": [
           {
@@ -13611,7 +13574,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Making Rice Cakes 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -14332,7 +14295,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Cooling Bento 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -14732,7 +14695,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Pudding Slash DMG Multiplier",
         "actions": [
           {
@@ -14873,7 +14836,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Moon Hunter 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -15877,7 +15840,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Time to Hunt DMG Multiplier",
         "actions": [
           {
@@ -16108,7 +16071,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: As You Wish DMG Multiplier",
         "actions": [
           {
@@ -16250,7 +16213,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Lady's Bat 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -17081,7 +17044,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Cheer On! ATK Increase",
         "actions": [
           {
@@ -17338,7 +17301,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Grand Slam! DMG Multiplier",
         "actions": [
           {
@@ -17479,7 +17442,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: L-Form Thundering Fist 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -18708,7 +18671,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: V-Form Sunrise Uppercut DMG Multiplier",
         "actions": [
           {
@@ -18883,7 +18846,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: V-Form Scorching Sun DMG Multiplier",
         "actions": [
           {
@@ -19025,7 +18988,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Direct Flame Blend 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -19749,7 +19712,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Intense Heat Aging Method DMG Multiplier",
         "actions": [
           {
@@ -20150,7 +20113,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Fuel-Fed Flame DMG Multiplier",
         "actions": [
           {
@@ -20291,7 +20254,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: High-Pressure Spike 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -20813,7 +20776,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Obstruction Removal DMG Multiplier",
         "actions": [
           {
@@ -21044,7 +21007,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Collaborative Construction DMG Multiplier",
         "actions": [
           {
@@ -21186,7 +21149,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Saw Teeth Trimming 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -22362,7 +22325,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Drift DMG Multiplier",
         "actions": [
           {
@@ -22537,7 +22500,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Avalanche DMG Multiplier",
         "actions": [
           {
@@ -22679,7 +22642,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Cloud Piercer 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -23626,7 +23589,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Nowhere to Hide DMG Multiplier",
         "actions": [
           {
@@ -23801,7 +23764,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Kai - Hanare DMG Multiplier",
         "actions": [
           {
@@ -24000,7 +23963,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Whack the Dimwit 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -24522,7 +24485,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Beat the Blockhead DMG Multiplier",
         "actions": [
           {
@@ -24640,7 +24603,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Code of Conduct DMG Multiplier",
         "actions": [
           {
@@ -24781,7 +24744,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Stance: Jougen 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -25673,7 +25636,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Ruten DMG Multiplier",
         "actions": [
           {
@@ -25875,7 +25838,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Celestial Harmony DMG Multiplier",
         "actions": [
           {
@@ -26043,7 +26006,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Don't Move! 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -27020,7 +26983,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Buckshot Blast DMG Multiplier",
         "actions": [
           {
@@ -27138,7 +27101,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Eradication Mode DMG Multiplier",
         "actions": [
           {
@@ -27279,7 +27242,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Penultimate 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -28113,7 +28076,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Sunlit Glory DMG Multiplier",
         "actions": [
           {
@@ -28231,7 +28194,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Tranquil Serenade DMG Multiplier",
         "actions": [
           {
@@ -28372,7 +28335,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Dancing Blades 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -29438,7 +29401,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Aerial Sweep DMG Multiplier",
         "actions": [
           {
@@ -29556,7 +29519,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Flowers of Sin DMG Multiplier",
         "actions": [
           {
@@ -29698,7 +29661,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Lightning Strike 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -30362,7 +30325,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Thunder Shield Rush DMG Multiplier",
         "actions": [
           {
@@ -30537,7 +30500,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Final Judgment DMG Multiplier",
         "actions": [
           {
@@ -30679,7 +30642,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Load Up and Roll Out 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -31233,7 +31196,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Tire Spin DMG Multiplier",
         "actions": [
           {
@@ -31576,7 +31539,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack:\u00a0Buckle Up DMG Multiplier",
         "actions": [
           {
@@ -31718,7 +31681,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Dark Abyss Quartet 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -32782,7 +32745,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Soul Hunter - Judgment DMG Multiplier",
         "actions": [
           {
@@ -32900,7 +32863,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Trick of Fate Slash DMG Multiplier",
         "actions": [
           {
@@ -33042,7 +33005,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: High-Pressure Flamethrower 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -33708,7 +33671,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Blazing Chamber DMG Multiplier",
         "actions": [
           {
@@ -34053,7 +34016,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Overheated Barrel DMG Multiplier",
         "actions": [
           {
@@ -34252,7 +34215,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: \"Capriccio\" 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -35122,7 +35085,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: \"Windchimes & Oaths\" Squad Members DMG Increase",
         "actions": [
           {
@@ -35351,7 +35314,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: \"Tipsy Concerto\" DMG Multiplier",
         "actions": [
           {
@@ -35519,7 +35482,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Razor Wire 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -36240,7 +36203,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Locked Position 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -36526,7 +36489,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Lunalux - Snare DMG Multiplier",
         "actions": [
           {
@@ -36724,7 +36687,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Feathered Strike 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -37418,7 +37381,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Song of Silver Wings DMG Multiplier",
         "actions": [
           {
@@ -37536,7 +37499,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Chorus of Celestial Wings DMG Multiplier",
         "actions": [
           {
@@ -37678,7 +37641,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Glacial Judgment 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -38429,7 +38392,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Shatterfrost Surge DMG Multiplier",
         "actions": [
           {
@@ -38599,7 +38562,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Temporary Alliance DMG Multiplier",
         "actions": [
           {
@@ -38740,7 +38703,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Swift Strike 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -39210,7 +39173,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Rending Claw DMG Multiplier",
         "actions": [
           {
@@ -39443,7 +39406,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Hey, Didn't Expect That, Right? DMG Multiplier",
         "actions": [
           {
@@ -39584,7 +39547,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Cold-Bore Shot 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -40476,7 +40439,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Spectral Flash DMG Multiplier",
         "actions": [
           {
@@ -40594,7 +40557,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Stygian Guide DMG Multiplier",
         "actions": [
           {
@@ -40736,7 +40699,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Cirrus Strike 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -41519,7 +41482,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Shadow-Ignition DMG Multiplier",
         "actions": [
           {
@@ -41923,7 +41886,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Auric Ink Rush DMG Multiplier",
         "actions": [
           {
@@ -42122,7 +42085,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Penetrating Shock 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -42847,7 +42810,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Celestial Thunder DMG Multiplier",
         "actions": [
           {
@@ -43135,7 +43098,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Leaping Thunderstrike DMG Multiplier",
         "actions": [
           {
@@ -43277,7 +43240,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Tiger Seven Forms - Flaming Claw 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -44053,7 +44016,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Tiger Seven Forms - Mountain-Descending Tiger DMG Multiplier",
         "actions": [
           {
@@ -44171,7 +44134,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Tiger Cauldron Collapse DMG Multiplier",
         "actions": [
           {
@@ -44369,7 +44332,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Celestial Overture 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -45209,7 +45172,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Piercing Dawn DMG Multiplier",
         "actions": [
           {
@@ -45385,7 +45348,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Starfall Intermission DMG Multiplier",
         "actions": [
           {
@@ -45526,7 +45489,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Tanuki Claws 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -46444,7 +46407,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Gummy Bombardment DMG Multiplier",
         "actions": [
           {
@@ -46644,7 +46607,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Prank Assault DMG Multiplier",
         "actions": [
           {
@@ -46812,7 +46775,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Unyielding Strikes 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -47367,7 +47330,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Sonic Pressure-Point Strike DMG Multiplier",
         "actions": [
           {
@@ -47656,7 +47619,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Anointed with Wok Steam DMG Multiplier",
         "actions": [
           {
@@ -47850,7 +47813,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Swiftedge 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -49137,7 +49100,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Guiding Tides DMG Multiplier",
         "actions": [
           {
@@ -49538,7 +49501,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Smite the Wicked DMG Multiplier",
         "actions": [
           {
@@ -49793,7 +49756,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Blazing Wind Slash 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -50768,7 +50731,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Return to Ashes DMG Multiplier",
         "actions": [
           {
@@ -50944,7 +50907,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Blazing Eruption DMG Multiplier",
         "actions": [
           {
@@ -51086,7 +51049,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Orbital Combo 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -51927,7 +51890,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Symphony of the Reaper - Storm Whim DMG Multiplier",
         "actions": [
           {
@@ -52183,7 +52146,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Stage of Brilliance DMG Multiplier",
         "actions": [
           {
@@ -52408,7 +52371,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Chrysanthemum Wheel Dance 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -53131,7 +53094,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Withered in Frost DMG Multiplier",
         "actions": [
           {
@@ -53306,7 +53269,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Tempest of Frosty Petals DMG Multiplier",
         "actions": [
           {
@@ -53448,7 +53411,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Towering Peaks 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -54487,7 +54450,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "EX Special Attack: Earth Shaker DMG Multiplier",
         "actions": [
           {
@@ -54834,7 +54797,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Blazing Wrath DMG Multiplier",
         "actions": [
           {
@@ -54976,7 +54939,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Happy to Be of Service 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -55758,7 +55721,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "EX Special Attack: Get Lost! DMG Multiplier",
         "actions": [
           {
@@ -56047,7 +56010,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Welcome Mat DMG Multiplier",
         "actions": [
           {
@@ -56189,7 +56152,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Mischief Meteor Hammer 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -56771,7 +56734,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Star Shooter DMG Multiplier",
         "actions": [
           {
@@ -57060,7 +57023,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Don't Mess With the Cat DMG Multiplier",
         "actions": [
           {
@@ -57227,7 +57190,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Sweet Melody 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -58123,7 +58086,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Full-Sugar Electronica DMG Multiplier",
         "actions": [
           {
@@ -58356,7 +58319,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Dream Collab DMG Multiplier",
         "actions": [
           {
@@ -58497,7 +58460,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Shooting Star Step 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -59223,7 +59186,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: The Weight of Love DMG Multiplier",
         "actions": [
           {
@@ -59342,7 +59305,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Comet Gravity DMG Multiplier",
         "actions": [
           {
@@ -59484,7 +59447,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Tongue Flick 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -60152,7 +60115,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Bared Fangs DMG Multiplier",
         "actions": [
           {
@@ -60328,7 +60291,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Gang Operation DMG Multiplier",
         "actions": [
           {
@@ -60470,7 +60433,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Knight's Technique 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -61139,7 +61102,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Drive Suppression DMG Multiplier",
         "actions": [
           {
@@ -61429,7 +61392,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Knight's Swagger DMG Multiplier",
         "actions": [
           {
@@ -61570,7 +61533,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Sweeping Edge 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -62267,7 +62230,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Execution - Cold Flash DMG Multiplier",
         "actions": [
           {
@@ -62557,7 +62520,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Hanging Judgment DMG Multiplier",
         "actions": [
           {
@@ -62699,7 +62662,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Emberglow 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -63425,7 +63388,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Fading Rays DMG Multiplier",
         "actions": [
           {
@@ -63572,7 +63535,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Ceremonial March DMG Multiplier",
         "actions": [
           {
@@ -63884,7 +63847,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Dancing Fans 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -64496,7 +64459,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Wind Shear - Purging Surge DMG Multiplier",
         "actions": [
           {
@@ -64872,7 +64835,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Thousandfold Spiral DMG Multiplier",
         "actions": [
           {
@@ -65014,7 +64977,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "Basic Attack: Engineering Insurance 1st-Hit DMG Multiplier",
         "actions": [
           {
@@ -65626,7 +65589,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "Special Attack: Thermal Shutdown DMG Multiplier",
         "actions": [
           {
@@ -66201,7 +66164,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain Attack: Impact Drill DMG Multiplier",
         "actions": [
           {
@@ -66342,7 +66305,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "basic",
         "actions": [
           {
@@ -67185,7 +67148,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "special",
         "actions": [
           {
@@ -67382,7 +67345,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain",
         "actions": [
           {
@@ -67546,7 +67509,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "basic",
         "actions": [
           {
@@ -68271,7 +68234,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "special",
         "actions": [
           {
@@ -68447,7 +68410,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "Chain",
         "actions": [
           {
@@ -68589,7 +68552,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "",
         "actions": [
           {
@@ -69657,7 +69620,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "",
         "actions": [
           {
@@ -69972,7 +69935,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "",
         "actions": [
           {
@@ -70114,7 +70077,7 @@
     },
     "effects": [],
     "skills": {
-      "basic": {
+      "basicAttack": {
         "name": "",
         "actions": [
           {
@@ -70726,7 +70689,7 @@
           }
         ]
       },
-      "special": {
+      "specialAttack": {
         "name": "",
         "actions": [
           {
@@ -71184,7 +71147,7 @@
           }
         ]
       },
-      "chain": {
+      "chainAttack": {
         "name": "",
         "actions": [
           {

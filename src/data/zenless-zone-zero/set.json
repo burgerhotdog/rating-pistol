@@ -126,7 +126,6 @@
     ]
   },
   "31200": {
-    "disabled": true,
     "name": "Shockstar Disco",
     "version": 1.0,
     "id": 31200,
@@ -135,7 +134,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "impact%",
     "effects": [
       {
         "bonus": 2,
@@ -781,7 +780,6 @@
     ]
   },
   "33200": {
-    "disabled": true,
     "name": "King of the Summit",
     "version": 2.0,
     "id": 33200,
@@ -790,7 +788,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "daze%",
     "effects": [
       {
         "bonus": 2,
@@ -809,7 +807,7 @@
         },
         "stores": "$team",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": [
@@ -835,7 +833,7 @@
         },
         "stores": "$team",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": [

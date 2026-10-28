@@ -84,7 +84,6 @@
     "effects": []
   },
   "12007": {
-    "disabled": true,
     "name": "[Vortex] Revolver",
     "version": 1.0,
     "id": 12007,
@@ -95,10 +94,27 @@
       "baseAtk": 475,
       "atk%": 0.2
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "exSpecialAttack"
+              }
+            }
+          },
+          "stats": {
+            "daze%": [
+              0.1,
+              0.16
+            ]
+          }
+        }
+      }
+    ]
   },
   "12008": {
-    "disabled": true,
     "name": "[Vortex] Arrow",
     "version": 1.0,
     "id": 12008,
@@ -109,10 +125,20 @@
       "baseAtk": 475,
       "impact%": 0.12
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "daze%": [
+              0.08,
+              0.12
+            ]
+          }
+        }
+      }
+    ]
   },
   "12009": {
-    "disabled": true,
     "name": "[Vortex] Hatchet",
     "version": 1.0,
     "id": 12009,
@@ -123,7 +149,24 @@
       "baseAtk": 475,
       "energyRegen%": 0.4
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "swap",
+          "field": "onField",
+          "cooldown": 20000,
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "impact%": [
+              0.09,
+              0.13
+            ]
+          }
+        }
+      }
+    ]
   },
   "12010": {
     "disabled": true,
@@ -528,7 +571,6 @@
     "effects": []
   },
   "13101": {
-    "disabled": true,
     "name": "Demara Battery Mark II",
     "version": 1.0,
     "id": 13101,
@@ -539,7 +581,42 @@
       "baseAtk": 624,
       "impact%": 0.15
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "electricDmgBonus%": [
+              0.15,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "dodgeCounter",
+                  "assistAttack"
+                ]
+              }
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "energyGenerationRate%": [
+              0.18,
+              0.275
+            ]
+          }
+        }
+      }
+    ]
   },
   "13103": {
     "disabled": true,
