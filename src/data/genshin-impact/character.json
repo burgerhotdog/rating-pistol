@@ -7719,7 +7719,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 1500
           },
           {
             "name": "Stone Stele",
