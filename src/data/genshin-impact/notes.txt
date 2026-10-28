@@ -111,6 +111,8 @@ Characters:
     Nicole
         coordinated attack uses own stats
         No constellations
+    Nilou
+        No constellations
     Odette
         Only plume
         Marvelous Splendor applies to $ally
