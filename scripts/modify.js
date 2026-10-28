@@ -19,18 +19,13 @@ async function main() {
     if (!charData.disabled) continue;
 
     const naActions = charData.skills.normalAttack.actions;
+    const filteredActions = naActions.filter(
+      (action) => action.name !== 'Plunge Collision'
+    );
 
-    const lastThree = naActions.slice(-3);
-
-    if (
-      lastThree[0]?.name === 'Plunge Collision' &&
-      lastThree[1]?.name === 'Plunging Attack: Low' &&
-      lastThree[2]?.name === 'Plunging Attack: High'
-    ) {
-      const [collision] = naActions.splice(-3, 1);
-      naActions.push(collision);
-
-      console.log(`Reordered plunge actions for ${charData.name}`);
+    if (filteredActions.length !== naActions.length) {
+      charData.skills.normalAttack.actions = filteredActions;
+      console.log(`Removed Plunge Collision actions for ${charData.name}`);
     }
   }
 
