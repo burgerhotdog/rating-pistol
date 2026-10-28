@@ -113,6 +113,148 @@
             "cryoDmgBonus%": 0.18
           }
         }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalBurst.3",
+                "elementalBurst.4"
+              ]
+            }
+          },
+          "stats": {
+            "damageMv%": -0.8
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "ref": "soumetsuCuttingC2",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 19,
+          "offset": 250
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 250,
+          "action": [
+            "elementalBurst.3",
+            "elementalBurst.3"
+          ]
+        }
+      },
+      {
+        "rank": 2,
+        "ref": "soumetsuBloomC2",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 1,
+          "offset": 5000
+        },
+        "use": {
+          "when": "interval",
+          "action": [
+            "elementalBurst.4",
+            "elementalBurst.4"
+          ]
+        }
+      },
+      {
+        "rank": 4,
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalBurst.1",
+                "elementalBurst.2",
+                "elementalBurst.3",
+                "elementalBurst.4"
+              ]
+            }
+          },
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "defReduction%": 0.3
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "chargedAttack"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": "caBuffCd"
+                  }
+                }
+              }
+            ]
+          },
+          "stats": {
+            "damageMv%": 2.98
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "ref": "caBuffGrace",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "cooldown": 10500,
+          "uses": 1,
+          "offset": 500
+        },
+        "use": {
+          "when": "interval",
+          "commands": {
+            "type": "apply",
+            "ref": "caBuffCd",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "ref": "caBuffCd",
+        "apply": {
+          "when": "command"
+        }
       }
     ],
     "skills": {
@@ -414,6 +556,67 @@
           },
           {
             "name": "Bloom",
+            "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": [
+                    1.6845,
+                    1.8108,
+                    1.9372,
+                    2.1056,
+                    2.232,
+                    2.3583,
+                    2.5267,
+                    2.6952,
+                    2.8636,
+                    3.0321,
+                    3.2005,
+                    3.369,
+                    3.5796,
+                    3.7901,
+                    4.0007
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Cutting: C2",
+            "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    1.123,
+                    1.2072,
+                    1.2914,
+                    1.4038,
+                    1.488,
+                    1.5722,
+                    1.6845,
+                    1.7968,
+                    1.9091,
+                    2.0214,
+                    2.1337,
+                    2.246,
+                    2.3864,
+                    2.5267,
+                    2.6671
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Bloom: C2",
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
