@@ -254,21 +254,13 @@
             ]
           },
           "cooldown": 6000,
-          "action": [
-            {
-              "restoreEnergy": {
-                "erScaled": 2.4,
-                "critScaled": true
-              }
-            },
-            {
-              "restoreEnergy": {
-                "targets": "$team",
-                "erScaled": 3.6,
-                "critScaled": true
-              }
+          "action": {
+            "restoreEnergy": {
+              "targets": "$team",
+              "erScaled": 4.2,
+              "critScaled": true
             }
-          ]
+          }
         }
       }
     ]
@@ -3607,21 +3599,13 @@
             ]
           },
           "cooldown": 6000,
-          "action": [
-            {
-              "restoreEnergy": {
-                "erScaled": 2.4,
-                "critScaled": true
-              }
-            },
-            {
-              "restoreEnergy": {
-                "targets": "$team",
-                "erScaled": 3.6,
-                "critScaled": true
-              }
+          "action": {
+            "restoreEnergy": {
+              "targets": "$team",
+              "erScaled": 4.2,
+              "critScaled": true
             }
-          ]
+          }
         }
       }
     ]
@@ -6396,21 +6380,13 @@
             ]
           },
           "cooldown": 6000,
-          "action": [
-            {
-              "restoreEnergy": {
-                "erScaled": 2.4,
-                "critScaled": true
-              }
-            },
-            {
-              "restoreEnergy": {
-                "targets": "$team",
-                "erScaled": 3.6,
-                "critScaled": true
-              }
+          "action": {
+            "restoreEnergy": {
+              "targets": "$team",
+              "erScaled": 4.2,
+              "critScaled": true
             }
-          ]
+          }
         }
       }
     ]
@@ -8393,21 +8369,13 @@
             ]
           },
           "cooldown": 6000,
-          "action": [
-            {
-              "restoreEnergy": {
-                "erScaled": 2.4,
-                "critScaled": true
-              }
-            },
-            {
-              "restoreEnergy": {
-                "targets": "$team",
-                "erScaled": 3.6,
-                "critScaled": true
-              }
+          "action": {
+            "restoreEnergy": {
+              "targets": "$team",
+              "erScaled": 4.2,
+              "critScaled": true
             }
-          ]
+          }
         }
       }
     ]
@@ -12019,21 +11987,13 @@
             ]
           },
           "cooldown": 6000,
-          "action": [
-            {
-              "restoreEnergy": {
-                "erScaled": 2.4,
-                "critScaled": true
-              }
-            },
-            {
-              "restoreEnergy": {
-                "targets": "$team",
-                "erScaled": 3.6,
-                "critScaled": true
-              }
+          "action": {
+            "restoreEnergy": {
+              "targets": "$team",
+              "erScaled": 4.2,
+              "critScaled": true
             }
-          ]
+          }
         }
       }
     ]

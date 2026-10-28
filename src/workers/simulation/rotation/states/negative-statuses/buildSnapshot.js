@@ -39,7 +39,7 @@ const STATUSES = {
   }
 };
 
-export const buildSnapshot = (ctx, statusState, runtimeOffset = 0, fixedMv) => {
+export const buildSnapshot = (ctx, statusState, fixedMv) => {
   const { key, stacks, rage } = statusState;
   const status = STATUSES[key];
 
@@ -59,7 +59,7 @@ export const buildSnapshot = (ctx, statusState, runtimeOffset = 0, fixedMv) => {
     name: formatStr(status.id),
     type: 'negativeStatus',
     onFieldId: ctx.states.onFieldId,
-    runtime: ctx.states.runtime + runtimeOffset,
+    runtime: ctx.states.runtime,
     damageType: status.id,
     damage: baseDmg * dmgAmpMult * defMult * resMult,
   };

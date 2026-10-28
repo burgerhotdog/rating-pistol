@@ -21,7 +21,7 @@ function getSplitScale(action, part) {
 
 export const buildSnapshot = (ctx, action, part, options = {}) => {
   const { gameId } = ctx.cache;
-  const { runtimeOffset = 0, snapshotBuffs } = options;
+  const { snapshotBuffs } = options;
   const snapshotOwnerId = action.ownerId;
 
   let { buffMap, buffSpecs } = snapshotBuffs ?? getBuffMap(ctx, {
@@ -52,7 +52,7 @@ export const buildSnapshot = (ctx, action, part, options = {}) => {
     category: action.category,
     type: action.type,
     onFieldId: ctx.states.onFieldId,
-    runtime: ctx.states.runtime + runtimeOffset,
+    runtime: ctx.states.runtime,
     damageType: action.damage?.type,
     unresolved: {
       memo: new Map(),

@@ -2,24 +2,20 @@ import { buildTransformativeReactionSnapshot, buildElevationSnapshot } from '../
 import { consumeAura } from '../consumeAura';
 import { decayElementalAura } from './decayElementalAura';
 
-function tickCharged(ctx, chargedState, offset = 0) {
+function tickCharged(ctx, chargedState) {
   const auraStore = ctx.states.aura;
   const isLunar = ctx.cache.lunarCharged;
 
   if (ctx.saveSnapshots) {
     if (isLunar) {
-      const snapshot = buildElevationSnapshot(ctx, 'lunarCharged');
-      const runtime = snapshot.runtime + offset;
-
-      ctx.snapshots.push({ ...snapshot, runtime });
+      ctx.snapshots.push(buildElevationSnapshot(ctx, 'lunarCharged'));
     } else {
       if (!ctx.states.globalCooldowns.electroCharged) {
         ctx.states.globalCooldowns.electroCharged = 500;
 
-        const snapshot = buildTransformativeReactionSnapshot(ctx, chargedState.ownerId, 'electroCharged', 'electro');
-        const runtime = snapshot.runtime + offset;
-
-        ctx.snapshots.push({ ...snapshot, runtime });
+        ctx.snapshots.push(
+          buildTransformativeReactionSnapshot(ctx, chargedState.ownerId, 'electroCharged', 'electro')
+        );
       }
     }
   }
@@ -36,26 +32,24 @@ function tickCharged(ctx, chargedState, offset = 0) {
   });
 }
 
-export function advanceCharged(ctx, elapsed) {
+const getChargedKey = (ctx) => ctx.cache.lunarCharged ? 'lunarCharged' : 'electroCharged';
+
+export function advanceChargedTimers(ctx, step) {
   const auraStore = ctx.states.aura;
-  const rxnKey = ctx.cache.lunarCharged ? 'lunarCharged' : 'electroCharged';
-  let remaining = elapsed;
+  const chargedState = auraStore[getChargedKey(ctx)];
 
-  while (auraStore[rxnKey] && remaining > 0) {
-    const decrease = Math.min(auraStore[rxnKey].timer, remaining);
-
-    auraStore[rxnKey].timer -= decrease;
-    remaining -= decrease;
-    decayElementalAura(auraStore, 'electro', decrease);
-    decayElementalAura(auraStore, 'hydro', decrease);
-
-    if (auraStore[rxnKey]?.timer === 0) {
-      tickCharged(ctx, auraStore[rxnKey], elapsed - remaining);
-    }
+  if (chargedState) {
+    chargedState.timer -= step;
   }
 
-  if (remaining > 0) {
-    decayElementalAura(auraStore, 'electro', remaining);
-    decayElementalAura(auraStore, 'hydro', remaining);
+  decayElementalAura(auraStore, 'electro', step);
+  decayElementalAura(auraStore, 'hydro', step);
+}
+
+export function fireCharged(ctx) {
+  const chargedState = ctx.states.aura[getChargedKey(ctx)];
+
+  if (chargedState?.timer <= 0) {
+    tickCharged(ctx, chargedState);
   }
 }

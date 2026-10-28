@@ -13,10 +13,7 @@ export function runUseEffect(ctx, state, use = {}, spec = {}) {
     for (const [index, action] of use.action.entries()) {
       if (action.damage && effect.absorbElement && !state.absorbElement) continue;
 
-      const runOptions = {
-        runtimeOffset: spec.runtimeOffset,
-        noDuration: true,
-      };
+      const runOptions = { noDuration: true };
 
       if (effect.snapshotBuffs) {
         runOptions.snapshotBuffs = spec.snapshotBuffs[index];

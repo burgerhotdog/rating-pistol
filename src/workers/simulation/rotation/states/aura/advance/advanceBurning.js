@@ -11,12 +11,11 @@ function decayDendroAura(auraStore, elapsed) {
   return !auraStore.dendro;
 }
 
-function tickBurning(ctx, burningState, offset = 0) {
+function tickBurning(ctx, burningState) {
   if (ctx.saveSnapshots) {
-    const snapshot = buildTransformativeReactionSnapshot(ctx, burningState.ownerId, 'burning', 'pyro');
-    const runtime = snapshot.runtime + offset;
-
-    ctx.snapshots.push({ ...snapshot, runtime });
+    ctx.snapshots.push(
+      buildTransformativeReactionSnapshot(ctx, burningState.ownerId, 'burning', 'pyro')
+    );
   }
 
   burningState.timer = 250;
@@ -34,25 +33,19 @@ function tickBurning(ctx, burningState, offset = 0) {
   });
 }
 
-export function advanceBurning(ctx, elapsed) {
+export function advanceBurningTimers(ctx, step) {
   const auraStore = ctx.states.aura;
-  let remaining = elapsed;
+  if (!auraStore.burning) return;
 
-  while (auraStore.burning && remaining > 0) {
-    const decrease = Math.min(auraStore.burning.timer, remaining);
+  auraStore.burning.timer -= step;
+  decayElementalAura(auraStore, 'pyro', step);
+  decayDendroAura(auraStore, step);
+}
 
-    auraStore.burning.timer -= decrease;
-    remaining -= decrease;
-    decayElementalAura(auraStore, 'pyro', decrease);
-    decayDendroAura(auraStore, decrease);
+export function fireBurning(ctx) {
+  const burningState = ctx.states.aura.burning;
 
-    if (auraStore.burning?.timer === 0) {
-      tickBurning(ctx, auraStore.burning, elapsed - remaining);
-    }
-  }
-
-  if (remaining > 0) {
-    decayElementalAura(auraStore, 'pyro', remaining);
-    decayElementalAura(auraStore, 'dendro', remaining);
+  if (burningState?.timer <= 0) {
+    tickBurning(ctx, burningState);
   }
 }

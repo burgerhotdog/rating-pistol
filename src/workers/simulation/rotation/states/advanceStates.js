@@ -1,32 +1,89 @@
 import { GI, WW } from '@/data';
 import { advanceIcds } from './icd';
-import { advanceAuras } from './aura';
-import { advanceNegativeStatuses } from './negative-statuses';
-import { advanceTune } from './tune';
-import { advanceEffects } from './effects';
+import { getAuraBoundary, advanceAuraTimers, fireAuraTicks } from './aura';
+import {
+  getNegativeStatusBoundary,
+  advanceNegativeStatusTimers,
+  fireNegativeStatusTicks,
+} from './negative-statuses';
+import { getTuneBoundary, advanceTuneTimers } from './tune';
+import {
+  getEffectBoundary,
+  advanceEffectTimers,
+  fireEffectUses,
+  fireEffectExpiries,
+} from './effects';
 import { advanceCooldowns } from './cooldowns';
 import { advanceShielded } from './shielded';
 
-export const advanceStates = (ctx, elapsed) => {
-  if (!elapsed) return;
-  const { cache, states, saveSnapshots } = ctx;
-  const { gameId } = cache;
+const getBoundary = (ctx) => {
+  const { gameId } = ctx.cache;
+  let boundary = getEffectBoundary(ctx);
 
   if (gameId === GI) {
-    advanceAuras(ctx, elapsed);
-    advanceIcds(ctx, elapsed);
+    boundary = Math.min(boundary, getAuraBoundary(ctx));
   }
 
   if (gameId === WW) {
-    advanceNegativeStatuses(ctx, elapsed);
-    advanceTune(ctx, elapsed);
+    boundary = Math.min(
+      boundary,
+      getNegativeStatusBoundary(ctx),
+      getTuneBoundary(ctx),
+    );
   }
 
-  advanceEffects(ctx, elapsed);
-  advanceCooldowns(ctx, elapsed);
-  advanceShielded(ctx, elapsed);
+  return boundary;
+};
 
-  if (saveSnapshots) {
-    states.runtime += elapsed;
+// Advances every timer by the same step so anything firing at the end of
+// the step observes a consistent state
+const advanceTimers = (ctx, step) => {
+  const { gameId } = ctx.cache;
+
+  if (gameId === GI) {
+    advanceAuraTimers(ctx, step);
+    advanceIcds(ctx, step);
+  }
+
+  if (gameId === WW) {
+    advanceNegativeStatusTimers(ctx, step);
+    advanceTuneTimers(ctx, step);
+  }
+
+  advanceEffectTimers(ctx, step);
+  advanceCooldowns(ctx, step);
+  advanceShielded(ctx, step);
+};
+
+const fireDue = (ctx) => {
+  const { gameId } = ctx.cache;
+
+  if (gameId === WW) fireNegativeStatusTicks(ctx);
+  if (gameId === GI) fireAuraTicks(ctx);
+
+  fireEffectUses(ctx);
+  fireEffectExpiries(ctx);
+};
+
+export const advanceStates = (ctx, elapsed) => {
+  if (!elapsed) return;
+  const { states, saveSnapshots } = ctx;
+
+  // Interval effects that are already off cooldown fire before time passes
+  fireDue(ctx);
+
+  let remaining = elapsed;
+
+  while (remaining > 0) {
+    const step = Math.min(remaining, getBoundary(ctx));
+
+    advanceTimers(ctx, step);
+    remaining -= step;
+
+    if (saveSnapshots) {
+      states.runtime += step;
+    }
+
+    fireDue(ctx);
   }
 };

@@ -1,4 +1,13 @@
-export function advanceTune(ctx, elapsed) {
+export function getTuneBoundary(ctx) {
+  const { shiftingTimeLeft, interferedTimeLeft } = ctx.states.tune;
+
+  return Math.min(
+    shiftingTimeLeft > 0 ? shiftingTimeLeft : Infinity,
+    interferedTimeLeft > 0 ? interferedTimeLeft : Infinity,
+  );
+}
+
+export function advanceTuneTimers(ctx, elapsed) {
   const { tune } = ctx.states;
 
   if (tune.offTuneCooldown) {
