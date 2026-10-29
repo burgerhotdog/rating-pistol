@@ -248,7 +248,6 @@
     ]
   },
   "31600": {
-    "disabled": true,
     "name": "Swing Jazz",
     "version": 1.0,
     "id": 31600,
@@ -257,7 +256,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "energyRegen%",
     "effects": [
       {
         "bonus": 2,
@@ -271,7 +270,7 @@
         "bonus": 4,
         "stores": "$team",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": [
@@ -915,7 +914,6 @@
     ]
   },
   "33400": {
-    "disabled": true,
     "name": "Moonlight Lullaby",
     "version": 2.2,
     "id": 33400,
@@ -924,7 +922,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "energyRegen%",
     "effects": [
       {
         "bonus": 2,
@@ -943,7 +941,7 @@
         },
         "stores": "$team",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": [

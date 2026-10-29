@@ -619,7 +619,6 @@
     ]
   },
   "13103": {
-    "disabled": true,
     "name": "The Vault",
     "version": 1.0,
     "id": 13103,
@@ -630,7 +629,73 @@
       "baseAtk": 624,
       "energyRegen%": 0.5
     },
-    "effects": []
+    "effects": [
+      {
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "and": [
+                  {
+                    "element": "ether"
+                  },
+                  {
+                    "type": [
+                      "exSpecialAttack",
+                      "chainAttack",
+                      "ultimate"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "duration": 2000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.15,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "and": [
+                  {
+                    "element": "ether"
+                  },
+                  {
+                    "type": [
+                      "exSpecialAttack",
+                      "chainAttack",
+                      "ultimate"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "duration": 2000
+        },
+        "buff": {
+          "stats": {
+            "energyRegen%": [
+              0.5,
+              0.8
+            ]
+          }
+        }
+      }
+    ]
   },
   "13106": {
     "disabled": true,

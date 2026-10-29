@@ -1757,7 +1757,6 @@
     "memberPreset": {}
   },
   "1031": {
-    "disabled": true,
     "name": "Nicole",
     "version": 1.0,
     "id": 1031,
@@ -1777,10 +1776,10 @@
     "effects": [],
     "skills": {
       "basicAttack": {
-        "name": "Basic Attack: Cunning Combo 1st-Hit DMG Multiplier",
+        "name": "Basic Attack",
         "actions": [
           {
-            "name": "Basic Attack: Cunning Combo 1st-Hit DMG Multiplier",
+            "name": "Basic Attack: Cunning Combo 1",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -1805,68 +1804,8 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Basic Attack: Cunning Combo 2nd-Hit DMG Multiplier",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.353,
-                    0.386,
-                    0.419,
-                    0.452,
-                    0.485,
-                    0.518,
-                    0.551,
-                    0.584,
-                    0.617,
-                    0.65,
-                    0.683,
-                    0.716,
-                    0.749,
-                    0.782,
-                    0.815,
-                    0.848
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Basic Attack: Cunning Combo 3rd-Hit DMG Multiplier",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.243,
-                    1.356,
-                    1.469,
-                    1.582,
-                    1.695,
-                    1.808,
-                    1.921,
-                    2.034,
-                    2.147,
-                    2.26,
-                    2.373,
-                    2.486,
-                    2.599,
-                    2.712,
-                    2.825,
-                    2.938
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Basic Attack: Cunning Combo 1st-Hit Daze Multiplier",
-            "type": "basicAttack",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -1892,9 +1831,33 @@
             }
           },
           {
-            "name": "Basic Attack: Cunning Combo 2nd-Hit Daze Multiplier",
+            "name": "Basic Attack: Cunning Combo 2",
             "type": "basicAttack",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.353,
+                    0.386,
+                    0.419,
+                    0.452,
+                    0.485,
+                    0.518,
+                    0.551,
+                    0.584,
+                    0.617,
+                    0.65,
+                    0.683,
+                    0.716,
+                    0.749,
+                    0.782,
+                    0.815,
+                    0.848
+                  ]
+                }
+              ]
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -1920,9 +1883,33 @@
             }
           },
           {
-            "name": "Basic Attack: Cunning Combo 3rd-Hit Daze Multiplier",
+            "name": "Basic Attack: Cunning Combo 3",
             "type": "basicAttack",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.243,
+                    1.356,
+                    1.469,
+                    1.582,
+                    1.695,
+                    1.808,
+                    1.921,
+                    2.034,
+                    2.147,
+                    2.26,
+                    2.373,
+                    2.486,
+                    2.599,
+                    2.712,
+                    2.825,
+                    2.938
+                  ]
+                }
+              ]
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -1948,7 +1935,7 @@
             }
           },
           {
-            "name": "Basic Attack: Do As I Please 1st-Hit DMG Multiplier",
+            "name": "Basic Attack: Do As I Please 1",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -1973,68 +1960,8 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Basic Attack: Do As I Please 2nd-Hit DMG Multiplier",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.353,
-                    0.386,
-                    0.419,
-                    0.452,
-                    0.485,
-                    0.518,
-                    0.551,
-                    0.584,
-                    0.617,
-                    0.65,
-                    0.683,
-                    0.716,
-                    0.749,
-                    0.782,
-                    0.815,
-                    0.848
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Basic Attack: Do As I Please 3rd-Hit DMG Multiplier",
-            "type": "basicAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.243,
-                    1.356,
-                    1.469,
-                    1.582,
-                    1.695,
-                    1.808,
-                    1.921,
-                    2.034,
-                    2.147,
-                    2.26,
-                    2.373,
-                    2.486,
-                    2.599,
-                    2.712,
-                    2.825,
-                    2.938
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Basic Attack: Do As I Please 1st-Hit Daze Multiplier",
-            "type": "basicAttack",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2060,9 +1987,33 @@
             }
           },
           {
-            "name": "Basic Attack: Do As I Please 2nd-Hit Daze Multiplier",
+            "name": "Basic Attack: Do As I Please 2",
             "type": "basicAttack",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.353,
+                    0.386,
+                    0.419,
+                    0.452,
+                    0.485,
+                    0.518,
+                    0.551,
+                    0.584,
+                    0.617,
+                    0.65,
+                    0.683,
+                    0.716,
+                    0.749,
+                    0.782,
+                    0.815,
+                    0.848
+                  ]
+                }
+              ]
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2088,9 +2039,33 @@
             }
           },
           {
-            "name": "Basic Attack: Do As I Please 3rd-Hit Daze Multiplier",
+            "name": "Basic Attack: Do As I Please 3",
             "type": "basicAttack",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.243,
+                    1.356,
+                    1.469,
+                    1.582,
+                    1.695,
+                    1.808,
+                    1.921,
+                    2.034,
+                    2.147,
+                    2.26,
+                    2.373,
+                    2.486,
+                    2.599,
+                    2.712,
+                    2.825,
+                    2.938
+                  ]
+                }
+              ]
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2118,11 +2093,11 @@
         ]
       },
       "dodge": {
-        "name": "Dash Attack: Jack in the Box Forward Dash DMG Multiplier",
+        "name": "Dodge",
         "actions": [
           {
-            "name": "Dash Attack: Jack in the Box Forward Dash DMG Multiplier",
-            "type": "dodge",
+            "name": "Dash Attack: Jack in the Box Forward Dash",
+            "type": "dashAttack",
             "damage": {
               "multipliers": [
                 {
@@ -2146,40 +2121,8 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Dash Attack: Jack in the Box Backward Vault DMG Multiplier",
-            "type": "dodge",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6,
-                    0.655,
-                    0.71,
-                    0.765,
-                    0.82,
-                    0.875,
-                    0.93,
-                    0.985,
-                    1.04,
-                    1.095,
-                    1.15,
-                    1.205,
-                    1.26,
-                    1.315,
-                    1.37,
-                    1.425
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Dash Attack: Jack in the Box Forward Dash Daze Multiplier",
-            "type": "dodge",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2205,9 +2148,33 @@
             }
           },
           {
-            "name": "Dash Attack: Jack in the Box Backward Vault Daze Multiplier",
-            "type": "dodge",
+            "name": "Dash Attack: Jack in the Box Backward Vault",
+            "type": "dashAttack",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.6,
+                    0.655,
+                    0.71,
+                    0.765,
+                    0.82,
+                    0.875,
+                    0.93,
+                    0.985,
+                    1.04,
+                    1.095,
+                    1.15,
+                    1.205,
+                    1.26,
+                    1.315,
+                    1.37,
+                    1.425
+                  ]
+                }
+              ]
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2233,8 +2200,8 @@
             }
           },
           {
-            "name": "Dash Attack: Do As I Please Forward Dash DMG Multiplier",
-            "type": "dodge",
+            "name": "Dash Attack: Do As I Please Forward Dash",
+            "type": "dashAttack",
             "damage": {
               "multipliers": [
                 {
@@ -2258,12 +2225,8 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Dash Attack: Do As I Please Forward Dash Daze Multiplier",
-            "type": "dodge",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2289,8 +2252,8 @@
             }
           },
           {
-            "name": "Dodge Counter: Diverted Bombard DMG Multiplier",
-            "type": "dodge",
+            "name": "Dodge Counter: Diverted Bombard",
+            "type": "dodgeCounter",
             "damage": {
               "multipliers": [
                 {
@@ -2315,12 +2278,8 @@
                   "anomaly": 3164
                 }
               ]
-            }
-          },
-          {
-            "name": "Dodge Counter: Diverted Bombard Daze Multiplier",
-            "type": "dodge",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2348,11 +2307,11 @@
         ]
       },
       "assist": {
-        "name": "Quick Assist: Emergency Bombard DMG Multiplier",
+        "name": "Assist",
         "actions": [
           {
-            "name": "Quick Assist: Emergency Bombard DMG Multiplier",
-            "type": "assist",
+            "name": "Quick Assist: Emergency Bombard",
+            "type": "quickAssist",
             "damage": {
               "multipliers": [
                 {
@@ -2376,12 +2335,8 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Quick Assist: Emergency Bombard Daze Multiplier",
-            "type": "assist",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2407,9 +2362,9 @@
             }
           },
           {
-            "name": "Defensive Assist: The Hare Strikes Back! Light Defensive Daze Multiplier",
-            "type": "assist",
-            "damage": {
+            "name": "Defensive Assist: The Hare Strikes Back! Light Defensive",
+            "type": "defensiveAssist",
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2435,9 +2390,9 @@
             }
           },
           {
-            "name": "Defensive Assist: The Hare Strikes Back! Heavy Defensive Daze Multiplier",
-            "type": "assist",
-            "damage": {
+            "name": "Defensive Assist: The Hare Strikes Back! Heavy Defensive",
+            "type": "defensiveAssist",
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2463,9 +2418,9 @@
             }
           },
           {
-            "name": "Defensive Assist: The Hare Strikes Back! Chain Defensive Daze Multiplier",
-            "type": "assist",
-            "damage": {
+            "name": "Defensive Assist: The Hare Strikes Back! Chain Defensive",
+            "type": "defensiveAssist",
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2491,8 +2446,8 @@
             }
           },
           {
-            "name": "Assist Follow-Up: Window of Opportunity DMG Multiplier",
-            "type": "assist",
+            "name": "Assist Follow-Up: Window of Opportunity",
+            "type": "assistFollowUp",
             "damage": {
               "multipliers": [
                 {
@@ -2517,12 +2472,8 @@
                   "anomaly": 35367
                 }
               ]
-            }
-          },
-          {
-            "name": "Assist Follow-Up: Window of Opportunity Daze Multiplier",
-            "type": "assist",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2550,10 +2501,10 @@
         ]
       },
       "specialAttack": {
-        "name": "Special Attack: Sugarcoated Bullet DMG Multiplier",
+        "name": "Special Attack",
         "actions": [
           {
-            "name": "Special Attack: Sugarcoated Bullet DMG Multiplier",
+            "name": "Special Attack: Sugarcoated Bullet",
             "type": "specialAttack",
             "damage": {
               "multipliers": [
@@ -2579,12 +2530,8 @@
                   "anomaly": 2624
                 }
               ]
-            }
-          },
-          {
-            "name": "Special Attack: Sugarcoated Bullet Daze Multiplier",
-            "type": "specialAttack",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2610,8 +2557,8 @@
             }
           },
           {
-            "name": "EX Special Attack: Stuffed Sugarcoated Bullet Charged Attack DMG Multiplier",
-            "type": "specialAttack",
+            "name": "EX Special Attack: Stuffed Sugarcoated Bullet Charged Attack",
+            "type": "exSpecialAttack",
             "damage": {
               "multipliers": [
                 {
@@ -2636,70 +2583,8 @@
                   "anomaly": 19735
                 }
               ]
-            }
-          },
-          {
-            "name": "EX Special Attack: Stuffed Sugarcoated Bullet Bombard DMG Multiplier",
-            "type": "specialAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.075,
-                    1.173,
-                    1.271,
-                    1.369,
-                    1.467,
-                    1.565,
-                    1.663,
-                    1.761,
-                    1.859,
-                    1.957,
-                    2.055,
-                    2.153,
-                    2.251,
-                    2.349,
-                    2.447,
-                    2.545
-                  ],
-                  "anomaly": 9867
-                }
-              ]
-            }
-          },
-          {
-            "name": "EX Special Attack: Stuffed Sugarcoated Bullet Energy Field DMG Multiplier",
-            "type": "specialAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    3.87,
-                    4.222,
-                    4.574,
-                    4.926,
-                    5.278,
-                    5.63,
-                    5.982,
-                    6.334,
-                    6.686,
-                    7.038,
-                    7.39,
-                    7.742,
-                    8.094,
-                    8.446,
-                    8.798,
-                    9.15
-                  ],
-                  "anomaly": 39471
-                }
-              ]
-            }
-          },
-          {
-            "name": "EX Special Attack: Stuffed Sugarcoated Bullet Charged Daze Multiplier",
-            "type": "specialAttack",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2725,9 +2610,34 @@
             }
           },
           {
-            "name": "EX Special Attack: Stuffed Sugarcoated Bullet Bombard Daze Multiplier",
-            "type": "specialAttack",
+            "name": "EX Special Attack: Stuffed Sugarcoated Bullet Bombard",
+            "type": "exSpecialAttack",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.075,
+                    1.173,
+                    1.271,
+                    1.369,
+                    1.467,
+                    1.565,
+                    1.663,
+                    1.761,
+                    1.859,
+                    1.957,
+                    2.055,
+                    2.153,
+                    2.251,
+                    2.349,
+                    2.447,
+                    2.545
+                  ],
+                  "anomaly": 9867
+                }
+              ]
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2753,9 +2663,34 @@
             }
           },
           {
-            "name": "EX Special Attack: Stuffed Sugarcoated Bullet Energy Field Daze Multiplier",
-            "type": "specialAttack",
+            "name": "EX Special Attack: Stuffed Sugarcoated Bullet Energy Field",
+            "type": "exSpecialAttack",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    3.87,
+                    4.222,
+                    4.574,
+                    4.926,
+                    5.278,
+                    5.63,
+                    5.982,
+                    6.334,
+                    6.686,
+                    7.038,
+                    7.39,
+                    7.742,
+                    8.094,
+                    8.446,
+                    8.798,
+                    9.15
+                  ],
+                  "anomaly": 39471
+                }
+              ]
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2783,10 +2718,10 @@
         ]
       },
       "chainAttack": {
-        "name": "Chain Attack: Ether Shellacking Bombard DMG Multiplier",
+        "name": "Chain Attack",
         "actions": [
           {
-            "name": "Chain Attack: Ether Shellacking Bombard DMG Multiplier",
+            "name": "Chain Attack: Ether Shellacking Bombard",
             "type": "chainAttack",
             "damage": {
               "multipliers": [
@@ -2812,41 +2747,8 @@
                   "anomaly": 6489
                 }
               ]
-            }
-          },
-          {
-            "name": "Chain Attack: Ether Shellacking Energy Field DMG Multiplier",
-            "type": "chainAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    2.83,
-                    3.088,
-                    3.346,
-                    3.604,
-                    3.862,
-                    4.12,
-                    4.378,
-                    4.636,
-                    4.894,
-                    5.152,
-                    5.41,
-                    5.668,
-                    5.926,
-                    6.184,
-                    6.442,
-                    6.7
-                  ],
-                  "anomaly": 19469
-                }
-              ]
-            }
-          },
-          {
-            "name": "Chain Attack: Ether Shellacking Bombard Daze Multiplier",
-            "type": "chainAttack",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2872,9 +2774,34 @@
             }
           },
           {
-            "name": "Chain Attack: Ether Shellacking Energy Field Daze Multiplier",
+            "name": "Chain Attack: Ether Shellacking Energy Field",
             "type": "chainAttack",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    2.83,
+                    3.088,
+                    3.346,
+                    3.604,
+                    3.862,
+                    4.12,
+                    4.378,
+                    4.636,
+                    4.894,
+                    5.152,
+                    5.41,
+                    5.668,
+                    5.926,
+                    6.184,
+                    6.442,
+                    6.7
+                  ],
+                  "anomaly": 19469
+                }
+              ]
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2900,8 +2827,8 @@
             }
           },
           {
-            "name": "Ultimate: Ether Grenade Bombard DMG Multiplier",
-            "type": "chainAttack",
+            "name": "Ultimate: Ether Grenade Bombard",
+            "type": "ultimate",
             "damage": {
               "multipliers": [
                 {
@@ -2926,41 +2853,8 @@
                   "anomaly": 3599
                 }
               ]
-            }
-          },
-          {
-            "name": "Ultimate: Ether Grenade Energy Field DMG Multiplier",
-            "type": "chainAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    8.732,
-                    9.526,
-                    10.32,
-                    11.114,
-                    11.908,
-                    12.702,
-                    13.496,
-                    14.29,
-                    15.084,
-                    15.878,
-                    16.672,
-                    17.466,
-                    18.26,
-                    19.054,
-                    19.848,
-                    20.642
-                  ],
-                  "anomaly": 5399
-                }
-              ]
-            }
-          },
-          {
-            "name": "Ultimate: Ether Grenade Bombard Daze Multiplier",
-            "type": "chainAttack",
-            "damage": {
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -2986,9 +2880,34 @@
             }
           },
           {
-            "name": "Ultimate: Ether Grenade Energy Field Daze Multiplier",
-            "type": "chainAttack",
+            "name": "Ultimate: Ether Grenade Energy Field",
+            "type": "ultimate",
             "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    8.732,
+                    9.526,
+                    10.32,
+                    11.114,
+                    11.908,
+                    12.702,
+                    13.496,
+                    14.29,
+                    15.084,
+                    15.878,
+                    16.672,
+                    17.466,
+                    18.26,
+                    19.054,
+                    19.848,
+                    20.642
+                  ],
+                  "anomaly": 5399
+                }
+              ]
+            },
+            "daze": {
               "multipliers": [
                 {
                   "mv": [
@@ -3016,7 +2935,16 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13103,
+      "setCounts": {
+        "33400": 4,
+        "31600": 2
+      },
+      "rotation": [
+        "specialAttack.1"
+      ]
+    }
   },
   "1041": {
     "disabled": true,

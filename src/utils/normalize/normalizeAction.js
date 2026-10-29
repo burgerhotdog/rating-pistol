@@ -24,6 +24,7 @@ const DEFAULT_DURATIONS = {
     'dashAttack': 1000,
     'assistAttack': 1000,
     'specialAttack': 1000,
+    'exSpecialAttack': 1000,
     'chainAttack': 2000,
   },
 };
