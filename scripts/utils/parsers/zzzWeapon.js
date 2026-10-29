@@ -1,4 +1,4 @@
-import { round, pick } from '../../common.js';
+import { pick } from '../../common.js';
 
 const statNames = {
   'HP': 'hp%',
@@ -28,7 +28,7 @@ export function zzzWeapon(id, data) {
     quality: Number(data.rarity) + 1,
     type: wt,
     stats: {
-      [baseStat]: round(data.base_property.value * 14.85),
+      [baseStat]: Math.floor(data.base_property.value * 14.87),
       [stat]: stat.endsWith('%')
         ? value / 10000
         : Math.trunc(value),

@@ -5,22 +5,40 @@ import { fetchJson } from './utils/fetch.js';
 import { getVersion } from './utils/getVersion.js';
 import { skills } from './utils/parsers/zzzCharacter.js';
 
+const gameId = 'zenless-zone-zero';
+const gameUrl = 'zzz';
+const dataType = 'weapon';
+
 async function main() {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-  const file = path.join(root, 'src/data', 'zenless-zone-zero', 'character.json');
+  const file = path.join(root, 'src/data', gameId, `${dataType}.json`);
   const data = await readJson(file);
 
-  const version = await getVersion('zzz');
-  const base = `https://static.nanoka.cc/zzz/${version}/en/character/`;
+  const version = await getVersion(gameUrl);
+  const base = `https://static.nanoka.cc/${gameUrl}/${version}/en/${dataType}/`;
 
-  const entries = Object.entries(data).filter(([, charData]) => charData.disabled);
-  const length = entries.length;
+  /*
+  const charDatas = Object.values(data);
+  for (const [i, charData] of charDatas.entries()) {
+    console.log(`(${i + 1}/${charDatas.length}) Modifying ${charData.name}`);
 
-  for (const [i, [id, charData]] of entries.entries()) {
-    console.log(`Rescraping ${charData.name} (${i + 1}/${length})`);
-
-    const raw = await fetchJson(`${base}${charData.id ?? id}.json`);
+    const raw = await fetchJson(`${base}${charData.id}.json`);
     charData.skills = skills(raw);
+  }
+  */
+
+  const weapDatas = Object.values(data);
+  for (const [i, weapData] of weapDatas.entries()) {
+    console.log(`(${i + 1}/${weapDatas.length}) Modifying ${weapData.name}`);
+
+    const raw = await fetchJson(`${base}${weapData.id}.json`);
+    const value = Math.floor(raw.base_property.value * 14.87);
+
+    if (weapData.type === 'armorer') {
+      weapData.stats.baseDef = value;
+    } else {
+      weapData.stats.baseAtk = value;
+    }
   }
 
   await writeJson(file, data);

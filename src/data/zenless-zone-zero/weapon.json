@@ -903,7 +903,7 @@
     "standard": true,
     "type": "attack",
     "stats": {
-      "baseAtk": 683,
+      "baseAtk": 684,
       "critRate%": 0.24
     },
     "effects": []
@@ -918,7 +918,7 @@
     "standard": true,
     "type": "attack",
     "stats": {
-      "baseAtk": 683,
+      "baseAtk": 684,
       "atk%": 0.3
     },
     "effects": []
@@ -975,7 +975,7 @@
     "standard": true,
     "type": "stun",
     "stats": {
-      "baseAtk": 683,
+      "baseAtk": 684,
       "impact%": 0.18
     },
     "effects": []
@@ -990,7 +990,7 @@
     "standard": true,
     "type": "stun",
     "stats": {
-      "baseAtk": 683,
+      "baseAtk": 684,
       "impact%": 0.18
     },
     "effects": []
@@ -1033,7 +1033,7 @@
     "standard": true,
     "type": "anomaly",
     "stats": {
-      "baseAtk": 683,
+      "baseAtk": 684,
       "penRatio%": 0.24
     },
     "effects": []
@@ -1076,7 +1076,7 @@
     "standard": true,
     "type": "support",
     "stats": {
-      "baseAtk": 683,
+      "baseAtk": 684,
       "penRatio%": 0.24
     },
     "effects": []

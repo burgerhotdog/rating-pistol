@@ -17,6 +17,12 @@ const statIds = {
   31401: 'baseAnomalyMastery',
 };
 
+const toCamelCase = (str) => {
+  return str
+    .toLowerCase()
+    .replace(/[^a-zA-Z0-9]+(.)/g, (match, chr) => chr.toUpperCase());
+};
+
 function arithmetic(expr, lvl) {
   const tokens = expr.match(
     /(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?|lvl|\*\*|\/\/|[()+*/%-]/g,
@@ -110,166 +116,185 @@ function arithmetic(expr, lvl) {
 const categories = {
   basic: {
     name: 'Basic Attack',
-    ref: 'basicAttack',
+    types: [
+      'Basic Attack',
+    ],
   },
   dodge: {
     name: 'Dodge',
-    ref: 'dodge',
+    types: [
+      'Dash Attack',
+      'Dodge Counter',
+    ],
   },
   assist: {
     name: 'Assist',
-    ref: 'assist',
+    types: [
+      'Quick Assist',
+      'Defensive Assist',
+      'Assist Follow-Up',
+    ],
   },
   special: {
     name: 'Special Attack',
-    ref: 'specialAttack',
+    types: [
+      'Special Attack',
+      'EX Special Attack',
+    ],
   },
   chain: {
     name: 'Chain Attack',
-    ref: 'chainAttack',
+    types: [
+      'Chain Attack',
+      'Ultimate',
+    ],
   },
+};
+
+function splitActionType(str) {
+  const index = str.indexOf(': ');
+  return index === -1
+    ? [undefined, str]
+    : [str.slice(0, index), str.slice(index + 2)];
+}
+
+// Classify a part by its own name only (e.g. "1st-Hit DMG Multiplier").
+// Returns the kind and a base that both halves of a pair share
+// (e.g. "1st-Hit"), which may be empty if the part name is just
+// "DMG Multiplier" / "Daze Multiplier".
+const cleanName = (str) => {
+  str = str.replaceAll(/\d(?:st|nd|rd|th)-Hit/gi, (match) => match[0]);
+
+  if (/dmg/i.test(str) && str.includes('Multiplier')) {
+    return {
+      part: 'damage',
+      cleaned: str.replace(/DMG Multiplier/i, '').replace(/\s{2,}/g, ' ').trim(),
+    };
+  }
+
+  if (/daze/i.test(str) && str.includes('Multiplier')) {
+    return {
+      part: 'daze',
+      cleaned: str.replace(/Daze Multiplier/i, '').replace(/\s{2,}/g, ' ').trim(),
+    };
+  }
+
+  return {
+    part: 'buff',
+    cleaned: str,
+  };
 };
 
 export function skills(data) {
   const result = {};
 
-  // Classify a part by its own name only (e.g. "1st-Hit DMG Multiplier").
-  // Returns the kind and a base that both halves of a pair share
-  // (e.g. "1st-Hit"), which may be empty if the part name is just
-  // "DMG Multiplier" / "Daze Multiplier".
-  const classify = (partName) => {
-    const isDaze = /\bdaze\b/i.test(partName);
-    const isDmg = /\bdmg\b/i.test(partName);
-    if (isDaze === isDmg) return null; // neither, or ambiguous
-
-    const base = partName
-      .replace(/\b(dmg|daze)\b/i, '')
-      .replace(/\bmultiplier\b/i, '')
-      .replace(/\s+/g, ' ')
-      .trim();
-
-    return { kind: isDaze ? 'daze' : 'damage', base };
-  };
-
-  for (const id of Object.keys(categories)) {
+  for (const propId of Object.keys(categories)) {
+    const skillName = categories[propId].name;
+    const skillType = toCamelCase(skillName);
     const actions = [];
 
-    for (const item of data.skill[id].description) {
-      if (!('param' in item)) continue;
+    for (const propEntry of data.skill[propId].description) {
+      if (!('param' in propEntry)) continue;
+
+      const [actionTypeName = skillName, actionName] = splitActionType(propEntry.name);
+      const actionType = toCamelCase(actionTypeName);
 
       // Ordered entries for this item; paired parts share one entry
       const entries = [];
       const groups = new Map(); // base -> most recent entry
 
-      for (const part of item.param) {
-        // Legacy branch: unchanged behavior
-        if (!('param' in part)) {
-          const match = part.desc.match(/\{CAL:(.*?)(?:,\d+,\d+)?\}/);
+      for (const propSubEntry of propEntry.param) {
+        if (!('param' in propSubEntry)) {
+          // {CAL:expr,1,2} optionally followed by "%"
+          const calRegex = /\{CAL:(.*?)(?:,\d+,\d+)?\}(%)?/g;
 
-          if (!match) continue;
+          const terms = [...propSubEntry.desc.matchAll(calRegex)];
 
-          const expr = match[1].replace(
-            /AvatarSkillLevel\(\d+\)/g,
-            'lvl',
-          );
+          terms.forEach(([, rawExpr, percent], index) => {
+            const expr = rawExpr.replace(/AvatarSkillLevel\(\d+\)/g, 'lvl');
+            const scale = percent ? 100 : 1;
 
-          const mult = Array.from(
-            { length: 16 },
-            (_, i) => round(arithmetic(expr, i + 1) / 100, 4),
-          );
+            const baseName = `${actionName} ${propSubEntry.name}`;
 
-          entries.push({
-            raw: {
-              name: `${item.name} ${part.name}`,
-              type: id,
-              multipliers: [mult],
-            },
+            entries.push({
+              name: terms.length > 1 ? `${baseName} ${index + 1}` : baseName,
+              buff: {
+                multipliers: [
+                  {
+                    flat: Array.from({ length: 16 }, (_, i) =>
+                      round(arithmetic(expr, i + 1) / scale, 4)
+                    ),
+                  },
+                ],
+              },
+            });
           });
 
           continue;
         }
 
-        const details = Object.values(part.param)[0];
-        const { main, growth } = details;
-        const fullName = `${item.name} ${part.name}`;
+        const { part, cleaned } = cleanName(propSubEntry.name);
 
-        const mult = {
-          mv: Array.from(
-            { length: 16 },
-            (_, i) => round((main + growth * i) / 10000, 4),
-          ),
-        };
+        const name = `${actionTypeName}: ${actionName}${cleaned.length ? ` ${cleaned}` : ''}`;
 
-        const info = classify(part.name);
+        // Matches terms like:
+        //   {Skill:1101003, Prop:1001}
+        //   {Skill:1101003, Prop:1001}*2
+        //   {{Skill:1031002, Prop:1001}/3}*3
+        const termRegex = /\{?\{Skill:(\d+), Prop:\d+\}(?:\/(\d+)\}\*\2)?/g;
 
-        // Only the damage half carries the anomaly buildup
-        if (
-          info?.kind !== 'daze' &&
-          main !== details.stun_ratio &&
-          details.attribute_infliction > 0
-        ) {
-          mult.anomaly = details.attribute_infliction;
+        const terms = [...propSubEntry.desc.matchAll(termRegex)].map((m) => ({
+          skillId: m[1],
+          n: m[2] ? Number(m[2]) : 1,
+        }));
+
+        // Fallback: if the desc couldn't be parsed, use the first param like before
+        if (!terms.length) {
+          terms.push({ skillId: Object.keys(propSubEntry.param)[0], n: 1 });
         }
 
-        // Unrecognized name: behave like before (standalone damage action)
-        if (!info) {
-          entries.push({
-            raw: {
-              name: fullName,
-              type: categories[id].ref,
-              damage: { multipliers: [mult] },
-            },
+        const multipliers = [];
+
+        for (const { skillId, n } of terms) {
+          const data = propSubEntry.param[skillId];
+          if (!data) continue;
+
+          const { main, growth, attribute_infliction } = data;
+
+          multipliers.push({
+            mv: Array.from({ length: 16 }, (_, i) =>
+              round((main + growth * i) / n / 10000, 4)
+            ),
+            ...((part === 'damage' && attribute_infliction > 0) && {
+              anomaly: round(attribute_infliction / n / 10000, 4),
+            }),
+            ...(n > 1 && { times: n }),
           });
-          continue;
         }
 
-        let entry = groups.get(info.base);
+        if (!multipliers.length) continue;
 
-        // No group yet, or this kind is already filled (repeated name):
-        // start a fresh group so later parts pair with this one.
-        if (!entry || entry[info.kind]) {
-          entry = {
-            fullName,
-            name: `${item.name} ${info.base}`.trim(),
-            base: info.base,
+        let action = groups.get(name);
+
+        if (!action) {
+          action = {
+            name,
+            type: actionType,
           };
-          groups.set(info.base, entry);
-          entries.push(entry);
+          groups.set(name, action);
+          entries.push(action);
         }
 
-        entry[info.kind] = mult;
+        action[part] = { multipliers };
       }
 
-      for (const entry of entries) {
-        if (entry.raw) {
-          actions.push(entry.raw);
-          continue;
-        }
-
-        const { damage, daze } = entry;
-
-        // Paired: one action, damage first, then daze
-        if (damage && daze) {
-          actions.push({
-            name: entry.name,
-            type: categories[id].ref,
-            damage: { multipliers: [damage] },
-            daze: { multipliers: [daze] },
-          });
-          continue;
-        }
-
-        // Unpaired: keep original name and original behavior
-        actions.push({
-          name: entry.fullName,
-          type: categories[id].ref,
-          damage: { multipliers: [damage ?? daze] },
-        });
+      for (const action of entries) {
+        actions.push(action);
       }
     }
 
-    result[categories[id].ref] = {
-      name: categories[id].name,
+    result[skillType] = {
+      name: skillName,
       actions,
     };
   }
