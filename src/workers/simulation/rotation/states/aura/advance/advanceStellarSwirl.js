@@ -2,15 +2,14 @@ import { applyCryo } from '../../../reactions';
 import { buildElevationSnapshot } from '../../../snapshot';
 import { hasGameRule } from '../../gameRules';
 
-function tickStellarSwirl(ctx, state, offset) {
+function tickStellarSwirl(ctx, state) {
   if (ctx.saveSnapshots) {
-    const snapshot = buildElevationSnapshot(ctx, 'stellarSwirl', {
-      multiplier: state.vortexHits >= 2 ? 3 : 2,
-      element: 'cryo',
-    });
-    const runtime = snapshot.runtime + offset;
-
-    ctx.snapshots.push({ ...snapshot, runtime });
+    ctx.snapshots.push(
+      buildElevationSnapshot(ctx, 'stellarSwirl', {
+        multiplier: state.vortexHits >= 2 ? 3 : 2,
+        element: 'cryo',
+      })
+    );
   }
 
   state.vortexTimer = Infinity;
@@ -21,27 +20,33 @@ function tickStellarSwirl(ctx, state, offset) {
   }
 
   applyCryo(ctx, 1, state.ownerId);
+
+  ctx.runEffects('hit', {
+    damage: {
+      type: 'stellarSwirl',
+      element: 'cryo',
+    },
+  });
 }
 
-export function advanceStellarSwirl(ctx, elapsed) {
+export function advanceStellarSwirlTimers(ctx, step) {
   const auraStore = ctx.states.aura;
-  let remaining = elapsed;
+  const state = auraStore.stellarSwirl;
+  if (!state) return;
 
-  while (auraStore.stellarSwirl && remaining > 0) {
-    const state = auraStore.stellarSwirl;
-    const decrease = Math.min(state.timeLeft, state.vortexTimer, remaining);
+  state.timeLeft -= step;
+  state.vortexTimer -= step;
+  state.wanderingVortex = Math.max(state.wanderingVortex - step, 0);
 
-    remaining -= decrease;
-    state.timeLeft -= decrease;
-    state.vortexTimer -= decrease;
-    state.wanderingVortex = Math.max(state.wanderingVortex - decrease, 0);
-    if (state.timeLeft === 0) {
-      delete auraStore.stellarSwirl;
-      break;
-    }
+  if (state.timeLeft <= 0) {
+    delete auraStore.stellarSwirl;
+  }
+}
 
-    if (auraStore.stellarSwirl?.vortexTimer === 0) {
-      tickStellarSwirl(ctx, auraStore.stellarSwirl, elapsed - remaining);
-    }
+export function fireStellarSwirl(ctx) {
+  const state = ctx.states.aura.stellarSwirl;
+
+  if (state?.vortexTimer <= 0) {
+    tickStellarSwirl(ctx, state);
   }
 }

@@ -136,7 +136,7 @@ const PARSERS = {
       const skillLevels = {};
 
       for (const [i, skillId] of MISC[ZZZ].skillIds.entries()) {
-        skillLevels[skillId] = SkillLevelList[i].level;
+        skillLevels[skillId] = SkillLevelList[i].Level;
       }
 
       return skillLevels;

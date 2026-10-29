@@ -5,7 +5,14 @@ function decayBuffState(ctx, action, state) {
   if (buffCooldown) return;
   if (!effect.buff) return;
   const spec = { action, fieldId: action.ownerId };
-  const buff = effect.buff.find((candidate) => ctx.eventFilter(candidate.filter, effect, spec));
+  const buff = effect.buff.find((candidate) => {
+    if (candidate.field) {
+      const ownerField = effect.ownerId === ctx.states.onFieldId ? 'onField' : 'offField';
+      if (candidate.field !== ownerField) return false;
+    }
+
+    return ctx.eventFilter(candidate.filter, effect, spec)
+  });
   if (!buff) return;
 
   if (buff.cooldown) {

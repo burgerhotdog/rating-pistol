@@ -12,8 +12,12 @@ export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
   if (hasGameRule(ctx, 'seedsOfDeceit')) {
     bloomState.seedsOfDeceit++;
   } else {
+    const burstDelay = hasGameRule(ctx, 'nilouBountifulCores')
+      ? 400
+      : 6000;
+
     bloomState.cores.push({
-      timeLeft: 6000,
+      timeLeft: burstDelay,
       ownerId: applier,
     });
   }
@@ -29,6 +33,13 @@ export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
         const snapshot = buildTransformativeReactionSnapshot(ctx, oldestCore.ownerId, 'bloom', 'dendro');
         ctx.snapshots.push(snapshot);
       }
+
+      ctx.runEffects('hit', {
+        damage: {
+          type: 'bloom',
+          element: 'dendro',
+        },
+      });
     }
   }
 

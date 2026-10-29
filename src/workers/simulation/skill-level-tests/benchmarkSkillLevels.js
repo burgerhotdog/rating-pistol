@@ -45,15 +45,23 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
           );
         }
 
-        for (const nonPart of ['health', 'bondOfLife']) {
-          if (!action[nonPart]) continue;
-          const actionNonPart = action[nonPart] = { ...action[nonPart] };
+        if (action.health) {
+          const actionHealth = action.health = { ...action.health };
 
-          const rawNonPartDef = charSkills[skillId].actions[action.index]?.[nonPart];
-          if (!rawNonPartDef) continue;
+          const rawHealthDef = charSkills[skillId].actions[action.index]?.health;
+          if (!rawHealthDef) continue;
 
-          if (Array.isArray(rawNonPartDef.value) && rawNonPartDef.value.length !== 2) {
-            actionNonPart.value = rawNonPartDef.value[mvIndex];
+          if (Array.isArray(rawHealthDef.value) && rawHealthDef.value.length !== 2) {
+            actionHealth.value = rawHealthDef.value[mvIndex];
+          }
+        }
+
+        if (action.bondOfLife) {
+          const rawBondOfLifeDef = charSkills[skillId].actions[action.index]?.bondOfLife;
+          if (!rawBondOfLifeDef) continue;
+
+          if (Array.isArray(rawBondOfLifeDef) && rawBondOfLifeDef.length !== 2) {
+            action.bondOfLife = rawBondOfLifeDef[mvIndex];
           }
         }
       }
@@ -67,8 +75,12 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
               const refMvIndexToUse = apply.durationRef.split('.')[0] === skillId ? mvIndex : refMvIndex;
 
               const { mv, flat } = multipliers[0];
-              const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
-              const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
+              const mvBuffValue = (mv && Array.isArray(mv)) 
+                ? mv[refMvIndexToUse]
+                : mv ?? 0;
+              const flatBuffValue = (flat && Array.isArray(mv)) 
+                ? flat[refMvIndexToUse]
+                : flat ?? 0;
               apply.duration = mvBuffValue * baseAttrValue + flatBuffValue;
             }
           }
@@ -81,8 +93,12 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
               const refMvIndexToUse = use.cooldownRef.split('.')[0] === skillId ? mvIndex : refMvIndex;
 
               const { mv, flat } = multipliers[0];
-              const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
-              const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
+              const mvBuffValue = (mv && Array.isArray(mv)) 
+                ? mv[refMvIndexToUse]
+                : mv ?? 0;
+              const flatBuffValue = (flat && Array.isArray(mv)) 
+                ? flat[refMvIndexToUse]
+                : flat ?? 0;
               use.cooldown = mvBuffValue * baseAttrValue + flatBuffValue;
             }
 
@@ -104,15 +120,23 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
                   );
                 }
 
-                for (const nonPart of ['health', 'bondOfLife']) {
-                  if (!action[nonPart]) continue;
-                  const actionNonPart = action[nonPart] = { ...action[nonPart] };
+                if (action.health) {
+                  const actionHealth = action.health = { ...action.health };
 
-                  const rawNonPartDef = charSkills[skillId].actions[action.index]?.[nonPart];
-                  if (!rawNonPartDef) continue;
+                  const rawHealthDef = charSkills[skillId].actions[action.index]?.health;
+                  if (!rawHealthDef) continue;
 
-                  if (Array.isArray(rawNonPartDef.value) && rawNonPartDef.value.length !== 2) {
-                    actionNonPart.value = rawNonPartDef.value[mvIndex];
+                  if (Array.isArray(rawHealthDef.value) && rawHealthDef.value.length !== 2) {
+                    actionHealth.value = rawHealthDef.value[mvIndex];
+                  }
+                }
+
+                if (action.bondOfLife) {
+                  const rawBondOfLifeDef = charSkills[skillId].actions[action.index]?.bondOfLife;
+                  if (!rawBondOfLifeDef) continue;
+
+                  if (Array.isArray(rawBondOfLifeDef) && rawBondOfLifeDef.length !== 2) {
+                    action.bondOfLife = rawBondOfLifeDef[mvIndex];
                   }
                 }
               }
@@ -127,8 +151,12 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
               const refMvIndexToUse = buff.statRefs[id].split('.')[0] === skillId ? mvIndex : refMvIndex;
 
               const { mv, flat } = multipliers[0];
-              const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
-              const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
+              const mvBuffValue = (mv && Array.isArray(mv)) 
+                ? mv[refMvIndexToUse]
+                : mv ?? 0;
+              const flatBuffValue = (flat && Array.isArray(mv)) 
+                ? flat[refMvIndexToUse]
+                : flat ?? 0;
               buff.stats[id] = mvBuffValue * baseAttrValue + flatBuffValue;
             }
           }
@@ -139,8 +167,12 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
                 const refMvIndexToUse = buff.specRefs[id][field].split('.')[0] === skillId ? mvIndex : refMvIndex;
 
                 const { mv, flat } = multipliers[0];
-                const mvBuffValue = mv?.[refMvIndexToUse] ?? 0;
-                const flatBuffValue = flat?.[refMvIndexToUse] ?? 0;
+                const mvBuffValue = (mv && Array.isArray(mv)) 
+                  ? mv[refMvIndexToUse]
+                  : mv ?? 0;
+                const flatBuffValue = (flat && Array.isArray(mv)) 
+                  ? flat[refMvIndexToUse]
+                  : flat ?? 0;
                 buff.specs[id][field] = mvBuffValue * baseAttrValue + flatBuffValue;
               }
             }

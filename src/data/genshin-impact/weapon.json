@@ -254,21 +254,13 @@
             ]
           },
           "cooldown": 6000,
-          "action": [
-            {
-              "restoreEnergy": {
-                "erScaled": 2.4,
-                "critScaled": true
-              }
-            },
-            {
-              "restoreEnergy": {
-                "targets": "$team",
-                "erScaled": 3.6,
-                "critScaled": true
-              }
+          "action": {
+            "restoreEnergy": {
+              "targets": "$team",
+              "erScaled": 4.2,
+              "critScaled": true
             }
-          ]
+          }
         }
       }
     ]
@@ -1115,9 +1107,7 @@
           },
           "cooldown": 10000,
           "action": {
-            "bondOfLife": {
-              "value": 0.25
-            }
+            "bondOfLife": 0.25
           },
           "commands": {
             "type": "apply",
@@ -2744,9 +2734,7 @@
           "filter": {
             "action": {
               "bondOfLife": {
-                "value": {
-                  ">": 0
-                }
+                ">": 0
               }
             }
           },
@@ -3611,21 +3599,13 @@
             ]
           },
           "cooldown": 6000,
-          "action": [
-            {
-              "restoreEnergy": {
-                "erScaled": 2.4,
-                "critScaled": true
-              }
-            },
-            {
-              "restoreEnergy": {
-                "targets": "$team",
-                "erScaled": 3.6,
-                "critScaled": true
-              }
+          "action": {
+            "restoreEnergy": {
+              "targets": "$team",
+              "erScaled": 4.2,
+              "critScaled": true
             }
-          ]
+          }
         }
       }
     ]
@@ -4776,9 +4756,7 @@
           "field": "*",
           "filter": {
             "reaction": {
-              "elements": {
-                "has": "pyro"
-              }
+              "elements": "pyro"
             }
           },
           "duration": 8000
@@ -5775,7 +5753,7 @@
       {
         "ref": "scorchingBrilliance",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": [
@@ -5785,16 +5763,92 @@
             }
           },
           "cooldown": 10000,
-          "duration": 6000
+          "duration": 6000,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "extendScorchingBrilliance",
+              "spec": {
+                "uses": 3
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "freezeScorchingBrilliance"
+            }
+          ]
+        },
+        "buff": [
+          {
+            "filter": {
+              "nightsoul": {
+                "blessing": false
+              }
+            },
+            "stats": {
+              "critDmg%": [
+                0.2,
+                0.4
+              ],
+              "atk%": [
+                0.28,
+                0.56
+              ]
+            }
+          },
+          {
+            "filter": {
+              "nightsoul": {
+                "blessing": true
+              }
+            },
+            "stats": {
+              "critDmg%": [
+                0.35,
+                0.7
+              ],
+              "atk%": [
+                0.49,
+                0.98
+              ]
+            }
+          }
+        ],
+        "expire": {
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "extendScorchingBrilliance"
+            },
+            {
+              "type": "remove",
+              "ref": "freezeScorchingBrilliance"
+            }
+          ]
+        }
+      },
+      {
+        "ref": "extendScorchingBrilliance",
+        "apply": {
+          "when": "command"
         },
         "use": {
           "when": "hit",
           "filter": {
             "action": {
               "damage": {
-                "type": [
-                  "normalAttack",
-                  "chargedAttack"
+                "and": [
+                  {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "element": "physical"
+                    }
+                  }
                 ]
               }
             }
@@ -5808,46 +5862,29 @@
               "extend": true
             }
           }
-        },
-        "buff": {
-          "stats": {
-            "critDmg%": [
-              0.2,
-              0.4
-            ],
-            "atk%": [
-              0.28,
-              0.56
-            ]
-          }
-        },
-        "maxExtensions": 3
+        }
       },
       {
-        "buff": {
+        "ref": "freezeScorchingBrilliance",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "field": "offField",
           "filter": {
-            "and": [
-              {
-                "nightsoul": {
-                  ">": 0
-                }
-              },
-              {
-                "effectStacks": {
-                  "has": "scorchingBrilliance"
-                }
-              }
-            ]
+            "nightsoul": {
+              "blessing": true
+            }
           },
-          "stats": {
-            "critDmg%": [
-              0.15,
-              0.3
-            ],
-            "atk%": [
-              0.21,
-              0.42
-            ]
+          "cooldown": 500,
+          "commands": {
+            "type": "apply",
+            "ref": "scorchingBrilliance",
+            "spec": {
+              "duration": 500,
+              "extend": true
+            }
           }
         }
       }
@@ -6343,21 +6380,13 @@
             ]
           },
           "cooldown": 6000,
-          "action": [
-            {
-              "restoreEnergy": {
-                "erScaled": 2.4,
-                "critScaled": true
-              }
-            },
-            {
-              "restoreEnergy": {
-                "targets": "$team",
-                "erScaled": 3.6,
-                "critScaled": true
-              }
+          "action": {
+            "restoreEnergy": {
+              "targets": "$team",
+              "erScaled": 4.2,
+              "critScaled": true
             }
-          ]
+          }
         }
       }
     ]
@@ -7566,9 +7595,7 @@
           },
           "cooldown": 14000,
           "action": {
-            "bondOfLife": {
-              "value": 0.25
-            }
+            "bondOfLife": 0.25
           }
         }
       },
@@ -8342,21 +8369,13 @@
             ]
           },
           "cooldown": 6000,
-          "action": [
-            {
-              "restoreEnergy": {
-                "erScaled": 2.4,
-                "critScaled": true
-              }
-            },
-            {
-              "restoreEnergy": {
-                "targets": "$team",
-                "erScaled": 3.6,
-                "critScaled": true
-              }
+          "action": {
+            "restoreEnergy": {
+              "targets": "$team",
+              "erScaled": 4.2,
+              "critScaled": true
             }
-          ]
+          }
         }
       }
     ]
@@ -8839,9 +8858,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "elements": {
-                "has": "electro"
-              }
+              "elements": "electro"
             }
           },
           "duration": 6000
@@ -8866,16 +8883,14 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "elements": {
-                "and": [
-                  {
-                    "has": "electro"
-                  },
-                  {
-                    "has": "pyro"
-                  }
-                ]
-              }
+              "and": [
+                {
+                  "elements": "electro"
+                },
+                {
+                  "elements": "pyro"
+                }
+              ]
             }
           },
           "duration": 6000
@@ -8900,16 +8915,14 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "elements": {
-                "and": [
-                  {
-                    "has": "electro"
-                  },
-                  {
-                    "has": "hydro"
-                  }
-                ]
-              }
+              "and": [
+                {
+                  "elements": "hydro"
+                },
+                {
+                  "elements": "pyro"
+                }
+              ]
             }
           },
           "duration": 6000
@@ -8934,16 +8947,14 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "elements": {
-                "and": [
-                  {
-                    "has": "electro"
-                  },
-                  {
-                    "has": "dendro"
-                  }
-                ]
-              }
+              "and": [
+                {
+                  "elements": "electro"
+                },
+                {
+                  "elements": "dendro"
+                }
+              ]
             }
           },
           "duration": 6000
@@ -8968,16 +8979,14 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "elements": {
-                "and": [
-                  {
-                    "has": "electro"
-                  },
-                  {
-                    "has": "anemo"
-                  }
-                ]
-              }
+              "and": [
+                {
+                  "elements": "electro"
+                },
+                {
+                  "elements": "anemo"
+                }
+              ]
             }
           },
           "duration": 6000
@@ -9002,16 +9011,14 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "elements": {
-                "and": [
-                  {
-                    "has": "electro"
-                  },
-                  {
-                    "has": "geo"
-                  }
-                ]
-              }
+              "and": [
+                {
+                  "elements": "electro"
+                },
+                {
+                  "elements": "geo"
+                }
+              ]
             }
           },
           "duration": 6000
@@ -9036,16 +9043,14 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "elements": {
-                "and": [
-                  {
-                    "has": "electro"
-                  },
-                  {
-                    "has": "cryo"
-                  }
-                ]
-              }
+              "and": [
+                {
+                  "elements": "electro"
+                },
+                {
+                  "elements": "cryo"
+                }
+              ]
             }
           },
           "duration": 6000
@@ -9268,9 +9273,7 @@
           },
           "cooldown": 10000,
           "action": {
-            "bondOfLife": {
-              "value": 0.24
-            }
+            "bondOfLife": 0.24
           },
           "commands": {
             "type": "apply",
@@ -11984,21 +11987,13 @@
             ]
           },
           "cooldown": 6000,
-          "action": [
-            {
-              "restoreEnergy": {
-                "erScaled": 2.4,
-                "critScaled": true
-              }
-            },
-            {
-              "restoreEnergy": {
-                "targets": "$team",
-                "erScaled": 3.6,
-                "critScaled": true
-              }
+          "action": {
+            "restoreEnergy": {
+              "targets": "$team",
+              "erScaled": 4.2,
+              "critScaled": true
             }
-          ]
+          }
         }
       }
     ]
@@ -13860,9 +13855,7 @@
           "filter": {
             "action": {
               "bondOfLife": {
-                "value": {
-                  ">": 0
-                }
+                ">": 0
               }
             }
           },

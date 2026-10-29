@@ -7,7 +7,36 @@
   },
   "electro": {
     "stats": {},
-    "effects": []
+    "effects": [
+      {
+        "stores": "global",
+        "use": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "superconduct",
+                "stellarConduct",
+                "overloaded",
+                "electroCharged",
+                "lunarCharged",
+                "quicken",
+                "aggravate",
+                "hyperbloom"
+              ]
+            }
+          },
+          "cooldown": 5000,
+          "action": {
+            "restoreEnergy": {
+              "targets": "$team",
+              "erScaled": 1.4
+            }
+          }
+        }
+      }
+    ]
   },
   "hydro": {
     "stats": {
@@ -103,7 +132,7 @@
         }
       },
       {
-        "stores": "$team",
+        "stores": "global",
         "apply": {
           "by": "$team",
           "when": "hit",

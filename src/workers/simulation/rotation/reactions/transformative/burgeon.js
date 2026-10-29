@@ -27,4 +27,11 @@ export function reactBurgeon(ctx, applier) {
       }
     }
   }
+
+  ctx.runEffects('hit', {
+    damage: {
+      type: 'burgeon',
+      element: 'dendro',
+    },
+  });
 }

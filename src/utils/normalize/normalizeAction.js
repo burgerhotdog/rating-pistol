@@ -24,6 +24,7 @@ const DEFAULT_DURATIONS = {
     'dashAttack': 1000,
     'assistAttack': 1000,
     'specialAttack': 1000,
+    'exSpecialAttack': 1000,
     'chainAttack': 2000,
   },
 };
@@ -82,8 +83,12 @@ export function normalizeAction(gameId, rawAction, spec) {
     const baseAttrValue = spec.baseMap[baseAttr] ?? 0;
 
     const { mv, flat } = action.buff.multipliers[0];
-    const mvBuffValue = mv?.[spec.mvIndex] ?? 0;
-    const flatBuffValue = flat?.[spec.mvIndex] ?? 0;
+    const mvBuffValue = (mv && Array.isArray(mv)) 
+      ? mv[spec.mvIndex]
+      : mv ?? 0;
+    const flatBuffValue = (flat && Array.isArray(flat)) 
+      ? flat[spec.mvIndex]
+      : flat ?? 0;
     action.buff.value = mvBuffValue * baseAttrValue + flatBuffValue;
 
     action.buff.mvIndex = spec.mvIndex;
@@ -101,8 +106,9 @@ export function normalizeAction(gameId, rawAction, spec) {
 
     if (restoreEnergy.targets === '$team') {
       restoreEnergy.targets = spec.memberIds;
+    } else {
+      restoreEnergy.targets = toArray(restoreEnergy.targets ?? spec.ownerId);
     }
-    restoreEnergy.targets ??= [spec.ownerId];
 
     if (restoreEnergy.flat && Array.isArray(restoreEnergy.flat)) {
       const [r1, r5] = restoreEnergy.flat;
@@ -136,7 +142,12 @@ export function normalizeAction(gameId, rawAction, spec) {
       damage.type = damage.type[modeIndex];
     }
 
-    const isGiPhysNa = gameId === GI && category === 'normalAttack' && spec.weaponType !== 'catalyst';
+    const isGiPhysNa =
+      gameId === GI &&
+      category === 'normalAttack' &&
+      spec.weaponType !== 'catalyst' &&
+      !(spec.weaponType === 'bow' && (action.type === 'chargedAttack' || action.damage?.type === 'chargedAttack'))
+
     damage.element ??= isGiPhysNa ? 'physical' : spec.charElement;
 
     if (damage.multipliers) {
@@ -167,7 +178,10 @@ export function normalizeAction(gameId, rawAction, spec) {
 
     if (gameId === GI && category === 'normalAttack') {
       // Gauge
-      if (spec.weaponType !== 'bow') {
+      if (
+        spec.weaponType !== 'bow' ||
+        (action.type === 'chargedAttack' || action.damage?.type === 'chargedAttack')
+      ) {
         damage.gauge ??= 1;
       }
 
@@ -218,6 +232,17 @@ export function normalizeAction(gameId, rawAction, spec) {
     shield.compressed = getCompressed(
       shield.multipliers,
       shield.attr,
+      { index: spec.mvIndex, weaponRank: spec.weaponRank },
+    );
+  }
+
+  if (action.daze) {
+    const daze = action.daze = { ...action.daze };
+
+    daze.attr ??= 'impact';
+    daze.compressed = getCompressed(
+      daze.multipliers,
+      daze.attr,
       { index: spec.mvIndex, weaponRank: spec.weaponRank },
     );
   }
@@ -295,20 +320,14 @@ export function normalizeAction(gameId, rawAction, spec) {
   }
 
   if (action.bondOfLife) {
-    const bondOfLife = action.bondOfLife = { ...action.bondOfLife };
+    const bondOfLife = action.bondOfLife;
 
-    if (bondOfLife.targets === '$team') {
-      bondOfLife.targets = spec.memberIds;
-    } else {
-      bondOfLife.targets = toArray(bondOfLife.targets ?? spec.ownerId);
-    }
-
-    if (bondOfLife.value && Array.isArray(bondOfLife.value)) {
-      if (bondOfLife.value.length === 2) {
-        const [r1, r5] = bondOfLife.value;
-        bondOfLife.value = lerp(r1, r5, (spec.weaponRank - 1) / 4);
+    if (bondOfLife && Array.isArray(bondOfLife)) {
+      if (bondOfLife.length === 2) {
+        const [r1, r5] = bondOfLife;
+        action.bondOfLife = lerp(r1, r5, (spec.weaponRank - 1) / 4);
       } else {
-        bondOfLife.value = bondOfLife.value[spec.mvIndex];
+        action.bondOfLife = bondOfLife[spec.mvIndex];
       }
     }
   }

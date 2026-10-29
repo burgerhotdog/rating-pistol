@@ -1,6 +1,36 @@
 import { runCommands } from './commands';
 import { runUseEffect } from './runUseEffect';
 
+const intervalCache = new WeakMap();
+
+function hasIntervalUse(effect) {
+  let result = intervalCache.get(effect);
+
+  if (result === undefined) {
+    result = Boolean(effect.use?.some((use) => use.when === 'interval'));
+    intervalCache.set(effect, result);
+  }
+
+  return result;
+}
+
+function forEachState(ctx, callback) {
+  const { globalEffects, memberEffects } = ctx.states;
+
+  const visitStore = (store, storeOwnerId) => {
+    for (const [effectKey, state] of Object.entries(store)) {
+      if (store[effectKey] !== state) continue;
+      callback(state, storeOwnerId);
+    }
+  };
+
+  visitStore(globalEffects);
+
+  for (const memberId in memberEffects) {
+    visitStore(memberEffects[memberId], Number(memberId));
+  }
+}
+
 function expireEffectState(ctx, state, storeOwnerId) {
   const { store, effect } = state;
   const { expire } = effect;
@@ -15,53 +45,74 @@ function expireEffectState(ctx, state, storeOwnerId) {
   };
 }
 
-function advanceEffectState(ctx, state, elapsed, storeOwnerId, deferExpiration = false) {
+function isExpired(state) {
   const { effect } = state;
-  let pending = false;
 
-  const expire = (timeLeft) => {
-    if (deferExpiration && timeLeft === 0) {
-      pending = true;
-      return false;
-    }
+  return Boolean(
+    (effect.independentStacks && !state.independentStacks.length) ||
+    (effect.decay ? state.stacks <= 0 : state.timeLeft <= 0) ||
+    ('removeTimer' in state && state.removeTimer <= 0)
+  );
+}
 
-    expireEffectState(ctx, state, storeOwnerId);
-    return true;
-  };
+function getStateBoundary(state) {
+  const { effect } = state;
+  let boundary = Infinity;
+
+  if (hasIntervalUse(effect) && state.useCooldown > 0) {
+    boundary = state.useCooldown;
+  }
 
   if (effect.independentStacks) {
     const lastTime = state.independentStacks.at(-1);
-
-    for (let i = 0; i < state.independentStacks.length; i++) {
-      state.independentStacks[i] = Math.max(state.independentStacks[i] - elapsed, 0);
-    }
-
-    while (state.independentStacks[0] === 0) {
-      state.stacks--;
-      state.independentStacks.shift();
-    }
-
-    if (!state.independentStacks.length) {
-      if (expire(lastTime - elapsed)) return 'expired';
-    }
+    if (lastTime > 0) boundary = Math.min(boundary, lastTime);
   }
 
   if (state.timeLeft > 0) {
-    state.timeLeft -= elapsed;
+    const expireTime = effect.decay
+      ? state.timeLeft + (Math.max(state.stacks, 1) - 1) * effect.decayDuration
+      : state.timeLeft;
+    boundary = Math.min(boundary, expireTime);
+  }
+
+  if (state.removeTimer > 0) {
+    boundary = Math.min(boundary, state.removeTimer);
+  }
+
+  return boundary;
+}
+
+function advanceStateTimers(state, step) {
+  const { effect } = state;
+  let expiring = false;
+
+  if (effect.independentStacks) {
+    const { independentStacks } = state;
+
+    for (let i = 0; i < independentStacks.length; i++) {
+      independentStacks[i] = Math.max(independentStacks[i] - step, 0);
+    }
+
+    while (independentStacks[0] === 0) {
+      state.stacks--;
+      independentStacks.shift();
+    }
+
+    if (!independentStacks.length) expiring = true;
+  }
+
+  if (state.timeLeft > 0) {
+    state.timeLeft -= step;
 
     if (!effect.decay) {
-      if (state.timeLeft <= 0) {
-        if (expire(state.timeLeft)) return 'expired';
-      }
+      if (state.timeLeft <= 0) expiring = true;
     } else {
       while (state.timeLeft <= 0) {
-        const timeLeft = state.timeLeft;
-
         state.timeLeft += effect.decayDuration;
         state.stacks--;
 
         if (state.stacks <= 0) {
-          if (expire(timeLeft)) return 'expired';
+          expiring = true;
           break;
         }
       }
@@ -69,22 +120,19 @@ function advanceEffectState(ctx, state, elapsed, storeOwnerId, deferExpiration =
   }
 
   if ('removeTimer' in state) {
-    state.removeTimer -= elapsed;
-
-    if (state.removeTimer <= 0) {
-      if (expire(state.removeTimer)) return 'expired';
-    }
+    state.removeTimer -= step;
+    if (state.removeTimer <= 0) expiring = true;
   }
 
   if ('useCooldown' in state) {
-    state.useCooldown -= elapsed;
+    state.useCooldown -= step;
     if (state.useCooldown <= 0) {
       delete state.useCooldown;
     }
   }
 
   if ('buffCooldown' in state) {
-    state.buffCooldown -= elapsed;
+    state.buffCooldown -= step;
     if (state.buffCooldown <= 0) {
       delete state.buffCooldown;
     }
@@ -92,7 +140,7 @@ function advanceEffectState(ctx, state, elapsed, storeOwnerId, deferExpiration =
 
   if ('rampingTimer' in state) {
     const { rampingInterval, maxStacks } = effect;
-    state.rampingTimer -= elapsed;
+    state.rampingTimer -= step;
 
     while (state.rampingTimer <= 0) {
       if (state.stacks >= maxStacks) {
@@ -105,91 +153,66 @@ function advanceEffectState(ctx, state, elapsed, storeOwnerId, deferExpiration =
     }
   }
 
-  if (pending) return 'pending';
+  if (expiring) {
+    state.expiring = true;
+  }
 }
 
-function advanceState(ctx, elapsed, state, storeOwnerId) {
+function fireIntervalUses(ctx, state, storeOwnerId) {
   const { effect } = state;
+  if (!hasIntervalUse(effect) || state.useCooldown) return;
 
-  const hasInterval = effect.use?.some((use) => use.when === 'interval');
+  const filterSpec = { fieldId: storeOwnerId ?? effect.ownerId };
 
-  if (!hasInterval) {
-    advanceEffectState(ctx, state, elapsed, storeOwnerId);
+  for (const [index, use] of effect.use.entries()) {
+    if (use.when !== 'interval') continue;
+    if (!ctx.eventFilter(use.filter, effect, filterSpec)) continue;
+
+    const spec = {};
+    if (effect.snapshotBuffs) {
+      spec.snapshotBuffs = state.snapshotBuffs[index];
+    }
+
+    const removed = runUseEffect(ctx, state, use, spec);
+
+    if (use.commands) {
+      runCommands(ctx, effect, use.commands);
+    }
+
+    if (removed) break;
+  }
+}
+
+function fireExpiry(ctx, state, storeOwnerId) {
+  if (!state.expiring) return;
+
+  // An earlier use or command may have refreshed the state
+  if (!isExpired(state)) {
+    delete state.expiring;
     return;
   }
 
-  let remaining = elapsed;
-
-  while (remaining) {
-    const cooldown = state.useCooldown ?? 0;
-    const diff = Math.min(cooldown, remaining);
-
-    const status = advanceEffectState(ctx, state, diff, storeOwnerId, diff === cooldown);
-    if (status === 'expired') break;
-
-    remaining -= diff;
-    if (state.useCooldown) continue;
-
-    const runtimeOffset = elapsed - remaining;
-    const filterSpec = { fieldId: storeOwnerId ?? effect.ownerId };
-
-    for (const [index, use] of effect.use.entries()) {
-      if (use.when !== 'interval') continue;
-      if (!ctx.eventFilter(use.filter, effect, filterSpec)) continue;
-
-      const spec = { runtimeOffset };
-      if (effect.snapshotBuffs) {
-        spec.snapshotBuffs = state.snapshotBuffs[index];
-      }
-
-      const removed = runUseEffect(ctx, state, use, spec);
-
-      if (use.commands) {
-        runCommands(ctx, effect, use.commands);
-      }
-
-      if (removed) {
-        remaining = 0;
-        break;
-      }
-    }
-
-    if (status === 'pending') {
-      const stillExpired =
-        (effect.independentStacks && !state.independentStacks.length) ||
-        (!effect.decay && state.timeLeft === 0) ||
-        (effect.decay && state.stacks <= 0) ||
-        ('removeTimer' in state && state.removeTimer <= 0);
-
-      if (state.store[effect.key] === state && stillExpired) {
-        expireEffectState(ctx, state, storeOwnerId);
-      }
-
-      break;
-    }
-
-    if (remaining && !state.useCooldown) {
-      advanceEffectState(ctx, state, remaining, storeOwnerId);
-      break;
-    }
-  }
+  expireEffectState(ctx, state, storeOwnerId);
 }
 
-function advanceStore(ctx, elapsed, store, storeOwnerId) {
-  for (const [effectKey, state] of Object.entries(store)) {
-    if (store[effectKey] !== state) continue;
+export function getEffectBoundary(ctx) {
+  let boundary = Infinity;
 
-    advanceState(ctx, elapsed, state, storeOwnerId);
-  }
+  forEachState(ctx, (state) => {
+    boundary = Math.min(boundary, getStateBoundary(state));
+  });
+
+  return boundary;
 }
 
-export function advanceEffects(ctx, elapsed) {
-  const { globalEffects, memberEffects } = ctx.states;
+export function advanceEffectTimers(ctx, step) {
+  forEachState(ctx, (state) => advanceStateTimers(state, step));
+}
 
-  advanceStore(ctx, elapsed, globalEffects);
+export function fireEffectUses(ctx) {
+  forEachState(ctx, (state, storeOwnerId) => fireIntervalUses(ctx, state, storeOwnerId));
+}
 
-  for (const memberId in memberEffects) {
-    const store = memberEffects[memberId];
-    advanceStore(ctx, elapsed, store, Number(memberId));
-  }
+export function fireEffectExpiries(ctx) {
+  forEachState(ctx, (state, storeOwnerId) => fireExpiry(ctx, state, storeOwnerId));
 }

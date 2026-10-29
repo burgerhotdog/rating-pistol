@@ -1,26 +1,22 @@
-export function advanceStellarConduct(ctx, elapsed) {
+export function advanceStellarConductTimers(ctx, step) {
   const auraStore = ctx.states.aura;
-  let remaining = elapsed;
+  const state = auraStore.stellarConduct;
+  if (!state) return;
 
-  while (auraStore.stellarConduct && remaining > 0) {
-    const state = auraStore.stellarConduct;
-    const decrease = Math.min(state.timeLeft, state.timer, remaining);
+  state.timeLeft -= step;
+  state.timer -= step;
 
-    remaining -= decrease;
-    state.timeLeft -= decrease;
-    state.timer -= decrease;
-    if (state.timeLeft === 0) {
-      delete auraStore.stellarConduct;
-      return;
-    }
+  if (state.timeLeft <= 0) {
+    delete auraStore.stellarConduct;
+    return;
+  }
 
-    if (auraStore.stellarConduct?.timer === 0) {
-      const hits = Math.min(state.hits, 12);
-      state.multiplier = hits ? 1.4 + hits * 0.05 : 1;
-      state.bonus = hits ? 0.28 + hits * 0.01 : 0.2;
+  if (state.timer <= 0) {
+    const hits = Math.min(state.hits, 12);
+    state.multiplier = hits ? 1.4 + hits * 0.05 : 1;
+    state.bonus = hits ? 0.28 + hits * 0.01 : 0.2;
 
-      state.timer = 4000;
-      state.hits = 0;
-    }
+    state.timer = 4000;
+    state.hits = 0;
   }
 }

@@ -11,3 +11,4 @@ export * from './icd';
 export * from './initStates';
 export * from './nightsoul';
 export * from './shielded';
+export * from './daze';

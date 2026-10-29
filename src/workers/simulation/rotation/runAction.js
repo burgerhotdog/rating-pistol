@@ -1,4 +1,4 @@
-import { GI, WW } from '@/data';
+import { GI, WW, ZZZ } from '@/data';
 import { applyGauge, consumeVerdantDew } from './reactions';
 import {
   advanceStates,
@@ -18,6 +18,7 @@ import {
   inflictTuneShifting,
   convertHealingToValue,
   hasGameRule,
+  calcStunMult,
 } from './states'
 import { canSnapshot, buildSnapshot } from './snapshot';
 import { getModifiedAction } from './getModifiedAction';
@@ -162,6 +163,9 @@ export function runAction(ctx, action, options = {}) {
       const { scaleMult, scaleFlat } = applyGauge(ctx, modifiedAction) ?? {};
       rxnScaleMult = scaleMult;
       rxnScaleFlat = scaleFlat;
+    }
+    if (gameId === ZZZ) {
+      rxnScaleMult = calcStunMult(ctx, modifiedAction);
     }
 
     if (damageSnapshot && ctx.saveSnapshots) {

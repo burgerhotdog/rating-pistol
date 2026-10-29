@@ -23,11 +23,11 @@ export function runRestoreEnergy(ctx, action) {
     memberBonusEnergy.erScaled += erScaled;
   };
 
-  if (targets === "$team") {
-    for (const memberId in ctx.bonusEnergy) {
-      addTo(ctx.bonusEnergy[memberId]);
-    }
-  } else {
-    addTo(ctx.bonusEnergy[action.ownerId]);
+  for (const target of targets) {
+    const targetId = target === '$onField'
+      ? ctx.states.onFieldId
+      : target
+
+    addTo(ctx.bonusEnergy[targetId]);
   }
 }

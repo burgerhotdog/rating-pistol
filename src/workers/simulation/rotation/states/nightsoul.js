@@ -13,29 +13,34 @@ export function tryNightsoulBurst(ctx, action) {
   if (globalCooldowns.nightsoulBurst) return;
 
   globalCooldowns.nightsoulBurst = nightsoulBurstInterval;
-  ctx.runEffects('nightsoulBurst', action);
+  ctx.runEffects('nightsoulBurst');
 }
 
 export function updateNightsoulPoints(ctx, action) {
-  const nightsoulStore = ctx.states.nightsoul;
-  const { ownerId, nightsoul: points } = action;
-  if (!points) return;
+  if (!action.nightsoul) return;
 
-  const prev = nightsoulStore[ownerId];
-  const next = prev + points;
+  const { blessing, value, reset } = action.nightsoul;
+  const state = ctx.states.nightsoul[action.ownerId];
 
-  const limit = CHARACTER[GI][ownerId].maxNightsoul ?? Infinity;
+  if (value != null) {
+    const { maxNightsoul = Infinity } = CHARACTER[GI][action.ownerId];
+    state.points = clamp(state.points + value, 0, maxNightsoul);
 
-  nightsoulStore[ownerId] = clamp(next, 0, limit);
-
-  if (hasGameRule(ctx, 'fightingSpirit')) {
-    if (points < 0) {
+    if (value < 0 && hasGameRule(ctx, 'fightingSpirit')) {
       runCommands(ctx, { ownerId: 10000106 }, [{
         type: 'apply',
-        key: '10000106.10000106:effect2',
-        spec: { stacks: -points },
+        key: '10000106.10000106:effect3',
+        spec: { stacks: -value },
       }], action.ownerId);
     }
+  }
+
+  if (blessing != null) {
+    state.blessing = blessing;
+  }
+
+  if (reset) {
+    state.points = 0;
   }
 
   ctx.runEffects('nightsoulUpdate', action);

@@ -2154,6 +2154,7 @@
       {
         "bonus": 2,
         "use": {
+          "by": "$any",
           "when": "nightsoulBurst",
           "action": {
             "restoreEnergy": {
@@ -2450,17 +2451,11 @@
       {
         "bonus": 2,
         "buff": {
+          "field": "onField",
           "filter": {
-            "and": [
-              {
-                "nightsoul": {
-                  ">": 0
-                }
-              },
-              {
-                "field": "onField"
-              }
-            ]
+            "nightsoul": {
+              "blessing": true
+            }
           },
           "stats": {
             "dmgBonus%": 0.15
@@ -2472,18 +2467,13 @@
         "apply": {
           "when": "nightsoulUpdate",
           "filter": {
-            "and": [
-              {
-                "action": {
-                  "nightsoul": {
-                    "<=": -1
-                  }
+            "action": {
+              "nightsoul": {
+                "value": {
+                  "<=": -1
                 }
-              },
-              {
-                "field": "onField"
               }
-            ]
+            }
           },
           "cooldown": 1000,
           "duration": 6000

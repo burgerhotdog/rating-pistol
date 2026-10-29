@@ -8,15 +8,23 @@ Characters:
         C2 popping baron bunny doesnt do 200% extra dmgBonus
     Arlecchino
         No C2, C4, C6
+    Ayato
+        No constellations
     Baizhu
         No constellations
     Bennett
-        No constellations
+        No 70% health restriction for healing
+        No C4
     Columbina
         Moonridge Dew has no 18s cooldown
         No constellations
     Charlotte
         No C4, C6
+    Chasca
+        Skill element order is fixed ECHPA
+        A1 is not 33%/66%/100% but 0%/100% with starting with 2 PHCE elements
+        A1 shell follows reverse priority order (ECHP)
+        No constellations
     Chevreuse
         No C1
         No C4 cooldown
@@ -38,7 +46,7 @@ Characters:
     Escoffier
         No constellations
     Fischl
-        No constellations
+        No A1
     Flins
         No constellations
     Furina
@@ -53,6 +61,9 @@ Characters:
     Iansan
         Movement is approximated
         Overflow handling is inaccurate
+    Ifa
+        No a1
+        No C2, C4, C6
     Illuga
         Burst affects non-direct dmg too
         No geo construct rule
@@ -100,10 +111,15 @@ Characters:
     Nicole
         coordinated attack uses own stats
         No constellations
+    Nilou
+        No constellations
     Odette
         Only plume
         Marvelous Splendor applies to $ally
         No constellations
+    Ororon
+        No tracking of nightsoul aligned damage
+        C2 simplified for single target
     Prune
         Effects are fragile, may need checking
         No constellations
@@ -149,6 +165,8 @@ Characters:
         No constellations
     Xiao
         Ult drain is fixed
+        No constellations
+    Xilonen
         No constellations
     Xingqiu
         No energy recovery

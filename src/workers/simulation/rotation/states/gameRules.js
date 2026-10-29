@@ -49,6 +49,10 @@ export function runGameRule(ctx, rule, effect, spec) {
     ctx.runEffects('healed', { ownerId: 10000096 });
   }
 
+  if (rule === 'xilonenFakeNightsoulBurst') {
+    ctx.runEffects('nightsoulBurst');
+  }
+
   if (rule === 'seedsOfDeceit1') {
     convertSeedsOfDeceit(ctx);
   }

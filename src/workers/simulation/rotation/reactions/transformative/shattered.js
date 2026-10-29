@@ -18,4 +18,11 @@ export function reactShattered(ctx, ownerId) {
     reaction: 'shattered',
     ownerId,
   });
+
+  ctx.runEffects('hit', {
+    damage: {
+      type: 'shattered',
+      element: 'physical',
+    },
+  });
 }
