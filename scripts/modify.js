@@ -2,31 +2,25 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readJson, writeJson } from './utils/io.js';
 import { fetchJson } from './utils/fetch.js';
-
-const skillIds = ['normalAttack', 'elementalSkill', 'elementalBurst'];
+import { getVersion } from './utils/getVersion.js';
+import { skills } from './utils/parsers/zzzCharacter.js';
 
 async function main() {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-  const file = path.join(root, 'src/data', 'genshin-impact', 'character.json');
+  const file = path.join(root, 'src/data', 'zenless-zone-zero', 'character.json');
   const data = await readJson(file);
 
-  const charDatas = Object.values(data);
-  const length = charDatas.length;
+  const version = await getVersion('zzz');
+  const base = `https://static.nanoka.cc/zzz/${version}/en/character/`;
 
-  for (const [i, charData] of charDatas.entries()) {
-    console.log(`Modifying ${charData.name} (${i + 1}/${length})`);
+  const entries = Object.entries(data).filter(([, charData]) => charData.disabled);
+  const length = entries.length;
 
-    if (!charData.disabled) continue;
+  for (const [i, [id, charData]] of entries.entries()) {
+    console.log(`Rescraping ${charData.name} (${i + 1}/${length})`);
 
-    const naActions = charData.skills.normalAttack.actions;
-    const filteredActions = naActions.filter(
-      (action) => action.name !== 'Plunge Collision'
-    );
-
-    if (filteredActions.length !== naActions.length) {
-      charData.skills.normalAttack.actions = filteredActions;
-      console.log(`Removed Plunge Collision actions for ${charData.name}`);
-    }
+    const raw = await fetchJson(`${base}${charData.id ?? id}.json`);
+    charData.skills = skills(raw);
   }
 
   await writeJson(file, data);
