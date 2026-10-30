@@ -1,6 +1,5 @@
 {
   "31000": {
-    "disabled": true,
     "name": "Woodpecker Electro",
     "version": 1.0,
     "id": 31000,
@@ -9,7 +8,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "critRate%",
     "effects": [
       {
         "bonus": 2,
@@ -543,7 +542,6 @@
     ]
   },
   "32600": {
-    "disabled": true,
     "name": "Fanged Metal",
     "version": 1.0,
     "id": 32600,
@@ -552,7 +550,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "physicalDmgBonus%",
     "effects": [
       {
         "bonus": 2,
@@ -564,6 +562,16 @@
       },
       {
         "bonus": 4,
+        "apply": {
+          "by": "$team",
+          "when": "anomaly",
+          "filter": {
+            "anomaly": {
+              "anomaly": "assault"
+            }
+          },
+          "duration": 12000
+        },
         "buff": {
           "stats": {
             "dmgBonus%": 0.35

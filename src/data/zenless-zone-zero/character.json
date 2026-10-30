@@ -822,9 +822,22 @@
         "basicAttack.0",
         "basicAttack.1",
         "basicAttack.2",
+        "specialAttack.1",
+        "basicAttack.0",
+        "basicAttack.1",
+        "basicAttack.2",
+        "specialAttack.1",
+        "basicAttack.0",
+        "basicAttack.1",
+        "basicAttack.2",
         "specialAttack.1"
       ]
-    }
+    },
+    "teamPreset": [
+      1081,
+      1011,
+      1031
+    ]
   },
   "1021": {
     "disabled": true,
@@ -3488,7 +3501,12 @@
       "rotation": [
         "specialAttack.1"
       ]
-    }
+    },
+    "teamPreset": [
+      1081,
+      1011,
+      1031
+    ]
   },
   "1041": {
     "disabled": true,
@@ -8325,7 +8343,6 @@
     "memberPreset": {}
   },
   "1081": {
-    "disabled": true,
     "name": "Billy",
     "version": 1.0,
     "id": 1081,
@@ -8398,7 +8415,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 100
           },
           {
             "name": "Basic Attack: Full Firepower Standing Bullet",
@@ -9271,7 +9289,40 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13108,
+      "setCounts": {
+        "32600": 4,
+        "31000": 2
+      },
+      "rotation": [
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0",
+        "basicAttack.0"
+      ]
+    },
+    "teamPreset": [
+      1081,
+      1011,
+      1031
+    ]
   },
   "1091": {
     "disabled": true,

@@ -712,7 +712,6 @@
     "effects": []
   },
   "13108": {
-    "disabled": true,
     "name": "Starlight Engine Replica",
     "version": 1.0,
     "id": 13108,
@@ -723,7 +722,37 @@
       "baseAtk": 624,
       "atk%": 0.25
     },
-    "effects": []
+    "effects": [
+      {
+        "enable": {
+          "owner": {
+            "id": 1081
+          }
+        },
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "basicAttack",
+                  "dashAttack"
+                ]
+              }
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "physicalDmgBonus%": [
+              0.36,
+              0.575
+            ]
+          }
+        }
+      }
+    ]
   },
   "13111": {
     "disabled": true,

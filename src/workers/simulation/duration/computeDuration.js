@@ -1,5 +1,5 @@
-import { CHARACTER, GI, WW } from '@/data';
-import { clamp, getEnergyLevel, toMergedObj } from '@/utils';
+import { CHARACTER, GI, WW, ZZZ } from '@/data';
+import { clamp, getEnergyLevel, toMergedObj, getAttr } from '@/utils';
 
 function getStatMap(cache, memberId, equipMap) {
   const {
@@ -67,7 +67,18 @@ function getRequiredErMap(cache, equipMaps, bonusEnergy) {
   return requiredErMap;
 }
 
-function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, specEquipMap) {
+function getRequiredImpactMap(cache, equipMaps) {
+  const requiredImpactMap = {};
+  const statMapOf = createStatMapLookup(cache, (id) => equipMaps[id]);
+
+  for (const memberId in cache.member) {
+    requiredImpactMap[memberId] = getAttr('impact', statMapOf(memberId));
+  }
+
+  return requiredImpactMap;
+}
+
+function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, specEquipMap, requiredImpactMap) {
   const { gameId } = cache;
   const source = {};
   let fullTime = 0;
@@ -75,10 +86,21 @@ function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, s
 
   for (const memberId in cache.member) {
     const { id, duration, concertoPenalty } = cache.member[memberId];
-    const mSource = source[memberId] = { duration, added: 0 };
+    const mSource = source[id] = { duration, added: 0 };
     fullTime += duration;
 
-    const { energy } = cache.member[memberId];
+    if (gameId === ZZZ) {
+      const requiredImpact = requiredImpactMap[id];
+      const currImpact = getAttr('impact', statMapOf(id));
+
+      const ratio = currImpact / requiredImpact;
+      const adjusted = duration / ratio - duration;
+
+      mSource.added += adjusted;
+      fullTime += adjusted;
+    }
+
+    const { energy } = cache.member[id];
     if (!energy) continue;
 
     if (gameId === WW && concertoPenalty) {
@@ -87,9 +109,9 @@ function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, s
     }
 
     const testEr = getEnergyLevel(gameId, statMapOf(id));
-    const requiredEr = requiredErMap[memberId];
+    const requiredEr = requiredErMap[id];
 
-    const { flat, erScaled } = resolveBonusEnergy(bonusEnergy[memberId], statMapOf);
+    const { flat, erScaled } = resolveBonusEnergy(bonusEnergy[id], statMapOf);
 
     const energyPerEr = energy / requiredEr;
     const generated = (energyPerEr + erScaled) * testEr + flat;
@@ -107,15 +129,32 @@ function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, s
 // Resolves immediately for the given cache and equipMaps
 export function computeDuration(cache, equipMaps, bonusEnergy = {}) {
   const requiredErMap = getRequiredErMap(cache, equipMaps, bonusEnergy);
-  return resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy);
+  const requiredImpactMap = cache.gameId === ZZZ ? getRequiredImpactMap(cache, equipMaps) : null;
+
+  return resolveDuration(
+    cache,
+    equipMaps,
+    requiredErMap,
+    bonusEnergy,
+    undefined,
+    undefined,
+    requiredImpactMap,
+  );
 }
 
 // Returns a function that resolves for a varying equipMap on specId
 export function createEquipDurationGetter(cache, equipMaps, specId, bonusEnergy = {}) {
   const requiredErMap = getRequiredErMap(cache, equipMaps, bonusEnergy);
+  const requiredImpactMap = cache.gameId === ZZZ ? getRequiredImpactMap(cache, equipMaps) : null;
 
   return (testEquipMap) => resolveDuration(
-    cache, equipMaps, requiredErMap, bonusEnergy, specId, testEquipMap,
+    cache,
+    equipMaps,
+    requiredErMap,
+    bonusEnergy,
+    specId,
+    testEquipMap,
+    requiredImpactMap,
   );
 }
 
@@ -123,8 +162,15 @@ export function createEquipDurationGetter(cache, equipMaps, specId, bonusEnergy 
 // Required ER is fixed by the baseline cache, so variants are penalized against it.
 export function createVariantDurationGetter(cache, equipMaps, bonusEnergy = {}) {
   const requiredErMap = getRequiredErMap(cache, equipMaps, bonusEnergy);
+  const requiredImpactMap = cache.gameId === ZZZ ? getRequiredImpactMap(cache, equipMaps) : null;
 
   return (variantCache, variantBonusEnergy = bonusEnergy, variantEquipMaps = equipMaps) => resolveDuration(
-    variantCache, variantEquipMaps, requiredErMap, variantBonusEnergy
+    variantCache,
+    variantEquipMaps,
+    requiredErMap,
+    variantBonusEnergy,
+    undefined,
+    undefined,
+    requiredImpactMap,
   );
 }
