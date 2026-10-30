@@ -8,7 +8,7 @@ function evaluateSpecial(ctx, special, effect, spec) {
   const ownerElem = CHARACTER[gameId][effOwnerId]?.element;
   const actionElem = spec.action?.damage?.element;
   const rxnElems = spec.reaction?.elements ?? [];
-  const nsState = ctx.states.nightsoul[effOwnerId];
+  const nsState = ctx.states.nightsoul?.[effOwnerId];
 
   switch (special) {
     case 'baizhu1':

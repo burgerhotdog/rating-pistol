@@ -46,7 +46,7 @@ function getTestOrders(gameId, memberIds) {
     memberIds.length === 3
   ) {
     const [a, b, c] = memberIds;
-    return [[a, b, a, b, c]];
+    return [[c, b, a, b, a]];
   }
 
   const permutations = getPermutations(rest);
