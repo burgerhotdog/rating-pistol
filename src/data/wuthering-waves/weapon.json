@@ -1552,26 +1552,17 @@
         "maxStacks": 3
       },
       {
-        "enable": {
-          "owner": {
-            "id": 1603
-          }
-        },
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
-            "action": {
-              "ref": "forteCircuit.1"
-            }
+            "special": "consumeConcerto"
           },
           "cooldown": 1000,
           "duration": 10000
         },
         "remove": {
-          "when": "start",
-          "filter": {
-            "field": "offField"
-          }
+          "when": "swap",
+          "field": "offField"
         },
         "buff": {
           "stats": {
@@ -2613,7 +2604,6 @@
     ]
   },
   "21020107": {
-    "disabled": true,
     "name": "Unspoken Rue",
     "version": 3.7,
     "id": 21020107,
@@ -2624,7 +2614,110 @@
       "baseAtk": 587,
       "critRate%": 2430
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "unisonUpdate",
+          "filter": {
+            "unison": true
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": [
+              0.3,
+              0.6
+            ]
+          }
+        }
+      },
+      {
+        "ref": "yearningMind",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": [
+              0.4,
+              0.8
+            ]
+          }
+        }
+      },
+      {
+        "ref": "bindingMind",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      },
+      {
+        "use": [
+          {
+            "when": "unisonUpdate",
+            "filter": {
+              "unison": true
+            },
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "yearningMind"
+              },
+              {
+                "type": "apply",
+                "ref": "bindingMind",
+                "spec": {
+                  "duration": 30000
+                }
+              }
+            ]
+          },
+          {
+            "when": "use",
+            "filter": {
+              "special": "consumeConcerto"
+            },
+            "commands": [
+              {
+                "type": "remove",
+                "ref": "bindingMind"
+              },
+              {
+                "type": "apply",
+                "ref": "yearningMind",
+                "spec": {
+                  "duration": 14000
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   "21030011": {
     "name": "Training Pistols",

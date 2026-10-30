@@ -1,4 +1,4 @@
-import { CHARACTER, GI } from '@/data';
+import { CHARACTER, GI, WW } from '@/data';
 import { evaluateFilter } from '@/utils';
 
 function evaluateSpecial(ctx, special, effect, spec) {
@@ -131,6 +131,18 @@ function evaluateSpecial(ctx, special, effect, spec) {
       const onFieldElem = CHARACTER[gameId][onFieldId].element;
       return actionElem === ownerElem || actionElem === onFieldElem;
     }
+
+    case 'consumeConcerto': {
+      const isCamellyaForte = 
+        spec.action.ownerId === 1603 &&
+        spec.action.ref === 'forteCircuit.1';
+
+      const isSuomingForte = 
+        spec.action.ownerId === 1312 &&
+        spec.action.ref === 'resonanceSkill.0';
+
+      return isCamellyaForte || isSuomingForte;
+    }
   }
 }
 
@@ -180,6 +192,9 @@ export function createEventFilter(ctx) {
           : states.aura.stellarSwirl
             ? 'stellarSwirl'
             : null,
+      }),
+      ...(gameId === WW && {
+        unison: states.unison[effect.ownerId],
       }),
     });
   }

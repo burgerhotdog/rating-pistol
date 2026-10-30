@@ -27,6 +27,12 @@ export const initStates = (gameId, memberIds) => {
     ...(gameId === WW && {
       negativeStatuses: {},
       tune: { offTune: 0 },
+      unison: initPerMember(() => false),
+      unisonBoon: {
+        stacks: 0,
+        appliers: new Set(),
+        timeLeft: 0,
+      }
     }),
     ...(gameId === ZZZ && {
       daze: {

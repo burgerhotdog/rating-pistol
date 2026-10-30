@@ -3,11 +3,10 @@ import { fileURLToPath } from 'node:url';
 import { readJson, writeJson } from './utils/io.js';
 import { fetchJson } from './utils/fetch.js';
 import { getVersion } from './utils/getVersion.js';
-import { skills } from './utils/parsers/zzzCharacter.js';
 
-const gameId = 'zenless-zone-zero';
-const gameUrl = 'zzz';
-const dataType = 'weapon';
+const gameId = 'wuthering-waves';
+const gameUrl = 'ww';
+const dataType = 'character';
 
 async function main() {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -17,27 +16,42 @@ async function main() {
   const version = await getVersion(gameUrl);
   const base = `https://static.nanoka.cc/${gameUrl}/${version}/en/${dataType}/`;
 
-  /*
   const charDatas = Object.values(data);
   for (const [i, charData] of charDatas.entries()) {
     console.log(`(${i + 1}/${charDatas.length}) Modifying ${charData.name}`);
 
-    const raw = await fetchJson(`${base}${charData.id}.json`);
-    charData.skills = skills(raw);
-  }
-  */
+    for (const skill of Object.values(charData.skills)) {
+      for (const action of Object.values(skill.actions)) {
+        if (action.damage) {
+          for (const hit of action.damage.multipliers) {
+            if ('times' in hit && Object.keys(hit).at(-1) !== 'times') {
+              const times = hit.times;
+              delete hit.times;
+              hit.times = times;
+            }
+          }
+        }
 
-  const weapDatas = Object.values(data);
-  for (const [i, weapData] of weapDatas.entries()) {
-    console.log(`(${i + 1}/${weapDatas.length}) Modifying ${weapData.name}`);
+        if (action.healing) {
+          for (const hit of action.healing.multipliers) {
+            if ('times' in hit && Object.keys(hit).at(-1) !== 'times') {
+              const times = hit.times;
+              delete hit.times;
+              hit.times = times;
+            }
+          }
+        }
 
-    const raw = await fetchJson(`${base}${weapData.id}.json`);
-    const value = Math.floor(raw.base_property.value * 14.87);
-
-    if (weapData.type === 'armorer') {
-      weapData.stats.baseDef = value;
-    } else {
-      weapData.stats.baseAtk = value;
+        if (action.shield) {
+          for (const hit of action.shield.multipliers) {
+            if ('times' in hit && Object.keys(hit).at(-1) !== 'times') {
+              const times = hit.times;
+              delete hit.times;
+              hit.times = times;
+            }
+          }
+        }
+      }
     }
   }
 

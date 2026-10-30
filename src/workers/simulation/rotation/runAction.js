@@ -19,6 +19,7 @@ import {
   convertHealingToValue,
   hasGameRule,
   calcStunMult,
+  updateUnison,
 } from './states'
 import { canSnapshot, buildSnapshot } from './snapshot';
 import { getModifiedAction } from './getModifiedAction';
@@ -106,6 +107,9 @@ export function runAction(ctx, action, options = {}) {
   advanceTimeTo(hitOffsets[0]);
 
   runEffectsWhen('use');
+  if (gameId === WW) {
+    updateUnison(ctx, modifiedAction);
+  }
 
   let verdantDewMultiplier = 1;
   if (gameId === GI && modifiedAction.verdantDew && ctx.cache.lunarBloom) {
