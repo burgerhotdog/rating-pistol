@@ -26525,6 +26525,7 @@
     },
     "energy": 150,
     "energyMin": 1,
+    "unison": true,
     "effects": [
       {
         "buff": {
@@ -34642,6 +34643,7 @@
       "critRate%": 0.08
     },
     "energy": 125,
+    "unison": true,
     "modes": [
       "unison",
       "electroFlare"
@@ -37193,7 +37195,12 @@
         "36": 5
       },
       "mainEcho": 6000225
-    }
+    },
+    "teamPreset": [
+      1311,
+      1312,
+      1505
+    ]
   },
   "1312": {
     "disabled": true,
@@ -37212,6 +37219,7 @@
       "critRate%": 0.08
     },
     "energy": 125,
+    "unison": true,
     "effects": [
       {
         "ref": "unison",
@@ -39035,7 +39043,12 @@
         "36": 5
       },
       "mainEcho": 6000224
-    }
+    },
+    "teamPreset": [
+      1311,
+      1312,
+      1505
+    ]
   },
   "1402": {
     "name": "Yangyang",

@@ -1,3 +1,4 @@
+import { CHARACTER, WW } from '@/data';
 import { getTotals } from '@/utils';
 import { runRotation } from '../rotation';
 import { computeDuration } from '../duration';
@@ -12,7 +13,14 @@ function getPermutations(arr) {
 }
 
 function testOrder(cache, equipMaps, order) {
-  const testCache = { ...cache, memberIds: order };
+  const testCache = {
+    ...cache,
+    ...(order.length === 5 ? {
+      rotationOrder: order,
+    } : {
+      memberIds: order,
+    }),
+  };
 
   const { snapshots, bonusEnergy } = runRotation(testCache, equipMaps);
   const totals = getTotals(snapshots);
@@ -29,12 +37,28 @@ function testOrder(cache, equipMaps, order) {
   };
 }
 
+function getTestOrders(gameId, memberIds) {
+  const [first, ...rest] = memberIds;
+
+  if (
+    gameId === WW &&
+    CHARACTER[WW][first].unison &&
+    memberIds.length === 3
+  ) {
+    const [a, b, c] = memberIds;
+    return [[a, b, a, b, c]];
+  }
+
+  const permutations = getPermutations(rest);
+  return permutations.map((perm) => [first, ...perm]);
+}
+
 export function getRotationOrder(cache, equipMaps) {
-  const [first, ...rest] = cache.memberIds;
   let bestResults = { dps: 0 };
 
-  for (const permutation of getPermutations(rest)) {
-    const order = [first, ...permutation];
+  const testOrders = getTestOrders(cache.gameId, cache.memberIds);
+
+  for (const order of testOrders) {
     const testResults = testOrder(cache, equipMaps, order);
 
     if (testResults.dps > bestResults.dps) {

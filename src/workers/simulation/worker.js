@@ -101,7 +101,14 @@ self.onmessage = async ({ data }) => {
     userDps,
   });
 
-  const cache = { ...rawCache, memberIds: rotationOrder };
+  const cache = {
+    ...rawCache,
+    ...(rotationOrder.length === 5 ? {
+      rotationOrder,
+    } : {
+      memberIds: rotationOrder,
+    }),
+  };
 
   const { benchmarkLevels, benchmarkLevelsSource } = benchmarkSkillLevels(cache, equipMaps, charId, userDps);
   self.postMessage({ benchmarkLevels, benchmarkLevelsSource });

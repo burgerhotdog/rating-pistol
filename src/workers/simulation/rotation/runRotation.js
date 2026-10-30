@@ -75,7 +75,8 @@ export const runRotation = (cache, equipMaps, specId, logFilter = false) => {
   initPassives(ctx);
 
   // Rotation loop
-  const memberOrder = memberIds.toReversed();
+  const order = cache.rotationOrder ?? memberIds;
+  const memberOrder = order.toReversed();
   function runCycle() {
     for (const memberId of memberOrder) {
       ctx.states.onFieldId = memberId;

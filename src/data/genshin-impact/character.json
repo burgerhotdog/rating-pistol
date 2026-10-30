@@ -36439,7 +36439,11 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "setCounts": {
+        "15028": 4
+      }
+    }
   },
   "10000082": {
     "name": "Baizhu",
@@ -59614,7 +59618,7 @@
     "memberPreset": {
       "weaponId": 14520,
       "setCounts": {
-        "15042": 4
+        "15025": 4
       },
       "rotation": [
         "elementalSkill.1",
