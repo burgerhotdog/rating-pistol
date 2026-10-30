@@ -8359,7 +8359,24 @@
       "baseAnomalyProficiency": 91,
       "critRate%": 0.144
     },
-    "effects": [],
+    "effects": [
+      {
+        "ref": "corePassive",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "basicAttack.2",
+                "basicAttack.3"
+              ]
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.5
+          }
+        }
+      }
+    ],
     "skills": {
       "basicAttack": {
         "name": "Basic Attack",

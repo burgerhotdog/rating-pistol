@@ -543,7 +543,6 @@
     "effects": []
   },
   "13020": {
-    "disabled": true,
     "name": "The Simmering Pot",
     "version": 2.7,
     "id": 13020,
@@ -554,7 +553,42 @@
       "baseAtk": 594,
       "impact%": 0.15
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "type": "assistFollowUp"
+            }
+          },
+          "stats": {
+            "daze%": [
+              0.072,
+              0.115
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "assistFollowUp"
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.072,
+              0.115
+            ]
+          }
+        }
+      }
+    ]
   },
   "13021": {
     "disabled": true,
@@ -1010,7 +1044,6 @@
     "effects": []
   },
   "14114": {
-    "disabled": true,
     "name": "The Restrained",
     "version": 1.0,
     "id": 14114,
@@ -1022,7 +1055,40 @@
       "baseAtk": 684,
       "impact%": 0.18
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "has": "damage"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "basicAttack"
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.06,
+              0.12
+            ],
+            "daze%": [
+              0.06,
+              0.12
+            ]
+          }
+        },
+        "maxStacks": 5,
+        "independentStacks": true
+      }
+    ]
   },
   "14116": {
     "disabled": true,
@@ -1433,7 +1499,6 @@
     "effects": []
   },
   "14151": {
-    "disabled": true,
     "name": "Neon Fantasies",
     "version": 2.7,
     "id": 14151,
@@ -1444,7 +1509,67 @@
       "baseAtk": 713,
       "anomalyMastery%": 0.3
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "anomalyProficiency": [
+              90,
+              145
+            ]
+          }
+        }
+      },
+      {
+        "ref": "teamBuff",
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "and": [
+                {
+                  "type": [
+                    "exSpecialAttack",
+                    "basicAttack"
+                  ]
+                },
+                {
+                  "damage": {
+                    "element": "ether"
+                  }
+                }
+              ]
+            }
+          },
+          "duration": 40000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.15,
+              0.24
+            ]
+          }
+        },
+        "maxStacks": 2
+      },
+      {
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "teamBuff": 2
+            }
+          },
+          "stats": {
+            "anomalyProficiency": [
+              60,
+              96
+            ]
+          }
+        }
+      }
+    ]
   },
   "14152": {
     "disabled": true,
@@ -1573,7 +1698,6 @@
     "effects": []
   },
   "14162": {
-    "disabled": true,
     "name": "Crimson Moon Casket",
     "version": 3.2,
     "id": 14162,
@@ -1584,6 +1708,74 @@
       "baseAtk": 713,
       "energyRegen%": 0.6
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "critRate%": [
+              0.24,
+              0.32
+            ],
+            "windResIgnore%": [
+              0.15,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "and": [
+                {
+                  "type": "exSpecialAttack"
+                },
+                {
+                  "damage": {
+                    "element": "wind"
+                  }
+                }
+              ]
+            }
+          },
+          "stats": {
+            "daze%": [
+              0.16,
+              0.256
+            ]
+          }
+        }
+      },
+      {
+        "stores": "$ally",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "and": [
+                {
+                  "type": "exSpecialAttack"
+                },
+                {
+                  "damage": {
+                    "element": "wind"
+                  }
+                }
+              ]
+            }
+          },
+          "duration": 50000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": [
+              0.2,
+              0.32
+            ]
+          }
+        }
+      }
+    ]
   }
 }

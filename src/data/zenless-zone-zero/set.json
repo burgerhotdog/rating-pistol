@@ -78,7 +78,6 @@
     ]
   },
   "31100": {
-    "disabled": true,
     "name": "Puffer Electro",
     "version": 1.0,
     "id": 31100,
@@ -87,7 +86,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "penRatio%",
     "effects": [
       {
         "bonus": 2,
@@ -108,7 +107,7 @@
       {
         "bonus": 4,
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "ultimate"
@@ -187,7 +186,6 @@
     ]
   },
   "31400": {
-    "disabled": true,
     "name": "Hormone Punk",
     "version": 1.0,
     "id": 31400,
@@ -196,7 +194,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "atk%",
     "effects": [
       {
         "bonus": 2,
@@ -209,10 +207,8 @@
       {
         "bonus": 4,
         "apply": {
-          "when": "start",
-          "filter": {
-            "field": "onField"
-          },
+          "when": "swap",
+          "field": "onField",
           "cooldown": 20000,
           "duration": 10000
         },
@@ -225,7 +221,6 @@
     ]
   },
   "31500": {
-    "disabled": true,
     "name": "Soul Rock",
     "version": 1.0,
     "id": 31500,
@@ -234,7 +229,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "def%",
     "effects": [
       {
         "bonus": 2,
@@ -298,7 +293,7 @@
       2,
       4
     ],
-    "halfStat": "",
+    "halfStat": "anomalyProficiency",
     "effects": [
       {
         "bonus": 2,

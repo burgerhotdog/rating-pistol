@@ -1,5 +1,10 @@
 Characters:
+    Anby
+    Nicole
+    Billy
 
 Weapons:
 
 Sets:
+    Soul Rock
+        No 4pc
