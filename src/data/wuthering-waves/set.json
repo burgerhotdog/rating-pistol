@@ -1863,7 +1863,6 @@
     ]
   },
   "36": {
-    "disabled": true,
     "name": "Heart of Sworn Vigil",
     "version": 3.7,
     "id": 36,
@@ -1872,8 +1871,48 @@
       "2",
       "5"
     ],
-    "halfStat": "",
-    "effects": []
+    "halfStat": "electroDmgBonus%",
+    "effects": [
+      {
+        "bonus": 2,
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.1
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "apply": [
+          {
+            "when": "inflict",
+            "filter": {
+              "action": {
+                "inflict": {
+                  "status": {
+                    "has": "electroFlare"
+                  }
+                }
+              }
+            },
+            "duration": 30000
+          },
+          {
+            "when": "unisonUpdate",
+            "filter": {
+              "unison": true
+            },
+            "duration": 30000
+          }
+        ],
+        "buff": {
+          "stats": {
+            "critRate%": 0.15,
+            "electroDmgBonus%": 0.225
+          }
+        }
+      }
+    ]
   },
   "37": {
     "disabled": true,

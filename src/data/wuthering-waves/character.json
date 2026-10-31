@@ -37203,7 +37203,6 @@
     ]
   },
   "1312": {
-    "disabled": true,
     "name": "Suoming",
     "version": 3.7,
     "id": 1312,
@@ -38296,7 +38295,7 @@
         "name": "Furled Canopy: Rift Cleaver",
         "actions": [
           {
-            "name": "Furled Canopy: Resonance Skill: Rift Cleaver",
+            "name": "Resonance Skill: Rift Cleaver",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -38509,7 +38508,7 @@
         "name": "Bound Obsession, Forged Mind",
         "actions": [
           {
-            "name": "Resonance Skill: Furled Canopy: Sealed Delusion",
+            "name": "Resonance Skill: Sealed Delusion",
             "type": "resonanceSkill",
             "damage": {
               "type": "basicAttack",
@@ -38568,7 +38567,7 @@
             }
           },
           {
-            "name": "Resonance Skill: Unfurled Canopy: Unforsaken Mind",
+            "name": "Unfurled Canopy: Resonance Skill: Unforsaken Mind",
             "type": "resonanceSkill",
             "damage": {
               "type": "basicAttack",
@@ -39042,7 +39041,21 @@
       "setCounts": {
         "36": 5
       },
-      "mainEcho": 6000224
+      "mainEcho": 6000224,
+      "rotation": [
+        "introSkill.0",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ],
+      "rotationAlt": [
+        "introSkill.3",
+        "normalAttack.8",
+        "normalAttack.3",
+        "normalAttack.4",
+        "forteCircuit.1",
+        "forteCircuit.3",
+        "outroSkill.0"
+      ]
     },
     "teamPreset": [
       1311,
