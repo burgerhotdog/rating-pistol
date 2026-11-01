@@ -2,3 +2,4 @@ to improve:
     healthUpdate
     attackSpd
     nightsoul aligned damage
+    unisonResponse
