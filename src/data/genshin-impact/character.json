@@ -41449,8 +41449,8 @@
     },
     "teamPreset": [
       10000114,
-      10000089,
       10000112,
+      10000089,
       10000140
     ]
   },
@@ -43385,7 +43385,13 @@
         "elementalSkill.1",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000026,
+      10000093,
+      10000089,
+      10000076
+    ]
   },
   "10000094": {
     "disabled": true,
@@ -56188,8 +56194,8 @@
     },
     "teamPreset": [
       10000114,
-      10000089,
       10000112,
+      10000089,
       10000140
     ]
   },
@@ -57948,8 +57954,8 @@
     },
     "teamPreset": [
       10000114,
-      10000089,
       10000112,
+      10000089,
       10000140
     ]
   },
@@ -70709,66 +70715,32 @@
       {
         "ref": "songOfAgesPast",
         "apply": {
-          "when": "hit",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
             }
           },
           "duration": 16000,
-          "commands": [
-            {
-              "type": "apply",
-              "ref": "hornOfSpringsCall",
-              "spec": {
-                "duration": 16000
-              }
-            },
-            {
-              "type": "apply",
-              "ref": "wanderingVortex",
-              "spec": {
-                "duration": 16000
-              }
-            },
-            {
-              "type": "apply",
-              "ref": "leadVocal",
-              "spec": {
-                "duration": 30000,
-                "uses": 25
-              }
-            },
-            {
-              "type": "apply",
-              "ref": "chorus",
-              "spec": {
-                "duration": 30000,
-                "uses": 10
-              }
-            }
-          ]
+          "offset": 1500
         },
         "use": {
           "when": "interval",
           "cooldown": 1500,
           "action": "elementalSkill.2"
-        },
-        "buff": {
-          "filter": {
-            "action": {
-              "ref": "elementalBurst.0"
-            }
-          },
-          "statRefs": {
-            "dmgBonus%": "elementalBurst.1"
-          }
         }
       },
       {
         "ref": "hornOfSpringsCall",
         "apply": {
-          "when": "command"
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 16000,
+          "offset": 3000
         },
         "use": {
           "when": "interval",
@@ -70777,6 +70749,7 @@
         }
       },
       {
+        "ref": "resReduction",
         "stores": "global",
         "apply": {
           "when": "hit",
@@ -70798,87 +70771,123 @@
         }
       },
       {
-        "ref": "wanderingVortex",
+        "ref": "burstBuff",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "songOfAgesPast"
+                }
+              }
+            ]
+          },
+          "statRefs": {
+            "damageMv": "elementalBurst.1"
+          }
+        }
+      },
+      {
+        "ref": "a1_wanderingVortex",
         "stores": "global",
         "apply": {
-          "when": "command"
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 16000
         },
         "gameRule": "wanderingVortex"
       },
       {
-        "ref": "leadVocal",
+        "ref": "a4_leadVocal",
         "stores": "global",
         "apply": {
-          "when": "command"
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 30000,
+          "uses": 25
         },
         "buff": {
           "filter": {
-            "or": [
+            "and": [
               {
-                "and": [
+                "field": "onField"
+              },
+              {
+                "or": [
                   {
-                    "field": "onField"
-                  },
-                  {
-                    "states": {
-                      "aura": {
-                        "not": {
-                          "stellarSwirl": {
-                            "wanderingVortex": {
-                              ">": 1000
+                    "and": [
+                      {
+                        "states": {
+                          "aura": {
+                            "not": {
+                              "stellarSwirl": {
+                                "wanderingVortex": {
+                                  ">": 1000
+                                }
+                              }
                             }
                           }
                         }
-                      }
-                    }
-                  },
-                  {
-                    "action": {
-                      "damage": {
-                        "and": [
-                          {
-                            "element": [
-                              "hydro",
-                              "cryo"
+                      },
+                      {
+                        "action": {
+                          "damage": {
+                            "and": [
+                              {
+                                "element": [
+                                  "hydro",
+                                  "cryo"
+                                ]
+                              },
+                              {
+                                "type": [
+                                  "normalAttack",
+                                  "chargedAttack",
+                                  "plungingAttack",
+                                  "elementalSkill",
+                                  "elementalBurst"
+                                ]
+                              }
                             ]
-                          },
-                          {
-                            "type": [
-                              "normalAttack",
-                              "chargedAttack",
-                              "plungingAttack",
-                              "elementalSkill",
-                              "elementalBurst"
-                            ]
-                          }
-                        ]
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "and": [
-                  {
-                    "field": "onField"
-                  },
-                  {
-                    "states": {
-                      "aura": {
-                        "stellarSwirl": {
-                          "wanderingVortex": {
-                            ">": 1000
                           }
                         }
                       }
-                    }
+                    ]
                   },
                   {
-                    "action": {
-                      "damage": {
-                        "type": "stellarSwirl"
+                    "and": [
+                      {
+                        "states": {
+                          "aura": {
+                            "stellarSwirl": {
+                              "wanderingVortex": {
+                                ">": 1000
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "action": {
+                          "damage": {
+                            "type": "stellarSwirl"
+                          }
+                        }
                       }
-                    }
+                    ]
                   }
                 ]
               }
@@ -70903,79 +70912,87 @@
         }
       },
       {
-        "ref": "chorus",
+        "ref": "a4_chorus",
         "stores": "global",
         "apply": {
-          "when": "command"
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 30000,
+          "uses": 10
         },
         "buff": {
           "filter": {
-            "or": [
+            "and": [
               {
-                "and": [
+                "field": "offField"
+              },
+              {
+                "or": [
                   {
-                    "field": "offField"
-                  },
-                  {
-                    "states": {
-                      "aura": {
-                        "not": {
-                          "stellarSwirl": {
-                            "wanderingVortex": {
-                              ">": 1000
+                    "and": [
+                      {
+                        "states": {
+                          "aura": {
+                            "not": {
+                              "stellarSwirl": {
+                                "wanderingVortex": {
+                                  ">": 1000
+                                }
+                              }
                             }
                           }
                         }
-                      }
-                    }
-                  },
-                  {
-                    "action": {
-                      "damage": {
-                        "and": [
-                          {
-                            "element": [
-                              "hydro",
-                              "cryo"
+                      },
+                      {
+                        "action": {
+                          "damage": {
+                            "and": [
+                              {
+                                "element": [
+                                  "hydro",
+                                  "cryo"
+                                ]
+                              },
+                              {
+                                "type": [
+                                  "normalAttack",
+                                  "chargedAttack",
+                                  "plungingAttack",
+                                  "elementalSkill",
+                                  "elementalBurst"
+                                ]
+                              }
                             ]
-                          },
-                          {
-                            "type": [
-                              "normalAttack",
-                              "chargedAttack",
-                              "plungingAttack",
-                              "elementalSkill",
-                              "elementalBurst"
-                            ]
-                          }
-                        ]
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "and": [
-                  {
-                    "field": "offField"
-                  },
-                  {
-                    "states": {
-                      "aura": {
-                        "stellarSwirl": {
-                          "wanderingVortex": {
-                            ">": 1000
                           }
                         }
                       }
-                    }
+                    ]
                   },
                   {
-                    "action": {
-                      "damage": {
-                        "type": "stellarSwirl"
+                    "and": [
+                      {
+                        "states": {
+                          "aura": {
+                            "stellarSwirl": {
+                              "wanderingVortex": {
+                                ">": 1000
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "action": {
+                          "damage": {
+                            "type": "stellarSwirl"
+                          }
+                        }
                       }
-                    }
+                    ]
                   }
                 ]
               }
@@ -70995,6 +71012,28 @@
               "offset": 40000,
               "value": 140,
               "maxValue": 3500
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "specs": {
+            "atk": {
+              "attr": "hp",
+              "step": 1,
+              "value": 0.008
             }
           }
         }
