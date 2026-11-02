@@ -38584,7 +38584,7 @@
       {
         "ref": "chillingPenalty",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
@@ -38602,9 +38602,13 @@
             "and": [
               {
                 "action": {
-                  "damage": {
-                    "type": "normalAttack"
-                  }
+                  "ref": [
+                    "normalAttack.0",
+                    "normalAttack.1",
+                    "normalAttack.2",
+                    "normalAttack.3",
+                    "normalAttack.4"
+                  ]
                 }
               },
               {
@@ -38626,9 +38630,13 @@
             "and": [
               {
                 "action": {
-                  "damage": {
-                    "type": "normalAttack"
-                  }
+                  "ref": [
+                    "normalAttack.0",
+                    "normalAttack.1",
+                    "normalAttack.2",
+                    "normalAttack.3",
+                    "normalAttack.4"
+                  ]
                 }
               },
               {
@@ -38641,11 +38649,18 @@
           "statRefs": {
             "damageMv%": "elementalSkill.1"
           }
-        }
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "a4_prosecutionEdict"
+          }
+        },
+        "maxExtensions": 1
       },
       {
         "ref": "surgingBlade",
-        "apply": {
+        "use": {
           "when": "end",
           "filter": {
             "action": {
@@ -38653,43 +38668,54 @@
             }
           },
           "cooldown": 10000,
-          "uses": 1,
-          "offset": 1000
-        },
-        "use": {
-          "when": "interval",
           "action": "elementalBurst.1"
         }
       },
       {
-        "modify": {
-          "type": "action",
+        "ref": "a1",
+        "use": {
+          "when": "interval",
           "filter": {
             "and": [
               {
-                "action": {
-                  "ref": "normalAttack.5"
+                "not": {
+                  "radiance": "stellarConduct"
                 }
               },
               {
                 "health": {
                   "<": 0.6
                 }
+              },
+              {
+                "effectStacks": {
+                  "not": {
+                    "has": [
+                      "graciousRebukeBuff",
+                      "graciousRebukeHealth"
+                    ]
+                  }
+                }
               }
             ]
           },
-          "spec": {
-            "health": {
-              "targets": [
-                10000086
-              ],
-              "value": 0.3
+          "cooldown": 5000,
+          "commands": {
+            "type": "apply",
+            "ref": "graciousRebuke",
+            "spec": {
+              "uses": 1
             }
           }
         }
       },
       {
-        "buff": {
+        "ref": "graciousRebuke",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "hit",
           "filter": {
             "and": [
               {
@@ -38704,13 +38730,45 @@
               }
             ]
           },
+          "action": {
+            "health": {
+              "targets": [
+                10000086
+              ],
+              "value": 0.3
+            }
+          }
+        }
+      },
+      {
+        "ref": "rebukeVaultingFist",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "not": {
+                  "radiance": "stellarConduct"
+                }
+              },
+              {
+                "action": {
+                  "ref": "normalAttack.5"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "graciousRebuke"
+                }
+              }
+            ]
+          },
           "stats": {
             "dmgBonus%": 0.5
           }
         }
       },
       {
-        "ref": "prosecutionEdict",
+        "ref": "a4_prosecutionEdict",
         "apply": {
           "when": "healthUpdate",
           "filter": {
@@ -38720,14 +38778,8 @@
           }
         },
         "remove": {
-          "when": "start",
-          "filter": {
-            "effectStacks": {
-              "not": {
-                "has": "chillingPenalty"
-              }
-            }
-          }
+          "when": "swap",
+          "field": "offField"
         },
         "buff": {
           "stats": {
@@ -38737,6 +38789,7 @@
         "maxStacks": 5
       },
       {
+        "ref": "p4_1",
         "modify": {
           "type": "action",
           "filter": {
@@ -38752,6 +38805,11 @@
                     "normalAttack.5"
                   ]
                 }
+              },
+              {
+                "effectStacks": {
+                  "has": "chillingPenalty"
+                }
               }
             ]
           },
@@ -38760,52 +38818,147 @@
               "type": "stellarConduct"
             }
           }
-        }
-      },
-      {
-        "buff": {
+        },
+        "use": {
+          "when": "hit",
           "filter": {
             "and": [
               {
                 "radiance": "stellarConduct"
               },
               {
-                "action": {
-                  "ref": "normalAttack.2"
+                "health": {
+                  "<": 0.6
                 }
-              }
-            ]
-          },
-          "stats": {
-            "damageMv": -0.4
-          }
-        }
-      },
-      {
-        "buff": {
-          "filter": {
-            "and": [
-              {
-                "radiance": "stellarConduct"
               },
               {
                 "action": {
-                  "ref": "normalAttack.4"
+                  "ref": "normalAttack.5"
                 }
               }
             ]
           },
-          "stats": {
-            "damageMv": -0.2
+          "cooldown": 2000,
+          "action": {
+            "health": {
+              "targets": [
+                10000086
+              ],
+              "value": 0.3
+            }
           }
-        }
+        },
+        "buff": [
+          {
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarConduct"
+                },
+                {
+                  "action": {
+                    "ref": "normalAttack.2"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "has": "chillingPenalty"
+                  }
+                }
+              ]
+            },
+            "stats": {
+              "damageMv": -0.4
+            }
+          },
+          {
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarConduct"
+                },
+                {
+                  "action": {
+                    "ref": "normalAttack.4"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "has": "chillingPenalty"
+                  }
+                }
+              ]
+            },
+            "stats": {
+              "damageMv": -0.2
+            }
+          }
+        ]
       },
       {
+        "ref": "p4_2",
         "buff": {
           "stats": {
             "stellarConductReactionBonus%": 0.3
           }
         }
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.5"
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "chillingPenalty",
+            "spec": {
+              "duration": 4000,
+              "extend": true
+            }
+          }
+        },
+        "buff": [
+          {
+            "filter": {
+              "and": [
+                {
+                  "not": {
+                    "radiance": "stellarConduct"
+                  }
+                },
+                {
+                  "action": {
+                    "ref": "normalAttack.5"
+                  }
+                }
+              ]
+            },
+            "stats": {
+              "dmgBonus%": 1.5
+            }
+          },
+          {
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarConduct"
+                },
+                {
+                  "action": {
+                    "ref": "normalAttack.5"
+                  }
+                }
+              ]
+            },
+            "stats": {
+              "stellarConductReactionBonus%": 0.5
+            }
+          }
+        ]
       }
     ],
     "skills": {
@@ -39036,21 +39189,21 @@
               "multipliers": [
                 {
                   "flat": [
-                    1.4317,
-                    1.4575,
-                    1.4834,
-                    1.517,
-                    1.5429,
-                    1.5687,
-                    1.6023,
-                    1.6359,
-                    1.6695,
-                    1.7031,
-                    1.7367,
-                    1.7703,
-                    1.8039,
-                    1.8375,
-                    1.8711
+                    0.4317,
+                    0.4575,
+                    0.4834,
+                    0.517,
+                    0.5429,
+                    0.5687,
+                    0.6023,
+                    0.6359,
+                    0.6695,
+                    0.7031,
+                    0.7367,
+                    0.7703,
+                    0.8039,
+                    0.8375,
+                    0.8711
                   ]
                 }
               ]
