@@ -27,5 +27,7 @@ dist-ssr
 .env
 .vercel
 
+rotation-output/
+
 __pycache__/
 *.pyc

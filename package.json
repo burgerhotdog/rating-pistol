@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
+    "rotation": "node scripts/rotation.js",
     "scrape": "node scripts/scrape.js",
     "modify": "node scripts/modify.js"
   },

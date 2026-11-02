@@ -2303,7 +2303,8 @@
               "ref": "elementalBurst.0"
             }
           },
-          "uses": 8
+          "uses": 8,
+          "offset": 200
         },
         "use": {
           "when": "interval",
@@ -3181,7 +3182,8 @@
               "ref": "elementalBurst.0"
             }
           },
-          "uses": 18
+          "uses": 18,
+          "offset": 100
         },
         "use": {
           "when": "interval",
@@ -5202,7 +5204,12 @@
           "cooldown": 2250,
           "action": {
             "damage": {
-              "gauge": 1
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "flat": 0
+                }
+              ]
             }
           }
         }
@@ -5699,6 +5706,7 @@
             }
           },
           "duration": 15000,
+          "offset": 1000,
           "commands": {
             "type": "apply",
             "ref": "tamerOfDemonsRamping",
@@ -8146,7 +8154,13 @@
       "rotation": [
         "elementalSkill.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000042,
+      10000031,
+      10000073,
+      10000047
+    ]
   },
   "10000032": {
     "name": "Bennett",
@@ -12753,7 +12767,6 @@
     "memberPreset": {}
   },
   "10000042": {
-    "disabled": true,
     "name": "Keqing",
     "version": 1.0,
     "id": 10000042,
@@ -12769,7 +12782,255 @@
     },
     "energy": 40,
     "liyue": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "lightningStiletto",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 5000,
+          "uses": 1
+        },
+        "remove": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          }
+        },
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.5"
+            }
+          },
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "ref": "burst_1",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 8,
+          "offset": 125
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 125,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "burst_2",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 1,
+          "offset": 2000
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.2"
+        }
+      },
+      {
+        "ref": "a1",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "duration": 5000
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "category": "normalAttack"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "electro"
+            }
+          }
+        }
+      },
+      {
+        "ref": "a4",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "critRate%": 0.15,
+            "energyRecharge%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "action": {
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": 0.5,
+                  "times": 2
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 5000,
+          "action": {
+            "restoreEnergy": {
+              "erScaled": 6
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "elements": "electro"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.25
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "ref": "c6normalAttack",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "normalAttack"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.06
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "ref": "c6chargedAttack",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "chargedAttack"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.06
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "ref": "c6elementalSkill",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.06
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "ref": "c6elementalBurst",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "elementalBurst"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.06
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Yunlai Swordsmanship",
@@ -12799,7 +13060,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 400
           },
           {
             "name": "Normal Attack 2",
@@ -12972,7 +13234,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 500
           },
           {
             "name": "Plunging Attack",
@@ -13008,9 +13271,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Lightning Stiletto",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -13035,9 +13299,15 @@
             }
           },
           {
-            "name": "Slashing",
+            "name": "Elemental Skill: Teleport",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 2,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -13062,9 +13332,15 @@
             }
           },
           {
-            "name": "Thunderclap Slash",
-            "type": "elementalSkill",
+            "name": "Detonate",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 2,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -13083,7 +13359,8 @@
                     1.785,
                     1.89,
                     1.995
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
@@ -13095,9 +13372,15 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Starward Sword",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -13122,9 +13405,15 @@
             }
           },
           {
-            "name": "Starward Sword: Consecutive Slash",
+            "name": "Consecutive Slash",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -13149,9 +13438,15 @@
             }
           },
           {
-            "name": "Starward Sword: Last Attack",
+            "name": "Final Slash",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -13178,7 +13473,33 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11405,
+      "setCounts": {
+        "15005": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "elementalSkill.1",
+        "normalAttack.0",
+        "normalAttack.5",
+        "normalAttack.0",
+        "normalAttack.5",
+        "normalAttack.0",
+        "normalAttack.5",
+        "normalAttack.0",
+        "normalAttack.5",
+        "normalAttack.0",
+        "normalAttack.5"
+      ]
+    },
+    "teamPreset": [
+      10000042,
+      10000031,
+      10000073,
+      10000047
+    ]
   },
   "10000043": {
     "name": "Sucrose",
@@ -14246,7 +14567,7 @@
             }
           },
           "uses": 4,
-          "offset": 1500
+          "offset": 2000
         },
         "use": {
           "when": "interval",
@@ -15417,7 +15738,7 @@
             }
           },
           "duration": 8000,
-          "offset": 1000
+          "offset": 2000
         },
         "use": {
           "when": "interval",
@@ -15435,7 +15756,7 @@
             }
           },
           "duration": 8000,
-          "offset": 1100
+          "offset": 2100
         },
         "use": {
           "when": "interval",
@@ -16063,7 +16384,13 @@
         "normalAttack.6",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000042,
+      10000031,
+      10000073,
+      10000047
+    ]
   },
   "10000048": {
     "name": "Yanfei",
@@ -33297,6 +33624,10 @@
       }
     },
     "memberPreset": {
+      "weaponId": 14512,
+      "setCounts": {
+        "15027": 4
+      },
       "rotation": [
         "elementalSkill.0",
         "normalAttack.3",
@@ -33389,7 +33720,8 @@
               "ref": "elementalBurst.0"
             }
           },
-          "duration": 12000
+          "duration": 12000,
+          "offset": 2000
         },
         "use": {
           "when": "interval",
