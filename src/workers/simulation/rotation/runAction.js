@@ -1,5 +1,5 @@
 import { GI, WW, ZZZ } from '@/data';
-import { applyGauge, consumeVerdantDew } from './reactions';
+import { applyGauge, getVerdantDewMult } from './reactions';
 import {
   advanceStates,
   decayBuffUses,
@@ -111,10 +111,7 @@ export function runAction(ctx, action, options = {}) {
     updateUnison(ctx, modifiedAction);
   }
 
-  let verdantDewMultiplier = 1;
-  if (gameId === GI && modifiedAction.verdantDew && ctx.cache.lunarBloom) {
-    verdantDewMultiplier = consumeVerdantDew(ctx, modifiedAction.verdantDew);
-  }
+  const verdantDewMult = getVerdantDewMult(ctx, modifiedAction);
 
   let damageSnapshot;
   let healingSnapshot;
@@ -180,7 +177,7 @@ export function runAction(ctx, action, options = {}) {
           ...damageSnapshot.unresolved,
           scale: rxnScaleMult,
           scaleFlat: rxnScaleFlat,
-          dew: verdantDewMultiplier,
+          dew: verdantDewMult,
         },
       });
     }

@@ -43,7 +43,9 @@ export const buildSnapshot = (ctx, action, part, options = {}) => {
     ? getBuffMap(ctx, { memberId: ctx.specId, ignoreSpecs: true }).buffMap
     : null;
 
-  const { multiplier } = ctx.states.aura?.stellarConduct ?? {};
+  const stellarConductRxnMult = action.damage?.type === 'stellarConduct'
+    ? ctx.states.aura?.stellarConduct?.multiplier
+    : undefined;
 
   return {
     key: action.key,
@@ -61,7 +63,7 @@ export const buildSnapshot = (ctx, action, part, options = {}) => {
       buffSpecs,
       specSourceBuffMap,
       splitScale: getSplitScale(action, part),
-      formula: (statMap) => runFormula(gameId, part, action, statMap, multiplier),
+      formula: (statMap) => runFormula(gameId, part, action, statMap, stellarConductRxnMult),
       part,
     },
   };

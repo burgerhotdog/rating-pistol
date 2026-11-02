@@ -1,3 +1,4 @@
+import { GI } from '@/data';
 import { hasGameRule } from '../../states';
 
 export function reactLunarBloom(ctx, ownerId) {
@@ -20,12 +21,13 @@ export function reactLunarBloom(ctx, ownerId) {
   }
 }
 
-export function consumeVerdantDew(ctx, maxConsumedStacks) {
+function consumeVerdantDew(ctx, action) {
+  const maxConsumedStacks = action.verdantDew ?? 0;
   const state = ctx.states.aura.lunarBloom;
   if (!state) return 0;
 
   const stacksAvailable = state.verdantDew + state.moonridgeDew;
-  const consumedStacks = Math.min(maxConsumedStacks, stacksAvailable);
+  const consumedStacks = Math.min(stacksAvailable, maxConsumedStacks);
 
   if (consumedStacks === stacksAvailable) {
     delete ctx.states.aura.lunarBloom;
@@ -37,6 +39,20 @@ export function consumeVerdantDew(ctx, maxConsumedStacks) {
 
   state.verdantDew -= verdantToConsume;
   state.moonridgeDew -= moonridgeToConsume;
+
+  return consumedStacks;
+}
+
+export function getVerdantDewMult(ctx, action) {
+  const { gameId, lunarBloom } = ctx.cache;
+  if (gameId !== GI || !lunarBloom) return 1;
+  if (!action.verdantDew) return 1;
+
+  const consumedStacks = consumeVerdantDew(ctx, action);
+
+  for (let i = 0; i < consumedStacks; i++) {
+    ctx.runEffects('consumeVerdantDew', action);
+  }
 
   return consumedStacks;
 }

@@ -62,7 +62,7 @@ Characters:
         Movement is approximated
         Overflow handling is inaccurate
     Ifa
-        No a1
+        No A1
         No C2, C4, C6
     Illuga
         Burst affects non-direct dmg too
@@ -80,9 +80,8 @@ Characters:
     Klee
         No constellations
     Lauma
-        Always gain 3 stacks of Moon song
-        Pale Hymn might not be decaying properly
-        No constellations
+        Pale hymn stacks share duration with converted stacks
+        No C6
     Linnea
         Passive 2 always buffs linnea
         No constellations
@@ -138,7 +137,7 @@ Characters:
         No constellations
     Sara
         A4 hard coded
-        Remember c6 no snapshot
+        Remember C6 no snapshot
         Numbers are sus
     Shenhe
         No constellations
@@ -173,11 +172,11 @@ Characters:
         3 sword always
         no orbitals from skill
     Yanfei
-        a4 always happens
+        A4 always happens
     Yelan
         No barb reset
     Yoimiya
-        No second half a4
+        No second half A4
         No constellations
     Yumemizuki Mizuki
         Ult always does damage

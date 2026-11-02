@@ -20540,30 +20540,22 @@
         "15022": 4
       },
       "rotation": [
+        "elementalBurst.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
         "elementalSkill.0"
       ]
-    },
-    "teamPreset": [
-      {
-        "id": 10000054,
-        "rotation": [
-          "elementalBurst.0",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "normalAttack.0",
-          "normalAttack.1",
-          "normalAttack.2",
-          "elementalSkill.0"
-        ]
-      }
-    ]
+    }
   },
   "10000055": {
     "name": "Gorou",
@@ -30321,7 +30313,13 @@
         "elementalSkill.2",
         "elementalSkill.6"
       ]
-    }
+    },
+    "teamPreset": [
+      10000054,
+      10000070,
+      10000073,
+      10000119
+    ]
   },
   "10000071": {
     "disabled": true,
@@ -59030,8 +59028,9 @@
     "moonsign": true,
     "effects": [
       {
+        "ref": "frostgroveSanctuary",
         "apply": {
-          "when": "hit",
+          "when": "use",
           "filter": {
             "action": {
               "ref": [
@@ -59040,7 +59039,8 @@
               ]
             }
           },
-          "duration": 15000
+          "duration": 15000,
+          "offset": 2000
         },
         "use": {
           "when": "interval",
@@ -59049,9 +59049,10 @@
         }
       },
       {
+        "ref": "holdSkillSwitcher",
         "use": [
           {
-            "when": "hit",
+            "when": "use",
             "filter": {
               "and": [
                 {
@@ -59073,7 +59074,7 @@
             "action": "elementalSkill.0"
           },
           {
-            "when": "hit",
+            "when": "use",
             "filter": {
               "and": [
                 {
@@ -59098,6 +59099,37 @@
         ]
       },
       {
+        "ref": "moonSong",
+        "apply": {
+          "when": "consumeVerdantDew",
+          "uses": 1
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "has": "convertMoonSong"
+            }
+          },
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "convertMoonSong"
+            },
+            {
+              "type": "apply",
+              "ref": "paleHymn",
+              "spec": {
+                "uses": 6,
+                "extend": true
+              }
+            }
+          ]
+        },
+        "maxStacks": 6
+      },
+      {
+        "ref": "skillResReduction",
         "stores": "global",
         "apply": {
           "when": "hit",
@@ -59120,15 +59152,17 @@
         }
       },
       {
+        "ref": "paleHymn",
         "stores": "global",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
             }
           },
-          "uses": 36
+          "duration": 15000,
+          "uses": 18
         },
         "buff": {
           "filter": {
@@ -59168,9 +59202,22 @@
         }
       },
       {
+        "ref": "convertMoonSong",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000
+        }
+      },
+      {
         "enable": {
           "nascentGleam": true
         },
+        "ref": "a1Nascent",
         "stores": "global",
         "apply": {
           "when": "use",
@@ -59190,6 +59237,7 @@
         "enable": {
           "ascendantGleam": true
         },
+        "ref": "a1Ascendant",
         "stores": "$team",
         "apply": {
           "when": "use",
@@ -59218,6 +59266,7 @@
         }
       },
       {
+        "ref": "a4",
         "buff": {
           "specs": {
             "elementalSkillDmgBonus%": {
@@ -59230,6 +59279,7 @@
         }
       },
       {
+        "ref": "benediction",
         "stores": "global",
         "buff": {
           "specs": {
@@ -59238,6 +59288,94 @@
               "step": 1,
               "value": 0.000175,
               "maxValue": 0.14
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "ref": "threadsOfLife",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 20000
+        },
+        "use": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "lunarBloom"
+            }
+          },
+          "cooldown": 1900,
+          "action": {
+            "healing": {
+              "targets": "$onField",
+              "attr": "elementalMastery",
+              "multipliers": [
+                {
+                  "mv": 5
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "stores": "global",
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "has": "paleHymn"
+            }
+          },
+          "specs": {
+            "bloomFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 5
+            },
+            "hyperbloomFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 5
+            },
+            "burgeonFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 5
+            },
+            "lunarBloomFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 4
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.4"
+            }
+          },
+          "cooldown": 5000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 4
             }
           }
         }
@@ -59421,7 +59559,7 @@
             "type": "elementalSkill"
           },
           {
-            "name": "Regular Hold Dmg",
+            "name": "Hymn of Eternal Rest",
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
@@ -59449,7 +59587,7 @@
             }
           },
           {
-            "name": "Lunar Bloom Hold Dmg",
+            "name": "Hymn of Eternal Rest: Lunar Bloom",
             "verdantDew": 3,
             "damage": {
               "type": "lunarBloom",
@@ -59525,7 +59663,7 @@
             }
           },
           {
-            "name": "Elemental RES Decrease",
+            "name": "Elemental RES Reduction",
             "buff": {
               "multipliers": [
                 {

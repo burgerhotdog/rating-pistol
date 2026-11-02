@@ -18,73 +18,36 @@ const computeBase = (compressed, statMap) => {
   return mvDamageValue * mvMultiplier;
 };
 
-function getEmBonus(em) {
-  return (6 * em) / (em + 2000);
-}
+const getBaseDmgBonus = (statMap, type) =>
+  getAttr('stellarGlimmerBaseDmg%', statMap) +
+  getAttr(`${type}BaseDmg%`, statMap);
 
-function stellarConductFormula(action, statMap, reactionMultiplier) {
-  const { element, compressed } = action.damage;
+const getEmBonus = (statMap) => {
+  const emValue = getAttr('elementalMastery', statMap);
+  return (6 * emValue) / (emValue + 2000);
+};
 
-  const em = getAttr('elementalMastery', statMap);
+const getRxnBonus = (statMap, type) =>
+  getAttr('stellarGlimmerReactionBonus%', statMap) +
+  getAttr(`${type}ReactionBonus%`, statMap);
 
-  let damageValue =
-    reactionMultiplier *
+const getRxnFlat = (statMap, type) =>
+  getAttr('stellarGlimmerFlat', statMap) +
+  getAttr(`${type}Flat`, statMap);
+
+export function runStellarFormula(action, statMap, rxnMult = 1) {
+  const { type, element, compressed } = action.damage;
+
+  const rxnDamage =
+    rxnMult *
     computeBase(compressed, statMap) *
-    (
-      1 +
-      getAttr('stellarConductBaseDmg%', statMap) +
-      getAttr('stellarGlimmerBaseDmg%', statMap)
-    ) *
-    (
-      1 +
-      getEmBonus(em) +
-      getAttr('stellarConductReactionBonus%', statMap) +
-      getAttr('stellarGlimmerReactionBonus%', statMap)
-    ) +
-    getAttr('stellarGlimmerFlat', statMap) +
-    getAttr('stellarConductFlat', statMap);
+    (1 + getBaseDmgBonus(statMap, type)) *
+    (1 + getEmBonus(statMap) + getRxnBonus(statMap, type)) +
+    getRxnFlat(statMap, type);
 
-  damageValue *= getCritMult(statMap);
-  damageValue *= getResMult(GI, element, statMap);
-
-  return damageValue;
-}
-
-function stellarSwirlFormula(action, statMap) {
-  const { element, compressed } = action.damage;
-
-  const em = getAttr('elementalMastery', statMap);
-
-  let damageValue =
-    computeBase(compressed, statMap) *
-    (
-      1 +
-      getAttr('stellarSwirlBaseDmg%', statMap) +
-      getAttr('stellarGlimmerBaseDmg%', statMap)
-    ) *
-    (
-      1 +
-      getEmBonus(em) +
-      getAttr('stellarSwirlReactionBonus%', statMap) +
-      getAttr('stellarGlimmerReactionBonus%', statMap)
-    ) +
-    getAttr('stellarGlimmerFlat', statMap) +
-    getAttr('stellarSwirlFlat', statMap);
-
-  damageValue *= getCritMult(statMap);
-  damageValue *= getResMult(GI, element, statMap);
-
-  return damageValue;
-}
-
-export function runStellarFormula(action, statMap, reactionMultiplier) {
-  const { type } = action.damage;
-
-  if (type === 'stellarConduct') {
-    return stellarConductFormula(action, statMap, reactionMultiplier);
-  }
-
-  if (type === 'stellarSwirl') {
-    return stellarSwirlFormula(action, statMap, reactionMultiplier);
-  }
+  return (
+    rxnDamage *
+    getCritMult(statMap) *
+    getResMult(GI, element, statMap)
+  );
 }
