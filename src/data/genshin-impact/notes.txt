@@ -21,7 +21,7 @@ Characters:
     Charlotte
         No C4, C6
     Chasca
-        Skill element order is fixed ECHPA
+        Skill element ordFer is fixed ECHPA
         A1 is not 33%/66%/100% but 0%/100% with starting with 2 PHCE elements
         A1 shell follows reverse priority order (ECHP)
         No constellations
@@ -77,6 +77,8 @@ Characters:
         No constellations
     Kokomi
         No constellations
+    Kirara
+        No urgent neko parcel mode
     Klee
         No constellations
     Lauma

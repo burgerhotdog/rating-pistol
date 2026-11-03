@@ -25381,7 +25381,6 @@
     ]
   },
   "10000061": {
-    "disabled": true,
     "name": "Kirara",
     "version": 3.7,
     "id": 10000061,
@@ -25396,7 +25395,140 @@
       "hp%": 0.24
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "catGrassCardamoms",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 6,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 500,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "a4",
+        "buff": [
+          {
+            "filter": {
+              "action": {
+                "category": "elementalSkill"
+              }
+            },
+            "specs": {
+              "damageFlat": {
+                "attr": "hp",
+                "step": 1000,
+                "value": 0.004
+              }
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "category": "elementalBurst"
+              }
+            },
+            "specs": {
+              "damageFlat": {
+                "attr": "hp",
+                "step": 1000,
+                "value": 0.003
+              }
+            }
+          }
+        ]
+      },
+      {
+        "rank": 1,
+        "modify": {
+          "type": "effect",
+          "ref": "catGrassCardamoms",
+          "spec": {
+            "apply": {
+              "uses": 4
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 12000
+        },
+        "use": {
+          "by": "$team",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "type": [
+                    "normalAttack",
+                    "chargedAttack",
+                    "plungingAttack"
+                  ]
+                }
+              }
+            ]
+          },
+          "cooldown": 3800,
+          "action": {
+            "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": 2
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": [
+                "elementalSkill",
+                "elementalBurst"
+              ]
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "elementalDmgBonus%": 0.12
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Boxcutter",
@@ -25627,9 +25759,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Tail-Flicking Flying Kick DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -25651,12 +25784,10 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Shield DMG Absorption",
-            "type": "elementalSkill",
-            "damage": {
+            },
+            "shield": {
+              "duration": 12000,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -25675,10 +25806,8 @@
                     0.2125,
                     0.225,
                     0.2375
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     962.2313,
                     1058.4679,
                     1162.7241,
@@ -25700,9 +25829,10 @@
             }
           },
           {
-            "name": "Max Shield DMG Absorption",
-            "type": "elementalSkill",
-            "damage": {
+            "name": "Max Shield Absorption",
+            "shield": {
+              "duration": 12000,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -25721,10 +25851,8 @@
                     0.34,
                     0.36,
                     0.38
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     1541.0796,
                     1695.2089,
                     1862.1824,
@@ -25746,9 +25874,15 @@
             }
           },
           {
-            "name": "Urgent Neko Parcel Hit DMG",
-            "type": "elementalSkill",
+            "name": "Urgent Neko Parcel Hit",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -25773,9 +25907,10 @@
             }
           },
           {
-            "name": "Flipclaw Strike DMG",
-            "type": "elementalSkill",
+            "name": "Flipclaw Strike",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -25806,9 +25941,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -25833,9 +25969,15 @@
             }
           },
           {
-            "name": "Cat Grass Cardamom Explosion DMG",
-            "type": "elementalBurst",
+            "name": "Cat Grass Cardamom Explosion",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -25862,7 +26004,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11401,
+      "setCounts": {
+        "15025": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000042,
+      10000031,
+      10000061,
+      10000047
+    ]
   },
   "10000062": {
     "disabled": true,
