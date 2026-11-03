@@ -47,8 +47,17 @@ export function runCommands(ctx, sourceEffect, commands, applier) {
             state = memberEffects[target][effect.key];
           }
 
-          if (state) {
-            runUseEffect(ctx, state, spec);
+          if (!state?.effect?.use) break;
+
+          for (const [index, use] of state.effect.use.entries()) {
+            const useSpec = {};
+
+            if (effect.snapshotBuffs) {
+              useSpec.snapshotBuffs = state.snapshotBuffs[index];
+            }
+
+            runUseEffect(ctx, state, use, useSpec);
+            break;
           }
         }
         break;

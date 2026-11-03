@@ -12092,7 +12092,6 @@
     ]
   },
   "15406": {
-    "disabled": true,
     "name": "Prototype Crescent",
     "version": 1.0,
     "id": 15406,
@@ -12104,7 +12103,36 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "and": [
+                  {
+                    "type": "chargedAttack"
+                  },
+                  {
+                    "headshot": true
+                  }
+                ]
+              }
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.36,
+              0.72
+            ]
+          }
+        }
+      }
+    ]
   },
   "15407": {
     "name": "Compound Bow",

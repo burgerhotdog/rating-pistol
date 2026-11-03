@@ -3,9 +3,6 @@ Characters:
         No constellations
     Alhaitham
         No constellations
-    Amber
-        C1 arrow damage hard coded at level 10 skill
-        C2 popping baron bunny doesnt do 200% extra dmgBonus
     Arlecchino
         No C2, C4, C6
     Ayato
@@ -119,7 +116,6 @@ Characters:
         Marvelous Splendor applies to $ally
         No constellations
     Ororon
-        No tracking of nightsoul aligned damage
         C2 simplified for single target
     Prune
         Effects are fragile, may need checking

@@ -3175,8 +3175,9 @@
         "snapshotBuffs": true
       },
       {
+        "ref": "fieryRain",
         "apply": {
-          "when": "hit",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
@@ -3193,6 +3194,7 @@
         "snapshotBuffs": true
       },
       {
+        "ref": "a1",
         "buff": {
           "filter": {
             "action": {
@@ -3205,6 +3207,7 @@
         }
       },
       {
+        "ref": "a4",
         "apply": {
           "when": "hit",
           "filter": {
@@ -3229,32 +3232,28 @@
               "ref": "normalAttack.5"
             }
           },
-          "action": {
-            "damage": {
-              "gauge": 1,
-              "icd": {
-                "tag": "Charged Attack",
-                "time": 1000,
-                "hits": 3
-              },
-              "multipliers": [
-                {
-                  "mv": 0.4464
-                }
-              ]
+          "action": "normalAttack.7"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "normalAttack.7"
             }
+          },
+          "stats": {
+            "damageMv%": -0.8
           }
         }
       },
       {
         "rank": 2,
-        "use": {
-          "when": "hit",
+        "apply": {
+          "when": "use",
           "filter": {
             "and": [
               {
                 "action": {
-                  "ref": "normalAttack.5"
+                  "ref": "normalAttack.8"
                 }
               },
               {
@@ -3264,18 +3263,37 @@
               }
             ]
           },
-          "action": "elementalSkill.1",
+          "uses": 1
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.8"
+            }
+          },
           "commands": {
-            "type": "remove",
+            "type": "use",
             "ref": "baronBunny"
           }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "stats": {
+            "damageMv": 2
+          },
+          "snapshot": false
         }
       },
       {
         "rank": 6,
         "stores": "$team",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
@@ -3433,7 +3451,69 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
+              "headshot": true,
               "gauge": 2,
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 1000,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    1.24,
+                    1.333,
+                    1.426,
+                    1.55,
+                    1.643,
+                    1.736,
+                    1.86,
+                    1.984,
+                    2.108,
+                    2.232,
+                    2.356,
+                    2.48,
+                    2.635,
+                    2.79,
+                    2.945
+                  ]
+                }
+              ]
+            },
+            "duration": 2250
+          },
+          {
+            "name": "Plunging Attack",
+            "type": "plungingAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.4193,
+                    1.5349,
+                    1.6504,
+                    1.8154,
+                    1.931,
+                    2.063,
+                    2.2445,
+                    2.4261,
+                    2.6076,
+                    2.8057,
+                    3.0037,
+                    3.2018,
+                    3.3998,
+                    3.5979,
+                    3.7959
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "C1: Extra Charged Attack",
+            "damage": {
+              "type": "chargedAttack",
+              "gauge": 1,
               "icd": {
                 "tag": "Charged Attack",
                 "time": 1000,
@@ -3463,31 +3543,9 @@
             }
           },
           {
-            "name": "Plunging Attack",
-            "type": "plungingAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.4193,
-                    1.5349,
-                    1.6504,
-                    1.8154,
-                    1.931,
-                    2.063,
-                    2.2445,
-                    2.4261,
-                    2.6076,
-                    2.8057,
-                    3.0037,
-                    3.2018,
-                    3.3998,
-                    3.5979,
-                    3.7959
-                  ]
-                }
-              ]
-            }
+            "name": "C2: Hit Baron Bunny Foot",
+            "type": "chargedAttack",
+            "duration": 2250
           }
         ]
       },
@@ -3574,15 +3632,25 @@
       }
     },
     "memberPreset": {
-      "weaponId": 15401,
+      "weaponId": 15406,
       "setCounts": {
-        "15007": 4
+        "15003": 4
       },
       "rotation": [
+        "normalAttack.5",
+        "normalAttack.5",
+        "normalAttack.5",
+        "normalAttack.5",
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000021,
+      10000032,
+      10000107,
+      10000103
+    ]
   },
   "10000022": {
     "disabled": true,
@@ -15100,7 +15168,7 @@
         "expire": {
           "commands": {
             "type": "apply",
-            "ref": "A1",
+            "ref": "a1",
             "spec": {
               "duration": 8000
             }
@@ -15176,7 +15244,7 @@
         ]
       },
       {
-        "ref": "A1",
+        "ref": "a1",
         "stores": "$ally",
         "apply": {
           "when": "command"
@@ -47620,6 +47688,7 @@
             },
             "damage": {
               "type": "elementalSkill",
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Elemental Skill",
@@ -47657,6 +47726,7 @@
             },
             "damage": {
               "type": "elementalSkill",
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Elemental Skill",
@@ -48091,6 +48161,12 @@
             },
             "damage": {
               "type": "elementalSkill",
+              "nightsoulAligned": true,
+              "gauge": 1,
+              "icd": {
+                "tag": "Loop Shot",
+                "time": 2000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -48122,6 +48198,12 @@
               "value": -20
             },
             "damage": {
+              "nightsoulAligned": true,
+              "gauge": 1,
+              "icd": {
+                "tag": "Scalespiker Cannon",
+                "time": 1200
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -48155,6 +48237,7 @@
             "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Elemental Burst",
@@ -48189,6 +48272,7 @@
             "name": "Dragon Breath",
             "damage": {
               "type": "elementalBurst",
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Elemental Burst",
@@ -48614,6 +48698,7 @@
               "value": 20
             },
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "attr": "hp",
               "multipliers": [
@@ -48702,6 +48787,7 @@
             "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "attr": "hp",
               "multipliers": [
@@ -48833,7 +48919,8 @@
           },
           "spec": {
             "damage": {
-              "element": "geo"
+              "element": "geo",
+              "nightsoulAligned": true
             }
           }
         },
@@ -49247,6 +49334,7 @@
             "name": "Normal Attack: Blade Roller 1",
             "type": "normalAttack",
             "damage": {
+              "nightsoulAligned": true,
               "icd": {
                 "tag": "Blade Roller",
                 "time": 2500,
@@ -49280,6 +49368,7 @@
             "name": "Normal Attack: Blade Roller 2",
             "type": "normalAttack",
             "damage": {
+              "nightsoulAligned": true,
               "icd": {
                 "tag": "Blade Roller",
                 "time": 2500,
@@ -49313,6 +49402,7 @@
             "name": "Normal Attack: Blade Roller 3",
             "type": "normalAttack",
             "damage": {
+              "nightsoulAligned": true,
               "icd": {
                 "tag": "Blade Roller",
                 "time": 2500,
@@ -49346,6 +49436,7 @@
             "name": "Normal Attack: Blade Roller 4",
             "type": "normalAttack",
             "damage": {
+              "nightsoulAligned": true,
               "icd": {
                 "tag": "Blade Roller",
                 "time": 2500,
@@ -49444,6 +49535,7 @@
               "value": 45
             },
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Elemental Skill",
@@ -49510,6 +49602,7 @@
             "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Elemental Burst",
@@ -49589,6 +49682,7 @@
             "name": "Follow-Up Beat",
             "damage": {
               "type": "elementalBurst",
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Elemental Burst",
@@ -51121,6 +51215,7 @@
               "value": 80
             },
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "multipliers": [
                 {
@@ -51149,6 +51244,7 @@
             "name": "Normal Attack: Multitarget Fire",
             "type": "normalAttack",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Tap",
@@ -51191,6 +51287,7 @@
             "name": "Shadowhunt Shell",
             "damage": {
               "type": "chargedAttack",
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Shadowhunt Shell",
@@ -51223,6 +51320,7 @@
             "name": "Shining Shadowhunt Shell: Pyro",
             "damage": {
               "type": "chargedAttack",
+              "nightsoulAligned": true,
               "element": "pyro",
               "gauge": 1,
               "icd": {
@@ -51257,6 +51355,7 @@
             "name": "Shining Shadowhunt Shell: Hydro",
             "damage": {
               "type": "chargedAttack",
+              "nightsoulAligned": true,
               "element": "hydro",
               "gauge": 1,
               "icd": {
@@ -51291,6 +51390,7 @@
             "name": "Shining Shadowhunt Shell: Cryo",
             "damage": {
               "type": "chargedAttack",
+              "nightsoulAligned": true,
               "element": "cryo",
               "gauge": 1,
               "icd": {
@@ -51325,6 +51425,7 @@
             "name": "Shining Shadowhunt Shell: Electro",
             "damage": {
               "type": "chargedAttack",
+              "nightsoulAligned": true,
               "element": "electro",
               "gauge": 1,
               "icd": {
@@ -51359,6 +51460,7 @@
             "name": "Burning Shadowhunt Shot: Shadowhunt Shell",
             "damage": {
               "type": "chargedAttack",
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Shadowhunt Shell",
@@ -51391,6 +51493,7 @@
             "name": "Burning Shadowhunt Shot: Shining Shadowhunt Shell",
             "damage": {
               "type": "chargedAttack",
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Shining Shadowhunt Shell",
@@ -51430,6 +51533,7 @@
             "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "multipliers": [
                 {
@@ -51458,6 +51562,7 @@
             "name": "Soulseeker Shell",
             "damage": {
               "type": "elementalBurst",
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Elemental Burst",
@@ -51491,6 +51596,7 @@
             "name": "Radiant Soulseeker Shell: Pyro",
             "damage": {
               "type": "elementalBurst",
+              "nightsoulAligned": true,
               "element": "pyro",
               "gauge": 1,
               "icd": {
@@ -51525,6 +51631,7 @@
             "name": "Radiant Soulseeker Shell: Hydro",
             "damage": {
               "type": "elementalBurst",
+              "nightsoulAligned": true,
               "element": "hydro",
               "gauge": 1,
               "icd": {
@@ -51559,6 +51666,7 @@
             "name": "Radiant Soulseeker Shell: Cryo",
             "damage": {
               "type": "elementalBurst",
+              "nightsoulAligned": true,
               "element": "cryo",
               "gauge": 1,
               "icd": {
@@ -51593,6 +51701,7 @@
             "name": "Radiant Soulseeker Shell: Electro",
             "damage": {
               "type": "elementalBurst",
+              "nightsoulAligned": true,
               "element": "electro",
               "gauge": 1,
               "icd": {
@@ -51741,9 +51850,16 @@
               {
                 "action": {
                   "damage": {
-                    "type": [
-                      "electroCharged",
-                      "lunarCharged"
+                    "or": [
+                      {
+                        "type": [
+                          "electroCharged",
+                          "lunarCharged"
+                        ]
+                      },
+                      {
+                        "nightsoulAligned": true
+                      }
                     ]
                   }
                 }
@@ -51768,6 +51884,7 @@
             {
               "name": "Hypersense",
               "damage": {
+                "nightsoulAligned": true,
                 "gauge": 1,
                 "icd": {
                   "tag": "Elemental Skill",
@@ -51976,6 +52093,7 @@
           "action": {
             "name": "Hypersense",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Elemental Skill",
@@ -52141,6 +52259,7 @@
             "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Elemental Skill",
@@ -52180,6 +52299,7 @@
             "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "multipliers": [
                 {
@@ -52208,6 +52328,7 @@
             "name": "Soundwave Collision",
             "damage": {
               "type": "elementalBurst",
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Elemental Burst",
@@ -52678,6 +52799,7 @@
               "value": 80
             },
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "multipliers": [
                 {
@@ -52709,6 +52831,7 @@
             },
             "damage": {
               "type": "elementalSkill",
+              "nightsoulAligned": true,
               "gauge": 1,
               "multipliers": [
                 {
@@ -52737,6 +52860,7 @@
             "name": "Flamestrider: Normal Attack: 1",
             "type": "normalAttack",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Flamestrider",
@@ -52770,6 +52894,7 @@
             "name": "Flamestrider: Normal Attack: 2",
             "type": "normalAttack",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Flamestrider",
@@ -52803,6 +52928,7 @@
             "name": "Flamestrider: Normal Attack: 3",
             "type": "normalAttack",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Flamestrider",
@@ -52836,6 +52962,7 @@
             "name": "Flamestrider: Normal Attack: 4",
             "type": "normalAttack",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Flamestrider",
@@ -52869,6 +52996,7 @@
             "name": "Flamestrider: Normal Attack: 5",
             "type": "normalAttack",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Flamestrider",
@@ -52901,6 +53029,7 @@
           {
             "name": "Flamestrider: Sprint",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Flamestrider",
@@ -52932,9 +53061,10 @@
             "duration": 600
           },
           {
-            "name": "Flamestrider: Charged Attack: Cyclic",
+            "name": "Flamestrider: Charged Attack",
             "type": "chargedAttack",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Flamestrider",
@@ -52969,6 +53099,7 @@
             "name": "Flamestrider: Charged Attack: Final",
             "type": "chargedAttack",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Flamestrider",
@@ -53002,6 +53133,7 @@
             "name": "Flamestrider: Plunging Attack",
             "type": "plungingAttack",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Flamestrider",
@@ -53044,6 +53176,7 @@
           {
             "name": "Sunfell Slice",
             "damage": {
+              "nightsoulAligned": true,
               "type": "elementalBurst",
               "gauge": 1,
               "multipliers": [
@@ -53543,6 +53676,7 @@
               "value": 24
             },
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "multipliers": [
                 {
@@ -53616,6 +53750,7 @@
             },
             "damage": {
               "type": "elementalSkill",
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Frostfall Storm",
@@ -53657,6 +53792,7 @@
               "value": 24
             },
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 2,
               "multipliers": [
                 {
@@ -53688,6 +53824,7 @@
             },
             "damage": {
               "type": "elementalBurst",
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Spiritvessel Skull",
@@ -55445,6 +55582,7 @@
             "name": "Charged Attack: Swift Stormflight",
             "type": "chargedAttack",
             "damage": {
+              "nightsoulAligned": true,
               "element": "electro",
               "multipliers": [
                 {
@@ -55510,6 +55648,7 @@
               "value": 54
             },
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Elemental Skill",
@@ -55552,6 +55691,7 @@
               "value": 15
             },
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "multipliers": [
                 {
@@ -55864,6 +56004,7 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
+              "nightsoulAligned": true,
               "icd": {
                 "tag": "Varesa General",
                 "time": 2500,
@@ -55899,6 +56040,7 @@
               "value": 25
             },
             "damage": {
+              "nightsoulAligned": true,
               "multipliers": [
                 {
                   "mv": [
@@ -56007,6 +56149,7 @@
             "name": "Fiery Passion: Charged Attack",
             "type": "chargedAttack",
             "damage": {
+              "nightsoulAligned": true,
               "icd": {
                 "tag": "Varesa General",
                 "time": 2500,
@@ -56042,6 +56185,7 @@
               "value": -40
             },
             "damage": {
+              "nightsoulAligned": true,
               "multipliers": [
                 {
                   "mv": [
@@ -56077,6 +56221,7 @@
               "value": 20
             },
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Varesa General",
@@ -56110,6 +56255,7 @@
             "name": "Fiery Passion: Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Varesa General",
@@ -56152,6 +56298,7 @@
               "value": 40
             },
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "multipliers": [
                 {
@@ -56180,6 +56327,7 @@
             "name": "Fiery Passion: Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "multipliers": [
                 {
@@ -56209,6 +56357,7 @@
             "type": "elementalBurst",
             "damage": {
               "type": "plungingAttack",
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Varesa General",
@@ -57130,6 +57279,7 @@
             "name": "Normal Attack: Tonicshot",
             "type": "normalAttack",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
                 "tag": "Normal Attack 2",
@@ -57212,6 +57362,7 @@
             "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "nightsoulAligned": true,
               "gauge": 1,
               "multipliers": [
                 {
