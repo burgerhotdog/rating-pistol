@@ -11851,6 +11851,20 @@
       }
     ]
   },
+  "14525": {
+    "disabled": true,
+    "name": "Starsealed Edict",
+    "version": 7.2,
+    "id": 14525,
+    "icon": "genshin-impact/weapon/14525.webp",
+    "quality": 5,
+    "type": "catalyst",
+    "stats": {
+      "baseAtk": 542,
+      "critDmg%": 0.882
+    },
+    "effects": []
+  },
   "15101": {
     "name": "Hunter's Bow",
     "version": 1.0,
