@@ -54,22 +54,6 @@ function addRankModify(result, constellations, rank) {
   };
 }
 
-function splitLine(text) {
-  return text.split(/(?=\/{param)/);
-}
-
-function parseParamString(text) {
-  const regex = /\{param(\d+):([^}]+)\}([^{]*)/g;
-  const matches = [...text.matchAll(regex)];
-
-  return matches.map((match, index) => ({
-    matchId: index + 1,
-    paramIndex: parseInt(match[1], 10) - 1,
-    formatCode: match[2].trim(),
-    trailingText: match[3].trim(),
-  }));
-}
-
 function parseSkills(skills, constellations) {
   const result = {};
   let energy;
@@ -84,10 +68,10 @@ function parseSkills(skills, constellations) {
     const actions = [];
 
     for (const line of template.desc.filter(Boolean)) {
-      const [actionName, paramRefs] = line.split('|');
+      const [actionName, rawParamRefs] = line.split('|');
 
       if (actionName === 'Energy Cost') {
-        const energyIndex = Number(paramRefs[6]);
+        const energyIndex = Number(rawParamRefs[6]);
         energy = template.param[energyIndex];
         continue;
       }
@@ -95,28 +79,50 @@ function parseSkills(skills, constellations) {
       if (
         actionName === 'Aimed Shot' ||
         actionName === 'Plunge DMG' ||
-        !paramRefs
+        !rawParamRefs
       ) continue;
 
-      const subParamRefs = splitLine(paramRefs);
+      const paramRefs = rawParamRefs.split(/(?=\/{param)/);
 
-      const parts = paramRefs.split('/');
-      const times = Number(paramRefs.match(/×(\d+)/)?.[1] ?? 1);
-
-      for (const [index, part] of parts.entries()) {
-        const matches = [...part.matchAll(/\{param(\d+):[^}]+\}/g)];
+      for (const [index, paramRef] of paramRefs.entries()) {
+        const matches = [...paramRef.matchAll(/\{param(\d+):([^}]+)\}([^{]*)/g)];
         if (!matches.length) continue;
 
+        const multipliers = matches
+          .map((match) => {
+            const paramIndex = Number(match[1]) - 1;
+            const arrType = match[2].trim() === 'I' ? 'flat' : 'mv';
+            const times = Number(match[3].trim().match(/×(\d+)/)?.[1] ?? 1);
+
+            return {
+              [arrType]: Array.from({ length: 15 }, (_, lvlIdx) => promote[lvlIdx].param[paramIndex]),
+              ...(times > 1 && { times }),
+            };
+          })
+          .filter(({ mv, flat }) =>
+            !(mv && mv.every((value) => value === mv[0])) &&
+            !(flat && flat.every((value) => value === flat[0]))
+          );
+
+        if (multipliers.length === 2 && multipliers[0].times === multipliers[1].times) {
+          const [mv, flat] = multipliers.sort((a, b) => ('flat' in a) - ('flat' in b));
+
+          if ('mv' in mv && 'flat' in flat) {
+            multipliers.splice(0, 2, {
+              mv: mv.mv,
+              flat: flat.flat,
+              ...(mv.times && { times: mv.times }),
+            });
+          }
+        }
+
+        if (!multipliers.length) continue;
+
         actions.push({
-          name: parts.length > 1 ? `${actionName} ${index + 1}` : actionName,
+          name: paramRefs.length > 1 ? `${actionName} ${index + 1}` : actionName,
           type,
           damage: {
-            multipliers: matches.map((m) => ({
-              mv: Array.from({ length: 15 }, (_, level) =>
-                promote[level].param[Number(m[1]) - 1]
-              ),
-              ...(times > 1 && { times }),
-            })),
+            multipliers,
           },
         });
       }

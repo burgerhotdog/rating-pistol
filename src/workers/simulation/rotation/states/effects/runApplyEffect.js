@@ -77,7 +77,7 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
     }
 
     if (apply.offset && !apply.extend) {
-      state.useCooldown = apply.offset;
+      state.useCooldown ??= apply.offset;
     }
 
     if (effect.rampingInterval && !apply.extend) {

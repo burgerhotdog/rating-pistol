@@ -71490,7 +71490,6 @@
     ]
   },
   "10000136": {
-    "disabled": true,
     "name": "Mitya",
     "version": 7.2,
     "id": 10000136,
@@ -71506,14 +71505,396 @@
       "elementalMastery": 100
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "detectionCoreMode",
+        "apply": {
+          "when": "command"
+        }
+      },
+      {
+        "ref": "detectionCore",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "cooldown": 18000,
+          "duration": 25000,
+          "offset": 1500,
+          "commands": [
+            {
+              "type": "use",
+              "ref": "detonateBeacons",
+              "filter": {
+                "effectStacks": {
+                  "has": "gradientBeacon"
+                }
+              }
+            },
+            {
+              "type": "remove",
+              "ref": "detectionCoreMode",
+              "filter": {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "detectionCoreMode",
+              "filter": {
+                "action": {
+                  "ref": "elementalSkill.1"
+                }
+              }
+            }
+          ]
+        },
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "detectionCoreMode"
+              }
+            }
+          },
+          "cooldown": 1500,
+          "action": "elementalSkill.2"
+        },
+        "expire": {
+          "commands": [
+            {
+              "type": "use",
+              "ref": "detonateBeacons",
+              "filter": {
+                "effectStacks": {
+                  "has": "gradientBeacon"
+                }
+              }
+            },
+            {
+              "type": "remove",
+              "ref": "detectionCoreMode",
+              "filter": {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "detectionCoreMode",
+              "filter": {
+                "action": {
+                  "ref": "elementalSkill.1"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "detonateBeacons",
+        "use": [
+          {
+            "when": "command",
+            "filter": {
+              "effectStacks": {
+                "gradientBeacon": 1
+              }
+            },
+            "action": "elementalSkill.4",
+            "commands": {
+              "type": "remove",
+              "ref": "gradientBeacon"
+            }
+          },
+          {
+            "when": "command",
+            "filter": {
+              "effectStacks": {
+                "gradientBeacon": 2
+              }
+            },
+            "action": "elementalSkill.5",
+            "commands": {
+              "type": "remove",
+              "ref": "gradientBeacon"
+            }
+          },
+          {
+            "when": "command",
+            "filter": {
+              "effectStacks": {
+                "gradientBeacon": 3
+              }
+            },
+            "action": "elementalSkill.6",
+            "commands": {
+              "type": "remove",
+              "ref": "gradientBeacon"
+            }
+          },
+          {
+            "when": "command",
+            "filter": {
+              "effectStacks": {
+                "gradientBeacon": 4
+              }
+            },
+            "action": "elementalSkill.7",
+            "commands": {
+              "type": "remove",
+              "ref": "gradientBeacon"
+            }
+          }
+        ],
+        "buff": [
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.5"
+              }
+            },
+            "stats": {
+              "damageMv%": 1
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.6"
+              }
+            },
+            "stats": {
+              "damageMv%": 2
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.7"
+              }
+            },
+            "stats": {
+              "damageMv%": 3
+            }
+          }
+        ]
+      },
+      {
+        "ref": "consumeBeacon",
+        "use": {
+          "when": "command",
+          "action": "elementalSkill.3"
+        }
+      },
+      {
+        "ref": "burstCreate3",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "commands": [
+            {
+              "type": "use",
+              "ref": "consumeBeacon",
+              "filter": {
+                "effectStacks": {
+                  "gradientBeacon": 4
+                }
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "gradientBeacon",
+              "spec": {
+                "duration": 10000
+              }
+            },
+            {
+              "type": "use",
+              "ref": "consumeBeacon",
+              "filter": {
+                "effectStacks": {
+                  "gradientBeacon": 4
+                }
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "gradientBeacon",
+              "spec": {
+                "duration": 10000
+              }
+            },
+            {
+              "type": "use",
+              "ref": "consumeBeacon",
+              "filter": {
+                "effectStacks": {
+                  "gradientBeacon": 4
+                }
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "gradientBeacon",
+              "spec": {
+                "duration": 10000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "a4_critRate",
+              "spec": {
+                "duration": 15000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "a4_critRate",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "critRate%": 0.05
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "gradientBeacon",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "not": {
+                "has": "detectionCoreMode"
+              }
+            }
+          },
+          "stats": {
+            "elementalMastery": 30
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "gradientBeaconApplier",
+        "apply": [
+          {
+            "by": "$team",
+            "when": "reaction",
+            "filter": {
+              "and": [
+                {
+                  "reaction": {
+                    "reaction": "stellarConduct"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "not": {
+                      "has": "detectionCoreMode"
+                    }
+                  }
+                }
+              ]
+            },
+            "duration": 3000,
+            "offset": 1500
+          },
+          {
+            "by": "$team",
+            "when": "reaction",
+            "filter": {
+              "and": [
+                {
+                  "reaction": {
+                    "reaction": "stellarConduct"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "has": "detectionCoreMode"
+                  }
+                }
+              ]
+            },
+            "duration": 6000,
+            "offset": 1500
+          }
+        ],
+        "use": {
+          "when": "interval",
+          "cooldown": 1500,
+          "commands": [
+            {
+              "type": "use",
+              "ref": "consumeBeacon",
+              "filter": {
+                "effectStacks": {
+                  "gradientBeacon": 4
+                }
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "gradientBeacon",
+              "spec": {
+                "duration": 10000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "a4_critRate",
+              "spec": {
+                "duration": 15000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "benediction",
+        "stores": "global",
+        "buff": {
+          "specs": {
+            "stellarConductBaseDmg%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.00028,
+              "maxValue": 0.14
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Chain Reaction",
         "rankModify": 5,
         "actions": [
           {
-            "name": "1-Hit DMG",
+            "name": "Normal Attack 1",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -71540,7 +71921,7 @@
             }
           },
           {
-            "name": "2-Hit DMG",
+            "name": "Normal Attack 2",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -71567,7 +71948,7 @@
             }
           },
           {
-            "name": "3-Hit DMG",
+            "name": "Normal Attack 3",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -71594,8 +71975,8 @@
             }
           },
           {
-            "name": "Charged Attack DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -71621,89 +72002,8 @@
             }
           },
           {
-            "name": "Charged Attack Stamina Cost",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    50,
-                    50,
-                    50,
-                    50,
-                    50,
-                    50,
-                    50,
-                    50,
-                    50,
-                    50,
-                    50,
-                    50,
-                    50,
-                    50,
-                    50
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge DMG",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.568288,
-                    0.614544,
-                    0.6608,
-                    0.72688,
-                    0.773136,
-                    0.826,
-                    0.898688,
-                    0.971376,
-                    1.044064,
-                    1.12336,
-                    1.202656,
-                    1.281952,
-                    1.361248,
-                    1.440544,
-                    1.51984
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Low/High Plunge DMG 1",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.136335,
-                    1.228828,
-                    1.32132,
-                    1.453452,
-                    1.545944,
-                    1.65165,
-                    1.796995,
-                    1.94234,
-                    2.087686,
-                    2.246244,
-                    2.404802,
-                    2.563361,
-                    2.721919,
-                    2.880478,
-                    3.039036
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Low/High Plunge DMG 2",
-            "type": "normalAttack",
+            "name": "Plunging Attack",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -71729,8 +72029,8 @@
             }
           },
           {
-            "name": "Gradient Detonation DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack: Gradient Detonation",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -71756,9 +72056,10 @@
             }
           },
           {
-            "name": "Gradient Detonation Stellar-Conduct DMG",
-            "type": "normalAttack",
+            "name": "Gradient Detonation Stellar-Conduct",
             "damage": {
+              "type": "stellarConduct",
+              "attr": "elementalMastery",
               "multipliers": [
                 {
                   "mv": [
@@ -71789,9 +72090,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Tap Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -71816,9 +72118,10 @@
             }
           },
           {
-            "name": "Hold Skill DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -71843,9 +72146,10 @@
             }
           },
           {
-            "name": "Steady State Core DMG",
-            "type": "elementalSkill",
+            "name": "Steady State Core",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -71870,9 +72174,10 @@
             }
           },
           {
-            "name": "Steady State Core Gradient Beacon Consumption DMG",
-            "type": "elementalSkill",
+            "name": "Steady State Core Gradient Beacon Consumption",
             "damage": {
+              "type": "stellarConduct",
+              "attr": "elementalMastery",
               "multipliers": [
                 {
                   "mv": [
@@ -71897,9 +72202,10 @@
             }
           },
           {
-            "name": "Steady State Core Detonation DMG 1",
-            "type": "elementalSkill",
+            "name": "Steady State Core Detonation: 1",
             "damage": {
+              "type": "stellarConduct",
+              "attr": "elementalMastery",
               "multipliers": [
                 {
                   "mv": [
@@ -71924,54 +72230,84 @@
             }
           },
           {
-            "name": "Detection Core Duration",
-            "type": "elementalSkill",
+            "name": "Steady State Core Detonation: 2",
             "damage": {
+              "type": "stellarConduct",
+              "attr": "elementalMastery",
               "multipliers": [
                 {
                   "mv": [
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25,
-                    25
+                    0.92,
+                    0.989,
+                    1.058,
+                    1.15,
+                    1.219,
+                    1.288,
+                    1.38,
+                    1.472,
+                    1.564,
+                    1.656,
+                    1.748,
+                    1.84,
+                    1.955,
+                    2.07,
+                    2.185
                   ]
                 }
               ]
             }
           },
           {
-            "name": "CD",
-            "type": "elementalSkill",
+            "name": "Steady State Core Detonation: 3",
             "damage": {
+              "type": "stellarConduct",
+              "attr": "elementalMastery",
               "multipliers": [
                 {
                   "mv": [
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18
+                    0.92,
+                    0.989,
+                    1.058,
+                    1.15,
+                    1.219,
+                    1.288,
+                    1.38,
+                    1.472,
+                    1.564,
+                    1.656,
+                    1.748,
+                    1.84,
+                    1.955,
+                    2.07,
+                    2.185
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Steady State Core Detonation: 4",
+            "damage": {
+              "type": "stellarConduct",
+              "attr": "elementalMastery",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.92,
+                    0.989,
+                    1.058,
+                    1.15,
+                    1.219,
+                    1.288,
+                    1.38,
+                    1.472,
+                    1.564,
+                    1.656,
+                    1.748,
+                    1.84,
+                    1.955,
+                    2.07,
+                    2.185
                   ]
                 }
               ]
@@ -71983,101 +72319,48 @@
         "name": "Analysis: Gradient Theory",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
-                  "mv": [
-                    3.336,
-                    3.5862,
-                    3.8364,
-                    4.17,
-                    4.4202,
-                    4.6704,
-                    5.004,
-                    5.3376,
-                    5.6712,
-                    6.0048,
-                    6.3384,
-                    6.672,
-                    7.089,
-                    7.506,
-                    7.923
-                  ]
-                },
-                {
-                  "mv": [
-                    6.672,
-                    7.1724,
-                    7.6728,
-                    8.34,
-                    8.8404,
-                    9.3408,
-                    10.008,
-                    10.6752,
-                    11.3424,
-                    12.0096,
-                    12.6768,
-                    13.344,
-                    14.178,
-                    15.012,
-                    15.846
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Gradient Beacons Generated",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    3,
-                    3,
-                    3,
-                    3,
-                    3,
-                    3,
-                    3,
-                    3,
-                    3,
-                    3,
-                    3,
-                    3,
-                    3,
-                    3,
-                    3
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "CD",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15
-                  ]
+                  "mv": {
+                    "atk": [
+                      3.336,
+                      3.5862,
+                      3.8364,
+                      4.17,
+                      4.4202,
+                      4.6704,
+                      5.004,
+                      5.3376,
+                      5.6712,
+                      6.0048,
+                      6.3384,
+                      6.672,
+                      7.089,
+                      7.506,
+                      7.923
+                    ],
+                    "elementalMastery": [
+                      6.672,
+                      7.1724,
+                      7.6728,
+                      8.34,
+                      8.8404,
+                      9.3408,
+                      10.008,
+                      10.6752,
+                      11.3424,
+                      12.0096,
+                      12.6768,
+                      13.344,
+                      14.178,
+                      15.012,
+                      15.846
+                    ]
+                  }
                 }
               ]
             }
@@ -72085,7 +72368,21 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14525,
+      "setCounts": {
+        "15026": 4
+      },
+      "rotation": [
+        "elementalSkill.0"
+      ]
+    },
+    "teamPreset": [
+      10000133,
+      10000136,
+      10000150,
+      10000112
+    ]
   },
   "10000137": {
     "disabled": true,
@@ -72110,7 +72407,7 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "1-Hit DMG",
+            "name": "Normal Attack 1",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -72137,7 +72434,7 @@
             }
           },
           {
-            "name": "2-Hit DMG",
+            "name": "Normal Attack 2",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -72164,7 +72461,7 @@
             }
           },
           {
-            "name": "3-Hit DMG",
+            "name": "Normal Attack 3",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -72191,8 +72488,8 @@
             }
           },
           {
-            "name": "Charged Attack DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -72239,33 +72536,6 @@
                     4.8705,
                     5.157,
                     5.4435
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Charged Attack Stamina Cost",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20,
-                    20
                   ]
                 }
               ]
@@ -72326,116 +72596,8 @@
             }
           },
           {
-            "name": "Offensive Directive Stacks",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Offensive Directive Duration",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunge DMG",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.639324,
-                    0.691362,
-                    0.7434,
-                    0.81774,
-                    0.869778,
-                    0.92925,
-                    1.011024,
-                    1.092798,
-                    1.174572,
-                    1.26378,
-                    1.352988,
-                    1.442196,
-                    1.531404,
-                    1.620612,
-                    1.70982
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Low/High Plunge DMG 1",
-            "type": "normalAttack",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.278377,
-                    1.382431,
-                    1.486485,
-                    1.635134,
-                    1.739187,
-                    1.858106,
-                    2.02162,
-                    2.185133,
-                    2.348646,
-                    2.527025,
-                    2.705403,
-                    2.883781,
-                    3.062159,
-                    3.240537,
-                    3.418915
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Low/High Plunge DMG 2",
-            "type": "normalAttack",
+            "name": "Plunging Attack",
+            "type": "plungingAttack",
             "damage": {
               "multipliers": [
                 {
@@ -72496,7 +72658,7 @@
           {
             "name": "Shield DMG Absorption",
             "type": "elementalSkill",
-            "damage": {
+            "shield": {
               "multipliers": [
                 {
                   "mv": [
@@ -72515,10 +72677,8 @@
                     4.43904,
                     4.70016,
                     4.96128
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     1309.6384,
                     1440.6204,
                     1582.5176,
@@ -72534,60 +72694,6 @@
                     3601.824,
                     3863.788,
                     4136.6675
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Shield Duration",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18,
-                    18
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "CD",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    10,
-                    10,
-                    10,
-                    10,
-                    10,
-                    10,
-                    10,
-                    10,
-                    10,
-                    10,
-                    10,
-                    10,
-                    10,
-                    10,
-                    10
                   ]
                 }
               ]
@@ -72651,65 +72757,16 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Duration",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    12,
-                    12,
-                    12,
-                    12,
-                    12,
-                    12,
-                    12,
-                    12,
-                    12,
-                    12,
-                    12,
-                    12,
-                    12,
-                    12,
-                    12
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "CD",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15,
-                    15
-                  ]
-                }
-              ]
-            }
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11425,
+      "setCounts": {
+        "15048": 4
+      }
+    }
   },
   "10000140": {
     "name": "Vodyanitsa",
