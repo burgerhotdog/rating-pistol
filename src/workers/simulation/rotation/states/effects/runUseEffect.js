@@ -23,7 +23,7 @@ export function runUseEffect(ctx, state, use = {}, spec = {}) {
         ? { ...action, damage: { ...action.damage, element: state.absorbElement } }
         : action;
 
-      for (let i = 0; i < useTimes; i++) {
+      for (let i = 0; i < Math.round(useTimes); i++) {
         ctx.runAction(modifiedAction, runOptions);
       }
     }

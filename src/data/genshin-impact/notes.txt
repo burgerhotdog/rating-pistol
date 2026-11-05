@@ -151,6 +151,9 @@ Characters:
     Sucrose
         Element must be there at apply time to be absorbed
         No C6
+    Valeriy
+        C1 no cd
+        C2 no overflow shield
     Varesa
         No constellations
     Varka

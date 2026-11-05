@@ -75,7 +75,7 @@ function executeUse(ctx, state, index, fieldId, inflict) {
   runUseEffect(ctx, state, use, useSpec);
 
   if (use.commands) {
-    for (let i = 0; i < stacks; i++) {
+    for (let i = 0; i < Math.round(stacks); i++) {
       ctx.runCommands(effect.ownerId, use.commands, fieldId ?? effect.ownerId);
     }
   }
