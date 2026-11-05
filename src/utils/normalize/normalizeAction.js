@@ -106,6 +106,8 @@ export function normalizeAction(gameId, rawAction, spec) {
 
     if (restoreEnergy.targets === '$team') {
       restoreEnergy.targets = spec.memberIds;
+    } else if (restoreEnergy.targets === '$ally') {
+      restoreEnergy.targets = spec.memberIds.filter((id) => id !== ownerId);
     } else {
       restoreEnergy.targets = toArray(restoreEnergy.targets ?? spec.ownerId);
     }

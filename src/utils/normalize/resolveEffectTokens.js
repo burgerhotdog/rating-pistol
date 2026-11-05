@@ -179,6 +179,12 @@ export const resolveEffectTokens = (normalized) => {
       modify.key = resolveEffectRef(modify.ref, ownerId, sourceId);
     }
 
+    if (effect.modify?.type === 'action') {
+      const modify = effect.modify = { ...effect.modify };
+      modify.filter = structuredClone(modify.filter);
+      traverseFilter(modify.filter, ownerId, sourceId);
+    }
+
     if (effect.expire) {
       const expire = effect.expire = { ...effect.expire };
 

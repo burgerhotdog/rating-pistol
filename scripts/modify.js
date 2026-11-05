@@ -3,24 +3,56 @@ import { fileURLToPath } from 'node:url';
 import { readJson, writeJson } from './utils/io.js';
 import { fetchJson } from './utils/fetch.js';
 import { getVersion } from './utils/getVersion.js';
-import { skills } from './utils/parsers/zzzCharacter.js';
+
+const gameId = 'wuthering-waves';
+const gameUrl = 'ww';
+const dataType = 'character';
 
 async function main() {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-  const file = path.join(root, 'src/data', 'zenless-zone-zero', 'character.json');
+  const file = path.join(root, 'src/data', gameId, `${dataType}.json`);
   const data = await readJson(file);
 
-  const version = await getVersion('zzz');
-  const base = `https://static.nanoka.cc/zzz/${version}/en/character/`;
+  const version = await getVersion(gameUrl);
+  const base = `https://static.nanoka.cc/${gameUrl}/${version}/en/${dataType}/`;
 
-  const entries = Object.entries(data).filter(([, charData]) => charData.disabled);
-  const length = entries.length;
+  const charDatas = Object.values(data);
+  for (const [i, charData] of charDatas.entries()) {
+    console.log(`(${i + 1}/${charDatas.length}) Modifying ${charData.name}`);
 
-  for (const [i, [id, charData]] of entries.entries()) {
-    console.log(`Rescraping ${charData.name} (${i + 1}/${length})`);
+    for (const skill of Object.values(charData.skills)) {
+      for (const action of Object.values(skill.actions)) {
+        if (action.damage) {
+          for (const hit of action.damage.multipliers) {
+            if ('times' in hit && Object.keys(hit).at(-1) !== 'times') {
+              const times = hit.times;
+              delete hit.times;
+              hit.times = times;
+            }
+          }
+        }
 
-    const raw = await fetchJson(`${base}${charData.id ?? id}.json`);
-    charData.skills = skills(raw);
+        if (action.healing) {
+          for (const hit of action.healing.multipliers) {
+            if ('times' in hit && Object.keys(hit).at(-1) !== 'times') {
+              const times = hit.times;
+              delete hit.times;
+              hit.times = times;
+            }
+          }
+        }
+
+        if (action.shield) {
+          for (const hit of action.shield.multipliers) {
+            if ('times' in hit && Object.keys(hit).at(-1) !== 'times') {
+              const times = hit.times;
+              delete hit.times;
+              hit.times = times;
+            }
+          }
+        }
+      }
+    }
   }
 
   await writeJson(file, data);

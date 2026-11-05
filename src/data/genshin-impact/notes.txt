@@ -3,9 +3,6 @@ Characters:
         No constellations
     Alhaitham
         No constellations
-    Amber
-        C1 arrow damage hard coded at level 10 skill
-        C2 popping baron bunny doesnt do 200% extra dmgBonus
     Arlecchino
         No C2, C4, C6
     Ayato
@@ -21,7 +18,7 @@ Characters:
     Charlotte
         No C4, C6
     Chasca
-        Skill element order is fixed ECHPA
+        Skill element ordFer is fixed ECHPA
         A1 is not 33%/66%/100% but 0%/100% with starting with 2 PHCE elements
         A1 shell follows reverse priority order (ECHP)
         No constellations
@@ -62,7 +59,7 @@ Characters:
         Movement is approximated
         Overflow handling is inaccurate
     Ifa
-        No a1
+        No A1
         No C2, C4, C6
     Illuga
         Burst affects non-direct dmg too
@@ -77,12 +74,13 @@ Characters:
         No constellations
     Kokomi
         No constellations
+    Kirara
+        No urgent neko parcel mode
     Klee
         No constellations
     Lauma
-        Always gain 3 stacks of Moon song
-        Pale Hymn might not be decaying properly
-        No constellations
+        Pale hymn stacks share duration with converted stacks
+        No C6
     Linnea
         Passive 2 always buffs linnea
         No constellations
@@ -93,12 +91,18 @@ Characters:
         Hats dont snapshot stats
         No hp restrictions on A1
         No constellations
-    Mika
-        No C1
-        No C4
     Mavuika
         Double check logic
         No A4 decay
+    Mika
+        No C1
+        No C4
+    Mitya
+        No Dps mode
+        Ult 3 simultaneous Beacon generation is uncertain
+        Gauge mechanics are guesses
+        No beacon explosion at end of skill
+        No constellations
     Mualani
         No constellations
     Nahida
@@ -118,7 +122,6 @@ Characters:
         Marvelous Splendor applies to $ally
         No constellations
     Ororon
-        No tracking of nightsoul aligned damage
         C2 simplified for single target
     Prune
         Effects are fragile, may need checking
@@ -138,7 +141,7 @@ Characters:
         No constellations
     Sara
         A4 hard coded
-        Remember c6 no snapshot
+        Remember C6 no snapshot
         Numbers are sus
     Shenhe
         No constellations
@@ -155,7 +158,7 @@ Characters:
     Vesna
         No constellations
     Vodyanitsa
-        No constellations
+        No C2, C4, C6
     Wanderer
         No constellations
     Wriothesley
@@ -173,11 +176,11 @@ Characters:
         3 sword always
         no orbitals from skill
     Yanfei
-        a4 always happens
+        A4 always happens
     Yelan
         No barb reset
     Yoimiya
-        No second half a4
+        No second half A4
         No constellations
     Yumemizuki Mizuki
         Ult always does damage

@@ -6,7 +6,7 @@ import { runLunarFormula } from './lunarFormula';
 import { runStellarFormula } from './stellarFormula';
 import { runNegativeStatusFormula } from './negativeStatusFormula';
 
-export function runFormula(gameId, part, action, statMap, stellarMultiplier) {
+export function runFormula(gameId, part, action, statMap, stellarConductRxnMult) {
   if (part === 'healing') {
     return runHealingFormula(action, statMap);
   }
@@ -29,7 +29,7 @@ export function runFormula(gameId, part, action, statMap, stellarMultiplier) {
     damageType === 'stellarConduct' ||
     damageType === 'stellarSwirl'
   ) {
-    return runStellarFormula(action, statMap, stellarMultiplier);
+    return runStellarFormula(action, statMap, stellarConductRxnMult);
   }
 
   if (action.damage.attr === 'statusAmp') {

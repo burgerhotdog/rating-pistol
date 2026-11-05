@@ -42,6 +42,8 @@ Sets:
         applies when creating shield instead of receiving
     Law of Harmony
         same echo can trigger multiple times
+    Heart of Sworn Vigil
+        No unison response
 
 Echoes:
     Reminiscence: Suhsin the Inevitable

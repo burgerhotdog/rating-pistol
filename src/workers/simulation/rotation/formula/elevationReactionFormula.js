@@ -13,20 +13,20 @@ function elevationBaseDamage(statMap, rxnKey, rxnMultiplier) {
   const rxnGroup = getRxnGroup(rxnKey);
 
   const rxnBaseDmgBonusMult = 1 +
-    getAttr(`${rxnKey}BaseDmg%`, statMap) +
-    getAttr(`${rxnGroup}BaseDmg%`, statMap);
+    getAttr(`${rxnGroup}BaseDmg%`, statMap) +
+    getAttr(`${rxnKey}BaseDmg%`, statMap);
 
   const rxnBonusMult = 1 +
     getExclusiveEmBonus(emValue) +
-    getAttr(`${rxnKey}ReactionBonus%`, statMap) +
-    getAttr(`${rxnGroup}ReactionBonus%`, statMap);
+    getAttr(`${rxnGroup}ReactionBonus%`, statMap) +
+    getAttr(`${rxnKey}ReactionBonus%`, statMap);
 
   return (
     rxnMultiplier * LEVEL_MULTIPLIER *
     rxnBaseDmgBonusMult *
     rxnBonusMult +
-    getAttr(`${rxnKey}Flat`, statMap) +
-    getAttr(`${rxnGroup}Flat`, statMap)
+    getAttr(`${rxnGroup}Flat`, statMap) +
+    getAttr(`${rxnKey}Flat`, statMap)
   );
 }
 

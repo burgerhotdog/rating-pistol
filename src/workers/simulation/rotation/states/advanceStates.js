@@ -16,6 +16,7 @@ import {
 import { advanceCooldowns } from './cooldowns';
 import { advanceShielded } from './shielded';
 import { advanceDaze } from './daze';
+import { advanceUnison } from './unison';
 
 const getBoundary = (ctx) => {
   const { gameId } = ctx.cache;
@@ -49,6 +50,7 @@ const advanceTimers = (ctx, step) => {
   if (gameId === WW) {
     advanceNegativeStatusTimers(ctx, step);
     advanceTuneTimers(ctx, step);
+    advanceUnison(ctx, step);
   }
 
   if (gameId === ZZZ) {
@@ -63,8 +65,8 @@ const advanceTimers = (ctx, step) => {
 const fireDue = (ctx) => {
   const { gameId } = ctx.cache;
 
-  if (gameId === WW) fireNegativeStatusTicks(ctx);
   if (gameId === GI) fireAuraTicks(ctx);
+  if (gameId === WW) fireNegativeStatusTicks(ctx);
 
   fireEffectUses(ctx);
   fireEffectExpiries(ctx);

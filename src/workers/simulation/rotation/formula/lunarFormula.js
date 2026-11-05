@@ -35,16 +35,17 @@ export function runLunarFormula(action, statMap) {
     computeBase(compressed, statMap) *
     (
       1 +
-      getAttr(`${type}BaseDmg%`, statMap) +
-      getAttr('lunarBaseDmg%', statMap)
+      getAttr('lunarBaseDmg%', statMap) +
+      getAttr(`${type}BaseDmg%`, statMap)
     ) *
     (
       1 +
       getExclusiveEmBonus(emValue) +
-      getAttr(`${type}ReactionBonus%`, statMap) +
-      getAttr('lunarReactionBonus%', statMap)
+      getAttr('lunarReactionBonus%', statMap) +
+      getAttr(`${type}ReactionBonus%`, statMap)
     ) +
-    getAttr('lunarFlat', statMap);
+    getAttr('lunarFlat', statMap) +
+    getAttr(`${type}Flat`, statMap);
 
   return (
     baseDamage *
