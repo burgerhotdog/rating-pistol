@@ -9171,7 +9171,7 @@
           "stats": {
             "elementalMastery": [
               24,
-              48
+              36
             ],
             "atk%": -0.05
           }
@@ -11882,12 +11882,21 @@
               "type": "elementalSkill"
             }
           },
-          "duration": 20000
+          "duration": 20000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "lawOfCombustion"
+            },
+            {
+              "type": "remove",
+              "ref": "lawOfCombustionRadiance"
+            }
+          ]
         },
         "use": {
           "by": "$team",
           "when": "reaction",
-          "field": "*",
           "commands": [
             {
               "type": "apply",
