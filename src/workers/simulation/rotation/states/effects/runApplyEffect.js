@@ -1,7 +1,6 @@
 import { getBuffMap } from '../../getStatMap';
 import { applyCooldown } from '../cooldowns';
 import { runRemoveEffect } from './runRemoveEffect';
-import { runCommands } from './commands';
 
 export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
   const { memberEffects, globalEffects } = ctx.states;
@@ -129,7 +128,7 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
           const wasRemoved = runRemoveEffect(state, remove);
 
           if (remove.commands) {
-            runCommands(ctx, effect, remove.commands);
+            ctx.runCommands(effect.ownerId, remove.commands);
           }
 
           if (wasRemoved) {

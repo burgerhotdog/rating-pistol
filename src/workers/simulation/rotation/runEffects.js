@@ -1,5 +1,5 @@
 import { GI } from '@/data';
-import { runCommands, runRemoveEffect, runUseEffect, runApplyEffect } from './states';
+import { runRemoveEffect, runUseEffect, runApplyEffect } from './states';
 
 function checkBy(ctx, effect, by, id) {
   const { memberIds } = ctx.cache;
@@ -25,7 +25,7 @@ function selectRemove(ctx, when, state, spec) {
   for (const [index, remove] of effect.remove.entries()) {
     if (remove.when !== when) continue;
     if (!checkBy(ctx, effect, remove.by, eventOwnerId)) continue;
-    if (!ctx.eventFilter(remove.filter, effect, spec)) continue;
+    if (!ctx.eventFilter(remove.filter, effect.ownerId, spec)) continue;
 
     return { state, index };
   }
@@ -39,7 +39,7 @@ function executeRemove(ctx, state, index, fieldId) {
   runRemoveEffect(state, remove);
 
   if (remove.commands) {
-    runCommands(ctx, effect, remove.commands, fieldId ?? effect.ownerId);
+    ctx.runCommands(effect.ownerId, remove.commands, fieldId ?? effect.ownerId);
   }
 }
 
@@ -56,7 +56,7 @@ function selectUse(ctx, when, state, spec) {
     const ownerField = effect.ownerId === ctx.states.onFieldId ? 'onField' : 'offField';
     if (use.field && use.field !== ownerField) continue;
 
-    if (!ctx.eventFilter(use.filter, effect, spec)) continue;
+    if (!ctx.eventFilter(use.filter, effect.ownerId, spec)) continue;
 
     return { state, index };
   }
@@ -76,7 +76,7 @@ function executeUse(ctx, state, index, fieldId, inflict) {
 
   if (use.commands) {
     for (let i = 0; i < stacks; i++) {
-      runCommands(ctx, effect, use.commands, fieldId ?? effect.ownerId);
+      ctx.runCommands(effect.ownerId, use.commands, fieldId ?? effect.ownerId);
     }
   }
 }
@@ -97,13 +97,13 @@ function tryApply(ctx, when, effect, spec) {
     const ownerField = effect.ownerId === states.onFieldId ? 'onField' : 'offField';
     if (apply.field && apply.field !== ownerField) continue;
 
-    if (!ctx.eventFilter(apply.filter, effect, { ...spec, fieldId: applier })) continue;
+    if (!ctx.eventFilter(apply.filter, effect.ownerId, { ...spec, fieldId: applier })) continue;
 
     runApplyEffect(ctx, effect, apply, { applier, inflict: spec.action?.inflict });
 
     const commands = apply.commands;
     if (commands) {
-      runCommands(ctx, effect, commands, applier);
+      ctx.runCommands(effect.ownerId, commands, applier);
     }
 
     break;

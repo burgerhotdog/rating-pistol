@@ -1,5 +1,3 @@
-import { runCommands } from './commands';
-
 function decayBuffState(ctx, action, state) {
   const { effect, buffCooldown } = state;
   if (buffCooldown) return;
@@ -11,7 +9,7 @@ function decayBuffState(ctx, action, state) {
       if (candidate.field !== ownerField) return false;
     }
 
-    return ctx.eventFilter(candidate.filter, effect, spec)
+    return ctx.eventFilter(candidate.filter, effect.ownerId, spec)
   });
   if (!buff) return;
 
@@ -30,7 +28,7 @@ function decayBuffState(ctx, action, state) {
   }
 
   if (commands) {
-    runCommands(ctx, effect, commands, effect.ownerId);
+    ctx.runCommands(effect.ownerId, commands, effect.ownerId);
   }
 }
 

@@ -1,10 +1,10 @@
 import { GI, WW } from '@/data';
 import { getAttr, toMergedObj } from '@/utils';
-import { initStates } from './states';
+import { initStates, initPassives } from './states';
 import { createEventFilter } from './filter';
 import { runAction } from './runAction';
 import { runEffects } from './runEffects';
-import { initPassives } from './states/effects';
+import { runCommands } from './runCommands';
 import { resolveSnapshot } from './snapshot';
 
 const initBuildMaps = (cache, equipMaps) => {
@@ -72,6 +72,7 @@ export const runRotation = (cache, equipMaps, specId, logFilter = false) => {
   ctx.eventFilter = createEventFilter(ctx);
   ctx.runAction = (action, options) => runAction(ctx, action, options);
   ctx.runEffects = (when, event) => runEffects(ctx, when, event);
+  ctx.runCommands = (sourceId, commands, applier) => runCommands(ctx, sourceId, commands, applier);
   initPassives(ctx);
 
   // Rotation loop

@@ -1,6 +1,5 @@
 import { clamp, toMergedObj, getAttr } from '@/utils';
 import { hasGameRule } from './gameRules';
-import { runCommands } from './effects';
 import { getBuffMap } from '../getStatMap';
 
 function getLowest(healthStore) {
@@ -48,7 +47,7 @@ export function updateHealth(ctx, action, ownerId, spec) {
     const stacks = Math.round(Math.abs(diff) * 100 * c2Mult);
 
     if (!isC2) {
-      runCommands(ctx, { ownerId: 10000089 }, [{
+      ctx.runCommands(10000089, [{
         type: 'apply',
         key: '10000089.10000089:effect15',
         spec: { stacks },
@@ -56,13 +55,13 @@ export function updateHealth(ctx, action, ownerId, spec) {
       return;
     }
 
-    const currentStacks = ctx.states.memberEffects['10000089']['10000089.10000089:effect15']?.stacks ?? 0;
+    const currentStacks = ctx.states.memberEffects[10000089]['10000089.10000089:effect15']?.stacks ?? 0;
     const roomLeft = 400 - currentStacks;
     const toFanfare = Math.min(stacks, roomLeft);
     const toOverflow = stacks - toFanfare;
 
     if (toFanfare > 0) {
-      runCommands(ctx, { ownerId: 10000089 }, [{
+      ctx.runCommands(10000089, [{
         type: 'apply',
         key: '10000089.10000089:effect15',
         spec: { stacks: toFanfare },
@@ -70,7 +69,7 @@ export function updateHealth(ctx, action, ownerId, spec) {
     }
 
     if (toOverflow > 0) {
-      runCommands(ctx, { ownerId: 10000089 }, [{
+      ctx.runCommands(10000089, [{
         type: 'apply',
         key: '10000089.10000089:effect21',
         spec: { stacks: toOverflow },

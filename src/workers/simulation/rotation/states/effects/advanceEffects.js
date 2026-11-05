@@ -1,4 +1,3 @@
-import { runCommands } from './commands';
 import { runUseEffect } from './runUseEffect';
 
 const intervalCache = new WeakMap();
@@ -40,8 +39,8 @@ function expireEffectState(ctx, state, storeOwnerId) {
   if (!expire) return;
 
   const filterSpec = { fieldId: storeOwnerId ?? effect.ownerId };
-  if (ctx.eventFilter(expire.filter, effect, filterSpec)) {
-    runCommands(ctx, effect, expire.commands);
+  if (ctx.eventFilter(expire.filter, effect.ownerId, filterSpec)) {
+    ctx.runCommands(effect.ownerId, expire.commands);
   };
 }
 
@@ -166,7 +165,7 @@ function fireIntervalUses(ctx, state, storeOwnerId) {
 
   for (const [index, use] of effect.use.entries()) {
     if (use.when !== 'interval') continue;
-    if (!ctx.eventFilter(use.filter, effect, filterSpec)) continue;
+    if (!ctx.eventFilter(use.filter, effect.ownerId, filterSpec)) continue;
 
     const spec = {};
     if (effect.snapshotBuffs) {
@@ -176,7 +175,7 @@ function fireIntervalUses(ctx, state, storeOwnerId) {
     const removed = runUseEffect(ctx, state, use, spec);
 
     if (use.commands) {
-      runCommands(ctx, effect, use.commands);
+      ctx.runCommands(effect.ownerId, use.commands);
     }
 
     if (removed) break;

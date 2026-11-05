@@ -1,7 +1,6 @@
 import { CHARACTER, GI } from '@/data';
 import { clamp } from '@/utils';
 import { hasGameRule } from './gameRules';
-import { runCommands } from './effects';
 
 export function tryNightsoulBurst(ctx, action) {
   const { cache, states } = ctx;
@@ -27,7 +26,7 @@ export function updateNightsoulPoints(ctx, action) {
     state.points = clamp(state.points + value, 0, maxNightsoul);
 
     if (value < 0 && hasGameRule(ctx, 'fightingSpirit')) {
-      runCommands(ctx, { ownerId: 10000106 }, [{
+      ctx.runCommands(10000106, [{
         type: 'apply',
         key: '10000106.10000106:effect3',
         spec: { stacks: -value },

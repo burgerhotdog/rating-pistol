@@ -1,5 +1,4 @@
 import { toMergedObj } from '@/utils';
-import { runCommands } from '../effects/commands';
 import { runApplyEffect } from '../effects';
 import { getBuffMap } from '../../getStatMap';
 import { runTuneFormula } from '../../formula/tuneFormula';
@@ -76,7 +75,7 @@ function recordTuneBreak(ctx) {
         runApplyEffect(ctx, effect, apply, { applier: responseOwnerId });
 
         if (apply.commands) {
-          runCommands(ctx, effect, apply.commands);
+          ctx.runCommands(effect.ownerId, apply.commands);
         }
       }
     }
