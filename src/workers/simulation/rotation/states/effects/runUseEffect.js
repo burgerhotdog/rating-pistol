@@ -1,29 +1,25 @@
 export function runUseEffect(ctx, state, use = {}, spec = {}) {
   const { store, effect, stacks } = state;
 
-  let inflictStackMult = 1;
-  if (use.perStatusInflict) {
-    inflictStackMult = spec.inflict?.status?.[use.perStatusInflict] ?? 0
-  }
-
   if (use.action) {
-    const useTimes = (use.times ?? 1) * inflictStackMult * stacks;
+    const times = Math.round(stacks);
     state.isRunning = true;
 
     for (const [index, action] of use.action.entries()) {
-      if (action.damage && effect.absorbElement && !state.absorbElement) continue;
+      if (effect.absorbElement && !state.absorbElement) continue;
 
-      const runOptions = { noDuration: true };
-
-      if (effect.snapshotBuffs) {
-        runOptions.snapshotBuffs = spec.snapshotBuffs[index];
-      }
-
-      const modifiedAction = (action.damage && effect.absorbElement && state.absorbElement)
+      const modifiedAction = effect.absorbElement
         ? { ...action, damage: { ...action.damage, element: state.absorbElement } }
         : action;
 
-      for (let i = 0; i < Math.round(useTimes); i++) {
+      const runOptions = {
+        noDuration: true,
+        ...(effect.snapshotBuffs && {
+          snapshotBuffs: spec.snapshotBuffs[index],
+        }),
+      };
+
+      for (let i = 0; i < times; i++) {
         ctx.runAction(modifiedAction, runOptions);
       }
     }

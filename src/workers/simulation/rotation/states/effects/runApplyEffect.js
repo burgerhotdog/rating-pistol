@@ -30,11 +30,7 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
       }),
     };
 
-    let stackMult = 1;
-    if (apply.perStatusInflict) {
-      stackMult = spec.inflict?.status?.[apply.perStatusInflict] ?? 0;
-    }
-    const stacksToApply = (apply.stacks ?? 1) * stackMult;
+    const stacksToApply = apply.stacks ?? 1;
     state.stacks = Math.min(state.stacks + stacksToApply, maxStacks);
 
     if (apply.duration) {

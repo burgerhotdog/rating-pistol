@@ -5251,10 +5251,21 @@
             }
           },
           "cooldown": 1e+100,
-          "commands": {
-            "type": "apply",
-            "ref": "snowRust"
-          }
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "snowRust"
+            },
+            {
+              "type": "apply",
+              "ref": "snowRust2GameRule",
+              "filter": {
+                "effectStacks": {
+                  "snowRust": 2
+                }
+              }
+            }
+          ]
         }
       },
       {
@@ -5294,41 +5305,12 @@
         }
       },
       {
-        "use": {
-          "when": "inflict",
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "inflict": {
-                    "status": {
-                      "has": "glacioChafe"
-                    }
-                  }
-                }
-              },
-              {
-                "effectStacks": {
-                  "snowRust": {
-                    ">=": 2
-                  }
-                }
-              }
-            ]
-          },
-          "action": {
-            "damage": {
-              "type": "glacioBite",
-              "attr": "statusAmp",
-              "multipliers": [
-                {
-                  "mv": 1.02
-                }
-              ]
-            }
-          },
-          "perStatusInflict": "glacioChafe"
-        }
+        "ref": "snowRust2GameRule",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "gameRule": "snowRust2GameRule"
       },
       {
         "stores": "global",
@@ -6742,6 +6724,18 @@
                     0.8633
                   ],
                   "times": 4
+                }
+              ]
+            }
+          },
+          {
+            "name": "Additional Snow Rust 2",
+            "damage": {
+              "type": "glacioBite",
+              "attr": "statusAmp",
+              "multipliers": [
+                {
+                  "mv": 1.02
                 }
               ]
             }
@@ -11055,8 +11049,10 @@
             ]
           },
           "cooldown": 350,
-          "action": "resonanceLiberation.1",
-          "times": 2
+          "action": [
+            "resonanceLiberation.1",
+            "resonanceLiberation.1"
+          ]
         }
       },
       {
@@ -18716,8 +18712,13 @@
               ]
             }
           },
-          "action": "forteCircuit.3",
-          "times": 5
+          "action": [
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3"
+          ]
         }
       },
       {
@@ -18741,8 +18742,18 @@
               }
             ]
           },
-          "action": "forteCircuit.3",
-          "times": 10
+          "action": [
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3"
+          ]
         }
       },
       {
@@ -56551,19 +56562,7 @@
       {
         "ref": "blaze",
         "apply": {
-          "by": "$team",
-          "when": "inflict",
-          "filter": {
-            "action": {
-              "inflict": {
-                "status": {
-                  "has": "spectroFrazzle"
-                }
-              }
-            }
-          },
-          "stacks": 5,
-          "perStatusInflict": "spectroFrazzle"
+          "when": "command"
         },
         "maxStacks": 100
       },
@@ -69685,8 +69684,10 @@
               "ref": "outroSkill.0"
             }
           },
-          "action": "resonanceLiberation.4",
-          "times": 2
+          "action": [
+            "resonanceLiberation.4",
+            "resonanceLiberation.4"
+          ]
         }
       }
     ],

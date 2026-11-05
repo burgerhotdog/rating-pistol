@@ -155,5 +155,29 @@ export function inflictNegativeStatuses(ctx, action) {
   for (const statusKey in toInflict) {
     const stacks = toInflict[statusKey];
     inflictStatus(ctx, statusKey, stacks);
+
+    if (
+      statusKey === 'spectroFrazzle' &&
+      hasGameRule(ctx, 'heliacalEmber')
+    ) {
+      ctx.runCommands(1507, [{
+        type: 'apply',
+        key: '1507.1507:effect4',
+        spec: { stacks: stacks * 5 },
+      }], action.ownerId);
+    }
+
+    if (
+      statusKey === 'glacioChafe' &&
+      ctx.states.onFieldId === 1108 &&
+      action.ownerId === 1108 &&
+      hasGameRule(ctx, 'snowRust2GameRule')
+    ) {
+      const additionalDmg = ctx.cache.member[1108].actions['forteCircuit.1'];
+
+      for (let i = 0; i < stacks; i++) {
+        ctx.runAction(additionalDmg, { noDuration: true });
+      }
+    }
   }
 }

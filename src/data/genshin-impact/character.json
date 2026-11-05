@@ -5252,8 +5252,11 @@
               }
             ]
           },
-          "action": "elementalBurst.1",
-          "times": 3
+          "action": [
+            "elementalBurst.1",
+            "elementalBurst.1",
+            "elementalBurst.1"
+          ]
         }
       },
       {
@@ -6559,8 +6562,16 @@
             }
           },
           "offset": 3000,
-          "action": "elementalSkill.2",
-          "times": 8
+          "action": [
+            "elementalSkill.2",
+            "elementalSkill.2",
+            "elementalSkill.2",
+            "elementalSkill.2",
+            "elementalSkill.2",
+            "elementalSkill.2",
+            "elementalSkill.2",
+            "elementalSkill.2"
+          ]
         }
       },
       {
@@ -25012,8 +25023,11 @@
             }
           },
           "cooldown": 1000,
-          "action": "elementalBurst.1",
-          "times": 3
+          "action": [
+            "elementalBurst.1",
+            "elementalBurst.1",
+            "elementalBurst.1"
+          ]
         }
       },
       {
@@ -25028,8 +25042,11 @@
               "ref": "elementalSkill.0"
             }
           },
-          "action": "elementalBurst.1",
-          "times": 3
+          "action": [
+            "elementalBurst.1",
+            "elementalBurst.1",
+            "elementalBurst.1"
+          ]
         }
       },
       {
@@ -42384,23 +42401,40 @@
         },
         "use": {
           "when": "interval",
-          "action": {
-            "damage": {
-              "type": "elementalSkill",
-              "gauge": 1,
-              "icd": {
-                "tag": "C2",
-                "time": 2500,
-                "hits": 3
-              },
-              "multipliers": [
-                {
-                  "mv": 1.2
-                }
-              ]
+          "action": [
+            {
+              "damage": {
+                "type": "elementalSkill",
+                "gauge": 1,
+                "icd": {
+                  "tag": "C2",
+                  "time": 2500,
+                  "hits": 3
+                },
+                "multipliers": [
+                  {
+                    "mv": 1.2
+                  }
+                ]
+              }
+            },
+            {
+              "damage": {
+                "type": "elementalSkill",
+                "gauge": 1,
+                "icd": {
+                  "tag": "C2",
+                  "time": 2500,
+                  "hits": 3
+                },
+                "multipliers": [
+                  {
+                    "mv": 1.2
+                  }
+                ]
+              }
             }
-          },
-          "times": 2
+          ]
         }
       },
       {

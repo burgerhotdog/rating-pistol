@@ -62,12 +62,12 @@ function selectUse(ctx, when, state, spec) {
   }
 }
 
-function executeUse(ctx, state, index, fieldId, inflict) {
+function executeUse(ctx, state, index, fieldId) {
   const { effect, stacks } = state;
 
   const use = effect.use[index];
 
-  const useSpec = { inflict };
+  const useSpec = {};
   if (effect.snapshotBuffs) {
     useSpec.snapshotBuffs = state.snapshotBuffs[index];
   }
@@ -99,7 +99,7 @@ function tryApply(ctx, when, effect, spec) {
 
     if (!ctx.eventFilter(apply.filter, effect.ownerId, { ...spec, fieldId: applier })) continue;
 
-    runApplyEffect(ctx, effect, apply, { applier, inflict: spec.action?.inflict });
+    runApplyEffect(ctx, effect, apply, { applier });
 
     const commands = apply.commands;
     if (commands) {
@@ -188,7 +188,7 @@ export function runEffects(ctx, when, event = {}) {
   }
 
   for (const { state, index, fieldId } of toUse) {
-    executeUse(ctx, state, index, fieldId, spec.action?.inflict);
+    executeUse(ctx, state, index, fieldId);
   }
 
   for (const id in cache.member) {
