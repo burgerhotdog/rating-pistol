@@ -31312,7 +31312,107 @@
       "critDmg%": 0.384
     },
     "energy": 80,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "mortuaryRiteExtend",
+        "use": {
+          "when": "use",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.0"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "burstEmBuff"
+                }
+              }
+            ]
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "burstEmBuff",
+            "spec": {
+              "duration": 4000,
+              "extend": true
+            }
+          }
+        }
+      },
+      {
+        "ref": "burstEmBuff",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 100
+          }
+        },
+        "maxExtensions": 2
+      },
+      {
+        "ref": "a4",
+        "buff": [
+          {
+            "filter": {
+              "action": {
+                "ref": [
+                  "elementalBurst.1",
+                  "elementalBurst.2",
+                  "elementalBurst.3",
+                  "elementalBurst.4",
+                  "elementalBurst.5"
+                ]
+              }
+            },
+            "specs": {
+              "damageFlat": {
+                "attr": "elementalMastery",
+                "step": 1,
+                "value": 1.5
+              }
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.2"
+              }
+            },
+            "specs": {
+              "damageFlat": {
+                "attr": "elementalMastery",
+                "step": 1,
+                "value": 2.5
+              }
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.3"
+              }
+            },
+            "specs": {
+              "damageFlat": {
+                "attr": "elementalMastery",
+                "step": 1,
+                "value": 6
+              }
+            }
+          }
+        ]
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Invoker's Spear",
@@ -31505,9 +31605,14 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 200
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -31532,9 +31637,10 @@
             }
           },
           {
-            "name": "Mortuary Rite DMG",
+            "name": "Elemental Skill: Mortuary Rite",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -31557,6 +31663,33 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Duststalker Bolt",
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500
+              },
+              "multipliers": [
+                {
+                  "mv": 1
+                }
+              ]
+            }
+          },
+          {
+            "name": "Duststalker Bolt - Starsame",
+            "damage": {
+              "type": "stellarConduct",
+              "multipliers": [
+                {
+                  "mv": 2
+                }
+              ]
+            }
           }
         ]
       },
@@ -31565,9 +31698,19 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "1-Hit DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Pactsworn Pathclearer: Normal Attack 1",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -31592,9 +31735,15 @@
             }
           },
           {
-            "name": "2-Hit DMG",
-            "type": "elementalBurst",
+            "name": "Pactsworn Pathclearer: Normal Attack 2",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -31619,9 +31768,15 @@
             }
           },
           {
-            "name": "3-Hit DMG",
-            "type": "elementalBurst",
+            "name": "Pactsworn Pathclearer: Normal Attack 3",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -31646,9 +31801,15 @@
             }
           },
           {
-            "name": "4-Hit DMG",
-            "type": "elementalBurst",
+            "name": "Pactsworn Pathclearer: Normal Attack 4",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -31692,9 +31853,15 @@
             }
           },
           {
-            "name": "5-Hit DMG",
-            "type": "elementalBurst",
+            "name": "Pactsworn Pathclearer: Normal Attack 5",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -31719,9 +31886,15 @@
             }
           },
           {
-            "name": "Charged Attack DMG",
-            "type": "elementalBurst",
+            "name": "Pactsworn Pathclearer: Charged Attack",
+            "type": "chargedAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -31746,36 +31919,10 @@
             }
           },
           {
-            "name": "Plunge DMG",
-            "type": "elementalBurst",
+            "name": "Pactsworn Pathclearer: Plunging Attack",
+            "type": "plungingAttack",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.6393,
-                    0.6914,
-                    0.7434,
-                    0.8177,
-                    0.8698,
-                    0.9293,
-                    1.011,
-                    1.0928,
-                    1.1746,
-                    1.2638,
-                    1.353,
-                    1.4422,
-                    1.5314,
-                    1.6206,
-                    1.7098
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Plunging Attack",
-            "type": "elementalBurst",
-            "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
