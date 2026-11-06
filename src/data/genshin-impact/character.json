@@ -1206,7 +1206,6 @@
     }
   },
   "10000006": {
-    "disabled": true,
     "name": "Lisa",
     "version": 1.0,
     "id": 10000006,
@@ -1221,7 +1220,170 @@
       "elementalMastery": 96
     },
     "energy": 80,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "conductive",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "normalAttack.4"
+              ]
+            }
+          }
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "holdSkillSwitcher",
+        "use": [
+          {
+            "when": "use",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "not": {
+                      "has": "conductive"
+                    }
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.2"
+          },
+          {
+            "when": "use",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "conductive": 1
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.3"
+          },
+          {
+            "when": "use",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "conductive": 2
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.4"
+          },
+          {
+            "when": "use",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "conductive": 3
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.5"
+          }
+        ]
+      },
+      {
+        "ref": "Lightning Rose",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000,
+          "offset": 500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 500,
+          "action": "elementalBurst.1"
+        },
+        "snapshotBuffs": true
+      },
+      {
+        "ref": "a4",
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "defReduction%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "action": {
+            "restoreEnergy": {
+              "flat": 2
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "use": {
+          "when": "swap",
+          "field": "onField",
+          "cooldown": 5000,
+          "commands": {
+            "type": "apply",
+            "ref": "conductive",
+            "spec": {
+              "stacks": 3
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Lightning Touch",
@@ -1230,6 +1392,11 @@
             "name": "Normal Attack 1",
             "type": "normalAttack",
             "damage": {
+              "icd": {
+                "tag": "Lisa Electro DMG",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -1257,6 +1424,11 @@
             "name": "Normal Attack 2",
             "type": "normalAttack",
             "damage": {
+              "icd": {
+                "tag": "Lisa Electro DMG",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -1284,6 +1456,11 @@
             "name": "Normal Attack 3",
             "type": "normalAttack",
             "damage": {
+              "icd": {
+                "tag": "Lisa Electro DMG",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -1311,6 +1488,11 @@
             "name": "Normal Attack 4",
             "type": "normalAttack",
             "damage": {
+              "icd": {
+                "tag": "Lisa Electro DMG",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -1395,9 +1577,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Violet Arc: Press",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Lisa Electro DMG",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -1422,9 +1610,15 @@
             }
           },
           {
-            "name": "Violet Arc: Hold",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
+            "duration": 2000
+          },
+          {
+            "name": "Hold DMG (0 Stacks)",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -1449,9 +1643,10 @@
             }
           },
           {
-            "name": "Violet Arc: Hold (1 Stack)",
-            "type": "elementalSkill",
+            "name": "Hold DMG (1 Stacks)",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -1476,9 +1671,10 @@
             }
           },
           {
-            "name": "Violet Arc: Hold (2 Stacks)",
-            "type": "elementalSkill",
+            "name": "Hold DMG (2 Stacks)",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -1503,9 +1699,10 @@
             }
           },
           {
-            "name": "Violet Arc: Hold (3 Stacks)",
-            "type": "elementalSkill",
+            "name": "Hold DMG (3 Stacks)",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -1536,9 +1733,26 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Lightning Rose: Discharge",
+            "name": "Elemental Burst",
+            "type": "elementalBurst",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": 0.1
+                }
+              ]
+            }
+          },
+          {
+            "name": "Discharge",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -1561,10 +1775,6 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Lightning Rose",
-            "type": "elementalBurst"
           }
         ]
       }
@@ -1573,8 +1783,18 @@
       "weaponId": 14401,
       "setCounts": {
         "15007": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000069,
+      10000006,
+      10000073,
+      10000030
+    ]
   },
   "10000014": {
     "disabled": true,
@@ -2276,7 +2496,13 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000002,
+      10000089,
+      10000015,
+      10000112
+    ]
   },
   "10000016": {
     "name": "Diluc",
@@ -29892,7 +30118,6 @@
     "memberPreset": {}
   },
   "10000069": {
-    "disabled": true,
     "name": "Tighnari",
     "version": 3.0,
     "id": 10000069,
@@ -29907,7 +30132,151 @@
       "dendroDmgBonus%": 0.288
     },
     "energy": 40,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "clusterbloomArrows",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.5"
+            }
+          },
+          "uses": 1,
+          "offset": 500
+        },
+        "use": {
+          "when": "interval",
+          "action": [
+            "normalAttack.6",
+            "normalAttack.6",
+            "normalAttack.6",
+            "normalAttack.6"
+          ]
+        }
+      },
+      {
+        "ref": "tanglevineShafts",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 1,
+          "offset": 500
+        },
+        "use": {
+          "when": "interval",
+          "action": [
+            "elementalBurst.1",
+            "elementalBurst.1",
+            "elementalBurst.1",
+            "elementalBurst.1",
+            "elementalBurst.1",
+            "elementalBurst.1"
+          ]
+        }
+      },
+      {
+        "ref": "secondaryTanglevineShafts",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 1,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "action": [
+            "elementalBurst.2",
+            "elementalBurst.2",
+            "elementalBurst.2",
+            "elementalBurst.2",
+            "elementalBurst.2",
+            "elementalBurst.2"
+          ]
+        }
+      },
+      {
+        "ref": "a1",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.5"
+            }
+          },
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 50
+          }
+        }
+      },
+      {
+        "ref": "a4",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.4",
+                "normalAttack.5",
+                "normalAttack.6",
+                "elementalBurst.1",
+                "elementalBurst.2"
+              ]
+            }
+          },
+          "specs": {
+            "dmgBonus%": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 0.0006,
+              "maxValue": 0.6
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "stats": {
+            "critRate%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 14000
+        },
+        "buff": {
+          "stats": {
+            "dendroDmgBonus%": 0.2
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Khanda Barrier-Buster",
@@ -29988,7 +30357,8 @@
                     0.6334,
                     0.6704,
                     0.7073
-                  ]
+                  ],
+                  "times": 2
                 }
               ]
             }
@@ -30078,6 +30448,11 @@
             "name": "Clusterbloom Arrow",
             "damage": {
               "type": "chargedAttack",
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 2500,
+                "hits": 4
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -30135,9 +30510,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -30168,9 +30544,19 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Tanglevine Shaft DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Tanglevine Shaft",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -30195,9 +30581,15 @@
             }
           },
           {
-            "name": "Secondary Tanglevine Shaft DMG",
-            "type": "elementalBurst",
+            "name": "Secondary Tanglevine Shaft",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -30228,8 +30620,21 @@
       "weaponId": 15511,
       "setCounts": {
         "15003": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "normalAttack.5",
+        "normalAttack.5",
+        "normalAttack.5"
+      ]
+    },
+    "teamPreset": [
+      10000069,
+      10000031,
+      10000073,
+      10000030
+    ]
   },
   "10000070": {
     "name": "Nilou",

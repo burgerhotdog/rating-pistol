@@ -12936,7 +12936,6 @@
     ]
   },
   "15430": {
-    "disabled": true,
     "name": "Flower-Wreathed Feathers",
     "version": 5.2,
     "id": 15430,
@@ -12947,7 +12946,94 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "caBuff",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "chargedAttackDmgBonus%": [
+              0.06,
+              0.12
+            ]
+          }
+        },
+        "maxStacks": 6
+      },
+      {
+        "ref": "aimingMode",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "chargedAttack"
+            }
+          }
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "and": [
+                {
+                  "has": "type"
+                },
+                {
+                  "not": {
+                    "type": "chargedAttack"
+                  }
+                }
+              ]
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "timer10s",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        }
+      },
+      {
+        "ref": "buffStacker",
+        "use": {
+          "when": "interval",
+          "filter": {
+            "effectStacks": {
+              "has": "aimingMode"
+            }
+          },
+          "cooldown": 500,
+          "commands": {
+            "type": "apply",
+            "ref": "caBuff"
+          }
+        }
+      },
+      {
+        "ref": "timer10s",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "type": "chargedAttack"
+            }
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "caBuff"
+          }
+        }
+      }
+    ]
   },
   "15431": {
     "name": "Chain Breaker",
