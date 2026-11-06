@@ -11,17 +11,17 @@ export function getStackLimit(ctx, statusKey) {
   let stackLimit = baseStackLimits[statusKey];
 
   for (const effectKey in ctx.states.globalEffects) {
-    const { gameRule } = ctx.states.globalEffects[effectKey].effect
+    const { rule } = ctx.states.globalEffects[effectKey].effect
 
-    if (gameRule === 'roverAero2' && statusKey !== 'aeroErosion') {
+    if (rule === 'roverAero2' && statusKey !== 'aeroErosion') {
       stackLimit += 3;
     }
 
-    if (gameRule === 'chisa') {
+    if (rule === 'chisa') {
       stackLimit += 3;
     }
 
-    if (gameRule === 'suisui' && statusKey !== 'havocBane') {
+    if (rule === 'suisui' && statusKey !== 'havocBane') {
       stackLimit += 3;
     }
   }

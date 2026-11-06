@@ -1,5 +1,5 @@
 import { clamp, toMergedObj, getAttr } from '@/utils';
-import { hasGameRule } from './gameRules';
+import { hasRule } from '../rules';
 import { getBuffMap } from '../getStatMap';
 
 function getLowest(healthStore) {
@@ -41,8 +41,8 @@ export function updateHealth(ctx, action, ownerId, spec) {
   healthStore[ownerId] = next;
   ctx.runEffects('healthUpdate', { ...action, ownerId });
 
-  if (hasGameRule(ctx, 'trackFanfare')) {
-    const isC2 = hasGameRule(ctx, 'trackFanfareC2');
+  if (hasRule(ctx, 'trackFanfare')) {
+    const isC2 = hasRule(ctx, 'trackFanfareC2');
     const c2Mult = isC2 ? 3.5 : 1;
     const stacks = Math.round(Math.abs(diff) * 100 * c2Mult);
 

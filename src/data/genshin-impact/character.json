@@ -30376,7 +30376,7 @@
           },
           "duration": 30000
         },
-        "gameRule": "nilouBountifulCores"
+        "rule": "nilouBountifulCores"
       },
       {
         "ref": "a4",
@@ -32406,7 +32406,7 @@
       {
         "rank": 2,
         "stores": "global",
-        "gameRule": "nahidaC2"
+        "rule": "nahidaC2"
       },
       {
         "rank": 2,
@@ -41354,7 +41354,7 @@
             }
           },
           "cooldown": 6000,
-          "action": "normalAttack.8"
+          "action": "normalAttack.6"
         }
       },
       {
@@ -41574,7 +41574,7 @@
         "apply": {
           "when": "command"
         },
-        "gameRule": "trackFanfare"
+        "rule": "trackFanfare"
       },
       {
         "ref": "fanfare",
@@ -41669,7 +41669,7 @@
       {
         "rank": 2,
         "stores": "global",
-        "gameRule": "trackFanfareC2"
+        "rule": "trackFanfareC2"
       },
       {
         "rank": 2,
@@ -44938,10 +44938,10 @@
             "damageFlat": {
               "attr": "atk",
               "step": 1,
-              "value": "normalAttack.10"
+              "value": "normalAttack.8"
             }
           },
-          "gameRule": "arlecchinoMasque"
+          "rule": "arlecchinoMasque"
         }
       },
       {
@@ -45083,9 +45083,9 @@
             }
           },
           "commands": {
-            "type": "gameRule",
+            "type": "rule",
             "ref": "balemoonRising",
-            "gameRule": "arlecchinoBalemoon"
+            "rule": "arlecchinoBalemoon"
           }
         }
       },
@@ -45887,7 +45887,7 @@
           "duration": 7500,
           "commands": {
             "type": "apply",
-            "ref": "nightVigilGameRule",
+            "ref": "nightVigilRule",
             "spec": {
               "duration": 7500
             }
@@ -45898,7 +45898,7 @@
           "field": "offField",
           "commands": {
             "type": "remove",
-            "ref": "nightVigilGameRule"
+            "ref": "nightVigilRule"
           }
         },
         "use": [
@@ -46004,12 +46004,12 @@
         ]
       },
       {
-        "ref": "nightVigilGameRule",
+        "ref": "nightVigilRule",
         "stores": "global",
         "apply": {
           "when": "command"
         },
-        "gameRule": "clorindeNightVigil"
+        "rule": "clorindeNightVigil"
       },
       {
         "ref": "surgingBlade",
@@ -49240,9 +49240,9 @@
             }
           },
           "commands": {
-            "type": "gameRule",
+            "type": "rule",
             "ref": "a4_1",
-            "gameRule": "xilonenFakeNightsoulBurst"
+            "rule": "xilonenFakeNightsoulBurst"
           }
         }
       },
@@ -52606,7 +52606,7 @@
       },
       {
         "stores": "global",
-        "gameRule": "fightingSpirit"
+        "rule": "fightingSpirit"
       },
       {
         "use": {
@@ -60064,7 +60064,7 @@
           },
           "duration": 20000
         },
-        "gameRule": "laumaA1"
+        "rule": "laumaA1"
       },
       {
         "enable": {
@@ -61939,12 +61939,12 @@
           },
           "duration": 15000,
           "commands": {
-            "type": "gameRule",
-            "gameRule": "seedsOfDeceit1",
+            "type": "rule",
+            "rule": "seedsOfDeceit1",
             "ref": "seedsOfDeceit"
           }
         },
-        "gameRule": "seedsOfDeceit"
+        "rule": "seedsOfDeceit"
       },
       {
         "enable": {
@@ -61958,8 +61958,8 @@
             }
           },
           "commands": {
-            "type": "gameRule",
-            "gameRule": "seedsOfDeceit2",
+            "type": "rule",
+            "rule": "seedsOfDeceit2",
             "ref": "veilsOfFalsehood",
             "spec": {
               "uses": 1
@@ -64466,7 +64466,7 @@
           },
           "duration": 20000
         },
-        "gameRule": "moonridgeDew"
+        "rule": "moonridgeDew"
       },
       {
         "stores": "global",
@@ -73464,7 +73464,7 @@
           },
           "duration": 16000
         },
-        "gameRule": "wanderingVortex"
+        "rule": "wanderingVortex"
       },
       {
         "ref": "a4_leadVocal",

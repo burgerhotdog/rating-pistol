@@ -1,4 +1,5 @@
-import { runRemoveEffect, runUseEffect, runApplyEffect, runGameRule } from './states';
+import { runRemoveEffect, runUseEffect, runApplyEffect } from './states';
+import { runRuleCommand } from './rules';
 
 function runRemoveCommand(ctx, effect, spec) {
   const { memberEffects, globalEffects } = ctx.states;
@@ -56,7 +57,7 @@ function runUseCommand(ctx, effect) {
 export function runCommands(ctx, sourceId, commands, applier) {
   const effectDefs = ctx.cache.member[sourceId].effects;
 
-  for (const { filter, type, key, spec, gameRule } of commands) {
+  for (const { filter, type, key, spec, rule } of commands) {
     if (!ctx.eventFilter(filter, sourceId, { fieldId: applier })) continue;
 
     const effect = effectDefs[key];
@@ -75,8 +76,8 @@ export function runCommands(ctx, sourceId, commands, applier) {
         runApplyEffect(ctx, effect, spec, { applier });
         break;
 
-      case 'gameRule':
-        runGameRule(ctx, gameRule, effect, spec);
+      case 'rule':
+        runRuleCommand(ctx, rule, effect, spec);
         break;
     }
   }

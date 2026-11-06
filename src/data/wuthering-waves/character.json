@@ -5232,7 +5232,7 @@
     "effects": [
       {
         "stores": "global",
-        "gameRule": "glacioBite"
+        "rule": "glacioBite"
       },
       {
         "stores": "$team",
@@ -5258,7 +5258,7 @@
             },
             {
               "type": "apply",
-              "ref": "snowRust2GameRule",
+              "ref": "snowRust2Rule",
               "filter": {
                 "effectStacks": {
                   "snowRust": 2
@@ -5305,12 +5305,12 @@
         }
       },
       {
-        "ref": "snowRust2GameRule",
+        "ref": "snowRust2Rule",
         "stores": "global",
         "apply": {
           "when": "command"
         },
-        "gameRule": "snowRust2GameRule"
+        "rule": "snowRust2Rule"
       },
       {
         "stores": "global",
@@ -8107,7 +8107,7 @@
           },
           "duration": 15000
         },
-        "gameRule": "suisui"
+        "rule": "suisui"
       },
       {
         "stores": "$applier",
@@ -18673,7 +18673,7 @@
       },
       {
         "stores": "global",
-        "gameRule": "aemeathFusionBurst"
+        "rule": "aemeathFusionBurst"
       },
       {
         "mode": "fusionBurst",
@@ -42518,7 +42518,7 @@
           },
           "duration": 10000
         },
-        "gameRule": "roverAero2"
+        "rule": "roverAero2"
       },
       {
         "rank": 2,
@@ -44284,7 +44284,7 @@
             ]
           }
         },
-        "gameRule": "mandateOfDivinity"
+        "rule": "mandateOfDivinity"
       },
       {
         "ref": "powerOfDiscord",
@@ -51643,7 +51643,7 @@
           },
           "duration": 7000
         },
-        "gameRule": "shimmer"
+        "rule": "shimmer"
       },
       {
         "buff": {
@@ -56557,7 +56557,7 @@
       },
       {
         "stores": "global",
-        "gameRule": "heliacalEmber"
+        "rule": "heliacalEmber"
       },
       {
         "ref": "blaze",
@@ -56620,7 +56620,7 @@
           "stats": {
             "dmgBonus%": 0.1
           },
-          "statusStacks": "spectroFrazzle"
+          "rule": "zaniOutro"
         }
       },
       {
@@ -57688,7 +57688,7 @@
           },
           "duration": 15000
         },
-        "gameRule": "chisa"
+        "rule": "chisa"
       },
       {
         "ref": "threadOfBane",
