@@ -71541,6 +71541,24 @@
     "energy": 60,
     "effects": [
       {
+        "ref": "chargedAttackDetonate",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.6"
+            }
+          },
+          "commands": {
+            "type": "remove",
+            "ref": "gradientBeacon",
+            "spec": {
+              "stacks": 1
+            }
+          }
+        }
+      },
+      {
         "ref": "detectionCoreMode",
         "apply": {
           "when": "command"
@@ -71886,7 +71904,16 @@
               "ref": "consumeBeacon",
               "filter": {
                 "effectStacks": {
-                  "gradientBeacon": 4
+                  "and": [
+                    {
+                      "not": {
+                        "has": "detectionCoreMode"
+                      }
+                    },
+                    {
+                      "gradientBeacon": 4
+                    }
+                  ]
                 }
               }
             },
@@ -72115,7 +72142,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 300
           }
         ]
       },
@@ -72408,14 +72436,25 @@
         "15026": 4
       },
       "rotation": [
-        "elementalSkill.0"
+        "normalAttack.5",
+        "normalAttack.6",
+        "normalAttack.6",
+        "normalAttack.6",
+        "normalAttack.6",
+        "elementalBurst.0",
+        "normalAttack.5",
+        "normalAttack.6",
+        "normalAttack.6",
+        "normalAttack.6",
+        "normalAttack.6",
+        "elementalSkill.1"
       ]
     },
     "teamPreset": [
-      10000133,
       10000136,
       10000150,
-      10000112
+      10000058,
+      10000137
     ]
   },
   "10000137": {
