@@ -38101,7 +38101,7 @@
         },
         "use": {
           "when": "interval",
-          "action": "normalAttack.10"
+          "action": "normalAttack.8"
         }
       },
       {
