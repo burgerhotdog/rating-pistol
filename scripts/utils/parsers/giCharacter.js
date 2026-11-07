@@ -71,7 +71,7 @@ function parseSkills(skills, constellations) {
       const [actionName, rawParamRefs] = line.split('|');
 
       if (actionName === 'Energy Cost') {
-        const energyIndex = Number(rawParamRefs[6]);
+        const energyIndex = Number(rawParamRefs[6]) - 1;
         energy = template.param[energyIndex];
         continue;
       }
