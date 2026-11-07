@@ -5232,7 +5232,7 @@
     "effects": [
       {
         "stores": "global",
-        "gameRule": "glacioBite"
+        "rule": "glacioBite"
       },
       {
         "stores": "$team",
@@ -5251,10 +5251,21 @@
             }
           },
           "cooldown": 1e+100,
-          "commands": {
-            "type": "apply",
-            "ref": "snowRust"
-          }
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "snowRust"
+            },
+            {
+              "type": "apply",
+              "ref": "snowRust2Rule",
+              "filter": {
+                "effectStacks": {
+                  "snowRust": 2
+                }
+              }
+            }
+          ]
         }
       },
       {
@@ -5294,41 +5305,12 @@
         }
       },
       {
-        "use": {
-          "when": "inflict",
-          "filter": {
-            "and": [
-              {
-                "action": {
-                  "inflict": {
-                    "status": {
-                      "has": "glacioChafe"
-                    }
-                  }
-                }
-              },
-              {
-                "effectStacks": {
-                  "snowRust": {
-                    ">=": 2
-                  }
-                }
-              }
-            ]
-          },
-          "action": {
-            "damage": {
-              "type": "glacioBite",
-              "attr": "statusAmp",
-              "multipliers": [
-                {
-                  "mv": 1.02
-                }
-              ]
-            }
-          },
-          "perStatusInflict": "glacioChafe"
-        }
+        "ref": "snowRust2Rule",
+        "stores": "global",
+        "apply": {
+          "when": "command"
+        },
+        "rule": "snowRust2Rule"
       },
       {
         "stores": "global",
@@ -6745,6 +6727,18 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Additional Snow Rust 2",
+            "damage": {
+              "type": "glacioBite",
+              "attr": "statusAmp",
+              "multipliers": [
+                {
+                  "mv": 1.02
+                }
+              ]
+            }
           }
         ]
       },
@@ -8113,7 +8107,7 @@
           },
           "duration": 15000
         },
-        "gameRule": "suisui"
+        "rule": "suisui"
       },
       {
         "stores": "$applier",
@@ -11055,8 +11049,10 @@
             ]
           },
           "cooldown": 350,
-          "action": "resonanceLiberation.1",
-          "times": 2
+          "action": [
+            "resonanceLiberation.1",
+            "resonanceLiberation.1"
+          ]
         }
       },
       {
@@ -18677,7 +18673,7 @@
       },
       {
         "stores": "global",
-        "gameRule": "aemeathFusionBurst"
+        "rule": "aemeathFusionBurst"
       },
       {
         "mode": "fusionBurst",
@@ -18716,8 +18712,13 @@
               ]
             }
           },
-          "action": "forteCircuit.3",
-          "times": 5
+          "action": [
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3"
+          ]
         }
       },
       {
@@ -18741,8 +18742,18 @@
               }
             ]
           },
-          "action": "forteCircuit.3",
-          "times": 10
+          "action": [
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3",
+            "forteCircuit.3"
+          ]
         }
       },
       {
@@ -42507,7 +42518,7 @@
           },
           "duration": 10000
         },
-        "gameRule": "roverAero2"
+        "rule": "roverAero2"
       },
       {
         "rank": 2,
@@ -44273,7 +44284,7 @@
             ]
           }
         },
-        "gameRule": "mandateOfDivinity"
+        "rule": "mandateOfDivinity"
       },
       {
         "ref": "powerOfDiscord",
@@ -51632,7 +51643,7 @@
           },
           "duration": 7000
         },
-        "gameRule": "shimmer"
+        "rule": "shimmer"
       },
       {
         "buff": {
@@ -56546,24 +56557,12 @@
       },
       {
         "stores": "global",
-        "gameRule": "heliacalEmber"
+        "rule": "heliacalEmber"
       },
       {
         "ref": "blaze",
         "apply": {
-          "by": "$team",
-          "when": "inflict",
-          "filter": {
-            "action": {
-              "inflict": {
-                "status": {
-                  "has": "spectroFrazzle"
-                }
-              }
-            }
-          },
-          "stacks": 5,
-          "perStatusInflict": "spectroFrazzle"
+          "when": "command"
         },
         "maxStacks": 100
       },
@@ -56621,7 +56620,7 @@
           "stats": {
             "dmgBonus%": 0.1
           },
-          "statusStacks": "spectroFrazzle"
+          "rule": "zaniOutro"
         }
       },
       {
@@ -57689,7 +57688,7 @@
           },
           "duration": 15000
         },
-        "gameRule": "chisa"
+        "rule": "chisa"
       },
       {
         "ref": "threadOfBane",
@@ -69685,8 +69684,10 @@
               "ref": "outroSkill.0"
             }
           },
-          "action": "resonanceLiberation.4",
-          "times": 2
+          "action": [
+            "resonanceLiberation.4",
+            "resonanceLiberation.4"
+          ]
         }
       }
     ],

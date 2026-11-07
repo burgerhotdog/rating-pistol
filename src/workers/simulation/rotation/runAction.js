@@ -17,18 +17,18 @@ import {
   applyOffTuneBuildup,
   inflictTuneShifting,
   convertHealingToValue,
-  hasGameRule,
   calcStunMult,
   updateUnison,
 } from './states'
 import { canSnapshot, buildSnapshot } from './snapshot';
 import { getModifiedAction } from './getModifiedAction';
 import { runRestoreEnergy } from './restoreEnergy';
+import { hasRule } from './rules';
 
 function handleHealing(ctx, action, healingSnapshot) {
   if (!action.healing) return;
 
-  const foamState = ctx.states.gameRule.oceanHuedClam;
+  const foamState = ctx.states.rules.oceanHuedClam;
   const isFoamOwner = foamState?.ownerId === action.ownerId;
 
   for (const target of action.healing.targets) {
@@ -46,7 +46,7 @@ function handleHealing(ctx, action, healingSnapshot) {
       } else if (
         targetId === 10000098 &&
         !(action.ownerId === 10000098 && (action.ref === 'elementalSkill.6' || action.ref === 'elementalSkill.7')) &&
-        hasGameRule(ctx, 'clorindeNightVigil')
+        hasRule(ctx, 'clorindeNightVigil')
       ) {
         changeBondOfLife(ctx, targetId, value);
       } else {

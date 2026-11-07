@@ -1,7 +1,6 @@
 import { getBuffMap } from '../../getStatMap';
 import { applyCooldown } from '../cooldowns';
 import { runRemoveEffect } from './runRemoveEffect';
-import { runCommands } from './commands';
 
 export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
   const { memberEffects, globalEffects } = ctx.states;
@@ -31,11 +30,7 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
       }),
     };
 
-    let stackMult = 1;
-    if (apply.perStatusInflict) {
-      stackMult = spec.inflict?.status?.[apply.perStatusInflict] ?? 0;
-    }
-    const stacksToApply = (apply.stacks ?? 1) * stackMult;
+    const stacksToApply = apply.stacks ?? 1;
     state.stacks = Math.min(state.stacks + stacksToApply, maxStacks);
 
     if (apply.duration) {
@@ -129,7 +124,7 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
           const wasRemoved = runRemoveEffect(state, remove);
 
           if (remove.commands) {
-            runCommands(ctx, effect, remove.commands);
+            ctx.runCommands(effect.ownerId, remove.commands);
           }
 
           if (wasRemoved) {

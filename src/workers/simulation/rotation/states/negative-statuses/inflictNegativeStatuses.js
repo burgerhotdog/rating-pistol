@@ -1,6 +1,6 @@
 import { buildSnapshot } from './buildSnapshot';
 import { getStackLimit } from './getStackLimit';
-import { hasGameRule } from '../gameRules';
+import { hasRule } from '../../rules';
 
 function inflictGlacioChafe(ctx, stacks) {
   const stackLimit = getStackLimit(ctx, 'glacioChafe');
@@ -15,7 +15,7 @@ function inflictGlacioChafe(ctx, stacks) {
   state.timeLeft = 15000;
 
   if (ctx.saveSnapshots) {
-    const glacioBiteEnabled = hasGameRule(ctx, 'glacioBite');
+    const glacioBiteEnabled = hasRule(ctx, 'glacioBite');
     const snapshotState = glacioBiteEnabled ? { ...state, stacks: stackLimit } : state;
     const snapshot = buildSnapshot(ctx, snapshotState);
     ctx.snapshots.push(snapshot);
@@ -28,7 +28,7 @@ function inflictGlacioChafe(ctx, stacks) {
 
 function inflictFusionBurst(ctx, stacks) {
   const stackLimit = getStackLimit(ctx, 'fusionBurst');
-  const aemeathFusionBurstEnabled = hasGameRule(ctx, 'aemeathFusionBurst');
+  const aemeathFusionBurstEnabled = hasRule(ctx, 'aemeathFusionBurst');
   const stacksToPop = aemeathFusionBurstEnabled ? 5 : stackLimit;
 
   const state = ctx.states.negativeStatuses.fusionBurst ??= {
@@ -81,7 +81,7 @@ function inflictAeroErosion(ctx, stacks) {
   const state = ctx.states.negativeStatuses.aeroErosion ??= {
     key: 'aeroErosion',
     stacks: 0,
-    timer: hasGameRule(ctx, 'mandateOfDivinity') ? 1500 : 3000,
+    timer: hasRule(ctx, 'mandateOfDivinity') ? 1500 : 3000,
     timeLeft: 15000,
   };
 
@@ -90,7 +90,7 @@ function inflictAeroErosion(ctx, stacks) {
 }
 
 function inflictSpectroFrazzle(ctx, stacks) {
-  const heliacalEmberEnabled = hasGameRule(ctx, 'heliacalEmber');
+  const heliacalEmberEnabled = hasRule(ctx, 'heliacalEmber');
   const stackLimit = heliacalEmberEnabled ? 60 : getStackLimit(ctx, 'spectroFrazzle');
 
   const state = ctx.states.negativeStatuses.spectroFrazzle ??= {
@@ -155,5 +155,29 @@ export function inflictNegativeStatuses(ctx, action) {
   for (const statusKey in toInflict) {
     const stacks = toInflict[statusKey];
     inflictStatus(ctx, statusKey, stacks);
+
+    if (
+      statusKey === 'spectroFrazzle' &&
+      hasRule(ctx, 'heliacalEmber')
+    ) {
+      ctx.runCommands(1507, [{
+        type: 'apply',
+        key: '1507.1507:effect4',
+        spec: { stacks: stacks * 5 },
+      }], action.ownerId);
+    }
+
+    if (
+      statusKey === 'glacioChafe' &&
+      ctx.states.onFieldId === 1108 &&
+      action.ownerId === 1108 &&
+      hasRule(ctx, 'snowRust2Rule')
+    ) {
+      const additionalDmg = ctx.cache.member[1108].actions['forteCircuit.1'];
+
+      for (let i = 0; i < stacks; i++) {
+        ctx.runAction(additionalDmg, { noDuration: true });
+      }
+    }
   }
 }

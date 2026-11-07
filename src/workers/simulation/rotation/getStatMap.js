@@ -1,6 +1,7 @@
 import { GI, WW } from '@/data';
 import { getAttr, toMergedObj, resolveSpecs } from '@/utils';
 import { getEffectStates } from './getEffectStates';
+import { getBuffRuleMult } from './rules';
 
 export const getBuffMap = (ctx, options = {}) => {
   // snapshot: 'frozen' skips buffs flagged `snapshot: false`; 'live' includes only those
@@ -39,22 +40,11 @@ export const getBuffMap = (ctx, options = {}) => {
         if (candidate.field !== ownerField) return false;
       }
 
-      return ctx.eventFilter(candidate.filter, effect, { action, fieldId: memberId });
+      return ctx.eventFilter(candidate.filter, effect.ownerId, { action, fieldId: memberId });
     });
     if (!buff) continue;
 
-    const linkedStacks = buff.statusStacks
-      ? ctx.states.negativeStatuses[buff.statusStacks]?.stacks ?? 0
-      : 1;
-
-    let gameRuleMult = 1;
-    if (buff.gameRule) {
-      if (buff.gameRule === 'arlecchinoMasque') {
-        gameRuleMult = ctx.states.bondOfLife['10000096'] ?? 0;
-      }
-    }
-
-    const buffMult = (effect.chance ?? 1) * stacks * linkedStacks * gameRuleMult;
+    const buffMult = stacks * (effect.chance ?? 1) * (getBuffRuleMult(ctx, buff.rule) ?? 1);
 
     if (buff.stats) {
       for (const stat in buff.stats) {

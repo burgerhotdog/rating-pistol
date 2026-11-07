@@ -30,6 +30,10 @@ Characters:
         No constellations
     Clorinde
         No constellations
+    Cyno
+        C1 doesnt pass along to next
+        C2 is inaccurate because of C1
+        No C4, C6
     Diluc
         No constellations
     Diona
@@ -151,6 +155,12 @@ Characters:
     Sucrose
         Element must be there at apply time to be absorbed
         No C6
+    Tighnari
+        Arrow Charge time not modified by skill
+        No C4, C6
+    Valeriy
+        C1 no cd
+        C2 no overflow shield
     Varesa
         No constellations
     Varka

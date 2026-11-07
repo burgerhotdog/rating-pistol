@@ -75,6 +75,8 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
         apply.commands = toArray(apply.commands);
       }
 
+      apply.stacks ??= 1;
+
       return apply;
     });
   }

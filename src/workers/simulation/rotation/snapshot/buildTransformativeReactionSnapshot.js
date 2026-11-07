@@ -3,7 +3,7 @@ import {
   transformativeReactionFormula,
   transformativeReactionUsedAttrs,
 } from '../formula';
-import { hasGameRule } from '../states';
+import { hasRule } from '../rules';
 
 export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reactionElement) {
   const mockAction = { damage: { type: rxnKey, element: reactionElement } };
@@ -15,7 +15,7 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
     : null;
 
   const foamHealing = rxnKey === 'oceanHuedClam'
-    ? ctx.states.gameRule.oceanHuedClam?.value
+    ? ctx.states.rules.oceanHuedClam?.value
     : null;
 
   let specialCritRate = 0;
@@ -26,7 +26,7 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
     rxnKey === 'hyperbloom' ||
     rxnKey === 'burgeon'
   ) {
-    if (hasGameRule(ctx, 'nahidaC2')) {
+    if (hasRule(ctx, 'nahidaC2')) {
       specialCritRate += 0.2;
     }
   }
@@ -36,7 +36,7 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
     rxnKey === 'hyperbloom' ||
     rxnKey === 'burgeon'
   ) {
-    if (hasGameRule(ctx, 'laumaA1')) {
+    if (hasRule(ctx, 'laumaA1')) {
       specialCritRate += 0.15;
     }
   }

@@ -8,31 +8,29 @@ export const initStates = (gameId, memberIds) => {
     runtime: 0,
     onFieldId: null,
     shielded: null,
+    rules: {},
     globalCooldowns: {},
     applyCooldowns: {},
-    gameRules: {},
     globalEffects: {},
     memberEffects: initPerMember(),
     memberHealth: initPerMember(() => 1),
-    gameRule: {},
     ...(gameId === GI && {
       aura: {},
       icd: initPerMember(),
       bondOfLife: initPerMember(() => 0),
-      nightsoul: initPerMember(() => ({
-        blessing: false,
-        points: 0,
-      })),
+      nightsoul: initPerMember(() => ({ blessing: false, points: 0 })),
     }),
     ...(gameId === WW && {
       negativeStatuses: {},
-      tune: { offTune: 0 },
-      unison: initPerMember(() => false),
+      tune: {
+        offTune: 0,
+      },
       unisonBoon: {
         stacks: 0,
         appliers: new Set(),
         timeLeft: 0,
-      }
+      },
+      unison: initPerMember(() => false),
     }),
     ...(gameId === ZZZ && {
       daze: {

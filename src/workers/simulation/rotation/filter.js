@@ -1,10 +1,9 @@
 import { CHARACTER, GI, WW } from '@/data';
 import { evaluateFilter } from '@/utils';
 
-function evaluateSpecial(ctx, special, effect, spec) {
+function evaluateSpecial(ctx, special, effOwnerId, spec) {
   const gameId = ctx.cache.gameId
   const onFieldId = ctx.states.onFieldId;
-  const effOwnerId = effect.ownerId;
   const ownerElem = CHARACTER[gameId][effOwnerId]?.element;
   const actionElem = spec.action?.damage?.element;
   const rxnElems = spec.reaction?.elements ?? [];
@@ -151,11 +150,11 @@ export function createEventFilter(ctx) {
   const { gameId } = cache;
   const { globalEffects, memberEffects } = states;
 
-  return (filter, effect, spec = {}) => {
+  return (filter, effOwnerId, spec = {}) => {
     const { fieldId } = spec;
 
     if (filter?.special) {
-      return evaluateSpecial(ctx, filter.special, effect, spec);
+      return evaluateSpecial(ctx, filter.special, effOwnerId, spec);
     }
 
     return evaluateFilter(filter, {
@@ -164,7 +163,7 @@ export function createEventFilter(ctx) {
       character: CHARACTER[gameId][fieldId],
       field: fieldId === states.onFieldId ? 'onField' : 'offField',
       health: states.memberHealth[fieldId],
-      attrMap: ctx.attrMaps[effect.ownerId],
+      attrMap: ctx.attrMaps[effOwnerId],
       get effectStacks() {
         const value = {};
         function checkStore(store) {
@@ -186,7 +185,7 @@ export function createEventFilter(ctx) {
       },
       ...(gameId === GI && {
         bondOfLife: states.bondOfLife[fieldId],
-        nightsoul: states.nightsoul[effect.ownerId],
+        nightsoul: states.nightsoul[effOwnerId],
         radiance: states.aura.stellarConduct
           ? 'stellarConduct'
           : states.aura.stellarSwirl
@@ -194,7 +193,7 @@ export function createEventFilter(ctx) {
             : null,
       }),
       ...(gameId === WW && {
-        unison: states.unison[effect.ownerId],
+        unison: states.unison[effOwnerId],
       }),
     });
   }

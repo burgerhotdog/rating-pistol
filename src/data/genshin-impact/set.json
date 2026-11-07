@@ -1087,7 +1087,7 @@
               },
               {
                 "states": {
-                  "gameRule": {
+                  "rule": {
                     "not": {
                       "has": "oceanHuedClam"
                     }
@@ -1100,16 +1100,16 @@
           "uses": 1,
           "offset": 3000,
           "commands": {
-            "type": "gameRule",
-            "gameRule": "oceanHuedClam",
+            "type": "rule",
+            "rule": "oceanHuedClam",
             "ref": "oceanHuedClam"
           }
         },
         "use": {
           "when": "interval",
           "commands": {
-            "type": "gameRule",
-            "gameRule": "seaDyedFoam",
+            "type": "rule",
+            "rule": "seaDyedFoam",
             "ref": "oceanHuedClam"
           }
         }

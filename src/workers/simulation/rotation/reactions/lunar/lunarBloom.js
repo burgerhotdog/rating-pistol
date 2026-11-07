@@ -1,5 +1,5 @@
 import { GI } from '@/data';
-import { hasGameRule } from '../../states';
+import { hasRule } from '../../rules';
 
 export function reactLunarBloom(ctx, ownerId) {
   const state = ctx.states.aura.lunarBloom ??= {
@@ -16,7 +16,7 @@ export function reactLunarBloom(ctx, ownerId) {
 
   state.verdantDew = Math.min(state.verdantDew + 1, 3);
 
-  if (hasGameRule(ctx, 'moonridgeDew')) {
+  if (hasRule(ctx, 'moonridgeDew')) {
     state.moonridgeDew = Math.min(state.moonridgeDew + 1, 3);
   }
 }
