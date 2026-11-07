@@ -31378,14 +31378,24 @@
               "ref": "elementalSkill.1"
             }
           },
-          "commands": {
-            "type": "apply",
-            "ref": "pactswornPathclearer",
-            "spec": {
-              "duration": 4000,
-              "extend": true
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "pactswornPathclearer",
+              "spec": {
+                "duration": 4000,
+                "extend": true
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "c1AttackSpd",
+              "spec": {
+                "duration": 4000,
+                "extend": true
+              }
             }
-          }
+          ]
         }
       },
       {
@@ -31453,9 +31463,7 @@
             "filter": {
               "and": [
                 {
-                  "not": {
-                    "radiance": "stellarConduct"
-                  }
+                  "radiance": "stellarConduct"
                 },
                 {
                   "action": {
@@ -31535,7 +31543,7 @@
               }
             },
             "specs": {
-              "damageFlat": {
+              "stellarConductFlat": {
                 "attr": "elementalMastery",
                 "step": 1,
                 "value": 6
@@ -31543,6 +31551,102 @@
             }
           }
         ]
+      },
+      {
+        "rank": 1,
+        "ref": "c1AttackSpd",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 10000
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "buff": {
+          "stats": {
+            "attackSpd%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "ref": "togetherWeRise",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "radiance": "stellarConduct"
+              },
+              {
+                "effectStacks": {
+                  "has": "pactswornPathclearer"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "elementalMastery": 200
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.1
+          }
+        },
+        "maxStacks": 5
+      },
+      {
+        "rank": 2,
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "normalAttack"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "togetherWeRise"
+                }
+              }
+            ]
+          }
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "buff": {
+          "stats": {
+            "stellarConductReactionBonus%": 0.16
+          }
+        },
+        "maxStacks": 5
       }
     ],
     "skills": {
@@ -32123,7 +32227,13 @@
         "elementalBurst.2",
         "elementalSkill.1"
       ]
-    }
+    },
+    "teamPreset": [
+      10000071,
+      10000058,
+      10000150,
+      10000137
+    ]
   },
   "10000072": {
     "disabled": true,

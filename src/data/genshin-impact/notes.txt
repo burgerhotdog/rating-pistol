@@ -30,6 +30,10 @@ Characters:
         No constellations
     Clorinde
         No constellations
+    Cyno
+        C1 doesnt pass along to next
+        C2 is inaccurate because of C1
+        No C4, C6
     Diluc
         No constellations
     Diona
