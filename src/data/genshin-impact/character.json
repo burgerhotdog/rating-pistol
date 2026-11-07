@@ -10287,7 +10287,6 @@
     }
   },
   "10000035": {
-    "disabled": true,
     "name": "Qiqi",
     "version": 1.0,
     "id": 10000035,
@@ -10303,7 +10302,479 @@
     },
     "energy": 80,
     "liyue": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "heraldOfFrost",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "action": "elementalSkill.4",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "hof",
+              "spec": {
+                "duration": 15000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "hofOnHitHealing",
+              "spec": {
+                "duration": 15000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "hofDmgSwipe1",
+              "spec": {
+                "uses": 4,
+                "offset": 3000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "hofDmgSwipe2",
+              "spec": {
+                "uses": 5,
+                "offset": 750
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "hofHealing",
+              "spec": {
+                "uses": 3,
+                "offset": 4500
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "hofCoord",
+              "spec": {
+                "duration": 15000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "hof",
+        "apply": {
+          "when": "command"
+        }
+      },
+      {
+        "ref": "hofOnHitHealing",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "action": "elementalSkill.1"
+        },
+        "snapshotBuffs": true
+      },
+      {
+        "ref": "hofDmgSwipe1",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 3000,
+          "action": "elementalSkill.2"
+        },
+        "snapshotBuffs": true
+      },
+      {
+        "ref": "hofDmgSwipe2",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 3000,
+          "action": "elementalSkill.2"
+        },
+        "snapshotBuffs": true
+      },
+      {
+        "ref": "hofHealing",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 3000,
+          "action": "elementalSkill.3"
+        },
+        "snapshotBuffs": true
+      },
+      {
+        "ref": "hofCoord",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "by": "$team",
+          "when": "hit",
+          "filter": {
+            "field": "onField"
+          },
+          "cooldown": 2200,
+          "action": "elementalSkill.4"
+        }
+      },
+      {
+        "ref": "talisman",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000
+        },
+        "use": {
+          "by": "$team",
+          "when": "hit",
+          "filter": {
+            "field": "onField"
+          },
+          "cooldown": 1000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "burstSSC",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "radiance": "stellarConduct"
+              },
+              {
+                "action": {
+                  "ref": "elementalBurst.0"
+                }
+              }
+            ]
+          },
+          "action": "elementalBurst.2"
+        }
+      },
+      {
+        "ref": "a1",
+        "stores": "$applier",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "effectStacks": {
+              "has": "hof"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "healingReceived%": 0.2
+          }
+        }
+      },
+      {
+        "ref": "a4",
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "not": {
+                    "radiance": "stellarConduct"
+                  }
+                },
+                {
+                  "action": {
+                    "damage": {
+                      "type": [
+                        "normalAttack",
+                        "chargedAttack"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "cooldown": 30000,
+            "commands": {
+              "type": "apply",
+              "ref": "talisman",
+              "spec": {
+                "duration": 6000
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarConduct"
+                },
+                {
+                  "action": {
+                    "damage": {
+                      "type": [
+                        "normalAttack",
+                        "chargedAttack"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "cooldown": 15000,
+            "commands": {
+              "type": "apply",
+              "ref": "talisman",
+              "spec": {
+                "duration": 6000
+              }
+            }
+          }
+        ]
+      },
+      {
+        "ref": "revelation",
+        "stores": "$team",
+        "buff": [
+          {
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarConduct"
+                },
+                {
+                  "effectStacks": {
+                    "has": "hof"
+                  }
+                }
+              ]
+            },
+            "stats": {
+              "superconductReactionBonus%": 0.5,
+              "stellarConductReactionBonus%": 0.5
+            }
+          },
+          {
+            "filter": {
+              "and": [
+                {
+                  "radiance": "stellarSwirl"
+                },
+                {
+                  "action": {
+                    "damage": {
+                      "element": [
+                        "cryo",
+                        "anemo"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "has": "hof"
+                  }
+                }
+              ]
+            },
+            "stats": {
+              "swirlReactionBonus%": 0.5,
+              "stellarSwirlReactionBonus%": 0.5
+            }
+          }
+        ]
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalSkill.2"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "talisman"
+                }
+              }
+            ]
+          },
+          "action": {
+            "restoreEnergy": {
+              "flat": 2
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "radiance": [
+                  "stellarConduct",
+                  "stellarSwirl"
+                ]
+              },
+              {
+                "action": {
+                  "ref": [
+                    "elementalSkill.2",
+                    "elementalSkill.4"
+                  ]
+                }
+              }
+            ]
+          },
+          "cooldown": 6000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 6
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "states": {
+              "aura": {
+                "has": "cryo"
+              }
+            }
+          },
+          "stats": {
+            "normalAttackDmgBonus%": 0.15,
+            "chargedAttackDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "radiance": [
+              "stellarConduct",
+              "stellarSwirl"
+            ]
+          },
+          "stats": {
+            "atk%": 0.5
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "action": {
+            "healing": {
+              "targets": "$lowest",
+              "multipliers": [
+                {
+                  "mv": 1.8
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "stores": "global",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "uses": 4
+        },
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "character": {
+                  "not": {
+                    "id": 10000035
+                  }
+                }
+              },
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "and": [
+                    {
+                      "has": "ownerId"
+                    },
+                    {
+                      "damage": {
+                        "type": [
+                          "stellarConduct",
+                          "stellarSwirl"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "specs": {
+            "stellarGlimmerFlat": {
+              "attr": "atk",
+              "step": 1,
+              "value": 6
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Ancient Sword Art",
@@ -10564,6 +11035,12 @@
             "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill New",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -10588,8 +11065,9 @@
             }
           },
           {
-            "name": "Regeneration on Hit",
+            "name": "Team Healing on Hit",
             "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "mv": [
@@ -10631,8 +11109,42 @@
             }
           },
           {
-            "name": "Continuous Regeneration",
+            "name": "Herald of Frost",
+            "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    0.36,
+                    0.387,
+                    0.414,
+                    0.45,
+                    0.477,
+                    0.504,
+                    0.54,
+                    0.576,
+                    0.612,
+                    0.648,
+                    0.684,
+                    0.72,
+                    0.765,
+                    0.81,
+                    0.855
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Herald of Frost: Healing",
             "healing": {
+              "targets": "$onField",
               "multipliers": [
                 {
                   "mv": [
@@ -10674,36 +11186,15 @@
             }
           },
           {
-            "name": "Herald of Frost",
+            "name": "Herald of Frost: Coordinated Attack",
             "damage": {
               "type": "elementalSkill",
-              "multipliers": [
-                {
-                  "mv": [
-                    0.36,
-                    0.387,
-                    0.414,
-                    0.45,
-                    0.477,
-                    0.504,
-                    0.54,
-                    0.576,
-                    0.612,
-                    0.648,
-                    0.684,
-                    0.72,
-                    0.765,
-                    0.81,
-                    0.855
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Herald of Frost Coordinated Attack",
-            "damage": {
-              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill New",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -10737,6 +11228,7 @@
             "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -10761,8 +11253,9 @@
             }
           },
           {
-            "name": "Healing",
+            "name": "Talisman Healing",
             "healing": {
+              "targets": "$onField",
               "multipliers": [
                 {
                   "mv": [
@@ -10806,6 +11299,7 @@
           {
             "name": "Stellar-Conduct DMG",
             "damage": {
+              "type": "stellarConduct",
               "multipliers": [
                 {
                   "mv": [
@@ -10836,7 +11330,11 @@
       "weaponId": 11401,
       "setCounts": {
         "14004": 4
-      }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
     }
   },
   "10000036": {

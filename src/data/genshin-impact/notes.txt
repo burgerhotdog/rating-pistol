@@ -130,6 +130,8 @@ Characters:
     Prune
         Effects are fragile, may need checking
         No constellations
+    Qiqi
+        A4 always 100% chance
     Raiden
         Remember E no snapshot
         E no 20% less for offField proc
