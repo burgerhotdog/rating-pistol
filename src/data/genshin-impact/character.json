@@ -31296,7 +31296,6 @@
     ]
   },
   "10000071": {
-    "disabled": true,
     "name": "Cyno",
     "version": 3.1,
     "id": 10000071,
@@ -31314,26 +31313,74 @@
     "energy": 80,
     "effects": [
       {
-        "ref": "mortuaryRiteExtend",
+        "ref": "pactswornPathclearer",
+        "apply": [
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.0"
+              }
+            },
+            "duration": 10000
+          },
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              }
+            },
+            "duration": 6000
+          }
+        ],
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 100
+          }
+        },
+        "expire": {
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "canExtendPactsworn"
+            },
+            {
+              "type": "remove",
+              "ref": "a1_endseerScheduler"
+            }
+          ]
+        }
+      },
+      {
+        "ref": "canExtendPactsworn",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 2
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
         "use": {
           "when": "use",
           "filter": {
-            "and": [
-              {
-                "action": {
-                  "ref": "elementalSkill.0"
-                }
-              },
-              {
-                "effectStacks": {
-                  "has": "burstEmBuff"
-                }
-              }
-            ]
+            "action": {
+              "ref": "elementalSkill.1"
+            }
           },
           "commands": {
             "type": "apply",
-            "ref": "burstEmBuff",
+            "ref": "pactswornPathclearer",
             "spec": {
               "duration": 4000,
               "extend": true
@@ -31342,7 +31389,7 @@
         }
       },
       {
-        "ref": "burstEmBuff",
+        "ref": "a1_endseerScheduler",
         "apply": {
           "when": "use",
           "filter": {
@@ -31350,14 +31397,99 @@
               "ref": "elementalBurst.0"
             }
           },
-          "duration": 10000
+          "uses": 3,
+          "offset": 6000
         },
-        "buff": {
-          "stats": {
-            "elementalMastery": 100
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 4000,
+          "commands": {
+            "type": "apply",
+            "ref": "a1_endseerStance",
+            "spec": {
+              "duration": 1400
+            }
           }
+        }
+      },
+      {
+        "ref": "a1_endseerStance",
+        "apply": {
+          "when": "command"
         },
-        "maxExtensions": 2
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "not": {
+                    "radiance": "stellarConduct"
+                  }
+                },
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                }
+              ]
+            },
+            "action": [
+              "elementalSkill.2",
+              "elementalSkill.2",
+              "elementalSkill.2"
+            ]
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "not": {
+                    "radiance": "stellarConduct"
+                  }
+                },
+                {
+                  "action": {
+                    "ref": "elementalSkill.1"
+                  }
+                }
+              ]
+            },
+            "action": [
+              "elementalSkill.3",
+              "elementalSkill.3",
+              "elementalSkill.3"
+            ]
+          }
+        ],
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "not": {
+                  "radiance": "stellarConduct"
+                }
+              },
+              {
+                "action": {
+                  "ref": "elementalSkill.1"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "dmgBonus%": 0.35
+          }
+        }
       },
       {
         "ref": "a4",
@@ -31653,7 +31785,7 @@
                     2.352,
                     2.5088,
                     2.6656,
-                    2.8224,
+                    20.8224,
                     2.9792,
                     3.136,
                     3.332,
@@ -31662,7 +31794,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 800
           },
           {
             "name": "Duststalker Bolt",
@@ -31675,7 +31808,7 @@
               },
               "multipliers": [
                 {
-                  "mv": 1
+                  "mv": 100
                 }
               ]
             }
@@ -31732,7 +31865,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 500
           },
           {
             "name": "Pactsworn Pathclearer: Normal Attack 2",
@@ -31765,7 +31899,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 650
           },
           {
             "name": "Pactsworn Pathclearer: Normal Attack 3",
@@ -31798,7 +31933,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 550
           },
           {
             "name": "Pactsworn Pathclearer: Normal Attack 4",
@@ -31953,7 +32089,31 @@
       "weaponId": 13511,
       "setCounts": {
         "15026": 4
-      }
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalBurst.1",
+        "elementalBurst.2",
+        "elementalSkill.1",
+        "elementalBurst.1",
+        "elementalBurst.2",
+        "elementalBurst.3",
+        "elementalBurst.4",
+        "elementalBurst.5",
+        "elementalSkill.1",
+        "elementalBurst.1",
+        "elementalBurst.2",
+        "elementalBurst.3",
+        "elementalBurst.4",
+        "elementalBurst.5",
+        "elementalSkill.1",
+        "elementalBurst.1",
+        "elementalBurst.2",
+        "elementalBurst.3",
+        "elementalBurst.4",
+        "elementalBurst.5",
+        "elementalSkill.1"
+      ]
     }
   },
   "10000072": {
