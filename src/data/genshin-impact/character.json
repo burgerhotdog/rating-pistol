@@ -38094,7 +38094,6 @@
     ]
   },
   "10000081": {
-    "disabled": true,
     "name": "Kaveh",
     "version": 3.6,
     "id": 10000081,
@@ -38109,7 +38108,235 @@
       "elementalMastery": 96
     },
     "energy": 80,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "fireCores",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "commands": {
+            "type": "rule",
+            "ref": "skillRadialScan",
+            "rule": "kavehFireCores"
+          }
+        }
+      },
+      {
+        "ref": "paintedDome",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "category": "normalAttack"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "dendro"
+            }
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "a4"
+          }
+        }
+      },
+      {
+        "ref": "burstBuff",
+        "stores": "global",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "buff": {
+          "statRefs": {
+            "bloomReactionBonus%": "elementalBurst.1"
+          }
+        }
+      },
+      {
+        "ref": "a1",
+        "use": {
+          "by": "$any",
+          "when": "hit",
+          "field": "onField",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "bloom",
+                  "burgeon"
+                ]
+              }
+            }
+          },
+          "cooldown": 500,
+          "action": {
+            "healing": {
+              "attr": "elementalMastery",
+              "multipliers": [
+                {
+                  "mv": 3
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "ref": "a4",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "damage": {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack",
+                      "plungingAttack"
+                    ]
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "paintedDome"
+                }
+              }
+            ]
+          },
+          "cooldown": 100
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 25
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "rank": 1,
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 3000
+        },
+        "buff": {
+          "stats": {
+            "healingReceived%": 0.25
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "has": "paintedDome"
+            }
+          },
+          "stats": {
+            "attackSpd%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "buff": {
+          "stats": {
+            "bloomReactionBonus%": 0.6
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "ref": "pairidaezasLight",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack",
+                  "plungingAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 3000,
+          "action": {
+            "damage": {
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": 0.618
+                }
+              ]
+            }
+          },
+          "commands": {
+            "type": "rule",
+            "ref": "pairidaezasLight",
+            "rule": "kavehFireCores"
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Schematic Setup",
@@ -38223,7 +38450,7 @@
             }
           },
           {
-            "name": "Charged Attack: Cyclic",
+            "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
               "multipliers": [
@@ -38310,9 +38537,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -38343,9 +38571,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -38371,11 +38600,10 @@
           },
           {
             "name": "Dendro Core Burst DMG Bonus",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.2749,
                     0.2955,
                     0.3161,
@@ -38400,10 +38628,35 @@
       }
     },
     "memberPreset": {
+      "weaponId": 12401,
       "setCounts": {
-        "15028": 4
-      }
-    }
+        "15025": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "elementalSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "elementalSkill.0"
+      ]
+    },
+    "teamPreset": [
+      10000081,
+      10000025,
+      10000070,
+      10000119
+    ]
   },
   "10000082": {
     "name": "Baizhu",
