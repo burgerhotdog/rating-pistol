@@ -31785,7 +31785,7 @@
                     2.352,
                     2.5088,
                     2.6656,
-                    20.8224,
+                    2.8224,
                     2.9792,
                     3.136,
                     3.332,
@@ -31808,7 +31808,7 @@
               },
               "multipliers": [
                 {
-                  "mv": 100
+                  "mv": 1
                 }
               ]
             }
@@ -31866,7 +31866,7 @@
                 }
               ]
             },
-            "duration": 500
+            "duration": 400
           },
           {
             "name": "Pactsworn Pathclearer: Normal Attack 2",
@@ -31900,7 +31900,7 @@
                 }
               ]
             },
-            "duration": 650
+            "duration": 400
           },
           {
             "name": "Pactsworn Pathclearer: Normal Attack 3",
@@ -31934,7 +31934,7 @@
                 }
               ]
             },
-            "duration": 550
+            "duration": 500
           },
           {
             "name": "Pactsworn Pathclearer: Normal Attack 4",
@@ -31986,7 +31986,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 500
           },
           {
             "name": "Pactsworn Pathclearer: Normal Attack 5",
@@ -32019,7 +32020,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 500
           },
           {
             "name": "Pactsworn Pathclearer: Charged Attack",
@@ -32091,6 +32093,7 @@
         "15026": 4
       },
       "rotation": [
+        "elementalSkill.0",
         "elementalBurst.0",
         "elementalBurst.1",
         "elementalBurst.2",
@@ -32100,18 +32103,24 @@
         "elementalBurst.3",
         "elementalBurst.4",
         "elementalBurst.5",
+        "elementalBurst.1",
+        "elementalBurst.2",
         "elementalSkill.1",
         "elementalBurst.1",
         "elementalBurst.2",
         "elementalBurst.3",
         "elementalBurst.4",
         "elementalBurst.5",
+        "elementalBurst.1",
+        "elementalBurst.2",
         "elementalSkill.1",
         "elementalBurst.1",
         "elementalBurst.2",
         "elementalBurst.3",
         "elementalBurst.4",
         "elementalBurst.5",
+        "elementalBurst.1",
+        "elementalBurst.2",
         "elementalSkill.1"
       ]
     }
