@@ -17,18 +17,12 @@ function decayBuffState(ctx, action, state) {
     state.buffCooldown = buff.cooldown;
   }
 
-  const commands = buff.commands;
-
   if (state.usesLeft) {
     state.usesLeft--;
 
     if (!state.usesLeft) {
       delete state.store[effect.key];
     }
-  }
-
-  if (commands) {
-    ctx.runCommands(effect.ownerId, commands, effect.ownerId);
   }
 }
 

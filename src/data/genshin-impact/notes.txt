@@ -66,7 +66,6 @@ Characters:
         No A1
         No C2, C4, C6
     Illuga
-        Burst affects non-direct dmg too
         No geo construct rule
     Ineffa
         No constellations

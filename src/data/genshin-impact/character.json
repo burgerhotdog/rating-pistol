@@ -67132,6 +67132,14 @@
           "commands": [
             {
               "type": "apply",
+              "ref": "nightingalesSongUseTracker",
+              "spec": {
+                "duration": 20000,
+                "uses": 21
+              }
+            },
+            {
+              "type": "apply",
               "ref": "nightingalesSong1",
               "spec": {
                 "duration": 20000,
@@ -67150,6 +67158,54 @@
         }
       },
       {
+        "ref": "nightingalesSongUseTracker",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "and": [
+                    {
+                      "has": "ownerId"
+                    },
+                    {
+                      "damage": {
+                        "and": [
+                          {
+                            "element": "geo"
+                          },
+                          {
+                            "type": [
+                              "normalAttack",
+                              "chargedAttack",
+                              "plungingAttack",
+                              "elementalSkill",
+                              "elementalBurst",
+                              "lunarCrystallize"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "stackCounter"
+          }
+        }
+      },
+      {
         "ref": "nightingalesSong1",
         "stores": "global",
         "apply": {
@@ -67157,25 +67213,39 @@
         },
         "buff": {
           "filter": {
-            "action": {
-              "damage": {
-                "and": [
-                  {
-                    "element": "geo"
-                  },
-                  {
-                    "type": [
-                      "normalAttack",
-                      "chargedAttack",
-                      "plungingAttack",
-                      "elementalSkill",
-                      "elementalBurst",
-                      "lunarCrystallize"
-                    ]
-                  }
-                ]
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "and": [
+                    {
+                      "has": "ownerId"
+                    },
+                    {
+                      "damage": {
+                        "and": [
+                          {
+                            "element": "geo"
+                          },
+                          {
+                            "type": [
+                              "normalAttack",
+                              "chargedAttack",
+                              "plungingAttack",
+                              "elementalSkill",
+                              "elementalBurst",
+                              "lunarCrystallize"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
               }
-            }
+            ]
           },
           "specRefs": {
             "damageFlat": {
@@ -67188,10 +67258,6 @@
               "step": 1,
               "value": "elementalBurst.2"
             }
-          },
-          "commands": {
-            "type": "apply",
-            "ref": "stackCounter"
           }
         }
       },
@@ -67203,25 +67269,39 @@
         },
         "buff": {
           "filter": {
-            "action": {
-              "damage": {
-                "and": [
-                  {
-                    "element": "geo"
-                  },
-                  {
-                    "type": [
-                      "normalAttack",
-                      "chargedAttack",
-                      "plungingAttack",
-                      "elementalSkill",
-                      "elementalBurst",
-                      "lunarCrystallize"
-                    ]
-                  }
-                ]
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "action": {
+                  "and": [
+                    {
+                      "has": "ownerId"
+                    },
+                    {
+                      "damage": {
+                        "and": [
+                          {
+                            "element": "geo"
+                          },
+                          {
+                            "type": [
+                              "normalAttack",
+                              "chargedAttack",
+                              "plungingAttack",
+                              "elementalSkill",
+                              "elementalBurst",
+                              "lunarCrystallize"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
               }
-            }
+            ]
           }
         }
       },
