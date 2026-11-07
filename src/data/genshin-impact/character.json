@@ -11335,7 +11335,13 @@
         "elementalSkill.0",
         "elementalBurst.0"
       ]
-    }
+    },
+    "teamPreset": [
+      10000133,
+      10000058,
+      10000150,
+      10000035
+    ]
   },
   "10000036": {
     "disabled": true,
