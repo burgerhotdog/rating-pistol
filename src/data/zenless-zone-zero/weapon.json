@@ -671,7 +671,7 @@
           "filter": {
             "action": {
               "damage": {
-                "and": [
+                "AND": [
                   {
                     "element": "ether"
                   },
@@ -703,7 +703,7 @@
           "filter": {
             "action": {
               "damage": {
-                "and": [
+                "AND": [
                   {
                     "element": "ether"
                   },
@@ -1061,7 +1061,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "duration": 8000
@@ -1527,7 +1527,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "and": [
+              "AND": [
                 {
                   "type": [
                     "exSpecialAttack",
@@ -1727,7 +1727,7 @@
         "buff": {
           "filter": {
             "action": {
-              "and": [
+              "AND": [
                 {
                   "type": "exSpecialAttack"
                 },
@@ -1753,7 +1753,7 @@
           "when": "use",
           "filter": {
             "action": {
-              "and": [
+              "AND": [
                 {
                   "type": "exSpecialAttack"
                 },

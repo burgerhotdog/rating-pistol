@@ -25,40 +25,40 @@ export const resolveEffectTokens = (normalized) => {
       return;
     }
 
-    for (const op of ['and', 'or', 'xor', 'nor']) {
+    for (const op of ['AND', 'OR', 'XOR', 'NOR']) {
       if (op in node) {
         traverseFilter(node[op], ownerId, sourceId, inEffectStacks);
         return;
       }
     }
 
-    if ('not' in node) {
-      traverseFilter(node.not, ownerId, sourceId, inEffectStacks);
+    if ('NOT' in node) {
+      traverseFilter(node.NOT, ownerId, sourceId, inEffectStacks);
       return;
     }
 
-    if ('count' in node) {
-      traverseFilter(node.count.conditions, ownerId, sourceId, inEffectStacks);
+    if ('COUNT' in node) {
+      traverseFilter(node.COUNT.conditions, ownerId, sourceId, inEffectStacks);
       return;
     }
 
-    if ('sum' in node) {
+    if ('SUM' in node) {
       if (inEffectStacks) {
-        node.sum.keys = node.sum.keys.map((ref) =>
+        node.SUM.keys = node.SUM.keys.map((ref) =>
           resolveEffectRef(ref, ownerId, sourceId)
         );
       }
       return;
     }
 
-    if ('has' in node) {
+    if ('HAS' in node) {
       if (inEffectStacks) {
-        if (Array.isArray(node.has)) {
-          node.has = node.has.map((ref) =>
+        if (Array.isArray(node.HAS)) {
+          node.HAS = node.HAS.map((ref) =>
             resolveEffectRef(ref, ownerId, sourceId)
           );
-        } else if (node.has !== '*') {
-          node.has = resolveEffectRef(node.has, ownerId, sourceId);
+        } else if (node.HAS !== '*') {
+          node.HAS = resolveEffectRef(node.HAS, ownerId, sourceId);
         }
       }
       return;

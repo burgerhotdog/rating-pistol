@@ -362,7 +362,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -372,7 +372,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "resonanceLiberationDmgIncreased"
+                  "HAS": "resonanceLiberationDmgIncreased"
                 }
               }
             ]
@@ -497,10 +497,10 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
@@ -574,7 +574,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "shield"
+              "HAS": "shield"
             }
           },
           "cooldown": 500,
@@ -676,7 +676,7 @@
           "filter": {
             "action": {
               "inflict": {
-                "has": "status"
+                "HAS": "status"
               }
             }
           },
@@ -698,7 +698,7 @@
           "when": "inflict",
           "field": "*",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
                   "resonanceLiberationDmgIncreased": 3
@@ -707,7 +707,7 @@
               {
                 "action": {
                   "inflict": {
-                    "has": "status"
+                    "HAS": "status"
                   }
                 }
               }
@@ -828,7 +828,7 @@
           "field": "*",
           "filter": {
             "action": {
-              "has": "healing"
+              "HAS": "healing"
             }
           },
           "duration": 4000
@@ -912,12 +912,12 @@
           "when": "start",
           "filter": {
             "action": {
-              "or": [
+              "OR": [
                 {
                   "type": "introSkill"
                 },
                 {
-                  "has": "shield"
+                  "HAS": "shield"
                 }
               ]
             }
@@ -939,7 +939,7 @@
         "ref": "naturesOrderMax",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
                   "naturesOrder": 6
@@ -968,12 +968,12 @@
           "when": "start",
           "filter": {
             "action": {
-              "or": [
+              "OR": [
                 {
                   "type": "introSkill"
                 },
                 {
-                  "has": "shield"
+                  "HAS": "shield"
                 }
               ]
             }
@@ -986,10 +986,10 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "cradleOfLife"
+                  "HAS": "cradleOfLife"
                 }
               },
               {
@@ -1027,10 +1027,10 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "cradleOfLife"
+                  "HAS": "cradleOfLife"
                 }
               },
               {
@@ -1136,16 +1136,16 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
                 "states": {
                   "negativeStatuses": {
-                    "has": "*"
+                    "HAS": "*"
                   }
                 }
               }
@@ -1357,7 +1357,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "cooldown": 500
@@ -1415,7 +1415,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "cooldown": 1000,
@@ -1784,10 +1784,10 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
@@ -1830,7 +1830,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "healing"
+              "HAS": "healing"
             }
           },
           "duration": 6000
@@ -1951,7 +1951,7 @@
           "filter": {
             "states": {
               "negativeStatuses": {
-                "has": "aeroErosion"
+                "HAS": "aeroErosion"
               }
             }
           },
@@ -2041,15 +2041,15 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "bambooCleaverReady"
+                  "HAS": "bambooCleaverReady"
                 }
               },
               {
                 "action": {
-                  "or": [
+                  "OR": [
                     {
                       "type": "echoSkill"
                     },
@@ -2166,7 +2166,7 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "or": [
+              "OR": [
                 {
                   "inflict": {
                     "shifting": "tuneRupture"
@@ -2175,7 +2175,7 @@
                 {
                   "inflict": {
                     "status": {
-                      "has": "fusionBurst"
+                      "HAS": "fusionBurst"
                     }
                   }
                 }
@@ -2288,7 +2288,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": "glacioChafe"
+                  "HAS": "glacioChafe"
                 }
               }
             }
@@ -2311,7 +2311,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": "glacioChafe"
+                  "HAS": "glacioChafe"
                 }
               }
             }
@@ -2372,16 +2372,16 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
                 "states": {
                   "negativeStatuses": {
-                    "has": "*"
+                    "HAS": "*"
                   }
                 }
               }
@@ -2431,7 +2431,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": "havocBane"
+                  "HAS": "havocBane"
                 }
               }
             }
@@ -2547,7 +2547,7 @@
         "use": {
           "when": "inflict",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
                   "aeroBonus": {
@@ -2578,7 +2578,7 @@
       {
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
                   "aeroBonus": 5
@@ -2972,7 +2972,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": "aeroErosion"
+                  "HAS": "aeroErosion"
                 }
               }
             }
@@ -2993,16 +2993,16 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
                 "states": {
                   "negativeStatuses": {
-                    "has": "aeroErosion"
+                    "HAS": "aeroErosion"
                   }
                 }
               }
@@ -3116,12 +3116,12 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "and": [
+              "AND": [
                 {
-                  "has": "heavyAttackDmgIncreased"
+                  "HAS": "heavyAttackDmgIncreased"
                 },
                 {
-                  "has": "echoSkillDmgIncreased"
+                  "HAS": "echoSkillDmgIncreased"
                 }
               ]
             }
@@ -3269,7 +3269,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "or": [
+              "OR": [
                 {
                   "type": "introSkill"
                 },
@@ -3298,7 +3298,7 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "and": [
+              "AND": [
                 {
                   "inflict": {
                     "shifting": [
@@ -3645,16 +3645,16 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
                 "states": {
                   "negativeStatuses": {
-                    "has": "*"
+                    "HAS": "*"
                   }
                 }
               }
@@ -4250,10 +4250,10 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
@@ -4330,7 +4330,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "shield"
+              "HAS": "shield"
             }
           },
           "cooldown": 500,
@@ -4689,16 +4689,16 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
                 "states": {
                   "negativeStatuses": {
-                    "has": "*"
+                    "HAS": "*"
                   }
                 }
               }
@@ -5077,7 +5077,7 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
                   "basicAttackDmgIncreased": 3
@@ -5128,16 +5128,16 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
                 "states": {
                   "negativeStatuses": {
-                    "has": "spectroFrazzle"
+                    "HAS": "spectroFrazzle"
                   }
                 }
               }
@@ -5221,12 +5221,12 @@
           "when": "start",
           "filter": {
             "action": {
-              "and": [
+              "AND": [
                 {
                   "type": "resonanceSkill"
                 },
                 {
-                  "has": "healing"
+                  "HAS": "healing"
                 }
               ]
             }
@@ -5384,16 +5384,16 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
                 "states": {
                   "negativeStatuses": {
-                    "has": "spectroFrazzle"
+                    "HAS": "spectroFrazzle"
                   }
                 }
               }
@@ -5507,15 +5507,15 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "gentleDreamReady"
+                  "HAS": "gentleDreamReady"
                 }
               },
               {
                 "action": {
-                  "or": [
+                  "OR": [
                     {
                       "type": "echoSkill"
                     },
@@ -5541,7 +5541,7 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "has": "gentleDream"
+              "HAS": "gentleDream"
             }
           },
           "stats": {
@@ -5723,11 +5723,11 @@
           "when": "inflict",
           "filter": {
             "action": {
-              "or": [
+              "OR": [
                 {
                   "inflict": {
                     "status": {
-                      "has": "fusionBurst"
+                      "HAS": "fusionBurst"
                     }
                   }
                 },
@@ -5756,14 +5756,14 @@
           "by": "$team",
           "when": "inflict",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "or": [
+                  "OR": [
                     {
                       "inflict": {
                         "status": {
-                          "has": "fusionBurst"
+                          "HAS": "fusionBurst"
                         }
                       }
                     },
@@ -5777,7 +5777,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "resonanceLiberationDmgIncreased"
+                  "HAS": "resonanceLiberationDmgIncreased"
                 }
               }
             ]
@@ -5877,7 +5877,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": "glacioChafe"
+                  "HAS": "glacioChafe"
                 }
               }
             }
@@ -5901,7 +5901,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": "glacioChafe"
+                  "HAS": "glacioChafe"
                 }
               }
             }
@@ -5936,16 +5936,16 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
                 "states": {
                   "negativeStatuses": {
-                    "has": "*"
+                    "HAS": "*"
                   }
                 }
               }
@@ -5998,7 +5998,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": "glacioChafe"
+                  "HAS": "glacioChafe"
                 }
               }
             }
@@ -6013,7 +6013,7 @@
           "field": "*",
           "filter": {
             "action": {
-              "has": "healing"
+              "HAS": "healing"
             }
           },
           "duration": 6000
@@ -6049,12 +6049,12 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "and": [
+              "AND": [
                 {
-                  "has": "snowTaint"
+                  "HAS": "snowTaint"
                 },
                 {
-                  "has": "ripples"
+                  "HAS": "ripples"
                 }
               ]
             }
@@ -6135,7 +6135,7 @@
             "filter": {
               "action": {
                 "inflict": {
-                  "has": "electroFlare"
+                  "HAS": "electroFlare"
                 }
               }
             },

@@ -146,7 +146,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           }
         },
@@ -214,7 +214,7 @@
         "buff": {
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "stats": {
@@ -821,7 +821,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "healing"
+              "HAS": "healing"
             }
           }
         },
@@ -838,7 +838,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "healing"
+              "HAS": "healing"
             }
           }
         },

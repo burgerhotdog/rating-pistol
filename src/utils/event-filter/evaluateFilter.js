@@ -40,8 +40,8 @@ export function evaluateFilter(node, context) {
     return node.some((subNode) => evaluateFilter(subNode, context));
   }
 
-  if ('count' in node) {
-    const { conditions, ...comparison } = node.count;
+  if ('COUNT' in node) {
+    const { conditions, ...comparison } = node.COUNT;
 
     const count = conditions.reduce(
       (acc, subNode) => acc + Number(evaluateFilter(subNode, context)),
@@ -51,8 +51,8 @@ export function evaluateFilter(node, context) {
     return evaluateFilter(comparison, count);
   }
 
-  if ('sum' in node) {
-    const { keys, ...comparison } = node.sum;
+  if ('SUM' in node) {
+    const { keys, ...comparison } = node.SUM;
 
     const total = keys.reduce(
       (acc, key) => acc + (context?.[key] ?? 0),
@@ -62,38 +62,38 @@ export function evaluateFilter(node, context) {
     return evaluateFilter(comparison, total);
   }
 
-  if ('and' in node) {
-    return node.and.every((subNode) => evaluateFilter(subNode, context));
+  if ('AND' in node) {
+    return node.AND.every((subNode) => evaluateFilter(subNode, context));
   }
 
-  if ('or' in node) {
-    return node.or.some((subNode) => evaluateFilter(subNode, context));
+  if ('OR' in node) {
+    return node.OR.some((subNode) => evaluateFilter(subNode, context));
   }
 
-  if ('not' in node) {
-    return !evaluateFilter(node.not, context);
+  if ('NOT' in node) {
+    return !evaluateFilter(node.NOT, context);
   }
 
-  if ('xor' in node) {
-    return node.xor.filter((subNode) => evaluateFilter(subNode, context)).length === 1;
+  if ('XOR' in node) {
+    return node.XOR.filter((subNode) => evaluateFilter(subNode, context)).length === 1;
   }
 
-  if ('nor' in node) {
-    return !node.nor.some((subNode) => evaluateFilter(subNode, context));
+  if ('NOR' in node) {
+    return !node.NOR.some((subNode) => evaluateFilter(subNode, context));
   }
 
-  if ('has' in node) {
+  if ('HAS' in node) {
     if (context == null) {
       return false;
     }
 
-    if (Array.isArray(node.has)) {
-      return node.has.some((key) => Object.hasOwn(context, key));
+    if (Array.isArray(node.HAS)) {
+      return node.HAS.some((key) => Object.hasOwn(context, key));
     }
 
-    return node.has === '*'
+    return node.HAS === '*'
       ? Object.keys(context).length > 0
-      : Object.hasOwn(context, node.has);
+      : Object.hasOwn(context, node.HAS);
   }
 
   const [key, value] = Object.entries(node)[0];

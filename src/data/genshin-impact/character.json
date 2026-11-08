@@ -200,7 +200,7 @@
         "rank": 6,
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -210,8 +210,8 @@
               },
               {
                 "effectStacks": {
-                  "not": {
-                    "has": "caBuffCd"
+                  "NOT": {
+                    "HAS": "caBuffCd"
                   }
                 }
               }
@@ -766,7 +766,7 @@
           "field": "onField",
           "filter": {
             "action": {
-              "has": "type"
+              "HAS": "type"
             }
           },
           "uses": 1,
@@ -1242,7 +1242,7 @@
           {
             "when": "use",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.1"
@@ -1250,8 +1250,8 @@
                 },
                 {
                   "effectStacks": {
-                    "not": {
-                      "has": "conductive"
+                    "NOT": {
+                      "HAS": "conductive"
                     }
                   }
                 }
@@ -1262,7 +1262,7 @@
           {
             "when": "use",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.1"
@@ -1280,7 +1280,7 @@
           {
             "when": "use",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.1"
@@ -1298,7 +1298,7 @@
           {
             "when": "use",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.1"
@@ -1835,7 +1835,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "damage": {
@@ -1845,7 +1845,7 @@
                 },
                 {
                   "effectStacks": {
-                    "has": "melodyLoop"
+                    "HAS": "melodyLoop"
                   }
                 }
               ]
@@ -1855,7 +1855,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "damage": {
@@ -1865,7 +1865,7 @@
                 },
                 {
                   "effectStacks": {
-                    "has": "melodyLoop"
+                    "HAS": "melodyLoop"
                   }
                 }
               ]
@@ -1908,13 +1908,13 @@
         "stores": "$team",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
               {
                 "effectStacks": {
-                  "has": "melodyLoop"
+                  "HAS": "melodyLoop"
                 }
               }
             ]
@@ -3687,7 +3687,7 @@
         "apply": {
           "when": "use",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "normalAttack.8"
@@ -3695,7 +3695,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "baronBunny"
+                  "HAS": "baronBunny"
                 }
               }
             ]
@@ -5154,7 +5154,7 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "has": "thunderbeastsTarge"
+              "HAS": "thunderbeastsTarge"
             }
           },
           "stats": {
@@ -5167,13 +5167,13 @@
         "stores": "global",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "radiance": "stellarConduct"
               },
               {
                 "effectStacks": {
-                  "has": "thunderbeastsTarge"
+                  "HAS": "thunderbeastsTarge"
                 }
               }
             ]
@@ -5188,7 +5188,7 @@
         "stores": "$team",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "radiance": "stellarConduct"
               },
@@ -5197,7 +5197,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "thunderbeastsTarge"
+                  "HAS": "thunderbeastsTarge"
                 }
               }
             ]
@@ -5678,7 +5678,7 @@
           "by": "$team",
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -5775,7 +5775,7 @@
         "rank": 4,
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.0"
@@ -5783,7 +5783,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "rainbowBladework"
+                  "HAS": "rainbowBladework"
                 }
               }
             ]
@@ -6279,8 +6279,8 @@
           "when": "start",
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "yakshasMask"
+              "NOT": {
+                "HAS": "yakshasMask"
               }
             }
           }
@@ -7042,10 +7042,10 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "sparks"
+                  "HAS": "sparks"
                 }
               },
               {
@@ -8036,7 +8036,7 @@
         "use": {
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
                   "elements": "electro"
@@ -8044,7 +8044,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "oz"
+                  "HAS": "oz"
                 }
               }
             ]
@@ -8072,7 +8072,7 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
                   "reaction": "overloaded"
@@ -8080,7 +8080,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "oz"
+                  "HAS": "oz"
                 }
               }
             ]
@@ -8090,9 +8090,9 @@
         "buff": [
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
-                  "or": [
+                  "OR": [
                     {
                       "character": {
                         "id": 10000031
@@ -8105,8 +8105,8 @@
                 },
                 {
                   "effectStacks": {
-                    "not": {
-                      "has": "doubleHexBuff"
+                    "NOT": {
+                      "HAS": "doubleHexBuff"
                     }
                   }
                 }
@@ -8118,9 +8118,9 @@
           },
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
-                  "or": [
+                  "OR": [
                     {
                       "character": {
                         "id": 10000031
@@ -8133,7 +8133,7 @@
                 },
                 {
                   "effectStacks": {
-                    "has": "doubleHexBuff"
+                    "HAS": "doubleHexBuff"
                   }
                 }
               ]
@@ -8153,7 +8153,7 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
                   "reaction": [
@@ -8164,7 +8164,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "oz"
+                  "HAS": "oz"
                 }
               }
             ]
@@ -8174,9 +8174,9 @@
         "buff": [
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
-                  "or": [
+                  "OR": [
                     {
                       "character": {
                         "id": 10000031
@@ -8189,8 +8189,8 @@
                 },
                 {
                   "effectStacks": {
-                    "not": {
-                      "has": "doubleHexBuff"
+                    "NOT": {
+                      "HAS": "doubleHexBuff"
                     }
                   }
                 }
@@ -8202,9 +8202,9 @@
           },
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
-                  "or": [
+                  "OR": [
                     {
                       "character": {
                         "id": 10000031
@@ -8217,7 +8217,7 @@
                 },
                 {
                   "effectStacks": {
-                    "has": "doubleHexBuff"
+                    "HAS": "doubleHexBuff"
                   }
                 }
               ]
@@ -8321,7 +8321,7 @@
           "by": "$team",
           "when": "use",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -8332,7 +8332,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "oz"
+                  "HAS": "oz"
                 }
               }
             ]
@@ -8725,7 +8725,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -8811,7 +8811,7 @@
         "modify": {
           "type": "action",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -8839,7 +8839,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -9408,7 +9408,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "normalAttack.6"
@@ -9416,7 +9416,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "riptide"
+                  "HAS": "riptide"
                 }
               }
             ]
@@ -9430,7 +9430,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": [
@@ -9446,7 +9446,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "riptide"
+                  "HAS": "riptide"
                 }
               }
             ]
@@ -9460,7 +9460,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.1"
@@ -9468,7 +9468,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "riptide"
+                  "HAS": "riptide"
                 }
               }
             ]
@@ -10867,7 +10867,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "radiance": "stellarConduct"
               },
@@ -10889,7 +10889,7 @@
           "when": "reaction",
           "filter": {
             "effectStacks": {
-              "has": "hof"
+              "HAS": "hof"
             }
           },
           "duration": 8000
@@ -10906,9 +10906,9 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
+                  "NOT": {
                     "radiance": "stellarConduct"
                   }
                 },
@@ -10936,7 +10936,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarConduct"
                 },
@@ -10969,13 +10969,13 @@
         "buff": [
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarConduct"
                 },
                 {
                   "effectStacks": {
-                    "has": "hof"
+                    "HAS": "hof"
                   }
                 }
               ]
@@ -10987,7 +10987,7 @@
           },
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarSwirl"
                 },
@@ -11003,7 +11003,7 @@
                 },
                 {
                   "effectStacks": {
-                    "has": "hof"
+                    "HAS": "hof"
                   }
                 }
               ]
@@ -11020,7 +11020,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.2"
@@ -11028,7 +11028,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "talisman"
+                  "HAS": "talisman"
                 }
               }
             ]
@@ -11045,7 +11045,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "radiance": [
                   "stellarConduct",
@@ -11076,7 +11076,7 @@
           "filter": {
             "states": {
               "aura": {
-                "has": "cryo"
+                "HAS": "cryo"
               }
             }
           },
@@ -11136,10 +11136,10 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "character": {
-                  "not": {
+                  "NOT": {
                     "id": 10000035
                   }
                 }
@@ -11149,9 +11149,9 @@
               },
               {
                 "action": {
-                  "and": [
+                  "AND": [
                     {
-                      "has": "ownerId"
+                      "HAS": "ownerId"
                     },
                     {
                       "damage": {
@@ -12486,7 +12486,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "cooldown": 2000,
@@ -12978,7 +12978,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": [
                     "stellarConduct",
@@ -13039,7 +13039,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -13064,7 +13064,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -13097,7 +13097,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "radiance": "stellarConduct"
               },
@@ -13121,7 +13121,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "radiance": "stellarSwirl"
               },
@@ -14824,7 +14824,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": "swirl"
                 },
@@ -14853,7 +14853,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": "swirl"
                 },
@@ -14882,7 +14882,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": "swirl"
                 },
@@ -14911,9 +14911,9 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "or": [
+              "OR": [
                 {
-                  "and": [
+                  "AND": [
                     {
                       "reaction": "swirl"
                     },
@@ -15882,7 +15882,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "duration": 4000
@@ -16374,7 +16374,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "type": "chargedAttack"
@@ -16382,7 +16382,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "paramitaPapilio"
+                  "HAS": "paramitaPapilio"
                 }
               }
             ]
@@ -16401,7 +16401,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -16420,7 +16420,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -17034,7 +17034,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": "swirl"
                 },
@@ -17062,7 +17062,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": "swirl"
                 },
@@ -17090,7 +17090,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": "swirl"
                 },
@@ -17118,7 +17118,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": "swirl"
                 },
@@ -17154,7 +17154,7 @@
         },
         "buff": {
           "filter": {
-            "or": [
+            "OR": [
               {
                 "field": "onField"
               },
@@ -17710,7 +17710,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "normalAttack.3"
@@ -17718,8 +17718,8 @@
                 },
                 {
                   "effectStacks": {
-                    "not": {
-                      "has": "scarletSeal"
+                    "NOT": {
+                      "HAS": "scarletSeal"
                     }
                   }
                 }
@@ -17731,7 +17731,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "normalAttack.3"
@@ -17754,7 +17754,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "normalAttack.3"
@@ -17777,7 +17777,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "normalAttack.3"
@@ -17800,7 +17800,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "normalAttack.3"
@@ -18445,7 +18445,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "type": "normalAttack"
@@ -18453,7 +18453,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "niwabiFireDance"
+                  "HAS": "niwabiFireDance"
                 }
               }
             ]
@@ -19469,7 +19469,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -19483,7 +19483,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "lightfallSword"
+                  "HAS": "lightfallSword"
                 }
               }
             ]
@@ -19507,7 +19507,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.1"
@@ -20104,7 +20104,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "cooldown": 900,
@@ -21635,7 +21635,7 @@
         "use": {
           "when": "use",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.0"
@@ -21643,7 +21643,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "bakeKurage"
+                  "HAS": "bakeKurage"
                 }
               }
             ]
@@ -21662,7 +21662,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "type": "normalAttack"
@@ -21670,7 +21670,7 @@
                 },
                 {
                   "effectStacks": {
-                    "has": "ceremonialGarment"
+                    "HAS": "ceremonialGarment"
                   }
                 }
               ]
@@ -21691,7 +21691,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "type": "chargedAttack"
@@ -21699,7 +21699,7 @@
                 },
                 {
                   "effectStacks": {
-                    "has": "ceremonialGarment"
+                    "HAS": "ceremonialGarment"
                   }
                 }
               ]
@@ -22176,7 +22176,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.0"
@@ -22184,8 +22184,8 @@
               },
               {
                 "effectStacks": {
-                  "not": {
-                    "has": "generalsGlory"
+                  "NOT": {
+                    "HAS": "generalsGlory"
                   }
                 }
               }
@@ -22231,7 +22231,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.0"
@@ -22239,8 +22239,8 @@
               },
               {
                 "effectStacks": {
-                  "not": {
-                    "has": "generalsGlory"
+                  "NOT": {
+                    "HAS": "generalsGlory"
                   }
                 }
               }
@@ -22351,7 +22351,7 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -22365,7 +22365,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "generalsGlory"
+                  "HAS": "generalsGlory"
                 }
               }
             ]
@@ -22396,7 +22396,7 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "has": "generalsGlory"
+              "HAS": "generalsGlory"
             }
           },
           "cooldown": 1500,
@@ -23891,7 +23891,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.0"
@@ -23899,8 +23899,8 @@
               },
               {
                 "effectStacks": {
-                  "not": {
-                    "has": [
+                  "NOT": {
+                    "HAS": [
                       "turretGuard",
                       "prevTurret"
                     ]
@@ -23927,8 +23927,8 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "not": {
-                  "has": [
+                "NOT": {
+                  "HAS": [
                     "turret2",
                     "turret3"
                   ]
@@ -23942,21 +23942,21 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "and": [
+                "AND": [
                   {
-                    "has": [
+                    "HAS": [
                       "turret2",
                       "turret3"
                     ]
                   },
                   {
-                    "not": {
-                      "and": [
+                    "NOT": {
+                      "AND": [
                         {
-                          "has": "turret2"
+                          "HAS": "turret2"
                         },
                         {
-                          "has": "turret3"
+                          "HAS": "turret3"
                         }
                       ]
                     }
@@ -23971,12 +23971,12 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "and": [
+                "AND": [
                   {
-                    "has": "turret2"
+                    "HAS": "turret2"
                   },
                   {
-                    "has": "turret3"
+                    "HAS": "turret3"
                   }
                 ]
               }
@@ -23992,7 +23992,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.0"
@@ -24000,10 +24000,10 @@
               },
               {
                 "effectStacks": {
-                  "and": [
+                  "AND": [
                     {
-                      "not": {
-                        "has": "turretGuard"
+                      "NOT": {
+                        "HAS": "turretGuard"
                       }
                     },
                     {
@@ -24032,8 +24032,8 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "not": {
-                  "has": [
+                "NOT": {
+                  "HAS": [
                     "turret1",
                     "turret3"
                   ]
@@ -24047,21 +24047,21 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "and": [
+                "AND": [
                   {
-                    "has": [
+                    "HAS": [
                       "turret1",
                       "turret3"
                     ]
                   },
                   {
-                    "not": {
-                      "and": [
+                    "NOT": {
+                      "AND": [
                         {
-                          "has": "turret1"
+                          "HAS": "turret1"
                         },
                         {
-                          "has": "turret3"
+                          "HAS": "turret3"
                         }
                       ]
                     }
@@ -24076,12 +24076,12 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "and": [
+                "AND": [
                   {
-                    "has": "turret1"
+                    "HAS": "turret1"
                   },
                   {
-                    "has": "turret3"
+                    "HAS": "turret3"
                   }
                 ]
               }
@@ -24097,7 +24097,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.0"
@@ -24105,10 +24105,10 @@
               },
               {
                 "effectStacks": {
-                  "and": [
+                  "AND": [
                     {
-                      "not": {
-                        "has": "turretGuard"
+                      "NOT": {
+                        "HAS": "turretGuard"
                       }
                     },
                     {
@@ -24137,8 +24137,8 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "not": {
-                  "has": [
+                "NOT": {
+                  "HAS": [
                     "turret1",
                     "turret2"
                   ]
@@ -24152,21 +24152,21 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "and": [
+                "AND": [
                   {
-                    "has": [
+                    "HAS": [
                       "turret1",
                       "turret2"
                     ]
                   },
                   {
-                    "not": {
-                      "and": [
+                    "NOT": {
+                      "AND": [
                         {
-                          "has": "turret1"
+                          "HAS": "turret1"
                         },
                         {
-                          "has": "turret2"
+                          "HAS": "turret2"
                         }
                       ]
                     }
@@ -24181,12 +24181,12 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "and": [
+                "AND": [
                   {
-                    "has": "turret1"
+                    "HAS": "turret1"
                   },
                   {
-                    "has": "turret2"
+                    "HAS": "turret2"
                   }
                 ]
               }
@@ -24202,7 +24202,7 @@
           {
             "when": "start",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -24210,16 +24210,16 @@
                 },
                 {
                   "effectStacks": {
-                    "count": {
+                    "COUNT": {
                       "conditions": [
                         {
-                          "has": "turret1"
+                          "HAS": "turret1"
                         },
                         {
-                          "has": "turret2"
+                          "HAS": "turret2"
                         },
                         {
-                          "has": "turret3"
+                          "HAS": "turret3"
                         }
                       ],
                       "==": 1
@@ -24248,7 +24248,7 @@
           {
             "when": "start",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -24256,16 +24256,16 @@
                 },
                 {
                   "effectStacks": {
-                    "count": {
+                    "COUNT": {
                       "conditions": [
                         {
-                          "has": "turret1"
+                          "HAS": "turret1"
                         },
                         {
-                          "has": "turret2"
+                          "HAS": "turret2"
                         },
                         {
-                          "has": "turret3"
+                          "HAS": "turret3"
                         }
                       ],
                       "==": 2
@@ -24294,7 +24294,7 @@
           {
             "when": "start",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -24302,16 +24302,16 @@
                 },
                 {
                   "effectStacks": {
-                    "count": {
+                    "COUNT": {
                       "conditions": [
                         {
-                          "has": "turret1"
+                          "HAS": "turret1"
                         },
                         {
-                          "has": "turret2"
+                          "HAS": "turret2"
                         },
                         {
-                          "has": "turret3"
+                          "HAS": "turret3"
                         }
                       ],
                       "==": 3
@@ -24350,9 +24350,9 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
+                  "NOT": {
                     "radiance": "stellarConduct"
                   }
                 },
@@ -24363,15 +24363,15 @@
                 },
                 {
                   "effectStacks": {
-                    "and": [
+                    "AND": [
                       {
-                        "has": "turret1"
+                        "HAS": "turret1"
                       },
                       {
-                        "has": "turret2"
+                        "HAS": "turret2"
                       },
                       {
-                        "has": "turret3"
+                        "HAS": "turret3"
                       }
                     ]
                   }
@@ -24392,7 +24392,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarConduct"
                 },
@@ -24403,15 +24403,15 @@
                 },
                 {
                   "effectStacks": {
-                    "and": [
+                    "AND": [
                       {
-                        "has": "turret1"
+                        "HAS": "turret1"
                       },
                       {
-                        "has": "turret2"
+                        "HAS": "turret2"
                       },
                       {
-                        "has": "turret3"
+                        "HAS": "turret3"
                       }
                     ]
                   }
@@ -24499,9 +24499,9 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
+                  "NOT": {
                     "radiance": "stellarConduct"
                   }
                 },
@@ -24521,7 +24521,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarConduct"
                 },
@@ -24607,7 +24607,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.0"
@@ -24615,15 +24615,15 @@
               },
               {
                 "effectStacks": {
-                  "and": [
+                  "AND": [
                     {
-                      "not": {
-                        "has": "turretGuard"
+                      "NOT": {
+                        "HAS": "turretGuard"
                       }
                     },
                     {
-                      "not": {
-                        "has": "prevTurret"
+                      "NOT": {
+                        "HAS": "prevTurret"
                       }
                     }
                   ]
@@ -24649,8 +24649,8 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "not": {
-                  "has": [
+                "NOT": {
+                  "HAS": [
                     "turret2",
                     "turret3"
                   ]
@@ -24664,21 +24664,21 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "and": [
+                "AND": [
                   {
-                    "has": [
+                    "HAS": [
                       "turret2",
                       "turret3"
                     ]
                   },
                   {
-                    "not": {
-                      "and": [
+                    "NOT": {
+                      "AND": [
                         {
-                          "has": "turret2"
+                          "HAS": "turret2"
                         },
                         {
-                          "has": "turret3"
+                          "HAS": "turret3"
                         }
                       ]
                     }
@@ -24693,12 +24693,12 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "and": [
+                "AND": [
                   {
-                    "has": "turret2"
+                    "HAS": "turret2"
                   },
                   {
-                    "has": "turret3"
+                    "HAS": "turret3"
                   }
                 ]
               }
@@ -24714,7 +24714,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.0"
@@ -24722,10 +24722,10 @@
               },
               {
                 "effectStacks": {
-                  "and": [
+                  "AND": [
                     {
-                      "not": {
-                        "has": "turretGuard"
+                      "NOT": {
+                        "HAS": "turretGuard"
                       }
                     },
                     {
@@ -24754,8 +24754,8 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "not": {
-                  "has": [
+                "NOT": {
+                  "HAS": [
                     "turret1",
                     "turret3"
                   ]
@@ -24769,21 +24769,21 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "and": [
+                "AND": [
                   {
-                    "has": [
+                    "HAS": [
                       "turret1",
                       "turret3"
                     ]
                   },
                   {
-                    "not": {
-                      "and": [
+                    "NOT": {
+                      "AND": [
                         {
-                          "has": "turret1"
+                          "HAS": "turret1"
                         },
                         {
-                          "has": "turret3"
+                          "HAS": "turret3"
                         }
                       ]
                     }
@@ -24798,12 +24798,12 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "and": [
+                "AND": [
                   {
-                    "has": "turret1"
+                    "HAS": "turret1"
                   },
                   {
-                    "has": "turret3"
+                    "HAS": "turret3"
                   }
                 ]
               }
@@ -24819,7 +24819,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.0"
@@ -24827,10 +24827,10 @@
               },
               {
                 "effectStacks": {
-                  "and": [
+                  "AND": [
                     {
-                      "not": {
-                        "has": "turretGuard"
+                      "NOT": {
+                        "HAS": "turretGuard"
                       }
                     },
                     {
@@ -24859,8 +24859,8 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "not": {
-                  "has": [
+                "NOT": {
+                  "HAS": [
                     "turret1",
                     "turret2"
                   ]
@@ -24874,21 +24874,21 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "and": [
+                "AND": [
                   {
-                    "has": [
+                    "HAS": [
                       "turret1",
                       "turret2"
                     ]
                   },
                   {
-                    "not": {
-                      "and": [
+                    "NOT": {
+                      "AND": [
                         {
-                          "has": "turret1"
+                          "HAS": "turret1"
                         },
                         {
-                          "has": "turret2"
+                          "HAS": "turret2"
                         }
                       ]
                     }
@@ -24903,12 +24903,12 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "and": [
+                "AND": [
                   {
-                    "has": "turret1"
+                    "HAS": "turret1"
                   },
                   {
-                    "has": "turret2"
+                    "HAS": "turret2"
                   }
                 ]
               }
@@ -25410,7 +25410,7 @@
         "ref": "conviction",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.0"
@@ -25433,7 +25433,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.0"
@@ -25442,7 +25442,7 @@
               {
                 "states": {
                   "aura": {
-                    "has": "hydro"
+                    "HAS": "hydro"
                   }
                 }
               }
@@ -25474,7 +25474,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.0"
@@ -25483,13 +25483,13 @@
               {
                 "states": {
                   "aura": {
-                    "and": [
+                    "AND": [
                       {
-                        "has": "pyro"
+                        "HAS": "pyro"
                       },
                       {
-                        "not": {
-                          "has": "hydro"
+                        "NOT": {
+                          "HAS": "hydro"
                         }
                       }
                     ]
@@ -25524,7 +25524,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.0"
@@ -25533,13 +25533,13 @@
               {
                 "states": {
                   "aura": {
-                    "and": [
+                    "AND": [
                       {
-                        "has": "cryo"
+                        "HAS": "cryo"
                       },
                       {
-                        "not": {
-                          "has": [
+                        "NOT": {
+                          "HAS": [
                             "hydro",
                             "pyro"
                           ]
@@ -25577,7 +25577,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.0"
@@ -25586,13 +25586,13 @@
               {
                 "states": {
                   "aura": {
-                    "and": [
+                    "AND": [
                       {
-                        "has": "electro"
+                        "HAS": "electro"
                       },
                       {
-                        "not": {
-                          "has": [
+                        "NOT": {
+                          "HAS": [
                             "hydro",
                             "pyro",
                             "cryo"
@@ -26742,7 +26742,7 @@
         "use": {
           "by": "$team",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -28975,7 +28975,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -28993,7 +28993,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -29066,7 +29066,7 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -29083,7 +29083,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "grassRing"
+                  "HAS": "grassRing"
                 }
               }
             ]
@@ -30154,7 +30154,7 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
                   "reaction": [
@@ -30171,7 +30171,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "floralRing"
+                  "HAS": "floralRing"
                 }
               }
             ]
@@ -30182,8 +30182,8 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "floralRing"
+              "NOT": {
+                "HAS": "floralRing"
               }
             }
           },
@@ -30228,7 +30228,7 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
                   "reaction": [
@@ -30245,7 +30245,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "cuileinAmbar"
+                  "HAS": "cuileinAmbar"
                 }
               }
             ]
@@ -30344,7 +30344,7 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "has": "sprout"
+              "HAS": "sprout"
             }
           },
           "commands": {
@@ -31663,10 +31663,10 @@
         "enable": {
           "counts": {
             "element": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
-                    "has": [
+                  "NOT": {
+                    "HAS": [
                       "pyro",
                       "electro",
                       "anemo",
@@ -31676,7 +31676,7 @@
                   }
                 },
                 {
-                  "has": "dendro"
+                  "HAS": "dendro"
                 }
               ]
             }
@@ -31706,10 +31706,10 @@
         "enable": {
           "counts": {
             "element": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
-                    "has": [
+                  "NOT": {
+                    "HAS": [
                       "pyro",
                       "electro",
                       "anemo",
@@ -31719,7 +31719,7 @@
                   }
                 },
                 {
-                  "has": "dendro"
+                  "HAS": "dendro"
                 }
               ]
             }
@@ -31747,7 +31747,7 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "has": "a1_2"
+              "HAS": "a1_2"
             }
           },
           "specs": {
@@ -32397,9 +32397,9 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
+                  "NOT": {
                     "radiance": "stellarConduct"
                   }
                 },
@@ -32419,7 +32419,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarConduct"
                 },
@@ -32439,9 +32439,9 @@
         ],
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
-                "not": {
+                "NOT": {
                   "radiance": "stellarConduct"
                 }
               },
@@ -32537,13 +32537,13 @@
         "ref": "togetherWeRise",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "radiance": "stellarConduct"
               },
               {
                 "effectStacks": {
-                  "has": "pactswornPathclearer"
+                  "HAS": "pactswornPathclearer"
                 }
               }
             ]
@@ -32579,7 +32579,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -32589,7 +32589,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "togetherWeRise"
+                  "HAS": "togetherWeRise"
                 }
               }
             ]
@@ -33602,22 +33602,22 @@
             "when": "reaction",
             "filter": {
               "effectStacks": {
-                "or": [
+                "OR": [
                   {
-                    "not": {
-                      "has": "shrineOfMaya"
+                    "NOT": {
+                      "HAS": "shrineOfMaya"
                     }
                   },
                   {
-                    "and": [
+                    "AND": [
                       {
-                        "not": {
-                          "has": "c1"
+                        "NOT": {
+                          "HAS": "c1"
                         }
                       },
                       {
-                        "not": {
-                          "has": [
+                        "NOT": {
+                          "HAS": [
                             "mayaElectro1",
                             "mayaElectro2"
                           ]
@@ -33635,7 +33635,7 @@
             "by": "$any",
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "damage": {
@@ -33649,22 +33649,22 @@
                 },
                 {
                   "effectStacks": {
-                    "or": [
+                    "OR": [
                       {
-                        "not": {
-                          "has": "shrineOfMaya"
+                        "NOT": {
+                          "HAS": "shrineOfMaya"
                         }
                       },
                       {
-                        "and": [
+                        "AND": [
                           {
-                            "not": {
-                              "has": "c1"
+                            "NOT": {
+                              "HAS": "c1"
                             }
                           },
                           {
-                            "not": {
-                              "has": [
+                            "NOT": {
+                              "HAS": [
                                 "mayaElectro1",
                                 "mayaElectro2"
                               ]
@@ -33685,32 +33685,32 @@
             "when": "reaction",
             "filter": {
               "effectStacks": {
-                "and": [
+                "AND": [
                   {
-                    "has": "shrineOfMaya"
+                    "HAS": "shrineOfMaya"
                   },
                   {
-                    "or": [
+                    "OR": [
                       {
-                        "and": [
+                        "AND": [
                           {
-                            "not": {
-                              "has": "c1"
+                            "NOT": {
+                              "HAS": "c1"
                             }
                           },
                           {
-                            "has": "mayaElectro1"
+                            "HAS": "mayaElectro1"
                           }
                         ]
                       },
                       {
-                        "and": [
+                        "AND": [
                           {
-                            "has": "c1"
+                            "HAS": "c1"
                           },
                           {
-                            "not": {
-                              "has": [
+                            "NOT": {
+                              "HAS": [
                                 "mayaElectro1",
                                 "mayaElectro2"
                               ]
@@ -33730,7 +33730,7 @@
             "by": "$any",
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "damage": {
@@ -33744,32 +33744,32 @@
                 },
                 {
                   "effectStacks": {
-                    "and": [
+                    "AND": [
                       {
-                        "has": "shrineOfMaya"
+                        "HAS": "shrineOfMaya"
                       },
                       {
-                        "or": [
+                        "OR": [
                           {
-                            "and": [
+                            "AND": [
                               {
-                                "not": {
-                                  "has": "c1"
+                                "NOT": {
+                                  "HAS": "c1"
                                 }
                               },
                               {
-                                "has": "mayaElectro1"
+                                "HAS": "mayaElectro1"
                               }
                             ]
                           },
                           {
-                            "and": [
+                            "AND": [
                               {
-                                "has": "c1"
+                                "HAS": "c1"
                               },
                               {
-                                "not": {
-                                  "has": [
+                                "NOT": {
+                                  "HAS": [
                                     "mayaElectro1",
                                     "mayaElectro2"
                                   ]
@@ -33792,22 +33792,22 @@
             "when": "reaction",
             "filter": {
               "effectStacks": {
-                "and": [
+                "AND": [
                   {
-                    "has": "shrineOfMaya"
+                    "HAS": "shrineOfMaya"
                   },
                   {
-                    "or": [
+                    "OR": [
                       {
-                        "has": "mayaElectro2"
+                        "HAS": "mayaElectro2"
                       },
                       {
-                        "and": [
+                        "AND": [
                           {
-                            "has": "c1"
+                            "HAS": "c1"
                           },
                           {
-                            "has": "mayaElectro1"
+                            "HAS": "mayaElectro1"
                           }
                         ]
                       }
@@ -33823,7 +33823,7 @@
             "by": "$any",
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "damage": {
@@ -33837,22 +33837,22 @@
                 },
                 {
                   "effectStacks": {
-                    "and": [
+                    "AND": [
                       {
-                        "has": "shrineOfMaya"
+                        "HAS": "shrineOfMaya"
                       },
                       {
-                        "or": [
+                        "OR": [
                           {
-                            "has": "mayaElectro2"
+                            "HAS": "mayaElectro2"
                           },
                           {
-                            "and": [
+                            "AND": [
                               {
-                                "has": "c1"
+                                "HAS": "c1"
                               },
                               {
-                                "has": "mayaElectro1"
+                                "HAS": "mayaElectro1"
                               }
                             ]
                           }
@@ -33875,7 +33875,7 @@
           {
             "when": "start",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -33883,15 +33883,15 @@
                 },
                 {
                   "effectStacks": {
-                    "and": [
+                    "AND": [
                       {
-                        "not": {
-                          "has": "c1"
+                        "NOT": {
+                          "HAS": "c1"
                         }
                       },
                       {
-                        "not": {
-                          "has": [
+                        "NOT": {
+                          "HAS": [
                             "mayaHydro1",
                             "mayaHydro2"
                           ]
@@ -33907,7 +33907,7 @@
           {
             "when": "start",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -33915,27 +33915,27 @@
                 },
                 {
                   "effectStacks": {
-                    "or": [
+                    "OR": [
                       {
-                        "and": [
+                        "AND": [
                           {
-                            "not": {
-                              "has": "c1"
+                            "NOT": {
+                              "HAS": "c1"
                             }
                           },
                           {
-                            "has": "mayaHydro1"
+                            "HAS": "mayaHydro1"
                           }
                         ]
                       },
                       {
-                        "and": [
+                        "AND": [
                           {
-                            "has": "c1"
+                            "HAS": "c1"
                           },
                           {
-                            "not": {
-                              "has": [
+                            "NOT": {
+                              "HAS": [
                                 "mayaHydro1",
                                 "mayaHydro2"
                               ]
@@ -33953,7 +33953,7 @@
           {
             "when": "start",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -33961,17 +33961,17 @@
                 },
                 {
                   "effectStacks": {
-                    "or": [
+                    "OR": [
                       {
-                        "has": "mayaHydro2"
+                        "HAS": "mayaHydro2"
                       },
                       {
-                        "and": [
+                        "AND": [
                           {
-                            "has": "c1"
+                            "HAS": "c1"
                           },
                           {
-                            "has": "mayaHydro1"
+                            "HAS": "mayaHydro1"
                           }
                         ]
                       }
@@ -34002,7 +34002,7 @@
         "buff": [
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.2"
@@ -34010,32 +34010,32 @@
                 },
                 {
                   "effectStacks": {
-                    "and": [
+                    "AND": [
                       {
-                        "has": "shrineOfMaya"
+                        "HAS": "shrineOfMaya"
                       },
                       {
-                        "or": [
+                        "OR": [
                           {
-                            "and": [
+                            "AND": [
                               {
-                                "not": {
-                                  "has": "c1"
+                                "NOT": {
+                                  "HAS": "c1"
                                 }
                               },
                               {
-                                "has": "mayaPyro1"
+                                "HAS": "mayaPyro1"
                               }
                             ]
                           },
                           {
-                            "and": [
+                            "AND": [
                               {
-                                "has": "c1"
+                                "HAS": "c1"
                               },
                               {
-                                "not": {
-                                  "has": [
+                                "NOT": {
+                                  "HAS": [
                                     "mayaPyro1",
                                     "mayaPyro2"
                                   ]
@@ -34056,7 +34056,7 @@
           },
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.2"
@@ -34064,22 +34064,22 @@
                 },
                 {
                   "effectStacks": {
-                    "and": [
+                    "AND": [
                       {
-                        "has": "shrineOfMaya"
+                        "HAS": "shrineOfMaya"
                       },
                       {
-                        "or": [
+                        "OR": [
                           {
-                            "has": "mayaPyro2"
+                            "HAS": "mayaPyro2"
                           },
                           {
-                            "and": [
+                            "AND": [
                               {
-                                "has": "c1"
+                                "HAS": "c1"
                               },
                               {
-                                "has": "mayaPyro1"
+                                "HAS": "mayaPyro1"
                               }
                             ]
                           }
@@ -34204,7 +34204,7 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
                   "reaction": [
@@ -34216,7 +34216,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "seedOfSkandha"
+                  "HAS": "seedOfSkandha"
                 }
               }
             ]
@@ -34234,7 +34234,7 @@
         "stores": "global",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -34244,7 +34244,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "seedOfSkandha"
+                  "HAS": "seedOfSkandha"
                 }
               }
             ]
@@ -34260,7 +34260,7 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "has": "seedOfSkandha"
+              "HAS": "seedOfSkandha"
             }
           },
           "stats": {
@@ -34786,7 +34786,7 @@
           "by": "$team",
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -34797,7 +34797,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "curtainOfSlumber"
+                  "HAS": "curtainOfSlumber"
                 }
               }
             ]
@@ -34860,7 +34860,7 @@
             "ref": "nightStar",
             "filter": {
               "effectStacks": {
-                "has": "curtainOfSlumber"
+                "HAS": "curtainOfSlumber"
               }
             }
           }
@@ -35824,7 +35824,7 @@
           "filter": {
             "action": {
               "damage": {
-                "and": [
+                "AND": [
                   {
                     "element": "anemo"
                   },
@@ -35906,18 +35906,18 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
                 "effectStacks": {
-                  "has": "prayerfulWindsBenefit"
+                  "HAS": "prayerfulWindsBenefit"
                 }
               }
             ]
@@ -36660,7 +36660,7 @@
           {
             "when": "start",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.0"
@@ -36668,8 +36668,8 @@
                 },
                 {
                   "effectStacks": {
-                    "not": {
-                      "has": "mirrors"
+                    "NOT": {
+                      "HAS": "mirrors"
                     }
                   }
                 }
@@ -36723,7 +36723,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -36731,8 +36731,8 @@
                 },
                 {
                   "effectStacks": {
-                    "not": {
-                      "has": "mirrors"
+                    "NOT": {
+                      "HAS": "mirrors"
                     }
                   }
                 }
@@ -36751,7 +36751,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -36783,7 +36783,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -36815,7 +36815,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -37907,7 +37907,7 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -37951,21 +37951,21 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
               {
                 "effectStacks": {
-                  "and": [
+                  "AND": [
                     {
-                      "has": "eagleplume"
+                      "HAS": "eagleplume"
                     },
                     {
-                      "has": "soulwind"
+                      "HAS": "soulwind"
                     },
                     {
-                      "has": "soulwindAllowGain"
+                      "HAS": "soulwindAllowGain"
                     }
                   ]
                 }
@@ -38015,7 +38015,7 @@
         "stores": "$team",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -38028,7 +38028,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "soulwind"
+                  "HAS": "soulwind"
                 }
               }
             ]
@@ -38620,7 +38620,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -38634,7 +38634,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "paintedDome"
+                  "HAS": "paintedDome"
                 }
               }
             ]
@@ -38674,7 +38674,7 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "has": "paintedDome"
+              "HAS": "paintedDome"
             }
           },
           "stats": {
@@ -40060,7 +40060,7 @@
         "use": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "normalAttack.5"
@@ -41215,7 +41215,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": [
@@ -41243,7 +41243,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": [
@@ -41292,9 +41292,9 @@
         "use": {
           "when": "interval",
           "filter": {
-            "and": [
+            "AND": [
               {
-                "not": {
+                "NOT": {
                   "radiance": "stellarConduct"
                 }
               },
@@ -41305,8 +41305,8 @@
               },
               {
                 "effectStacks": {
-                  "not": {
-                    "has": [
+                  "NOT": {
+                    "HAS": [
                       "graciousRebukeBuff",
                       "graciousRebukeHealth"
                     ]
@@ -41333,9 +41333,9 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
-                "not": {
+                "NOT": {
                   "radiance": "stellarConduct"
                 }
               },
@@ -41360,9 +41360,9 @@
         "ref": "rebukeVaultingFist",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
-                "not": {
+                "NOT": {
                   "radiance": "stellarConduct"
                 }
               },
@@ -41373,7 +41373,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "graciousRebuke"
+                  "HAS": "graciousRebuke"
                 }
               }
             ]
@@ -41389,7 +41389,7 @@
           "when": "healthUpdate",
           "filter": {
             "effectStacks": {
-              "has": "chillingPenalty"
+              "HAS": "chillingPenalty"
             }
           }
         },
@@ -41409,7 +41409,7 @@
         "modify": {
           "type": "action",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "radiance": "stellarConduct"
               },
@@ -41424,7 +41424,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "chillingPenalty"
+                  "HAS": "chillingPenalty"
                 }
               }
             ]
@@ -41438,7 +41438,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "radiance": "stellarConduct"
               },
@@ -41467,7 +41467,7 @@
         "buff": [
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarConduct"
                 },
@@ -41478,7 +41478,7 @@
                 },
                 {
                   "effectStacks": {
-                    "has": "chillingPenalty"
+                    "HAS": "chillingPenalty"
                   }
                 }
               ]
@@ -41489,7 +41489,7 @@
           },
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarConduct"
                 },
@@ -41500,7 +41500,7 @@
                 },
                 {
                   "effectStacks": {
-                    "has": "chillingPenalty"
+                    "HAS": "chillingPenalty"
                   }
                 }
               ]
@@ -41540,9 +41540,9 @@
         "buff": [
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
+                  "NOT": {
                     "radiance": "stellarConduct"
                   }
                 },
@@ -41559,7 +41559,7 @@
           },
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarConduct"
                 },
@@ -42106,7 +42106,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": "swirl"
                 },
@@ -42126,7 +42126,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": [
                     "crystallize",
@@ -43314,7 +43314,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "normalAttack.4"
@@ -43322,15 +43322,15 @@
                 },
                 {
                   "effectStacks": {
-                    "and": [
+                    "AND": [
                       {
-                        "not": {
-                          "has": "arkheGuard"
+                        "NOT": {
+                          "HAS": "arkheGuard"
                         }
                       },
                       {
-                        "not": {
-                          "has": "arkheAlignment"
+                        "NOT": {
+                          "HAS": "arkheAlignment"
                         }
                       }
                     ]
@@ -43352,7 +43352,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "normalAttack.4"
@@ -43360,14 +43360,14 @@
                 },
                 {
                   "effectStacks": {
-                    "and": [
+                    "AND": [
                       {
-                        "not": {
-                          "has": "arkheGuard"
+                        "NOT": {
+                          "HAS": "arkheGuard"
                         }
                       },
                       {
-                        "has": "arkheAlignment"
+                        "HAS": "arkheAlignment"
                       }
                     ]
                   }
@@ -43403,7 +43403,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.0"
@@ -43411,8 +43411,8 @@
               },
               {
                 "effectStacks": {
-                  "not": {
-                    "has": "arkheAlignment"
+                  "NOT": {
+                    "HAS": "arkheAlignment"
                   }
                 }
               }
@@ -43437,8 +43437,8 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "arkheAlignment"
+              "NOT": {
+                "HAS": "arkheAlignment"
               }
             }
           },
@@ -43462,8 +43462,8 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "arkheAlignment"
+              "NOT": {
+                "HAS": "arkheAlignment"
               }
             }
           },
@@ -43487,8 +43487,8 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "arkheAlignment"
+              "NOT": {
+                "HAS": "arkheAlignment"
               }
             }
           },
@@ -43511,7 +43511,7 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "has": "arkheAlignment"
+              "HAS": "arkheAlignment"
             }
           },
           "cooldown": 2000,
@@ -43637,7 +43637,7 @@
           "by": "$team",
           "when": "healed",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -44256,7 +44256,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.1"
@@ -44264,8 +44264,8 @@
               },
               {
                 "effectStacks": {
-                  "not": {
-                    "has": "overchargedBall"
+                  "NOT": {
+                    "HAS": "overchargedBall"
                   }
                 }
               }
@@ -44278,7 +44278,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.1"
@@ -44286,7 +44286,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "overchargedBall"
+                  "HAS": "overchargedBall"
                 }
               }
             ]
@@ -44358,10 +44358,10 @@
         "enable": {
           "counts": {
             "element": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
-                    "has": [
+                  "NOT": {
+                    "HAS": [
                       "hydro",
                       "dendro",
                       "anemo",
@@ -44371,10 +44371,10 @@
                   }
                 },
                 {
-                  "has": "pyro"
+                  "HAS": "pyro"
                 },
                 {
-                  "has": "electro"
+                  "HAS": "electro"
                 }
               ]
             }
@@ -46913,7 +46913,7 @@
         "modify": {
           "type": "action",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "type": [
@@ -46939,7 +46939,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -46961,7 +46961,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -47037,7 +47037,7 @@
           {
             "when": "use",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": [
@@ -47048,8 +47048,8 @@
                 },
                 {
                   "effectStacks": {
-                    "not": {
-                      "has": "bloodDebtDue"
+                    "NOT": {
+                      "HAS": "bloodDebtDue"
                     }
                   }
                 }
@@ -47072,7 +47072,7 @@
           {
             "when": "use",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": [
@@ -47083,7 +47083,7 @@
                 },
                 {
                   "effectStacks": {
-                    "has": "bloodDebtDue"
+                    "HAS": "bloodDebtDue"
                   }
                 }
               ]
@@ -47947,7 +47947,7 @@
           {
             "when": "use",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.1"
@@ -47965,7 +47965,7 @@
           {
             "when": "use",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.1"
@@ -47983,7 +47983,7 @@
           {
             "when": "use",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.4"
@@ -47991,7 +47991,7 @@
                 },
                 {
                   "bondOfLife": {
-                    "not": {
+                    "NOT": {
                       ">": 0
                     }
                   }
@@ -48003,7 +48003,7 @@
           {
             "when": "use",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.4"
@@ -48011,7 +48011,7 @@
                 },
                 {
                   "bondOfLife": {
-                    "and": [
+                    "AND": [
                       {
                         "<": 1
                       },
@@ -48028,7 +48028,7 @@
           {
             "when": "use",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.4"
@@ -48084,10 +48084,10 @@
         "buff": {
           "filter": {
             "action": {
-              "or": [
+              "OR": [
                 {
                   "damage": {
-                    "and": [
+                    "AND": [
                       {
                         "type": "normalAttack"
                       },
@@ -48751,7 +48751,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.0"
@@ -48759,8 +48759,8 @@
               },
               {
                 "effectStacks": {
-                  "not": {
-                    "has": "aromaticExplication"
+                  "NOT": {
+                    "HAS": "aromaticExplication"
                   }
                 }
               }
@@ -48783,8 +48783,8 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "not": {
-                  "has": "level2"
+                "NOT": {
+                  "HAS": "level2"
                 }
               }
             },
@@ -48795,7 +48795,7 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "has": "level2"
+                "HAS": "level2"
               }
             },
             "cooldown": 1500,
@@ -48841,28 +48841,28 @@
           {
             "when": "interval",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "states": {
                     "aura": {
-                      "has": "burning"
+                      "HAS": "burning"
                     }
                   }
                 },
                 {
                   "effectStacks": {
-                    "and": [
+                    "AND": [
                       {
-                        "has": "lumidouceCase"
+                        "HAS": "lumidouceCase"
                       },
                       {
-                        "not": {
-                          "has": "aromaticExplication"
+                        "NOT": {
+                          "HAS": "aromaticExplication"
                         }
                       },
                       {
-                        "not": {
-                          "has": "level2"
+                        "NOT": {
+                          "HAS": "level2"
                         }
                       }
                     ]
@@ -48879,27 +48879,27 @@
           {
             "when": "interval",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "states": {
                     "aura": {
-                      "has": "burning"
+                      "HAS": "burning"
                     }
                   }
                 },
                 {
                   "effectStacks": {
-                    "and": [
+                    "AND": [
                       {
-                        "has": "lumidouceCase"
+                        "HAS": "lumidouceCase"
                       },
                       {
-                        "not": {
-                          "has": "aromaticExplication"
+                        "NOT": {
+                          "HAS": "aromaticExplication"
                         }
                       },
                       {
-                        "has": "level2"
+                        "HAS": "level2"
                       }
                     ]
                   }
@@ -48988,7 +48988,7 @@
           "filter": {
             "states": {
               "aura": {
-                "has": "burning"
+                "HAS": "burning"
               }
             }
           },
@@ -49500,8 +49500,8 @@
             "ref": "turboTwirly",
             "filter": {
               "effectStacks": {
-                "not": {
-                  "has": "turboTwirly"
+                "NOT": {
+                  "HAS": "turboTwirly"
                 }
               }
             },
@@ -49995,7 +49995,7 @@
             "filter": {
               "states": {
                 "aura": {
-                  "has": "burning"
+                  "HAS": "burning"
                 }
               }
             },
@@ -50528,7 +50528,7 @@
         "ref": "sharkysSurgingBite",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.2"
@@ -50548,7 +50548,7 @@
         "use": {
           "when": "end",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.2"
@@ -51075,7 +51075,7 @@
         "enable": {
           "counts": {
             "element": {
-              "has": "pyro"
+              "HAS": "pyro"
             }
           }
         },
@@ -51094,7 +51094,7 @@
         "enable": {
           "counts": {
             "element": {
-              "has": "hydro"
+              "HAS": "hydro"
             }
           }
         },
@@ -51113,7 +51113,7 @@
         "enable": {
           "counts": {
             "element": {
-              "has": "cryo"
+              "HAS": "cryo"
             }
           }
         },
@@ -51132,7 +51132,7 @@
         "enable": {
           "counts": {
             "element": {
-              "has": "electro"
+              "HAS": "electro"
             }
           }
         },
@@ -51153,7 +51153,7 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "has": "blessing"
+              "HAS": "blessing"
             }
           },
           "statRefs": {
@@ -51214,7 +51214,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -51227,7 +51227,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "blessing"
+                  "HAS": "blessing"
                 }
               }
             ]
@@ -51249,7 +51249,7 @@
         "ref": "a1_2",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -51262,7 +51262,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "blessing"
+                  "HAS": "blessing"
                 }
               }
             ]
@@ -51885,7 +51885,7 @@
         "enable": {
           "counts": {
             "element": {
-              "sum": {
+              "SUM": {
                 "keys": [
                   "pyro",
                   "hydro",
@@ -51911,7 +51911,7 @@
         "enable": {
           "counts": {
             "element": {
-              "sum": {
+              "SUM": {
                 "keys": [
                   "pyro",
                   "hydro",
@@ -51937,7 +51937,7 @@
         "enable": {
           "counts": {
             "element": {
-              "sum": {
+              "SUM": {
                 "keys": [
                   "pyro",
                   "hydro",
@@ -52254,7 +52254,7 @@
         "enable": {
           "counts": {
             "element": {
-              "sum": {
+              "SUM": {
                 "keys": [
                   "pyro",
                   "hydro",
@@ -52280,7 +52280,7 @@
         "enable": {
           "counts": {
             "element": {
-              "sum": {
+              "SUM": {
                 "keys": [
                   "pyro",
                   "hydro",
@@ -52306,7 +52306,7 @@
         "enable": {
           "counts": {
             "element": {
-              "sum": {
+              "SUM": {
                 "keys": [
                   "pyro",
                   "hydro",
@@ -52605,19 +52605,19 @@
         "enable": {
           "counts": {
             "element": {
-              "count": {
+              "COUNT": {
                 "conditions": [
                   {
-                    "has": "pyro"
+                    "HAS": "pyro"
                   },
                   {
-                    "has": "hydro"
+                    "HAS": "hydro"
                   },
                   {
-                    "has": "cryo"
+                    "HAS": "cryo"
                   },
                   {
-                    "has": "electro"
+                    "HAS": "electro"
                   }
                 ],
                 "<": 2
@@ -52638,28 +52638,28 @@
         "enable": {
           "counts": {
             "element": {
-              "and": [
+              "AND": [
                 {
-                  "count": {
+                  "COUNT": {
                     "conditions": [
                       {
-                        "has": "pyro"
+                        "HAS": "pyro"
                       },
                       {
-                        "has": "hydro"
+                        "HAS": "hydro"
                       },
                       {
-                        "has": "cryo"
+                        "HAS": "cryo"
                       },
                       {
-                        "has": "electro"
+                        "HAS": "electro"
                       }
                     ],
                     ">=": 2
                   }
                 },
                 {
-                  "has": "electro"
+                  "HAS": "electro"
                 }
               ]
             }
@@ -52678,32 +52678,32 @@
         "enable": {
           "counts": {
             "element": {
-              "and": [
+              "AND": [
                 {
-                  "count": {
+                  "COUNT": {
                     "conditions": [
                       {
-                        "has": "pyro"
+                        "HAS": "pyro"
                       },
                       {
-                        "has": "hydro"
+                        "HAS": "hydro"
                       },
                       {
-                        "has": "cryo"
+                        "HAS": "cryo"
                       },
                       {
-                        "has": "electro"
+                        "HAS": "electro"
                       }
                     ],
                     ">=": 2
                   }
                 },
                 {
-                  "has": "cryo"
+                  "HAS": "cryo"
                 },
                 {
-                  "not": {
-                    "has": "electro"
+                  "NOT": {
+                    "HAS": "electro"
                   }
                 }
               ]
@@ -52723,32 +52723,32 @@
         "enable": {
           "counts": {
             "element": {
-              "and": [
+              "AND": [
                 {
-                  "count": {
+                  "COUNT": {
                     "conditions": [
                       {
-                        "has": "pyro"
+                        "HAS": "pyro"
                       },
                       {
-                        "has": "hydro"
+                        "HAS": "hydro"
                       },
                       {
-                        "has": "cryo"
+                        "HAS": "cryo"
                       },
                       {
-                        "has": "electro"
+                        "HAS": "electro"
                       }
                     ],
                     ">=": 2
                   }
                 },
                 {
-                  "has": "hydro"
+                  "HAS": "hydro"
                 },
                 {
-                  "not": {
-                    "has": [
+                  "NOT": {
+                    "HAS": [
                       "electro",
                       "cryo"
                     ]
@@ -52771,19 +52771,19 @@
         "enable": {
           "counts": {
             "element": {
-              "count": {
+              "COUNT": {
                 "conditions": [
                   {
-                    "has": "pyro"
+                    "HAS": "pyro"
                   },
                   {
-                    "has": "hydro"
+                    "HAS": "hydro"
                   },
                   {
-                    "has": "cryo"
+                    "HAS": "cryo"
                   },
                   {
-                    "has": "electro"
+                    "HAS": "electro"
                   }
                 ],
                 "==": 1
@@ -52812,19 +52812,19 @@
         "enable": {
           "counts": {
             "element": {
-              "count": {
+              "COUNT": {
                 "conditions": [
                   {
-                    "has": "pyro"
+                    "HAS": "pyro"
                   },
                   {
-                    "has": "hydro"
+                    "HAS": "hydro"
                   },
                   {
-                    "has": "cryo"
+                    "HAS": "cryo"
                   },
                   {
-                    "has": "electro"
+                    "HAS": "electro"
                   }
                 ],
                 "==": 2
@@ -52853,19 +52853,19 @@
         "enable": {
           "counts": {
             "element": {
-              "count": {
+              "COUNT": {
                 "conditions": [
                   {
-                    "has": "pyro"
+                    "HAS": "pyro"
                   },
                   {
-                    "has": "hydro"
+                    "HAS": "hydro"
                   },
                   {
-                    "has": "cryo"
+                    "HAS": "cryo"
                   },
                   {
-                    "has": "electro"
+                    "HAS": "electro"
                   }
                 ],
                 "==": 3
@@ -52894,8 +52894,8 @@
         "enable": {
           "counts": {
             "element": {
-              "not": {
-                "has": [
+              "NOT": {
+                "HAS": [
                   "pyro",
                   "hydro",
                   "cryo",
@@ -52926,7 +52926,7 @@
         "enable": {
           "counts": {
             "element": {
-              "has": "pyro"
+              "HAS": "pyro"
             }
           }
         },
@@ -52964,13 +52964,13 @@
         "enable": {
           "counts": {
             "element": {
-              "and": [
+              "AND": [
                 {
-                  "has": "hydro"
+                  "HAS": "hydro"
                 },
                 {
-                  "not": {
-                    "has": "pyro"
+                  "NOT": {
+                    "HAS": "pyro"
                   }
                 }
               ]
@@ -53011,13 +53011,13 @@
         "enable": {
           "counts": {
             "element": {
-              "and": [
+              "AND": [
                 {
-                  "has": "cryo"
+                  "HAS": "cryo"
                 },
                 {
-                  "not": {
-                    "has": [
+                  "NOT": {
+                    "HAS": [
                       "pyro",
                       "hydro"
                     ]
@@ -53061,13 +53061,13 @@
         "enable": {
           "counts": {
             "element": {
-              "and": [
+              "AND": [
                 {
-                  "has": "electro"
+                  "HAS": "electro"
                 },
                 {
-                  "not": {
-                    "has": [
+                  "NOT": {
+                    "HAS": [
                       "pyro",
                       "hydro",
                       "cryo"
@@ -53922,11 +53922,11 @@
           "by": "$any",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
-                    "or": [
+                    "OR": [
                       {
                         "type": [
                           "electroCharged",
@@ -54038,7 +54038,7 @@
             "when": "hit",
             "field": "offField",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "field": "onField"
                 },
@@ -54563,7 +54563,7 @@
         "use": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.0"
@@ -54654,7 +54654,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.0"
@@ -55419,7 +55419,7 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "has": "opalFire"
+              "HAS": "opalFire"
             }
           },
           "cooldown": 1000,
@@ -55454,7 +55454,7 @@
         "apply": {
           "when": "nightsoulUpdate",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "nightsoul": {
                   "points": {
@@ -55464,7 +55464,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "itzPapa"
+                  "HAS": "itzPapa"
                 }
               }
             ]
@@ -55501,7 +55501,7 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
                   "reaction": [
@@ -55512,7 +55512,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "itzPapa"
+                  "HAS": "itzPapa"
                 }
               }
             ]
@@ -55531,7 +55531,7 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
                   "reaction": [
@@ -55542,7 +55542,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "itzPapa"
+                  "HAS": "itzPapa"
                 }
               }
             ]
@@ -56373,7 +56373,7 @@
           "by": "$ally",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -56388,7 +56388,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "dreamdrifter"
+                  "HAS": "dreamdrifter"
                 }
               }
             ]
@@ -56405,7 +56405,7 @@
         "apply": {
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
                   "reaction": [
@@ -56416,7 +56416,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "dreamdrifter"
+                  "HAS": "dreamdrifter"
                 }
               }
             ]
@@ -56451,7 +56451,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "radiance": "stellarSwirl"
               },
@@ -56479,13 +56479,13 @@
         "stores": "$ally",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "radiance": "stellarSwirl"
               },
               {
                 "effectStates": {
-                  "has": "dreamdrifter"
+                  "HAS": "dreamdrifter"
                 }
               }
             ]
@@ -57039,7 +57039,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -57110,7 +57110,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -57182,7 +57182,7 @@
                 "ref": "preciseMovementRegen",
                 "filter": {
                   "effectStacks": {
-                    "has": "preciseMovement"
+                    "HAS": "preciseMovement"
                   }
                 },
                 "spec": {
@@ -57214,7 +57214,7 @@
                 "ref": "preciseMovementRegen",
                 "filter": {
                   "effectStacks": {
-                    "has": "preciseMovement"
+                    "HAS": "preciseMovement"
                   }
                 },
                 "spec": {
@@ -57268,8 +57268,8 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "not": {
-                  "has": "preciseMovementRegenExtra"
+                "NOT": {
+                  "HAS": "preciseMovementRegenExtra"
                 }
               }
             },
@@ -57283,7 +57283,7 @@
             "when": "interval",
             "filter": {
               "effectStacks": {
-                "has": "preciseMovementRegenExtra"
+                "HAS": "preciseMovementRegenExtra"
               }
             },
             "action": {
@@ -57378,20 +57378,20 @@
         "stores": "$team",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
               {
                 "character": {
-                  "not": {
+                  "NOT": {
                     "id": 10000110
                   }
                 }
               },
               {
                 "effectStacks": {
-                  "has": "preciseMovement"
+                  "HAS": "preciseMovement"
                 }
               }
             ]
@@ -57411,7 +57411,7 @@
           "by": "$ally",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -57458,7 +57458,7 @@
         "apply": {
           "when": "nightsoulUpdate",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "nightsoul": {
@@ -57475,7 +57475,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "kineticEnergyScaleLow"
+                  "HAS": "kineticEnergyScaleLow"
                 }
               }
             ]
@@ -57485,7 +57485,7 @@
         "use": {
           "when": "nightsoulUpdate",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "nightsoul": {
@@ -57497,7 +57497,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "kineticEnergyScaleLow"
+                  "HAS": "kineticEnergyScaleLow"
                 }
               }
             ]
@@ -57869,7 +57869,7 @@
           {
             "when": "nightsoulUpdate",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "normalAttack.4"
@@ -58580,7 +58580,7 @@
         "enable": {
           "counts": {
             "element": {
-              "sum": {
+              "SUM": {
                 "keys": [
                   "hydro",
                   "cryo"
@@ -58615,7 +58615,7 @@
         "enable": {
           "counts": {
             "element": {
-              "sum": {
+              "SUM": {
                 "keys": [
                   "hydro",
                   "cryo"
@@ -58650,7 +58650,7 @@
         "enable": {
           "counts": {
             "element": {
-              "sum": {
+              "SUM": {
                 "keys": [
                   "hydro",
                   "cryo"
@@ -58685,7 +58685,7 @@
         "enable": {
           "counts": {
             "element": {
-              "sum": {
+              "SUM": {
                 "keys": [
                   "hydro",
                   "cryo"
@@ -59139,7 +59139,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.0"
@@ -59148,7 +59148,7 @@
               {
                 "states": {
                   "aura": {
-                    "has": [
+                    "HAS": [
                       "hydro",
                       "pyro",
                       "cryo",
@@ -59637,7 +59637,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.0"
@@ -59673,7 +59673,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.1"
@@ -59681,8 +59681,8 @@
               },
               {
                 "effectStacks": {
-                  "not": {
-                    "has": "voidRifts"
+                  "NOT": {
+                    "HAS": "voidRifts"
                   }
                 }
               }
@@ -59709,7 +59709,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.1"
@@ -59743,7 +59743,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.1"
@@ -59777,7 +59777,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.1"
@@ -59813,7 +59813,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "or": [
+              "OR": [
                 {
                   "reaction": [
                     "frozen",
@@ -59823,7 +59823,7 @@
                   ]
                 },
                 {
-                  "and": [
+                  "AND": [
                     {
                       "reaction": [
                         "swirl",
@@ -59874,9 +59874,9 @@
         "use": {
           "when": "hit",
           "filter": {
-            "or": [
+            "OR": [
               {
-                "and": [
+                "AND": [
                   {
                     "character": {
                       "element": "hydro"
@@ -59892,7 +59892,7 @@
                 ]
               },
               {
-                "and": [
+                "AND": [
                   {
                     "character": {
                       "element": "cryo"
@@ -59923,7 +59923,7 @@
         "ref": "deathsCrossingNA1",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -59933,12 +59933,12 @@
               },
               {
                 "effectStacks": {
-                  "and": [
+                  "AND": [
                     {
                       "deathsCrossing": 1
                     },
                     {
-                      "has": "sevenPhaseFlash"
+                      "HAS": "sevenPhaseFlash"
                     }
                   ]
                 }
@@ -59954,7 +59954,7 @@
         "ref": "deathsCrossingNA2",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -59964,12 +59964,12 @@
               },
               {
                 "effectStacks": {
-                  "and": [
+                  "AND": [
                     {
                       "deathsCrossing": 2
                     },
                     {
-                      "has": "sevenPhaseFlash"
+                      "HAS": "sevenPhaseFlash"
                     }
                   ]
                 }
@@ -59985,7 +59985,7 @@
         "ref": "deathsCrossingNA3",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -59995,12 +59995,12 @@
               },
               {
                 "effectStacks": {
-                  "and": [
+                  "AND": [
                     {
                       "deathsCrossing": 3
                     },
                     {
-                      "has": "sevenPhaseFlash"
+                      "HAS": "sevenPhaseFlash"
                     }
                   ]
                 }
@@ -60016,7 +60016,7 @@
         "ref": "deathsCrossingBurst1",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": [
@@ -60041,7 +60041,7 @@
         "ref": "deathsCrossingBurst2",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": [
@@ -60066,7 +60066,7 @@
         "ref": "deathsCrossingBurst3",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": [
@@ -60910,7 +60910,7 @@
             "by": "$team",
             "when": "reaction",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "reaction": {
                     "reaction": "frozen"
@@ -60918,9 +60918,9 @@
                 },
                 {
                   "effectStacks": {
-                    "and": [
+                    "AND": [
                       {
-                        "has": "favonianFavor"
+                        "HAS": "favonianFavor"
                       },
                       {
                         "benisonStackGain": {
@@ -60954,7 +60954,7 @@
             "by": "$team",
             "when": "reaction",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "reaction": {
                     "reaction": "frozen"
@@ -60962,9 +60962,9 @@
                 },
                 {
                   "effectStacks": {
-                    "and": [
+                    "AND": [
                       {
-                        "has": "favonianFavor"
+                        "HAS": "favonianFavor"
                       },
                       {
                         "benisonStackGain": 1
@@ -61000,7 +61000,7 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -61013,7 +61013,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "benisonStackGain"
+                  "HAS": "benisonStackGain"
                 }
               }
             ]
@@ -61467,7 +61467,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.2"
@@ -61476,7 +61476,7 @@
               {
                 "states": {
                   "aura": {
-                    "has": "lunarCharged"
+                    "HAS": "lunarCharged"
                   }
                 }
               }
@@ -61507,7 +61507,7 @@
         },
         "buff": {
           "filter": {
-            "or": [
+            "OR": [
               {
                 "field": "onField"
               },
@@ -61929,7 +61929,7 @@
           {
             "when": "use",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.1"
@@ -61938,8 +61938,8 @@
                 {
                   "states": {
                     "aura": {
-                      "not": {
-                        "has": "lunarBloom"
+                      "NOT": {
+                        "HAS": "lunarBloom"
                       }
                     }
                   }
@@ -61951,7 +61951,7 @@
           {
             "when": "use",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.1"
@@ -61960,7 +61960,7 @@
                 {
                   "states": {
                     "aura": {
-                      "has": "lunarBloom"
+                      "HAS": "lunarBloom"
                     }
                   }
                 }
@@ -61983,7 +61983,7 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "has": "convertMoonSong"
+              "HAS": "convertMoonSong"
             }
           },
           "commands": [
@@ -62211,7 +62211,7 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "has": "paleHymn"
+              "HAS": "paleHymn"
             }
           },
           "specs": {
@@ -62693,7 +62693,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.0"
@@ -62702,7 +62702,7 @@
               {
                 "states": {
                   "aura": {
-                    "has": "lunarCharged"
+                    "HAS": "lunarCharged"
                   }
                 }
               }
@@ -62718,7 +62718,7 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.3"
@@ -62727,7 +62727,7 @@
               {
                 "states": {
                   "aura": {
-                    "has": "lunarCharged"
+                    "HAS": "lunarCharged"
                   }
                 }
               }
@@ -63461,7 +63461,7 @@
         },
         "buff": {
           "filter": {
-            "or": [
+            "OR": [
               {
                 "field": "onField"
               },
@@ -63484,18 +63484,18 @@
           "when": "hit",
           "field": "offField",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
                 "effectStacks": {
-                  "has": "ducky"
+                  "HAS": "ducky"
                 }
               }
             ]
@@ -63935,7 +63935,7 @@
         "use": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalSkill.1"
@@ -63945,7 +63945,7 @@
                 "states": {
                   "aura": {
                     "lunarBloom": {
-                      "or": [
+                      "OR": [
                         {
                           "verdantDew": {
                             ">": 0
@@ -64679,10 +64679,10 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
-                  "or": [
+                  "OR": [
                     {
                       "reaction": [
                         "burning",
@@ -64690,7 +64690,7 @@
                       ]
                     },
                     {
-                      "and": [
+                      "AND": [
                         {
                           "reaction": "swirl"
                         },
@@ -64700,7 +64700,7 @@
                       ]
                     },
                     {
-                      "and": [
+                      "AND": [
                         {
                           "reaction": "crystallize"
                         },
@@ -64714,7 +64714,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "confirmationOfPurity"
+                  "HAS": "confirmationOfPurity"
                 }
               }
             ]
@@ -64734,7 +64734,7 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
                   "reaction": "burning"
@@ -64742,7 +64742,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "confirmationOfPurity"
+                  "HAS": "confirmationOfPurity"
                 }
               }
             ]
@@ -64762,7 +64762,7 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
                   "reaction": "overloaded"
@@ -64770,7 +64770,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "confirmationOfPurity"
+                  "HAS": "confirmationOfPurity"
                 }
               }
             ]
@@ -64790,10 +64790,10 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
-                  "and": [
+                  "AND": [
                     {
                       "reaction": "swirl"
                     },
@@ -64805,7 +64805,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "confirmationOfPurity"
+                  "HAS": "confirmationOfPurity"
                 }
               }
             ]
@@ -64825,10 +64825,10 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
-                  "and": [
+                  "AND": [
                     {
                       "reaction": "crystallize"
                     },
@@ -64840,7 +64840,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "confirmationOfPurity"
+                  "HAS": "confirmationOfPurity"
                 }
               }
             ]
@@ -64858,7 +64858,7 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -64872,13 +64872,13 @@
               {
                 "states": {
                   "aura": {
-                    "has": "burning"
+                    "HAS": "burning"
                   }
                 }
               },
               {
                 "effectStacks": {
-                  "has": "confirmationOfPurity"
+                  "HAS": "confirmationOfPurity"
                 }
               }
             ]
@@ -66036,7 +66036,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "normalAttack.3"
@@ -66045,8 +66045,8 @@
                 {
                   "states": {
                     "aura": {
-                      "not": {
-                        "has": "lunarBloom"
+                      "NOT": {
+                        "HAS": "lunarBloom"
                       }
                     }
                   }
@@ -66058,7 +66058,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "normalAttack.3"
@@ -66067,7 +66067,7 @@
                 {
                   "states": {
                     "aura": {
-                      "has": "lunarBloom"
+                      "HAS": "lunarBloom"
                     }
                   }
                 }
@@ -66144,8 +66144,8 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "gravityCooldown"
+              "NOT": {
+                "HAS": "gravityCooldown"
               }
             }
           },
@@ -66218,8 +66218,8 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "gravityCooldown"
+              "NOT": {
+                "HAS": "gravityCooldown"
               }
             }
           },
@@ -66292,8 +66292,8 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "gravityCooldown"
+              "NOT": {
+                "HAS": "gravityCooldown"
               }
             }
           },
@@ -66488,7 +66488,7 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "has": "lunarDomain"
+              "HAS": "lunarDomain"
             }
           },
           "stats": {
@@ -67003,7 +67003,7 @@
         "use": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.0"
@@ -67011,7 +67011,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "lunarPhaseShift"
+                  "HAS": "lunarPhaseShift"
                 }
               }
             ]
@@ -67042,7 +67042,7 @@
             "by": "$team",
             "when": "reaction",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "reaction": {
                     "reaction": "lunarCrystallize"
@@ -67819,19 +67819,19 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
               {
                 "action": {
-                  "and": [
+                  "AND": [
                     {
-                      "has": "ownerId"
+                      "HAS": "ownerId"
                     },
                     {
                       "damage": {
-                        "and": [
+                        "AND": [
                           {
                             "element": "geo"
                           },
@@ -67867,19 +67867,19 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
               {
                 "action": {
-                  "and": [
+                  "AND": [
                     {
-                      "has": "ownerId"
+                      "HAS": "ownerId"
                     },
                     {
                       "damage": {
-                        "and": [
+                        "AND": [
                           {
                             "element": "geo"
                           },
@@ -67923,19 +67923,19 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
               {
                 "action": {
-                  "and": [
+                  "AND": [
                     {
-                      "has": "ownerId"
+                      "HAS": "ownerId"
                     },
                     {
                       "damage": {
-                        "and": [
+                        "AND": [
                           {
                             "element": "geo"
                           },
@@ -68009,7 +68009,7 @@
         "enable": {
           "counts": {
             "element": {
-              "sum": {
+              "SUM": {
                 "keys": [
                   "hydro",
                   "geo"
@@ -68044,7 +68044,7 @@
         "enable": {
           "counts": {
             "element": {
-              "sum": {
+              "SUM": {
                 "keys": [
                   "hydro",
                   "geo"
@@ -68079,7 +68079,7 @@
         "enable": {
           "counts": {
             "element": {
-              "sum": {
+              "SUM": {
                 "keys": [
                   "hydro",
                   "geo"
@@ -68174,13 +68174,13 @@
         "stores": "$team",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
               {
                 "effectStacks": {
-                  "has": "orioleSong"
+                  "HAS": "orioleSong"
                 }
               }
             ]
@@ -68746,7 +68746,7 @@
         "enable": {
           "counts": {
             "element": {
-              "has": "pyro"
+              "HAS": "pyro"
             }
           }
         },
@@ -68795,14 +68795,14 @@
         "enable": {
           "counts": {
             "element": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
-                    "has": "pyro"
+                  "NOT": {
+                    "HAS": "pyro"
                   }
                 },
                 {
-                  "has": "hydro"
+                  "HAS": "hydro"
                 }
               ]
             }
@@ -68853,17 +68853,17 @@
         "enable": {
           "counts": {
             "element": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
-                    "has": [
+                  "NOT": {
+                    "HAS": [
                       "pyro",
                       "hydro"
                     ]
                   }
                 },
                 {
-                  "has": "electro"
+                  "HAS": "electro"
                 }
               ]
             }
@@ -68914,10 +68914,10 @@
         "enable": {
           "counts": {
             "element": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
-                    "has": [
+                  "NOT": {
+                    "HAS": [
                       "pyro",
                       "hydro",
                       "electro"
@@ -68925,7 +68925,7 @@
                   }
                 },
                 {
-                  "has": "cryo"
+                  "HAS": "cryo"
                 }
               ]
             }
@@ -68976,17 +68976,17 @@
         "enable": {
           "counts": {
             "element": {
-              "or": [
+              "OR": [
                 {
-                  "and": [
+                  "AND": [
                     {
                       "anemo": {
                         ">=": 2
                       }
                     },
                     {
-                      "not": {
-                        "or": [
+                      "NOT": {
+                        "OR": [
                           {
                             "pyro": {
                               ">=": 2
@@ -69013,16 +69013,16 @@
                   ]
                 },
                 {
-                  "and": [
+                  "AND": [
                     {
-                      "not": {
+                      "NOT": {
                         "anemo": {
                           ">=": 2
                         }
                       }
                     },
                     {
-                      "or": [
+                      "OR": [
                         {
                           "pyro": {
                             ">=": 2
@@ -69053,7 +69053,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -69067,7 +69067,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "sturmUndDrang"
+                  "HAS": "sturmUndDrang"
                 }
               }
             ]
@@ -69081,12 +69081,12 @@
         "enable": {
           "counts": {
             "element": {
-              "and": [
+              "AND": [
                 {
                   "anemo": 2
                 },
                 {
-                  "or": [
+                  "OR": [
                     {
                       "pyro": 2
                     },
@@ -69107,7 +69107,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -69121,7 +69121,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "sturmUndDrang"
+                  "HAS": "sturmUndDrang"
                 }
               }
             ]
@@ -69160,7 +69160,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "damage": {
@@ -69174,7 +69174,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "sturmUndDrang"
+                  "HAS": "sturmUndDrang"
                 }
               }
             ]
@@ -70188,7 +70188,7 @@
           {
             "when": "start",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalBurst.0"
@@ -70196,7 +70196,7 @@
                 },
                 {
                   "effectStacks": {
-                    "has": "masterstroke"
+                    "HAS": "masterstroke"
                   }
                 }
               ]
@@ -70213,15 +70213,15 @@
           "by": "$ally",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
                 "effectStacks": {
-                  "has": "masterstroke"
+                  "HAS": "masterstroke"
                 }
               }
             ]
@@ -70255,7 +70255,7 @@
           "by": "$ally",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
                   "elements": "cryo"
@@ -70263,7 +70263,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "masterstroke"
+                  "HAS": "masterstroke"
                 }
               }
             ]
@@ -70283,7 +70283,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": [
@@ -70959,14 +70959,14 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "or": [
+            "OR": [
               {
                 "action": {
                   "ref": "elementalSkill.0"
                 }
               },
               {
-                "and": [
+                "AND": [
                   {
                     "action": {
                       "ref": "elementalBurst.0"
@@ -70974,8 +70974,8 @@
                   },
                   {
                     "effectStacks": {
-                      "not": {
-                        "has": "standardPowerForm"
+                      "NOT": {
+                        "HAS": "standardPowerForm"
                       }
                     }
                   }
@@ -71014,7 +71014,7 @@
           "filter": {
             "states": {
               "aura": {
-                "has": "lunarCrystallize"
+                "HAS": "lunarCrystallize"
               }
             }
           },
@@ -71038,14 +71038,14 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "or": [
+            "OR": [
               {
                 "action": {
                   "ref": "elementalSkill.1"
                 }
               },
               {
-                "and": [
+                "AND": [
                   {
                     "action": {
                       "ref": "elementalBurst.0"
@@ -71053,7 +71053,7 @@
                   },
                   {
                     "effectStacks": {
-                      "has": "standardPowerForm"
+                      "HAS": "standardPowerForm"
                     }
                   }
                 ]
@@ -71099,7 +71099,7 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "has": [
+              "HAS": [
                 "superPowerForm",
                 "standardPowerForm"
               ]
@@ -71118,7 +71118,7 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "has": [
+              "HAS": [
                 "superPowerForm",
                 "standardPowerForm"
               ]
@@ -71572,14 +71572,14 @@
         },
         "buff": {
           "filter": {
-            "or": [
+            "OR": [
               {
-                "and": [
+                "AND": [
                   {
                     "field": "onField"
                   },
                   {
-                    "or": [
+                    "OR": [
                       {
                         "character": {
                           "hexerei": true
@@ -71587,7 +71587,7 @@
                       },
                       {
                         "effectStacks": {
-                          "has": "observeDone"
+                          "HAS": "observeDone"
                         }
                       }
                     ]
@@ -71595,7 +71595,7 @@
                 ]
               },
               {
-                "and": [
+                "AND": [
                   {
                     "character": {
                       "id": 10000131
@@ -71603,7 +71603,7 @@
                   },
                   {
                     "effectStacks": {
-                      "has": "nicoleGuidanceUpgrade"
+                      "HAS": "nicoleGuidanceUpgrade"
                     }
                   }
                 ]
@@ -71624,17 +71624,17 @@
           "by": "$team",
           "when": "swap",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "character": {
-                  "not": {
-                    "has": "hexerei"
+                  "NOT": {
+                    "HAS": "hexerei"
                   }
                 }
               },
               {
                 "effectStacks": {
-                  "has": "graceOfKenosis"
+                  "HAS": "graceOfKenosis"
                 }
               }
             ]
@@ -71665,16 +71665,16 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "and": [
+                  "AND": [
                     {
-                      "has": "damage"
+                      "HAS": "damage"
                     },
                     {
                       "damage": {
-                        "not": {
+                        "NOT": {
                           "element": "physical"
                         }
                       }
@@ -71684,7 +71684,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "graceOfKenosis"
+                  "HAS": "graceOfKenosis"
                 }
               }
             ]
@@ -71708,13 +71708,13 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               }
             ]
@@ -72122,7 +72122,7 @@
             "when": "reaction",
             "filter": {
               "reaction": {
-                "and": [
+                "AND": [
                   {
                     "reaction": "swirl"
                   },
@@ -72145,7 +72145,7 @@
             "when": "reaction",
             "filter": {
               "reaction": {
-                "and": [
+                "AND": [
                   {
                     "reaction": "swirl"
                   },
@@ -72168,7 +72168,7 @@
             "when": "reaction",
             "filter": {
               "reaction": {
-                "and": [
+                "AND": [
                   {
                     "reaction": "swirl"
                   },
@@ -72191,7 +72191,7 @@
             "when": "reaction",
             "filter": {
               "reaction": {
-                "and": [
+                "AND": [
                   {
                     "reaction": [
                       "swirl",
@@ -72324,7 +72324,7 @@
             "when": "reaction",
             "filter": {
               "reaction": {
-                "and": [
+                "AND": [
                   {
                     "reaction": "swirl"
                   },
@@ -72356,7 +72356,7 @@
             "when": "reaction",
             "filter": {
               "reaction": {
-                "and": [
+                "AND": [
                   {
                     "reaction": "swirl"
                   },
@@ -72388,7 +72388,7 @@
             "when": "reaction",
             "filter": {
               "reaction": {
-                "and": [
+                "AND": [
                   {
                     "reaction": "swirl"
                   },
@@ -72420,7 +72420,7 @@
             "when": "reaction",
             "filter": {
               "reaction": {
-                "and": [
+                "AND": [
                   {
                     "reaction": [
                       "swirl",
@@ -72498,15 +72498,15 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "character": {
-                  "has": "hexerei"
+                  "HAS": "hexerei"
                 }
               },
               {
                 "effectStacks": {
-                  "has": "tollingRally"
+                  "HAS": "tollingRally"
                 }
               }
             ]
@@ -72528,7 +72528,7 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "reaction": {
                   "reaction": [
@@ -72539,12 +72539,12 @@
               },
               {
                 "character": {
-                  "has": "hexerei"
+                  "HAS": "hexerei"
                 }
               },
               {
                 "effectStacks": {
-                  "has": "tollingRally"
+                  "HAS": "tollingRally"
                 }
               }
             ]
@@ -72891,7 +72891,7 @@
           {
             "when": "interval",
             "filter": {
-              "not": {
+              "NOT": {
                 "radiance": [
                   "stellarConduct",
                   "stellarSwirl"
@@ -72924,9 +72924,9 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
+                  "NOT": {
                     "radiance": [
                       "stellarConduct",
                       "stellarSwirl"
@@ -72948,7 +72948,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarConduct"
                 },
@@ -72967,7 +72967,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarSwirl"
                 },
@@ -72990,9 +72990,9 @@
           {
             "when": "end",
             "filter": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
+                  "NOT": {
                     "radiance": [
                       "stellarConduct",
                       "stellarSwirl"
@@ -73011,7 +73011,7 @@
           {
             "when": "end",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarConduct"
                 },
@@ -73027,7 +73027,7 @@
           {
             "when": "end",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarSwirl"
                 },
@@ -73707,7 +73707,7 @@
               "ref": "detonateBeacons",
               "filter": {
                 "effectStacks": {
-                  "has": "gradientBeacon"
+                  "HAS": "gradientBeacon"
                 }
               }
             },
@@ -73735,8 +73735,8 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "detectionCoreMode"
+              "NOT": {
+                "HAS": "detectionCoreMode"
               }
             }
           },
@@ -73750,7 +73750,7 @@
               "ref": "detonateBeacons",
               "filter": {
                 "effectStacks": {
-                  "has": "gradientBeacon"
+                  "HAS": "gradientBeacon"
                 }
               }
             },
@@ -73960,8 +73960,8 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "detectionCoreMode"
+              "NOT": {
+                "HAS": "detectionCoreMode"
               }
             }
           },
@@ -73978,7 +73978,7 @@
             "by": "$team",
             "when": "reaction",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "reaction": {
                     "reaction": "stellarConduct"
@@ -73986,8 +73986,8 @@
                 },
                 {
                   "effectStacks": {
-                    "not": {
-                      "has": "detectionCoreMode"
+                    "NOT": {
+                      "HAS": "detectionCoreMode"
                     }
                   }
                 }
@@ -74000,7 +74000,7 @@
             "by": "$team",
             "when": "reaction",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "reaction": {
                     "reaction": "stellarConduct"
@@ -74008,7 +74008,7 @@
                 },
                 {
                   "effectStacks": {
-                    "has": "detectionCoreMode"
+                    "HAS": "detectionCoreMode"
                   }
                 }
               ]
@@ -74026,10 +74026,10 @@
               "ref": "consumeBeacon",
               "filter": {
                 "effectStacks": {
-                  "and": [
+                  "AND": [
                     {
-                      "not": {
-                        "has": "detectionCoreMode"
+                      "NOT": {
+                        "HAS": "detectionCoreMode"
                       }
                     },
                     {
@@ -74656,7 +74656,7 @@
         "buff": [
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarConduct"
                 },
@@ -74665,10 +74665,10 @@
                 },
                 {
                   "action": {
-                    "and": [
+                    "AND": [
                       {
                         "damage": {
-                          "and": [
+                          "AND": [
                             {
                               "element": "electro"
                             },
@@ -74702,9 +74702,9 @@
           },
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
+                  "NOT": {
                     "radiance": "stellarConduct"
                   }
                 },
@@ -74713,7 +74713,7 @@
                 },
                 {
                   "action": {
-                    "and": [
+                    "AND": [
                       {
                         "damage": {
                           "element": "electro"
@@ -74777,7 +74777,7 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -74790,7 +74790,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "thunderburstShells"
+                  "HAS": "thunderburstShells"
                 }
               }
             ]
@@ -74809,7 +74809,7 @@
               "ref": "impactMomentum",
               "filter": {
                 "effectStacks": {
-                  "has": "c4Efficiency"
+                  "HAS": "c4Efficiency"
                 }
               },
               "spec": {
@@ -74837,7 +74837,7 @@
         "buff": [
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarConduct"
                 },
@@ -74846,10 +74846,10 @@
                 },
                 {
                   "action": {
-                    "and": [
+                    "AND": [
                       {
                         "damage": {
-                          "and": [
+                          "AND": [
                             {
                               "element": "electro"
                             },
@@ -74883,9 +74883,9 @@
           },
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
-                  "not": {
+                  "NOT": {
                     "radiance": "stellarConduct"
                   }
                 },
@@ -74894,7 +74894,7 @@
                 },
                 {
                   "action": {
-                    "and": [
+                    "AND": [
                       {
                         "damage": {
                           "element": "electro"
@@ -75056,12 +75056,12 @@
             "filter": {
               "action": {
                 "damage": {
-                  "and": [
+                  "AND": [
                     {
                       "element": "electro"
                     },
                     {
-                      "not": {
+                      "NOT": {
                         "type": "stellarConduct"
                       }
                     }
@@ -75077,7 +75077,7 @@
             "filter": {
               "action": {
                 "damage": {
-                  "and": [
+                  "AND": [
                     {
                       "element": "electro"
                     },
@@ -75556,7 +75556,7 @@
         "ref": "burstBuff",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "elementalBurst.0"
@@ -75564,7 +75564,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "songOfAgesPast"
+                  "HAS": "songOfAgesPast"
                 }
               }
             ]
@@ -75603,18 +75603,18 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
               {
-                "or": [
+                "OR": [
                   {
-                    "and": [
+                    "AND": [
                       {
                         "states": {
                           "aura": {
-                            "not": {
+                            "NOT": {
                               "stellarSwirl": {
                                 "wanderingVortex": {
                                   ">": 1000
@@ -75627,7 +75627,7 @@
                       {
                         "action": {
                           "damage": {
-                            "and": [
+                            "AND": [
                               {
                                 "element": [
                                   "hydro",
@@ -75650,7 +75650,7 @@
                     ]
                   },
                   {
-                    "and": [
+                    "AND": [
                       {
                         "states": {
                           "aura": {
@@ -75708,18 +75708,18 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "offField"
               },
               {
-                "or": [
+                "OR": [
                   {
-                    "and": [
+                    "AND": [
                       {
                         "states": {
                           "aura": {
-                            "not": {
+                            "NOT": {
                               "stellarSwirl": {
                                 "wanderingVortex": {
                                   ">": 1000
@@ -75732,7 +75732,7 @@
                       {
                         "action": {
                           "damage": {
-                            "and": [
+                            "AND": [
                               {
                                 "element": [
                                   "hydro",
@@ -75755,7 +75755,7 @@
                     ]
                   },
                   {
-                    "and": [
+                    "AND": [
                       {
                         "states": {
                           "aura": {
@@ -76308,7 +76308,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.1"
@@ -76326,7 +76326,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.1"
@@ -76347,7 +76347,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "action": {
                     "ref": "elementalSkill.1"
@@ -76371,7 +76371,7 @@
         "modify": {
           "type": "action",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "radiance": "stellarSwirl"
               },
@@ -76456,7 +76456,7 @@
         "enable": {
           "counts": {
             "element": {
-              "or": [
+              "OR": [
                 {
                   "anemo": {
                     ">=": 2
@@ -76485,14 +76485,14 @@
         "enable": {
           "counts": {
             "element": {
-              "or": [
+              "OR": [
                 {
                   "anemo": {
                     ">=": 3
                   }
                 },
                 {
-                  "and": [
+                  "AND": [
                     {
                       "anemo": {
                         ">=": 2
@@ -76528,8 +76528,8 @@
         "enable": {
           "counts": {
             "element": {
-              "not": {
-                "has": [
+              "NOT": {
+                "HAS": [
                   "pyro",
                   "electro",
                   "hydro",
@@ -77168,7 +77168,7 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": [
@@ -77179,7 +77179,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "huntersMark"
+                  "HAS": "huntersMark"
                 }
               }
             ]
@@ -77272,7 +77272,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "radiance": "stellarConduct"
               },
@@ -77378,7 +77378,7 @@
         "stores": "$team",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -77811,7 +77811,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarConduct"
                 },
@@ -77827,7 +77827,7 @@
           {
             "when": "hit",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarSwirl"
                 },
@@ -77847,7 +77847,7 @@
           {
             "when": "end",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarConduct"
                 },
@@ -77863,7 +77863,7 @@
           {
             "when": "end",
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "radiance": "stellarSwirl"
                 },

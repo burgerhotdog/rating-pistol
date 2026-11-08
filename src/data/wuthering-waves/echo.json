@@ -313,7 +313,7 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "type": "outroSkill"
@@ -321,7 +321,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "heronReady"
+                  "HAS": "heronReady"
                 }
               }
             ]
@@ -493,10 +493,10 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "blessingOfTime"
+                  "HAS": "blessingOfTime"
                 }
               },
               {
@@ -515,8 +515,8 @@
           "when": "start",
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "blessingOfTime"
+              "NOT": {
+                "HAS": "blessingOfTime"
               }
             }
           }
@@ -1246,7 +1246,7 @@
       {
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "echoSkill.0"
@@ -1255,7 +1255,7 @@
               {
                 "states": {
                   "negativeStatuses": {
-                    "has": "spectroFrazzle"
+                    "HAS": "spectroFrazzle"
                   }
                 }
               }
@@ -2022,13 +2022,13 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               }
             ]
@@ -2369,10 +2369,10 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "hyvatiaSummoned"
+                  "HAS": "hyvatiaSummoned"
                 }
               },
               {
@@ -2611,10 +2611,10 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "summoned"
+                  "HAS": "summoned"
                 }
               },
               {
@@ -2709,10 +2709,10 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "tricksterSummoned"
+                  "HAS": "tricksterSummoned"
                 }
               },
               {
@@ -3068,7 +3068,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": "havocBane"
+                  "HAS": "havocBane"
                 }
               }
             }
@@ -3252,7 +3252,7 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "type": "outroSkill"
@@ -3260,7 +3260,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "summoned"
+                  "HAS": "summoned"
                 }
               }
             ]
@@ -3314,7 +3314,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": "electroFlare"
+                  "HAS": "electroFlare"
                 }
               }
             }

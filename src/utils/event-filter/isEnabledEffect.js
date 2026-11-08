@@ -37,16 +37,16 @@ function evaluateSpecial(special, counts, memberIds, ownerElement, teamSize) {
   }
 }
 
-export const isEnabled = (gameId, effect, ownerId, counts, memberIds) => {
+export const isEnabled = (gameId, rawEffect, ownerId, counts, memberIds) => {
   const owner = CHARACTER[gameId][ownerId];
   const ownerElement = owner.element;
   const teamSize = memberIds.length;
 
-  if (effect.enable?.special) {
-    return evaluateSpecial(effect.enable.special, counts, memberIds, ownerElement, teamSize);
+  if (rawEffect.enable?.special) {
+    return evaluateSpecial(rawEffect.enable.special, counts, memberIds, ownerElement, teamSize);
   }
 
-  return evaluateFilter(effect.enable, {
+  return evaluateFilter(rawEffect.enable, {
     owner,
     counts,
     uniqueElementCount: Object.values(counts.element).filter((count) => count > 0).length,

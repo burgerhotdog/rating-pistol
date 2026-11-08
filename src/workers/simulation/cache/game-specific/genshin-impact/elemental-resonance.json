@@ -111,7 +111,7 @@
         "buff": {
           "filter": {
             "states": {
-              "or": [
+              "OR": [
                 {
                   "shielded": {
                     ">": 0
@@ -119,7 +119,7 @@
                 },
                 {
                   "aura": {
-                    "has": "lunarCrystallize"
+                    "HAS": "lunarCrystallize"
                   }
                 }
               ]
@@ -137,10 +137,10 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "states": {
-                  "or": [
+                  "OR": [
                     {
                       "shielded": {
                         ">": 0
@@ -148,7 +148,7 @@
                     },
                     {
                       "aura": {
-                        "has": "lunarCrystallize"
+                        "HAS": "lunarCrystallize"
                       }
                     }
                   ]
@@ -156,7 +156,7 @@
               },
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               }
             ]
@@ -180,7 +180,7 @@
           "filter": {
             "states": {
               "aura": {
-                "has": [
+                "HAS": [
                   "cryo",
                   "frozen"
                 ]
