@@ -158,6 +158,9 @@ Characters:
     Sucrose
         Element must be there at apply time to be absorbed
         No C6
+    Tartaglia
+        A4 doesn't need crit
+        No C4, C6
     Tighnari
         Arrow Charge time not modified by skill
         No C4, C6

@@ -9366,7 +9366,6 @@
     ]
   },
   "10000033": {
-    "disabled": true,
     "name": "Tartaglia",
     "version": 1.1,
     "id": 10000033,
@@ -9381,7 +9380,107 @@
       "hydroDmgBonus%": 0.288
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "riptide",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.6",
+                "elementalBurst.0",
+                "elementalSkill.1",
+                "elementalSkill.2",
+                "elementalSkill.3",
+                "elementalSkill.4",
+                "elementalSkill.5",
+                "elementalSkill.6",
+                "elementalSkill.7"
+              ]
+            }
+          },
+          "duration": 18000
+        }
+      },
+      {
+        "ref": "riptideFlash",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "normalAttack.6"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "riptide"
+                }
+              }
+            ]
+          },
+          "cooldown": 700,
+          "action": "normalAttack.7"
+        }
+      },
+      {
+        "ref": "riptideSlash",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": [
+                    "elementalSkill.1",
+                    "elementalSkill.2",
+                    "elementalSkill.3",
+                    "elementalSkill.4",
+                    "elementalSkill.5",
+                    "elementalSkill.6",
+                    "elementalSkill.7"
+                  ]
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "riptide"
+                }
+              }
+            ]
+          },
+          "cooldown": 1500,
+          "action": "elementalSkill.8"
+        }
+      },
+      {
+        "ref": "riptideBlast",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "and": [
+              {
+                "action": {
+                  "ref": "elementalBurst.1"
+                }
+              },
+              {
+                "effectStacks": {
+                  "has": "riptide"
+                }
+              }
+            ]
+          },
+          "action": "elementalBurst.2",
+          "commands": {
+            "type": "remove",
+            "ref": "riptide"
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Cutting Torrent",
@@ -9576,9 +9675,16 @@
             }
           },
           {
-            "name": "Riptide Flash DMG",
-            "type": "normalAttack",
+            "name": "Riptide Flash",
             "damage": {
+              "type": "normalAttack",
+              "element": "hydro",
+              "gauge": 1,
+              "icd": {
+                "tag": "Riptide",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -9597,15 +9703,18 @@
                     0.2635,
                     0.279,
                     0.2945
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
           },
           {
-            "name": "Riptide Burst DMG",
-            "type": "normalAttack",
+            "name": "Riptide Burst",
             "damage": {
+              "type": "normalAttack",
+              "element": "hydro",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -9663,9 +9772,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Stance Change DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -9690,9 +9800,15 @@
             }
           },
           {
-            "name": "1-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Melee Stance: Normal Attack 1",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -9714,12 +9830,19 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 400
           },
           {
-            "name": "2-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Melee Stance: Normal Attack 2",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -9741,12 +9864,19 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 400
           },
           {
-            "name": "3-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Melee Stance: Normal Attack 3",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -9771,9 +9901,15 @@
             }
           },
           {
-            "name": "4-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Melee Stance: Normal Attack 4",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -9798,9 +9934,15 @@
             }
           },
           {
-            "name": "5-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Melee Stance: Normal Attack 5",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -9825,9 +9967,15 @@
             }
           },
           {
-            "name": "6-Hit DMG",
-            "type": "elementalSkill",
+            "name": "Melee Stance: Normal Attack 6",
+            "type": "normalAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -9871,9 +10019,15 @@
             }
           },
           {
-            "name": "Charged Attack DMG",
-            "type": "elementalSkill",
+            "name": "Melee Stance: Charged Attack",
+            "type": "chargedAttack",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -9914,12 +10068,14 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 700
           },
           {
             "name": "Riptide Slash",
-            "type": "elementalSkill",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -9950,36 +10106,13 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG: Melee",
+            "name": "Elemental Burst (Ranged)",
             "type": "elementalBurst",
+            "restoreEnergy": {
+              "flat": 20
+            },
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    4.64,
-                    4.988,
-                    5.336,
-                    5.8,
-                    6.148,
-                    6.496,
-                    6.96,
-                    7.424,
-                    7.888,
-                    8.352,
-                    8.816,
-                    9.28,
-                    9.86,
-                    10.44,
-                    11.02
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Skill DMG: Ranged",
-            "type": "elementalBurst",
-            "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -10004,9 +10137,38 @@
             }
           },
           {
-            "name": "Riptide Blast DMG",
+            "name": "Elemental Burst (Melee)",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
+              "multipliers": [
+                {
+                  "mv": [
+                    4.64,
+                    4.988,
+                    5.336,
+                    5.8,
+                    6.148,
+                    6.496,
+                    6.96,
+                    7.424,
+                    7.888,
+                    8.352,
+                    8.816,
+                    9.28,
+                    9.86,
+                    10.44,
+                    11.02
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Riptide Blast",
+            "damage": {
+              "type": "elementalBurst",
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -10037,8 +10199,36 @@
       "weaponId": 15507,
       "setCounts": {
         "15029": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.7",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.7",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.7",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.7",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.7",
+        "elementalSkill.1",
+        "elementalSkill.2",
+        "elementalSkill.7"
+      ]
+    },
+    "teamPreset": [
+      10000033,
+      10000023,
+      10000032,
+      10000047
+    ]
   },
   "10000034": {
     "disabled": true,
