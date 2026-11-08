@@ -9,6 +9,8 @@ Characters:
         No constellations
     Baizhu
         No constellations
+    Barbara
+        No A4
     Bennett
         No 70% health restriction for healing
         No C4
@@ -66,7 +68,6 @@ Characters:
         No A1
         No C2, C4, C6
     Illuga
-        Burst affects non-direct dmg too
         No geo construct rule
     Ineffa
         No constellations
@@ -130,6 +131,8 @@ Characters:
     Prune
         Effects are fragile, may need checking
         No constellations
+    Qiqi
+        A4 always 100% chance
     Raiden
         Remember E no snapshot
         E no 20% less for offField proc
@@ -155,6 +158,9 @@ Characters:
     Sucrose
         Element must be there at apply time to be absorbed
         No C6
+    Tartaglia
+        A4 doesn't need crit
+        No C4, C6
     Tighnari
         Arrow Charge time not modified by skill
         No C4, C6

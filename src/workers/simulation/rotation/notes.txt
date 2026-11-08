@@ -2,3 +2,4 @@ to improve:
     healthUpdate
     attackSpd
     unisonResponse
+    bloom doing self dmg

@@ -4,6 +4,32 @@ import { buildTransformativeReactionSnapshot } from '../snapshot';
 import { runApplyEffect, changeBondOfLife, updateHealth } from '../states';
 
 const ruleHandlers = {
+  kavehFireCores(ctx) {
+    const bloomState = ctx.states.aura.bloom;
+    if (!bloomState) return;
+
+    while (bloomState.cores.length > 0) {
+      const core = bloomState.cores.shift();
+
+      if (ctx.states.globalCooldowns.bloom?.length !== 2) {
+        (ctx.states.globalCooldowns.bloom ??= []).push(500);
+
+        if (ctx.saveSnapshots) {
+          ctx.snapshots.push(
+            buildTransformativeReactionSnapshot(ctx, core.ownerId, 'bloom', 'dendro')
+          );
+        }
+
+        ctx.runEffects('hit', {
+          damage: {
+            type: 'bloom',
+            element: 'dendro',
+          },
+        });
+      }
+    }
+  },
+
   oceanHuedClam(ctx, effect) {
     ctx.states.rules['oceanHuedClam'] = {
       ownerId: effect.ownerId,

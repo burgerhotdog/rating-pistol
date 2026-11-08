@@ -12,7 +12,8 @@
     "test": "vitest",
     "rotation": "node scripts/rotation.js",
     "scrape": "node scripts/scrape.js",
-    "modify": "node scripts/modify.js"
+    "modify": "node scripts/modify.js",
+    "search": "node scripts/search.js"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
