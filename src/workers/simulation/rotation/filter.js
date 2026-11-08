@@ -157,7 +157,7 @@ export function createEventFilter(ctx) {
       return evaluateSpecial(ctx, filter.special, effOwnerId, spec);
     }
 
-    return evaluateFilter(filter, {
+    return evaluateFilter({
       ...spec,
       states,
       character: CHARACTER[gameId][fieldId],
@@ -195,6 +195,6 @@ export function createEventFilter(ctx) {
       ...(gameId === WW && {
         unison: states.unison[effOwnerId],
       }),
-    });
+    }, filter);
   }
 }

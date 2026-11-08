@@ -1,27 +1,8 @@
 import { CHARACTER, GI } from '@/data';
 import { evaluateFilter } from './evaluateFilter';
 
-function evaluateSpecial(special, counts, memberIds, ownerElement, teamSize) {
+function evaluateSpecial(special, memberIds, ownerElement) {
   switch (special) {
-    case 'charlotte1':
-    case 'charlotte2':
-    case 'charlotte3': {
-      const required = Number(special.at(-1));
-      const eligible = teamSize - counts.arkhe;
-
-      return eligible === required;
-    }
-
-    case 'vesnaPassive2Non1':
-    case 'vesnaPassive2Non2':
-    case 'vesnaPassive2Non3': {
-      const required = Number(special.at(-1));
-      const eligible = (counts.element.cryo ?? 0) + (counts.element.anemo ?? 0);
-      const non = teamSize - eligible;
-
-      return non >= required;
-    }
-
     case 'chainBreaker1':
     case 'chainBreaker2':
     case 'chainBreaker3':
@@ -32,7 +13,7 @@ function evaluateSpecial(special, counts, memberIds, ownerElement, teamSize) {
         return nightsoul || element !== ownerElement;
       }).length;
 
-      return eligible >= required;
+      return eligible == required;
     }
   }
 }
@@ -43,10 +24,10 @@ export const isEnabled = (gameId, rawEffect, ownerId, counts, memberIds) => {
   const teamSize = memberIds.length;
 
   if (rawEffect.enable?.special) {
-    return evaluateSpecial(rawEffect.enable.special, counts, memberIds, ownerElement, teamSize);
+    return evaluateSpecial(rawEffect.enable.special, memberIds, ownerElement);
   }
 
-  return evaluateFilter(rawEffect.enable, {
+  return evaluateFilter({
     owner,
     counts,
     uniqueElementCount: Object.values(counts.element).filter((count) => count > 0).length,
@@ -57,5 +38,5 @@ export const isEnabled = (gameId, rawEffect, ownerId, counts, memberIds) => {
       ascendantGleam: counts.moonsign >= 2,
       secretRite: counts.hexerei >= 2,
     }),
-  });
+  }, rawEffect.enable);
 };

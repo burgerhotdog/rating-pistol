@@ -24210,20 +24210,18 @@
                 },
                 {
                   "effectStacks": {
-                    "COUNT": {
-                      "conditions": [
-                        {
-                          "HAS": "turret1"
-                        },
-                        {
-                          "HAS": "turret2"
-                        },
-                        {
-                          "HAS": "turret3"
-                        }
-                      ],
-                      "==": 1
-                    }
+                    "COUNT": [
+                      {
+                        "HAS": "turret1"
+                      },
+                      {
+                        "HAS": "turret2"
+                      },
+                      {
+                        "HAS": "turret3"
+                      }
+                    ],
+                    "==": 1
                   }
                 }
               ]
@@ -24256,20 +24254,18 @@
                 },
                 {
                   "effectStacks": {
-                    "COUNT": {
-                      "conditions": [
-                        {
-                          "HAS": "turret1"
-                        },
-                        {
-                          "HAS": "turret2"
-                        },
-                        {
-                          "HAS": "turret3"
-                        }
-                      ],
-                      "==": 2
-                    }
+                    "COUNT": [
+                      {
+                        "HAS": "turret1"
+                      },
+                      {
+                        "HAS": "turret2"
+                      },
+                      {
+                        "HAS": "turret3"
+                      }
+                    ],
+                    "==": 2
                   }
                 }
               ]
@@ -24302,20 +24298,18 @@
                 },
                 {
                   "effectStacks": {
-                    "COUNT": {
-                      "conditions": [
-                        {
-                          "HAS": "turret1"
-                        },
-                        {
-                          "HAS": "turret2"
-                        },
-                        {
-                          "HAS": "turret3"
-                        }
-                      ],
-                      "==": 3
-                    }
+                    "COUNT": [
+                      {
+                        "HAS": "turret1"
+                      },
+                      {
+                        "HAS": "turret2"
+                      },
+                      {
+                        "HAS": "turret3"
+                      }
+                    ],
+                    "==": 3
                   }
                 }
               ]
@@ -42705,6 +42699,7 @@
             "arkhe": 2
           }
         },
+        "ref": "a4_1",
         "buff": {
           "stats": {
             "healingBonus%": 0.05
@@ -42717,6 +42712,7 @@
             "arkhe": 3
           }
         },
+        "ref": "a4_1",
         "buff": {
           "stats": {
             "healingBonus%": 0.1
@@ -42729,6 +42725,7 @@
             "arkhe": 4
           }
         },
+        "ref": "a4_1",
         "buff": {
           "stats": {
             "healingBonus%": 0.15
@@ -42737,8 +42734,15 @@
       },
       {
         "enable": {
-          "special": "charlotte1"
+          "counts": {
+            "DIFF": [
+              "members",
+              "arkhe"
+            ],
+            "==": 1
+          }
         },
+        "ref": "a4_2",
         "buff": {
           "stats": {
             "cryoDmgBonus%": 0.05
@@ -42747,8 +42751,15 @@
       },
       {
         "enable": {
-          "special": "charlotte2"
+          "counts": {
+            "DIFF": [
+              "members",
+              "arkhe"
+            ],
+            "==": 2
+          }
         },
+        "ref": "a4_2",
         "buff": {
           "stats": {
             "cryoDmgBonus%": 0.1
@@ -42757,8 +42768,15 @@
       },
       {
         "enable": {
-          "special": "charlotte3"
+          "counts": {
+            "DIFF": [
+              "members",
+              "arkhe"
+            ],
+            "==": 3
+          }
         },
+        "ref": "a4_2",
         "buff": {
           "stats": {
             "cryoDmgBonus%": 0.15
@@ -51885,15 +51903,13 @@
         "enable": {
           "counts": {
             "element": {
-              "SUM": {
-                "keys": [
-                  "pyro",
-                  "hydro",
-                  "cryo",
-                  "electro"
-                ],
-                "==": 2
-              }
+              "SUM": [
+                "pyro",
+                "hydro",
+                "cryo",
+                "electro"
+              ],
+              "==": 2
             }
           }
         },
@@ -51911,15 +51927,13 @@
         "enable": {
           "counts": {
             "element": {
-              "SUM": {
-                "keys": [
-                  "pyro",
-                  "hydro",
-                  "cryo",
-                  "electro"
-                ],
-                "==": 1
-              }
+              "SUM": [
+                "pyro",
+                "hydro",
+                "cryo",
+                "electro"
+              ],
+              "==": 1
             }
           }
         },
@@ -51937,15 +51951,13 @@
         "enable": {
           "counts": {
             "element": {
-              "SUM": {
-                "keys": [
-                  "pyro",
-                  "hydro",
-                  "cryo",
-                  "electro"
-                ],
-                "==": 0
-              }
+              "SUM": [
+                "pyro",
+                "hydro",
+                "cryo",
+                "electro"
+              ],
+              "==": 0
             }
           }
         },
@@ -52254,15 +52266,13 @@
         "enable": {
           "counts": {
             "element": {
-              "SUM": {
-                "keys": [
-                  "pyro",
-                  "hydro",
-                  "cryo",
-                  "electro"
-                ],
-                "==": 2
-              }
+              "SUM": [
+                "pyro",
+                "hydro",
+                "cryo",
+                "electro"
+              ],
+              "==": 2
             }
           }
         },
@@ -52280,15 +52290,13 @@
         "enable": {
           "counts": {
             "element": {
-              "SUM": {
-                "keys": [
-                  "pyro",
-                  "hydro",
-                  "cryo",
-                  "electro"
-                ],
-                "==": 1
-              }
+              "SUM": [
+                "pyro",
+                "hydro",
+                "cryo",
+                "electro"
+              ],
+              "==": 1
             }
           }
         },
@@ -52306,15 +52314,13 @@
         "enable": {
           "counts": {
             "element": {
-              "SUM": {
-                "keys": [
-                  "pyro",
-                  "hydro",
-                  "cryo",
-                  "electro"
-                ],
-                "==": 0
-              }
+              "SUM": [
+                "pyro",
+                "hydro",
+                "cryo",
+                "electro"
+              ],
+              "==": 0
             }
           }
         },
@@ -52605,23 +52611,21 @@
         "enable": {
           "counts": {
             "element": {
-              "COUNT": {
-                "conditions": [
-                  {
-                    "HAS": "pyro"
-                  },
-                  {
-                    "HAS": "hydro"
-                  },
-                  {
-                    "HAS": "cryo"
-                  },
-                  {
-                    "HAS": "electro"
-                  }
-                ],
-                "<": 2
-              }
+              "COUNT": [
+                {
+                  "HAS": "pyro"
+                },
+                {
+                  "HAS": "hydro"
+                },
+                {
+                  "HAS": "cryo"
+                },
+                {
+                  "HAS": "electro"
+                }
+              ],
+              "<": 2
             }
           }
         },
@@ -52640,23 +52644,21 @@
             "element": {
               "AND": [
                 {
-                  "COUNT": {
-                    "conditions": [
-                      {
-                        "HAS": "pyro"
-                      },
-                      {
-                        "HAS": "hydro"
-                      },
-                      {
-                        "HAS": "cryo"
-                      },
-                      {
-                        "HAS": "electro"
-                      }
-                    ],
-                    ">=": 2
-                  }
+                  "COUNT": [
+                    {
+                      "HAS": "pyro"
+                    },
+                    {
+                      "HAS": "hydro"
+                    },
+                    {
+                      "HAS": "cryo"
+                    },
+                    {
+                      "HAS": "electro"
+                    }
+                  ],
+                  ">=": 2
                 },
                 {
                   "HAS": "electro"
@@ -52680,23 +52682,21 @@
             "element": {
               "AND": [
                 {
-                  "COUNT": {
-                    "conditions": [
-                      {
-                        "HAS": "pyro"
-                      },
-                      {
-                        "HAS": "hydro"
-                      },
-                      {
-                        "HAS": "cryo"
-                      },
-                      {
-                        "HAS": "electro"
-                      }
-                    ],
-                    ">=": 2
-                  }
+                  "COUNT": [
+                    {
+                      "HAS": "pyro"
+                    },
+                    {
+                      "HAS": "hydro"
+                    },
+                    {
+                      "HAS": "cryo"
+                    },
+                    {
+                      "HAS": "electro"
+                    }
+                  ],
+                  ">=": 2
                 },
                 {
                   "HAS": "cryo"
@@ -52725,23 +52725,21 @@
             "element": {
               "AND": [
                 {
-                  "COUNT": {
-                    "conditions": [
-                      {
-                        "HAS": "pyro"
-                      },
-                      {
-                        "HAS": "hydro"
-                      },
-                      {
-                        "HAS": "cryo"
-                      },
-                      {
-                        "HAS": "electro"
-                      }
-                    ],
-                    ">=": 2
-                  }
+                  "COUNT": [
+                    {
+                      "HAS": "pyro"
+                    },
+                    {
+                      "HAS": "hydro"
+                    },
+                    {
+                      "HAS": "cryo"
+                    },
+                    {
+                      "HAS": "electro"
+                    }
+                  ],
+                  ">=": 2
                 },
                 {
                   "HAS": "hydro"
@@ -52771,23 +52769,21 @@
         "enable": {
           "counts": {
             "element": {
-              "COUNT": {
-                "conditions": [
-                  {
-                    "HAS": "pyro"
-                  },
-                  {
-                    "HAS": "hydro"
-                  },
-                  {
-                    "HAS": "cryo"
-                  },
-                  {
-                    "HAS": "electro"
-                  }
-                ],
-                "==": 1
-              }
+              "COUNT": [
+                {
+                  "HAS": "pyro"
+                },
+                {
+                  "HAS": "hydro"
+                },
+                {
+                  "HAS": "cryo"
+                },
+                {
+                  "HAS": "electro"
+                }
+              ],
+              "==": 1
             }
           }
         },
@@ -52812,23 +52808,21 @@
         "enable": {
           "counts": {
             "element": {
-              "COUNT": {
-                "conditions": [
-                  {
-                    "HAS": "pyro"
-                  },
-                  {
-                    "HAS": "hydro"
-                  },
-                  {
-                    "HAS": "cryo"
-                  },
-                  {
-                    "HAS": "electro"
-                  }
-                ],
-                "==": 2
-              }
+              "COUNT": [
+                {
+                  "HAS": "pyro"
+                },
+                {
+                  "HAS": "hydro"
+                },
+                {
+                  "HAS": "cryo"
+                },
+                {
+                  "HAS": "electro"
+                }
+              ],
+              "==": 2
             }
           }
         },
@@ -52853,23 +52847,21 @@
         "enable": {
           "counts": {
             "element": {
-              "COUNT": {
-                "conditions": [
-                  {
-                    "HAS": "pyro"
-                  },
-                  {
-                    "HAS": "hydro"
-                  },
-                  {
-                    "HAS": "cryo"
-                  },
-                  {
-                    "HAS": "electro"
-                  }
-                ],
-                "==": 3
-              }
+              "COUNT": [
+                {
+                  "HAS": "pyro"
+                },
+                {
+                  "HAS": "hydro"
+                },
+                {
+                  "HAS": "cryo"
+                },
+                {
+                  "HAS": "electro"
+                }
+              ],
+              "==": 3
             }
           }
         },
@@ -58580,13 +58572,11 @@
         "enable": {
           "counts": {
             "element": {
-              "SUM": {
-                "keys": [
-                  "hydro",
-                  "cryo"
-                ],
-                "==": 1
-              }
+              "SUM": [
+                "hydro",
+                "cryo"
+              ],
+              "==": 1
             }
           }
         },
@@ -58615,13 +58605,11 @@
         "enable": {
           "counts": {
             "element": {
-              "SUM": {
-                "keys": [
-                  "hydro",
-                  "cryo"
-                ],
-                "==": 2
-              }
+              "SUM": [
+                "hydro",
+                "cryo"
+              ],
+              "==": 2
             }
           }
         },
@@ -58650,13 +58638,11 @@
         "enable": {
           "counts": {
             "element": {
-              "SUM": {
-                "keys": [
-                  "hydro",
-                  "cryo"
-                ],
-                "==": 3
-              }
+              "SUM": [
+                "hydro",
+                "cryo"
+              ],
+              "==": 3
             }
           }
         },
@@ -58685,13 +58671,11 @@
         "enable": {
           "counts": {
             "element": {
-              "SUM": {
-                "keys": [
-                  "hydro",
-                  "cryo"
-                ],
-                "==": 4
-              }
+              "SUM": [
+                "hydro",
+                "cryo"
+              ],
+              "==": 4
             }
           }
         },
@@ -68009,13 +67993,11 @@
         "enable": {
           "counts": {
             "element": {
-              "SUM": {
-                "keys": [
-                  "hydro",
-                  "geo"
-                ],
-                "==": 1
-              }
+              "SUM": [
+                "hydro",
+                "geo"
+              ],
+              "==": 1
             }
           }
         },
@@ -68044,13 +68026,11 @@
         "enable": {
           "counts": {
             "element": {
-              "SUM": {
-                "keys": [
-                  "hydro",
-                  "geo"
-                ],
-                "==": 2
-              }
+              "SUM": [
+                "hydro",
+                "geo"
+              ],
+              "==": 2
             }
           }
         },
@@ -68079,13 +68059,11 @@
         "enable": {
           "counts": {
             "element": {
-              "SUM": {
-                "keys": [
-                  "hydro",
-                  "geo"
-                ],
-                ">=": 3
-              }
+              "SUM": [
+                "hydro",
+                "geo"
+              ],
+              "==": 3
             }
           }
         },
@@ -76552,7 +76530,14 @@
       {
         "ref": "passive2Non1",
         "enable": {
-          "special": "vesnaPassive2Non1"
+          "counts": {
+            "DIFF": [
+              "members",
+              "element.cryo",
+              "element.anemo"
+            ],
+            ">=": 1
+          }
         },
         "buff": {
           "filter": {
@@ -76566,7 +76551,14 @@
       {
         "ref": "passive2Non2",
         "enable": {
-          "special": "vesnaPassive2Non2"
+          "counts": {
+            "DIFF": [
+              "members",
+              "element.cryo",
+              "element.anemo"
+            ],
+            ">=": 2
+          }
         },
         "buff": {
           "filter": {
@@ -76580,7 +76572,14 @@
       {
         "ref": "passive2Non3",
         "enable": {
-          "special": "vesnaPassive2Non3"
+          "counts": {
+            "DIFF": [
+              "members",
+              "element.cryo",
+              "element.anemo"
+            ],
+            ">=": 3
+          }
         },
         "buff": {
           "filter": {

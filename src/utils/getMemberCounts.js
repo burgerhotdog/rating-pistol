@@ -2,6 +2,7 @@ import { CHARACTER, GI } from '@/data';
 
 export function getMemberCounts(gameId, memberIds) {
   const counts = {
+    members: memberIds.length,
     element: {},
     ...(gameId === GI && {
       liyue: 0,
