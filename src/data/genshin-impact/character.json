@@ -1797,7 +1797,6 @@
     ]
   },
   "10000014": {
-    "disabled": true,
     "name": "Barbara",
     "version": 1.0,
     "id": 10000014,
@@ -1812,7 +1811,138 @@
       "hp%": 0.24
     },
     "energy": 80,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "melodyLoop",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 15000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 5000,
+          "action": "elementalSkill.3"
+        }
+      },
+      {
+        "ref": "melodyLoopHitHealing",
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "damage": {
+                      "type": "normalAttack"
+                    }
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "has": "melodyLoop"
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.1"
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "and": [
+                {
+                  "action": {
+                    "damage": {
+                      "type": "chargedAttack"
+                    }
+                  }
+                },
+                {
+                  "effectStacks": {
+                    "has": "melodyLoop"
+                  }
+                }
+              ]
+            },
+            "action": "elementalSkill.2"
+          }
+        ]
+      },
+      {
+        "ref": "melodyLoopContact",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 15000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1500,
+          "action": "elementalSkill.4"
+        }
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "interval",
+          "cooldown": 10000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 1
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "stores": "$team",
+        "buff": {
+          "filter": {
+            "and": [
+              {
+                "field": "onField"
+              },
+              {
+                "effectStacks": {
+                  "has": "melodyLoop"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "hydroDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "action": {
+            "restoreEnergy": {
+              "flat": 1
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Whisper of Water",
@@ -1986,7 +2116,41 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Let the Show Begin: Healing per hit",
+            "name": "Elemental Skill",
+            "type": "elementalSkill",
+            "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": [
+                    0.584,
+                    0.6278,
+                    0.6716,
+                    0.73,
+                    0.7738,
+                    0.8176,
+                    0.876,
+                    0.9344,
+                    0.9928,
+                    1.0512,
+                    1.1096,
+                    1.168,
+                    1.241,
+                    1.314,
+                    1.387
+                  ],
+                  "times": 2
+                }
+              ]
+            }
+          },
+          {
+            "name": "Healing on hit (Normal Attack)",
             "healing": {
               "targets": "$team",
               "attr": "hp",
@@ -2031,8 +2195,54 @@
             }
           },
           {
-            "name": "Let the Show Begin: Continuous Healing",
+            "name": "Healing on hit (Charged Attack)",
             "healing": {
+              "targets": "$team",
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.0075,
+                    0.0081,
+                    0.0086,
+                    0.0094,
+                    0.0099,
+                    0.0105,
+                    0.0112,
+                    0.012,
+                    0.0127,
+                    0.0135,
+                    0.0143,
+                    0.015,
+                    0.0159,
+                    0.0169,
+                    0.0178
+                  ],
+                  "flat": [
+                    72,
+                    79,
+                    87,
+                    96,
+                    105,
+                    114,
+                    125,
+                    135,
+                    147,
+                    159,
+                    172,
+                    185,
+                    199,
+                    213,
+                    228
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Continuous Healing",
+            "healing": {
+              "targets": "$onField",
               "attr": "hp",
               "multipliers": [
                 {
@@ -2075,35 +2285,20 @@
             }
           },
           {
-            "name": "Let the Show Begin: Droplet",
+            "name": "Ring Contact",
             "damage": {
-              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
-                  "mv": [
-                    0.584,
-                    0.6278,
-                    0.6716,
-                    0.73,
-                    0.7738,
-                    0.8176,
-                    0.876,
-                    0.9344,
-                    0.9928,
-                    1.0512,
-                    1.1096,
-                    1.168,
-                    1.241,
-                    1.314,
-                    1.387
-                  ]
+                  "flat": 0
                 }
               ]
             }
-          },
-          {
-            "name": "Let the Show Begin",
-            "type": "elementalSkill"
           }
         ]
       },
@@ -2112,7 +2307,7 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Shining Miracle: Healing",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "healing": {
               "targets": "$team",
@@ -2161,11 +2356,21 @@
       }
     },
     "memberPreset": {
-      "weaponId": 14406,
+      "weaponId": 14302,
       "setCounts": {
         "14004": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000002,
+      10000089,
+      10000014,
+      10000047
+    ]
   },
   "10000015": {
     "name": "Kaeya",
@@ -2996,7 +3201,13 @@
         "normalAttack.2",
         "normalAttack.3"
       ]
-    }
+    },
+    "teamPreset": [
+      10000016,
+      10000060,
+      10000032,
+      10000047
+    ]
   },
   "10000020": {
     "disabled": true,
@@ -7229,9 +7440,9 @@
     },
     "teamPreset": [
       10000029,
-      10000123,
+      10000031,
       10000131,
-      10000047
+      10000090
     ]
   },
   "10000030": {

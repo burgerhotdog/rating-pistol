@@ -9,6 +9,8 @@ Characters:
         No constellations
     Baizhu
         No constellations
+    Barbara
+        No A4
     Bennett
         No 70% health restriction for healing
         No C4
