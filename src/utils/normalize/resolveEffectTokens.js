@@ -1,9 +1,8 @@
 // Keep in sync with the evaluator (or export ARITHMETIC_KEYS from there and import it).
-const ARITHMETIC_KEYS = new Set(['SUM', 'DIFF', 'MUL', 'MIN', 'MAX']);
+const ARITHMETIC_KEYS = new Set(['SUM', 'DIFF', 'MIN', 'MAX']);
 const LOGICAL_KEYS = new Set(['AND', 'OR', 'XOR', 'NOR', 'NOT']);
 
-const isExpressionNode = (node) =>
-  Object.keys(node).some((key) => ARITHMETIC_KEYS.has(key));
+const isExpressionNode = (node) => Object.keys(node).some((key) => ARITHMETIC_KEYS.has(key));
 
 export const resolveEffectTokens = (normalized) => {
   const resolveEffectRef = (ref, ownerId, sourceId) => {

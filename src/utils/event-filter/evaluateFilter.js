@@ -1,5 +1,5 @@
 import { toArray } from '@/utils';
-import { COMPARISON_OPERATORS, compare } from './comparison';
+import { COMPARISON_OPS, compare } from './comparison';
 
 /* ------------------------------------------------------------------ *
  * FILTER GRAMMAR
@@ -29,8 +29,6 @@ import { COMPARISON_OPERATORS, compare } from './comparison';
  * string itself as the node.
  * ------------------------------------------------------------------ */
 
-/* ----------------------------- Logical ----------------------------- */
-
 const LOGICAL = {
   NOT: (context, node)  => !evaluateFilter(context, node),
   AND: (context, nodes) => nodes.every((n) => evaluateFilter(context, n)),
@@ -39,138 +37,100 @@ const LOGICAL = {
   XOR: (context, nodes) => nodes.filter((n) => evaluateFilter(context, n)).length === 1,
 };
 
-/* ---------------------------- Arithmetic --------------------------- */
-
 const ARITHMETIC = {
-  SUM:  (xs) => xs.reduce((a, b) => a + b, 0),
-  DIFF: ([first = 0, ...rest]) => rest.reduce((a, b) => a - b, first),
-  MUL:  (xs) => xs.reduce((a, b) => a * b, 1),
-  MIN:  (xs) => Math.min(...xs),
-  MAX:  (xs) => Math.max(...xs),
+  SUM:  (terms) => terms.reduce((acc, term) => acc + term, 0),
+  DIFF: ([first = 0, ...rest]) => rest.reduce((acc, term) => acc - term, first),
+  MIN:  (terms) => Math.min(...terms),
+  MAX:  (terms) => Math.max(...terms),
 };
 
-const isExprKey = (key) => Object.hasOwn(ARITHMETIC, key);
-const isExprNode = (node) => !Array.isArray(node) && Object.keys(node).some(isExprKey);
+const findArithmeticKey = (obj) => Object.keys(obj).find((key) => key in ARITHMETIC);
 
 // Dotted path lookup, always returns a number (missing -> 0)
 function lookup(context, path) {
-  if (context != null && typeof context === 'object' && Object.hasOwn(context, path)) {
+  if (
+    context != null &&
+    typeof context === 'object' &&
+    Object.hasOwn(context, path)
+  ) {
     return Number(context[path] ?? 0);
   }
+
   const value = path.split('.').reduce((obj, k) => obj?.[k], context);
   return Number(value ?? 0);
 }
 
-// Operand inside an arithmetic list
-function resolveTerm(term, context) {
-  if (typeof term === 'number') return term;
-  if (typeof term === 'string') return lookup(context, term);
-  if (term !== null && typeof term === 'object' && isExprNode(term)) {
-    return resolveValue(term, context);
-  }
-  return Number(evaluateFilter(context, term)); // filter -> 1 or 0
-}
-
 // A bare expression: { SUM: [...] } (no comparisons)
-function resolveValue(expr, context) {
-  const entries = Object.entries(expr);
-  if (entries.length !== 1) {
-    throw new Error(`Nested expression must have exactly one key, found: ${Object.keys(expr)}`);
-  }
+function resolveArithmetic(context, arithmeticKey, rawTerms) {
+  const arithOp = ARITHMETIC[arithmeticKey];
 
-  const [op, args] = entries[0];
-  if (!Array.isArray(args)) {
-    throw new Error(`${op} expects an array of operands`);
-  }
+  const terms = rawTerms.map((rawTerm) => {
+    if (rawTerm == null || Array.isArray(rawTerm)) {
+      throw new Error('invalid term in arithmetic filter');
+    }
 
-  return ARITHMETIC[op](args.map((arg) => resolveTerm(arg, context)));
+    if (typeof rawTerm === 'number') return rawTerm;
+    if (typeof rawTerm === 'string') return lookup(context, rawTerm);
+
+    const termArithmeticKey = findArithmeticKey(rawTerm);
+    if (termArithmeticKey && Object.keys(rawTerm).length === 1) {
+      return resolveArithmetic(context, termArithmeticKey, rawTerm[termArithmeticKey]);
+    }
+
+    return Number(evaluateFilter(context, rawTerm)); // filter -> 1 or 0
+  });
+
+  return arithOp(terms);
 }
 
 // Right side of a comparison inside an expression node
-function resolveRhs(rhs, context) {
-  if (typeof rhs === 'number') return rhs;
-  if (typeof rhs === 'string') return lookup(context, rhs);
-  return resolveValue(rhs, context);
+function resolveRight(context, rawRight) {
+  if (typeof rawRight === 'number') return rawRight;
+  if (typeof rawRight === 'string') return lookup(context, rawRight);
+
+  const [arithmeticKey, rawTerms] = Object.entries(rawRight)[0];
+  return resolveArithmetic(context, arithmeticKey, rawTerms);
 }
 
 // { SUM: [...], ">=": 2, "<=": 3 }
-function evaluateExpressionNode(context, node) {
-  const entries = Object.entries(node);
-  const exprEntries = entries.filter(([key]) => isExprKey(key));
+function evalExprNode(context, exprNode, arithmeticKey) {
+  const left = resolveArithmetic(context, arithmeticKey, exprNode[arithmeticKey]);
 
-  if (exprEntries.length !== 1) {
-    const names = exprEntries.map(([key]) => key).join(', ');
-    throw new Error(`Node has multiple expression keys (${names}); wrap each in AND`);
+  for (const key in exprNode) {
+    if (key === arithmeticKey) continue;
+
+    const comparisonKey = key;
+    const right = resolveRight(context, exprNode[comparisonKey]);
+
+    const result = compare(left, comparisonKey, right);
+    if (!result) return false;
   }
 
-  const [exprKey, args] = exprEntries[0];
-  const comparisons = entries.filter(([key]) => key !== exprKey);
-
-  if (comparisons.length === 0) {
-    throw new Error(`${exprKey} has no comparison`);
-  }
-
-  const bad = comparisons.find(([key]) => !COMPARISON_OPERATORS.has(key));
-  if (bad) {
-    throw new Error(
-      `${exprKey} cannot be combined with "${bad[0]}" in one node; use AND`
-    );
-  }
-
-  const value = resolveValue({ [exprKey]: args }, context);
-
-  return comparisons.every(([op, rhs]) =>
-    compare(value, op, resolveRhs(rhs, context))
-  );
+  return true;
 }
 
 /* ------------------------- Regular filter nodes -------------------- */
 
-// { ">=": 1 } against the current context. Absent context counts as 0.
-function evaluateComparison(context, op, rhs) {
-  if (typeof rhs !== 'number') {
-    throw new Error(
-      `"${op}" in a regular filter needs a number, got ${JSON.stringify(rhs)}; ` +
-      `use an expression node to compare against a path`
-    );
-  }
-
-  const left = context ?? 0;
-  return typeof left === 'number' && compare(left, op, rhs);
-}
-
 // { HAS: "key" } | { HAS: ["a", "b"] } | { HAS: "*" }
-function evaluateHas(target, context) {
+function evaluateHas(context, value) {
   if (context == null) return false;
-
-  if (Array.isArray(target)) {
-    return target.some((key) => Object.hasOwn(context, key));
-  }
-  if (target === '*') {
-    return Object.keys(context).length > 0;
-  }
-  return Object.hasOwn(context, target);
+  if (Array.isArray(value)) return value.some((key) => Object.hasOwn(context, key));
+  if (value === '*') return Object.keys(context).length > 0;
+  return Object.hasOwn(context, value);
 }
-
-function evaluateEntry(context, key, value) {
-  if (key === 'HAS') return evaluateHas(value, context);
-  if (Object.hasOwn(LOGICAL, key)) return LOGICAL[key](context, value);
-  if (COMPARISON_OPERATORS.has(key)) return evaluateComparison(context, key, value);
-
-  // Catch typos like SUMM or ANDD; real context keys aren't all-caps
-  if (/^[A-Z]+$/.test(key)) throw new Error(`Unknown operator: ${key}`);
-
-  return evaluateFilter(context?.[key], value);
-}
-
-/* ----------------------------- Entry point ------------------------- */
 
 export function evaluateFilter(context, node) {
   if (node == null) return true;
   if (typeof node !== 'object') return toArray(context).includes(node);
   if (Array.isArray(node)) return node.some((sub) => evaluateFilter(context, sub));
 
-  if (isExprNode(node)) return evaluateExpressionNode(context, node);
+  const arithmeticKey = findArithmeticKey(node);
+  if (arithmeticKey) return evalExprNode(context, node, arithmeticKey);
 
-  return Object.entries(node).every(([key, value]) => evaluateEntry(context, key, value));
+  return Object.entries(node).every(([key, value]) => {
+    if (key === 'HAS') return evaluateHas(context, value);
+    if (Object.hasOwn(LOGICAL, key)) return LOGICAL[key](context, value);
+    if (COMPARISON_OPS.has(key)) return compare(context, key, value);
+    return evaluateFilter(context?.[key], value);
+  });
 }

@@ -1,4 +1,4 @@
-export const COMPARISON_OPERATORS = new Set(['>', '<', '>=', '<=', '==', '!=']);
+export const COMPARISON_OPS = new Set(['>', '<', '>=', '<=', '==', '!=']);
 
 export function compare(a = 0, op, b) {
   switch (op) {
