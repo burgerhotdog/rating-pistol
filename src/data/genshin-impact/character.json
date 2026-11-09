@@ -42139,7 +42139,27 @@
       {
         "buff": {
           "filter": {
-            "special": "neuvillette1"
+            "AND": [
+              {
+                "action": {
+                  "ref": "normalAttack.4"
+                }
+              },
+              {
+                "effectStacks": {
+                  "SUM": [
+                    "pastDraconicGlories1",
+                    "pastDraconicGlories2",
+                    "pastDraconicGlories3",
+                    "pastDraconicGlories4",
+                    "pastDraconicGlories5",
+                    "pastDraconicGlories6",
+                    "pastDraconicGloriesFree"
+                  ],
+                  "==": 1
+                }
+              }
+            ]
           },
           "stats": {
             "damageMv%": 0.1
@@ -42149,7 +42169,27 @@
       {
         "buff": {
           "filter": {
-            "special": "neuvillette2"
+            "AND": [
+              {
+                "action": {
+                  "ref": "normalAttack.4"
+                }
+              },
+              {
+                "effectStacks": {
+                  "SUM": [
+                    "pastDraconicGlories1",
+                    "pastDraconicGlories2",
+                    "pastDraconicGlories3",
+                    "pastDraconicGlories4",
+                    "pastDraconicGlories5",
+                    "pastDraconicGlories6",
+                    "pastDraconicGloriesFree"
+                  ],
+                  "==": 2
+                }
+              }
+            ]
           },
           "stats": {
             "damageMv%": 0.25
@@ -42159,7 +42199,27 @@
       {
         "buff": {
           "filter": {
-            "special": "neuvillette3"
+            "AND": [
+              {
+                "action": {
+                  "ref": "normalAttack.4"
+                }
+              },
+              {
+                "effectStacks": {
+                  "SUM": [
+                    "pastDraconicGlories1",
+                    "pastDraconicGlories2",
+                    "pastDraconicGlories3",
+                    "pastDraconicGlories4",
+                    "pastDraconicGlories5",
+                    "pastDraconicGlories6",
+                    "pastDraconicGloriesFree"
+                  ],
+                  ">=": 3
+                }
+              }
+            ]
           },
           "stats": {
             "damageMv%": 0.6

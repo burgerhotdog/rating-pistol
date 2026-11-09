@@ -15,24 +15,6 @@ function evaluateSpecial(ctx, special, effOwnerId, spec) {
     case 'baizhu2':
       return ctx.states.memberHealth[onFieldId] >= 0.5;
 
-    case 'neuvillette1':
-    case 'neuvillette2':
-    case 'neuvillette3': {
-      if (spec.action?.ref !== 'normalAttack.4') return false;
-
-      const required = Number(special.at(-1));
-
-      const count = Object.values(ctx.states.memberEffects[10000087])
-        .filter(({ effect }) => effect.ref?.startsWith('pastDraconicGlories'))
-        .length;
-
-      if (required === 3) {
-        return count >= 3;
-      } else {
-        return count === required;
-      }
-    }
-
     case 'furina1':
     case 'furina2':
     case 'furina3':

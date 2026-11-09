@@ -36,8 +36,7 @@ const LOGICAL = {
   AND: (context, nodes) => nodes.every((n) => evaluateFilter(context, n)),
   OR:  (context, nodes) => nodes.some((n) => evaluateFilter(context, n)),
   NOR: (context, nodes) => !nodes.some((n) => evaluateFilter(context, n)),
-  XOR: (context, nodes) =>
-    nodes.filter((n) => evaluateFilter(context, n)).length === 1,
+  XOR: (context, nodes) => nodes.filter((n) => evaluateFilter(context, n)).length === 1,
 };
 
 /* ---------------------------- Arithmetic --------------------------- */
@@ -51,12 +50,13 @@ const ARITHMETIC = {
 };
 
 const isExprKey = (key) => Object.hasOwn(ARITHMETIC, key);
-
-const isExprNode = (node) =>
-  !Array.isArray(node) && Object.keys(node).some(isExprKey);
+const isExprNode = (node) => !Array.isArray(node) && Object.keys(node).some(isExprKey);
 
 // Dotted path lookup, always returns a number (missing -> 0)
 function lookup(context, path) {
+  if (context != null && typeof context === 'object' && Object.hasOwn(context, path)) {
+    return Number(context[path] ?? 0);
+  }
   const value = path.split('.').reduce((obj, k) => obj?.[k], context);
   return Number(value ?? 0);
 }
@@ -75,9 +75,7 @@ function resolveTerm(term, context) {
 function resolveValue(expr, context) {
   const entries = Object.entries(expr);
   if (entries.length !== 1) {
-    throw new Error(
-      `Nested expression must have exactly one key, found: ${Object.keys(expr)}`
-    );
+    throw new Error(`Nested expression must have exactly one key, found: ${Object.keys(expr)}`);
   }
 
   const [op, args] = entries[0];
@@ -174,7 +172,5 @@ export function evaluateFilter(context, node) {
 
   if (isExprNode(node)) return evaluateExpressionNode(context, node);
 
-  return Object.entries(node).every(([key, value]) =>
-    evaluateEntry(context, key, value)
-  );
+  return Object.entries(node).every(([key, value]) => evaluateEntry(context, key, value));
 }
