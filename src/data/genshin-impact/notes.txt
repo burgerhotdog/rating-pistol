@@ -141,6 +141,8 @@ Characters:
         A1 is simulated
         A4 no energy restoration
         No C1, C4, C6
+    Razor
+        No C1
     Rosaria
         C1 assumes always hits
     Sandrone

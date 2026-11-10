@@ -177,7 +177,8 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     effect.buff.every((buff) => buff.stats && !buff.filter) &&
     !effect.apply &&
     !effect.remove &&
-    !rawEffect.stores
+    !rawEffect.stores &&
+    !effect.chance
   ) {
     effect.static = true;
   }
