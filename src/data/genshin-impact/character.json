@@ -15831,7 +15831,6 @@
     ]
   },
   "10000044": {
-    "disabled": true,
     "name": "Xinyan",
     "version": 1.1,
     "id": 10000044,
@@ -15847,7 +15846,163 @@
     },
     "energy": 60,
     "liyue": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "lvl2Shield",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "ref": "lvl3Shield",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalSkill.4"
+        }
+      },
+      {
+        "ref": "burst",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 7,
+          "offset": 250
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 250,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "a4",
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "physicalDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "HAS": "damage"
+            }
+          },
+          "cooldown": 5000,
+          "duration": 5000
+        },
+        "buff": {
+          "stats": {
+            "attackSpd%": 0.12
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "stats": {
+            "critRate%": 1
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "lvl3Shield",
+              "spec": {
+                "duration": 12000,
+                "offset": 2000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "a4",
+              "spec": {
+                "duration": 12000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "rank": 4,
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "physicalResReduction%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "specs": {
+            "atk": {
+              "attr": "def",
+              "step": 1,
+              "value": 0.5
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Dance on Fire",
@@ -15985,7 +16140,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 300
           },
           {
             "name": "Charged Attack: Final",
@@ -16048,9 +16204,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Swing DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -16076,8 +16233,9 @@
           },
           {
             "name": "Shield Level 1 DMG Absorption",
-            "type": "elementalSkill",
-            "damage": {
+            "shield": {
+              "duration": 12000,
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -16096,10 +16254,8 @@
                     2.2109,
                     2.3409,
                     2.471
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     500.5527,
                     550.615,
                     604.8491,
@@ -16122,8 +16278,9 @@
           },
           {
             "name": "Shield Level 2 DMG Absorption",
-            "type": "elementalSkill",
-            "damage": {
+            "shield": {
+              "duration": 12000,
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -16142,10 +16299,8 @@
                     2.601,
                     2.754,
                     2.907
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     588.8856,
                     647.7823,
                     711.5872,
@@ -16168,8 +16323,9 @@
           },
           {
             "name": "Shield Level 3 DMG Absorption",
-            "type": "elementalSkill",
-            "damage": {
+            "shield": {
+              "duration": 12000,
+              "attr": "def",
               "multipliers": [
                 {
                   "mv": [
@@ -16188,10 +16344,8 @@
                     3.06,
                     3.24,
                     3.42
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     692.8066,
                     762.0969,
                     837.1613,
@@ -16214,8 +16368,9 @@
           },
           {
             "name": "DoT",
-            "type": "elementalSkill",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -16246,9 +16401,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "element": "physical",
               "multipliers": [
                 {
                   "mv": [
@@ -16274,8 +16430,14 @@
           },
           {
             "name": "Pyro DoT",
-            "type": "elementalBurst",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst Pyro",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -16302,7 +16464,57 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12406,
+      "setCounts": {
+        "15008": 2,
+        "15018": 2
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.4",
+        "normalAttack.5"
+      ]
+    },
+    "teamPreset": [
+      10000044,
+      10000089,
+      10000150,
+      10000148
+    ]
   },
   "10000045": {
     "name": "Rosaria",

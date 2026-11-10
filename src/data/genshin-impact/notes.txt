@@ -189,6 +189,8 @@ Characters:
         No constellations
     Xilonen
         No constellations
+    Xinyan
+        C1 doesn't need crit
     Xingqiu
         No energy recovery
         3 sword always
