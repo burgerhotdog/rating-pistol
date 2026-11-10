@@ -23,7 +23,6 @@ import {
 import { canSnapshot, buildSnapshot } from './snapshot';
 import { getModifiedAction } from './getModifiedAction';
 import { runRestoreEnergy } from './restoreEnergy';
-import { hasRule } from './rules';
 
 function handleHealing(ctx, action, healingSnapshot) {
   if (!action.healing) return;
@@ -46,7 +45,7 @@ function handleHealing(ctx, action, healingSnapshot) {
       } else if (
         targetId === 10000098 &&
         !(action.ownerId === 10000098 && (action.ref === 'elementalSkill.6' || action.ref === 'elementalSkill.7')) &&
-        hasRule(ctx, 'clorindeNightVigil')
+        ctx.hasRule('clorindeNightVigil')
       ) {
         changeBondOfLife(ctx, targetId, value);
       } else {

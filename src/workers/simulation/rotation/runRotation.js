@@ -6,6 +6,7 @@ import { runAction } from './runAction';
 import { runEffects } from './runEffects';
 import { runCommands } from './runCommands';
 import { resolveSnapshot } from './snapshot';
+import { hasRule } from './rules';
 
 const initBuildMaps = (cache, equipMaps) => {
   const { gameId, memberIds } = cache;
@@ -70,6 +71,7 @@ export const runRotation = (cache, equipMaps, specId, logFilter = false) => {
 
   ctx.attrMaps = initAttrMaps(ctx.buildMaps);
   ctx.eventFilter = createEventFilter(ctx);
+  ctx.hasRule = (rule) => hasRule(ctx, rule);
   ctx.runAction = (action, options) => runAction(ctx, action, options);
   ctx.runEffects = (when, event) => runEffects(ctx, when, event);
   ctx.runCommands = (sourceId, commands, applier) => runCommands(ctx, sourceId, commands, applier);

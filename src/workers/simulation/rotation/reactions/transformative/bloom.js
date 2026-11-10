@@ -1,6 +1,5 @@
 import { buildTransformativeReactionSnapshot } from '../../snapshot';
 import { consumeAura } from '../../states';
-import { hasRule } from '../../rules';
 
 export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
   const auraStore = ctx.states.aura;
@@ -10,10 +9,10 @@ export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
     seedsOfDeceit: 0,
   };
 
-  if (hasRule(ctx, 'seedsOfDeceit')) {
+  if (ctx.hasRule('seedsOfDeceit')) {
     bloomState.seedsOfDeceit++;
   } else {
-    const burstDelay = hasRule(ctx, 'nilouBountifulCores')
+    const burstDelay = ctx.hasRule('nilouBountifulCores')
       ? 400
       : 6000;
 

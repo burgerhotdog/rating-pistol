@@ -3,7 +3,6 @@ import {
   transformativeReactionFormula,
   transformativeReactionUsedAttrs,
 } from '../formula';
-import { hasRule } from '../rules';
 
 export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reactionElement) {
   const mockAction = { damage: { type: rxnKey, element: reactionElement } };
@@ -26,7 +25,7 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
     rxnKey === 'hyperbloom' ||
     rxnKey === 'burgeon'
   ) {
-    if (hasRule(ctx, 'nahidaC2')) {
+    if (ctx.hasRule('nahidaC2')) {
       specialCritRate += 0.2;
     }
   }
@@ -36,7 +35,7 @@ export function buildTransformativeReactionSnapshot(ctx, ownerId, rxnKey, reacti
     rxnKey === 'hyperbloom' ||
     rxnKey === 'burgeon'
   ) {
-    if (hasRule(ctx, 'laumaA1')) {
+    if (ctx.hasRule('laumaA1')) {
       specialCritRate += 0.15;
     }
   }

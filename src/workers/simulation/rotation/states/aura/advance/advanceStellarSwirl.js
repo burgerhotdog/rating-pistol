@@ -1,6 +1,5 @@
 import { applyCryo } from '../../../reactions';
 import { buildElevationSnapshot } from '../../../snapshot';
-import { hasRule } from '../../../rules';
 
 function tickStellarSwirl(ctx, state) {
   if (ctx.saveSnapshots) {
@@ -15,7 +14,7 @@ function tickStellarSwirl(ctx, state) {
   state.vortexTimer = Infinity;
   state.vortexHits = 0;
   state.ownerId = null;
-  if (hasRule(ctx, 'wanderingVortex')) {
+  if (ctx.hasRule('wanderingVortex')) {
     state.wanderingVortex = 6000;
   }
 

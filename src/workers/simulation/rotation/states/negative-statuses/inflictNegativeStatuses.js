@@ -1,6 +1,5 @@
 import { buildSnapshot } from './buildSnapshot';
 import { getStackLimit } from './getStackLimit';
-import { hasRule } from '../../rules';
 
 function inflictGlacioChafe(ctx, stacks) {
   const stackLimit = getStackLimit(ctx, 'glacioChafe');
@@ -15,7 +14,7 @@ function inflictGlacioChafe(ctx, stacks) {
   state.timeLeft = 15000;
 
   if (ctx.saveSnapshots) {
-    const glacioBiteEnabled = hasRule(ctx, 'glacioBite');
+    const glacioBiteEnabled = ctx.hasRule('glacioBite');
     const snapshotState = glacioBiteEnabled ? { ...state, stacks: stackLimit } : state;
     const snapshot = buildSnapshot(ctx, snapshotState);
     ctx.snapshots.push(snapshot);
@@ -28,7 +27,7 @@ function inflictGlacioChafe(ctx, stacks) {
 
 function inflictFusionBurst(ctx, stacks) {
   const stackLimit = getStackLimit(ctx, 'fusionBurst');
-  const aemeathFusionBurstEnabled = hasRule(ctx, 'aemeathFusionBurst');
+  const aemeathFusionBurstEnabled = ctx.hasRule('aemeathFusionBurst');
   const stacksToPop = aemeathFusionBurstEnabled ? 5 : stackLimit;
 
   const state = ctx.states.negativeStatuses.fusionBurst ??= {
@@ -81,7 +80,7 @@ function inflictAeroErosion(ctx, stacks) {
   const state = ctx.states.negativeStatuses.aeroErosion ??= {
     key: 'aeroErosion',
     stacks: 0,
-    timer: hasRule(ctx, 'mandateOfDivinity') ? 1500 : 3000,
+    timer: ctx.hasRule('mandateOfDivinity') ? 1500 : 3000,
     timeLeft: 15000,
   };
 
@@ -90,7 +89,7 @@ function inflictAeroErosion(ctx, stacks) {
 }
 
 function inflictSpectroFrazzle(ctx, stacks) {
-  const heliacalEmberEnabled = hasRule(ctx, 'heliacalEmber');
+  const heliacalEmberEnabled = ctx.hasRule('heliacalEmber');
   const stackLimit = heliacalEmberEnabled ? 60 : getStackLimit(ctx, 'spectroFrazzle');
 
   const state = ctx.states.negativeStatuses.spectroFrazzle ??= {
@@ -158,7 +157,7 @@ export function inflictNegativeStatuses(ctx, action) {
 
     if (
       statusKey === 'spectroFrazzle' &&
-      hasRule(ctx, 'heliacalEmber')
+      ctx.hasRule('heliacalEmber')
     ) {
       ctx.runCommands(1507, [{
         type: 'apply',
@@ -171,7 +170,7 @@ export function inflictNegativeStatuses(ctx, action) {
       statusKey === 'glacioChafe' &&
       ctx.states.onFieldId === 1108 &&
       action.ownerId === 1108 &&
-      hasRule(ctx, 'snowRust2Rule')
+      ctx.hasRule('snowRust2Rule')
     ) {
       const additionalDmg = ctx.cache.member[1108].actions['forteCircuit.1'];
 

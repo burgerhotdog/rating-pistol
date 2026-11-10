@@ -1,11 +1,10 @@
 import { applyCryo } from '../applyGauge';
 import { buildElevationSnapshot } from '../../snapshot';
 import { consumeAura } from '../../states';
-import { hasRule } from '../../rules';
 
 export function reactStellarSwirl(ctx, ownerId, auraKey, gaugeUnits) {
   const auraStore = ctx.states.aura;
-  const hasWV = hasRule(ctx, 'wanderingVortex');
+  const hasWV = ctx.hasRule('wanderingVortex');
 
   const state = auraStore.stellarSwirl ??= {
     reaction: 'stellarSwirl',
