@@ -25,12 +25,12 @@ function tickBurning(ctx, burningState) {
     applyPyro(ctx, 1, burningState.ownerId);
   }
 
-  ctx.runEffects('hit', {
+  ctx.runEffects('hit', { action: {
     damage: {
       type: 'burning',
       element: 'pyro',
     },
-  });
+  }});
 }
 
 export function advanceBurningTimers(ctx, step) {

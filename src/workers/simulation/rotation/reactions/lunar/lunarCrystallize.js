@@ -8,11 +8,11 @@ export function reactLunarCrystallize(ctx, ownerId) {
 
   state.timesLeft--;
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'lunarCrystallize',
     elements: ['geo', 'hydro'],
     ownerId,
-  });
+  }});
 
   if (state.timesLeft === 0) {
     const snapshot = buildElevationSnapshot(ctx, 'lunarCrystallize');

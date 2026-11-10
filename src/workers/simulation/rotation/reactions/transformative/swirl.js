@@ -26,18 +26,18 @@ export function reactSwirl(ctx, ownerId, auraKey, gaugeUnits) {
     excess = consumeAura(auraStore, auraKey, units);
   }
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'swirl',
     elements: [auraElement, 'anemo'],
     ownerId,
-  });
+  }});
 
-  ctx.runEffects('hit', {
+  ctx.runEffects('hit', { action: {
     damage: {
       type: 'swirl',
       element: auraElement,
     },
-  });
+  }});
 
   return excess * 2;
 }

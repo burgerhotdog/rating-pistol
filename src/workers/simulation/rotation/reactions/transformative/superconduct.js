@@ -21,18 +21,18 @@ export function reactSuperconduct(ctx, ownerId, auraKey, gaugeUnits) {
 
   const excess = consumeAura(auraStore, auraKey, gaugeUnits);
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'superconduct',
     elements: ['cryo', 'electro'],
     ownerId,
-  });
+  }});
 
-  ctx.runEffects('hit', {
+  ctx.runEffects('hit', { action: {
     damage: {
       type: 'superconduct',
       element: 'cryo',
     },
-  });
+  }});
 
   return excess;
 }

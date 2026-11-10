@@ -41,5 +41,5 @@ export function updateNightsoulPoints(ctx, action) {
     state.points = 0;
   }
 
-  ctx.runEffects('nightsoulUpdate', action);
+  ctx.runEffects('nightsoulUpdate', { action });
 }

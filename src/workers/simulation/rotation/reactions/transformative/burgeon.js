@@ -9,11 +9,11 @@ export function reactBurgeon(ctx, applier) {
 
   bloomState.cores = [];
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId: applier, reaction: {
     reaction: 'burgeon',
     elements: ['dendro', 'pyro'],
     ownerId: applier,
-  });
+  }});
 
   if (globalCooldowns.burgeon?.length === 2) return;
 
@@ -28,10 +28,10 @@ export function reactBurgeon(ctx, applier) {
     }
   }
 
-  ctx.runEffects('hit', {
+  ctx.runEffects('hit', { action: {
     damage: {
       type: 'burgeon',
       element: 'dendro',
     },
-  });
+  }});
 }

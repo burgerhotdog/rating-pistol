@@ -14,15 +14,15 @@ export function reactShattered(ctx, ownerId) {
 
   delete auraStore.frozen;
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'shattered',
     ownerId,
-  });
+  }});
 
-  ctx.runEffects('hit', {
+  ctx.runEffects('hit', { action: {
     damage: {
       type: 'shattered',
       element: 'physical',
     },
-  });
+  }});
 }

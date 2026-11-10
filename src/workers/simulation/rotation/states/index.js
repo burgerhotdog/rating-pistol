@@ -6,7 +6,7 @@ export * from './shielded';
 
 // GI
 export * from './aura';
-export * from './bond-of-life';
+export * from './bondOfLife';
 export * from './icd';
 export * from './nightsoul';
 

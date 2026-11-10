@@ -1124,7 +1124,10 @@
           "when": "command"
         },
         "use": {
-          "when": "bondOfLifeClear",
+          "when": "bondOfLifeUpdate",
+          "filter": {
+            "bondOfLife": 0
+          },
           "commands": {
             "type": "apply",
             "ref": "clearBolBuff",
@@ -9284,7 +9287,10 @@
           "when": "command"
         },
         "use": {
-          "when": "bondOfLifeClear",
+          "when": "bondOfLifeUpdate",
+          "filter": {
+            "bondOfLife": 0
+          },
           "commands": {
             "type": "apply",
             "ref": "clearBolBuff",

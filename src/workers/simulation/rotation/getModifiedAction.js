@@ -85,7 +85,6 @@ function resolveInfusionPriority(modifiedAction, weaponInfusions) {
 
 export function getModifiedAction(ctx, action) {
   let modifiedAction = { ...action };
-  const filterSpec = { action, fieldId: action.ownerId };
 
   const weaponInfusions = [];
 

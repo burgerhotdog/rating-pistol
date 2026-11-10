@@ -4,9 +4,9 @@ export function reactLunarCharged(ctx, ownerId) {
     timer: 0,
   };
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'lunarCharged',
     elements: ['electro', 'hydro'],
     ownerId,
-  });
+  }});
 }

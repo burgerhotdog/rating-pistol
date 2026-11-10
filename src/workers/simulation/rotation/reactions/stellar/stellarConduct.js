@@ -15,11 +15,11 @@ export function reactStellarConduct(ctx, ownerId, auraKey, gaugeUnits) {
 
   const excess = consumeAura(auraStore, auraKey, gaugeUnits);
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'stellarConduct',
     elements: ['cryo', 'electro'],
     ownerId,
-  });
+  }});
 
   return excess;
 }

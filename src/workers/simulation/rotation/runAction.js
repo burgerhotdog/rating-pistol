@@ -5,9 +5,8 @@ import {
   decayBuffUses,
   updateHealth,
   updateShielded,
-  changeBondOfLife,
+  updateBondOfLife,
   getTargetId,
-  grantBondOfLife,
   tryNightsoulBurst,
   updateNightsoulPoints,
   consumeNegativeStatuses,
@@ -40,25 +39,22 @@ function handleHealing(ctx, action, healingSnapshot) {
     }
 
     if (ctx.cache.gameId === GI) {
-      if (targetId === 10000096) {
+      if (targetId === 10000096) continue;
+
+      if (targetId === 10000098 && ctx.hasRule('clorindeNightVigil')) {
+        updateBondOfLife(ctx, { ownerId: targetId, bondOfLife: value * 0.8 });
         continue;
-      } else if (
-        targetId === 10000098 &&
-        !(action.ownerId === 10000098 && (action.ref === 'elementalSkill.6' || action.ref === 'elementalSkill.7')) &&
-        ctx.hasRule('clorindeNightVigil')
-      ) {
-        changeBondOfLife(ctx, targetId, value);
-      } else {
-        const overflow = changeBondOfLife(ctx, targetId, -value);
-        if (overflow) {
-          updateHealth(ctx, action, targetId, { value: overflow });
-        }
+      }
+
+      const overflow = updateBondOfLife(ctx, { ownerId: targetId, bondOfLife: -value });
+      if (overflow) {
+        updateHealth(ctx, action, targetId, { value: overflow });
       }
     } else {
       updateHealth(ctx, action, targetId, { value });
     }
 
-    ctx.runEffects('healed', { ...action, ownerId: targetId });
+    ctx.runEffects('healed', { ownerId: targetId, action });
   }
 }
 
@@ -81,7 +77,7 @@ export function runAction(ctx, action, options = {}) {
   const { noDuration } = options;
   const { gameId } = ctx.cache;
   const modifiedAction = getModifiedAction(ctx, action);
-  const runEffectsWhen = (when) => ctx.runEffects(when, modifiedAction);
+  const runEffectsWhen = (when) => ctx.runEffects(when, { action: modifiedAction });
   const { duration = 0, hitOffsets = [0] } = modifiedAction;
   let actionRuntime = 0;
 
@@ -141,7 +137,7 @@ export function runAction(ctx, action, options = {}) {
   }
 
   if (gameId === GI) {
-    grantBondOfLife(ctx, modifiedAction);
+    updateBondOfLife(ctx, modifiedAction);
     updateNightsoulPoints(ctx, modifiedAction);
   }
 

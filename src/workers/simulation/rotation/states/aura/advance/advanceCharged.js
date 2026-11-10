@@ -24,12 +24,12 @@ function tickCharged(ctx, chargedState) {
   consumeAura(auraStore, 'electro', 0.4);
   consumeAura(auraStore, 'hydro', 0.4);
 
-  ctx.runEffects('hit', {
+  ctx.runEffects('hit', { action: {
     damage: {
       type: isLunar ? 'lunarCharged' : 'electroCharged',
       element: 'electro',
     },
-  });
+  }});
 }
 
 const getChargedKey = (ctx) => ctx.cache.lunarCharged ? 'lunarCharged' : 'electroCharged';

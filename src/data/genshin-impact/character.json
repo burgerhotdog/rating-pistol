@@ -39870,7 +39870,14 @@
           "when": "healed",
           "filter": {
             "action": {
-              "ref": "elementalBurst.1"
+              "AND": [
+                {
+                  "ownerId": 10000082
+                },
+                {
+                  "ref": "elementalBurst.1"
+                }
+              ]
             }
           },
           "duration": 6000
@@ -48716,22 +48723,11 @@
               "ref": "elementalSkill.0"
             }
           },
-          "duration": 7500,
-          "commands": {
-            "type": "apply",
-            "ref": "nightVigilRule",
-            "spec": {
-              "duration": 7500
-            }
-          }
+          "duration": 7500
         },
         "remove": {
           "when": "swap",
-          "field": "offField",
-          "commands": {
-            "type": "remove",
-            "ref": "nightVigilRule"
-          }
+          "field": "offField"
         },
         "use": [
           {
@@ -48813,7 +48809,12 @@
                 }
               ]
             },
-            "action": "elementalSkill.6"
+            "action": "elementalSkill.6",
+            "commands": {
+              "type": "rule",
+              "ref": "nightVigil",
+              "rule": "clorindeHealBol104"
+            }
           },
           {
             "when": "use",
@@ -48831,7 +48832,12 @@
                 }
               ]
             },
-            "action": "elementalSkill.7"
+            "action": "elementalSkill.7",
+            "commands": {
+              "type": "rule",
+              "ref": "nightVigil",
+              "rule": "clorindeHealBol110"
+            }
           }
         ]
       },
@@ -48839,7 +48845,17 @@
         "ref": "nightVigilRule",
         "stores": "global",
         "apply": {
-          "when": "command"
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 7500
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
         },
         "rule": "clorindeNightVigil"
       },
@@ -49343,14 +49359,6 @@
                   ]
                 }
               ]
-            },
-            "healing": {
-              "attr": "hp",
-              "multipliers": [
-                {
-                  "mv": 1.04
-                }
-              ]
             }
           },
           {
@@ -49383,14 +49391,6 @@
                     0.6716
                   ],
                   "times": 3
-                }
-              ]
-            },
-            "healing": {
-              "attr": "hp",
-              "multipliers": [
-                {
-                  "mv": 1.1
                 }
               ]
             }

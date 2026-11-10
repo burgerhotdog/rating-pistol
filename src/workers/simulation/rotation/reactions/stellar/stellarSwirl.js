@@ -40,11 +40,11 @@ export function reactStellarSwirl(ctx, ownerId, auraKey, gaugeUnits) {
   const units = gaugeUnits / 2;
   const excess = consumeAura(auraStore, auraKey, units);
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'stellarSwirl',
     elements: ['cryo', 'anemo'],
     ownerId,
-  });
+  }});
 
   if (state.vortexHits === 5) {
     if (ctx.saveSnapshots) {

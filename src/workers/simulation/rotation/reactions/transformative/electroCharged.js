@@ -6,9 +6,9 @@ export function reactElectroCharged(ctx, ownerId) {
 
   state.ownerId = ownerId;
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'electroCharged',
     elements: ['electro', 'hydro'],
     ownerId,
-  });
+  }});
 }

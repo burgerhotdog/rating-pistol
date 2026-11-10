@@ -10,11 +10,11 @@ export function reactBurning(ctx, applier, gaugeElement, gaugeUnits) {
 
   applyAura(ctx, gaugeElement, gaugeUnits);
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId: applier, reaction: {
     reaction: 'burning',
     elements: ['pyro', 'dendro'],
     ownerId: applier,
-  });
+  }});
 
   return 0;
 }

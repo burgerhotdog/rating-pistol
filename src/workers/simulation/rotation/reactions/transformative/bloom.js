@@ -34,12 +34,12 @@ export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
         ctx.snapshots.push(snapshot);
       }
 
-      ctx.runEffects('hit', {
+      ctx.runEffects('hit', { action: {
         damage: {
           type: 'bloom',
           element: 'dendro',
         },
-      });
+      }});
     }
   }
 
@@ -47,11 +47,11 @@ export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
 
   const excess = consumeAura(auraStore, auraElement, gaugeUnits * unitsModifier) / unitsModifier;
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId: applier, reaction: {
     reaction: 'bloom',
     elements: ['dendro', 'hydro'],
     ownerId: applier,
-  });
+  }});
 
   return excess;
 }

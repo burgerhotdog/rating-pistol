@@ -75,11 +75,11 @@ function getFlat(ctx, ownerId, action) {
 export function reactAggravate(ctx, ownerId, action) {
   const flat = getFlat(ctx, ownerId, action);
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'aggravate',
     elements: ['dendro', 'electro'],
     ownerId,
-  });
+  }});
 
   return flat;
 }

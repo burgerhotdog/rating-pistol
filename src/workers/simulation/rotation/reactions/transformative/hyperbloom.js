@@ -9,11 +9,11 @@ export function reactHyperbloom(ctx, applier) {
 
   bloomState.cores = [];
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId: applier, reaction: {
     reaction: 'hyperbloom',
     elements: ['dendro', 'electro'],
     ownerId: applier,
-  });
+  }});
 
   if (globalCooldowns.hyperbloom?.length === 2) return;
 
@@ -28,10 +28,10 @@ export function reactHyperbloom(ctx, applier) {
     }
   }
 
-  ctx.runEffects('hit', {
+  ctx.runEffects('hit', { action: {
     damage: {
       type: 'hyperbloom',
       element: 'dendro',
     },
-  });
+  }});
 }

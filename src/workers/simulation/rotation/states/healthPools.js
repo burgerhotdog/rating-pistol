@@ -38,7 +38,7 @@ export function updateHealth(ctx, action, ownerId, spec) {
   if (diff === 0) return;
 
   healthStore[ownerId] = next;
-  ctx.runEffects('healthUpdate', { ...action, ownerId });
+  ctx.runEffects('healthUpdate', { ownerId, action });
 
   if (ctx.hasRule('trackFanfare')) {
     const isC2 = ctx.hasRule('trackFanfareC2');

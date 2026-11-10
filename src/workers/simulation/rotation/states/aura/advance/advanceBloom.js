@@ -22,12 +22,12 @@ export function fireBloomCores(ctx) {
         );
       }
 
-      ctx.runEffects('hit', {
+      ctx.runEffects('hit', { action: {
         damage: {
           type: 'bloom',
           element: 'dendro',
         },
-      });
+      }});
     }
   }
 }

@@ -14,11 +14,11 @@ export function reactFrozen(ctx, ownerId, auraElement, gaugeUnits) {
 
   const excess = consumeAura(auraStore, auraElement, gaugeUnits);
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'frozen',
     elements: ['cryo', 'hydro'],
     ownerId,
-  });
+  }});
 
   return excess;
 }

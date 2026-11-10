@@ -2,7 +2,6 @@ function decayBuffState(ctx, action, state) {
   const { effect, buffCooldown } = state;
   if (buffCooldown) return;
   if (!effect.buff) return;
-  const spec = { action, fieldId: action.ownerId };
   const buff = effect.buff.find((candidate) => {
     if (candidate.field) {
       const ownerField = effect.ownerId === ctx.states.onFieldId ? 'onField' : 'offField';

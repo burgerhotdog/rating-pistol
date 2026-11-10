@@ -24,18 +24,18 @@ export function reactOverloaded(ctx, ownerId, auraElement, gaugeUnits) {
     excess = consumeAura(auraStore, 'electro', gaugeUnits);
   }
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'overloaded',
     elements: ['pyro', 'electro'],
     ownerId,
-  });
+  }});
 
-  ctx.runEffects('hit', {
+  ctx.runEffects('hit', { action: {
     damage: {
       type: 'overloaded',
       element: 'pyro',
     },
-  });
+  }});
 
   return excess;
 }
