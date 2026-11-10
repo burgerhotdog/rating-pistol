@@ -39,7 +39,7 @@ function expireEffectState(ctx, state, storeOwnerId) {
   if (!expire) return;
 
   const filterSpec = { fieldId: storeOwnerId ?? effect.ownerId };
-  if (ctx.eventFilter(expire.filter, effect.ownerId, filterSpec)) {
+  if (ctx.eventFilter(expire.filter, effect.ownerId, {}, storeOwnerId ?? effect.ownerId)) {
     ctx.runCommands(effect.ownerId, expire.commands);
   };
 }
@@ -165,7 +165,7 @@ function fireIntervalUses(ctx, state, storeOwnerId) {
 
   for (const [index, use] of effect.use.entries()) {
     if (use.when !== 'interval') continue;
-    if (!ctx.eventFilter(use.filter, effect.ownerId, filterSpec)) continue;
+    if (!ctx.eventFilter(use.filter, effect.ownerId, {}, storeOwnerId ?? effect.ownerId)) continue;
 
     const spec = {};
     if (effect.snapshotBuffs) {

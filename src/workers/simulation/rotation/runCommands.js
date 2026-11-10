@@ -61,7 +61,7 @@ export function runCommands(ctx, sourceId, commands, applier) {
   const effectDefs = ctx.cache.member[sourceId].effects;
 
   for (const { filter, type, key, spec, rule } of commands) {
-    if (!ctx.eventFilter(filter, sourceId, { fieldId: applier })) continue;
+    if (!ctx.eventFilter(filter, sourceId, {}, applier)) continue;
 
     const effect = effectDefs[key];
     if (!effect) throw new Error(`Could not resolve effect: ${key}`);

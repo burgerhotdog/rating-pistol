@@ -9,7 +9,7 @@ function decayBuffState(ctx, action, state) {
       if (candidate.field !== ownerField) return false;
     }
 
-    return ctx.eventFilter(candidate.filter, effect.ownerId, spec)
+    return ctx.eventFilter(candidate.filter, effect.ownerId, { action }, action.ownerId);
   });
   if (!buff) return;
 

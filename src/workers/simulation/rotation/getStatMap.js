@@ -40,7 +40,7 @@ export const getBuffMap = (ctx, options = {}) => {
         if (candidate.field !== ownerField) return false;
       }
 
-      return ctx.eventFilter(candidate.filter, effect.ownerId, { action, fieldId: memberId });
+      return ctx.eventFilter(candidate.filter, effect.ownerId, { action }, memberId);
     });
     if (!buff) continue;
 

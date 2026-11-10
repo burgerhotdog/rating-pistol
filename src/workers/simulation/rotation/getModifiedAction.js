@@ -95,7 +95,8 @@ export function getModifiedAction(ctx, action) {
 
     const { type, spec } = modify;
     if (type !== 'action') return;
-    if (!ctx.eventFilter(modify.filter, effect.ownerId, filterSpec)) return;
+
+    if (!ctx.eventFilter(modify.filter, effect.ownerId, { action }, action.ownerId)) return;
 
     if (spec.damage?.element) {
       weaponInfusions.push(effect);

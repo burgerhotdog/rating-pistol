@@ -1,12 +1,12 @@
 import { CHARACTER, GI, WW } from '@/data';
 import { evaluateFilter } from '@/utils';
 
-function evaluateSpecial(ctx, special, effOwnerId, spec) {
+function evaluateSpecial(ctx, special, effOwnerId, event, fieldId) {
   const gameId = ctx.cache.gameId
   const onFieldId = ctx.states.onFieldId;
   const ownerElem = CHARACTER[gameId][effOwnerId]?.element;
-  const actionElem = spec.action?.damage?.element;
-  const rxnElems = spec.reaction?.elements ?? [];
+  const actionElem = event.action?.damage?.element;
+  const rxnElems = event.reaction?.elements ?? [];
   const nsState = ctx.states.nightsoul?.[effOwnerId];
 
   switch (special) {
@@ -20,9 +20,9 @@ function evaluateSpecial(ctx, special, effOwnerId, spec) {
     case 'furina3':
     case 'furina4': {
       if (
-        spec.action?.ref !== 'elementalSkill.2' &&
-        spec.action?.ref !== 'elementalSkill.3' &&
-        spec.action?.ref !== 'elementalSkill.4'
+        event.action?.ref !== 'elementalSkill.2' &&
+        event.action?.ref !== 'elementalSkill.3' &&
+        event.action?.ref !== 'elementalSkill.4'
       ) return false;
 
       const required = Number(special.at(-1));
@@ -35,7 +35,7 @@ function evaluateSpecial(ctx, special, effOwnerId, spec) {
     }
 
     case 'iansanMovement': {
-      const { fieldId, action } = spec;
+      const { action } = event;
       if (fieldId !== onFieldId) return false;
       if (!action) return false;
 
@@ -115,12 +115,12 @@ function evaluateSpecial(ctx, special, effOwnerId, spec) {
 
     case 'consumeConcerto': {
       const isCamellyaForte = 
-        spec.action.ownerId === 1603 &&
-        spec.action.ref === 'forteCircuit.1';
+        event.action.ownerId === 1603 &&
+        event.action.ref === 'forteCircuit.1';
 
       const isSuomingForte = 
-        spec.action.ownerId === 1312 &&
-        spec.action.ref === 'resonanceSkill.0';
+        event.action.ownerId === 1312 &&
+        event.action.ref === 'resonanceSkill.0';
 
       return isCamellyaForte || isSuomingForte;
     }
@@ -132,15 +132,13 @@ export function createEventFilter(ctx) {
   const { gameId } = cache;
   const { globalEffects, memberEffects } = states;
 
-  return (filter, effOwnerId, spec = {}) => {
-    const { fieldId } = spec;
-
+  return (filter, effOwnerId, event, fieldId) => {
     if (filter?.special) {
-      return evaluateSpecial(ctx, filter.special, effOwnerId, spec);
+      return evaluateSpecial(ctx, filter.special, effOwnerId, event, fieldId);
     }
 
     return evaluateFilter({
-      ...spec,
+      ...event,
       states,
       character: CHARACTER[gameId][fieldId],
       field: fieldId === states.onFieldId ? 'onField' : 'offField',

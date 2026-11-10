@@ -25,21 +25,9 @@ function selectRemove(ctx, when, state, spec) {
   for (const [index, remove] of effect.remove.entries()) {
     if (remove.when !== when) continue;
     if (!checkBy(ctx, effect, remove.by, eventOwnerId)) continue;
-    if (!ctx.eventFilter(remove.filter, effect.ownerId, spec)) continue;
+    if (!ctx.eventFilter(remove.filter, effect.ownerId, spec, spec.fieldId)) continue;
 
     return { state, index };
-  }
-}
-
-function executeRemove(ctx, state, index, fieldId) {
-  const { effect } = state;
-
-  const remove = effect.remove[index];
-
-  runRemoveEffect(state, remove);
-
-  if (remove.commands) {
-    ctx.runCommands(effect.ownerId, remove.commands, fieldId ?? effect.ownerId);
   }
 }
 
@@ -56,9 +44,60 @@ function selectUse(ctx, when, state, spec) {
     const ownerField = effect.ownerId === ctx.states.onFieldId ? 'onField' : 'offField';
     if (use.field && use.field !== ownerField) continue;
 
-    if (!ctx.eventFilter(use.filter, effect.ownerId, spec)) continue;
+    if (!ctx.eventFilter(use.filter, effect.ownerId, spec, spec.fieldId)) continue;
 
     return { state, index };
+  }
+}
+
+function scanEffects(ctx, when, event, type) {
+  const spec = {
+    ...(event.reaction ? { reaction: event } : { action: event }),
+    fieldId: event.ownerId,
+  };
+
+  const queue = [];
+
+  for (const effectKey in ctx.states.globalEffects) {
+    const state = ctx.states.globalEffects[effectKey];
+
+    const result = type === 'remove'
+      ? selectRemove(ctx, when, state, spec)
+      : selectUse(ctx, when, state, spec);
+
+    if (result) {
+      queue.push({ ...result, fieldId: event.ownerId });
+    }
+  }
+
+  for (const memberId in ctx.states.memberEffects) {
+    const memberStore = ctx.states.memberEffects[memberId];
+
+    for (const effectKey in memberStore) {
+      const state = memberStore[effectKey];
+
+      const result = type === 'remove'
+        ? selectRemove(ctx, when, state, { ...spec, fieldId: event.ownerId ?? Number(memberId) })
+        : selectUse(ctx, when, state, { ...spec, fieldId: event.ownerId ?? Number(memberId) });
+
+      if (result) {
+        queue.push({ ...result, fieldId: event.ownerId ?? Number(memberId) });
+      }
+    }
+  }
+
+  return queue;
+}
+
+function executeRemove(ctx, state, index, fieldId) {
+  const { effect } = state;
+
+  const remove = effect.remove[index];
+
+  runRemoveEffect(state, remove);
+
+  if (remove.commands) {
+    ctx.runCommands(effect.ownerId, remove.commands, fieldId ?? effect.ownerId);
   }
 }
 
@@ -97,7 +136,7 @@ function tryApply(ctx, when, effect, spec) {
     const ownerField = effect.ownerId === states.onFieldId ? 'onField' : 'offField';
     if (apply.field && apply.field !== ownerField) continue;
 
-    if (!ctx.eventFilter(apply.filter, effect.ownerId, { ...spec, fieldId: applier })) continue;
+    if (!ctx.eventFilter(apply.filter, effect.ownerId, spec, applier)) continue;
 
     runApplyEffect(ctx, effect, apply, { applier });
 
@@ -111,96 +150,34 @@ function tryApply(ctx, when, effect, spec) {
 }
 
 export function runEffects(ctx, when, event = {}) {
-  const { cache, states } = ctx;
-  const { gameId } = cache;
-  const { globalEffects, memberEffects } = states;
-
   const spec = {
     ...(event.reaction ? { reaction: event } : { action: event }),
     fieldId: event.ownerId,
   };
 
-  const toRemove = [];
-
-  for (const effectKey in globalEffects) {
-    const state = globalEffects[effectKey];
-    const result = selectRemove(ctx, when, state, spec);
-
-    if (result) {
-      toRemove.push({ ...result, fieldId: event.ownerId });
-    }
-  }
-
-  for (const memberId in memberEffects) {
-    const memberStore = memberEffects[memberId];
-
-    for (const effectKey in memberStore) {
-      const state = memberStore[effectKey];
-      const result = selectRemove(ctx, when, state, {
-        ...spec,
-        fieldId: event.ownerId ?? Number(memberId),
-      });
-
-      if (result) {
-        toRemove.push({
-          ...result,
-          fieldId: event.ownerId ?? Number(memberId),
-        });
-      }
-    }
-  }
-
+  // Handle remove
+  const toRemove = scanEffects(ctx, when, event, 'remove');
   for (const { state, index, fieldId } of toRemove) {
     executeRemove(ctx, state, index, fieldId);
   }
 
-  const toUse = [];
-
-  for (const effectKey in globalEffects) {
-    const state = globalEffects[effectKey];
-    const result = selectUse(ctx, when, state, spec);
-
-    if (result) {
-      toUse.push({
-        ...result,
-        fieldId: event.ownerId,
-      });
-    }
-  }
-
-  for (const memberId in memberEffects) {
-    const memberStore = memberEffects[memberId];
-
-    for (const effectKey in memberStore) {
-      const state = memberStore[effectKey];
-      const result = selectUse(ctx, when, state, {
-        ...spec,
-        fieldId: event.ownerId ?? Number(memberId),
-      });
-
-      if (result) {
-        toUse.push({
-          ...result,
-          fieldId: event.ownerId ?? Number(memberId),
-        });
-      }
-    }
-  }
-
+  // Handle use
+  const toUse = scanEffects(ctx, when, event, 'use');
   for (const { state, index, fieldId } of toUse) {
     executeUse(ctx, state, index, fieldId);
   }
 
-  for (const id in cache.member) {
-    const memberEffectDefs = cache.member[id].effects;
+  // Handle apply
+  for (const id in ctx.cache.member) {
+    const memberEffectDefs = ctx.cache.member[id].effects;
     for (const effectKey in memberEffectDefs) {
       const effect = memberEffectDefs[effectKey];
       tryApply(ctx, when, effect, spec);
     }
   }
 
-  if (gameId === GI) {
-    for (const effect of cache.teamResonance.effects) {
+  if (ctx.cache.gameId === GI) {
+    for (const effect of ctx.cache.teamResonance.effects) {
       tryApply(ctx, when, effect, spec);
     }
   }
