@@ -14190,7 +14190,6 @@
     ]
   },
   "10000041": {
-    "disabled": true,
     "name": "Mona",
     "version": 1.0,
     "id": 10000041,
@@ -14208,7 +14207,7 @@
     "hexerei": true,
     "effects": [
       {
-        "ref": "phantom",
+        "ref": "skill_Phantom",
         "apply": {
           "when": "use",
           "filter": {
@@ -14226,7 +14225,7 @@
         }
       },
       {
-        "ref": "phantomExplosion",
+        "ref": "skill_PhantomExplosion",
         "apply": {
           "when": "use",
           "filter": {
@@ -14256,20 +14255,54 @@
         },
         "use": {
           "by": "$team",
-          "when": "use",
+          "when": "hit",
           "filter": {
-            "action": {
-              "HAS": "damage"
-            }
+            "AND": [
+              {
+                "action": {
+                  "HAS": "damage"
+                }
+              },
+              {
+                "states": {
+                  "aura": {
+                    "NOT": {
+                      "HAS": "frozen"
+                    }
+                  }
+                }
+              }
+            ]
           },
           "action": "elementalBurst.1",
-          "commands": {
-            "type": "apply",
-            "ref": "omenDuration",
-            "spec": {
-              "duration": 5000
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "omen",
+              "spec": {
+                "duration": 5000
+              }
+            },
+            {
+              "type": "use",
+              "ref": "witchsEveRite_unpoppedExtension"
             }
-          }
+          ]
+        },
+        "expire": {
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "omen",
+              "spec": {
+                "duration": 5000
+              }
+            },
+            {
+              "type": "use",
+              "ref": "witchsEveRite_unpoppedExtension"
+            }
+          ]
         }
       },
       {
@@ -14285,19 +14318,13 @@
         },
         "buff": {
           "statRefs": {
-            "dmgBonus%": "elementalBurst.3"
+            "dmgBonus%": "elementalBurst.2"
           }
-        }
-      },
-      {
-        "ref": "omenDuration",
-        "apply": {
-          "when": "command"
         },
         "expire": {
           "commands": {
             "type": "remove",
-            "ref": "omen"
+            "ref": "witchsEveRite_3"
           }
         }
       },
@@ -14317,7 +14344,8 @@
         "enable": {
           "secretRite": true
         },
-        "ref": "witchesEveRite_1",
+        "ref": "witchsEveRite_1",
+        "stores": "$ally",
         "apply": {
           "when": "hit",
           "filter": {
@@ -14333,7 +14361,342 @@
           "cooldown": 100,
           "duration": 8000
         },
+        "buff": {
+          "stats": {
+            "vaporizeReactionBonus%": 0.05
+          }
+        },
         "maxStacks": 3
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "ref": "witchsEveRite_2",
+        "use": {
+          "by": "$ally",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "vaporize"
+            }
+          },
+          "commands": {
+            "type": "remove",
+            "ref": "witchsEveRite_1"
+          }
+        }
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "ref": "witchsEveRite_3",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 4
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 500,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "witchsEveRite_unpoppedExtension",
+              "filter": {
+                "effectStacks": {
+                  "HAS": "illusoryBubble"
+                }
+              },
+              "spec": {
+                "duration": 2000,
+                "extend": true
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "omen",
+              "filter": {
+                "effectStacks": {
+                  "NOT": {
+                    "HAS": "illusoryBubble"
+                  }
+                }
+              },
+              "spec": {
+                "duration": 2000,
+                "extend": true
+              }
+            }
+          ]
+        }
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "ref": "witchsEveRite_unpoppedExtension",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "command",
+          "commands": {
+            "type": "apply",
+            "ref": "omen",
+            "spec": {
+              "duration": 2000,
+              "extend": true
+            }
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "rank": 1,
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "hit",
+          "filter": {
+            "AND": [
+              {
+                "action": {
+                  "HAS": "damage"
+                }
+              },
+              {
+                "effectStacks": {
+                  "HAS": "omen"
+                }
+              }
+            ]
+          },
+          "duration": 8000
+        },
+        "buff": [
+          {
+            "filter": {
+              "action": {
+                "damage": {
+                  "AND": [
+                    {
+                      "type": "swirl"
+                    },
+                    {
+                      "element": "hydro"
+                    }
+                  ]
+                }
+              }
+            },
+            "stats": {
+              "swirlReactionBonus%": 0.15
+            }
+          },
+          {
+            "stats": {
+              "electroChargedReactionBonus%": 0.15,
+              "lunarChargedReactionBonus%": 0.15,
+              "vaporizeReactionBonus%": 0.15,
+              "lunarCrystallizeReactionBonus%": 0.15
+            }
+          }
+        ]
+      },
+      {
+        "rank": 1,
+        "stores": "global",
+        "ref": "c1Enhancement",
+        "apply": {
+          "by": "$team",
+          "when": "hit",
+          "filter": {
+            "AND": [
+              {
+                "field": "offField"
+              },
+              {
+                "action": {
+                  "HAS": "damage"
+                }
+              },
+              {
+                "effectStacks": {
+                  "HAS": "omen"
+                }
+              }
+            ]
+          },
+          "duration": 8000
+        },
+        "buff": [
+          {
+            "filter": {
+              "action": {
+                "damage": {
+                  "AND": [
+                    {
+                      "type": "swirl"
+                    },
+                    {
+                      "element": "hydro"
+                    }
+                  ]
+                }
+              }
+            },
+            "stats": {
+              "swirlReactionBonus%": 0.09
+            }
+          },
+          {
+            "stats": {
+              "electroChargedReactionBonus%": 0.09,
+              "lunarChargedReactionBonus%": 0.09,
+              "vaporizeReactionBonus%": 0.09,
+              "lunarCrystallizeReactionBonus%": 0.09
+            }
+          }
+        ]
+      },
+      {
+        "rank": 2,
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 5000,
+          "uses": 1
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "triggeredCa",
+            "spec": {
+              "uses": 1,
+              "offset": 500
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "ref": "triggeredCa",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "action": "normalAttack.4"
+        }
+      },
+      {
+        "rank": 2,
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 80
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "stores": "$team",
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "HAS": "omen"
+            }
+          },
+          "stats": {
+            "critRate%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "stores": "$team",
+        "buff": {
+          "filter": {
+            "AND": [
+              {
+                "character": {
+                  "HAS": "hexerei"
+                }
+              },
+              {
+                "effectStacks": {
+                  "HAS": "omen"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "critDmg%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "buff": {
+          "filter": {
+            "AND": [
+              {
+                "action": {
+                  "damage": {
+                    "type": "chargedAttack"
+                  }
+                }
+              },
+              {
+                "effectStacks": {
+                  "HAS": "omen"
+                }
+              }
+            ]
+          },
+          "stats": {
+            "damageMv%": 1
+          }
+        }
       }
     ],
     "skills": {
@@ -14684,7 +15047,31 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14401,
+      "setCounts": {
+        "15045": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2"
+      ]
+    },
+    "teamPreset": [
+      10000102,
+      {
+        "id": 10000106,
+        "rotation": [
+          "elementalSkill.0",
+          "elementalBurst.0"
+        ]
+      },
+      10000041,
+      10000043
+    ]
   },
   "10000042": {
     "name": "Keqing",

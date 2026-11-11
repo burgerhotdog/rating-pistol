@@ -101,7 +101,7 @@ Characters:
         No A4 decay
     Mona
         Omen duration not skill level reliant
-        witchsEveRite_1 not done
+        C6 first half not enabled
     Mika
         No C1
         No C4
