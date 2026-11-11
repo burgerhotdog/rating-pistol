@@ -14493,16 +14493,32 @@
           {
             "filter": {
               "action": {
-                "damage": {
-                  "AND": [
-                    {
-                      "type": "swirl"
-                    },
-                    {
-                      "element": "hydro"
+                "AND": [
+                  {
+                    "damage": {
+                      "AND": [
+                        {
+                          "type": "swirl"
+                        },
+                        {
+                          "element": "hydro"
+                        }
+                      ]
                     }
-                  ]
-                }
+                  },
+                  {
+                    "NOT": {
+                      "AND": [
+                        {
+                          "ownerId": 10000041
+                        },
+                        {
+                          "ref": "elementalBurst.1"
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             },
             "stats": {
@@ -14510,6 +14526,20 @@
             }
           },
           {
+            "filter": {
+              "action": {
+                "NOT": {
+                  "AND": [
+                    {
+                      "ownerId": 10000041
+                    },
+                    {
+                      "ref": "elementalBurst.1"
+                    }
+                  ]
+                }
+              }
+            },
             "stats": {
               "electroChargedReactionBonus%": 0.15,
               "lunarChargedReactionBonus%": 0.15,
@@ -14549,16 +14579,32 @@
           {
             "filter": {
               "action": {
-                "damage": {
-                  "AND": [
-                    {
-                      "type": "swirl"
-                    },
-                    {
-                      "element": "hydro"
+                "AND": [
+                  {
+                    "damage": {
+                      "AND": [
+                        {
+                          "type": "swirl"
+                        },
+                        {
+                          "element": "hydro"
+                        }
+                      ]
                     }
-                  ]
-                }
+                  },
+                  {
+                    "NOT": {
+                      "AND": [
+                        {
+                          "ownerId": 10000041
+                        },
+                        {
+                          "ref": "elementalBurst.1"
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             },
             "stats": {
@@ -14566,6 +14612,20 @@
             }
           },
           {
+            "filter": {
+              "action": {
+                "NOT": {
+                  "AND": [
+                    {
+                      "ownerId": 10000041
+                    },
+                    {
+                      "ref": "elementalBurst.1"
+                    }
+                  ]
+                }
+              }
+            },
             "stats": {
               "electroChargedReactionBonus%": 0.09,
               "lunarChargedReactionBonus%": 0.09,
