@@ -1,5 +1,17 @@
 import { buildTransformativeReactionSnapshot } from '../../snapshot';
 
+const burgeonAction = {
+  damage: {
+    type: 'burgeon',
+    element: 'dendro',
+  },
+};
+
+const burgeonReaction = {
+  reaction: 'burgeon',
+  elements: ['dendro', 'pyro'],
+};
+
 export function reactBurgeon(ctx, applier) {
   const { aura, globalCooldowns } = ctx.states;
 
@@ -9,11 +21,7 @@ export function reactBurgeon(ctx, applier) {
 
   bloomState.cores = [];
 
-  ctx.runEffects('reaction', { ownerId: applier, reaction: {
-    reaction: 'burgeon',
-    elements: ['dendro', 'pyro'],
-    ownerId: applier,
-  }});
+  ctx.runEffects('reaction', { ownerId: applier, reaction: burgeonReaction });
 
   if (globalCooldowns.burgeon?.length === 2) return;
 
@@ -28,10 +36,5 @@ export function reactBurgeon(ctx, applier) {
     }
   }
 
-  ctx.runEffects('hit', { action: {
-    damage: {
-      type: 'burgeon',
-      element: 'dendro',
-    },
-  }});
+  ctx.runEffects('hit', { action: burgeonAction });
 }

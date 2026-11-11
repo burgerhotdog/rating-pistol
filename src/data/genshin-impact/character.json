@@ -14206,7 +14206,136 @@
     },
     "energy": 60,
     "hexerei": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "phantom",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 4,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "phantomExplosion",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 1,
+          "offset": 5000
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "ref": "illusoryBubble",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 8000,
+          "uses": 1
+        },
+        "use": {
+          "by": "$team",
+          "when": "use",
+          "filter": {
+            "action": {
+              "HAS": "damage"
+            }
+          },
+          "action": "elementalBurst.1",
+          "commands": {
+            "type": "apply",
+            "ref": "omenDuration",
+            "spec": {
+              "duration": 5000
+            }
+          }
+        }
+      },
+      {
+        "ref": "omen",
+        "stores": "global",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          }
+        },
+        "buff": {
+          "statRefs": {
+            "dmgBonus%": "elementalBurst.3"
+          }
+        }
+      },
+      {
+        "ref": "omenDuration",
+        "apply": {
+          "when": "command"
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "omen"
+          }
+        }
+      },
+      {
+        "ref": "a4",
+        "buff": {
+          "specs": {
+            "hydroDmgBonus%": {
+              "attr": "energyRecharge%",
+              "step": 1,
+              "value": 0.2
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "ref": "witchesEveRite_1",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 8000
+        },
+        "maxStacks": 3
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Ripple of Fate",
@@ -14380,9 +14509,19 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "DoT",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Phantom",
             "damage": {
               "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -14410,6 +14549,7 @@
             "name": "Explosion",
             "damage": {
               "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -14432,10 +14572,6 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Mirror Reflection of Doom",
-            "type": "elementalSkill"
           }
         ]
       },
@@ -14444,9 +14580,32 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Illusory Bubble Explosion",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "flat": 0
+                }
+              ]
+            }
+          },
+          {
+            "name": "Illusory Bubble Explosion",
+            "damage": {
+              "type": "elementalBurst",
+              "gauge": 2,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -14472,11 +14631,10 @@
           },
           {
             "name": "DMG Bonus",
-            "type": "buff",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.42,
                     0.44,
                     0.46,
@@ -14499,11 +14657,10 @@
           },
           {
             "name": "Omen Duration",
-            "type": "buff",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     4,
                     4,
                     4,

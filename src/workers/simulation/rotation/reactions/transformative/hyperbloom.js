@@ -1,5 +1,17 @@
 import { buildTransformativeReactionSnapshot } from '../../snapshot';
 
+const hyperbloomAction = {
+  damage: {
+    type: 'hyperbloom',
+    element: 'dendro',
+  },
+};
+
+const hyperbloomReaction = {
+  reaction: 'hyperbloom',
+  elements: ['dendro', 'electro'],
+};
+
 export function reactHyperbloom(ctx, applier) {
   const { aura, globalCooldowns } = ctx.states;
 
@@ -9,11 +21,7 @@ export function reactHyperbloom(ctx, applier) {
 
   bloomState.cores = [];
 
-  ctx.runEffects('reaction', { ownerId: applier, reaction: {
-    reaction: 'hyperbloom',
-    elements: ['dendro', 'electro'],
-    ownerId: applier,
-  }});
+  ctx.runEffects('reaction', { ownerId: applier, reaction: hyperbloomReaction });
 
   if (globalCooldowns.hyperbloom?.length === 2) return;
 
@@ -28,10 +36,5 @@ export function reactHyperbloom(ctx, applier) {
     }
   }
 
-  ctx.runEffects('hit', { action: {
-    damage: {
-      type: 'hyperbloom',
-      element: 'dendro',
-    },
-  }});
+  ctx.runEffects('hit', { action: hyperbloomAction });
 }

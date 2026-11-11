@@ -1,5 +1,16 @@
 import { buildTransformativeReactionSnapshot } from '../../snapshot';
 
+const shatteredAction = {
+  damage: {
+    type: 'shattered',
+    element: 'physical',
+  },
+};
+
+const shatteredReaction = {
+  reaction: 'shattered',
+};
+
 export function reactShattered(ctx, ownerId) {
   const auraStore = ctx.states.aura;
 
@@ -14,15 +25,6 @@ export function reactShattered(ctx, ownerId) {
 
   delete auraStore.frozen;
 
-  ctx.runEffects('reaction', { ownerId, reaction: {
-    reaction: 'shattered',
-    ownerId,
-  }});
-
-  ctx.runEffects('hit', { action: {
-    damage: {
-      type: 'shattered',
-      element: 'physical',
-    },
-  }});
+  ctx.runEffects('reaction', { ownerId, reaction: shatteredReaction });
+  ctx.runEffects('hit', { action: shatteredAction });
 }

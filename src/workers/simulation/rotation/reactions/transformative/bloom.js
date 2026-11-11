@@ -1,6 +1,18 @@
 import { buildTransformativeReactionSnapshot } from '../../snapshot';
 import { consumeAura } from '../../states';
 
+const bloomAction = {
+  damage: {
+    type: 'bloom',
+    element: 'dendro',
+  },
+};
+
+const bloomReaction = {
+  reaction: 'bloom',
+  elements: ['dendro', 'hydro'],
+};
+
 export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
   const auraStore = ctx.states.aura;
   const bloomState = auraStore.bloom ??= {
@@ -12,14 +24,8 @@ export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
   if (ctx.hasRule('seedsOfDeceit')) {
     bloomState.seedsOfDeceit++;
   } else {
-    const burstDelay = ctx.hasRule('nilouBountifulCores')
-      ? 400
-      : 6000;
-
-    bloomState.cores.push({
-      timeLeft: burstDelay,
-      ownerId: applier,
-    });
+    const burstDelay = ctx.hasRule('nilouBountifulCores') ? 400 : 6000;
+    bloomState.cores.push({ timeLeft: burstDelay, ownerId: applier });
   }
 
 
@@ -34,12 +40,7 @@ export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
         ctx.snapshots.push(snapshot);
       }
 
-      ctx.runEffects('hit', { action: {
-        damage: {
-          type: 'bloom',
-          element: 'dendro',
-        },
-      }});
+      ctx.runEffects('hit', { action: bloomAction });
     }
   }
 
@@ -47,11 +48,7 @@ export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
 
   const excess = consumeAura(auraStore, auraElement, gaugeUnits * unitsModifier) / unitsModifier;
 
-  ctx.runEffects('reaction', { ownerId: applier, reaction: {
-    reaction: 'bloom',
-    elements: ['dendro', 'hydro'],
-    ownerId: applier,
-  }});
+  ctx.runEffects('reaction', { ownerId: applier, reaction: bloomReaction });
 
   return excess;
 }
