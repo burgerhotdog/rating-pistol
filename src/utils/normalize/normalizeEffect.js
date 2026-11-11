@@ -4,25 +4,11 @@ import { handleSpecialEffect } from './specialEffect';
 
 function normalizeScope(rawScope, { ownerId, memberIds }) {
   switch (rawScope) {
-    case undefined: {
-      return [ownerId];
-    }
-
-    case '$team': {
-      return memberIds;
-    }
-
-    case '$ally': {
-      return memberIds.filter((id) => id !== ownerId);
-    }
-
-    case '$first': {
-      return [memberIds[0]];
-    }
-
-    default: {
-      return toArray(rawScope);
-    }
+    case undefined: return [ownerId];
+    case '$team':   return memberIds;
+    case '$ally':   return memberIds.filter((id) => id !== ownerId);
+    case '$first':  return [memberIds[0]];
+    default:        return toArray(rawScope);
   }
 }
 

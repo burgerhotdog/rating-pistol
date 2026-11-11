@@ -150,7 +150,7 @@ export function runAction(ctx, action, options = {}) {
 
   runEffectsWhen('inflict');
 
-  for (const [i, offset] of hitOffsets.entries()) {
+  for (const [hitIndex, offset] of hitOffsets.entries()) {
     advanceTimeTo(offset);
 
     let rxnScaleMult = 1;
@@ -179,7 +179,7 @@ export function runAction(ctx, action, options = {}) {
 
     // Healing/shield are a single occurrence regardless of hit count, so only
     // handle them once, on the first hit, instead of once per hit
-    if (i === 0) {
+    if (hitIndex === 0) {
       handleHealth(ctx, modifiedAction);
       handleHealing(ctx, modifiedAction, healingSnapshot);
       handleShield(ctx, modifiedAction);

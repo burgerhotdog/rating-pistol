@@ -106,7 +106,7 @@ Characters:
         No C1
         No C4
     Mitya
-        No Dps mode
+        No Switching mode after using e
         Ult 3 simultaneous Beacon generation is uncertain
         Gauge mechanics are guesses
         No beacon explosion at end of skill
@@ -125,6 +125,8 @@ Characters:
         No constellations
     Nilou
         No constellations
+    Ningguang
+        No A4
     Odette
         Only plume
         Marvelous Splendor applies to $ally

@@ -7223,7 +7223,6 @@
     ]
   },
   "10000027": {
-    "disabled": true,
     "name": "Ningguang",
     "version": 1.0,
     "id": 10000027,
@@ -7239,13 +7238,140 @@
     },
     "energy": 40,
     "liyue": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "starJade",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.0"
+            },
+            "effectStacks": {
+              "NOT": {
+                "HAS": "c6_starJade"
+              }
+            }
+          },
+          "uses": 1
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.1"
+            }
+          },
+          "action": "normalAttack.2"
+        },
+        "maxStacks": 3
+      },
+      {
+        "ref": "jadeScreen",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 30000
+        }
+      },
+      {
+        "ref": "starshatter",
+        "apply": [
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.0"
+              },
+              "effectStacks": {
+                "NOT": {
+                  "HAS": "jadeScreen"
+                }
+              }
+            },
+            "uses": 1,
+            "offset": 1000,
+            "stacks": 6
+          },
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.0"
+              },
+              "effectStacks": {
+                "HAS": "jadeScreen"
+              }
+            },
+            "uses": 1,
+            "offset": 1000,
+            "stacks": 12,
+            "commands": {
+              "type": "remove",
+              "ref": "jadeScreen"
+            }
+          }
+        ],
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        },
+        "maxStacks": 12
+      },
+      {
+        "rank": 6,
+        "ref": "c6_starJade",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 6000,
+          "uses": 1,
+          "commands": {
+            "type": "remove",
+            "ref": "starJade"
+          }
+        },
+        "remove": {
+          "when": "swap",
+          "field": "offField"
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.1"
+            }
+          },
+          "action": [
+            "normalAttack.2",
+            "normalAttack.2",
+            "normalAttack.2",
+            "normalAttack.2",
+            "normalAttack.2",
+            "normalAttack.2",
+            "normalAttack.2"
+          ]
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Sparkling Scatter",
         "actions": [
           {
-            "name": "Normal Attack DMG",
+            "name": "Normal Attack",
             "type": "normalAttack",
             "damage": {
               "multipliers": [
@@ -7275,6 +7401,11 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -7299,9 +7430,14 @@
             }
           },
           {
-            "name": "DMG per Star Jade",
+            "name": "Star Jade",
             "damage": {
               "type": "chargedAttack",
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -7359,9 +7495,36 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Jade Screen: Inherited HP",
-            "type": "buff",
+            "name": "Elemental Skill",
+            "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": [
+                    2.304,
+                    2.4768,
+                    2.6496,
+                    2.88,
+                    3.0528,
+                    3.2256,
+                    3.456,
+                    3.6864,
+                    3.9168,
+                    4.1472,
+                    4.3776,
+                    4.608,
+                    4.896,
+                    5.184,
+                    5.472
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Jade Screen HP",
+            "shield": {
               "attr": "hp",
               "multipliers": [
                 {
@@ -7385,33 +7548,6 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Jade Screen",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    2.304,
-                    2.4768,
-                    2.6496,
-                    2.88,
-                    3.0528,
-                    3.2256,
-                    3.456,
-                    3.6864,
-                    3.9168,
-                    4.1472,
-                    4.3776,
-                    4.608,
-                    4.896,
-                    5.184,
-                    5.472
-                  ]
-                }
-              ]
-            }
           }
         ]
       },
@@ -7420,9 +7556,19 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "DMG Per Gem",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Gem",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -7445,15 +7591,30 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Starshatter",
-            "type": "elementalBurst"
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14425,
+      "setCounts": {
+        "15034": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "normalAttack.1",
+        "normalAttack.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.0",
+        "normalAttack.0",
+        "normalAttack.1"
+      ]
+    }
   },
   "10000029": {
     "name": "Klee",
@@ -14257,22 +14418,16 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "AND": [
-              {
-                "action": {
-                  "HAS": "damage"
-                }
-              },
-              {
-                "states": {
-                  "aura": {
-                    "NOT": {
-                      "HAS": "frozen"
-                    }
-                  }
+            "action": {
+              "HAS": "damage"
+            },
+            "states": {
+              "aura": {
+                "NOT": {
+                  "HAS": "frozen"
                 }
               }
-            ]
+            }
           },
           "action": "elementalBurst.1",
           "commands": [
@@ -14474,18 +14629,12 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "AND": [
-              {
-                "action": {
-                  "HAS": "damage"
-                }
-              },
-              {
-                "effectStacks": {
-                  "HAS": "omen"
-                }
-              }
-            ]
+            "action": {
+              "HAS": "damage"
+            },
+            "effectStacks": {
+              "HAS": "omen"
+            }
           },
           "duration": 8000
         },
@@ -14496,26 +14645,14 @@
                 "AND": [
                   {
                     "damage": {
-                      "AND": [
-                        {
-                          "type": "swirl"
-                        },
-                        {
-                          "element": "hydro"
-                        }
-                      ]
+                      "type": "swirl",
+                      "element": "hydro"
                     }
                   },
                   {
                     "NOT": {
-                      "AND": [
-                        {
-                          "ownerId": 10000041
-                        },
-                        {
-                          "ref": "elementalBurst.1"
-                        }
-                      ]
+                      "ownerId": 10000041,
+                      "ref": "elementalBurst.1"
                     }
                   }
                 ]
@@ -14529,14 +14666,8 @@
             "filter": {
               "action": {
                 "NOT": {
-                  "AND": [
-                    {
-                      "ownerId": 10000041
-                    },
-                    {
-                      "ref": "elementalBurst.1"
-                    }
-                  ]
+                  "ownerId": 10000041,
+                  "ref": "elementalBurst.1"
                 }
               }
             },
@@ -14557,21 +14688,13 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "AND": [
-              {
-                "field": "offField"
-              },
-              {
-                "action": {
-                  "HAS": "damage"
-                }
-              },
-              {
-                "effectStacks": {
-                  "HAS": "omen"
-                }
-              }
-            ]
+            "field": "offField",
+            "action": {
+              "HAS": "damage"
+            },
+            "effectStacks": {
+              "HAS": "omen"
+            }
           },
           "duration": 8000
         },
@@ -14582,26 +14705,14 @@
                 "AND": [
                   {
                     "damage": {
-                      "AND": [
-                        {
-                          "type": "swirl"
-                        },
-                        {
-                          "element": "hydro"
-                        }
-                      ]
+                      "type": "swirl",
+                      "element": "hydro"
                     }
                   },
                   {
                     "NOT": {
-                      "AND": [
-                        {
-                          "ownerId": 10000041
-                        },
-                        {
-                          "ref": "elementalBurst.1"
-                        }
-                      ]
+                      "ownerId": 10000041,
+                      "ref": "elementalBurst.1"
                     }
                   }
                 ]
@@ -14615,14 +14726,8 @@
             "filter": {
               "action": {
                 "NOT": {
-                  "AND": [
-                    {
-                      "ownerId": 10000041
-                    },
-                    {
-                      "ref": "elementalBurst.1"
-                    }
-                  ]
+                  "ownerId": 10000041,
+                  "ref": "elementalBurst.1"
                 }
               }
             },
@@ -14716,18 +14821,12 @@
         "stores": "$team",
         "buff": {
           "filter": {
-            "AND": [
-              {
-                "character": {
-                  "HAS": "hexerei"
-                }
-              },
-              {
-                "effectStacks": {
-                  "HAS": "omen"
-                }
-              }
-            ]
+            "character": {
+              "HAS": "hexerei"
+            },
+            "effectStacks": {
+              "HAS": "omen"
+            }
           },
           "stats": {
             "critDmg%": 0.15
@@ -14738,20 +14837,14 @@
         "rank": 6,
         "buff": {
           "filter": {
-            "AND": [
-              {
-                "action": {
-                  "damage": {
-                    "type": "chargedAttack"
-                  }
-                }
-              },
-              {
-                "effectStacks": {
-                  "HAS": "omen"
-                }
+            "action": {
+              "damage": {
+                "type": "chargedAttack"
               }
-            ]
+            },
+            "effectStacks": {
+              "HAS": "omen"
+            }
           },
           "stats": {
             "damageMv%": 1
@@ -72433,14 +72526,16 @@
         }
       },
       {
+        "ref": "eb_healing",
         "apply": {
-          "when": "hit",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
             }
           },
-          "duration": 12000
+          "duration": 12000,
+          "offset": 2000
         },
         "use": {
           "when": "interval",
@@ -72449,6 +72544,7 @@
         }
       },
       {
+        "ref": "a1",
         "stores": "global",
         "buff": {
           "filter": {
@@ -72468,6 +72564,7 @@
         "enable": {
           "ascendantGleam": true
         },
+        "ref": "a1_gleam",
         "stores": "global",
         "buff": {
           "filter": {
@@ -72484,6 +72581,28 @@
         }
       },
       {
+        "ref": "a4_1",
+        "stores": "$applier",
+        "apply": {
+          "by": "$team",
+          "when": "swap",
+          "filter": {
+            "character": {
+              "HAS": "moonsign"
+            }
+          }
+        },
+        "remove": {
+          "by": "$team",
+          "when": "swap",
+          "filter": {
+            "character": {
+              "NOT": {
+                "HAS": "moonsign"
+              }
+            }
+          }
+        },
         "buff": {
           "specs": {
             "elementalMastery": {
@@ -72495,6 +72614,39 @@
         }
       },
       {
+        "ref": "a4_2",
+        "apply": {
+          "by": "$team",
+          "when": "swap",
+          "filter": {
+            "character": {
+              "NOT": {
+                "HAS": "moonsign"
+              }
+            }
+          }
+        },
+        "remove": {
+          "by": "$team",
+          "when": "swap",
+          "filter": {
+            "character": {
+              "HAS": "moonsign"
+            }
+          }
+        },
+        "buff": {
+          "specs": {
+            "elementalMastery": {
+              "attr": "def",
+              "step": 1,
+              "value": 0.05
+            }
+          }
+        }
+      },
+      {
+        "ref": "benediction",
         "stores": "global",
         "buff": {
           "specs": {
