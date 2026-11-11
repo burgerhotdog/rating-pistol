@@ -52,6 +52,31 @@ const initAttrMaps = (buildMaps) => {
   return attrMaps;
 };
 
+function runCycle(ctx) {
+  for (const [index, memberId] of ctx.memberOrder.entries()) {
+    const { rotation } = ctx.cache.member[memberId];
+    const prev = ctx.states.onFieldId;
+    const next = memberId;
+
+    if (next !== prev) {
+      if (prev) {
+        ctx.runEffects('swapOff', { ownerId: prev });
+      }
+
+      ctx.states.onFieldId = next;
+      ctx.states.onFieldIndex = index;
+
+      if (next) {
+        ctx.runEffects('swapOn', { ownerId: next });
+      }
+    }
+
+    for (const action of rotation) {
+      ctx.runAction(action);
+    }
+  }
+}
+
 export const runRotation = (cache, equipMaps, specId, logFilter = false) => {
   const { gameId, memberIds } = cache;
 
@@ -78,28 +103,17 @@ export const runRotation = (cache, equipMaps, specId, logFilter = false) => {
   initPassives(ctx);
 
   // Rotation loop
-  const memberOrder = cache.rotationOrder ?? memberIds.toReversed();
-  function runCycle() {
-    for (const memberId of memberOrder) {
-      ctx.states.onFieldId = memberId;
-      ctx.runEffects('swap', { ownerId: memberId });
-
-      const { rotation } = cache.member[memberId];
-      for (const action of rotation) {
-        ctx.runAction(action);
-      }
-    }
-  }
+  ctx.memberOrder = cache.rotationOrder ?? memberIds.toReversed();
 
   // First pass to initialize states
-  runCycle();
+  runCycle(ctx);
   if (gameId === WW) {
     ctx.offTuneBuildup.push(ctx.states.tune.offTune);
   }
 
   // Second pass to record snapshots
   ctx.saveSnapshots = true;
-  runCycle();
+  runCycle(ctx);
 
   // Resolve snapshots
   for (const snapshot of ctx.snapshots) {

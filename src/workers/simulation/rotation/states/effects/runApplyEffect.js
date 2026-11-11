@@ -144,9 +144,9 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
       const { onFieldId } = ctx.states;
       updateState(memberEffects[onFieldId]);
     } else if (target === '$next') {
-      const index = ctx.cache.memberIds.indexOf(effect.ownerId);
-      const id = ctx.cache.memberIds.at(index - 1);
-      updateState(memberEffects[id]);
+      const { onFieldIndex } = ctx.states;
+      const nextId = ctx.memberOrder.at((onFieldIndex + 1) % ctx.memberOrder.length);
+      updateState(memberEffects[nextId]);
     } else if (target in memberEffects) {
       updateState(memberEffects[target]);
     }

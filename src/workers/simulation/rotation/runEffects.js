@@ -1,16 +1,20 @@
 import { GI } from '@/data';
 import { runRemoveEffect, runUseEffect, runApplyEffect } from './states';
 
-function checkBy(ctx, effect, by, id) {
-  const { memberIds } = ctx.cache;
-  const { ownerId } = effect;
+function checkBy(ctx, effect, by, id, storeOwnerId) {
+  const { memberOrder } = ctx;
 
   if (by[0] === '$any') return true;
 
   return by.some((option) => {
+    if (option === '$storeOwner') {
+      return storeOwnerId === id;
+    }
+
     if (option === '$next') {
-      const index = memberIds.indexOf(ownerId);
-      return memberIds.at(index - 1) === id;
+      const { onFieldIndex } = ctx.states;
+      const nextId = memberOrder.at((onFieldIndex + 1) % memberOrder.length);
+      return nextId === id;
     }
 
     return option === id;
@@ -22,12 +26,13 @@ function selectRemove(ctx, when, state, event, storeOwnerId) {
   if (!effect.remove) return;
 
   const ownerField = effect.ownerId === ctx.states.onFieldId ? 'onField' : 'offField';
+  const eventOwnerId = event.ownerId ?? event.action?.ownerId;
 
   for (const [index, remove] of effect.remove.entries()) {
     if (remove.when !== when) continue;
-    if (!checkBy(ctx, effect, remove.by, event.ownerId ?? event.action?.ownerId ?? storeOwnerId ?? effect.ownerId)) continue;
+    if (!checkBy(ctx, effect, remove.by, eventOwnerId ?? storeOwnerId, storeOwnerId)) continue;
     if (remove.field && remove.field !== ownerField) continue;
-    if (!ctx.eventFilter(remove.filter, effect.ownerId, event, event.ownerId ?? event.action?.ownerId ?? storeOwnerId)) continue;
+    if (!ctx.eventFilter(remove.filter, effect.ownerId, event, eventOwnerId ?? storeOwnerId)) continue;
 
     return { state, index };
   }
@@ -38,13 +43,14 @@ function selectUse(ctx, when, state, event, storeOwnerId) {
   if (!effect.use) return;
 
   const ownerField = effect.ownerId === ctx.states.onFieldId ? 'onField' : 'offField';
+  const eventOwnerId = event.ownerId ?? event.action?.ownerId;
 
   for (const [index, use] of effect.use.entries()) {
     if (use.when !== when) continue;
-    if (!checkBy(ctx, effect, use.by, event.ownerId ?? event.action?.ownerId ?? storeOwnerId)) continue;
+    if (!checkBy(ctx, effect, use.by, eventOwnerId ?? storeOwnerId, storeOwnerId)) continue;
     if (state.isRunning || state.useCooldown) continue;
     if (use.field && use.field !== ownerField) continue;
-    if (!ctx.eventFilter(use.filter, effect.ownerId, event, event.ownerId ?? event.action?.ownerId ?? storeOwnerId)) continue;
+    if (!ctx.eventFilter(use.filter, effect.ownerId, event, eventOwnerId ?? storeOwnerId)) continue;
 
     return { state, index };
   }

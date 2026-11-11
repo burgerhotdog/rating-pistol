@@ -1,5 +1,10 @@
 import { buildElevationSnapshot } from '../../snapshot';
 
+const lunarCrystallizeReaction = {
+  reaction: 'lunarCrystallize',
+  elements: ['geo', 'hydro'],
+};
+
 export function reactLunarCrystallize(ctx, ownerId) {
   const state = ctx.states.aura.lunarCrystallize ??= {
     reaction: 'lunarCrystallize',
@@ -8,18 +13,16 @@ export function reactLunarCrystallize(ctx, ownerId) {
 
   state.timesLeft--;
 
-  ctx.runEffects('reaction', { ownerId, reaction: {
-    reaction: 'lunarCrystallize',
-    elements: ['geo', 'hydro'],
-    ownerId,
-  }});
+  ctx.runEffects('reaction', { ownerId, reaction: lunarCrystallizeReaction });
 
   if (state.timesLeft === 0) {
-    const snapshot = buildElevationSnapshot(ctx, 'lunarCrystallize');
+    if (ctx.saveSnapshots) {
+      const snapshot = buildElevationSnapshot(ctx, 'lunarCrystallize');
 
-    ctx.snapshots.push(snapshot);
-    ctx.snapshots.push(snapshot);
-    ctx.snapshots.push(snapshot);
+      ctx.snapshots.push(snapshot);
+      ctx.snapshots.push(snapshot);
+      ctx.snapshots.push(snapshot);
+    }
 
     state.timesLeft = 3;
   }

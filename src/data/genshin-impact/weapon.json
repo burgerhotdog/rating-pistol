@@ -872,7 +872,7 @@
         },
         "use": {
           "by": "$first",
-          "when": "swap",
+          "when": "swapOn",
           "commands": {
             "type": "apply",
             "ref": "leafBuff",
@@ -3194,8 +3194,7 @@
           "when": "command"
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "maxStacks": 2
       },
@@ -3244,8 +3243,7 @@
           ]
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -3299,8 +3297,7 @@
           ]
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -3354,8 +3351,7 @@
           ]
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": [
           {
@@ -3877,13 +3873,11 @@
       },
       {
         "apply": {
-          "when": "swap",
-          "field": "onField",
+          "when": "swapOn",
           "offset": 4000
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": {
           "when": "interval",
@@ -4355,7 +4349,7 @@
         },
         "use": {
           "by": "$first",
-          "when": "swap",
+          "when": "swapOn",
           "commands": {
             "type": "apply",
             "ref": "leafBuff",
@@ -6667,7 +6661,7 @@
         },
         "use": {
           "by": "$first",
-          "when": "swap",
+          "when": "swapOn",
           "commands": {
             "type": "apply",
             "ref": "leafBuff",
@@ -7984,8 +7978,7 @@
           ]
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": {
           "when": "interval",
@@ -8007,8 +8000,7 @@
           "when": "command"
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -8029,8 +8021,7 @@
           "when": "command"
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -8229,11 +8220,11 @@
     "effects": [
       {
         "apply": {
-          "when": "swap",
+          "when": "swapOn",
           "cooldown": 20000
         },
         "remove": {
-          "when": "swap",
+          "when": "swapOff",
           "commands": {
             "type": "apply",
             "ref": "buff",
@@ -8391,7 +8382,7 @@
     "effects": [
       {
         "apply": {
-          "when": "swap",
+          "when": "swapOn",
           "cooldown": 30000,
           "duration": 10000
         },
@@ -9220,8 +9211,7 @@
       {
         "ref": "onFieldTimer",
         "apply": {
-          "when": "swap",
-          "field": "onField",
+          "when": "swapOn",
           "duration": 10000
         }
       }
@@ -10206,10 +10196,7 @@
           }
         },
         "remove": {
-          "when": "start",
-          "filter": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         },
         "buff": {
           "stats": {

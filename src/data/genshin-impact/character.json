@@ -773,8 +773,7 @@
           "offset": 1000
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": {
           "when": "interval",
@@ -1371,8 +1370,7 @@
       {
         "rank": 6,
         "use": {
-          "when": "swap",
-          "field": "onField",
+          "when": "swapOn",
           "cooldown": 5000,
           "commands": {
             "type": "apply",
@@ -6724,8 +6722,7 @@
           }
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": {
           "when": "interval",
@@ -7256,8 +7253,7 @@
           "uses": 1
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": {
           "when": "hit",
@@ -7344,8 +7340,7 @@
           }
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": {
           "when": "hit",
@@ -14682,8 +14677,8 @@
       },
       {
         "rank": 1,
-        "stores": "global",
         "ref": "c1Enhancement",
+        "stores": "global",
         "apply": {
           "by": "$team",
           "when": "hit",
@@ -19094,8 +19089,7 @@
           }
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": {
           "when": "use",
@@ -22972,8 +22966,7 @@
           "duration": 10000
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": {
           "when": "hit",
@@ -27073,8 +27066,7 @@
       {
         "rank": 1,
         "apply": {
-          "when": "swap",
-          "field": "onField",
+          "when": "swapOn",
           "cooldown": 10000,
           "duration": 5000,
           "commands": {
@@ -33696,8 +33688,7 @@
           }
         ],
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -33729,8 +33720,7 @@
           "uses": 2
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": {
           "when": "use",
@@ -33772,8 +33762,7 @@
           "offset": 6000
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": {
           "when": "interval",
@@ -33793,8 +33782,7 @@
           "when": "command"
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": [
           {
@@ -33926,8 +33914,7 @@
           "duration": 10000
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -33999,8 +33986,7 @@
           }
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -38091,8 +38077,7 @@
           }
         ],
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "modify": {
           "type": "action",
@@ -39944,8 +39929,7 @@
           "duration": 12000
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "modify": {
           "type": "action",
@@ -39980,8 +39964,8 @@
           "duration": 12000
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "by": 10000081,
+          "when": "swapOff"
         },
         "buff": {
           "statRefs": {
@@ -40045,8 +40029,7 @@
           "cooldown": 100
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -40106,8 +40089,7 @@
           "duration": 12000
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": {
           "when": "hit",
@@ -42619,8 +42601,7 @@
           "duration": 10000
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": {
           "when": "hit",
@@ -42804,8 +42785,7 @@
           }
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -43706,7 +43686,7 @@
         "rank": 1,
         "ref": "pastDraconicGloriesFree",
         "apply": {
-          "when": "swap"
+          "when": "swapOn"
         }
       },
       {
@@ -49423,8 +49403,7 @@
           "duration": 7500
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "use": [
           {
@@ -49551,8 +49530,8 @@
           "duration": 7500
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "by": 10000098,
+          "when": "swapOff"
         },
         "rule": "clorindeNightVigil"
       },
@@ -72585,7 +72564,7 @@
         "stores": "$applier",
         "apply": {
           "by": "$team",
-          "when": "swap",
+          "when": "swapOn",
           "filter": {
             "character": {
               "HAS": "moonsign"
@@ -72593,15 +72572,7 @@
           }
         },
         "remove": {
-          "by": "$team",
-          "when": "swap",
-          "filter": {
-            "character": {
-              "NOT": {
-                "HAS": "moonsign"
-              }
-            }
-          }
+          "when": "swapOff"
         },
         "buff": {
           "specs": {
@@ -72617,7 +72588,7 @@
         "ref": "a4_2",
         "apply": {
           "by": "$team",
-          "when": "swap",
+          "when": "swapOn",
           "filter": {
             "character": {
               "NOT": {
@@ -72628,12 +72599,7 @@
         },
         "remove": {
           "by": "$team",
-          "when": "swap",
-          "filter": {
-            "character": {
-              "HAS": "moonsign"
-            }
-          }
+          "when": "swapOff"
         },
         "buff": {
           "specs": {
@@ -73123,12 +73089,9 @@
       },
       {
         "ref": "observeStart",
-        "remove": {
-          "when": "swap"
-        },
         "apply": {
           "by": "$team",
-          "when": "swap",
+          "when": "swapOn",
           "filter": {
             "AND": [
               {
@@ -73148,6 +73111,9 @@
           "uses": 1,
           "offset": 3000
         },
+        "remove": {
+          "when": "swapOff"
+        },
         "use": {
           "when": "interval",
           "commands": {
@@ -73158,11 +73124,11 @@
       },
       {
         "ref": "observeDone",
-        "remove": {
-          "when": "swap"
-        },
         "apply": {
           "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         }
       },
       {
@@ -76333,6 +76299,7 @@
           "when": "command"
         },
         "remove": {
+          "by": 10000137,
           "when": "hit",
           "filter": {
             "action": {
@@ -77924,8 +77891,7 @@
             }
           },
           {
-            "when": "swap",
-            "field": "offField"
+            "when": "swapOff"
           }
         ],
         "buff": {

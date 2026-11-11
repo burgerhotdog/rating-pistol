@@ -1148,10 +1148,7 @@
           "duration": 16000
         },
         "remove": {
-          "when": "start",
-          "filter": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -1819,8 +1816,7 @@
       {
         "ref": "onFieldTimer",
         "apply": {
-          "when": "swap",
-          "field": "onField",
+          "when": "swapOn",
           "duration": 2000
         }
       }
@@ -2862,8 +2858,7 @@
       {
         "ref": "onFieldTimer",
         "apply": {
-          "when": "swap",
-          "field": "onField",
+          "when": "swapOn",
           "duration": 3000
         }
       }

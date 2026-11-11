@@ -71,6 +71,7 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     effect.remove = toArray(effect.remove).map((rawRemove) => {
       const remove = { ...rawRemove };
 
+      remove.by ??= '$storeOwner';
       remove.by = normalizeScope(remove.by, { ownerId, memberIds });
 
       const cooldown = remove.cooldown;
@@ -91,6 +92,7 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     effect.use = toArray(effect.use).map((rawUse) => {
       const use = { ...rawUse };
 
+      use.by ??= '$storeOwner';
       use.by = normalizeScope(use.by, { ownerId, memberIds });
 
       const cooldown = use.cooldown;

@@ -4176,10 +4176,7 @@
           }
         },
         "remove": {
-          "when": "start",
-          "filter": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         },
         "buff": {
           "filter": {
@@ -20657,10 +20654,10 @@
       },
       {
         "mode": "tuneStrain",
-        "ref": "tuneOutro",
+        "ref": "outro_tune",
         "stores": "$next",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "outroSkill.0"
@@ -20668,45 +20665,63 @@
           },
           "duration": 16000
         },
-        "buff": {
-          "stats": {
-            "dmgAmp%": 0.15
+        "remove": {
+          "when": "swapOff",
+          "commands": {
+            "type": "remove",
+            "ref": "outro_tuneEnhanced"
+          }
+        },
+        "use": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "shifting": "tuneStrain"
+              }
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "outro_tuneEnhanced"
+          }
+        },
+        "buff": [
+          {
+            "filter": {
+              "effectStacks": {
+                "NOT": {
+                  "HAS": "outro_tuneEnhanced"
+                }
+              }
+            },
+            "stats": {
+              "dmgAmp%": 0.15
+            }
+          },
+          {
+            "filter": {
+              "effectStacks": {
+                "HAS": "outro_tuneEnhanced"
+              }
+            },
+            "stats": {
+              "dmgAmp%": 0.4
+            }
+          }
+        ],
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "outro_tuneEnhanced"
           }
         }
       },
       {
         "mode": "tuneStrain",
-        "stores": "$next",
+        "ref": "outro_tuneEnhanced",
         "apply": {
-          "by": "$next",
-          "when": "inflict",
-          "filter": {
-            "AND": [
-              {
-                "effectStacks": {
-                  "HAS": "tuneOutro"
-                }
-              },
-              {
-                "action": {
-                  "inflict": {
-                    "shifting": "tuneStrain"
-                  }
-                }
-              }
-            ]
-          },
-          "duration": 16000
-        },
-        "buff": {
-          "filter": {
-            "effectStacks": {
-              "HAS": "tuneOutro"
-            }
-          },
-          "stats": {
-            "dmgAmp%": 0.25
-          }
+          "when": "command"
         }
       }
     ],
@@ -28754,13 +28769,28 @@
         "ref": "battlesongOfTheUnyielding",
         "stores": "$next",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "outroSkill.0"
             }
           },
           "duration": 14000
+        },
+        "remove": {
+          "when": "swapOff"
+        },
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "crownOfWills"
+          }
         },
         "buff": {
           "stats": {
@@ -28771,22 +28801,7 @@
       {
         "ref": "crownOfWills",
         "apply": {
-          "by": "$next",
-          "when": "start",
-          "filter": {
-            "AND": [
-              {
-                "effectStacks": {
-                  "HAS": "battlesongOfTheUnyielding"
-                }
-              },
-              {
-                "action": {
-                  "type": "outroSkill"
-                }
-              }
-            ]
-          }
+          "when": "command"
         },
         "remove": {
           "when": "end",
@@ -37324,10 +37339,7 @@
           "duration": 8000
         },
         "remove": {
-          "when": "swap",
-          "filter": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         },
         "buff": [
           {
@@ -37393,8 +37405,7 @@
           "duration": 15000
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -37472,10 +37483,7 @@
           "when": "command"
         },
         "remove": {
-          "when": "swap",
-          "filter": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -37525,8 +37533,7 @@
         },
         "remove": [
           {
-            "when": "swap",
-            "field": "offField"
+            "when": "swapOff"
           },
           {
             "when": "unisonUpdate",
@@ -37593,10 +37600,7 @@
           "duration": 30000
         },
         "remove": {
-          "when": "swap",
-          "field": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -47652,10 +47656,7 @@
           }
         },
         "remove": {
-          "when": "start",
-          "filter": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         }
       },
       {
@@ -65949,10 +65950,7 @@
           "duration": 15000
         },
         "remove": {
-          "when": "start",
-          "filter": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         },
         "buff": {
           "filter": {

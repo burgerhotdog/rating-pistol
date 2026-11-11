@@ -2008,9 +2008,9 @@
     "cost": 4,
     "effects": [
       {
-        "stores": "global",
+        "ref": "coreOfCollapse",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
@@ -2020,21 +2020,17 @@
           "uses": 8
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
-            "AND": [
-              {
-                "field": "onField"
-              },
-              {
-                "action": {
-                  "HAS": "damage"
-                }
-              }
-            ]
+            "field": "onField",
+            "action": {
+              "HAS": "damage"
+            }
           },
           "cooldown": 500,
           "action": {
+            "name": "Core of Collapse",
             "damage": {
               "element": "havoc",
               "multipliers": [
@@ -2043,6 +2039,24 @@
                 }
               ]
             }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "sourceId": 6000167,
+              "name": "Core of Collapse"
+            },
+            "states": {
+              "negativeStatuses": {
+                "HAS": "havocBane"
+              }
+            }
+          },
+          "stats": {
+            "damageMv%": 1
           }
         }
       },

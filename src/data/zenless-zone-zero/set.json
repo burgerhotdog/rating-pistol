@@ -207,8 +207,7 @@
       {
         "bonus": 4,
         "apply": {
-          "when": "swap",
-          "field": "onField",
+          "when": "swapOn",
           "cooldown": 20000,
           "duration": 10000
         },
