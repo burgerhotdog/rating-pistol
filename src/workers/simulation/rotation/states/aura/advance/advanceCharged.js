@@ -6,16 +6,18 @@ function tickCharged(ctx, chargedState) {
   const auraStore = ctx.states.aura;
   const isLunar = ctx.cache.lunarCharged;
 
-  if (ctx.saveSnapshots) {
-    if (isLunar) {
-      ctx.snapshots.push(buildElevationSnapshot(ctx, 'lunarCharged'));
-    } else {
-      if (!ctx.states.globalCooldowns.electroCharged) {
-        ctx.states.globalCooldowns.electroCharged = 500;
+  if (isLunar) {
+    if (ctx.saveSnapshots) {
+      const snapshot = buildElevationSnapshot(ctx, 'lunarCharged');
+      ctx.snapshots.push(snapshot);
+    }
+  } else {
+    if (!ctx.states.globalCooldowns.electroCharged) {
+      ctx.states.globalCooldowns.electroCharged = 500;
 
-        ctx.snapshots.push(
-          buildTransformativeReactionSnapshot(ctx, chargedState.ownerId, 'electroCharged', 'electro')
-        );
+      if (ctx.saveSnapshots) {
+        const snapshot = buildTransformativeReactionSnapshot(ctx, chargedState.ownerId, 'electroCharged', 'electro')
+        ctx.snapshots.push(snapshot);
       }
     }
   }

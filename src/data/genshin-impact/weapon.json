@@ -8219,26 +8219,11 @@
     },
     "effects": [
       {
-        "apply": {
-          "when": "swapOn",
-          "cooldown": 20000
-        },
-        "remove": {
-          "when": "swapOff",
-          "commands": {
-            "type": "apply",
-            "ref": "buff",
-            "spec": {
-              "duration": 10000
-            }
-          }
-        }
-      },
-      {
-        "ref": "buff",
         "stores": "$next",
         "apply": {
-          "when": "command"
+          "when": "swapOff",
+          "cooldown": 20000,
+          "duration": 10000
         },
         "buff": {
           "stats": {
