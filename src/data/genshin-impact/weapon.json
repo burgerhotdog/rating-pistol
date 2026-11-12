@@ -643,7 +643,7 @@
       {
         "ref": "successionSeed",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "elementalSkill"
@@ -657,20 +657,14 @@
       {
         "apply": [
           {
-            "when": "start",
+            "when": "use",
             "filter": {
-              "AND": [
-                {
-                  "action": {
-                    "type": "elementalBurst"
-                  }
-                },
-                {
-                  "effectStacks": {
-                    "successionSeed": 1
-                  }
-                }
-              ]
+              "action": {
+                "type": "elementalBurst"
+              },
+              "effectStacks": {
+                "successionSeed": 1
+              }
             },
             "uses": 1,
             "offset": 2000,
@@ -680,20 +674,14 @@
             }
           },
           {
-            "when": "start",
+            "when": "use",
             "filter": {
-              "AND": [
-                {
-                  "action": {
-                    "type": "elementalBurst"
-                  }
-                },
-                {
-                  "effectStacks": {
-                    "successionSeed": 2
-                  }
-                }
-              ]
+              "action": {
+                "type": "elementalBurst"
+              },
+              "effectStacks": {
+                "successionSeed": 2
+              }
             },
             "uses": 1,
             "offset": 2000,
@@ -704,20 +692,14 @@
             }
           },
           {
-            "when": "start",
+            "when": "use",
             "filter": {
-              "AND": [
-                {
-                  "action": {
-                    "type": "elementalBurst"
-                  }
-                },
-                {
-                  "effectStacks": {
-                    "successionSeed": 3
-                  }
-                }
-              ]
+              "action": {
+                "type": "elementalBurst"
+              },
+              "effectStacks": {
+                "successionSeed": 3
+              }
             },
             "uses": 1,
             "offset": 2000,
