@@ -802,7 +802,7 @@
           "by": "$first",
           "when": "end",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "type": "introSkill"
@@ -810,7 +810,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "euphonia"
+                  "HAS": "euphonia"
                 }
               }
             ]
@@ -2569,10 +2569,10 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               },
               {
@@ -4176,10 +4176,7 @@
           }
         },
         "remove": {
-          "when": "start",
-          "filter": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         },
         "buff": {
           "filter": {
@@ -5242,7 +5239,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": [
+                  "HAS": [
                     "glacioChafe",
                     "havocBane"
                   ]
@@ -5342,7 +5339,7 @@
           "filter": {
             "states": {
               "negativeStatuses": {
-                "has": "glacioChafe"
+                "HAS": "glacioChafe"
               }
             }
           },
@@ -6923,7 +6920,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -6946,17 +6943,17 @@
           "by": "$ally",
           "when": "inflict",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "filmRoll"
+                  "HAS": "filmRoll"
                 }
               },
               {
                 "action": {
                   "inflict": {
                     "status": {
-                      "has": "glacioChafe"
+                      "HAS": "glacioChafe"
                     }
                   }
                 }
@@ -8044,10 +8041,10 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "ceaselessLandscape"
+                  "HAS": "ceaselessLandscape"
                 }
               },
               {
@@ -8064,8 +8061,8 @@
           "when": "expire",
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "ceaselessLandscape"
+              "NOT": {
+                "HAS": "ceaselessLandscape"
               }
             }
           }
@@ -8082,12 +8079,12 @@
           "by": "$team",
           "when": "inflict",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "inflict": {
                     "status": {
-                      "has": [
+                      "HAS": [
                         "spectroFrazzle",
                         "fusionBurst",
                         "glacioChafe",
@@ -8100,7 +8097,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "ceaselessLandscape"
+                  "HAS": "ceaselessLandscape"
                 }
               }
             ]
@@ -8115,19 +8112,19 @@
           "by": "$team",
           "when": "inflict",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "consume": {
                     "status": {
-                      "has": "havocBane"
+                      "HAS": "havocBane"
                     }
                   }
                 }
               },
               {
                 "effectStacks": {
-                  "has": "roamingTranscendent"
+                  "HAS": "roamingTranscendent"
                 }
               }
             ]
@@ -8199,7 +8196,7 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": [
@@ -8210,7 +8207,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "roamingTranscendent"
+                  "HAS": "roamingTranscendent"
                 }
               }
             ]
@@ -11003,7 +11000,7 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "type": "basicAttack"
@@ -11033,9 +11030,9 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "or": [
+            "OR": [
               {
-                "and": [
+                "AND": [
                   {
                     "action": {
                       "type": "heavyAttack"
@@ -11125,9 +11122,9 @@
           "spec": {
             "use": {
               "filter": {
-                "or": [
+                "OR": [
                   {
-                    "and": [
+                    "AND": [
                       {
                         "action": {
                           "type": "resonanceSkill"
@@ -15764,7 +15761,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "or": [
+              "OR": [
                 {
                   "type": "echoSkill"
                 },
@@ -15778,10 +15775,10 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "demonHypostasis"
+                  "HAS": "demonHypostasis"
                 }
               },
               {
@@ -15881,7 +15878,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "duration": 5500
@@ -18686,7 +18683,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": "fusionBurst"
+                  "HAS": "fusionBurst"
                 }
               }
             }
@@ -18726,7 +18723,7 @@
         "use": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": [
@@ -18737,7 +18734,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "stardustResonance"
+                  "HAS": "stardustResonance"
                 }
               }
             ]
@@ -18798,7 +18795,7 @@
         "mode": "tuneRupture",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
                   "betweenTheStars": 3
@@ -20657,10 +20654,10 @@
       },
       {
         "mode": "tuneStrain",
-        "ref": "tuneOutro",
+        "ref": "outro_tune",
         "stores": "$next",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "outroSkill.0"
@@ -20668,45 +20665,63 @@
           },
           "duration": 16000
         },
-        "buff": {
-          "stats": {
-            "dmgAmp%": 0.15
+        "remove": {
+          "when": "swapOff",
+          "commands": {
+            "type": "remove",
+            "ref": "outro_tuneEnhanced"
+          }
+        },
+        "use": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "shifting": "tuneStrain"
+              }
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "outro_tuneEnhanced"
+          }
+        },
+        "buff": [
+          {
+            "filter": {
+              "effectStacks": {
+                "NOT": {
+                  "HAS": "outro_tuneEnhanced"
+                }
+              }
+            },
+            "stats": {
+              "dmgAmp%": 0.15
+            }
+          },
+          {
+            "filter": {
+              "effectStacks": {
+                "HAS": "outro_tuneEnhanced"
+              }
+            },
+            "stats": {
+              "dmgAmp%": 0.4
+            }
+          }
+        ],
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "outro_tuneEnhanced"
           }
         }
       },
       {
         "mode": "tuneStrain",
-        "stores": "$next",
+        "ref": "outro_tuneEnhanced",
         "apply": {
-          "by": "$next",
-          "when": "inflict",
-          "filter": {
-            "and": [
-              {
-                "effectStacks": {
-                  "has": "tuneOutro"
-                }
-              },
-              {
-                "action": {
-                  "inflict": {
-                    "shifting": "tuneStrain"
-                  }
-                }
-              }
-            ]
-          },
-          "duration": 16000
-        },
-        "buff": {
-          "filter": {
-            "effectStacks": {
-              "has": "tuneOutro"
-            }
-          },
-          "stats": {
-            "dmgAmp%": 0.25
-          }
+          "when": "command"
         }
       }
     ],
@@ -22034,7 +22049,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "cooldown": 500,
@@ -22057,22 +22072,22 @@
         "use": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "and": [
+                  "AND": [
                     {
-                      "has": "earthCharm"
+                      "HAS": "earthCharm"
                     },
                     {
-                      "has": "yingHuo"
+                      "HAS": "yingHuo"
                     }
                   ]
                 }
               },
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               }
             ]
@@ -24763,7 +24778,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "cooldown": 1000,
@@ -25387,13 +25402,13 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               }
             ]
@@ -28696,7 +28711,7 @@
           "by": "$team",
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "type": "introSkill"
@@ -28704,7 +28719,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "rulersRealm"
+                  "HAS": "rulersRealm"
                 }
               }
             ]
@@ -28732,7 +28747,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "cooldown": 500,
@@ -28754,13 +28769,28 @@
         "ref": "battlesongOfTheUnyielding",
         "stores": "$next",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "outroSkill.0"
             }
           },
           "duration": 14000
+        },
+        "remove": {
+          "when": "swapOff"
+        },
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "crownOfWills"
+          }
         },
         "buff": {
           "stats": {
@@ -28771,22 +28801,7 @@
       {
         "ref": "crownOfWills",
         "apply": {
-          "by": "$next",
-          "when": "start",
-          "filter": {
-            "and": [
-              {
-                "effectStacks": {
-                  "has": "battlesongOfTheUnyielding"
-                }
-              },
-              {
-                "action": {
-                  "type": "outroSkill"
-                }
-              }
-            ]
-          }
+          "when": "command"
         },
         "remove": {
           "when": "end",
@@ -32684,16 +32699,16 @@
           "by": "$team",
           "when": "inflict",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "electroCore"
+                  "HAS": "electroCore"
                 }
               },
               {
                 "action": {
                   "inflict": {
-                    "has": "status"
+                    "HAS": "status"
                   }
                 }
               }
@@ -37252,7 +37267,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "commands": {
@@ -37324,16 +37339,13 @@
           "duration": 8000
         },
         "remove": {
-          "when": "swap",
-          "filter": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         },
         "buff": [
           {
             "filter": {
-              "not": {
-                "and": [
+              "NOT": {
+                "AND": [
                   {
                     "character": {
                       "unison": true
@@ -37357,7 +37369,7 @@
           },
           {
             "filter": {
-              "and": [
+              "AND": [
                 {
                   "character": {
                     "unison": true
@@ -37393,8 +37405,7 @@
           "duration": 15000
         },
         "remove": {
-          "when": "swap",
-          "field": "offField"
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -37407,7 +37418,7 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "unison": true
               },
@@ -37443,7 +37454,7 @@
         "use": {
           "when": "use",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "outroSkill.0"
@@ -37451,7 +37462,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "alignedSeals"
+                  "HAS": "alignedSeals"
                 }
               }
             ]
@@ -37472,10 +37483,7 @@
           "when": "command"
         },
         "remove": {
-          "when": "swap",
-          "filter": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -37488,7 +37496,7 @@
         "use": {
           "when": "use",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "unison": true
               },
@@ -37507,8 +37515,8 @@
             "ref": "sealMaster",
             "filter": {
               "effectStacks": {
-                "not": {
-                  "has": "alignedSeals"
+                "NOT": {
+                  "HAS": "alignedSeals"
                 }
               }
             },
@@ -37525,8 +37533,7 @@
         },
         "remove": [
           {
-            "when": "swap",
-            "field": "offField"
+            "when": "swapOff"
           },
           {
             "when": "unisonUpdate",
@@ -37593,10 +37600,7 @@
           "duration": 30000
         },
         "remove": {
-          "when": "swap",
-          "field": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -40494,7 +40498,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "duration": 8000
@@ -42503,15 +42507,15 @@
           "by": "$team",
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "aeolianRealm"
+                  "HAS": "aeolianRealm"
                 }
               },
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               }
             ]
@@ -44245,7 +44249,7 @@
         "apply": {
           "when": "end",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "normalAttack.8"
@@ -44253,7 +44257,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "swordOfDivinitysShadow"
+                  "HAS": "swordOfDivinitysShadow"
                 }
               }
             ]
@@ -44270,7 +44274,7 @@
         "apply": {
           "when": "end",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "normalAttack.8"
@@ -44278,7 +44282,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "swordOfDivinitysShadow"
+                  "HAS": "swordOfDivinitysShadow"
                 }
               }
             ]
@@ -44292,7 +44296,7 @@
         "apply": {
           "when": "end",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "normalAttack.8"
@@ -44300,7 +44304,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "swordOfDiscordsShadow"
+                  "HAS": "swordOfDiscordsShadow"
                 }
               }
             ]
@@ -44344,7 +44348,7 @@
           "filter": {
             "states": {
               "negativeStatuses": {
-                "has": "aeroErosion"
+                "HAS": "aeroErosion"
               }
             }
           },
@@ -44422,7 +44426,7 @@
           "filter": {
             "states": {
               "negativeStatuses": {
-                "has": "*"
+                "HAS": "*"
               }
             }
           },
@@ -46253,15 +46257,15 @@
           "by": "$team",
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "shield"
+                  "HAS": "shield"
                 }
               },
               {
                 "effectStacks": {
-                  "has": "fullMoonDomain"
+                  "HAS": "fullMoonDomain"
                 }
               }
             ]
@@ -47652,10 +47656,7 @@
           }
         },
         "remove": {
-          "when": "start",
-          "filter": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         }
       },
       {
@@ -47664,7 +47665,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "or": [
+              "OR": [
                 {
                   "type": "echoSkill"
                 },
@@ -47681,10 +47682,10 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "flowingPanaceaReady"
+                  "HAS": "flowingPanaceaReady"
                 }
               },
               {
@@ -54732,10 +54733,10 @@
           "by": "$team",
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "stellarealm"
+                  "HAS": "stellarealm"
                 }
               },
               {
@@ -54750,8 +54751,8 @@
           "when": "start",
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "stellarealm"
+              "NOT": {
+                "HAS": "stellarealm"
               }
             }
           }
@@ -54764,7 +54765,7 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "has": "evolved"
+              "HAS": "evolved"
             }
           },
           "specs": {
@@ -55597,7 +55598,7 @@
       {
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "forteCircuit.2"
@@ -55606,7 +55607,7 @@
               {
                 "states": {
                   "negativeStatuses": {
-                    "has": "spectroFrazzle"
+                    "HAS": "spectroFrazzle"
                   }
                 }
               }
@@ -56638,7 +56639,7 @@
           "filter": {
             "states": {
               "negativeStatuses": {
-                "has": "spectroFrazzle"
+                "HAS": "spectroFrazzle"
               }
             }
           },
@@ -57623,7 +57624,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "or": [
+              "OR": [
                 {
                   "ref": "normalAttack.10"
                 },
@@ -57642,7 +57643,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "cooldown": 2000,
@@ -57673,15 +57674,15 @@
           "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "resonantThreadOfClosure"
+                  "HAS": "resonantThreadOfClosure"
                 }
               },
               {
                 "action": {
-                  "has": "damage"
+                  "HAS": "damage"
                 }
               }
             ]
@@ -57697,16 +57698,16 @@
           "by": "$team",
           "when": "inflict",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "resonantThreadOfClosure"
+                  "HAS": "resonantThreadOfClosure"
                 }
               },
               {
                 "action": {
                   "inflict": {
-                    "has": "status"
+                    "HAS": "status"
                   }
                 }
               }
@@ -60606,7 +60607,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "or": [
+              "OR": [
                 {
                   "inflict": {
                     "shifting": "tuneStrain"
@@ -65152,7 +65153,7 @@
           "when": "hit",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "duration": 6000
@@ -65949,10 +65950,7 @@
           "duration": 15000
         },
         "remove": {
-          "when": "start",
-          "filter": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         },
         "buff": {
           "filter": {
@@ -68446,7 +68444,7 @@
           "when": "start",
           "filter": {
             "action": {
-              "or": [
+              "OR": [
                 {
                   "type": "echoSkill"
                 },
@@ -69561,15 +69559,15 @@
         "use": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "maestroHecateEnhancedFollowUp"
+                  "HAS": "maestroHecateEnhancedFollowUp"
                 }
               },
               {
                 "action": {
-                  "or": [
+                  "OR": [
                     {
                       "type": "echoSkill"
                     },
@@ -69594,7 +69592,7 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "offField"
               },
@@ -69630,7 +69628,7 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "offField"
               },
@@ -70618,7 +70616,7 @@
         "ref": "basedBreath",
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "forteCircuit.2"
@@ -70649,7 +70647,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": [
@@ -70683,7 +70681,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": "havocBane"
+                  "HAS": "havocBane"
                 }
               }
             }
@@ -70836,7 +70834,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": "havocBane"
+                  "HAS": "havocBane"
                 }
               }
             }
@@ -70849,7 +70847,7 @@
         "use": {
           "when": "inflict",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
                   "windbound": 6
@@ -70898,17 +70896,17 @@
           "by": "$ally",
           "when": "inflict",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "tonalSwitch"
+                  "HAS": "tonalSwitch"
                 }
               },
               {
                 "action": {
                   "inflict": {
                     "status": {
-                      "has": "havocBane"
+                      "HAS": "havocBane"
                     }
                   }
                 }
@@ -70920,8 +70918,8 @@
           "when": "start",
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "tonalSwitch"
+              "NOT": {
+                "HAS": "tonalSwitch"
               }
             }
           }

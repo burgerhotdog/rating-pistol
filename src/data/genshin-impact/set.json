@@ -24,7 +24,7 @@
           "filter": {
             "states": {
               "aura": {
-                "has": [
+                "HAS": [
                   "cryo",
                   "frozen"
                 ]
@@ -42,7 +42,7 @@
           "filter": {
             "states": {
               "aura": {
-                "has": "frozen"
+                "HAS": "frozen"
               }
             }
           },
@@ -78,7 +78,7 @@
           "filter": {
             "states": {
               "aura": {
-                "has": "electro"
+                "HAS": "electro"
               }
             }
           },
@@ -114,7 +114,7 @@
           "filter": {
             "states": {
               "aura": {
-                "has": "pyro"
+                "HAS": "pyro"
               }
             }
           },
@@ -240,7 +240,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": "swirl"
                 },
@@ -265,7 +265,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": "swirl"
                 },
@@ -290,7 +290,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": "swirl"
                 },
@@ -315,9 +315,9 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "or": [
+              "OR": [
                 {
-                  "and": [
+                  "AND": [
                     {
                       "reaction": "swirl"
                     },
@@ -552,7 +552,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": [
                     "crystallize",
@@ -595,7 +595,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": "crystallize"
                 },
@@ -635,7 +635,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": "crystallize"
                 },
@@ -675,7 +675,7 @@
           "when": "reaction",
           "filter": {
             "reaction": {
-              "and": [
+              "AND": [
                 {
                   "reaction": "crystallize"
                 },
@@ -1007,7 +1007,7 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -1079,17 +1079,17 @@
         "apply": {
           "when": "use",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
-                  "has": "healing"
+                  "HAS": "healing"
                 }
               },
               {
                 "states": {
                   "rule": {
-                    "not": {
-                      "has": "oceanHuedClam"
+                    "NOT": {
+                      "HAS": "oceanHuedClam"
                     }
                   }
                 }
@@ -1148,10 +1148,7 @@
           "duration": 16000
         },
         "remove": {
-          "when": "start",
-          "filter": {
-            "field": "offField"
-          }
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -1165,7 +1162,7 @@
         "apply": {
           "when": "healthUpdate",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "health": {
@@ -1177,7 +1174,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "nascentLight"
+                  "HAS": "nascentLight"
                 }
               }
             ]
@@ -1187,7 +1184,7 @@
         "remove": {
           "when": "start",
           "filter": {
-            "or": [
+            "OR": [
               {
                 "action": {
                   "type": "elementalBurst"
@@ -1198,8 +1195,8 @@
               },
               {
                 "effectStacks": {
-                  "not": {
-                    "has": "nascentLight"
+                  "NOT": {
+                    "HAS": "nascentLight"
                   }
                 }
               }
@@ -1510,15 +1507,15 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "and": [
+              "AND": [
                 {
-                  "has": "stack1"
+                  "HAS": "stack1"
                 },
                 {
-                  "has": "stack2"
+                  "HAS": "stack2"
                 },
                 {
-                  "has": "stack3"
+                  "HAS": "stack3"
                 }
               ]
             }
@@ -1534,49 +1531,49 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "or": [
+              "OR": [
                 {
-                  "and": [
+                  "AND": [
                     {
-                      "not": {
-                        "has": "stack1"
+                      "NOT": {
+                        "HAS": "stack1"
                       }
                     },
                     {
-                      "has": "stack2"
+                      "HAS": "stack2"
                     },
                     {
-                      "has": "stack3"
+                      "HAS": "stack3"
                     }
                   ]
                 },
                 {
-                  "and": [
+                  "AND": [
                     {
-                      "not": {
-                        "has": "stack2"
+                      "NOT": {
+                        "HAS": "stack2"
                       }
                     },
                     {
-                      "has": "stack1"
+                      "HAS": "stack1"
                     },
                     {
-                      "has": "stack3"
+                      "HAS": "stack3"
                     }
                   ]
                 },
                 {
-                  "and": [
+                  "AND": [
                     {
-                      "not": {
-                        "has": "stack3"
+                      "NOT": {
+                        "HAS": "stack3"
                       }
                     },
                     {
-                      "has": "stack1"
+                      "HAS": "stack1"
                     },
                     {
-                      "has": "stack2"
+                      "HAS": "stack2"
                     }
                   ]
                 }
@@ -1594,15 +1591,15 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "or": [
+              "OR": [
                 {
-                  "and": [
+                  "AND": [
                     {
-                      "has": "stack1"
+                      "HAS": "stack1"
                     },
                     {
-                      "not": {
-                        "has": [
+                      "NOT": {
+                        "HAS": [
                           "stack2",
                           "stack3"
                         ]
@@ -1611,13 +1608,13 @@
                   ]
                 },
                 {
-                  "and": [
+                  "AND": [
                     {
-                      "has": "stack2"
+                      "HAS": "stack2"
                     },
                     {
-                      "not": {
-                        "has": [
+                      "NOT": {
+                        "HAS": [
                           "stack1",
                           "stack3"
                         ]
@@ -1626,13 +1623,13 @@
                   ]
                 },
                 {
-                  "and": [
+                  "AND": [
                     {
-                      "has": "stack3"
+                      "HAS": "stack3"
                     },
                     {
-                      "not": {
-                        "has": [
+                      "NOT": {
+                        "HAS": [
                           "stack1",
                           "stack2"
                         ]
@@ -1684,16 +1681,16 @@
         "use": {
           "when": "interval",
           "filter": {
-            "or": [
+            "OR": [
               {
-                "and": [
+                "AND": [
                   {
                     "field": "onField"
                   },
                   {
                     "states": {
                       "shielded": {
-                        "not": {
+                        "NOT": {
                           ">": 0
                         }
                       }
@@ -1800,13 +1797,13 @@
         "bonus": 4,
         "buff": {
           "filter": {
-            "or": [
+            "OR": [
               {
                 "field": "offField"
               },
               {
                 "effectStacks": {
-                  "has": "onFieldTimer"
+                  "HAS": "onFieldTimer"
                 }
               }
             ]
@@ -1819,8 +1816,7 @@
       {
         "ref": "onFieldTimer",
         "apply": {
-          "when": "swap",
-          "field": "onField",
+          "when": "swapOn",
           "duration": 2000
         }
       }
@@ -1852,7 +1848,7 @@
           "field": "*",
           "filter": {
             "action": {
-              "has": "healing"
+              "HAS": "healing"
             }
           },
           "cooldown": 6000,
@@ -1880,7 +1876,7 @@
         },
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "field": "onField"
               },
@@ -1955,7 +1951,7 @@
         "buff": {
           "filter": {
             "states": {
-              "or": [
+              "OR": [
                 {
                   "shielded": {
                     ">": 0
@@ -1963,7 +1959,7 @@
                 },
                 {
                   "aura": {
-                    "has": "lunarCrystallize"
+                    "HAS": "lunarCrystallize"
                   }
                 }
               ]
@@ -2047,17 +2043,17 @@
         "use": {
           "when": "interval",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "states": {
                   "aura": {
-                    "has": "burning"
+                    "HAS": "burning"
                   }
                 }
               },
               {
                 "effectStacks": {
-                  "not": {
+                  "NOT": {
                     "burningBuff": 5
                   }
                 }
@@ -2076,26 +2072,26 @@
         "use": {
           "when": "interval",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "states": {
                   "aura": {
-                    "not": {
-                      "has": "burning"
+                    "NOT": {
+                      "HAS": "burning"
                     }
                   }
                 }
               },
               {
                 "effectStacks": {
-                  "and": [
+                  "AND": [
                     {
-                      "not": {
-                        "has": "burningGrace"
+                      "NOT": {
+                        "HAS": "burningGrace"
                       }
                     },
                     {
-                      "has": "burningBuff"
+                      "HAS": "burningBuff"
                     }
                   ]
                 }
@@ -2126,7 +2122,7 @@
           "filter": {
             "states": {
               "aura": {
-                "has": "burning"
+                "HAS": "burning"
               }
             }
           },
@@ -2184,7 +2180,7 @@
         "bonus": 4,
         "enable": {
           "owner": {
-            "has": "nightsoul"
+            "HAS": "nightsoul"
           }
         },
         "stores": "$team",
@@ -2223,7 +2219,7 @@
         "bonus": 4,
         "enable": {
           "owner": {
-            "has": "nightsoul"
+            "HAS": "nightsoul"
           }
         },
         "stores": "$team",
@@ -2262,7 +2258,7 @@
         "bonus": 4,
         "enable": {
           "owner": {
-            "has": "nightsoul"
+            "HAS": "nightsoul"
           }
         },
         "stores": "$team",
@@ -2301,7 +2297,7 @@
         "bonus": 4,
         "enable": {
           "owner": {
-            "has": "nightsoul"
+            "HAS": "nightsoul"
           }
         },
         "stores": "$team",
@@ -2340,7 +2336,7 @@
         "bonus": 4,
         "enable": {
           "owner": {
-            "has": "nightsoul"
+            "HAS": "nightsoul"
           }
         },
         "stores": "$team",
@@ -2379,7 +2375,7 @@
         "bonus": 4,
         "enable": {
           "owner": {
-            "has": "nightsoul"
+            "HAS": "nightsoul"
           }
         },
         "stores": "$team",
@@ -2418,7 +2414,7 @@
         "bonus": 4,
         "enable": {
           "owner": {
-            "has": "nightsoul"
+            "HAS": "nightsoul"
           }
         },
         "stores": "$team",
@@ -2571,16 +2567,16 @@
         "bonus": 4,
         "enable": {
           "owner": {
-            "not": {
-              "has": "energy"
+            "NOT": {
+              "HAS": "energy"
             }
           }
         },
         "buff": {
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "normalBuffDisabled"
+              "NOT": {
+                "HAS": "normalBuffDisabled"
               }
             }
           },
@@ -2593,16 +2589,16 @@
         "bonus": 4,
         "enable": {
           "owner": {
-            "not": {
-              "has": "energy"
+            "NOT": {
+              "HAS": "energy"
             }
           }
         },
         "buff": {
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "burstBuffDisabled"
+              "NOT": {
+                "HAS": "burstBuffDisabled"
               }
             }
           },
@@ -2753,7 +2749,7 @@
           "field": "*",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "duration": 8000
@@ -2775,7 +2771,7 @@
           "field": "*",
           "filter": {
             "action": {
-              "has": "damage"
+              "HAS": "damage"
             }
           },
           "duration": 8000
@@ -2820,13 +2816,13 @@
         "bonus": 4,
         "buff": {
           "filter": {
-            "or": [
+            "OR": [
               {
                 "field": "offField"
               },
               {
                 "effectStacks": {
-                  "has": "onFieldTimer"
+                  "HAS": "onFieldTimer"
                 }
               }
             ]
@@ -2843,13 +2839,13 @@
         },
         "buff": {
           "filter": {
-            "or": [
+            "OR": [
               {
                 "field": "offField"
               },
               {
                 "effectStacks": {
-                  "has": "onFieldTimer"
+                  "HAS": "onFieldTimer"
                 }
               }
             ]
@@ -2862,8 +2858,7 @@
       {
         "ref": "onFieldTimer",
         "apply": {
-          "when": "swap",
-          "field": "onField",
+          "when": "swapOn",
           "duration": 3000
         }
       }
@@ -2967,14 +2962,14 @@
       {
         "bonus": 4,
         "enable": {
-          "and": [
+          "AND": [
             {
               "owner": {
                 "hexerei": true
               }
             },
             {
-              "not": {
+              "NOT": {
                 "secretRite": true
               }
             }
@@ -3003,7 +2998,7 @@
       {
         "bonus": 4,
         "enable": {
-          "and": [
+          "AND": [
             {
               "owner": {
                 "hexerei": true
@@ -3070,7 +3065,7 @@
           "filter": {
             "states": {
               "aura": {
-                "has": [
+                "HAS": [
                   "superconduct",
                   "stellarConduct"
                 ]

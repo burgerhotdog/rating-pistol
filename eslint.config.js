@@ -34,7 +34,10 @@ export default [
         { allowConstantExport: true },
       ],
       'react/prop-types': 'off',
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      'no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
       'no-console': 'off',
     },
   },

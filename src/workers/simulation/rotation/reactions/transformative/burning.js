@@ -1,5 +1,10 @@
 import { applyAura } from '../../states';
 
+const burningReaction = {
+  reaction: 'burning',
+  elements: ['pyro', 'dendro'],
+};
+
 export function reactBurning(ctx, applier, gaugeElement, gaugeUnits) {
   ctx.states.aura.burning ??= {
     reaction: 'burning',
@@ -10,11 +15,7 @@ export function reactBurning(ctx, applier, gaugeElement, gaugeUnits) {
 
   applyAura(ctx, gaugeElement, gaugeUnits);
 
-  ctx.runEffects('reaction', {
-    reaction: 'burning',
-    elements: ['pyro', 'dendro'],
-    ownerId: applier,
-  });
+  ctx.runEffects('reaction', { ownerId: applier, reaction: burningReaction });
 
   return 0;
 }

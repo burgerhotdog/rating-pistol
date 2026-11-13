@@ -24,11 +24,10 @@ export function reactCrystallize(ctx, ownerId, auraElement, gaugeUnits) {
       excess = consumeAura(auraState, auraElement, units);
     }
 
-    ctx.runEffects('reaction', {
+    ctx.runEffects('reaction', { ownerId, reaction: {
       reaction: 'crystallize',
       elements: ['geo', auraElement],
-      ownerId,
-    });
+    }});
 
     updateShielded(ctx, mockAction);
   }

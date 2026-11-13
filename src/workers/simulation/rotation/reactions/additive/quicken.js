@@ -20,11 +20,11 @@ export function reactQuicken(ctx, ownerId, auraElement, gaugeUnits) {
 
   const excessGaugeUnits = consumeAura(ctx.states.aura, auraElement, gaugeUnits);
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'quicken',
     elements: ['dendro', 'electro'],
     ownerId,
-  });
+  }});
 
   return excessGaugeUnits;
 }

@@ -99,11 +99,14 @@ Characters:
     Mavuika
         Double check logic
         No A4 decay
+    Mona
+        Omen duration not skill level reliant
+        C6 first half not enabled
     Mika
         No C1
         No C4
     Mitya
-        No Dps mode
+        No Switching mode after using e
         Ult 3 simultaneous Beacon generation is uncertain
         Gauge mechanics are guesses
         No beacon explosion at end of skill
@@ -122,6 +125,8 @@ Characters:
         No constellations
     Nilou
         No constellations
+    Ningguang
+        No A4
     Odette
         Only plume
         Marvelous Splendor applies to $ally
@@ -141,6 +146,8 @@ Characters:
         A1 is simulated
         A4 no energy restoration
         No C1, C4, C6
+    Razor
+        No C1
     Rosaria
         C1 assumes always hits
     Sandrone
@@ -187,6 +194,8 @@ Characters:
         No constellations
     Xilonen
         No constellations
+    Xinyan
+        C1 doesn't need crit
     Xingqiu
         No energy recovery
         3 sword always

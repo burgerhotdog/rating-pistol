@@ -1,7 +1,7 @@
 import { toMergedObj, getAttr } from '@/utils';
 import { getBuffMap } from '../getStatMap';
 import { buildTransformativeReactionSnapshot } from '../snapshot';
-import { runApplyEffect, changeBondOfLife, updateHealth } from '../states';
+import { decayBuffUses, runApplyEffect, updateBondOfLife, updateHealth } from '../states';
 
 const ruleHandlers = {
   kavehFireCores(ctx) {
@@ -20,12 +20,19 @@ const ruleHandlers = {
           );
         }
 
-        ctx.runEffects('hit', {
+        decayBuffUses(ctx, {
           damage: {
             type: 'bloom',
             element: 'dendro',
           },
-        });
+        }, [core.ownerId]);
+
+        ctx.runEffects('hit', { action: {
+          damage: {
+            type: 'bloom',
+            element: 'dendro',
+          },
+        }});
       }
     }
   },
@@ -42,6 +49,11 @@ const ruleHandlers = {
       const snapshot = buildTransformativeReactionSnapshot(ctx, effect.ownerId, 'oceanHuedClam', 'physical');
       ctx.snapshots.push(snapshot);
     }
+    decayBuffUses(ctx, {
+      damage: {
+        element: 'physical',
+      },
+    }, [effect.ownerId]);
     delete ctx.states.rules.oceanHuedClam;
   },
 
@@ -54,12 +66,40 @@ const ruleHandlers = {
     const healValue = bolValue * hpValue * 1.5 + atkValue * 1.5;
     const healRatio = healValue / hpValue;
 
-    const overflow = changeBondOfLife(ctx, 10000096, -healRatio);
+    const overflow = updateBondOfLife(ctx, { ownerId: 10000096, bondOfLife: -healRatio });
     if (overflow) {
       updateHealth(ctx, { ownerId: 10000096 }, 10000096, { value: overflow });
     }
 
     ctx.runEffects('healed', { ownerId: 10000096 });
+  },
+
+  clorindeHealBol104(ctx) {
+    const { buffMap } = getBuffMap(ctx, { memberId: 10000098, resolveNow: true });
+    const statMap = toMergedObj(ctx.buildMaps[10000098], buffMap);
+
+    const healRatio = 1.04 * (1 + getAttr('healingBonus%', statMap) + getAttr('healingReceived%', statMap));
+
+    const overflow = updateBondOfLife(ctx, { ownerId: 10000098, bondOfLife: -healRatio });
+    if (overflow) {
+      updateHealth(ctx, { ownerId: 10000098 }, 10000098, { value: overflow });
+    }
+
+    ctx.runEffects('healed', { ownerId: 10000098 });
+  },
+
+  clorindeHealBol110(ctx) {
+    const { buffMap } = getBuffMap(ctx, { memberId: 10000098, resolveNow: true });
+    const statMap = toMergedObj(ctx.buildMaps[10000098], buffMap);
+
+    const healRatio = 1.1 * (1 + getAttr('healingBonus%', statMap) + getAttr('healingReceived%', statMap));
+
+    const overflow = updateBondOfLife(ctx, { ownerId: 10000098, bondOfLife: -healRatio });
+    if (overflow) {
+      updateHealth(ctx, { ownerId: 10000098 }, 10000098, { value: overflow });
+    }
+
+    ctx.runEffects('healed', { ownerId: 10000098 });
   },
 
   xilonenFakeNightsoulBurst(ctx) {

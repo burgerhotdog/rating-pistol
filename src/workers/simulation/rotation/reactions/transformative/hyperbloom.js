@@ -1,4 +1,17 @@
 import { buildTransformativeReactionSnapshot } from '../../snapshot';
+import { decayBuffUses } from '../../states';
+
+const hyperbloomAction = {
+  damage: {
+    type: 'hyperbloom',
+    element: 'dendro',
+  },
+};
+
+const hyperbloomReaction = {
+  reaction: 'hyperbloom',
+  elements: ['dendro', 'electro'],
+};
 
 export function reactHyperbloom(ctx, applier) {
   const { aura, globalCooldowns } = ctx.states;
@@ -9,29 +22,22 @@ export function reactHyperbloom(ctx, applier) {
 
   bloomState.cores = [];
 
-  ctx.runEffects('reaction', {
-    reaction: 'hyperbloom',
-    elements: ['dendro', 'electro'],
-    ownerId: applier,
-  });
+  ctx.runEffects('reaction', { ownerId: applier, reaction: hyperbloomReaction });
 
   if (globalCooldowns.hyperbloom?.length === 2) return;
 
-  if (ctx.saveSnapshots) {
-    const snapshot = buildTransformativeReactionSnapshot(ctx, applier, 'hyperbloom', 'dendro');
+  for (let i = 0; i < numCores; i++) {
+    if (globalCooldowns.hyperbloom?.length !== 2) {
+      (globalCooldowns.hyperbloom ??= []).push(500);
 
-    for (let i = 0; i < numCores; i++) {
-      if (globalCooldowns.hyperbloom?.length !== 2) {
-        (globalCooldowns.hyperbloom ??= []).push(500);
+      if (ctx.saveSnapshots) {
+        const snapshot = buildTransformativeReactionSnapshot(ctx, applier, 'hyperbloom', 'dendro');
         ctx.snapshots.push(snapshot);
       }
+
+      decayBuffUses(ctx, hyperbloomAction, [applier]);
+
+      ctx.runEffects('hit', { action: hyperbloomAction });
     }
   }
-
-  ctx.runEffects('hit', {
-    damage: {
-      type: 'hyperbloom',
-      element: 'dendro',
-    },
-  });
 }

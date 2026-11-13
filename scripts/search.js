@@ -2,8 +2,25 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readJson } from './utils/io.js';
 
+function toArr(value) {
+  if (value == undefined) return [];
+  if (Array.isArray(value)) return value;
+  return [value];
+}
+
 const gameId = 'genshin-impact';
-const dataType = 'weapon';
+const dataType = 'character';
+
+function isMatch(effect) {
+  if (effect.stores !== 'global') return;
+  if (!effect.buff) return;
+
+  for (const apply of toArr(effect.apply)) {
+    if (apply.uses) {
+      return true;
+    }
+  }
+}
 
 async function main() {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -13,16 +30,9 @@ async function main() {
   for (const charData of Object.values(data)) {
     const { name, effects = [] } = charData;
 
-    for (const [i, effect] of effects.entries()) {
-      const { buff } = effect;
-      if (!buff) continue;
-
-      const toCheck = Array.isArray(buff) ? buff : [buff];
-
-      for (const buffDef of toCheck) {
-        if (buffDef.commands) {
-          console.log(`Found: ${name} Effect ${i + 1}`);
-        }
+    for (const [index, effect] of effects.entries()) {
+      if (isMatch(effect)) {
+        console.log(`${name}: Effect Index: ${index + 1}`);
       }
     }
   }

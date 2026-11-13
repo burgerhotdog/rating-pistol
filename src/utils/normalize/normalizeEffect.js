@@ -4,25 +4,11 @@ import { handleSpecialEffect } from './specialEffect';
 
 function normalizeScope(rawScope, { ownerId, memberIds }) {
   switch (rawScope) {
-    case undefined: {
-      return [ownerId];
-    }
-
-    case '$team': {
-      return memberIds;
-    }
-
-    case '$ally': {
-      return memberIds.filter((id) => id !== ownerId);
-    }
-
-    case '$first': {
-      return [memberIds[0]];
-    }
-
-    default: {
-      return toArray(rawScope);
-    }
+    case undefined: return [ownerId];
+    case '$team':   return memberIds;
+    case '$ally':   return memberIds.filter((id) => id !== ownerId);
+    case '$first':  return [memberIds[0]];
+    default:        return toArray(rawScope);
   }
 }
 
@@ -85,6 +71,7 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     effect.remove = toArray(effect.remove).map((rawRemove) => {
       const remove = { ...rawRemove };
 
+      remove.by ??= '$storeOwner';
       remove.by = normalizeScope(remove.by, { ownerId, memberIds });
 
       const cooldown = remove.cooldown;
@@ -105,6 +92,7 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     effect.use = toArray(effect.use).map((rawUse) => {
       const use = { ...rawUse };
 
+      use.by ??= '$storeOwner';
       use.by = normalizeScope(use.by, { ownerId, memberIds });
 
       const cooldown = use.cooldown;
@@ -177,7 +165,8 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
     effect.buff.every((buff) => buff.stats && !buff.filter) &&
     !effect.apply &&
     !effect.remove &&
-    !rawEffect.stores
+    !rawEffect.stores &&
+    !effect.chance
   ) {
     effect.static = true;
   }

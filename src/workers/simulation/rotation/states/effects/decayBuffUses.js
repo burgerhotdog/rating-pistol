@@ -1,17 +1,5 @@
-function decayBuffState(ctx, action, state) {
-  const { effect, buffCooldown } = state;
-  if (buffCooldown) return;
-  if (!effect.buff) return;
-  const spec = { action, fieldId: action.ownerId };
-  const buff = effect.buff.find((candidate) => {
-    if (candidate.field) {
-      const ownerField = effect.ownerId === ctx.states.onFieldId ? 'onField' : 'offField';
-      if (candidate.field !== ownerField) return false;
-    }
-
-    return ctx.eventFilter(candidate.filter, effect.ownerId, spec)
-  });
-  if (!buff) return;
+function decayState(state, buff) {
+  const { store, effect } = state;
 
   if (buff.cooldown) {
     state.buffCooldown = buff.cooldown;
@@ -20,24 +8,50 @@ function decayBuffState(ctx, action, state) {
   if (state.usesLeft) {
     state.usesLeft--;
 
-    if (!state.usesLeft) {
-      delete state.store[effect.key];
+    if (state.usesLeft <= 0) {
+      delete store[effect.key];
     }
   }
 }
 
-export function decayBuffUses(ctx, action) {
-  const { globalEffects, memberEffects } = ctx.states;
+function tryDecay(ctx, state, action, memberId) {
+  const { effect } = state;
+  if (!effect.buff) return;
+  if (state.buffCooldown) return;
 
-  for (const effectKey in globalEffects) {
-    const state = globalEffects[effectKey];
-    decayBuffState(ctx, action, state);
+  const event = { action };
+
+  for (const buff of effect.buff) {
+    const { field, filter } = buff;
+
+    if (field) {
+      const effOwnerField = effect.ownerId === ctx.states.onFieldId ? 'onField' : 'offField';
+      if (field !== effOwnerField) continue;
+    }
+
+    if (ctx.eventFilter(filter, effect.ownerId, event, memberId)) {
+      decayState(state, buff);
+      return true;
+    }
+  }
+}
+
+export function decayBuffUses(ctx, action, memberIds) {
+  const { globalEffects, memberEffects } = ctx.states;
+  const recipients = memberIds ?? [action.ownerId];
+
+  for (const key in globalEffects) {
+    for (const memberId of recipients) {
+      if (tryDecay(ctx, globalEffects[key], action, memberId)) break;
+    }
   }
 
-  const memberStore = memberEffects[action.ownerId];
+  for (const memberId of recipients) {
+    const store = memberEffects[memberId];
+    if (!store) continue;
 
-  for (const effectKey in memberStore) {
-    const state = memberStore[effectKey];
-    decayBuffState(ctx, action, state);
+    for (const key in store) {
+      tryDecay(ctx, store[key], action, memberId);
+    }
   }
 }

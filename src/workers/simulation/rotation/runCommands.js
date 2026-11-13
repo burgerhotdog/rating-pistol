@@ -23,7 +23,7 @@ function runRemoveCommand(ctx, effect, spec) {
   }
 }
 
-function runUseCommand(ctx, effect) {
+function runUseCommand(ctx, effect, spec = {}) {
   const { memberEffects, globalEffects } = ctx.states;
 
   for (const target of effect.stores) {
@@ -41,6 +41,8 @@ function runUseCommand(ctx, effect) {
 
     if (!state?.effect?.use) break;
 
+    if (spec.respectCooldown && state.useCooldown) break;
+
     for (const [index, use] of state.effect.use.entries()) {
       const useSpec = {};
 
@@ -49,6 +51,7 @@ function runUseCommand(ctx, effect) {
       }
 
       runUseEffect(ctx, state, use, useSpec);
+
       break;
     }
   }
@@ -58,7 +61,7 @@ export function runCommands(ctx, sourceId, commands, applier) {
   const effectDefs = ctx.cache.member[sourceId].effects;
 
   for (const { filter, type, key, spec, rule } of commands) {
-    if (!ctx.eventFilter(filter, sourceId, { fieldId: applier })) continue;
+    if (!ctx.eventFilter(filter, sourceId, {}, applier)) continue;
 
     const effect = effectDefs[key];
     if (!effect) throw new Error(`Could not resolve effect: ${key}`);
@@ -69,7 +72,7 @@ export function runCommands(ctx, sourceId, commands, applier) {
         break;
 
       case 'use':
-        runUseCommand(ctx, effect);
+        runUseCommand(ctx, effect, spec);
         break;
 
       case 'apply':

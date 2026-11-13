@@ -85,7 +85,6 @@ function resolveInfusionPriority(modifiedAction, weaponInfusions) {
 
 export function getModifiedAction(ctx, action) {
   let modifiedAction = { ...action };
-  const filterSpec = { action, fieldId: action.ownerId };
 
   const weaponInfusions = [];
 
@@ -95,7 +94,8 @@ export function getModifiedAction(ctx, action) {
 
     const { type, spec } = modify;
     if (type !== 'action') return;
-    if (!ctx.eventFilter(modify.filter, effect.ownerId, filterSpec)) return;
+
+    if (!ctx.eventFilter(modify.filter, effect.ownerId, { action }, action.ownerId)) return;
 
     if (spec.damage?.element) {
       weaponInfusions.push(effect);

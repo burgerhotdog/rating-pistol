@@ -1,7 +1,6 @@
 import { buildSnapshot } from './buildSnapshot';
-import { hasRule } from '../../rules';
 
-const getAeroMaxTimer = (ctx) => hasRule(ctx, 'mandateOfDivinity') ? 1500 : 3000;
+const getAeroMaxTimer = (ctx) => ctx.hasRule('mandateOfDivinity') ? 1500 : 3000;
 
 function tickSnapshot(ctx, state) {
   if (ctx.saveSnapshots) {
@@ -14,7 +13,7 @@ function fireFusionBurst(ctx, state) {
 
   delete ctx.states.negativeStatuses.fusionBurst;
 
-  if (hasRule(ctx, 'aemeathFusionBurst')) {
+  if (ctx.hasRule('aemeathFusionBurst')) {
     ctx.states.negativeStatuses.fusionBurst = {
       key: 'fusionBurst',
       stacks: 1,
@@ -50,7 +49,7 @@ function fireAeroErosion(ctx, state) {
 function fireSpectroFrazzle(ctx, state) {
   if (state.timer > 0) return;
 
-  const heliacalEmberEnabled = hasRule(ctx, 'heliacalEmber');
+  const heliacalEmberEnabled = ctx.hasRule('heliacalEmber');
 
   if (!heliacalEmberEnabled) {
     tickSnapshot(ctx, state);
@@ -58,7 +57,7 @@ function fireSpectroFrazzle(ctx, state) {
 
   state.timer = heliacalEmberEnabled ? 6000 : 3000;
 
-  if (!hasRule(ctx, 'shimmer') || heliacalEmberEnabled) {
+  if (!ctx.hasRule('shimmer') || heliacalEmberEnabled) {
     state.stacks--;
   }
 

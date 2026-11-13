@@ -1,3 +1,8 @@
+const electroChargedReaction = {
+  reaction: 'electroCharged',
+  elements: ['electro', 'hydro'],
+};
+
 export function reactElectroCharged(ctx, ownerId) {
   const state = ctx.states.aura.electroCharged ??= {
     reaction: 'electroCharged',
@@ -6,9 +11,5 @@ export function reactElectroCharged(ctx, ownerId) {
 
   state.ownerId = ownerId;
 
-  ctx.runEffects('reaction', {
-    reaction: 'electroCharged',
-    elements: ['electro', 'hydro'],
-    ownerId,
-  });
+  ctx.runEffects('reaction', { ownerId, reaction: electroChargedReaction });
 }

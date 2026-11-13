@@ -88,11 +88,10 @@ export function reactVaporize(ctx, ownerId, isForward, gaugeUnits, action) {
     excess = consumeAura(auraStore, 'hydro', units);
   }
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'vaporize',
     elements: ['pyro', 'hydro'],
-    ownerId,
-  });
+  }});
 
   return { excess: excess / unitModifier, mult };
 }

@@ -1,5 +1,6 @@
 import { applyPyro } from '../../../reactions';
 import { buildTransformativeReactionSnapshot } from '../../../snapshot';
+import { decayBuffUses } from '../../effects';
 import { consumeAura } from '../consumeAura';
 import { decayElementalAura } from './decayElementalAura';
 
@@ -18,6 +19,13 @@ function tickBurning(ctx, burningState) {
     );
   }
 
+  decayBuffUses(ctx, {
+    damage: {
+      type: 'burning',
+      element: 'pyro',
+    },
+  }, [burningState.ownerId])
+
   burningState.timer = 250;
 
   if (!ctx.states.globalCooldowns.burning) {
@@ -25,12 +33,12 @@ function tickBurning(ctx, burningState) {
     applyPyro(ctx, 1, burningState.ownerId);
   }
 
-  ctx.runEffects('hit', {
+  ctx.runEffects('hit', { action: {
     damage: {
       type: 'burning',
       element: 'pyro',
     },
-  });
+  }});
 }
 
 export function advanceBurningTimers(ctx, step) {

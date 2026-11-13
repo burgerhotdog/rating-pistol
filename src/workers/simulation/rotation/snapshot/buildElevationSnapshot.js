@@ -49,10 +49,17 @@ export function buildElevationSnapshot(ctx, rxnKey, spec = {}) {
       ? 'geo'
       : spec.element;
 
+  const mockAction = {
+    damage: {
+      type: rxnKey,
+      element: rxnElem,
+    },
+  };
+
   const allMemberBuffs = {};
 
   for (const memberId of ctx.cache.memberIds) {
-    const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId, action: { damage: { type: rxnKey, element: rxnElem } } });
+    const { buffMap, buffSpecs } = getBuffMap(ctx, { memberId, action: mockAction });
     const { buffMap: sourceBuffMap } = getBuffMap(ctx, { memberId, ignoreSpecs: true });
 
     allMemberBuffs[memberId] = { buffMap, buffSpecs, sourceBuffMap };

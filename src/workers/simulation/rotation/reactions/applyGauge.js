@@ -255,7 +255,7 @@ function applyGeo(ctx, gauge, applier, action) {
 
   if (aura.hydro && availableUnits) {
     if (ctx.cache.lunarCrystallize) {
-      availableUnits = reactLunarCrystallize(ctx, applier);
+      availableUnits = reactLunarCrystallize(ctx, applier, availableUnits);
     } else {
       availableUnits = reactCrystallize(ctx, applier, 'hydro', availableUnits);
     }

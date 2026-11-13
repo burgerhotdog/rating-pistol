@@ -97,11 +97,10 @@ export function reactMelt(ctx, ownerId, isForward, gaugeUnits, action) {
     );
   }
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'melt',
     elements: ['pyro', 'cryo'],
-    ownerId,
-  });
+  }});
 
   return { excess: excess / unitModifier, mult };
 }

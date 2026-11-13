@@ -8,7 +8,7 @@ export function updateUnison(ctx, action) {
 
   unisonStore[action.ownerId] = next;
 
-  ctx.runEffects('unisonUpdate', action);
+  ctx.runEffects('unisonUpdate', { action });
 }
 
 export function advanceUnison(ctx, elapsed) {

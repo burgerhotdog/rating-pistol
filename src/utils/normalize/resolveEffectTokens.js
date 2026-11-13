@@ -1,3 +1,9 @@
+// Keep in sync with the evaluator (or export ARITHMETIC_KEYS from there and import it).
+const ARITHMETIC_KEYS = new Set(['SUM', 'DIFF', 'MIN', 'MAX']);
+const LOGICAL_KEYS = new Set(['AND', 'OR', 'XOR', 'NOR', 'NOT']);
+
+const isExpressionNode = (node) => Object.keys(node).some((key) => ARITHMETIC_KEYS.has(key));
+
 export const resolveEffectTokens = (normalized) => {
   const resolveEffectRef = (ref, ownerId, sourceId) => {
     if (ref.includes(':')) return ref;
@@ -15,58 +21,58 @@ export const resolveEffectTokens = (normalized) => {
     return effect?.key;
   };
 
+  /**
+   * Walks a filter and replaces effect refs with full effect keys.
+   *
+   * Refs only appear where the context is `effectStacks`:
+   *   { effectStacks: { a4_1: { ">=": 1 } } }              -> object keys
+   *   { effectStacks: { HAS: ["a4_1"] } }                  -> HAS targets
+   *   { effectStacks: { SUM: ["a4_1", "a4_2"], ">=": 2 } } -> string operands / right sides
+   *
+   * Elsewhere (e.g. `counts`), strings are plain paths and are left alone.
+   */
   function traverseFilter(node, ownerId, sourceId, inEffectStacks = false) {
     if (node == null || typeof node !== 'object') return;
 
     if (Array.isArray(node)) {
-      node.forEach((subNode) =>
-        traverseFilter(subNode, ownerId, sourceId, inEffectStacks)
-      );
+      node.forEach((sub) => traverseFilter(sub, ownerId, sourceId, inEffectStacks));
       return;
     }
 
-    for (const op of ['and', 'or', 'xor', 'nor']) {
-      if (op in node) {
-        traverseFilter(node[op], ownerId, sourceId, inEffectStacks);
-        return;
-      }
-    }
+    // Unresolved refs are kept as-is (a warning is already logged)
+    const toKey = (ref) =>
+      inEffectStacks ? (resolveEffectRef(ref, ownerId, sourceId) ?? ref) : ref;
 
-    if ('not' in node) {
-      traverseFilter(node.not, ownerId, sourceId, inEffectStacks);
-      return;
-    }
+    // Operand or right-hand side: string path, number, nested expression, or filter.
+    // Nested expressions and filters share the same context, so the flag carries over.
+    const resolveTerm = (term) => {
+      if (typeof term === 'string') return toKey(term);
+      traverseFilter(term, ownerId, sourceId, inEffectStacks);
+      return term;
+    };
 
-    if ('count' in node) {
-      traverseFilter(node.count.conditions, ownerId, sourceId, inEffectStacks);
-      return;
-    }
-
-    if ('sum' in node) {
-      if (inEffectStacks) {
-        node.sum.keys = node.sum.keys.map((ref) =>
-          resolveEffectRef(ref, ownerId, sourceId)
-        );
+    // { SUM: [...], ">=": 2 }
+    if (isExpressionNode(node)) {
+      for (const [key, value] of Object.entries(node)) {
+        node[key] = ARITHMETIC_KEYS.has(key) && Array.isArray(value)
+          ? value.map(resolveTerm)
+          : resolveTerm(value);
       }
       return;
     }
 
-    if ('has' in node) {
-      if (inEffectStacks) {
-        if (Array.isArray(node.has)) {
-          node.has = node.has.map((ref) =>
-            resolveEffectRef(ref, ownerId, sourceId)
-          );
-        } else if (node.has !== '*') {
-          node.has = resolveEffectRef(node.has, ownerId, sourceId);
-        }
-      }
-      return;
-    }
-
+    // Regular node: every key is an independent filter (implicit AND)
     for (const [key, value] of Object.entries(node)) {
-      if (inEffectStacks) {
-        const effectKey = resolveEffectRef(key, ownerId, sourceId);
+      if (key === 'HAS') {
+        if (inEffectStacks) {
+          node.HAS = Array.isArray(value)
+            ? value.map(toKey)
+            : value === '*' ? value : toKey(value);
+        }
+      } else if (LOGICAL_KEYS.has(key)) {
+        traverseFilter(value, ownerId, sourceId, inEffectStacks);
+      } else if (inEffectStacks) {
+        const effectKey = toKey(key);
 
         if (effectKey !== key) {
           node[effectKey] = value;
@@ -93,85 +99,40 @@ export const resolveEffectTokens = (normalized) => {
       .filter(Boolean);
   }
 
+  // Shared by apply / remove / use / buff / expire entries
+  function resolveStep(raw, ownerId, sourceId) {
+    const { filter, commands } = raw;
+    if (!filter && !commands) return raw;
+
+    const step = { ...raw };
+
+    if (filter) {
+      step.filter = structuredClone(filter);
+      traverseFilter(step.filter, ownerId, sourceId);
+    }
+
+    if (commands) {
+      step.commands = resolveCommands(commands, ownerId, sourceId);
+    }
+
+    return step;
+  }
+
   const resolved = structuredClone(normalized);
 
   for (const effect of Object.values(resolved)) {
     const { ownerId, sourceId } = effect;
 
-    if (effect.apply) {
-      effect.apply = effect.apply.map((rawApply) => {
-        const { filter, commands } = rawApply;
-        if (!filter && !commands) return rawApply;
-        const apply = { ...rawApply };
-
-        if (filter) {
-          apply.filter = structuredClone(filter);
-          traverseFilter(apply.filter, ownerId, sourceId);
-        }
-
-        if (commands) {
-          apply.commands = resolveCommands(commands, ownerId, sourceId);
-        }
-
-        return apply;
-      });
+    for (const field of ['apply', 'remove', 'use', 'buff']) {
+      if (effect[field]) {
+        effect[field] = effect[field].map((raw) =>
+          resolveStep(raw, ownerId, sourceId)
+        );
+      }
     }
 
-    if (effect.remove) {
-      effect.remove = effect.remove.map((rawRemove) => {
-        const { filter, commands } = rawRemove;
-        if (!filter && !commands) return rawRemove;
-        const remove = { ...rawRemove };
-
-        if (filter) {
-          remove.filter = structuredClone(filter);
-          traverseFilter(remove.filter, ownerId, sourceId);
-        }
-
-        if (commands) {
-          remove.commands = resolveCommands(commands, ownerId, sourceId);
-        }
-
-        return remove;
-      });
-    }
-
-    if (effect.use) {
-      effect.use = effect.use.map((rawUse) => {
-        const { filter, commands } = rawUse;
-        if (!filter && !commands) return rawUse;
-        const use = { ...rawUse };
-
-        if (filter) {
-          use.filter = structuredClone(filter);
-          traverseFilter(use.filter, ownerId, sourceId);
-        }
-
-        if (commands) {
-          use.commands = resolveCommands(commands, ownerId, sourceId);
-        }
-
-        return use;
-      });
-    }
-
-    if (effect.buff) {
-      effect.buff = effect.buff.map((rawBuff) => {
-        const { filter, commands } = rawBuff;
-        if (!filter && !commands) return rawBuff;
-        const buff = { ...rawBuff };
-
-        if (filter) {
-          buff.filter = structuredClone(filter);
-          traverseFilter(buff.filter, ownerId, sourceId);
-        }
-
-        if (commands) {
-          buff.commands = resolveCommands(commands, ownerId, sourceId);
-        }
-
-        return buff;
-      });
+    if (effect.expire) {
+      effect.expire = resolveStep(effect.expire, ownerId, sourceId);
     }
 
     if (effect.modify?.type === 'effect') {
@@ -183,19 +144,6 @@ export const resolveEffectTokens = (normalized) => {
       const modify = effect.modify = { ...effect.modify };
       modify.filter = structuredClone(modify.filter);
       traverseFilter(modify.filter, ownerId, sourceId);
-    }
-
-    if (effect.expire) {
-      const expire = effect.expire = { ...effect.expire };
-
-      if (expire.filter) {
-        expire.filter = structuredClone(expire.filter);
-        traverseFilter(expire.filter, ownerId, sourceId);
-      }
-
-      if (expire.commands) {
-        expire.commands = resolveCommands(expire.commands, ownerId, sourceId);
-      }
     }
   }
 

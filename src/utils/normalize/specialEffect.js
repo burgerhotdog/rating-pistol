@@ -21,18 +21,5 @@ export function handleSpecialEffect(gameId, effect, spec = {}) {
 
       break;
     }
-
-    case 'yelanA1': {
-      const numDiffElements = Object.keys(counts.element).length;
-      const [{ stats }] = toArray(effect.buff);
-
-      if (numDiffElements === 4) {
-        stats['hp%'] = 0.3;
-      } else {
-        stats['hp%'] = 0.06 * numDiffElements;
-      }
-
-      break;
-    }
   }
 }

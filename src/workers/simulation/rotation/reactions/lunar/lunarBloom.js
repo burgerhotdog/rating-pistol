@@ -1,5 +1,4 @@
 import { GI } from '@/data';
-import { hasRule } from '../../rules';
 
 export function reactLunarBloom(ctx, ownerId) {
   const state = ctx.states.aura.lunarBloom ??= {
@@ -8,15 +7,15 @@ export function reactLunarBloom(ctx, ownerId) {
     moonridgeDew: 0,
   };
 
-  ctx.runEffects('reaction', {
+  ctx.runEffects('reaction', { ownerId, reaction: {
     reaction: 'lunarBloom',
     elements: ['dendro', 'hydro'],
     ownerId,
-  });
+  }});
 
   state.verdantDew = Math.min(state.verdantDew + 1, 3);
 
-  if (hasRule(ctx, 'moonridgeDew')) {
+  if (ctx.hasRule('moonridgeDew')) {
     state.moonridgeDew = Math.min(state.moonridgeDew + 1, 3);
   }
 }
@@ -51,7 +50,7 @@ export function getVerdantDewMult(ctx, action) {
   const consumedStacks = consumeVerdantDew(ctx, action);
 
   for (let i = 0; i < consumedStacks; i++) {
-    ctx.runEffects('consumeVerdantDew', action);
+    ctx.runEffects('consumeVerdantDew', { action });
   }
 
   return consumedStacks;

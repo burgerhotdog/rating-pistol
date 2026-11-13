@@ -313,7 +313,7 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "type": "outroSkill"
@@ -321,7 +321,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "heronReady"
+                  "HAS": "heronReady"
                 }
               }
             ]
@@ -493,10 +493,10 @@
         "apply": {
           "when": "hit",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "blessingOfTime"
+                  "HAS": "blessingOfTime"
                 }
               },
               {
@@ -515,8 +515,8 @@
           "when": "start",
           "filter": {
             "effectStacks": {
-              "not": {
-                "has": "blessingOfTime"
+              "NOT": {
+                "HAS": "blessingOfTime"
               }
             }
           }
@@ -1246,7 +1246,7 @@
       {
         "buff": {
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "ref": "echoSkill.0"
@@ -1255,7 +1255,7 @@
               {
                 "states": {
                   "negativeStatuses": {
-                    "has": "spectroFrazzle"
+                    "HAS": "spectroFrazzle"
                   }
                 }
               }
@@ -2008,9 +2008,9 @@
     "cost": 4,
     "effects": [
       {
-        "stores": "global",
+        "ref": "coreOfCollapse",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
@@ -2020,21 +2020,17 @@
           "uses": 8
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
-            "and": [
-              {
-                "field": "onField"
-              },
-              {
-                "action": {
-                  "has": "damage"
-                }
-              }
-            ]
+            "field": "onField",
+            "action": {
+              "HAS": "damage"
+            }
           },
           "cooldown": 500,
           "action": {
+            "name": "Core of Collapse",
             "damage": {
               "element": "havoc",
               "multipliers": [
@@ -2043,6 +2039,24 @@
                 }
               ]
             }
+          }
+        }
+      },
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "sourceId": 6000167,
+              "name": "Core of Collapse"
+            },
+            "states": {
+              "negativeStatuses": {
+                "HAS": "havocBane"
+              }
+            }
+          },
+          "stats": {
+            "damageMv%": 1
           }
         }
       },
@@ -2369,10 +2383,10 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "hyvatiaSummoned"
+                  "HAS": "hyvatiaSummoned"
                 }
               },
               {
@@ -2611,10 +2625,10 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "summoned"
+                  "HAS": "summoned"
                 }
               },
               {
@@ -2709,10 +2723,10 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "effectStacks": {
-                  "has": "tricksterSummoned"
+                  "HAS": "tricksterSummoned"
                 }
               },
               {
@@ -3068,7 +3082,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": "havocBane"
+                  "HAS": "havocBane"
                 }
               }
             }
@@ -3252,7 +3266,7 @@
         "apply": {
           "when": "start",
           "filter": {
-            "and": [
+            "AND": [
               {
                 "action": {
                   "type": "outroSkill"
@@ -3260,7 +3274,7 @@
               },
               {
                 "effectStacks": {
-                  "has": "summoned"
+                  "HAS": "summoned"
                 }
               }
             ]
@@ -3314,7 +3328,7 @@
             "action": {
               "inflict": {
                 "status": {
-                  "has": "electroFlare"
+                  "HAS": "electroFlare"
                 }
               }
             }
