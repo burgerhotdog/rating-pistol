@@ -83,15 +83,7 @@ function recordTuneBreak(ctx) {
 }
 
 function checkBy(ctx, effect, by, id) {
-  const { memberIds } = ctx.cache;
-  const { ownerId } = effect;
-
   return by.some((option) => {
-    if (option === '$next') {
-      const index = memberIds.indexOf(ownerId);
-      return memberIds.at(index - 1) === id;
-    }
-
     return option === id;
   });
 }

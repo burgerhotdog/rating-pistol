@@ -12,6 +12,19 @@ export function runUseEffect(ctx, state, use = {}, spec = {}) {
         ? { ...action, damage: { ...action.damage, element: state.absorbElement } }
         : action;
 
+      if (modifiedAction.healing) {
+        modifiedAction.healing = {
+          ...modifiedAction.healing,
+          targets: modifiedAction.healing.targets.map((target) => {
+            if (target === '$storeOwner') {
+              return state.ownerId;
+            } else {
+              return target;
+            }
+          }),
+        };
+      }
+
       const runOptions = {
         noDuration: true,
         ...(effect.snapshotBuffs && {

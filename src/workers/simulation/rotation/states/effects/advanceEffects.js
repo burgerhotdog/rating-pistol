@@ -172,7 +172,7 @@ function fireIntervalUses(ctx, state, storeOwnerId) {
     const removed = runUseEffect(ctx, state, use, spec);
 
     if (use.commands) {
-      ctx.runCommands(effect.ownerId, use.commands);
+      ctx.runCommands(effect.ownerId, use.commands, storeOwnerId);
     }
 
     if (removed) break;

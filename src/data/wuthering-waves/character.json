@@ -64,15 +64,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -850,20 +871,50 @@
         }
       },
       {
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 30000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "outroHeal",
+              "spec": {
+                "duration": 30000,
+                "offset": 3000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "outroBuff",
+              "spec": {
+                "duration": 36000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "outroHeal",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "use": {
           "when": "interval",
           "cooldown": 3000,
           "action": {
             "healing": {
+              "targets": "$storeOwner",
               "attr": "hp",
               "multipliers": [
                 {
@@ -875,15 +926,10 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroBuff",
+        "stores": "$applier",
         "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
-          },
-          "duration": 36000
+          "when": "command"
         },
         "buff": {
           "stats": {
@@ -2621,15 +2667,36 @@
         "maxStacks": 3
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -3159,15 +3226,33 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 28000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 28000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "filter": {
@@ -7046,15 +7131,37 @@
       },
       {
         "mode": "echo",
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "mode": "echo",
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -7958,7 +8065,7 @@
         "name": "Montage",
         "actions": [
           {
-            "name": "Montage",
+            "name": "Outro Skill",
             "type": "outroSkill"
           }
         ]
@@ -11098,15 +11205,36 @@
         "maxStacks": 50
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -11834,15 +11962,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 10000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -12745,15 +12894,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -14319,9 +14489,9 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "forte_setTheArenaAblaze",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": [
@@ -14330,22 +14500,51 @@
               ]
             }
           },
+          "duration": 8000,
           "uses": 1
         },
         "use": {
-          "when": "hit",
+          "by": "$ally",
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          },
           "action": "forteCircuit.2"
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
+          },
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
           }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -20654,22 +20853,40 @@
       },
       {
         "mode": "tuneStrain",
-        "ref": "outro_tune",
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
           "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 16000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outro_buff",
+            "spec": {
+              "duration": 16000
+            }
+          }
+        }
+      },
+      {
+        "mode": "tuneStrain",
+        "ref": "outro_buff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "remove": {
           "when": "swapOff",
           "commands": {
             "type": "remove",
-            "ref": "outro_tuneEnhanced"
+            "ref": "outro_enhance"
           }
         },
         "use": {
@@ -20679,11 +20896,16 @@
               "inflict": {
                 "shifting": "tuneStrain"
               }
+            },
+            "effectStacks": {
+              "NOT": {
+                "HAS": "outro_enhance"
+              }
             }
           },
           "commands": {
             "type": "apply",
-            "ref": "outro_tuneEnhanced"
+            "ref": "outro_enhance"
           }
         },
         "buff": [
@@ -20691,7 +20913,7 @@
             "filter": {
               "effectStacks": {
                 "NOT": {
-                  "HAS": "outro_tuneEnhanced"
+                  "HAS": "outro_enhance"
                 }
               }
             },
@@ -20702,7 +20924,7 @@
           {
             "filter": {
               "effectStacks": {
-                "HAS": "outro_tuneEnhanced"
+                "HAS": "outro_enhance"
               }
             },
             "stats": {
@@ -20713,13 +20935,13 @@
         "expire": {
           "commands": {
             "type": "remove",
-            "ref": "outro_tuneEnhanced"
+            "ref": "outro_enhance"
           }
         }
       },
       {
         "mode": "tuneStrain",
-        "ref": "outro_tuneEnhanced",
+        "ref": "outro_enhance",
         "apply": {
           "when": "command"
         }
@@ -21919,7 +22141,7 @@
         "name": "Unfinished Lies",
         "actions": [
           {
-            "name": "Unfinished Lies",
+            "name": "Outro Skill",
             "type": "outroSkill"
           }
         ]
@@ -24830,15 +25052,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -27833,16 +28076,34 @@
         "maxStacks": 4
       },
       {
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 8000,
-          "uses": 3
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outro_use",
+            "spec": {
+              "duration": 8000,
+              "uses": 3
+            }
+          }
+        }
+      },
+      {
+        "ref": "outro_use",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "use": {
           "when": "hit",
@@ -28766,16 +29027,33 @@
         }
       },
       {
-        "ref": "battlesongOfTheUnyielding",
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
           "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "remove": {
           "when": "swapOff"
@@ -30629,35 +30907,175 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "outro_turret",
+              "filter": {
+                "character": {
+                  "NOT": {
+                    "id": 1511
+                  }
+                }
+              },
+              "spec": {
+                "duration": 14000,
+                "offset": 200
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "outro_turretEnhanced",
+              "filter": {
+                "character": {
+                  "id": 1511
+                }
+              },
+              "spec": {
+                "duration": 4000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "outro_buff",
+              "filter": {
+                "character": {
+                  "NOT": {
+                    "id": 1511
+                  }
+                }
+              },
+              "spec": {
+                "duration": 14000,
+                "offset": 200
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "outro_lucy",
+              "filter": {
+                "character": {
+                  "id": 1511
+                }
+              },
+              "spec": {
+                "duration": 14000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "outro_turret",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 200,
+          "action": {
+            "damage": {
+              "type": "outroSkill",
+              "multipliers": [
+                {
+                  "mv": 0.025
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "ref": "outro_turretEnhanced",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 200,
+          "action": {
+            "damage": {
+              "type": "outroSkill",
+              "multipliers": [
+                {
+                  "mv": 0.0875
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "ref": "outro_buff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff",
+          "commands": {
+            "type": "remove",
+            "ref": "outro_overlimit"
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 200,
+          "commands": {
+            "type": "apply",
+            "ref": "outro_overlimit"
+          }
         },
         "buff": {
           "stats": {
             "dmgAmp%": 0.15
           }
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "outro_overlimit"
+          }
         }
       },
       {
-        "stores": "1511",
+        "ref": "outro_overlimit",
+        "stores": "$applier",
         "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
-          },
-          "duration": 14000
+          "when": "command"
         },
         "buff": {
           "stats": {
+            "heavyAttackDmgAmp%": 0.005
+          }
+        },
+        "maxStacks": 70
+      },
+      {
+        "ref": "outro_lucy",
+        "stores": 1511,
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
+        },
+        "buff": {
+          "stats": {
+            "dmgAmp%": 0.15,
             "heavyAttackDmgAmp%": 0.35
           }
         }
@@ -32551,7 +32969,7 @@
         "name": "Preem Choom",
         "actions": [
           {
-            "name": "Preem Choom",
+            "name": "Outro Skill",
             "type": "outroSkill"
           }
         ]
@@ -32681,40 +33099,64 @@
         }
       },
       {
-        "ref": "electroCore",
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 20000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outro_electroCore",
+            "spec": {
+              "duration": 20000,
+              "uses": 1
+            }
+          }
         }
       },
       {
+        "ref": "outro_electroCore",
         "stores": "$applier",
         "apply": {
-          "by": "$team",
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
+        },
+        "use": {
           "when": "inflict",
           "filter": {
-            "AND": [
-              {
-                "effectStacks": {
-                  "HAS": "electroCore"
-                }
-              },
-              {
-                "action": {
-                  "inflict": {
-                    "HAS": "status"
-                  }
-                }
+            "action": {
+              "inflict": {
+                "HAS": "status"
               }
-            ]
+            }
           },
-          "duration": 14000
+          "commands": {
+            "type": "apply",
+            "ref": "outro_buff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outro_buff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -37327,16 +37769,42 @@
         "maxStacks": 8
       },
       {
-        "ref": "outro",
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
           "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 8000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "outro_buff",
+              "spec": {
+                "duration": 8000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "s2_buff",
+              "spec": {
+                "duration": 30000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "outro_buff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "remove": {
           "when": "swapOff"
@@ -37345,22 +37813,16 @@
           {
             "filter": {
               "NOT": {
-                "AND": [
-                  {
-                    "character": {
-                      "unison": true
-                    }
-                  },
-                  {
-                    "states": {
-                      "unisonBoon": {
-                        "stacks": {
-                          ">": 0
-                        }
-                      }
+                "character": {
+                  "unison": true
+                },
+                "states": {
+                  "unisonBoon": {
+                    "stacks": {
+                      ">": 0
                     }
                   }
-                ]
+                }
               }
             },
             "stats": {
@@ -37369,22 +37831,16 @@
           },
           {
             "filter": {
-              "AND": [
-                {
-                  "character": {
-                    "unison": true
-                  }
-                },
-                {
-                  "states": {
-                    "unisonBoon": {
-                      "stacks": {
-                        ">": 0
-                      }
-                    }
+              "character": {
+                "unison": true
+              },
+              "states": {
+                "unisonBoon": {
+                  "stacks": {
+                    ">": 0
                   }
                 }
-              ]
+              }
             },
             "stats": {
               "electroDmgAmp%": 0.2,
@@ -37418,16 +37874,10 @@
         "apply": {
           "when": "start",
           "filter": {
-            "AND": [
-              {
-                "unison": true
-              },
-              {
-                "action": {
-                  "ref": "outroSkill.0"
-                }
-              }
-            ]
+            "unison": true,
+            "action": {
+              "type": "outroSkill"
+            }
           },
           "duration": 30000,
           "commands": {
@@ -37454,22 +37904,33 @@
         "use": {
           "when": "use",
           "filter": {
-            "AND": [
-              {
-                "action": {
-                  "ref": "outroSkill.0"
-                }
-              },
-              {
-                "effectStacks": {
-                  "HAS": "alignedSeals"
-                }
-              }
-            ]
+            "action": {
+              "type": "outroSkill"
+            },
+            "effectStacks": {
+              "HAS": "alignedSeals"
+            }
           },
           "commands": {
             "type": "apply",
-            "ref": "inherent2_2",
+            "ref": "forte_applyOutroBuff",
+            "spec": {
+              "uses": 1
+            }
+          }
+        }
+      },
+      {
+        "ref": "forte_applyOutroBuff",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "forte_outroBuff",
             "spec": {
               "duration": 8000
             }
@@ -37477,8 +37938,8 @@
         }
       },
       {
-        "ref": "inherent2_2",
-        "stores": "$next",
+        "ref": "forte_outroBuff",
+        "stores": "$applier",
         "apply": {
           "when": "command"
         },
@@ -37496,16 +37957,10 @@
         "use": {
           "when": "use",
           "filter": {
-            "AND": [
-              {
-                "unison": true
-              },
-              {
-                "action": {
-                  "ref": "resonanceSkill.0"
-                }
-              }
-            ]
+            "unison": true,
+            "action": {
+              "ref": "resonanceSkill.0"
+            }
           },
           "action": {
             "unison": false
@@ -37589,15 +38044,10 @@
       },
       {
         "rank": 2,
-        "stores": "$next",
+        "ref": "s2_buff",
+        "stores": "$applier",
         "apply": {
-          "when": "use",
-          "filter": {
-            "action": {
-              "ref": "outroSkill.0"
-            }
-          },
-          "duration": 30000
+          "when": "command"
         },
         "remove": {
           "when": "swapOff"
@@ -39824,15 +40274,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -40510,22 +40981,42 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 8000,
-          "uses": 2
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outro_use",
+            "spec": {
+              "duration": 8000,
+              "uses": 2
+            }
+          }
+        }
+      },
+      {
+        "ref": "outro_use",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "use": {
           "when": "hit",
           "filter": {
             "action": {
-              "type": "heavyAttack"
+              "damage": {
+                "type": "heavyAttack"
+              }
             }
           },
           "cooldown": 1000,
@@ -41343,15 +41834,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -46329,15 +46841,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -47718,15 +48251,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -53682,15 +54236,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 10000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -59225,15 +59800,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -61802,15 +62398,45 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "outro_buff",
+              "spec": {
+                "duration": 14000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "outro_countermeasure",
+              "spec": {
+                "duration": 25000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "outro_buff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -61819,15 +62445,44 @@
         }
       },
       {
-        "stores": "1308",
+        "ref": "outro_countermeasure",
         "apply": {
-          "when": "start",
+          "when": "command"
+        },
+        "use": {
+          "by": "$ally",
+          "when": "inflict",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "inflict": {
+                "shifting": "hack"
+              }
             }
           },
-          "duration": 25000
+          "commands": {
+            "type": "apply",
+            "ref": "outro_rebecca"
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "outro_rebecca"
+          }
+        }
+      },
+      {
+        "ref": "outro_rebecca",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff",
+          "commands": {
+            "type": "remove",
+            "ref": "outro_countermeasure"
+          }
         },
         "buff": {
           "stats": {
@@ -64175,15 +64830,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -65131,15 +65807,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -67840,18 +68537,18 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "forte_magicBox",
+        "stores": "$applier",
         "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
-          },
-          "uses": 1
+          "when": "command"
         },
         "use": {
           "when": "hit",
+          "filter": {
+            "action": {
+              "HAS": "damage"
+            }
+          },
           "action": {
             "type": "echoSkill",
             "damage": {
@@ -67865,15 +68562,46 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "outro_buff",
+              "spec": {
+                "duration": 14000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "forte_magicBox",
+              "spec": {
+                "duration": 14000,
+                "uses": 1
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "outro_buff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -68464,15 +69192,36 @@
         "maxStacks": 2
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -69657,15 +70406,36 @@
         "maxStacks": 100
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {

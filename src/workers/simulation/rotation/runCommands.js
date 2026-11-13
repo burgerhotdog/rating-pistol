@@ -5,14 +5,20 @@ function runRemoveCommand(ctx, effect, spec) {
   const { memberEffects, globalEffects } = ctx.states;
 
   for (const target of effect.stores) {
-    let state;
+    if (target === '$applier') {
+      for (const memberId in memberEffects) {
+        const state = memberEffects[memberId][effect.key];
+        if (state) {
+          runRemoveEffect(state, spec);
+        }
+      }
 
+      continue;
+    }
+
+    let state;
     if (target === 'global') {
       state = globalEffects[effect.key];
-    } else if (target === '$next') {
-      const index = ctx.cache.memberIds.indexOf(effect.ownerId);
-      const id = ctx.cache.memberIds.at(index - 1);
-      state = memberEffects[id][effect.key];
     } else {
       state = memberEffects[target][effect.key];
     }
@@ -27,14 +33,26 @@ function runUseCommand(ctx, effect, spec = {}) {
   const { memberEffects, globalEffects } = ctx.states;
 
   for (const target of effect.stores) {
-    let state;
+    if (target === '$applier') {
+      for (const memberId in memberEffects) {
+        const state = memberEffects[memberId][effect.key];
+        if (!state?.effect?.use) continue;
+        if (spec.respectCooldown && state.useCooldown) continue;
+        for (const [index, use] of state.effect.use.entries()) {
+          const useSpec = {};
+          if (effect.snapshotBuffs) {
+            useSpec.snapshotBuffs = state.snapshotBuffs[index];
+          }
+          runUseEffect(ctx, state, use, useSpec);
+          break;
+        }
+      }
+      continue;
+    }
 
+    let state;
     if (target === 'global') {
       state = globalEffects[effect.key];
-    } else if (target === '$next') {
-      const index = ctx.cache.memberIds.indexOf(effect.ownerId);
-      const id = ctx.cache.memberIds.at(index - 1);
-      state = memberEffects[id][effect.key];
     } else {
       state = memberEffects[target][effect.key];
     }
