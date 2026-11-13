@@ -2816,15 +2816,32 @@
         }
       },
       {
-        "stores": "$next",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "stats": {

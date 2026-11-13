@@ -297,42 +297,33 @@
     "cost": 4,
     "effects": [
       {
-        "ref": "heronReady",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
             }
           },
-          "duration": 15000
+          "duration": 15000,
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "heronBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
         }
       },
       {
-        "stores": "$next",
+        "ref": "heronBuff",
+        "stores": "$applier",
         "apply": {
-          "when": "start",
-          "filter": {
-            "AND": [
-              {
-                "action": {
-                  "type": "outroSkill"
-                }
-              },
-              {
-                "effectStacks": {
-                  "HAS": "heronReady"
-                }
-              }
-            ]
-          },
-          "duration": 15000,
-          "commands": [
-            {
-              "type": "remove",
-              "ref": "heronReady"
-            }
-          ]
+          "when": "command"
         },
         "buff": {
           "stats": {
@@ -2367,42 +2358,33 @@
     "cost": 4,
     "effects": [
       {
-        "ref": "hyvatiaSummoned",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
             }
           },
-          "duration": 15000
+          "duration": 15000,
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "hyvatiaBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
         }
       },
       {
-        "stores": "$next",
+        "ref": "hyvatiaBuff",
+        "stores": "$applier",
         "apply": {
-          "when": "start",
-          "filter": {
-            "AND": [
-              {
-                "effectStacks": {
-                  "HAS": "hyvatiaSummoned"
-                }
-              },
-              {
-                "action": {
-                  "type": "outroSkill"
-                }
-              }
-            ]
-          },
-          "duration": 15000,
-          "commands": [
-            {
-              "type": "remove",
-              "ref": "hyvatiaSummoned"
-            }
-          ]
+          "when": "command"
         },
         "buff": {
           "stats": {
@@ -2544,15 +2526,33 @@
     "cost": 3,
     "effects": [
       {
-        "stores": "$next",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "ref": "echoSkill.0"
             }
           },
-          "duration": 15000
+          "duration": 15000,
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "glommothBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "ref": "glommothBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "stats": {
@@ -2609,36 +2609,33 @@
     "cost": 3,
     "effects": [
       {
-        "ref": "summoned",
         "apply": {
-          "when": "hit",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
             }
           },
-          "duration": 15000
+          "duration": 15000,
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "mothBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
         }
       },
       {
-        "stores": "$next",
+        "ref": "mothBuff",
+        "stores": "$applier",
         "apply": {
-          "when": "start",
-          "filter": {
-            "AND": [
-              {
-                "effectStacks": {
-                  "HAS": "summoned"
-                }
-              },
-              {
-                "action": {
-                  "type": "outroSkill"
-                }
-              }
-            ]
-          },
-          "duration": 15000
+          "when": "command"
         },
         "buff": {
           "stats": {
@@ -2707,36 +2704,33 @@
     "cost": 4,
     "effects": [
       {
-        "ref": "tricksterSummoned",
         "apply": {
-          "when": "hit",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
             }
           },
-          "duration": 15000
+          "duration": 15000,
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "deniaBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
         }
       },
       {
-        "stores": "$next",
+        "ref": "deniaBuff",
+        "stores": "$applier",
         "apply": {
-          "when": "start",
-          "filter": {
-            "AND": [
-              {
-                "effectStacks": {
-                  "HAS": "tricksterSummoned"
-                }
-              },
-              {
-                "action": {
-                  "type": "outroSkill"
-                }
-              }
-            ]
-          },
-          "duration": 15000
+          "when": "command"
         },
         "buff": {
           "stats": {
@@ -3250,36 +3244,33 @@
     "cost": 3,
     "effects": [
       {
-        "ref": "summoned",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "echoSkill.0"
             }
           },
-          "duration": 15000
+          "duration": 15000,
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "soulfrayerBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
         }
       },
       {
-        "stores": "$next",
+        "ref": "soulfrayerBuff",
+        "stores": "$applier",
         "apply": {
-          "when": "start",
-          "filter": {
-            "AND": [
-              {
-                "action": {
-                  "type": "outroSkill"
-                }
-              },
-              {
-                "effectStacks": {
-                  "HAS": "summoned"
-                }
-              }
-            ]
-          },
-          "duration": 15000
+          "when": "command"
         },
         "buff": {
           "stats": {

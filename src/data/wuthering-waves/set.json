@@ -313,15 +313,33 @@
       },
       {
         "bonus": 5,
-        "stores": "$next",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 15000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "moonlitBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "bonus": 5,
+        "ref": "moonlitBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "stats": {
@@ -539,7 +557,7 @@
       {
         "bonus": 5,
         "use": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -560,15 +578,33 @@
       },
       {
         "bonus": 5,
-        "stores": "$next",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 15000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "veilBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "bonus": 5,
+        "ref": "veilBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "stats": {
@@ -1105,15 +1141,33 @@
       },
       {
         "bonus": 5,
-        "stores": "$next",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 15000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "pactBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "bonus": 5,
+        "ref": "pactBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "remove": {
           "when": "swapOff"
@@ -1121,25 +1175,7 @@
         "buff": {
           "stats": {
             "atk%": 0.15
-          }
-        }
-      },
-      {
-        "bonus": 5,
-        "stores": "$next",
-        "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
           },
-          "duration": 15000
-        },
-        "remove": {
-          "when": "swapOff"
-        },
-        "buff": {
           "specs": {
             "atk%": {
               "attr": "tuneBreakBoost",
@@ -1334,7 +1370,7 @@
       },
       {
         "bonus": 5,
-        "ref": "fusionDmgBonusGained",
+        "ref": "inflictBuff",
         "apply": {
           "when": "inflict",
           "filter": {
@@ -1356,24 +1392,36 @@
       },
       {
         "bonus": 5,
-        "stores": "$next",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
-            "AND": [
-              {
-                "effectStacks": {
-                  "HAS": "fusionDmgBonusGained"
-                }
-              },
-              {
-                "action": {
-                  "type": "outroSkill"
-                }
-              }
-            ]
+            "action": {
+              "type": "outroSkill"
+            },
+            "effectStacks": {
+              "HAS": "inflictBuff"
+            }
           },
-          "duration": 15000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "foamBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "bonus": 5,
+        "ref": "foamBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "stats": {
@@ -1509,99 +1557,93 @@
       },
       {
         "bonus": 5,
-        "ref": "critRateIncreased",
+        "ref": "selfBuff",
         "apply": {
           "when": "hit",
           "filter": {
-            "AND": [
-              {
-                "effectStacks": {
-                  "HAS": "snowfall"
-                }
-              },
-              {
-                "action": {
-                  "damage": {
-                    "type": "resonanceLiberation"
-                  }
-                }
+            "action": {
+              "damage": {
+                "type": "resonanceLiberation"
               }
-            ]
+            },
+            "effectStacks": {
+              "HAS": "snowfall"
+            }
           },
           "duration": 6000,
-          "commands": [
-            {
-              "type": "remove",
-              "ref": "snowfall"
-            }
-          ]
+          "commands": {
+            "type": "remove",
+            "ref": "snowfall"
+          }
         },
-        "maxExtensions": 6,
         "buff": {
           "stats": {
             "critRate%": 0.25
           }
-        }
+        },
+        "maxExtensions": 6
       },
       {
         "bonus": 5,
         "use": {
           "when": "hit",
           "filter": {
-            "AND": [
-              {
-                "effectStacks": {
-                  "HAS": "critRateIncreased"
-                }
-              },
-              {
-                "action": {
-                  "damage": {
-                    "type": "resonanceLiberation"
-                  }
-                }
+            "action": {
+              "damage": {
+                "type": "resonanceLiberation"
               }
-            ]
+            },
+            "effectStacks": {
+              "HAS": "selfBuff"
+            }
           },
           "cooldown": 500,
-          "commands": [
-            {
-              "type": "apply",
-              "ref": "critRateIncreased",
-              "spec": {
-                "duration": 4000,
-                "extend": true
-              }
+          "commands": {
+            "type": "apply",
+            "ref": "selfBuff",
+            "spec": {
+              "duration": 4000,
+              "extend": true
             }
-          ]
+          }
         }
       },
       {
         "bonus": 5,
-        "stores": "$next",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
-            "AND": [
-              {
-                "effectStacks": {
-                  "HAS": "snowfall"
-                }
-              },
-              {
-                "action": {
-                  "type": "outroSkill"
-                }
-              }
-            ]
-          },
-          "duration": 15000,
-          "commands": [
-            {
-              "type": "remove",
-              "ref": "snowfall"
+            "action": {
+              "type": "outroSkill"
+            },
+            "effectStacks": {
+              "HAS": "snowfall"
             }
-          ]
+          },
+          "uses": 1,
+          "commands": {
+            "type": "remove",
+            "ref": "snowfall"
+          }
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "nextBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "bonus": 5,
+        "ref": "nextBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "stats": {
