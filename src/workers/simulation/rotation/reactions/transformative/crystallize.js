@@ -27,7 +27,6 @@ export function reactCrystallize(ctx, ownerId, auraElement, gaugeUnits) {
     ctx.runEffects('reaction', { ownerId, reaction: {
       reaction: 'crystallize',
       elements: ['geo', auraElement],
-      ownerId,
     }});
 
     updateShielded(ctx, mockAction);

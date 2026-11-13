@@ -1,5 +1,6 @@
 import { applyPyro } from '../../../reactions';
 import { buildTransformativeReactionSnapshot } from '../../../snapshot';
+import { decayBuffUses } from '../../effects';
 import { consumeAura } from '../consumeAura';
 import { decayElementalAura } from './decayElementalAura';
 
@@ -17,6 +18,13 @@ function tickBurning(ctx, burningState) {
       buildTransformativeReactionSnapshot(ctx, burningState.ownerId, 'burning', 'pyro')
     );
   }
+
+  decayBuffUses(ctx, {
+    damage: {
+      type: 'burning',
+      element: 'pyro',
+    },
+  }, [burningState.ownerId])
 
   burningState.timer = 250;
 

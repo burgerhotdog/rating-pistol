@@ -1,15 +1,25 @@
 import { applyCryo } from '../../../reactions';
 import { buildElevationSnapshot } from '../../../snapshot';
+import { decayBuffUses } from '../../effects';
+
+const stellarSwirlCryoAction = {
+  damage: {
+    type: 'stellarSwirl',
+    element: 'cryo',
+  },
+};
 
 function tickStellarSwirl(ctx, state) {
   if (ctx.saveSnapshots) {
-    ctx.snapshots.push(
-      buildElevationSnapshot(ctx, 'stellarSwirl', {
-        multiplier: state.vortexHits >= 2 ? 3 : 2,
-        element: 'cryo',
-      })
-    );
+    const snapshot = buildElevationSnapshot(ctx, 'stellarSwirl', {
+      multiplier: state.vortexHits >= 2 ? 3 : 2,
+      element: 'cryo',
+    });
+    ctx.snapshots.push(snapshot);
   }
+  decayBuffUses(ctx, stellarSwirlCryoAction, ctx.cache.memberIds);
+
+  const vortexOwner = state.ownerId;
 
   state.vortexTimer = Infinity;
   state.vortexHits = 0;
@@ -18,14 +28,8 @@ function tickStellarSwirl(ctx, state) {
     state.wanderingVortex = 6000;
   }
 
-  applyCryo(ctx, 1, state.ownerId);
-
-  ctx.runEffects('hit', { action: {
-    damage: {
-      type: 'stellarSwirl',
-      element: 'cryo',
-    },
-  }});
+  applyCryo(ctx, 1, vortexOwner);
+  ctx.runEffects('hit', { action: stellarSwirlCryoAction });
 }
 
 export function advanceStellarSwirlTimers(ctx, step) {

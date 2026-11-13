@@ -1,37 +1,60 @@
 import { buildTransformativeReactionSnapshot, buildElevationSnapshot } from '../../../snapshot';
+import { decayBuffUses } from '../../effects';
 import { consumeAura } from '../consumeAura';
 import { decayElementalAura } from './decayElementalAura';
+
+const electroChargedAction = {
+  damage: {
+    type: 'electroCharged',
+    element: 'electro',
+  },
+};
+
+const lunarChargedAction = {
+  damage: {
+    type: 'lunarCharged',
+    element: 'electro',
+  },
+};
 
 function tickCharged(ctx, chargedState) {
   const auraStore = ctx.states.aura;
   const isLunar = ctx.cache.lunarCharged;
 
+  let wasHit;
+
   if (isLunar) {
+    wasHit = true;
+
     if (ctx.saveSnapshots) {
       const snapshot = buildElevationSnapshot(ctx, 'lunarCharged');
       ctx.snapshots.push(snapshot);
     }
+
+    decayBuffUses(ctx, lunarChargedAction, ctx.cache.memberIds);
   } else {
     if (!ctx.states.globalCooldowns.electroCharged) {
       ctx.states.globalCooldowns.electroCharged = 500;
+      wasHit = true;
 
       if (ctx.saveSnapshots) {
         const snapshot = buildTransformativeReactionSnapshot(ctx, chargedState.ownerId, 'electroCharged', 'electro')
         ctx.snapshots.push(snapshot);
       }
+
+      decayBuffUses(ctx, electroChargedAction, [chargedState.ownerId]);
     }
   }
 
   chargedState.timer = isLunar ? 2000 : 1000;
-  consumeAura(auraStore, 'electro', 0.4);
-  consumeAura(auraStore, 'hydro', 0.4);
+  if (wasHit) {
+    consumeAura(auraStore, 'electro', 0.4);
+    consumeAura(auraStore, 'hydro', 0.4);
 
-  ctx.runEffects('hit', { action: {
-    damage: {
-      type: isLunar ? 'lunarCharged' : 'electroCharged',
-      element: 'electro',
-    },
-  }});
+    if (isLunar) {
+      ctx.runEffects('hit', { action: lunarChargedAction });
+    }
+  }
 }
 
 const getChargedKey = (ctx) => ctx.cache.lunarCharged ? 'lunarCharged' : 'electroCharged';

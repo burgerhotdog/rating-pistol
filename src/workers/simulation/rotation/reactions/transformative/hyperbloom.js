@@ -1,4 +1,5 @@
 import { buildTransformativeReactionSnapshot } from '../../snapshot';
+import { decayBuffUses } from '../../states';
 
 const hyperbloomAction = {
   damage: {
@@ -25,16 +26,18 @@ export function reactHyperbloom(ctx, applier) {
 
   if (globalCooldowns.hyperbloom?.length === 2) return;
 
-  if (ctx.saveSnapshots) {
-    const snapshot = buildTransformativeReactionSnapshot(ctx, applier, 'hyperbloom', 'dendro');
+  for (let i = 0; i < numCores; i++) {
+    if (globalCooldowns.hyperbloom?.length !== 2) {
+      (globalCooldowns.hyperbloom ??= []).push(500);
 
-    for (let i = 0; i < numCores; i++) {
-      if (globalCooldowns.hyperbloom?.length !== 2) {
-        (globalCooldowns.hyperbloom ??= []).push(500);
+      if (ctx.saveSnapshots) {
+        const snapshot = buildTransformativeReactionSnapshot(ctx, applier, 'hyperbloom', 'dendro');
         ctx.snapshots.push(snapshot);
       }
+
+      decayBuffUses(ctx, hyperbloomAction, [applier]);
+
+      ctx.runEffects('hit', { action: hyperbloomAction });
     }
   }
-
-  ctx.runEffects('hit', { action: hyperbloomAction });
 }

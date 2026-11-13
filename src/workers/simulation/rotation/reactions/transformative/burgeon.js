@@ -1,15 +1,16 @@
 import { buildTransformativeReactionSnapshot } from '../../snapshot';
+import { decayBuffUses } from '../../states';
+
+const burgeonReaction = {
+  reaction: 'burgeon',
+  elements: ['dendro', 'pyro'],
+};
 
 const burgeonAction = {
   damage: {
     type: 'burgeon',
     element: 'dendro',
   },
-};
-
-const burgeonReaction = {
-  reaction: 'burgeon',
-  elements: ['dendro', 'pyro'],
 };
 
 export function reactBurgeon(ctx, applier) {
@@ -25,16 +26,18 @@ export function reactBurgeon(ctx, applier) {
 
   if (globalCooldowns.burgeon?.length === 2) return;
 
-  if (ctx.saveSnapshots) {
-    const snapshot = buildTransformativeReactionSnapshot(ctx, applier, 'burgeon', 'dendro');
+  for (let i = 0; i < numCores; i++) {
+    if (globalCooldowns.burgeon?.length !== 2) {
+      (globalCooldowns.burgeon ??= []).push(500);
 
-    for (let i = 0; i < numCores; i++) {
-      if (globalCooldowns.burgeon?.length !== 2) {
-        (globalCooldowns.burgeon ??= []).push(500);
+      if (ctx.saveSnapshots) {
+        const snapshot = buildTransformativeReactionSnapshot(ctx, applier, 'burgeon', 'dendro');
         ctx.snapshots.push(snapshot);
       }
+
+      decayBuffUses(ctx, burgeonAction, [applier]);
+
+      ctx.runEffects('hit', { action: burgeonAction });
     }
   }
-
-  ctx.runEffects('hit', { action: burgeonAction });
 }

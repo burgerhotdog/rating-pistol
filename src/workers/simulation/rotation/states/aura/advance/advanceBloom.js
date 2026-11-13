@@ -1,4 +1,5 @@
 import { buildTransformativeReactionSnapshot } from '../../../snapshot';
+import { decayBuffUses } from '../../effects';
 
 export function advanceBloomTimers(bloomState, step) {
   for (const core of bloomState.cores) {
@@ -21,6 +22,13 @@ export function fireBloomCores(ctx) {
           buildTransformativeReactionSnapshot(ctx, core.ownerId, 'bloom', 'dendro')
         );
       }
+
+      decayBuffUses(ctx, {
+        damage: {
+          type: 'bloom',
+          element: 'dendro',
+        },
+      }, [core.ownerId]);
 
       ctx.runEffects('hit', { action: {
         damage: {

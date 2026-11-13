@@ -1,7 +1,7 @@
 import { toMergedObj, getAttr } from '@/utils';
 import { getBuffMap } from '../getStatMap';
 import { buildTransformativeReactionSnapshot } from '../snapshot';
-import { runApplyEffect, updateBondOfLife, updateHealth } from '../states';
+import { decayBuffUses, runApplyEffect, updateBondOfLife, updateHealth } from '../states';
 
 const ruleHandlers = {
   kavehFireCores(ctx) {
@@ -19,6 +19,13 @@ const ruleHandlers = {
             buildTransformativeReactionSnapshot(ctx, core.ownerId, 'bloom', 'dendro')
           );
         }
+
+        decayBuffUses(ctx, {
+          damage: {
+            type: 'bloom',
+            element: 'dendro',
+          },
+        }, [core.ownerId]);
 
         ctx.runEffects('hit', { action: {
           damage: {
@@ -42,6 +49,11 @@ const ruleHandlers = {
       const snapshot = buildTransformativeReactionSnapshot(ctx, effect.ownerId, 'oceanHuedClam', 'physical');
       ctx.snapshots.push(snapshot);
     }
+    decayBuffUses(ctx, {
+      damage: {
+        element: 'physical',
+      },
+    }, [effect.ownerId]);
     delete ctx.states.rules.oceanHuedClam;
   },
 

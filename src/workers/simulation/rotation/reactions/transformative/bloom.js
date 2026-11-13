@@ -1,5 +1,5 @@
 import { buildTransformativeReactionSnapshot } from '../../snapshot';
-import { consumeAura } from '../../states';
+import { consumeAura, decayBuffUses } from '../../states';
 
 const bloomAction = {
   damage: {
@@ -40,6 +40,7 @@ export function reactBloom(ctx, applier, auraElement, gaugeUnits) {
         ctx.snapshots.push(snapshot);
       }
 
+      decayBuffUses(ctx, bloomAction, [oldestCore.ownerId]);
       ctx.runEffects('hit', { action: bloomAction });
     }
   }
