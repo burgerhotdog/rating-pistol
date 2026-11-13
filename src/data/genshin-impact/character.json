@@ -6174,18 +6174,12 @@
         },
         "use": {
           "by": "$team",
-          "when": "start",
+          "when": "use",
           "filter": {
-            "AND": [
-              {
-                "field": "onField"
-              },
-              {
-                "action": {
-                  "type": "normalAttack"
-                }
-              }
-            ]
+            "field": "onField",
+            "action": {
+              "type": "normalAttack"
+            }
           },
           "action": [
             "elementalBurst.1",
@@ -6273,18 +6267,12 @@
         "rank": 4,
         "buff": {
           "filter": {
-            "AND": [
-              {
-                "action": {
-                  "ref": "elementalSkill.0"
-                }
-              },
-              {
-                "effectStacks": {
-                  "HAS": "rainbowBladework"
-                }
-              }
-            ]
+            "action": {
+              "ref": "elementalSkill.0"
+            },
+            "effectStacks": {
+              "HAS": "rainbowBladework"
+            }
           },
           "stats": {
             "damageMv%": 0.5
