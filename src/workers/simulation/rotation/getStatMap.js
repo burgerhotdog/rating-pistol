@@ -53,12 +53,16 @@ export const getBuffMap = (ctx, options = {}) => {
     }
 
     if (buff.specs && !ignoreSpecs) {
-      if (effect.ownerId === ctx.specId && !resolveNow) {
+      // Specs normally scale off the effect owner's stat map, but specsSource: '$storeOwner'
+      // flags buffs (e.g. Pact of Neonlight Leap) that should scale off the recipient instead
+      const specsOwnerId = buff.specsSource === '$storeOwner' ? memberId : effect.ownerId;
+
+      if (specsOwnerId === ctx.specId && !resolveNow) {
         addToBuffSpecs(buff, buffMult);
         continue;
       }
 
-      const resolvedStatMap = resolveSpecs(buff.specs, getSpecsSourceMap(effect.ownerId));
+      const resolvedStatMap = resolveSpecs(buff.specs, getSpecsSourceMap(specsOwnerId));
 
       for (const stat in resolvedStatMap) {
         buffMap[stat] = (buffMap[stat] ?? 0) + resolvedStatMap[stat] * buffMult;

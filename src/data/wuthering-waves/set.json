@@ -1183,7 +1183,8 @@
               "value": 0.003,
               "maxValue": 0.15
             }
-          }
+          },
+          "specsSource": "$storeOwner"
         }
       }
     ]
