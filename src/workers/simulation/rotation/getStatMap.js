@@ -1,6 +1,5 @@
 import { GI, WW } from '@/data';
 import { getAttr, toMergedObj, resolveSpecs } from '@/utils';
-import { getEffectStates } from './getEffectStates';
 import { getBuffRuleMult } from './rules';
 
 export const getBuffMap = (ctx, options = {}) => {
@@ -23,8 +22,16 @@ export const getBuffMap = (ctx, options = {}) => {
     return toMergedObj(buildMap, buffMap);
   }
 
-  for (const { effect, stacks, buffCooldown, store } of getEffectStates(ctx, { member: memberId, type: 'buff' })) {
-    if (buffCooldown) continue;
+  const allStates = [
+    ...Object.values(ctx.states.globalEffects),
+    ...Object.values(ctx.states.memberEffects[memberId]),
+  ];
+
+  for (const state of allStates) {
+    if (!state.effect.buff) continue;
+    if (state.buffCooldown) continue;
+
+    const { effect, stacks, store } = state;
 
     // Global effects (enemy debuffs) are never snapshotted
     const isGlobal = store === ctx.states.globalEffects;
