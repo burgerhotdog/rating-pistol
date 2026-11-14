@@ -61,7 +61,7 @@ function getRequiredErMap(cache, equipMaps, bonusEnergy) {
     const { energy } = cache.member[memberId];
     if (!energy) continue;
 
-    requiredErMap[memberId] = getRequiredEr(cache, memberId, statMapOf, bonusEnergy);
+    requiredErMap[memberId] = getRequiredEr(cache, Number(memberId), statMapOf, bonusEnergy);
   }
 
   return requiredErMap;

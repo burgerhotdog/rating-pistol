@@ -22,14 +22,9 @@ export const getBuffMap = (ctx, options = {}) => {
     return toMergedObj(buildMap, buffMap);
   }
 
-  const allStates = [
-    ...Object.values(ctx.states.globalEffects),
-    ...Object.values(ctx.states.memberEffects[memberId]),
-  ];
-
-  for (const state of allStates) {
-    if (!state.effect.buff) continue;
-    if (state.buffCooldown) continue;
+  function processState(state) {
+    if (!state.effect.buff) return;
+    if (state.buffCooldown) return;
 
     const { effect, stacks, store } = state;
 
@@ -49,7 +44,7 @@ export const getBuffMap = (ctx, options = {}) => {
 
       return ctx.eventFilter(candidate.filter, effect.ownerId, { action }, memberId);
     });
-    if (!buff) continue;
+    if (!buff) return;
 
     const buffMult = stacks * (effect.chance ?? 1) * (getBuffRuleMult(ctx, buff.rule) ?? 1);
 
@@ -66,7 +61,7 @@ export const getBuffMap = (ctx, options = {}) => {
 
       if (specsOwnerId === ctx.specId && !resolveNow) {
         addToBuffSpecs(buff, buffMult);
-        continue;
+        return;
       }
 
       const resolvedStatMap = resolveSpecs(buff.specs, getSpecsSourceMap(specsOwnerId));
@@ -75,6 +70,13 @@ export const getBuffMap = (ctx, options = {}) => {
         buffMap[stat] = (buffMap[stat] ?? 0) + resolvedStatMap[stat] * buffMult;
       }
     }
+  }
+
+  for (const state of [
+    ...Object.values(ctx.states.globalEffects),
+    ...Object.values(ctx.states.memberEffects[memberId]),
+  ]) {
+    processState(state);
   }
 
   if (snapshot === 'live') {
