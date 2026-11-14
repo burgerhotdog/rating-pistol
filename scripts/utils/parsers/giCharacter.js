@@ -137,6 +137,25 @@ function parseSkills(skills, constellations) {
   return { skills: result, energy };
 }
 
+function parseRegion(data) {
+  const text = data.chara_info.region.replace(/^ASSOC_TYPE_/, '');
+
+  switch (text) {
+    case 'NODKRAI': return 'nodKrai';
+    case 'SNEZHNAYA_STAR': return 'snezhnaya';
+    default: return text.toLowerCase();
+  }
+}
+
+function parseVision(data) {
+  const text = data.chara_info.vision_special_type_before;
+
+  switch (text) {
+    case 'Moon Wheel': return 'moonWheel';
+    case 'Stellar Lynchpin': return 'stellarLynchpin';
+  }
+}
+
 export function giCharacter(id, data) {
   const mod = data.stats_modifier;
   const asc = mod.ascension[5];
@@ -156,6 +175,8 @@ export function giCharacter(id, data) {
 
   const { skills, energy } = parseSkills(data.skills, data.constellations);
 
+  const vision = parseVision(data);
+
   return {
     disabled: true,
     name: String(data.name),
@@ -165,6 +186,8 @@ export function giCharacter(id, data) {
     quality: data.rarity === 'QUALITY_PURPLE' ? 4 : 5,
     element: data.element.toLowerCase(),
     type: pick(types, data.weapon),
+    region: parseRegion(data),
+    ...(vision && { vision }),
     stats: charStats,
     ...(energy && { energy }),
     effects: [],

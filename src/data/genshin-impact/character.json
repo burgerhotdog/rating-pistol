@@ -7,6 +7,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "sword",
+    "region": "inazuma",
     "stats": {
       "baseHp": 12858,
       "baseAtk": 342,
@@ -683,6 +684,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "sword",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 14695,
       "baseAtk": 239,
@@ -1212,6 +1214,7 @@
     "quality": 4,
     "element": "electro",
     "type": "catalyst",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 9570,
       "baseAtk": 232,
@@ -1802,6 +1805,7 @@
     "quality": 4,
     "element": "hydro",
     "type": "catalyst",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 9787,
       "baseAtk": 159,
@@ -2378,6 +2382,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "sword",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 11636,
       "baseAtk": 223,
@@ -2715,6 +2720,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "claymore",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 12981,
       "baseAtk": 335,
@@ -3215,6 +3221,7 @@
     "quality": 4,
     "element": "electro",
     "type": "claymore",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 11962,
       "baseAtk": 234,
@@ -4083,6 +4090,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "bow",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 9461,
       "baseAtk": 223,
@@ -4596,6 +4604,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "bow",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 10531,
       "baseAtk": 263,
@@ -5028,6 +5037,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "polearm",
+    "region": "liyue",
     "stats": {
       "baseHp": 10875,
       "baseAtk": 225,
@@ -5555,6 +5565,7 @@
     "quality": 4,
     "element": "electro",
     "type": "claymore",
+    "region": "liyue",
     "stats": {
       "baseHp": 13050,
       "baseAtk": 225,
@@ -6151,6 +6162,7 @@
     "quality": 4,
     "element": "hydro",
     "type": "sword",
+    "region": "liyue",
     "stats": {
       "baseHp": 10222,
       "baseAtk": 202,
@@ -6680,6 +6692,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "polearm",
+    "region": "liyue",
     "stats": {
       "baseHp": 12736,
       "baseAtk": 349,
@@ -7215,6 +7228,7 @@
     "quality": 4,
     "element": "geo",
     "type": "catalyst",
+    "region": "liyue",
     "stats": {
       "baseHp": 9787,
       "baseAtk": 212,
@@ -7607,6 +7621,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "catalyst",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 10287,
       "baseAtk": 311,
@@ -8097,6 +8112,7 @@
     "quality": 5,
     "element": "geo",
     "type": "polearm",
+    "region": "liyue",
     "stats": {
       "baseHp": 14695,
       "baseAtk": 251,
@@ -8643,6 +8659,7 @@
     "quality": 4,
     "element": "electro",
     "type": "bow",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 9189,
       "baseAtk": 244,
@@ -9330,6 +9347,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "sword",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 12397,
       "baseAtk": 191,
@@ -10017,6 +10035,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "bow",
+    "region": "fatui",
     "stats": {
       "baseHp": 13103,
       "baseAtk": 301,
@@ -10883,6 +10902,7 @@
     "quality": 4,
     "element": "geo",
     "type": "claymore",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 12071,
       "baseAtk": 191,
@@ -11339,6 +11359,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "sword",
+    "region": "liyue",
     "stats": {
       "baseHp": 12368,
       "baseAtk": 287,
@@ -12397,6 +12418,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "claymore",
+    "region": "liyue",
     "stats": {
       "baseHp": 10984,
       "baseAtk": 223,
@@ -12711,6 +12733,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "bow",
+    "region": "liyue",
     "stats": {
       "baseHp": 9797,
       "baseAtk": 335,
@@ -13105,6 +13128,7 @@
     "quality": 5,
     "element": "geo",
     "type": "sword",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 13226,
       "baseAtk": 251,
@@ -13529,6 +13553,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "bow",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 9570,
       "baseAtk": 212,
@@ -14341,6 +14366,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 10409,
       "baseAtk": 287,
@@ -15217,6 +15243,7 @@
     "quality": 5,
     "element": "electro",
     "type": "sword",
+    "region": "liyue",
     "stats": {
       "baseHp": 13103,
       "baseAtk": 323,
@@ -15952,6 +15979,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 9244,
       "baseAtk": 170,
@@ -16518,6 +16546,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "claymore",
+    "region": "liyue",
     "stats": {
       "baseHp": 11201,
       "baseAtk": 249,
@@ -17204,6 +17233,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "polearm",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 12289,
       "baseAtk": 240,
@@ -17709,6 +17739,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "polearm",
+    "region": "liyue",
     "stats": {
       "baseHp": 15552,
       "baseAtk": 106,
@@ -18310,6 +18341,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "sword",
+    "region": "inazuma",
     "stats": {
       "baseHp": 13348,
       "baseAtk": 297,
@@ -19055,6 +19087,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "catalyst",
+    "region": "liyue",
     "stats": {
       "baseHp": 9352,
       "baseAtk": 240,
@@ -19745,6 +19778,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "bow",
+    "region": "inazuma",
     "stats": {
       "baseHp": 10164,
       "baseAtk": 323,
@@ -20247,6 +20281,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "polearm",
+    "region": "inazuma",
     "stats": {
       "baseHp": 10331,
       "baseAtk": 202,
@@ -20771,6 +20806,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "claymore",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 13226,
       "baseAtk": 342,
@@ -21464,6 +21500,7 @@
     "quality": 5,
     "element": "electro",
     "type": "polearm",
+    "region": "inazuma",
     "stats": {
       "baseHp": 12907,
       "baseAtk": 337,
@@ -22389,6 +22426,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "claymore",
+    "region": "inazuma",
     "stats": {
       "baseHp": 11854,
       "baseAtk": 244,
@@ -22915,6 +22953,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
+    "region": "inazuma",
     "stats": {
       "baseHp": 13471,
       "baseAtk": 234,
@@ -23545,6 +23584,7 @@
     "quality": 4,
     "element": "geo",
     "type": "bow",
+    "region": "inazuma",
     "stats": {
       "baseHp": 9570,
       "baseAtk": 183,
@@ -24234,6 +24274,7 @@
     "quality": 4,
     "element": "electro",
     "type": "bow",
+    "region": "inazuma",
     "stats": {
       "baseHp": 9570,
       "baseAtk": 195,
@@ -24790,6 +24831,7 @@
     "quality": 5,
     "element": "geo",
     "type": "claymore",
+    "region": "inazuma",
     "stats": {
       "baseHp": 12858,
       "baseAtk": 227,
@@ -25246,6 +25288,7 @@
     "quality": 5,
     "element": "electro",
     "type": "catalyst",
+    "region": "inazuma",
     "stats": {
       "baseHp": 10372,
       "baseAtk": 340,
@@ -26765,6 +26808,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
+    "region": "inazuma",
     "stats": {
       "baseHp": 10657,
       "baseAtk": 225,
@@ -27539,6 +27583,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "bow",
+    "region": "liyue",
     "stats": {
       "baseHp": 14450,
       "baseAtk": 244,
@@ -28040,6 +28085,7 @@
     "quality": 4,
     "element": "dendro",
     "type": "sword",
+    "region": "inazuma",
     "stats": {
       "baseHp": 12180,
       "baseAtk": 223,
@@ -28682,6 +28728,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "bow",
+    "region": "ranger",
     "stats": {
       "baseHp": 10899,
       "baseAtk": 234,
@@ -29099,6 +29146,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "polearm",
+    "region": "liyue",
     "stats": {
       "baseHp": 12993,
       "baseAtk": 304,
@@ -29659,6 +29707,7 @@
     "quality": 4,
     "element": "geo",
     "type": "polearm",
+    "region": "liyue",
     "stats": {
       "baseHp": 10657,
       "baseAtk": 191,
@@ -30328,6 +30377,7 @@
     "quality": 4,
     "element": "electro",
     "type": "sword",
+    "region": "inazuma",
     "stats": {
       "baseHp": 12289,
       "baseAtk": 212,
@@ -30860,6 +30910,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "sword",
+    "region": "inazuma",
     "stats": {
       "baseHp": 13715,
       "baseAtk": 299,
@@ -31487,6 +31538,7 @@
     "quality": 4,
     "element": "dendro",
     "type": "bow",
+    "region": "sumeru",
     "stats": {
       "baseHp": 9787,
       "baseAtk": 200,
@@ -32094,6 +32146,7 @@
     "quality": 4,
     "element": "electro",
     "type": "claymore",
+    "region": "sumeru",
     "stats": {
       "baseHp": 12397,
       "baseAtk": 223,
@@ -32466,6 +32519,7 @@
     "quality": 5,
     "element": "dendro",
     "type": "bow",
+    "region": "sumeru",
     "stats": {
       "baseHp": 10850,
       "baseAtk": 268,
@@ -32985,6 +33039,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "sword",
+    "region": "sumeru",
     "stats": {
       "baseHp": 15185,
       "baseAtk": 230,
@@ -33644,6 +33699,7 @@
     "quality": 5,
     "element": "electro",
     "type": "polearm",
+    "region": "sumeru",
     "stats": {
       "baseHp": 12491,
       "baseAtk": 318,
@@ -34579,6 +34635,7 @@
     "quality": 4,
     "element": "hydro",
     "type": "polearm",
+    "region": "sumeru",
     "stats": {
       "baseHp": 10875,
       "baseAtk": 212,
@@ -34951,6 +35008,7 @@
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
+    "region": "sumeru",
     "stats": {
       "baseHp": 10360,
       "baseAtk": 299,
@@ -36119,6 +36177,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "sword",
+    "region": "sumeru",
     "stats": {
       "baseHp": 11092,
       "baseAtk": 217,
@@ -36686,6 +36745,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "catalyst",
+    "region": "sumeru",
     "stats": {
       "baseHp": 10164,
       "baseAtk": 328,
@@ -37081,6 +37141,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "bow",
+    "region": "sumeru",
     "stats": {
       "baseHp": 9570,
       "baseAtk": 196,
@@ -37631,6 +37692,7 @@
     "quality": 4,
     "element": "dendro",
     "type": "polearm",
+    "region": "liyue",
     "stats": {
       "baseHp": 12289,
       "baseAtk": 212,
@@ -38023,6 +38085,7 @@
     "quality": 5,
     "element": "dendro",
     "type": "sword",
+    "region": "sumeru",
     "stats": {
       "baseHp": 13348,
       "baseAtk": 313,
@@ -38759,6 +38822,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "claymore",
+    "region": "sumeru",
     "stats": {
       "baseHp": 15675,
       "baseAtk": 265,
@@ -39209,6 +39273,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "polearm",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 12506,
       "baseAtk": 223,
@@ -39878,6 +39943,7 @@
     "quality": 4,
     "element": "dendro",
     "type": "claymore",
+    "region": "sumeru",
     "stats": {
       "baseHp": 11962,
       "baseAtk": 234,
@@ -40440,6 +40506,7 @@
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
+    "region": "liyue",
     "stats": {
       "baseHp": 13348,
       "baseAtk": 193,
@@ -40999,6 +41066,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "sword",
+    "region": "fontaine",
     "stats": {
       "baseHp": 12397,
       "baseAtk": 232,
@@ -41371,6 +41439,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "bow",
+    "region": "fontaine",
     "stats": {
       "baseHp": 11021,
       "baseAtk": 318,
@@ -42041,6 +42110,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "claymore",
+    "region": "fontaine",
     "stats": {
       "baseHp": 12071,
       "baseAtk": 255,
@@ -42567,6 +42637,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "catalyst",
+    "region": "fontaine",
     "stats": {
       "baseHp": 13593,
       "baseAtk": 311,
@@ -43313,6 +43384,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
+    "region": "fontaine",
     "stats": {
       "baseHp": 14695,
       "baseAtk": 208,
@@ -44055,6 +44127,7 @@
     "quality": 4,
     "element": "cryo",
     "type": "catalyst",
+    "region": "fontaine",
     "stats": {
       "baseHp": 10766,
       "baseAtk": 173,
@@ -44741,6 +44814,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "sword",
+    "region": "fontaine",
     "stats": {
       "baseHp": 15307,
       "baseAtk": 244,
@@ -45693,6 +45767,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "polearm",
+    "region": "fontaine",
     "stats": {
       "baseHp": 11962,
       "baseAtk": 193,
@@ -46437,6 +46512,7 @@
     "quality": 5,
     "element": "geo",
     "type": "claymore",
+    "region": "fontaine",
     "stats": {
       "baseHp": 12650,
       "baseAtk": 352,
@@ -46795,6 +46871,7 @@
     "quality": 4,
     "element": "pyro",
     "type": "claymore",
+    "region": "liyue",
     "stats": {
       "baseHp": 11419,
       "baseAtk": 302,
@@ -47230,6 +47307,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "catalyst",
+    "region": "liyue",
     "stats": {
       "baseHp": 10409,
       "baseAtk": 335,
@@ -47803,6 +47881,7 @@
     "quality": 5,
     "element": "geo",
     "type": "sword",
+    "region": "inazuma",
     "stats": {
       "baseHp": 11438,
       "baseAtk": 323,
@@ -48184,6 +48263,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "bow",
+    "region": "fontaine",
     "stats": {
       "baseHp": 13348,
       "baseAtk": 193,
@@ -48515,6 +48595,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "polearm",
+    "region": "fatui",
     "stats": {
       "baseHp": 13103,
       "baseAtk": 342,
@@ -49232,6 +49313,7 @@
     "quality": 4,
     "element": "electro",
     "type": "bow",
+    "region": "sumeru",
     "stats": {
       "baseHp": 9787,
       "baseAtk": 227,
@@ -49523,6 +49605,7 @@
     "quality": 5,
     "element": "electro",
     "type": "sword",
+    "region": "fontaine",
     "stats": {
       "baseHp": 12956,
       "baseAtk": 337,
@@ -50344,6 +50427,7 @@
     "quality": 5,
     "element": "dendro",
     "type": "polearm",
+    "region": "fontaine",
     "stats": {
       "baseHp": 13568,
       "baseAtk": 335,
@@ -50977,6 +51061,7 @@
     "quality": 4,
     "element": "geo",
     "type": "polearm",
+    "region": "natlan",
     "stats": {
       "baseHp": 11799,
       "baseAtk": 217,
@@ -50984,8 +51069,7 @@
       "geoDmgBonus%": 0.24
     },
     "energy": 70,
-    "nightsoul": true,
-    "maxNightsoul": 60,
+    "nightsoul": 60,
     "effects": [
       {
         "ref": "turboTwirly",
@@ -51503,6 +51587,7 @@
     "quality": 5,
     "element": "dendro",
     "type": "claymore",
+    "region": "natlan",
     "stats": {
       "baseHp": 12858,
       "baseAtk": 332,
@@ -51510,8 +51595,7 @@
       "critDmg%": 0.384
     },
     "energy": 70,
-    "nightsoul": true,
-    "maxNightsoul": 20,
+    "nightsoul": 20,
     "effects": [
       {
         "ref": "blessing",
@@ -52035,6 +52119,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
+    "region": "natlan",
     "stats": {
       "baseHp": 15185,
       "baseAtk": 182,
@@ -52042,8 +52127,7 @@
       "critRate%": 0.192
     },
     "energy": 60,
-    "nightsoul": true,
-    "maxNightsoul": 60,
+    "nightsoul": 60,
     "effects": [
       {
         "ref": "nightsoulDecay",
@@ -52542,6 +52626,7 @@
     "quality": 5,
     "element": "geo",
     "type": "sword",
+    "region": "natlan",
     "stats": {
       "baseHp": 12405,
       "baseAtk": 275,
@@ -52549,8 +52634,7 @@
       "def%": 0.36
     },
     "energy": 60,
-    "nightsoul": true,
-    "maxNightsoul": 90,
+    "nightsoul": 90,
     "effects": [
       {
         "ref": "blessing",
@@ -53419,6 +53503,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "bow",
+    "region": "natlan",
     "stats": {
       "baseHp": 9797,
       "baseAtk": 347,
@@ -53426,8 +53511,7 @@
       "critRate%": 0.192
     },
     "energy": 60,
-    "nightsoul": true,
-    "maxNightsoul": 80,
+    "nightsoul": 80,
     "effects": [
       {
         "ref": "blessing",
@@ -55425,6 +55509,7 @@
     "quality": 4,
     "element": "electro",
     "type": "bow",
+    "region": "natlan",
     "stats": {
       "baseHp": 9244,
       "baseAtk": 244,
@@ -55432,8 +55517,7 @@
       "atk%": 0.24
     },
     "energy": 60,
-    "nightsoul": true,
-    "maxNightsoul": 80,
+    "nightsoul": 80,
     "effects": [
       {
         "ref": "supersonicOculus",
@@ -56042,14 +56126,14 @@
     "quality": 5,
     "element": "pyro",
     "type": "claymore",
+    "region": "natlan",
     "stats": {
       "baseHp": 12552,
       "baseAtk": 359,
       "baseDef": 792,
       "critDmg%": 0.384
     },
-    "nightsoul": true,
-    "maxNightsoul": 80,
+    "nightsoul": 80,
     "effects": [
       {
         "apply": {
@@ -56975,6 +57059,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "catalyst",
+    "region": "natlan",
     "stats": {
       "baseHp": 11634,
       "baseAtk": 127,
@@ -56982,8 +57067,7 @@
       "elementalMastery": 115
     },
     "energy": 60,
-    "nightsoul": true,
-    "maxNightsoul": 100,
+    "nightsoul": 100,
     "effects": [
       {
         "ref": "itzPapa",
@@ -57540,6 +57624,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
+    "region": "liyue",
     "stats": {
       "baseHp": 9244,
       "baseAtk": 251,
@@ -57878,6 +57963,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "catalyst",
+    "region": "inazuma",
     "stats": {
       "baseHp": 12736,
       "baseAtk": 215,
@@ -58481,6 +58567,7 @@
     "quality": 4,
     "element": "electro",
     "type": "polearm",
+    "region": "natlan",
     "stats": {
       "baseHp": 10657,
       "baseAtk": 257,
@@ -58488,8 +58575,7 @@
       "atk%": 0.24
     },
     "energy": 70,
-    "nightsoul": true,
-    "maxNightsoul": 54,
+    "nightsoul": 54,
     "effects": [
       {
         "ref": "blessing",
@@ -59434,6 +59520,7 @@
     "quality": 5,
     "element": "electro",
     "type": "catalyst",
+    "region": "natlan",
     "stats": {
       "baseHp": 12699,
       "baseAtk": 356,
@@ -59441,8 +59528,7 @@
       "critRate%": 0.192
     },
     "energy": 70,
-    "nightsoul": true,
-    "maxNightsoul": 40,
+    "nightsoul": 40,
     "energyMax": 1.5,
     "effects": [
       {
@@ -60096,6 +60182,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "polearm",
+    "region": "fontaine",
     "stats": {
       "baseHp": 13348,
       "baseAtk": 347,
@@ -60647,6 +60734,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
+    "region": "natlan",
     "stats": {
       "baseHp": 10081,
       "baseAtk": 178,
@@ -60654,8 +60742,7 @@
       "elementalMastery": 96
     },
     "energy": 60,
-    "nightsoul": true,
-    "maxNightsoul": 80,
+    "nightsoul": 80,
     "effects": [
       {
         "ref": "blessing",
@@ -61108,6 +61195,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "sword",
+    "region": "other",
     "stats": {
       "baseHp": 12417,
       "baseAtk": 359,
@@ -62409,6 +62497,7 @@
     "quality": 4,
     "element": "hydro",
     "type": "sword",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 12506,
       "baseAtk": 189,
@@ -62994,6 +63083,8 @@
     "quality": 5,
     "element": "electro",
     "type": "polearm",
+    "region": "nodKrai",
+    "vision": "moonWheel",
     "stats": {
       "baseHp": 12613,
       "baseAtk": 330,
@@ -63466,6 +63557,8 @@
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
+    "region": "nodKrai",
+    "vision": "moonWheel",
     "stats": {
       "baseHp": 10654,
       "baseAtk": 255,
@@ -64226,6 +64319,8 @@
     "quality": 5,
     "element": "electro",
     "type": "polearm",
+    "region": "nodKrai",
+    "vision": "moonWheel",
     "stats": {
       "baseHp": 12491,
       "baseAtk": 352,
@@ -64948,6 +65043,7 @@
     "quality": 4,
     "element": "hydro",
     "type": "claymore",
+    "region": "nodKrai",
     "stats": {
       "baseHp": 11201,
       "baseAtk": 242,
@@ -65484,6 +65580,8 @@
     "quality": 5,
     "element": "dendro",
     "type": "catalyst",
+    "region": "nodKrai",
+    "vision": "moonWheel",
     "stats": {
       "baseHp": 12704,
       "baseAtk": 344,
@@ -66165,6 +66263,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "sword",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 12430,
       "baseAtk": 347,
@@ -67167,6 +67266,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "bow",
+    "region": "nodKrai",
     "stats": {
       "baseHp": 9646,
       "baseAtk": 223,
@@ -67595,6 +67695,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
+    "region": "nodKrai",
     "stats": {
       "baseHp": 14695,
       "baseAtk": 96,
@@ -68513,6 +68614,8 @@
     "quality": 5,
     "element": "geo",
     "type": "sword",
+    "region": "liyue",
+    "vision": "moonWheel",
     "stats": {
       "baseHp": 12919,
       "baseAtk": 225,
@@ -69337,6 +69440,7 @@
     "quality": 4,
     "element": "geo",
     "type": "polearm",
+    "region": "nodKrai",
     "stats": {
       "baseHp": 11962,
       "baseAtk": 191,
@@ -70208,6 +70312,7 @@
     "quality": 5,
     "element": "anemo",
     "type": "claymore",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 12613,
       "baseAtk": 353,
@@ -71730,6 +71835,7 @@
     "quality": 5,
     "element": "cryo",
     "type": "polearm",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 12858,
       "baseAtk": 344,
@@ -72512,6 +72618,7 @@
     "quality": 5,
     "element": "geo",
     "type": "bow",
+    "region": "nodKrai",
     "stats": {
       "baseHp": 9895,
       "baseAtk": 144,
@@ -72520,6 +72627,7 @@
     },
     "energy": 60,
     "moonsign": true,
+    "vision": "moonWheel",
     "effects": [
       {
         "ref": "superPowerForm",
@@ -73136,6 +73244,7 @@
     "quality": 5,
     "element": "pyro",
     "type": "catalyst",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 10409,
       "baseAtk": 342,
@@ -73711,6 +73820,7 @@
     "quality": 4,
     "element": "anemo",
     "type": "catalyst",
+    "region": "mondstadt",
     "stats": {
       "baseHp": 9679,
       "baseAtk": 221,
@@ -74462,6 +74572,8 @@
     "quality": 5,
     "element": "cryo",
     "type": "claymore",
+    "region": "snezhnaya",
+    "vision": "stellarLynchpin",
     "stats": {
       "baseHp": 13226,
       "baseAtk": 342,
@@ -75266,6 +75378,8 @@
     "quality": 5,
     "element": "electro",
     "type": "catalyst",
+    "region": "snezhnaya",
+    "vision": "stellarLynchpin",
     "stats": {
       "baseHp": 11634,
       "baseAtk": 263,
@@ -76200,6 +76314,7 @@
     "quality": 4,
     "element": "electro",
     "type": "sword",
+    "region": "snezhnaya",
     "stats": {
       "baseHp": 10005,
       "baseAtk": 255,
@@ -77100,6 +77215,7 @@
     "quality": 5,
     "element": "hydro",
     "type": "catalyst",
+    "region": "snezhnaya",
     "stats": {
       "baseHp": 14818,
       "baseAtk": 108,
@@ -77834,6 +77950,8 @@
     "quality": 5,
     "element": "anemo",
     "type": "sword",
+    "region": "snezhnaya",
+    "vision": "stellarLynchpin",
     "stats": {
       "baseHp": 13262,
       "baseAtk": 354,
@@ -78776,6 +78894,7 @@
     "quality": 4,
     "element": "electro",
     "type": "polearm",
+    "region": "snezhnaya",
     "stats": {
       "baseHp": 11962,
       "baseAtk": 265,
@@ -79404,6 +79523,8 @@
     "quality": 5,
     "element": "cryo",
     "type": "sword",
+    "region": "snezhnaya",
+    "vision": "stellarLynchpin",
     "stats": {
       "baseHp": 12981,
       "baseAtk": 335,

@@ -20,11 +20,11 @@ export function getMemberCounts(gameId, memberIds) {
     counts.element[charElem] = (counts.element[charElem] ?? 0) + 1;
 
     if (gameId === GI) {
-      if (charData.liyue) counts.liyue++;
-      if (charData.arkhe) counts.arkhe++;
-      if (charData.nightsoul) counts.nightsoul++;
-      if (charData.moonsign) counts.moonsign++;
-      if (charData.hexerei) counts.hexerei++;
+      if (Object.hasOwn(charData, 'liyue')) counts.liyue++;
+      if (Object.hasOwn(charData, 'arkhe')) counts.arkhe++;
+      if (Object.hasOwn(charData, 'nightsoul')) counts.nightsoul++;
+      if (Object.hasOwn(charData, 'moonsign')) counts.moonsign++;
+      if (Object.hasOwn(charData, 'hexerei')) counts.hexerei++;
     }
   }
 

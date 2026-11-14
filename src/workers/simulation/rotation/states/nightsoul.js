@@ -21,8 +21,8 @@ export function updateNightsoulPoints(ctx, action) {
   const state = ctx.states.nightsoul[action.ownerId];
 
   if (value != null) {
-    const { maxNightsoul = Infinity } = CHARACTER[GI][action.ownerId];
-    state.points = clamp(state.points + value, 0, maxNightsoul);
+    const nightsoulLimit = CHARACTER[GI][action.ownerId].nightsoul;
+    state.points = clamp(state.points + value, 0, nightsoulLimit);
 
     if (value < 0 && ctx.hasRule('fightingSpirit')) {
       ctx.runCommands(10000106, [{
