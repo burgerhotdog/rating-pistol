@@ -3584,6 +3584,32 @@
       }
     ]
   },
+  "21030076": {
+    "disabled": true,
+    "name": "Lullaby",
+    "version": 3.8,
+    "id": 21030076,
+    "icon": "wuthering-waves/weapon/21030076.webp",
+    "quality": 5,
+    "type": "pistols",
+    "concerto": true,
+    "stats": {
+      "baseAtk": 412,
+      "energyRegen%": 7704
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
+  },
   "21030084": {
     "name": "Relativistic Jet",
     "version": 1.3,
