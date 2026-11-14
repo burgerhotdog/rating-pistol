@@ -57,6 +57,8 @@ Characters:
         A1 healing effect considered health and not healing
         No healing interval decrease
         No C4, C6
+    Gaming
+        No C1, C2
     Gorou
         Swapping off active buff expires instantly
     Hu Tao

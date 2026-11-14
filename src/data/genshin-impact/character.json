@@ -46788,7 +46788,6 @@
     }
   },
   "10000092": {
-    "disabled": true,
     "name": "Gaming",
     "version": 4.4,
     "id": 10000092,
@@ -46804,7 +46803,117 @@
     },
     "energy": 60,
     "liyue": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "burst_heal",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "action": {
+            "health": {
+              "value": 0.3
+            }
+          }
+        }
+      },
+      {
+        "ref": "burst_wushouStance",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        }
+      },
+      {
+        "ref": "a1",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "duration": 800,
+          "offset": 200
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 200,
+          "action": {
+            "health": {
+              "value": 0.015
+            }
+          }
+        }
+      },
+      {
+        "ref": "a4",
+        "buff": [
+          {
+            "filter": {
+              "health": {
+                "<": 0.5
+              }
+            },
+            "stats": {
+              "healingReceived%": 0.2
+            }
+          },
+          {
+            "filter": {
+              "health": {
+                ">=": 0.5
+              },
+              "action": {
+                "ref": "elementalSkill.1"
+              }
+            },
+            "stats": {
+              "dmgBonus%": 0.2
+            }
+          }
+        ]
+      },
+      {
+        "rank": 4,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "cooldown": 200,
+          "action": {
+            "restoreEnergy": {
+              "flat": 2
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "stats": {
+            "critRate%": 0.2,
+            "critDmg%": 0.4
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Stellar Rend",
@@ -47005,9 +47114,18 @@
         "rankModify": 3,
         "actions": [
           {
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
             "name": "Plunging Attack: Charmed Cloudstrider",
             "type": "plungingAttack",
+            "health": {
+              "value": -0.15,
+              "min": 0.1
+            },
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -47029,7 +47147,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 600
           }
         ]
       },
@@ -47038,9 +47157,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Suanni Man Chai Smash DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -47067,7 +47192,35 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12430,
+      "setCounts": {
+        "15006": 4
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalSkill.0",
+        "elementalSkill.1"
+      ]
+    },
+    "teamPreset": [
+      10000092,
+      10000107,
+      10000032,
+      10000093
+    ]
   },
   "10000093": {
     "name": "Xianyun",
