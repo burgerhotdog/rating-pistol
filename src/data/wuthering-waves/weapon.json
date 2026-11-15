@@ -3585,7 +3585,6 @@
     ]
   },
   "21030076": {
-    "disabled": true,
     "name": "Lullaby",
     "version": 3.8,
     "id": 21030076,
@@ -3604,6 +3603,92 @@
             "hp%": [
               0.12,
               0.24
+            ]
+          }
+        }
+      },
+      {
+        "ref": "soothedSoul",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "type": "heavyAttack",
+              "HAS": "healing"
+            }
+          },
+          "duration": 30000
+        },
+        "use": [
+          {
+            "by": "$team",
+            "when": "unisonUpdate",
+            "filter": {
+              "unison": true
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "buff",
+              "spec": {
+                "duration": 30000
+              }
+            }
+          },
+          {
+            "by": "$team",
+            "when": "unisonResponse",
+            "commands": {
+              "type": "apply",
+              "ref": "buff",
+              "spec": {
+                "duration": 30000
+              }
+            }
+          }
+        ],
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "buff"
+          }
+        }
+      },
+      {
+        "ref": "buff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "ref": "buff_echo",
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "type": "heavyAttack",
+              "HAS": "healing"
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "echoSkillDmgBonus%": [
+              0.24,
+              0.48
             ]
           }
         }

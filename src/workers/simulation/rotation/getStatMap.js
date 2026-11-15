@@ -72,46 +72,49 @@ export const getBuffMap = (ctx, options = {}) => {
     }
   }
 
-  for (const state of [
-    ...Object.values(ctx.states.globalEffects),
-    ...Object.values(ctx.states.memberEffects[memberId]),
-  ]) {
-    processState(state);
+  for (const key in ctx.states.globalEffects) {
+    processState(ctx.states.globalEffects[key]);
+  }
+  for (const key in ctx.states.memberEffects[memberId]) {
+    processState(ctx.states.memberEffects[memberId][key]);
   }
 
-  if (snapshot === 'live') {
-    return { buffMap, buffSpecs };
-  }
+  if (snapshot !== 'frozen') {
+    if (gameId === GI) {
+      const { superconduct, stellarConduct, stellarSwirl } = ctx.states.aura;
+      if (superconduct || stellarConduct) {
+        buffMap['physicalResReduction%'] = (buffMap['physicalResReduction%'] ?? 0) + 0.4;
+      }
 
-  if (gameId === GI) {
-    const { superconduct, stellarConduct, stellarSwirl } = ctx.states.aura;
-    if (superconduct || stellarConduct) {
-      buffMap['physicalResReduction%'] = (buffMap['physicalResReduction%'] ?? 0) + 0.4;
+      if (stellarConduct) {
+        const { bonus } = stellarConduct;
+        buffMap['cryoDmgBonus%'] = (buffMap['cryoDmgBonus%'] ?? 0) + bonus;
+        buffMap['electroDmgBonus%'] = (buffMap['electroDmgBonus%'] ?? 0) + bonus;
+      }
+
+      if (stellarSwirl?.wanderingVortex) {
+        buffMap['anemoResReduction%'] = (buffMap['anemoResReduction%'] ?? 0) + 0.35;
+      }
     }
 
-    if (stellarConduct) {
-      const { bonus } = stellarConduct;
-      buffMap['cryoDmgBonus%'] = (buffMap['cryoDmgBonus%'] ?? 0) + bonus;
-      buffMap['electroDmgBonus%'] = (buffMap['electroDmgBonus%'] ?? 0) + bonus;
-    }
+    if (gameId === WW) {
+      const { havocBane } = ctx.states.negativeStatuses;
+      if (havocBane) {
+        const { stacks } = havocBane;
+        buffMap['defReduction%'] = (buffMap['defReduction%'] ?? 0) + 0.02 * stacks;
+      }
 
-    if (stellarSwirl?.wanderingVortex) {
-      buffMap['anemoResReduction%'] = (buffMap['anemoResReduction%'] ?? 0) + 0.35;
-    }
-  }
+      const tuneStrainStacks = ctx.states.tune.interferedStacks;
+      if (tuneStrainStacks) {
+        const tuneBreakBoost = getAttr('tuneBreakBoost', toMergedObj(buildMap, buffMap));
 
-  if (gameId === WW) {
-    const { havocBane } = ctx.states.negativeStatuses;
-    if (havocBane) {
-      const { stacks } = havocBane;
-      buffMap['defReduction%'] = (buffMap['defReduction%'] ?? 0) + 0.02 * stacks;
-    }
+        buffMap['vuln%'] = (buffMap['vuln%'] ?? 0) + tuneStrainStacks * tuneBreakBoost * 0.0012;
+      }
 
-    const tuneStrainStacks = ctx.states.tune.interferedStacks;
-    if (tuneStrainStacks) {
-      const tuneBreakBoost = getAttr('tuneBreakBoost', toMergedObj(buildMap, buffMap));
-
-      buffMap['vuln%'] = (buffMap['vuln%'] ?? 0) + tuneStrainStacks * tuneBreakBoost * 0.0012;
+      const unisonBoonStacks = Object.keys(ctx.states.unison[memberId].boon).length;
+      if (unisonBoonStacks) {
+        buffMap['vuln%'] = (buffMap['vuln%'] ?? 0) + unisonBoonStacks * 0.03;
+      }
     }
   }
 

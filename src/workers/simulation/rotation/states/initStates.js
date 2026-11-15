@@ -19,19 +19,20 @@ export const initStates = (gameId, memberIds) => {
       aura: {},
       icd: initPerMember(),
       bondOfLife: initPerMember(() => 0),
-      nightsoul: initPerMember(() => ({ blessing: false, points: 0 })),
+      nightsoul: initPerMember(() => ({
+        blessing: false,
+        points: 0,
+      })),
     }),
     ...(gameId === WW && {
       negativeStatuses: {},
       tune: {
         offTune: 0,
       },
-      unisonBoon: {
-        stacks: 0,
-        appliers: new Set(),
+      unison: initPerMember(() => ({
         timeLeft: 0,
-      },
-      unison: initPerMember(() => false),
+        boon: {},
+      })),
     }),
     ...(gameId === ZZZ && {
       daze: {

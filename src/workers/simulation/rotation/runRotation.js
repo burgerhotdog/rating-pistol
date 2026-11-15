@@ -1,6 +1,6 @@
 import { GI, WW } from '@/data';
 import { getAttr, toMergedObj } from '@/utils';
-import { initStates, initPassives } from './states';
+import { initStates, initPassives, handleUnisonResponse } from './states';
 import { createEventFilter } from './filter';
 import { runAction } from './runAction';
 import { runEffects } from './runEffects';
@@ -68,6 +68,10 @@ function runCycle(ctx) {
 
       if (next) {
         ctx.runEffects('swapOn', { ownerId: next });
+      }
+
+      if (ctx.cache.gameId === WW && prev && next) {
+        handleUnisonResponse(ctx, prev, next);
       }
     }
 

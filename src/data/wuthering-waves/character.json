@@ -26797,6 +26797,22 @@
     "unison": true,
     "effects": [
       {
+        "ref": "forte_unison",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.7"
+            }
+          },
+          "cooldown": 25000,
+          "action": {
+            "unison": 5000
+          }
+        }
+      },
+      {
+        "ref": "inherent1",
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.2
@@ -26804,6 +26820,7 @@
         }
       },
       {
+        "ref": "inherent2",
         "buff": {
           "filter": {
             "action": {
@@ -35112,11 +35129,40 @@
     },
     "energy": 125,
     "unison": true,
+    "unisonResponse": true,
     "modes": [
       "unison",
       "electroFlare"
     ],
-    "effects": [],
+    "effects": [
+      {
+        "mode": "unison",
+        "ref": "inherent2",
+        "use": {
+          "by": "$team",
+          "when": "unisonResponse",
+          "commands": {
+            "type": "rule",
+            "ref": "inherent2",
+            "rule": "hsinExtraBoon"
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "mode": "unison",
+        "ref": "s6",
+        "use": {
+          "by": "$team",
+          "when": "unisonResponse",
+          "commands": {
+            "type": "rule",
+            "ref": "s6",
+            "rule": "hsinExtraBoonS6"
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Manifold Bloom",
@@ -37687,19 +37733,8 @@
     },
     "energy": 125,
     "unison": true,
+    "unisonResponse": true,
     "effects": [
-      {
-        "ref": "unison",
-        "apply": {
-          "when": "use",
-          "filter": {
-            "action": {
-              "ref": "resonanceLiberation.0"
-            }
-          },
-          "duration": 5000
-        }
-      },
       {
         "ref": "thunderCrestSummon",
         "apply": {
@@ -37813,15 +37848,8 @@
           {
             "filter": {
               "NOT": {
-                "character": {
-                  "unison": true
-                },
-                "states": {
-                  "unisonBoon": {
-                    "stacks": {
-                      ">": 0
-                    }
-                  }
+                "unisonBoon": {
+                  ">=": 1
                 }
               }
             },
@@ -37831,15 +37859,8 @@
           },
           {
             "filter": {
-              "character": {
-                "unison": true
-              },
-              "states": {
-                "unisonBoon": {
-                  "stacks": {
-                    ">": 0
-                  }
-                }
+              "unisonBoon": {
+                ">=": 1
               }
             },
             "stats": {
@@ -37963,7 +37984,7 @@
             }
           },
           "action": {
-            "unison": false
+            "unison": 0
           },
           "commands": {
             "type": "apply",

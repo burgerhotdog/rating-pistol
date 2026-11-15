@@ -1,7 +1,7 @@
 import { toMergedObj, getAttr } from '@/utils';
 import { getBuffMap } from '../getStatMap';
 import { buildTransformativeReactionSnapshot } from '../snapshot';
-import { decayBuffUses, runApplyEffect, updateBondOfLife, updateHealth } from '../states';
+import { applyUnisonBoon, decayBuffUses, runApplyEffect, updateBondOfLife, updateHealth } from '../states';
 
 const ruleHandlers = {
   kavehFireCores(ctx) {
@@ -128,6 +128,14 @@ const ruleHandlers = {
     for (let i = 0; i < consumed; i++) {
       runApplyEffect(ctx, effect, spec);
     }
+  },
+
+  hsinExtraBoon(ctx) {
+    applyUnisonBoon(ctx, 'hsinExtraBoon');
+  },
+
+  hsinExtraBoonS6(ctx) {
+    applyUnisonBoon(ctx, 'hsinExtraBoonS6');
   },
 };
 
