@@ -5,7 +5,7 @@ export function wwSet(id, data) {
     version: null,
     id: Number(id),
     icon: `wuthering-waves/set/${id}.webp`,
-    bonuses: Object.keys(data.set ?? {}),
+    bonuses: Object.keys(data.set ?? {}).map(Number),
     halfStat: '',
     effects: [],
   };

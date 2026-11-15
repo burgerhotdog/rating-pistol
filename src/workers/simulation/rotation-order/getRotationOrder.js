@@ -42,7 +42,7 @@ function getTestOrders(gameId, memberIds) {
 
   if (
     gameId === WW &&
-    CHARACTER[WW][first].unison &&
+    Object.hasOwn(CHARACTER[WW][first], 'unison') &&
     memberIds.length === 3
   ) {
     const [a, b, c] = memberIds;

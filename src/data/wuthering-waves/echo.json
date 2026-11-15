@@ -3294,7 +3294,6 @@
     }
   },
   "6000225": {
-    "disabled": true,
     "name": "Reminiscence: Suhsin the Inevitable",
     "version": 3.7,
     "id": 6000225,
@@ -3313,19 +3312,32 @@
         }
       },
       {
-        "apply": {
-          "when": "inflict",
-          "filter": {
-            "action": {
-              "inflict": {
-                "status": {
-                  "HAS": "electroFlare"
+        "apply": [
+          {
+            "when": "inflict",
+            "filter": {
+              "action": {
+                "inflict": {
+                  "status": {
+                    "HAS": "electroFlare"
+                  }
                 }
               }
-            }
+            },
+            "duration": 30000
           },
-          "duration": 30000
-        },
+          {
+            "when": "unisonUpdate",
+            "filter": {
+              "unison": true
+            },
+            "duration": 30000
+          },
+          {
+            "when": "unisonResponse",
+            "duration": 30000
+          }
+        ],
         "buff": {
           "stats": {
             "electroDmgBonus%": 0.1

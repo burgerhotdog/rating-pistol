@@ -52,32 +52,47 @@ const initAttrMaps = (buildMaps) => {
   return attrMaps;
 };
 
-function runCycle(ctx) {
-  for (const [index, memberId] of ctx.memberOrder.entries()) {
-    const { rotation } = ctx.cache.member[memberId];
-    const prev = ctx.states.onFieldId;
-    const next = memberId;
+function updateOnFieldId(ctx, prev, next) {
+  if (prev) {
+    ctx.runEffects('swapOff', { ownerId: prev });
+  }
 
-    if (next !== prev) {
-      if (prev) {
-        ctx.runEffects('swapOff', { ownerId: prev });
-      }
+  ctx.states.onFieldId = next;
 
-      ctx.states.onFieldId = next;
-      ctx.states.onFieldIndex = index;
+  if (next) {
+    ctx.runEffects('swapOn', { ownerId: next });
+  }
 
-      if (next) {
-        ctx.runEffects('swapOn', { ownerId: next });
-      }
+  if (ctx.cache.gameId === WW && prev && next) {
+    handleUnisonResponse(ctx, prev, next);
+  }
+}
 
-      if (ctx.cache.gameId === WW && prev && next) {
-        handleUnisonResponse(ctx, prev, next);
-      }
+function runCycle(ctx, order, appearances, init = false) {
+  function getRotation(memberId) {
+    const mCache = ctx.cache.member[memberId];
+
+    if (init && mCache.rotationInit) {
+      return mCache.rotationInit;
     }
 
-    for (const action of rotation) {
+    if (appearances[memberId] % 2) {
+      return mCache.rotationAlt ?? mCache.rotation;
+    } else {
+      return mCache.rotation;
+    }
+  }
+
+  for (const memberId of order) {
+    if (memberId !== ctx.states.onFieldId) {
+      updateOnFieldId(ctx, ctx.states.onFieldId, memberId)
+    }
+
+    for (const action of getRotation(memberId)) {
       ctx.runAction(action);
     }
+
+    appearances[memberId]++;
   }
 }
 
@@ -107,17 +122,18 @@ export const runRotation = (cache, equipMaps, specId, logFilter = false) => {
   initPassives(ctx);
 
   // Rotation loop
-  ctx.memberOrder = cache.rotationOrder ?? memberIds.toReversed();
+  const memberOrder = cache.rotationOrder ?? memberIds.toReversed();
+  const appearances = Object.fromEntries(memberIds.map((id) => [id, 0]));
 
   // First pass to initialize states
-  runCycle(ctx);
+  runCycle(ctx, memberOrder, appearances, true);
   if (gameId === WW) {
     ctx.offTuneBuildup.push(ctx.states.tune.offTune);
   }
 
   // Second pass to record snapshots
   ctx.saveSnapshots = true;
-  runCycle(ctx);
+  runCycle(ctx, memberOrder, appearances);
 
   // Resolve snapshots
   for (const snapshot of ctx.snapshots) {

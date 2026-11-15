@@ -23,12 +23,12 @@ function adjustTimings(rotation, actual, estimate) {
   return resolved;
 }
 
-export const getConvertedRotation = (gameId, member, actionDefs, memberIds) => {
+export const getConvertedRotation = (gameId, member, rawRotation, actionDefs, memberIds) => {
   const rotation = [];
   let durationEstimate = 0;
   let timeRemoved = 0;
 
-  for (const actionRef of member.rotation) {
+  for (const actionRef of rawRotation) {
     const action = actionDefs[actionRef];
     const { type, duration = 0 } = action;
 

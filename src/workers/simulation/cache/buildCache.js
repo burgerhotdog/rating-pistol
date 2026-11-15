@@ -23,9 +23,21 @@ function buildCacheMember(cache, member) {
   const baseMap = mCache.baseMap = buildBaseMap(gameId, member.id, member.weaponId);
   const actionDefs = mCache.actions = getActionDefs(gameId, member, memberIds, baseMap);
 
-  const { rotation, duration } = getConvertedRotation(gameId, member, actionDefs, memberIds);
+  const { rotation, duration } = getConvertedRotation(gameId, member, member.rotation, actionDefs, memberIds);
   mCache.rotation = rotation;
   mCache.duration = duration;
+
+  if (Object.hasOwn(mCache, 'rotationAlt')) {
+    const { rotation, duration } = getConvertedRotation(gameId, member, member.rotationAlt, actionDefs, memberIds);
+    mCache.rotationAlt = rotation;
+    mCache.durationAlt = duration;
+  }
+
+  if (Object.hasOwn(mCache, 'rotationInit')) {
+    const { rotation, duration } = getConvertedRotation(gameId, member, member.rotationInit, actionDefs, memberIds);
+    mCache.rotationInit = rotation;
+    mCache.durationInit = duration;
+  }
 
   if (member.build?.equipList) {
     mCache.equipList = member.build.equipList;
@@ -65,10 +77,15 @@ function buildCacheMember(cache, member) {
 
   const charData = CHARACTER[gameId][member.id];
 
-  const usesUlt = mCache.rotation.some((action) =>
-    action.category === 'elementalBurst' ||
-    action.category === 'ultimate' ||
-    action.category === 'resonanceLiberation'
+  const usesUlt = [
+    ...mCache.rotation,
+    ...(mCache.rotationInit ?? []),
+    ...(mCache.rotationAlt ?? []),
+  ].some((action) =>
+    action.type === 'elementalBurst' ||
+    action.type === 'ultimate' ||
+    action.type === 'resonanceLiberation' ||
+    action.type === 'exSpecialAttack'
   );
 
   if (charData.energy && usesUlt) {

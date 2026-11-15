@@ -1902,8 +1902,8 @@
     "id": 36,
     "icon": "wuthering-waves/set/36.webp",
     "bonuses": [
-      "2",
-      "5"
+      2,
+      5
     ],
     "halfStat": "electroDmgBonus%",
     "effects": [
@@ -1916,7 +1916,7 @@
         }
       },
       {
-        "bonus": 4,
+        "bonus": 5,
         "apply": [
           {
             "when": "inflict",
@@ -1949,29 +1949,162 @@
     ]
   },
   "37": {
-    "disabled": true,
     "name": "Flash of Electric Reflection",
     "version": 3.7,
     "id": 37,
     "icon": "wuthering-waves/set/37.webp",
     "bonuses": [
-      "2",
-      "5"
+      2,
+      5
     ],
-    "halfStat": "",
-    "effects": []
+    "halfStat": "electroDmgBonus%",
+    "effects": [
+      {
+        "bonus": 2,
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.1
+          }
+        }
+      },
+      {
+        "bonus": 5,
+        "ref": "inflictBuff",
+        "apply": {
+          "when": "inflict",
+          "filter": {
+            "action": {
+              "inflict": {
+                "status": {
+                  "HAS": "electroFlare"
+                }
+              }
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.1
+          }
+        }
+      },
+      {
+        "bonus": 5,
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            },
+            "effectStacks": {
+              "HAS": "inflictBuff"
+            }
+          },
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 15000
+            }
+          }
+        }
+      },
+      {
+        "bonus": 5,
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.25
+          }
+        }
+      }
+    ]
   },
   "38": {
-    "disabled": true,
     "name": "Flower of Tinged Yearning",
     "version": 3.7,
     "id": 38,
     "icon": "wuthering-waves/set/38.webp",
     "bonuses": [
-      "2",
-      "5"
+      2,
+      5
     ],
-    "halfStat": "",
-    "effects": []
+    "halfStat": "healingBonus%",
+    "effects": [
+      {
+        "bonus": 2,
+        "buff": {
+          "stats": {
+            "healingBonus%": 0.1
+          }
+        }
+      },
+      {
+        "bonus": 5,
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "HAS": "healing"
+            }
+          },
+          "duration": 30000
+        },
+        "use": [
+          {
+            "when": "unisonUpdate",
+            "filter": {
+              "unison": true
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "extraBuff"
+            }
+          },
+          {
+            "when": "unisonResponse",
+            "commands": {
+              "type": "apply",
+              "ref": "extraBuff"
+            }
+          }
+        ],
+        "buff": {
+          "stats": {
+            "atk%": 0.1
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "extraBuff"
+          }
+        }
+      },
+      {
+        "bonus": 5,
+        "ref": "extraBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.15
+          }
+        }
+      }
+    ]
   }
 }

@@ -1,5 +1,9 @@
 Characters:
     Jingran
+    Suoming
+        Unfinished
+    Hsin
+        Unfinished
 
 Weapons:
     Broadblade#41
@@ -47,5 +51,4 @@ Sets:
 
 Echoes:
     Reminiscence: Suhsin the Inevitable
-        No unison
         Always Hsin version

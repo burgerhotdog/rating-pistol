@@ -7,7 +7,6 @@ export const initStates = (gameId, memberIds) => {
   return {
     runtime: 0,
     onFieldId: null,
-    onFieldIndex: null,
     shielded: null,
     rules: {},
     globalCooldowns: {},
