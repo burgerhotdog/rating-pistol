@@ -4,6 +4,10 @@ Characters:
         Unfinished
     Hsin
         Unfinished
+    Lily
+        Sillage no 20s cd
+        Wish of Praying Dream permanent uptime
+        No ranks
 
 Weapons:
     Broadblade#41

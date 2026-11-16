@@ -12852,7 +12852,7 @@
         "buff": {
           "specs": {
             "atk": {
-              "attr": "energyRegen",
+              "attr": "energyRegen%",
               "step": 0.01,
               "offset": 1.5,
               "value": 8,
@@ -12865,7 +12865,7 @@
         "buff": {
           "specs": {
             "atk": {
-              "attr": "energyRegen",
+              "attr": "energyRegen%",
               "step": 0.01,
               "offset": 1.5,
               "value": 12,
@@ -37772,7 +37772,7 @@
     "teamPreset": [
       1311,
       1312,
-      1505
+      1512
     ]
   },
   "1312": {
@@ -39622,7 +39622,7 @@
     "teamPreset": [
       1311,
       1312,
-      1505
+      1512
     ]
   },
   "1402": {
@@ -64874,7 +64874,6 @@
     ]
   },
   "1512": {
-    "disabled": true,
     "name": "Lily",
     "version": 3.8,
     "id": 1512,
@@ -64890,6 +64889,320 @@
       "healingBonus%": 0.12
     },
     "effects": [
+      {
+        "ref": "ult_slumberland",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 50000,
+          "offset": 3000
+        },
+        "remove": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceLiberation.0",
+                "introSkill.1"
+              ]
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 3000,
+          "action": "resonanceLiberation.1"
+        }
+      },
+      {
+        "ref": "ult_cradleLullaby",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 25000
+        },
+        "remove": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "introSkill"
+            }
+          },
+          "commands": {
+            "type": "remove",
+            "ref": "ult_dreamAroma"
+          }
+        },
+        "use": {
+          "by": "$ally",
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "introSkill"
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "ult_dreamAroma"
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "ult_dreamAroma"
+          }
+        }
+      },
+      {
+        "ref": "ult_dreamAroma",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "specs": {
+            "atk%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "offset": 1.9,
+              "value": 0.001,
+              "maxValue": 0.07
+            }
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "forte_fairytaleHealing",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          },
+          "duration": 2000,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "forteCircuit.1"
+        }
+      },
+      {
+        "ref": "forte_phantasmHealing",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.2"
+            }
+          },
+          "duration": 2000,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "forteCircuit.3"
+        }
+      },
+      {
+        "ref": "forte_finaleBuff",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.4",
+                "forteCircuit.5"
+              ]
+            }
+          },
+          "specs": {
+            "critRate%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "offset": 1,
+              "value": 0.005,
+              "maxValue": 0.8
+            },
+            "critDmg%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "offset": 1,
+              "value": 0.01,
+              "maxValue": 1.6
+            }
+          }
+        }
+      },
+      {
+        "ref": "forte_sillage",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.4",
+                "forteCircuit.5"
+              ]
+            }
+          },
+          "duration": 6000,
+          "uses": 1
+        },
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "forte_silveredDreamUnison",
+              "spec": {
+                "duration": 30000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "forte_silveredDreamEcho",
+              "spec": {
+                "duration": 30000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "forte_silveredDreamUnison",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": [
+          {
+            "filter": {
+              "field": "onField",
+              "unisonBoon": 1
+            },
+            "specs": {
+              "atk%": {
+                "attr": "energyRegen%",
+                "step": 0.01,
+                "offset": 1.9,
+                "value": 0.001,
+                "maxValue": 0.07
+              }
+            }
+          },
+          {
+            "filter": {
+              "field": "onField",
+              "unisonBoon": 2
+            },
+            "specs": {
+              "atk%": {
+                "attr": "energyRegen%",
+                "step": 0.01,
+                "offset": 1.9,
+                "value": 0.002,
+                "maxValue": 0.14
+              }
+            }
+          },
+          {
+            "filter": {
+              "field": "onField",
+              "unisonBoon": 3
+            },
+            "specs": {
+              "atk%": {
+                "attr": "energyRegen%",
+                "step": 0.01,
+                "offset": 1.9,
+                "value": 0.003,
+                "maxValue": 0.21
+              }
+            }
+          },
+          {
+            "filter": {
+              "field": "onField",
+              "unisonBoon": 4
+            },
+            "specs": {
+              "atk%": {
+                "attr": "energyRegen%",
+                "step": 0.01,
+                "offset": 1.9,
+                "value": 0.004,
+                "maxValue": 0.28
+              }
+            }
+          }
+        ]
+      },
+      {
+        "ref": "forte_silveredDreamEcho",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "field": "onField",
+            "action": {
+              "damage": {
+                "type": "echoSkill"
+              }
+            }
+          },
+          "specs": {
+            "critRate%": {
+              "attr": "energyRegen%",
+              "step": 0.007,
+              "offset": 1.9,
+              "value": 0.001,
+              "maxValue": 0.1
+            },
+            "critDmg%": {
+              "attr": "energyRegen%",
+              "step": 0.007,
+              "offset": 1.9,
+              "value": 0.002,
+              "maxValue": 0.2
+            }
+          }
+        }
+      },
+      {
+        "ref": "forte_wishOfPrayingDream",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.1",
+                "forteCircuit.3"
+              ]
+            }
+          },
+          "stats": {
+            "healingBonus%": 4
+          }
+        }
+      },
       {
         "ref": "intro_eternalBloomBuff",
         "buff": {
@@ -65187,7 +65500,7 @@
         "name": "Dream Blend",
         "actions": [
           {
-            "name": "Resonance Skill - Reverie Blend DMG",
+            "name": "Resonance Skill: Reverie Blend",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -65219,7 +65532,7 @@
             }
           },
           {
-            "name": "Resonance Skill - Nightmare Blend DMG",
+            "name": "Resonance Skill: Nightmare Blend",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -65256,35 +65569,15 @@
         "name": "Into the Dream Cradle",
         "actions": [
           {
+            "name": "Resonance Liberation",
+            "type": "resonanceLiberation"
+          },
+          {
             "name": "Slumberland Healing",
-            "type": "resonanceLiberation",
-            "damage": {
+            "healing": {
+              "targets": "$onField",
               "attr": "hp",
               "multipliers": [
-                {
-                  "flat": [
-                    287,
-                    321,
-                    359,
-                    402,
-                    454,
-                    503,
-                    511,
-                    523,
-                    531,
-                    546,
-                    591,
-                    636,
-                    681,
-                    726,
-                    771,
-                    816,
-                    861,
-                    906,
-                    951,
-                    996
-                  ]
-                },
                 {
                   "mv": [
                     0.0052,
@@ -65307,15 +65600,37 @@
                     0.0182,
                     0.0191,
                     0.02
+                  ],
+                  "flat": [
+                    287,
+                    321,
+                    359,
+                    402,
+                    454,
+                    503,
+                    511,
+                    523,
+                    531,
+                    546,
+                    591,
+                    636,
+                    681,
+                    726,
+                    771,
+                    816,
+                    861,
+                    906,
+                    951,
+                    996
                   ]
                 }
               ]
             }
           },
           {
-            "name": "Dreambind Continuous DMG",
-            "type": "resonanceLiberation",
+            "name": "Dreambind",
             "damage": {
+              "type": "resonanceLiberation",
               "multipliers": [
                 {
                   "mv": [
@@ -65350,122 +65665,8 @@
         "name": "Dreamland of Flowers",
         "actions": [
           {
-            "name": "Heavy Attack - Woven Fairytale Healing",
-            "type": "forteCircuit",
-            "damage": {
-              "attr": "hp",
-              "multipliers": [
-                {
-                  "flat": [
-                    185,
-                    207,
-                    231,
-                    259,
-                    292,
-                    323,
-                    329,
-                    336,
-                    342,
-                    351,
-                    380,
-                    409,
-                    438,
-                    467,
-                    496,
-                    525,
-                    554,
-                    583,
-                    612,
-                    641
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0033,
-                    0.0035,
-                    0.0036,
-                    0.0038,
-                    0.0041,
-                    0.0043,
-                    0.0048,
-                    0.0054,
-                    0.006,
-                    0.007,
-                    0.0076,
-                    0.0082,
-                    0.0088,
-                    0.0094,
-                    0.0099,
-                    0.0105,
-                    0.0111,
-                    0.0117,
-                    0.0123,
-                    0.0129
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Heavy Attack - Woven Phantasm Healing",
-            "type": "forteCircuit",
-            "damage": {
-              "attr": "hp",
-              "multipliers": [
-                {
-                  "flat": [
-                    185,
-                    207,
-                    231,
-                    259,
-                    292,
-                    323,
-                    329,
-                    336,
-                    342,
-                    351,
-                    380,
-                    409,
-                    438,
-                    467,
-                    496,
-                    525,
-                    554,
-                    583,
-                    612,
-                    641
-                  ]
-                },
-                {
-                  "mv": [
-                    0.0033,
-                    0.0035,
-                    0.0036,
-                    0.0038,
-                    0.0041,
-                    0.0043,
-                    0.0048,
-                    0.0054,
-                    0.006,
-                    0.007,
-                    0.0076,
-                    0.0082,
-                    0.0088,
-                    0.0094,
-                    0.0099,
-                    0.0105,
-                    0.0111,
-                    0.0117,
-                    0.0123,
-                    0.0129
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Heavy Attack - Woven Fairytale DMG",
-            "type": "forteCircuit",
+            "name": "Heavy Attack: Woven Fairytale",
+            "type": "heavyAttack",
             "damage": {
               "multipliers": [
                 {
@@ -65521,8 +65722,62 @@
             }
           },
           {
-            "name": "Heavy Attack - Woven Phantasm DMG",
-            "type": "forteCircuit",
+            "name": "Woven Fairytale Healing",
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.0033,
+                    0.0035,
+                    0.0036,
+                    0.0038,
+                    0.0041,
+                    0.0043,
+                    0.0048,
+                    0.0054,
+                    0.006,
+                    0.007,
+                    0.0076,
+                    0.0082,
+                    0.0088,
+                    0.0094,
+                    0.0099,
+                    0.0105,
+                    0.0111,
+                    0.0117,
+                    0.0123,
+                    0.0129
+                  ],
+                  "flat": [
+                    185,
+                    207,
+                    231,
+                    259,
+                    292,
+                    323,
+                    329,
+                    336,
+                    342,
+                    351,
+                    380,
+                    409,
+                    438,
+                    467,
+                    496,
+                    525,
+                    554,
+                    583,
+                    612,
+                    641
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Heavy Attack: Woven Phantasm",
+            "type": "heavyAttack",
             "damage": {
               "multipliers": [
                 {
@@ -65554,8 +65809,62 @@
             }
           },
           {
-            "name": "Heavy Attack - Fairytale's Finale DMG",
-            "type": "forteCircuit",
+            "name": "Woven Phantasm Healing",
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.0033,
+                    0.0035,
+                    0.0036,
+                    0.0038,
+                    0.0041,
+                    0.0043,
+                    0.0048,
+                    0.0054,
+                    0.006,
+                    0.007,
+                    0.0076,
+                    0.0082,
+                    0.0088,
+                    0.0094,
+                    0.0099,
+                    0.0105,
+                    0.0111,
+                    0.0117,
+                    0.0123,
+                    0.0129
+                  ],
+                  "flat": [
+                    185,
+                    207,
+                    231,
+                    259,
+                    292,
+                    323,
+                    329,
+                    336,
+                    342,
+                    351,
+                    380,
+                    409,
+                    438,
+                    467,
+                    496,
+                    525,
+                    554,
+                    583,
+                    612,
+                    641
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Heavy Attack: Fairytale's Finale",
+            "type": "heavyAttack",
             "damage": {
               "attr": "hp",
               "multipliers": [
@@ -65587,8 +65896,8 @@
             }
           },
           {
-            "name": "Heavy Attack - Phantasm's End DMG",
-            "type": "forteCircuit",
+            "name": "Heavy Attack: Phantasm's End",
+            "type": "heavyAttack",
             "damage": {
               "attr": "hp",
               "multipliers": [
@@ -65726,7 +66035,27 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 21030076,
+      "setCounts": {
+        "38": 5
+      },
+      "mainEcho": 6000223,
+      "rotation": [
+        "introSkill.1",
+        "normalAttack.2",
+        "resonanceSkill.0",
+        "forteCircuit.0",
+        "forteCircuit.4",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ]
+    },
+    "teamPreset": [
+      1311,
+      1312,
+      1512
+    ]
   },
   "1601": {
     "name": "Taoqi",
