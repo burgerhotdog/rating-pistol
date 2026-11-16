@@ -18,6 +18,7 @@ const reactionEnablers = {
     10000133, // Sandrone
     100000057, // Traveler: Cryo
     10000150, // Odette
+    10000136, // Mitya
   ]),
   stellarSwirl: new Set([
     10000133, // Sandrone

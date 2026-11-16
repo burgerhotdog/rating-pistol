@@ -61,7 +61,7 @@ function getRequiredErMap(cache, equipMaps, bonusEnergy) {
     const { energy } = cache.member[memberId];
     if (!energy) continue;
 
-    requiredErMap[memberId] = getRequiredEr(cache, memberId, statMapOf, bonusEnergy);
+    requiredErMap[memberId] = getRequiredEr(cache, Number(memberId), statMapOf, bonusEnergy);
   }
 
   return requiredErMap;
@@ -86,20 +86,20 @@ function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, s
   const isUnison = cache.rotationOrder;
 
   for (const memberId in cache.member) {
-    const { id, duration, durationUnison, concertoPenalty } = cache.member[memberId];
+    const { id, duration, durationAlt, concertoPenalty } = cache.member[memberId];
     const hasUnisonRot = isUnison && cache.rotationOrder[0] !== id;
     const mSource = source[id] = {
       duration,
       added: 0,
       ...(hasUnisonRot && {
-        durationUnison: durationUnison ?? duration,
+        durationUnison: durationAlt ?? duration,
         addedUnison: 0,
       }),
     };
 
     fullTime += duration;
     if (hasUnisonRot) {
-      fullTime += durationUnison ?? duration;
+      fullTime += durationAlt ?? duration;
     }
 
     if (gameId === ZZZ) {

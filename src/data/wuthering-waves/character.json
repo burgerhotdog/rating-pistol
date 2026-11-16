@@ -64,15 +64,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -850,20 +871,50 @@
         }
       },
       {
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 30000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "outroHeal",
+              "spec": {
+                "duration": 30000,
+                "offset": 3000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "outroBuff",
+              "spec": {
+                "duration": 36000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "outroHeal",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "use": {
           "when": "interval",
           "cooldown": 3000,
           "action": {
             "healing": {
+              "targets": "$storeOwner",
               "attr": "hp",
               "multipliers": [
                 {
@@ -875,15 +926,10 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroBuff",
+        "stores": "$applier",
         "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
-          },
-          "duration": 36000
+          "when": "command"
         },
         "buff": {
           "stats": {
@@ -2621,15 +2667,36 @@
         "maxStacks": 3
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -3159,15 +3226,33 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 28000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 28000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "filter": {
@@ -7046,15 +7131,37 @@
       },
       {
         "mode": "echo",
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "mode": "echo",
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -7958,7 +8065,7 @@
         "name": "Montage",
         "actions": [
           {
-            "name": "Montage",
+            "name": "Outro Skill",
             "type": "outroSkill"
           }
         ]
@@ -11098,15 +11205,36 @@
         "maxStacks": 50
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -11834,15 +11962,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 10000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -12703,7 +12852,7 @@
         "buff": {
           "specs": {
             "atk": {
-              "attr": "energyRegen",
+              "attr": "energyRegen%",
               "step": 0.01,
               "offset": 1.5,
               "value": 8,
@@ -12716,7 +12865,7 @@
         "buff": {
           "specs": {
             "atk": {
-              "attr": "energyRegen",
+              "attr": "energyRegen%",
               "step": 0.01,
               "offset": 1.5,
               "value": 12,
@@ -12745,15 +12894,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -14319,9 +14489,9 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "forte_setTheArenaAblaze",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": [
@@ -14330,22 +14500,51 @@
               ]
             }
           },
+          "duration": 8000,
           "uses": 1
         },
         "use": {
-          "when": "hit",
+          "by": "$ally",
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "resonanceLiberation"
+            }
+          },
           "action": "forteCircuit.2"
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
+          },
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
           }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -20654,22 +20853,40 @@
       },
       {
         "mode": "tuneStrain",
-        "ref": "outro_tune",
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
           "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 16000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outro_buff",
+            "spec": {
+              "duration": 16000
+            }
+          }
+        }
+      },
+      {
+        "mode": "tuneStrain",
+        "ref": "outro_buff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "remove": {
           "when": "swapOff",
           "commands": {
             "type": "remove",
-            "ref": "outro_tuneEnhanced"
+            "ref": "outro_enhance"
           }
         },
         "use": {
@@ -20679,11 +20896,16 @@
               "inflict": {
                 "shifting": "tuneStrain"
               }
+            },
+            "effectStacks": {
+              "NOT": {
+                "HAS": "outro_enhance"
+              }
             }
           },
           "commands": {
             "type": "apply",
-            "ref": "outro_tuneEnhanced"
+            "ref": "outro_enhance"
           }
         },
         "buff": [
@@ -20691,7 +20913,7 @@
             "filter": {
               "effectStacks": {
                 "NOT": {
-                  "HAS": "outro_tuneEnhanced"
+                  "HAS": "outro_enhance"
                 }
               }
             },
@@ -20702,7 +20924,7 @@
           {
             "filter": {
               "effectStacks": {
-                "HAS": "outro_tuneEnhanced"
+                "HAS": "outro_enhance"
               }
             },
             "stats": {
@@ -20713,13 +20935,13 @@
         "expire": {
           "commands": {
             "type": "remove",
-            "ref": "outro_tuneEnhanced"
+            "ref": "outro_enhance"
           }
         }
       },
       {
         "mode": "tuneStrain",
-        "ref": "outro_tuneEnhanced",
+        "ref": "outro_enhance",
         "apply": {
           "when": "command"
         }
@@ -21919,7 +22141,7 @@
         "name": "Unfinished Lies",
         "actions": [
           {
-            "name": "Unfinished Lies",
+            "name": "Outro Skill",
             "type": "outroSkill"
           }
         ]
@@ -24830,15 +25052,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -26554,6 +26797,22 @@
     "unison": true,
     "effects": [
       {
+        "ref": "forte_unison",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.7"
+            }
+          },
+          "cooldown": 25000,
+          "action": {
+            "unison": 5000
+          }
+        }
+      },
+      {
+        "ref": "inherent1",
         "buff": {
           "stats": {
             "spectroDmgBonus%": 0.2
@@ -26561,6 +26820,7 @@
         }
       },
       {
+        "ref": "inherent2",
         "buff": {
           "filter": {
             "action": {
@@ -27833,16 +28093,34 @@
         "maxStacks": 4
       },
       {
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 8000,
-          "uses": 3
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outro_use",
+            "spec": {
+              "duration": 8000,
+              "uses": 3
+            }
+          }
+        }
+      },
+      {
+        "ref": "outro_use",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "use": {
           "when": "hit",
@@ -28766,16 +29044,33 @@
         }
       },
       {
-        "ref": "battlesongOfTheUnyielding",
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
           "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "remove": {
           "when": "swapOff"
@@ -30629,35 +30924,175 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "outro_turret",
+              "filter": {
+                "character": {
+                  "NOT": {
+                    "id": 1511
+                  }
+                }
+              },
+              "spec": {
+                "duration": 14000,
+                "offset": 200
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "outro_turretEnhanced",
+              "filter": {
+                "character": {
+                  "id": 1511
+                }
+              },
+              "spec": {
+                "duration": 4000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "outro_buff",
+              "filter": {
+                "character": {
+                  "NOT": {
+                    "id": 1511
+                  }
+                }
+              },
+              "spec": {
+                "duration": 14000,
+                "offset": 200
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "outro_lucy",
+              "filter": {
+                "character": {
+                  "id": 1511
+                }
+              },
+              "spec": {
+                "duration": 14000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "outro_turret",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 200,
+          "action": {
+            "damage": {
+              "type": "outroSkill",
+              "multipliers": [
+                {
+                  "mv": 0.025
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "ref": "outro_turretEnhanced",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 200,
+          "action": {
+            "damage": {
+              "type": "outroSkill",
+              "multipliers": [
+                {
+                  "mv": 0.0875
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "ref": "outro_buff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff",
+          "commands": {
+            "type": "remove",
+            "ref": "outro_overlimit"
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 200,
+          "commands": {
+            "type": "apply",
+            "ref": "outro_overlimit"
+          }
         },
         "buff": {
           "stats": {
             "dmgAmp%": 0.15
           }
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "outro_overlimit"
+          }
         }
       },
       {
-        "stores": "1511",
+        "ref": "outro_overlimit",
+        "stores": "$applier",
         "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
-          },
-          "duration": 14000
+          "when": "command"
         },
         "buff": {
           "stats": {
+            "heavyAttackDmgAmp%": 0.005
+          }
+        },
+        "maxStacks": 70
+      },
+      {
+        "ref": "outro_lucy",
+        "stores": 1511,
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
+        },
+        "buff": {
+          "stats": {
+            "dmgAmp%": 0.15,
             "heavyAttackDmgAmp%": 0.35
           }
         }
@@ -32551,7 +32986,7 @@
         "name": "Preem Choom",
         "actions": [
           {
-            "name": "Preem Choom",
+            "name": "Outro Skill",
             "type": "outroSkill"
           }
         ]
@@ -32681,40 +33116,64 @@
         }
       },
       {
-        "ref": "electroCore",
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 20000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outro_electroCore",
+            "spec": {
+              "duration": 20000,
+              "uses": 1
+            }
+          }
         }
       },
       {
+        "ref": "outro_electroCore",
         "stores": "$applier",
         "apply": {
-          "by": "$team",
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
+        },
+        "use": {
           "when": "inflict",
           "filter": {
-            "AND": [
-              {
-                "effectStacks": {
-                  "HAS": "electroCore"
-                }
-              },
-              {
-                "action": {
-                  "inflict": {
-                    "HAS": "status"
-                  }
-                }
+            "action": {
+              "inflict": {
+                "HAS": "status"
               }
-            ]
+            }
           },
-          "duration": 14000
+          "commands": {
+            "type": "apply",
+            "ref": "outro_buff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outro_buff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -34653,7 +35112,6 @@
     ]
   },
   "1311": {
-    "disabled": true,
     "name": "Hsin",
     "version": 3.7,
     "id": 1311,
@@ -34670,17 +35128,178 @@
     },
     "energy": 125,
     "unison": true,
+    "unisonResponse": true,
     "modes": [
       "unison",
       "electroFlare"
     ],
-    "effects": [],
+    "effects": [
+      {
+        "mode": "unison",
+        "ref": "forte_unison",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.0",
+                "introSkill.1",
+                "introSkill.2"
+              ]
+            }
+          },
+          "uses": 1
+        },
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "action": {
+            "unison": 5000
+          }
+        }
+      },
+      {
+        "mode": "unison",
+        "ref": "inherent1",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.2",
+                "introSkill.5"
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "remove": {
+          "when": "swapOff"
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.5
+          }
+        }
+      },
+      {
+        "mode": "unison",
+        "ref": "inherent2",
+        "use": {
+          "by": "$team",
+          "when": "unisonResponse",
+          "commands": {
+            "type": "rule",
+            "ref": "inherent2",
+            "rule": "hsinExtraBoon"
+          }
+        }
+      },
+      {
+        "ref": "outro_nightglow",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          }
+        }
+      },
+      {
+        "mode": "unison",
+        "ref": "outro_sharedLight",
+        "stores": "$applier",
+        "apply": {
+          "by": "$ally",
+          "when": "unisonUpdate",
+          "filter": {
+            "unison": true
+          },
+          "uses": 1
+        },
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "HAS": "outro_sharedLightActive"
+            }
+          },
+          "stats": {
+            "dmgAmp%": 0.2
+          }
+        }
+      },
+      {
+        "mode": "unison",
+        "ref": "outro_sharedLightActive",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            },
+            "effectStacks": {
+              "HAS": "outro_nightglow"
+            }
+          },
+          "duration": 30000,
+          "commands": {
+            "type": "remove",
+            "ref": "outro_nightglow"
+          }
+        }
+      },
+      {
+        "mode": "electroFlare",
+        "ref": "outro_flareBuff",
+        "stores": "$ally",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            },
+            "effectStacks": {
+              "HAS": "outro_nightglow"
+            }
+          },
+          "duration": 20000,
+          "commands": {
+            "type": "remove",
+            "ref": "outro_nightglow"
+          }
+        },
+        "buff": {
+          "stats": {
+            "electroDmgAmp%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "mode": "unison",
+        "ref": "s6",
+        "use": {
+          "by": "$team",
+          "when": "unisonResponse",
+          "commands": {
+            "type": "rule",
+            "ref": "s6",
+            "rule": "hsinExtraBoonS6"
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Manifold Bloom",
         "actions": [
           {
-            "name": "Basic Attack - Answering Form Stage 1 DMG",
+            "name": "Basic Attack 1",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -34736,7 +35355,7 @@
             }
           },
           {
-            "name": "Basic Attack - Answering Form Stage 2 DMG",
+            "name": "Basic Attack 2",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -34817,7 +35436,7 @@
             }
           },
           {
-            "name": "Basic Attack - Answering Form Stage 3 DMG",
+            "name": "Basic Attack 3",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -34899,7 +35518,7 @@
             }
           },
           {
-            "name": "Basic Attack - Answering Form Stage 4 DMG",
+            "name": "Basic Attack 4",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -34979,8 +35598,8 @@
             }
           },
           {
-            "name": "Heavy Attack - Answering Form: Reign at Ease DMG",
-            "type": "basicAttack",
+            "name": "Heavy Attack: Reign at Ease",
+            "type": "heavyAttack",
             "damage": {
               "multipliers": [
                 {
@@ -35012,8 +35631,8 @@
             }
           },
           {
-            "name": "Mid-air Attack - Answering Form: Reign at Ease DMG",
-            "type": "basicAttack",
+            "name": "Mid-air Attack: Reign at Ease",
+            "type": "mid-airAttack",
             "damage": {
               "multipliers": [
                 {
@@ -35044,8 +35663,8 @@
             }
           },
           {
-            "name": "Heavy Attack - Answering Form DMG",
-            "type": "basicAttack",
+            "name": "Heavy Attack",
+            "type": "heavyAttack",
             "damage": {
               "multipliers": [
                 {
@@ -35149,8 +35768,8 @@
             }
           },
           {
-            "name": "Mid-air Attack - Answering Form DMG",
-            "type": "basicAttack",
+            "name": "Mid-air Attack",
+            "type": "mid-airAttack",
             "damage": {
               "multipliers": [
                 {
@@ -35181,8 +35800,8 @@
             }
           },
           {
-            "name": "Dodge Counter - Answering Form DMG",
-            "type": "basicAttack",
+            "name": "Dodge Counter",
+            "type": "dodgeCounter",
             "damage": {
               "multipliers": [
                 {
@@ -35262,7 +35881,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form Stage 1 DMG",
+            "name": "Illumining Form: Basic Attack 1",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35319,7 +35938,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form: Modular Heartlock DMG",
+            "name": "Illumining Form: Basic Attack: Modular Heartlock",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35352,7 +35971,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form Stage 2 DMG",
+            "name": "Illumining Form: Basic Attack 2",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35385,7 +36004,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form Stage 3 DMG",
+            "name": "Illumining Form: Basic Attack 3",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35468,8 +36087,8 @@
             }
           },
           {
-            "name": "Heavy Attack - Illumining Form DMG",
-            "type": "basicAttack",
+            "name": "Illumining Form: Heavy Attack",
+            "type": "heavyAttack",
             "damage": {
               "multipliers": [
                 {
@@ -35501,7 +36120,7 @@
             }
           },
           {
-            "name": "Upward Cut - Illumining Form DMG",
+            "name": "Illumining Form: Upward Cut",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35557,8 +36176,8 @@
             }
           },
           {
-            "name": "Mid-air Attack - Illumining Form DMG",
-            "type": "basicAttack",
+            "name": "Illumining Form: Mid-air Attack",
+            "type": "mid-airAttack",
             "damage": {
               "multipliers": [
                 {
@@ -35613,8 +36232,8 @@
             }
           },
           {
-            "name": "Dodge Counter - Illumining Form DMG",
-            "type": "basicAttack",
+            "name": "Illumining Form: Dodge Counter",
+            "type": "dodgeCounter",
             "damage": {
               "multipliers": [
                 {
@@ -35646,7 +36265,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form: Pillars Aligned Stage 1 DMG",
+            "name": "Illumining Form: Basic Attack: Pillars Aligned 1",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35679,7 +36298,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form: Pillars Aligned Stage 2 DMG",
+            "name": "Illumining Form: Basic Attack: Pillars Aligned 2",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35712,7 +36331,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form: Pillars Aligned Stage 3 DMG",
+            "name": "Illumining Form: Basic Attack: Pillars Aligned 3",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35745,7 +36364,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form: Pillars Aligned Stage 4 DMG",
+            "name": "Illumining Form: Basic Attack: Pillars Aligned 4",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35802,8 +36421,8 @@
             }
           },
           {
-            "name": "Dodge Counter - Illumining Form: Pillars Aligned DMG",
-            "type": "basicAttack",
+            "name": "Illumining Form: Dodge Counter: Pillars Aligned",
+            "type": "dodgeCounter",
             "damage": {
               "multipliers": [
                 {
@@ -35840,7 +36459,7 @@
         "name": "Heartward by Moon",
         "actions": [
           {
-            "name": "Resonance Skill - Answering Form DMG",
+            "name": "Resonance Skill",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -35969,7 +36588,7 @@
             }
           },
           {
-            "name": "Resonance Skill - Illumining Form DMG",
+            "name": "Illumining Form: Resonance Skill",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -36031,9 +36650,14 @@
         "name": "Nexus Alight",
         "actions": [
           {
-            "name": "Pillars Across Heaven DMG",
+            "name": "Resonance Liberation",
+            "type": "resonanceLiberation"
+          },
+          {
+            "name": "Resonance Liberation: Pillars Across Heaven",
             "type": "resonanceLiberation",
             "damage": {
+              "type": "resonanceSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -36183,8 +36807,8 @@
             }
           },
           {
-            "name": "Soaring Pillar DMG",
-            "type": "resonanceLiberation",
+            "name": "Soaring Pillar",
+            "type": "coordinatedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -36220,9 +36844,10 @@
         "name": "Forms Turn, Heart Abides",
         "actions": [
           {
-            "name": "Heavy Attack - Answering Form: Realm Wanderer DMG",
-            "type": "forteCircuit",
+            "name": "Heavy Attack: Realm Wanderer",
+            "type": "heavyAttack",
             "damage": {
+              "type": "resonanceSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -36301,9 +36926,10 @@
             }
           },
           {
-            "name": "Heavy Attack - Answering Form: Realm Protector DMG",
-            "type": "forteCircuit",
+            "name": "Heavy Attack: Realm Protector",
+            "type": "heavyAttack",
             "damage": {
+              "type": "resonanceSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -36382,9 +37008,10 @@
             }
           },
           {
-            "name": "Heavy Attack - Illumining Form: Beholding All Horizons DMG",
-            "type": "forteCircuit",
+            "name": "Illumining Form: Heavy Attack: Beholding All Horizons",
+            "type": "heavyAttack",
             "damage": {
+              "type": "resonanceSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -36439,9 +37066,10 @@
             }
           },
           {
-            "name": "Heavy Attack - Illumining Form: Stilling All Horizons DMG",
-            "type": "forteCircuit",
+            "name": "Illumining Form: Heavy Attack: Stilling All Horizons",
+            "type": "heavyAttack",
             "damage": {
+              "type": "resonanceSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -36496,8 +37124,8 @@
             }
           },
           {
-            "name": "Resonance Skill - Illumining Form: Pillars Aligned DMG",
-            "type": "forteCircuit",
+            "name": "Illumining Form: Resonance Skill: Pillars Aligned",
+            "type": "resonanceSkill",
             "damage": {
               "multipliers": [
                 {
@@ -36608,7 +37236,7 @@
         "name": "Glance on a Whim",
         "actions": [
           {
-            "name": "Intro Skill - Answering Form DMG in Resonance Mode - Electro Flare",
+            "name": "Intro Skill (Electro Flare Mode)",
             "type": "introSkill",
             "damage": {
               "multipliers": [
@@ -36690,7 +37318,7 @@
             }
           },
           {
-            "name": "Intro Skill - Answering Form DMG in Resonance Mode - Unison",
+            "name": "Intro Skill (Unison Mode)",
             "type": "introSkill",
             "damage": {
               "multipliers": [
@@ -36795,9 +37423,10 @@
             }
           },
           {
-            "name": "Intro Skill - Answering Form: Manifold Unison DMG",
+            "name": "Intro Skill: Manifold Unison",
             "type": "introSkill",
             "damage": {
+              "type": "resonanceSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -36900,7 +37529,7 @@
             }
           },
           {
-            "name": "Intro Skill - Illumining Form DMG in Resonance Mode - Electro Flare",
+            "name": "Illumining Form: Intro Skill (Electro Flare Mode)",
             "type": "introSkill",
             "damage": {
               "multipliers": [
@@ -36983,7 +37612,7 @@
             }
           },
           {
-            "name": "Intro Skill - Illumining Form DMG in Resonance Mode - Unison",
+            "name": "Illumining Form: Intro Skill (Unison Mode)",
             "type": "introSkill",
             "damage": {
               "multipliers": [
@@ -37090,9 +37719,10 @@
             }
           },
           {
-            "name": "Intro Skill - Illumining Form: Manifold Unison DMG",
+            "name": "Illumining Form: Intro Skill: Manifold Unison",
             "type": "introSkill",
             "damage": {
+              "type": "resonanceSkill",
               "multipliers": [
                 {
                   "mv": [
@@ -37202,7 +37832,7 @@
         "name": "Herself a Thousand Lanterns",
         "actions": [
           {
-            "name": "Herself a Thousand Lanterns",
+            "name": "Outro Skill",
             "type": "outroSkill",
             "damage": {
               "multipliers": [
@@ -37220,12 +37850,33 @@
       "setCounts": {
         "36": 5
       },
-      "mainEcho": 6000225
+      "mainEcho": 6000225,
+      "rotation": [
+        "introSkill.2",
+        "normalAttack.2",
+        "normalAttack.3",
+        "forteCircuit.1",
+        "resonanceLiberation.0",
+        "resonanceSkill.1",
+        "outroSkill.0"
+      ],
+      "rotationAlt": [
+        "introSkill.5",
+        "normalAttack.17",
+        "normalAttack.18",
+        "normalAttack.17",
+        "normalAttack.18",
+        "normalAttack.17",
+        "forteCircuit.3",
+        "resonanceLiberation.1",
+        "resonanceSkill.0",
+        "outroSkill.0"
+      ]
     },
     "teamPreset": [
       1311,
       1312,
-      1505
+      1512
     ]
   },
   "1312": {
@@ -37245,54 +37896,41 @@
     },
     "energy": 125,
     "unison": true,
+    "unisonResponse": true,
     "effects": [
       {
-        "ref": "unison",
+        "ref": "ult_blightRainMiasmicThunder",
         "apply": {
           "when": "use",
           "filter": {
+            "unison": true,
             "action": {
-              "ref": "resonanceLiberation.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 5000
-        }
-      },
-      {
-        "ref": "thunderCrestSummon",
-        "apply": {
-          "when": "command"
+          "duration": 8000
         },
         "use": {
+          "by": "$team",
           "when": "hit",
           "filter": {
+            "field": "onField",
             "action": {
               "HAS": "damage"
             }
           },
+          "cooldown": 1000,
           "commands": {
             "type": "apply",
-            "ref": "thunderCrestDamage",
+            "ref": "ult_thunderCrest",
             "spec": {
               "duration": 3000
             }
           }
-        },
-        "expire": {
-          "commands": [
-            {
-              "type": "remove",
-              "ref": "thunderCrestDamage"
-            },
-            {
-              "type": "remove",
-              "ref": "thunderCrestLimit"
-            }
-          ]
         }
       },
       {
-        "ref": "thunderCrestDamage",
+        "ref": "ult_thunderCrest",
         "apply": {
           "when": "command"
         },
@@ -37300,43 +37938,85 @@
           "when": "interval",
           "cooldown": 1000,
           "action": "resonanceLiberation.1",
-          "commands": {
-            "type": "apply",
-            "ref": "thunderCrestLimit"
-          }
-        }
-      },
-      {
-        "ref": "thunderCrestLimit",
-        "apply": {
-          "when": "command"
-        },
-        "remove": {
-          "when": "maxStacks",
           "commands": [
             {
-              "type": "remove",
-              "ref": "thunderCrestSummon"
+              "type": "apply",
+              "ref": "ult_thunderCrestLimit"
             },
             {
               "type": "remove",
-              "ref": "thunderCrestDamage"
+              "ref": "ult_blightRainMiasmicThunder",
+              "filter": {
+                "effectStacks": {
+                  "ult_thunderCrestLimit": 6
+                }
+              }
+            },
+            {
+              "type": "remove",
+              "ref": "ult_thunderCrest",
+              "filter": {
+                "effectStacks": {
+                  "ult_thunderCrestLimit": 6
+                }
+              }
+            },
+            {
+              "type": "remove",
+              "ref": "ult_thunderCrestLimit",
+              "filter": {
+                "effectStacks": {
+                  "ult_thunderCrestLimit": 6
+                }
+              }
             }
           ]
-        },
-        "maxStacks": 8
+        }
       },
       {
-        "ref": "outro",
-        "stores": "$next",
+        "ref": "ult_thunderCrestLimit",
+        "apply": {
+          "when": "command"
+        },
+        "maxStacks": 6
+      },
+      {
+        "ref": "outro_apply",
         "apply": {
           "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 8000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "outro_buff",
+              "spec": {
+                "duration": 8000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "s2_buff",
+              "spec": {
+                "duration": 30000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "outro_buff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "remove": {
           "when": "swapOff"
@@ -37345,22 +38025,9 @@
           {
             "filter": {
               "NOT": {
-                "AND": [
-                  {
-                    "character": {
-                      "unison": true
-                    }
-                  },
-                  {
-                    "states": {
-                      "unisonBoon": {
-                        "stacks": {
-                          ">": 0
-                        }
-                      }
-                    }
-                  }
-                ]
+                "unisonBoon": {
+                  ">=": 1
+                }
               }
             },
             "stats": {
@@ -37369,22 +38036,9 @@
           },
           {
             "filter": {
-              "AND": [
-                {
-                  "character": {
-                    "unison": true
-                  }
-                },
-                {
-                  "states": {
-                    "unisonBoon": {
-                      "stacks": {
-                        ">": 0
-                      }
-                    }
-                  }
-                }
-              ]
+              "unisonBoon": {
+                ">=": 1
+              }
             },
             "stats": {
               "electroDmgAmp%": 0.2,
@@ -37418,16 +38072,10 @@
         "apply": {
           "when": "start",
           "filter": {
-            "AND": [
-              {
-                "unison": true
-              },
-              {
-                "action": {
-                  "ref": "outroSkill.0"
-                }
-              }
-            ]
+            "unison": true,
+            "action": {
+              "type": "outroSkill"
+            }
           },
           "duration": 30000,
           "commands": {
@@ -37454,22 +38102,33 @@
         "use": {
           "when": "use",
           "filter": {
-            "AND": [
-              {
-                "action": {
-                  "ref": "outroSkill.0"
-                }
-              },
-              {
-                "effectStacks": {
-                  "HAS": "alignedSeals"
-                }
-              }
-            ]
+            "action": {
+              "type": "outroSkill"
+            },
+            "effectStacks": {
+              "HAS": "alignedSeals"
+            }
           },
           "commands": {
             "type": "apply",
-            "ref": "inherent2_2",
+            "ref": "forte_applyOutroBuff",
+            "spec": {
+              "uses": 1
+            }
+          }
+        }
+      },
+      {
+        "ref": "forte_applyOutroBuff",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "forte_outroBuff",
             "spec": {
               "duration": 8000
             }
@@ -37477,8 +38136,8 @@
         }
       },
       {
-        "ref": "inherent2_2",
-        "stores": "$next",
+        "ref": "forte_outroBuff",
+        "stores": "$applier",
         "apply": {
           "when": "command"
         },
@@ -37496,19 +38155,13 @@
         "use": {
           "when": "use",
           "filter": {
-            "AND": [
-              {
-                "unison": true
-              },
-              {
-                "action": {
-                  "ref": "resonanceSkill.0"
-                }
-              }
-            ]
+            "unison": true,
+            "action": {
+              "ref": "resonanceSkill.0"
+            }
           },
           "action": {
-            "unison": false
+            "unison": 0
           },
           "commands": {
             "type": "apply",
@@ -37589,15 +38242,10 @@
       },
       {
         "rank": 2,
-        "stores": "$next",
+        "ref": "s2_buff",
+        "stores": "$applier",
         "apply": {
-          "when": "use",
-          "filter": {
-            "action": {
-              "ref": "outroSkill.0"
-            }
-          },
-          "duration": 30000
+          "when": "command"
         },
         "remove": {
           "when": "swapOff"
@@ -37768,7 +38416,7 @@
             }
           },
           {
-            "name": "Unfurled Canopy: Basic Attack: 1",
+            "name": "Basic Attack: Unfurled Canopy 1",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -37825,7 +38473,7 @@
             }
           },
           {
-            "name": "Unfurled Canopy: Basic Attack: 2",
+            "name": "Basic Attack: Unfurled Canopy 2",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -37882,7 +38530,7 @@
             }
           },
           {
-            "name": "Unfurled Canopy: Basic Attack: 3",
+            "name": "Basic Attack: Unfurled Canopy 3",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -37940,7 +38588,7 @@
             }
           },
           {
-            "name": "Unfurled Canopy: Basic Attack: 4",
+            "name": "Basic Attack: Unfurled Canopy 4",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -38021,7 +38669,7 @@
             }
           },
           {
-            "name": "Unfurled Canopy: Basic Attack: Whirling Thunder 1",
+            "name": "Basic Attack: Unfurled Canopy: Whirling Thunder 1",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -38126,7 +38774,7 @@
             }
           },
           {
-            "name": "Unfurled Canopy: Basic Attack: Whirling Thunder 2",
+            "name": "Basic Attack: Unfurled Canopy: Whirling Thunder 2",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -38248,7 +38896,7 @@
             }
           },
           {
-            "name": "Unfurled Canopy: Dodge Counter",
+            "name": "Dodge Counter: Unfurled Canopy",
             "type": "dodgeCounter",
             "damage": {
               "multipliers": [
@@ -38342,7 +38990,7 @@
             }
           },
           {
-            "name": "Unfurled Canopy: Resonance Skill: Crimson Gleam",
+            "name": "Resonance Skill: Unfurled Canopy: Crimson Gleam",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -38430,6 +39078,7 @@
           {
             "name": "Resonance Liberation",
             "type": "resonanceLiberation",
+            "unison": 5000,
             "damage": {
               "multipliers": [
                 {
@@ -38647,9 +39296,9 @@
             }
           },
           {
-            "name": "Basic Attack: Umbral Canopy: Engraved Heart: Hold",
-            "type": "basicAttack",
+            "name": "Umbral Canopy: Engraved Heart: Hold",
             "damage": {
+              "type": "basicAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -39059,15 +39708,17 @@
       "mainEcho": 6000224,
       "rotation": [
         "introSkill.0",
+        "normalAttack.3",
+        "normalAttack.4",
+        "resonanceSkill.0",
         "resonanceLiberation.0",
+        "normalAttack.0",
         "outroSkill.0"
       ],
       "rotationAlt": [
         "introSkill.3",
-        "normalAttack.8",
-        "normalAttack.3",
-        "normalAttack.4",
         "forteCircuit.1",
+        "forteCircuit.2",
         "forteCircuit.3",
         "outroSkill.0"
       ]
@@ -39075,7 +39726,7 @@
     "teamPreset": [
       1311,
       1312,
-      1505
+      1512
     ]
   },
   "1402": {
@@ -39824,15 +40475,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -40510,22 +41182,42 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 8000,
-          "uses": 2
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outro_use",
+            "spec": {
+              "duration": 8000,
+              "uses": 2
+            }
+          }
+        }
+      },
+      {
+        "ref": "outro_use",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "use": {
           "when": "hit",
           "filter": {
             "action": {
-              "type": "heavyAttack"
+              "damage": {
+                "type": "heavyAttack"
+              }
             }
           },
           "cooldown": 1000,
@@ -41343,15 +42035,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -46329,15 +47042,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -47718,15 +48452,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -52457,7 +53212,7 @@
       {
         "stores": "$team",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
@@ -53682,15 +54437,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 10000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -59225,15 +60001,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -61802,15 +62599,45 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "outro_buff",
+              "spec": {
+                "duration": 14000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "outro_countermeasure",
+              "spec": {
+                "duration": 25000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "outro_buff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -61819,15 +62646,44 @@
         }
       },
       {
-        "stores": "1308",
+        "ref": "outro_countermeasure",
         "apply": {
-          "when": "start",
+          "when": "command"
+        },
+        "use": {
+          "by": "$ally",
+          "when": "inflict",
           "filter": {
             "action": {
-              "type": "outroSkill"
+              "inflict": {
+                "shifting": "hack"
+              }
             }
           },
-          "duration": 25000
+          "commands": {
+            "type": "apply",
+            "ref": "outro_rebecca"
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "outro_rebecca"
+          }
+        }
+      },
+      {
+        "ref": "outro_rebecca",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff",
+          "commands": {
+            "type": "remove",
+            "ref": "outro_countermeasure"
+          }
         },
         "buff": {
           "stats": {
@@ -64121,6 +64977,1190 @@
       1209
     ]
   },
+  "1512": {
+    "name": "Lily",
+    "version": 3.8,
+    "id": 1512,
+    "icon": "wuthering-waves/character/1512.webp",
+    "quality": 5,
+    "element": "spectro",
+    "type": "pistols",
+    "stats": {
+      "baseHp": 16712,
+      "baseAtk": 287,
+      "baseDef": 1099,
+      "hp%": 0.12,
+      "healingBonus%": 0.12
+    },
+    "effects": [
+      {
+        "ref": "ult_slumberland",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 50000,
+          "offset": 3000
+        },
+        "remove": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "resonanceLiberation.0",
+                "introSkill.1"
+              ]
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 3000,
+          "action": "resonanceLiberation.1"
+        }
+      },
+      {
+        "ref": "ult_cradleLullaby",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.0"
+            }
+          },
+          "duration": 25000
+        },
+        "remove": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "introSkill"
+            }
+          },
+          "commands": {
+            "type": "remove",
+            "ref": "ult_dreamAroma"
+          }
+        },
+        "use": {
+          "by": "$ally",
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "introSkill"
+            }
+          },
+          "commands": {
+            "type": "apply",
+            "ref": "ult_dreamAroma"
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "ult_dreamAroma"
+          }
+        }
+      },
+      {
+        "ref": "ult_dreamAroma",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "specs": {
+            "atk%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "offset": 1.9,
+              "value": 0.001,
+              "maxValue": 0.07
+            }
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "forte_fairytaleHealing",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.0"
+            }
+          },
+          "duration": 2000,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "forteCircuit.1"
+        }
+      },
+      {
+        "ref": "forte_phantasmHealing",
+        "apply": {
+          "when": "start",
+          "filter": {
+            "action": {
+              "ref": "forteCircuit.2"
+            }
+          },
+          "duration": 2000,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "forteCircuit.3"
+        }
+      },
+      {
+        "ref": "forte_finaleBuff",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.4",
+                "forteCircuit.5"
+              ]
+            }
+          },
+          "specs": {
+            "critRate%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "offset": 1,
+              "value": 0.005,
+              "maxValue": 0.8
+            },
+            "critDmg%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "offset": 1,
+              "value": 0.01,
+              "maxValue": 1.6
+            }
+          }
+        }
+      },
+      {
+        "ref": "forte_sillage",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.4",
+                "forteCircuit.5"
+              ]
+            }
+          },
+          "duration": 6000,
+          "uses": 1
+        },
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          },
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "forte_silveredDreamUnison",
+              "spec": {
+                "duration": 30000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "forte_silveredDreamEcho",
+              "spec": {
+                "duration": 30000
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "forte_silveredDreamUnison",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": [
+          {
+            "filter": {
+              "field": "onField",
+              "unisonBoon": 1
+            },
+            "specs": {
+              "atk%": {
+                "attr": "energyRegen%",
+                "step": 0.01,
+                "offset": 1.9,
+                "value": 0.001,
+                "maxValue": 0.07
+              }
+            }
+          },
+          {
+            "filter": {
+              "field": "onField",
+              "unisonBoon": 2
+            },
+            "specs": {
+              "atk%": {
+                "attr": "energyRegen%",
+                "step": 0.01,
+                "offset": 1.9,
+                "value": 0.002,
+                "maxValue": 0.14
+              }
+            }
+          },
+          {
+            "filter": {
+              "field": "onField",
+              "unisonBoon": 3
+            },
+            "specs": {
+              "atk%": {
+                "attr": "energyRegen%",
+                "step": 0.01,
+                "offset": 1.9,
+                "value": 0.003,
+                "maxValue": 0.21
+              }
+            }
+          },
+          {
+            "filter": {
+              "field": "onField",
+              "unisonBoon": 4
+            },
+            "specs": {
+              "atk%": {
+                "attr": "energyRegen%",
+                "step": 0.01,
+                "offset": 1.9,
+                "value": 0.004,
+                "maxValue": 0.28
+              }
+            }
+          }
+        ]
+      },
+      {
+        "ref": "forte_silveredDreamEcho",
+        "stores": "$team",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "filter": {
+            "field": "onField",
+            "action": {
+              "damage": {
+                "type": "echoSkill"
+              }
+            }
+          },
+          "specs": {
+            "critRate%": {
+              "attr": "energyRegen%",
+              "step": 0.007,
+              "offset": 1.9,
+              "value": 0.001,
+              "maxValue": 0.1
+            },
+            "critDmg%": {
+              "attr": "energyRegen%",
+              "step": 0.007,
+              "offset": 1.9,
+              "value": 0.002,
+              "maxValue": 0.2
+            }
+          }
+        }
+      },
+      {
+        "ref": "forte_wishOfPrayingDream",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "forteCircuit.1",
+                "forteCircuit.3"
+              ]
+            }
+          },
+          "stats": {
+            "healingBonus%": 4
+          }
+        }
+      },
+      {
+        "ref": "intro_eternalBloomBuff",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "introSkill.1"
+            }
+          },
+          "specs": {
+            "critRate%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "offset": 1,
+              "value": 0.005,
+              "maxValue": 0.8
+            },
+            "critDmg%": {
+              "attr": "energyRegen%",
+              "step": 0.01,
+              "offset": 1,
+              "value": 0.01,
+              "maxValue": 1.6
+            }
+          }
+        }
+      },
+      {
+        "ref": "outro_buff",
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "stats": {
+            "dmgAmp%": 0.25
+          }
+        }
+      }
+    ],
+    "skills": {
+      "normalAttack": {
+        "name": "Mend and Cleanse",
+        "actions": [
+          {
+            "name": "Basic Attack 1",
+            "type": "basicAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.32,
+                    0.3463,
+                    0.3725,
+                    0.4093,
+                    0.4355,
+                    0.4657,
+                    0.5077,
+                    0.5496,
+                    0.5916,
+                    0.6362,
+                    0.6887,
+                    0.7412,
+                    0.7937,
+                    0.8462,
+                    0.8986,
+                    0.9511,
+                    1.0036,
+                    1.0561,
+                    1.1086,
+                    1.161
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Basic Attack 2",
+            "type": "basicAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.1466,
+                    0.1587,
+                    0.1707,
+                    0.1875,
+                    0.1995,
+                    0.2134,
+                    0.2326,
+                    0.2518,
+                    0.2711,
+                    0.2915,
+                    0.3155,
+                    0.3396,
+                    0.3636,
+                    0.3877,
+                    0.4117,
+                    0.4358,
+                    0.4598,
+                    0.4838,
+                    0.5079,
+                    0.5319
+                  ]
+                },
+                {
+                  "mv": [
+                    0.1466,
+                    0.1587,
+                    0.1707,
+                    0.1875,
+                    0.1995,
+                    0.2134,
+                    0.2326,
+                    0.2518,
+                    0.2711,
+                    0.2915,
+                    0.3155,
+                    0.3396,
+                    0.3636,
+                    0.3877,
+                    0.4117,
+                    0.4358,
+                    0.4598,
+                    0.4838,
+                    0.5079,
+                    0.5319
+                  ],
+                  "times": 3
+                }
+              ]
+            }
+          },
+          {
+            "name": "Basic Attack 3",
+            "type": "basicAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.48,
+                    0.5194,
+                    0.5588,
+                    0.6139,
+                    0.6532,
+                    0.6985,
+                    0.7615,
+                    0.8244,
+                    0.8874,
+                    0.9543,
+                    1.0331,
+                    1.1118,
+                    1.1905,
+                    1.2692,
+                    1.3479,
+                    1.4267,
+                    1.5054,
+                    1.5841,
+                    1.6628,
+                    1.7415
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Basic Attack 4",
+            "type": "basicAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.1934,
+                    0.2093,
+                    0.2252,
+                    0.2474,
+                    0.2632,
+                    0.2815,
+                    0.3068,
+                    0.3322,
+                    0.3576,
+                    0.3845,
+                    0.4163,
+                    0.448,
+                    0.4797,
+                    0.5114,
+                    0.5431,
+                    0.5749,
+                    0.6066,
+                    0.6383,
+                    0.67,
+                    0.7017
+                  ],
+                  "times": 3
+                },
+                {
+                  "mv": [
+                    0.1934,
+                    0.2093,
+                    0.2252,
+                    0.2474,
+                    0.2632,
+                    0.2815,
+                    0.3068,
+                    0.3322,
+                    0.3576,
+                    0.3845,
+                    0.4163,
+                    0.448,
+                    0.4797,
+                    0.5114,
+                    0.5431,
+                    0.5749,
+                    0.6066,
+                    0.6383,
+                    0.67,
+                    0.7017
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Mid-air Attack",
+            "type": "mid-airAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.576,
+                    0.6233,
+                    0.6705,
+                    0.7366,
+                    0.7839,
+                    0.8382,
+                    0.9138,
+                    0.9893,
+                    1.0649,
+                    1.1452,
+                    1.2397,
+                    1.3341,
+                    1.4286,
+                    1.5231,
+                    1.6175,
+                    1.712,
+                    1.8064,
+                    1.9009,
+                    1.9954,
+                    2.0898
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Dodge Counter",
+            "type": "dodgeCounter",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1.2,
+                    1.2984,
+                    1.3968,
+                    1.5346,
+                    1.633,
+                    1.7462,
+                    1.9036,
+                    2.061,
+                    2.2185,
+                    2.3858,
+                    2.5826,
+                    2.7794,
+                    2.9762,
+                    3.173,
+                    3.3698,
+                    3.5666,
+                    3.7634,
+                    3.9602,
+                    4.157,
+                    4.3538
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "resonanceSkill": {
+        "name": "Dream Blend",
+        "actions": [
+          {
+            "name": "Resonance Skill: Reverie Blend",
+            "type": "resonanceSkill",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.8,
+                    0.8656,
+                    0.9312,
+                    1.0231,
+                    1.0887,
+                    1.1641,
+                    1.2691,
+                    1.374,
+                    1.479,
+                    1.5905,
+                    1.7217,
+                    1.8529,
+                    1.9841,
+                    2.1153,
+                    2.2465,
+                    2.3777,
+                    2.5089,
+                    2.6401,
+                    2.7713,
+                    2.9025
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Resonance Skill: Nightmare Blend",
+            "type": "resonanceSkill",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.8,
+                    0.8656,
+                    0.9312,
+                    1.0231,
+                    1.0887,
+                    1.1641,
+                    1.2691,
+                    1.374,
+                    1.479,
+                    1.5905,
+                    1.7217,
+                    1.8529,
+                    1.9841,
+                    2.1153,
+                    2.2465,
+                    2.3777,
+                    2.5089,
+                    2.6401,
+                    2.7713,
+                    2.9025
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "resonanceLiberation": {
+        "name": "Into the Dream Cradle",
+        "actions": [
+          {
+            "name": "Resonance Liberation",
+            "type": "resonanceLiberation"
+          },
+          {
+            "name": "Slumberland Healing",
+            "healing": {
+              "targets": "$onField",
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.0052,
+                    0.0054,
+                    0.0056,
+                    0.0059,
+                    0.0063,
+                    0.0068,
+                    0.0075,
+                    0.0084,
+                    0.0094,
+                    0.0109,
+                    0.0118,
+                    0.0128,
+                    0.0137,
+                    0.0146,
+                    0.0155,
+                    0.0164,
+                    0.0173,
+                    0.0182,
+                    0.0191,
+                    0.02
+                  ],
+                  "flat": [
+                    287,
+                    321,
+                    359,
+                    402,
+                    454,
+                    503,
+                    511,
+                    523,
+                    531,
+                    546,
+                    591,
+                    636,
+                    681,
+                    726,
+                    771,
+                    816,
+                    861,
+                    906,
+                    951,
+                    996
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Dreambind",
+            "damage": {
+              "type": "resonanceLiberation",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.1,
+                    0.1082,
+                    0.1164,
+                    0.1279,
+                    0.1361,
+                    0.1456,
+                    0.1587,
+                    0.1718,
+                    0.1849,
+                    0.1989,
+                    0.2153,
+                    0.2317,
+                    0.2481,
+                    0.2645,
+                    0.2809,
+                    0.2973,
+                    0.3137,
+                    0.3301,
+                    0.3465,
+                    0.3629
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "forteCircuit": {
+        "name": "Dreamland of Flowers",
+        "actions": [
+          {
+            "name": "Heavy Attack: Woven Fairytale",
+            "type": "heavyAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.125,
+                    0.1353,
+                    0.1455,
+                    0.1599,
+                    0.1701,
+                    0.1819,
+                    0.1983,
+                    0.2147,
+                    0.2311,
+                    0.2486,
+                    0.2691,
+                    0.2896,
+                    0.3101,
+                    0.3306,
+                    0.3511,
+                    0.3716,
+                    0.3921,
+                    0.4126,
+                    0.4331,
+                    0.4536
+                  ]
+                },
+                {
+                  "times": 19,
+                  "mv": [
+                    0.125,
+                    0.1353,
+                    0.1455,
+                    0.1599,
+                    0.1701,
+                    0.1819,
+                    0.1983,
+                    0.2147,
+                    0.2311,
+                    0.2486,
+                    0.2691,
+                    0.2896,
+                    0.3101,
+                    0.3306,
+                    0.3511,
+                    0.3716,
+                    0.3921,
+                    0.4126,
+                    0.4331,
+                    0.4536
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Woven Fairytale Healing",
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.0033,
+                    0.0035,
+                    0.0036,
+                    0.0038,
+                    0.0041,
+                    0.0043,
+                    0.0048,
+                    0.0054,
+                    0.006,
+                    0.007,
+                    0.0076,
+                    0.0082,
+                    0.0088,
+                    0.0094,
+                    0.0099,
+                    0.0105,
+                    0.0111,
+                    0.0117,
+                    0.0123,
+                    0.0129
+                  ],
+                  "flat": [
+                    185,
+                    207,
+                    231,
+                    259,
+                    292,
+                    323,
+                    329,
+                    336,
+                    342,
+                    351,
+                    380,
+                    409,
+                    438,
+                    467,
+                    496,
+                    525,
+                    554,
+                    583,
+                    612,
+                    641
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Heavy Attack: Woven Phantasm",
+            "type": "heavyAttack",
+            "damage": {
+              "multipliers": [
+                {
+                  "times": 23,
+                  "mv": [
+                    0.1087,
+                    0.1177,
+                    0.1266,
+                    0.139,
+                    0.148,
+                    0.1582,
+                    0.1725,
+                    0.1867,
+                    0.201,
+                    0.2161,
+                    0.234,
+                    0.2518,
+                    0.2696,
+                    0.2875,
+                    0.3053,
+                    0.3231,
+                    0.3409,
+                    0.3588,
+                    0.3766,
+                    0.3944
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Woven Phantasm Healing",
+            "healing": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.0033,
+                    0.0035,
+                    0.0036,
+                    0.0038,
+                    0.0041,
+                    0.0043,
+                    0.0048,
+                    0.0054,
+                    0.006,
+                    0.007,
+                    0.0076,
+                    0.0082,
+                    0.0088,
+                    0.0094,
+                    0.0099,
+                    0.0105,
+                    0.0111,
+                    0.0117,
+                    0.0123,
+                    0.0129
+                  ],
+                  "flat": [
+                    185,
+                    207,
+                    231,
+                    259,
+                    292,
+                    323,
+                    329,
+                    336,
+                    342,
+                    351,
+                    380,
+                    409,
+                    438,
+                    467,
+                    496,
+                    525,
+                    554,
+                    583,
+                    612,
+                    641
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Heavy Attack: Fairytale's Finale",
+            "type": "heavyAttack",
+            "damage": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.18,
+                    0.1948,
+                    0.2096,
+                    0.2302,
+                    0.245,
+                    0.262,
+                    0.2856,
+                    0.3092,
+                    0.3328,
+                    0.3579,
+                    0.3874,
+                    0.4169,
+                    0.4465,
+                    0.476,
+                    0.5055,
+                    0.535,
+                    0.5645,
+                    0.5941,
+                    0.6236,
+                    0.6531
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Heavy Attack: Phantasm's End",
+            "type": "heavyAttack",
+            "damage": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.18,
+                    0.1948,
+                    0.2096,
+                    0.2302,
+                    0.245,
+                    0.262,
+                    0.2856,
+                    0.3092,
+                    0.3328,
+                    0.3579,
+                    0.3874,
+                    0.4169,
+                    0.4465,
+                    0.476,
+                    0.5055,
+                    0.535,
+                    0.5645,
+                    0.5941,
+                    0.6236,
+                    0.6531
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "introSkill": {
+        "name": "Blooming Dream",
+        "actions": [
+          {
+            "name": "Intro Skill",
+            "type": "introSkill",
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.2734,
+                    0.2959,
+                    0.3183,
+                    0.3497,
+                    0.3721,
+                    0.3979,
+                    0.4337,
+                    0.4696,
+                    0.5055,
+                    0.5436,
+                    0.5884,
+                    0.6333,
+                    0.6781,
+                    0.7229,
+                    0.7678,
+                    0.8126,
+                    0.8575,
+                    0.9023,
+                    0.9471,
+                    0.992
+                  ]
+                },
+                {
+                  "mv": [
+                    0.2734,
+                    0.2959,
+                    0.3183,
+                    0.3497,
+                    0.3721,
+                    0.3979,
+                    0.4337,
+                    0.4696,
+                    0.5055,
+                    0.5436,
+                    0.5884,
+                    0.6333,
+                    0.6781,
+                    0.7229,
+                    0.7678,
+                    0.8126,
+                    0.8575,
+                    0.9023,
+                    0.9471,
+                    0.992
+                  ],
+                  "times": 3
+                }
+              ]
+            }
+          },
+          {
+            "name": "Intro Skill: Eternal Bloom",
+            "type": "introSkill",
+            "damage": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.1816,
+                    0.1965,
+                    0.2114,
+                    0.2322,
+                    0.2471,
+                    0.2642,
+                    0.288,
+                    0.3118,
+                    0.3357,
+                    0.361,
+                    0.3907,
+                    0.4205,
+                    0.4503,
+                    0.4801,
+                    0.5098,
+                    0.5396,
+                    0.5694,
+                    0.5991,
+                    0.6289,
+                    0.6587
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "outroSkill": {
+        "name": "Blooming Fragrance",
+        "actions": [
+          {
+            "name": "Outro Skill",
+            "type": "outroSkill"
+          }
+        ]
+      }
+    },
+    "memberPreset": {
+      "weaponId": 21030076,
+      "setCounts": {
+        "38": 5
+      },
+      "mainEcho": 6000223,
+      "rotation": [
+        "introSkill.1",
+        "normalAttack.2",
+        "resonanceSkill.0",
+        "forteCircuit.0",
+        "forteCircuit.4",
+        "resonanceLiberation.0",
+        "outroSkill.0"
+      ]
+    },
+    "teamPreset": [
+      1311,
+      1312,
+      1512
+    ]
+  },
   "1601": {
     "name": "Taoqi",
     "version": 1.0,
@@ -64175,15 +66215,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -65131,15 +67192,36 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -67840,18 +69922,18 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "forte_magicBox",
+        "stores": "$applier",
         "apply": {
-          "when": "start",
-          "filter": {
-            "action": {
-              "type": "outroSkill"
-            }
-          },
-          "uses": 1
+          "when": "command"
         },
         "use": {
           "when": "hit",
+          "filter": {
+            "action": {
+              "HAS": "damage"
+            }
+          },
           "action": {
             "type": "echoSkill",
             "damage": {
@@ -67865,15 +69947,46 @@
         }
       },
       {
-        "stores": "$next",
+        "ref": "outro_apply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "outro_buff",
+              "spec": {
+                "duration": 14000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "forte_magicBox",
+              "spec": {
+                "duration": 14000,
+                "uses": 1
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "outro_buff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -68464,15 +70577,36 @@
         "maxStacks": 2
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {
@@ -69657,15 +71791,36 @@
         "maxStacks": 100
       },
       {
-        "stores": "$next",
+        "ref": "outroApply",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
-              "ref": "outroSkill.0"
+              "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
         },
         "buff": {
           "stats": {

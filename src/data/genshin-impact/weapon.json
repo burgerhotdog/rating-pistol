@@ -8201,11 +8201,28 @@
     },
     "effects": [
       {
-        "stores": "$next",
         "apply": {
           "when": "swapOff",
           "cooldown": 20000,
-          "duration": 10000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "ttds",
+            "spec": {
+              "duration": 10000
+            }
+          }
+        }
+      },
+      {
+        "ref": "ttds",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "stats": {

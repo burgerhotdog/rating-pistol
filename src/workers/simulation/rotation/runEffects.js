@@ -2,19 +2,11 @@ import { GI } from '@/data';
 import { runRemoveEffect, runUseEffect, runApplyEffect } from './states';
 
 function checkBy(ctx, effect, by, id, storeOwnerId) {
-  const { memberOrder } = ctx;
-
   if (by[0] === '$any') return true;
 
   return by.some((option) => {
     if (option === '$storeOwner') {
       return storeOwnerId === id;
-    }
-
-    if (option === '$next') {
-      const { onFieldIndex } = ctx.states;
-      const nextId = memberOrder.at((onFieldIndex + 1) % memberOrder.length);
-      return nextId === id;
     }
 
     return option === id;

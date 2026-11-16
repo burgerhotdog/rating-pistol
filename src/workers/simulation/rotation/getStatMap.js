@@ -1,6 +1,5 @@
 import { GI, WW } from '@/data';
 import { getAttr, toMergedObj, resolveSpecs } from '@/utils';
-import { getEffectStates } from './getEffectStates';
 import { getBuffRuleMult } from './rules';
 
 export const getBuffMap = (ctx, options = {}) => {
@@ -23,8 +22,11 @@ export const getBuffMap = (ctx, options = {}) => {
     return toMergedObj(buildMap, buffMap);
   }
 
-  for (const { effect, stacks, buffCooldown, store } of getEffectStates(ctx, { member: memberId, type: 'buff' })) {
-    if (buffCooldown) continue;
+  function processState(state) {
+    if (!state.effect.buff) return;
+    if (state.buffCooldown) return;
+
+    const { effect, stacks, store } = state;
 
     // Global effects (enemy debuffs) are never snapshotted
     const isGlobal = store === ctx.states.globalEffects;
@@ -42,7 +44,7 @@ export const getBuffMap = (ctx, options = {}) => {
 
       return ctx.eventFilter(candidate.filter, effect.ownerId, { action }, memberId);
     });
-    if (!buff) continue;
+    if (!buff) return;
 
     const buffMult = stacks * (effect.chance ?? 1) * (getBuffRuleMult(ctx, buff.rule) ?? 1);
 
@@ -53,12 +55,16 @@ export const getBuffMap = (ctx, options = {}) => {
     }
 
     if (buff.specs && !ignoreSpecs) {
-      if (effect.ownerId === ctx.specId && !resolveNow) {
+      // Specs normally scale off the effect owner's stat map, but specsSource: '$storeOwner'
+      // flags buffs (e.g. Pact of Neonlight Leap) that should scale off the recipient instead
+      const specsOwnerId = buff.specsSource === '$storeOwner' ? memberId : effect.ownerId;
+
+      if (specsOwnerId === ctx.specId && !resolveNow) {
         addToBuffSpecs(buff, buffMult);
-        continue;
+        return;
       }
 
-      const resolvedStatMap = resolveSpecs(buff.specs, getSpecsSourceMap(effect.ownerId));
+      const resolvedStatMap = resolveSpecs(buff.specs, getSpecsSourceMap(specsOwnerId));
 
       for (const stat in resolvedStatMap) {
         buffMap[stat] = (buffMap[stat] ?? 0) + resolvedStatMap[stat] * buffMult;
@@ -66,39 +72,51 @@ export const getBuffMap = (ctx, options = {}) => {
     }
   }
 
-  if (snapshot === 'live') {
-    return { buffMap, buffSpecs };
+  for (const key in ctx.states.globalEffects) {
+    processState(ctx.states.globalEffects[key]);
+  }
+  for (const key in ctx.states.memberEffects[memberId]) {
+    processState(ctx.states.memberEffects[memberId][key]);
   }
 
-  if (gameId === GI) {
-    const { superconduct, stellarConduct, stellarSwirl } = ctx.states.aura;
-    if (superconduct || stellarConduct) {
-      buffMap['physicalResReduction%'] = (buffMap['physicalResReduction%'] ?? 0) + 0.4;
+  if (snapshot !== 'frozen') {
+    if (gameId === GI) {
+      const { superconduct, stellarConduct, stellarSwirl } = ctx.states.aura;
+      if (superconduct || stellarConduct) {
+        buffMap['physicalResReduction%'] = (buffMap['physicalResReduction%'] ?? 0) + 0.4;
+      }
+
+      if (stellarConduct) {
+        const { bonus } = stellarConduct;
+        buffMap['cryoDmgBonus%'] = (buffMap['cryoDmgBonus%'] ?? 0) + bonus;
+        buffMap['electroDmgBonus%'] = (buffMap['electroDmgBonus%'] ?? 0) + bonus;
+      }
+
+      if (stellarSwirl?.wanderingVortex) {
+        buffMap['anemoResReduction%'] = (buffMap['anemoResReduction%'] ?? 0) + 0.35;
+      }
     }
 
-    if (stellarConduct) {
-      const { bonus } = stellarConduct;
-      buffMap['cryoDmgBonus%'] = (buffMap['cryoDmgBonus%'] ?? 0) + bonus;
-      buffMap['electroDmgBonus%'] = (buffMap['electroDmgBonus%'] ?? 0) + bonus;
-    }
+    if (gameId === WW) {
+      const { havocBane } = ctx.states.negativeStatuses;
+      if (havocBane) {
+        const { stacks } = havocBane;
+        buffMap['defReduction%'] = (buffMap['defReduction%'] ?? 0) + 0.02 * stacks;
+      }
 
-    if (stellarSwirl?.wanderingVortex) {
-      buffMap['anemoResReduction%'] = (buffMap['anemoResReduction%'] ?? 0) + 0.35;
-    }
-  }
+      const tuneStrainStacks = ctx.states.tune.interferedStacks;
+      if (tuneStrainStacks) {
+        const tuneBreakBoost = getAttr('tuneBreakBoost', toMergedObj(buildMap, buffMap));
 
-  if (gameId === WW) {
-    const { havocBane } = ctx.states.negativeStatuses;
-    if (havocBane) {
-      const { stacks } = havocBane;
-      buffMap['defReduction%'] = (buffMap['defReduction%'] ?? 0) + 0.02 * stacks;
-    }
+        buffMap['vuln%'] = (buffMap['vuln%'] ?? 0) + tuneStrainStacks * tuneBreakBoost * 0.0012;
+      }
 
-    const tuneStrainStacks = ctx.states.tune.interferedStacks;
-    if (tuneStrainStacks) {
-      const tuneBreakBoost = getAttr('tuneBreakBoost', toMergedObj(buildMap, buffMap));
-
-      buffMap['vuln%'] = (buffMap['vuln%'] ?? 0) + tuneStrainStacks * tuneBreakBoost * 0.0012;
+      if (memberId) {
+        const unisonBoonStacks = Object.keys(ctx.states.unison[memberId].boon).length;
+        if (unisonBoonStacks) {
+          buffMap['vuln%'] = (buffMap['vuln%'] ?? 0) + unisonBoonStacks * 0.03;
+        }
+      }
     }
   }
 

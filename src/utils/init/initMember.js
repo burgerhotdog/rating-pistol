@@ -86,6 +86,14 @@ export function initMember(gameId, memberId, build, overrides) {
   member.rotation = [...(overrides?.rotation ?? preset.rotation ?? [])];
   member.duration = preset.duration ?? null;
 
+  if (overrides?.rotationAlt || preset?.rotationAlt) {
+    member.rotationAlt = [...(overrides?.rotationAlt ?? preset.rotationAlt ?? [])];
+  }
+
+  if (overrides?.rotationInit || preset?.rotationInit) {
+    member.rotationInit = [...(overrides?.rotationInit ?? preset.rotationInit ?? [])];
+  }
+
   if (gameId === WW && charData.modes) {
     member.mode =
       build?.mode ??

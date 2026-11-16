@@ -2605,7 +2605,7 @@
     "type": "sword",
     "stats": {
       "baseAtk": 587,
-      "critRate%": 2430
+      "critRate%": 0.243
     },
     "effects": [
       {
@@ -2816,15 +2816,32 @@
         }
       },
       {
-        "stores": "$next",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "type": "outroSkill"
             }
           },
-          "duration": 14000
+          "uses": 1
+        },
+        "use": {
+          "by": "$ally",
+          "when": "swapOn",
+          "commands": {
+            "type": "apply",
+            "ref": "outroBuff",
+            "spec": {
+              "duration": 14000
+            }
+          }
+        }
+      },
+      {
+        "ref": "outroBuff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
         },
         "buff": {
           "stats": {
@@ -3564,6 +3581,117 @@
           }
         },
         "maxStacks": 3
+      }
+    ]
+  },
+  "21030076": {
+    "name": "Lullaby",
+    "version": 3.8,
+    "id": 21030076,
+    "icon": "wuthering-waves/weapon/21030076.webp",
+    "quality": 5,
+    "type": "pistols",
+    "concerto": true,
+    "stats": {
+      "baseAtk": 412,
+      "energyRegen%": 0.7704
+    },
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "hp%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "ref": "soothedSoul",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "type": "heavyAttack",
+              "HAS": "healing"
+            }
+          },
+          "duration": 30000
+        },
+        "use": [
+          {
+            "by": "$team",
+            "when": "unisonUpdate",
+            "filter": {
+              "unison": true
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "buff",
+              "spec": {
+                "duration": 30000
+              }
+            }
+          },
+          {
+            "by": "$team",
+            "when": "unisonResponse",
+            "commands": {
+              "type": "apply",
+              "ref": "buff",
+              "spec": {
+                "duration": 30000
+              }
+            }
+          }
+        ],
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "buff"
+          }
+        }
+      },
+      {
+        "ref": "buff",
+        "stores": "$applier",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "atk%": [
+              0.16,
+              0.32
+            ]
+          }
+        }
+      },
+      {
+        "ref": "buff_echo",
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "type": "heavyAttack",
+              "HAS": "healing"
+            }
+          },
+          "duration": 30000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "echoSkillDmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
       }
     ]
   },
@@ -6104,7 +6232,7 @@
     "type": "rectifier",
     "stats": {
       "baseAtk": 587,
-      "critRate%": 2430
+      "critRate%": 0.243
     },
     "effects": [
       {

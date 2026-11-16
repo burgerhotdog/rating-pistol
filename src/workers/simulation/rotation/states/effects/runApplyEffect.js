@@ -6,13 +6,14 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
   const { memberEffects, globalEffects } = ctx.states;
   const { maxStacks = 1 } = effect;
 
-  function updateState(store) {
+  function updateState(store, storeOwnerId) {
     const prev = store[effect.key];
     if (prev && effect.maxExtensions && !prev.extensionsLeft && apply.extend) {
       return;
     }
 
     const state = store[effect.key] ??= {
+      ownerId: storeOwnerId,
       store,
       effect,
       stacks: 0,
@@ -139,16 +140,12 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
     if (target === 'global') {
       updateState(globalEffects);
     } else if (target === '$applier') {
-      updateState(memberEffects[spec.applier]);
+      updateState(memberEffects[spec.applier], spec.applier);
     } else if (target === '$onField') {
       const { onFieldId } = ctx.states;
-      updateState(memberEffects[onFieldId]);
-    } else if (target === '$next') {
-      const { onFieldIndex } = ctx.states;
-      const nextId = ctx.memberOrder.at((onFieldIndex + 1) % ctx.memberOrder.length);
-      updateState(memberEffects[nextId]);
+      updateState(memberEffects[onFieldId], onFieldId);
     } else if (target in memberEffects) {
-      updateState(memberEffects[target]);
+      updateState(memberEffects[target], target);
     }
   }
 

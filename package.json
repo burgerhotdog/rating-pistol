@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "rotation": "node scripts/rotation.js",
+    "benchmark": "node scripts/benchmark-rotation.js",
     "scrape": "node scripts/scrape.js",
     "modify": "node scripts/modify.js",
     "search": "node scripts/search.js"

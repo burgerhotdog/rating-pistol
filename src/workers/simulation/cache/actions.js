@@ -46,7 +46,7 @@ export const getActionDefs = (gameId, member, memberIds, baseMap) => {
       weaponType,
       mode: member.mode,
       baseMap,
-    }
+    };
 
     for (const [index, rawAction] of actions.entries()) {
       const action = normalizeAction(gameId, rawAction, { ...sharedSpec, index });

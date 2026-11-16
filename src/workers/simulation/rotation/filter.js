@@ -173,7 +173,8 @@ export function createEventFilter(ctx) {
             : null,
       }),
       ...(gameId === WW && {
-        unison: states.unison[effOwnerId],
+        unison: states.unison[fieldId]?.timeLeft > 0,
+        unisonBoon: Object.keys(states.unison[fieldId]?.boon ?? {}).length,
       }),
     }, filter);
   }

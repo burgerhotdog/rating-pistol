@@ -55,7 +55,7 @@ export function wwWeapon(id, data) {
     type: types[Number(data.type) - 1],
     stats: {
       baseAtk: Math.floor(b[0].value),
-      [stat]: b[1].is_ratio
+      [stat]: b[1].is_percent
         ? b[1].value / 10000
         : Math.trunc(b[1].value),
     },
