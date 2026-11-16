@@ -2605,7 +2605,7 @@
     "type": "sword",
     "stats": {
       "baseAtk": 587,
-      "critRate%": 2430
+      "critRate%": 0.243
     },
     "effects": [
       {
@@ -3594,7 +3594,7 @@
     "concerto": true,
     "stats": {
       "baseAtk": 412,
-      "energyRegen%": 7704
+      "energyRegen%": 0.7704
     },
     "effects": [
       {
@@ -6232,7 +6232,7 @@
     "type": "rectifier",
     "stats": {
       "baseAtk": 587,
-      "critRate%": 2430
+      "critRate%": 0.243
     },
     "effects": [
       {

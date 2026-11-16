@@ -111,9 +111,11 @@ export const getBuffMap = (ctx, options = {}) => {
         buffMap['vuln%'] = (buffMap['vuln%'] ?? 0) + tuneStrainStacks * tuneBreakBoost * 0.0012;
       }
 
-      const unisonBoonStacks = Object.keys(ctx.states.unison[memberId].boon).length;
-      if (unisonBoonStacks) {
-        buffMap['vuln%'] = (buffMap['vuln%'] ?? 0) + unisonBoonStacks * 0.03;
+      if (memberId) {
+        const unisonBoonStacks = Object.keys(ctx.states.unison[memberId].boon).length;
+        if (unisonBoonStacks) {
+          buffMap['vuln%'] = (buffMap['vuln%'] ?? 0) + unisonBoonStacks * 0.03;
+        }
       }
     }
   }

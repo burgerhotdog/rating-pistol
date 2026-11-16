@@ -35136,7 +35136,7 @@
     "effects": [
       {
         "mode": "unison",
-        "ref": "forte",
+        "ref": "forte_unison",
         "apply": {
           "when": "use",
           "filter": {
@@ -35164,6 +35164,30 @@
       },
       {
         "mode": "unison",
+        "ref": "inherent1",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "introSkill.2",
+                "introSkill.5"
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "remove": {
+          "when": "swapOff"
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.5
+          }
+        }
+      },
+      {
+        "mode": "unison",
         "ref": "inherent2",
         "use": {
           "by": "$team",
@@ -35172,6 +35196,86 @@
             "type": "rule",
             "ref": "inherent2",
             "rule": "hsinExtraBoon"
+          }
+        }
+      },
+      {
+        "ref": "outro_nightglow",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "resonanceLiberation.1"
+            }
+          }
+        }
+      },
+      {
+        "mode": "unison",
+        "ref": "outro_sharedLight",
+        "stores": "$applier",
+        "apply": {
+          "by": "$ally",
+          "when": "unisonUpdate",
+          "filter": {
+            "unison": true
+          },
+          "uses": 1
+        },
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "HAS": "outro_sharedLightActive"
+            }
+          },
+          "stats": {
+            "dmgAmp%": 0.2
+          }
+        }
+      },
+      {
+        "mode": "unison",
+        "ref": "outro_sharedLightActive",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            },
+            "effectStacks": {
+              "HAS": "outro_nightglow"
+            }
+          },
+          "duration": 30000,
+          "commands": {
+            "type": "remove",
+            "ref": "outro_nightglow"
+          }
+        }
+      },
+      {
+        "mode": "electroFlare",
+        "ref": "outro_flareBuff",
+        "stores": "$ally",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "outroSkill"
+            },
+            "effectStacks": {
+              "HAS": "outro_nightglow"
+            }
+          },
+          "duration": 20000,
+          "commands": {
+            "type": "remove",
+            "ref": "outro_nightglow"
+          }
+        },
+        "buff": {
+          "stats": {
+            "electroDmgAmp%": 0.2
           }
         }
       },
@@ -35195,7 +35299,7 @@
         "name": "Manifold Bloom",
         "actions": [
           {
-            "name": "Basic Attack - Answering Form Stage 1 DMG",
+            "name": "Basic Attack 1",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35251,7 +35355,7 @@
             }
           },
           {
-            "name": "Basic Attack - Answering Form Stage 2 DMG",
+            "name": "Basic Attack 2",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35332,7 +35436,7 @@
             }
           },
           {
-            "name": "Basic Attack - Answering Form Stage 3 DMG",
+            "name": "Basic Attack 3",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35414,7 +35518,7 @@
             }
           },
           {
-            "name": "Basic Attack - Answering Form Stage 4 DMG",
+            "name": "Basic Attack 4",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35494,7 +35598,7 @@
             }
           },
           {
-            "name": "Heavy Attack - Answering Form: Reign at Ease DMG",
+            "name": "Heavy Attack: Reign at Ease",
             "type": "heavyAttack",
             "damage": {
               "multipliers": [
@@ -35527,7 +35631,7 @@
             }
           },
           {
-            "name": "Mid-air Attack - Answering Form: Reign at Ease DMG",
+            "name": "Mid-air Attack: Reign at Ease",
             "type": "mid-airAttack",
             "damage": {
               "multipliers": [
@@ -35559,7 +35663,7 @@
             }
           },
           {
-            "name": "Heavy Attack - Answering Form DMG",
+            "name": "Heavy Attack",
             "type": "heavyAttack",
             "damage": {
               "multipliers": [
@@ -35664,7 +35768,7 @@
             }
           },
           {
-            "name": "Mid-air Attack - Answering Form DMG",
+            "name": "Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
               "multipliers": [
@@ -35696,7 +35800,7 @@
             }
           },
           {
-            "name": "Dodge Counter - Answering Form DMG",
+            "name": "Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
               "multipliers": [
@@ -35777,7 +35881,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form Stage 1 DMG",
+            "name": "Illumining Form: Basic Attack 1",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35834,7 +35938,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form: Modular Heartlock DMG",
+            "name": "Illumining Form: Basic Attack: Modular Heartlock",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35867,7 +35971,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form Stage 2 DMG",
+            "name": "Illumining Form: Basic Attack 2",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35900,7 +36004,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form Stage 3 DMG",
+            "name": "Illumining Form: Basic Attack 3",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -35983,7 +36087,7 @@
             }
           },
           {
-            "name": "Heavy Attack - Illumining Form DMG",
+            "name": "Illumining Form: Heavy Attack",
             "type": "heavyAttack",
             "damage": {
               "multipliers": [
@@ -36016,7 +36120,7 @@
             }
           },
           {
-            "name": "Upward Cut - Illumining Form DMG",
+            "name": "Illumining Form: Upward Cut",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -36072,7 +36176,7 @@
             }
           },
           {
-            "name": "Mid-air Attack - Illumining Form DMG",
+            "name": "Illumining Form: Mid-air Attack",
             "type": "mid-airAttack",
             "damage": {
               "multipliers": [
@@ -36128,7 +36232,7 @@
             }
           },
           {
-            "name": "Dodge Counter - Illumining Form DMG",
+            "name": "Illumining Form: Dodge Counter",
             "type": "dodgeCounter",
             "damage": {
               "multipliers": [
@@ -36161,7 +36265,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form: Pillars Aligned Stage 1 DMG",
+            "name": "Illumining Form: Basic Attack: Pillars Aligned 1",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -36194,7 +36298,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form: Pillars Aligned Stage 2 DMG",
+            "name": "Illumining Form: Basic Attack: Pillars Aligned 2",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -36227,7 +36331,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form: Pillars Aligned Stage 3 DMG",
+            "name": "Illumining Form: Basic Attack: Pillars Aligned 3",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -36260,7 +36364,7 @@
             }
           },
           {
-            "name": "Basic Attack - Illumining Form: Pillars Aligned Stage 4 DMG",
+            "name": "Illumining Form: Basic Attack: Pillars Aligned 4",
             "type": "basicAttack",
             "damage": {
               "multipliers": [
@@ -36317,7 +36421,7 @@
             }
           },
           {
-            "name": "Dodge Counter - Illumining Form: Pillars Aligned DMG",
+            "name": "Illumining Form: Dodge Counter: Pillars Aligned",
             "type": "dodgeCounter",
             "damage": {
               "multipliers": [
@@ -36355,7 +36459,7 @@
         "name": "Heartward by Moon",
         "actions": [
           {
-            "name": "Resonance Skill - Answering Form DMG",
+            "name": "Resonance Skill",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -36484,7 +36588,7 @@
             }
           },
           {
-            "name": "Resonance Skill - Illumining Form DMG",
+            "name": "Illumining Form: Resonance Skill",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -36550,7 +36654,7 @@
             "type": "resonanceLiberation"
           },
           {
-            "name": "Pillars Across Heaven DMG",
+            "name": "Resonance Liberation: Pillars Across Heaven",
             "type": "resonanceLiberation",
             "damage": {
               "type": "resonanceSkill",
@@ -36703,7 +36807,7 @@
             }
           },
           {
-            "name": "Soaring Pillar DMG",
+            "name": "Soaring Pillar",
             "type": "coordinatedAttack",
             "damage": {
               "multipliers": [
@@ -36740,7 +36844,7 @@
         "name": "Forms Turn, Heart Abides",
         "actions": [
           {
-            "name": "Heavy Attack - Answering Form: Realm Wanderer DMG",
+            "name": "Heavy Attack: Realm Wanderer",
             "type": "heavyAttack",
             "damage": {
               "type": "resonanceSkill",
@@ -36822,7 +36926,7 @@
             }
           },
           {
-            "name": "Heavy Attack - Answering Form: Realm Protector DMG",
+            "name": "Heavy Attack: Realm Protector",
             "type": "heavyAttack",
             "damage": {
               "type": "resonanceSkill",
@@ -36904,7 +37008,7 @@
             }
           },
           {
-            "name": "Heavy Attack - Illumining Form: Beholding All Horizons DMG",
+            "name": "Illumining Form: Heavy Attack: Beholding All Horizons",
             "type": "heavyAttack",
             "damage": {
               "type": "resonanceSkill",
@@ -36962,7 +37066,7 @@
             }
           },
           {
-            "name": "Heavy Attack - Illumining Form: Stilling All Horizons DMG",
+            "name": "Illumining Form: Heavy Attack: Stilling All Horizons",
             "type": "heavyAttack",
             "damage": {
               "type": "resonanceSkill",
@@ -37020,7 +37124,7 @@
             }
           },
           {
-            "name": "Resonance Skill - Illumining Form: Pillars Aligned DMG",
+            "name": "Illumining Form: Resonance Skill: Pillars Aligned",
             "type": "resonanceSkill",
             "damage": {
               "multipliers": [
@@ -37132,7 +37236,7 @@
         "name": "Glance on a Whim",
         "actions": [
           {
-            "name": "Intro Skill - Answering Form DMG in Resonance Mode - Electro Flare",
+            "name": "Intro Skill (Electro Flare Mode)",
             "type": "introSkill",
             "damage": {
               "multipliers": [
@@ -37214,7 +37318,7 @@
             }
           },
           {
-            "name": "Intro Skill - Answering Form DMG in Resonance Mode - Unison",
+            "name": "Intro Skill (Unison Mode)",
             "type": "introSkill",
             "damage": {
               "multipliers": [
@@ -37319,7 +37423,7 @@
             }
           },
           {
-            "name": "Intro Skill - Answering Form: Manifold Unison DMG",
+            "name": "Intro Skill: Manifold Unison",
             "type": "introSkill",
             "damage": {
               "type": "resonanceSkill",
@@ -37425,7 +37529,7 @@
             }
           },
           {
-            "name": "Intro Skill - Illumining Form DMG in Resonance Mode - Electro Flare",
+            "name": "Illumining Form: Intro Skill (Electro Flare Mode)",
             "type": "introSkill",
             "damage": {
               "multipliers": [
@@ -37508,7 +37612,7 @@
             }
           },
           {
-            "name": "Intro Skill - Illumining Form DMG in Resonance Mode - Unison",
+            "name": "Illumining Form: Intro Skill (Unison Mode)",
             "type": "introSkill",
             "damage": {
               "multipliers": [
@@ -37615,7 +37719,7 @@
             }
           },
           {
-            "name": "Intro Skill - Illumining Form: Manifold Unison DMG",
+            "name": "Illumining Form: Intro Skill: Manifold Unison",
             "type": "introSkill",
             "damage": {
               "type": "resonanceSkill",
@@ -37728,7 +37832,7 @@
         "name": "Herself a Thousand Lanterns",
         "actions": [
           {
-            "name": "Herself a Thousand Lanterns",
+            "name": "Outro Skill",
             "type": "outroSkill",
             "damage": {
               "multipliers": [
