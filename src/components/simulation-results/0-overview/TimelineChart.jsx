@@ -12,41 +12,18 @@ import {
 import { useData, usePageParams } from '@/hooks';
 import { formatDmg, formatNum, formatStr } from '@/utils';
 
-function buildData(snapshots, areaStack, userRotationTime, userRotationTimeSource) {
+function buildData(snapshots, areaStack, userRotationTime) {
   const roundedUserRotationTime = Math.round(userRotationTime);
   const runtimeDamage = {};
 
   const sorted = snapshots.toSorted((a, b) => a.runtime - b.runtime);
 
-  const adjustmentRatios = Object.fromEntries(
-    Object.entries(userRotationTimeSource)
-      .map(([id, { duration, added }]) => {
-        const ratio = (duration + added) / duration;
-        return [id, ratio];
-      })
-  );
-
-  let prevOnFieldId = sorted[0].onFieldId;
-  let rawOnFieldOffset = 0;
-  let adjustedOnFieldOffset = 0;
-
-  for (const { onFieldId, runtime, ownerId, damageType, damage } of sorted) {
-    if (onFieldId !== prevOnFieldId) {
-      const { duration, added } = userRotationTimeSource[prevOnFieldId];
-      prevOnFieldId = onFieldId;
-      rawOnFieldOffset += duration;
-      adjustedOnFieldOffset += duration + added;
-    }
-
+  for (const { runtime, ownerId, damageType, damage } of sorted) {
     if (!damage) continue;
 
     const dataKey = ownerId === 'system' ? damageType : ownerId;
 
-    const adjustmentRatio = adjustmentRatios[onFieldId];
-    const partToAdjust = runtime - rawOnFieldOffset;
-    const adjustedRuntime = adjustedOnFieldOffset + partToAdjust * adjustmentRatio;
-
-    const time = Math.min((Math.floor(adjustedRuntime / 1000) + 1) * 1000, roundedUserRotationTime);
+    const time = Math.min((Math.floor(runtime / 1000) + 1) * 1000, roundedUserRotationTime);
 
     runtimeDamage[time] ??= { time };
     runtimeDamage[time][dataKey] = (runtimeDamage[time][dataKey] ?? 0) + damage;
@@ -160,7 +137,6 @@ const RotationTimeline = ({
   memberIds,
   userSnapshots,
   userRotationTime,
-  userRotationTimeSource,
 }) => {
   const { gameId } = usePageParams();
   const { palette } = useTheme();
@@ -170,8 +146,7 @@ const RotationTimeline = ({
   if (
     !memberIds ||
     !userSnapshots ||
-    !userRotationTime ||
-    !userRotationTimeSource
+    !userRotationTime
   ) return;
 
   const areaStack = [
@@ -197,11 +172,11 @@ const RotationTimeline = ({
         dataKey: damageType,
         name: formatStr(damageType),
         color: '#ffffff',
-        icon: `${gameId}/reaction/${damageType}.webp`,
+        icon: `${gameId}/system/${damageType}.webp`,
       })),
   ];
 
-  const data = buildData(userSnapshots, areaStack, userRotationTime, userRotationTimeSource);
+  const data = buildData(userSnapshots, areaStack, userRotationTime);
   const maxSecond = Math.floor(userRotationTime / 1000);
   const interval = Math.max(1, Math.ceil(maxSecond / 6));
   const ticks = [];

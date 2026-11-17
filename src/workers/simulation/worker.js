@@ -90,14 +90,12 @@ self.onmessage = async ({ data }) => {
     snapshots: userSnapshots,
     bonusEnergy,
     time: userRotationTime,
-    source: userRotationTimeSource,
     dps: userDps,
   } = getRotationOrder(rawCache, equipMaps);
   self.postMessage({
     rotationOrder,
     userSnapshots,
     userRotationTime,
-    userRotationTimeSource,
     userDps,
   });
 

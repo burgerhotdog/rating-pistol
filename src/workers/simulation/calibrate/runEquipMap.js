@@ -32,7 +32,7 @@ export function createRunEquipMapFactory(cache, equipMaps, specId) {
         return acc + value / divisor * weight;
       }, 0);
 
-      const { time } = durationGetter(equipMap);
+      const time = durationGetter(equipMap);
 
       const score = fullScore / time * 1000;
       const dps = totals.damage / time * 1000;

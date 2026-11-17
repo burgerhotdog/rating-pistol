@@ -24,7 +24,7 @@ function testOrder(cache, equipMaps, order) {
 
   const { snapshots, bonusEnergy } = runRotation(testCache, equipMaps);
   const totals = getTotals(snapshots);
-  const { time, source } = computeDuration(testCache, equipMaps, bonusEnergy);
+  const time = computeDuration(testCache, equipMaps, bonusEnergy);
   const dps = totals.damage / time * 1000;
 
   return {
@@ -32,7 +32,6 @@ function testOrder(cache, equipMaps, order) {
     snapshots,
     bonusEnergy,
     time,
-    source,
     dps,
   };
 }

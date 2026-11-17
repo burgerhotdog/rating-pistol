@@ -193,7 +193,7 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
       };
 
       const { snapshots, bonusEnergy } = runRotation(testCache, equipMaps);
-      const { time } = computeDuration(testCache, equipMaps, bonusEnergy);
+      const time = computeDuration(testCache, equipMaps, bonusEnergy);
       const totals = getTotals(snapshots);
       const dps = totals.damage / time * 1000;
 

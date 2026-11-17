@@ -32,7 +32,7 @@ export function createEvaluateEquipMap(cache, equipMaps, evalId, calibration = {
       return acc + value / divisor * weight;
     }, 0);
 
-    const { time } = durationGetter(evalEquipMap);
+    const time = durationGetter(evalEquipMap);
     const score = fullScore / time * 1000;
 
     const dps = totals.damage / time * 1000;
