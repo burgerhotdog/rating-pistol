@@ -5,3 +5,4 @@ to improve:
     change er from duration to no ult
     tune break with unison rotations
     2 min window instead of 1 rot
+    element absorption doesnt keep trying to absorb

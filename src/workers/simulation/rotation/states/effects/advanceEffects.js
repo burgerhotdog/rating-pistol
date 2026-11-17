@@ -39,7 +39,7 @@ function expireEffectState(ctx, state, storeOwnerId) {
   if (!expire) return;
 
   if (ctx.eventFilter(expire.filter, effect.ownerId, {}, storeOwnerId ?? effect.ownerId)) {
-    ctx.runCommands(effect.ownerId, expire.commands);
+    ctx.runCommands(expire.commands, effect.ownerId, storeOwnerId ?? effect.ownerId, state);
   };
 }
 
@@ -172,7 +172,7 @@ function fireIntervalUses(ctx, state, storeOwnerId) {
     const removed = runUseEffect(ctx, state, use, spec);
 
     if (use.commands) {
-      ctx.runCommands(effect.ownerId, use.commands, storeOwnerId);
+      ctx.runCommands(use.commands, effect.ownerId, storeOwnerId);
     }
 
     if (removed) break;

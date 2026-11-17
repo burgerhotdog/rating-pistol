@@ -14244,7 +14244,6 @@
     ]
   },
   "15515": {
-    "disabled": true,
     "name": "The Daybreak Chronicles",
     "version": 6.2,
     "id": 15515,
@@ -14255,7 +14254,225 @@
       "baseAtk": 674,
       "critDmg%": 0.441
     },
-    "effects": []
+    "effects": [
+      {
+        "enable": {
+          "NOT": {
+            "secretRite": true
+          }
+        },
+        "ref": "buffNormal",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 1000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        },
+        "maxStacks": 6,
+        "decay": true,
+        "decayDuration": 1000
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "ref": "buffNormal",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 1000
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        },
+        "maxStacks": 6,
+        "decay": true,
+        "decayDuration": 1000
+      },
+      {
+        "enable": {
+          "NOT": {
+            "secretRite": true
+          }
+        },
+        "ref": "buffSkill",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 1000
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        },
+        "maxStacks": 6,
+        "decay": true,
+        "decayDuration": 1000
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "ref": "buffSkill",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 1000
+        },
+        "buff": {
+          "stats": {
+            "elementalSkillDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        },
+        "maxStacks": 6,
+        "decay": true,
+        "decayDuration": 1000
+      },
+      {
+        "enable": {
+          "NOT": {
+            "secretRite": true
+          }
+        },
+        "ref": "buffBurst",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 1000
+        },
+        "buff": {
+          "stats": {
+            "elementalBurstDmgBonus%": [
+              0.1,
+              0.2
+            ]
+          }
+        },
+        "maxStacks": 6,
+        "decay": true,
+        "decayDuration": 1000
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "ref": "buffBurst",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 1000
+        },
+        "buff": {
+          "stats": {
+            "elementalBurstDmgBonus%": [
+              0.2,
+              0.4
+            ]
+          }
+        },
+        "maxStacks": 6,
+        "decay": true,
+        "decayDuration": 1000
+      },
+      {
+        "use": {
+          "when": "enterCombat",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "buffNormal",
+              "spec": {
+                "duration": 1000,
+                "stacks": 6
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "buffSkill",
+              "spec": {
+                "duration": 1000,
+                "stacks": 6
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "buffBurst",
+              "spec": {
+                "duration": 1000,
+                "stacks": 6
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
   "15516": {
     "name": "Golden Frostbound Oath",

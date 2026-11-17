@@ -46,11 +46,11 @@ export function updateHealth(ctx, action, ownerId, spec) {
     const stacks = Math.round(Math.abs(diff) * 100 * c2Mult);
 
     if (!isC2) {
-      ctx.runCommands(10000089, [{
+      ctx.runCommands([{
         type: 'apply',
         key: '10000089.10000089:effect15',
         spec: { stacks },
-      }], action.ownerId);
+      }], 10000089, action.ownerId);
       return;
     }
 
@@ -60,19 +60,19 @@ export function updateHealth(ctx, action, ownerId, spec) {
     const toOverflow = stacks - toFanfare;
 
     if (toFanfare > 0) {
-      ctx.runCommands(10000089, [{
+      ctx.runCommands([{
         type: 'apply',
         key: '10000089.10000089:effect15',
         spec: { stacks: toFanfare },
-      }], action.ownerId);
+      }], 10000089, action.ownerId);
     }
 
     if (toOverflow > 0) {
-      ctx.runCommands(10000089, [{
+      ctx.runCommands([{
         type: 'apply',
         key: '10000089.10000089:effect21',
         spec: { stacks: toOverflow },
-      }], action.ownerId);
+      }], 10000089, action.ownerId);
     }
   }
 }

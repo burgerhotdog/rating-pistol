@@ -75,7 +75,7 @@ function recordTuneBreak(ctx) {
         runApplyEffect(ctx, effect, apply, { applier: responseOwnerId });
 
         if (apply.commands) {
-          ctx.runCommands(effect.ownerId, apply.commands);
+          ctx.runCommands(apply.commands, effect.ownerId);
         }
       }
     }

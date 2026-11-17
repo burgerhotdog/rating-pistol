@@ -180,6 +180,8 @@ Characters:
         No constellations
     Varka
         No constellations
+    Venti
+        No constellations
     Vesna
         No constellations
     Vodyanitsa

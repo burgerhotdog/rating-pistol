@@ -1,9 +1,28 @@
+import { CHARACTER, GI } from '@/data';
 import { toMergedObj, getAttr } from '@/utils';
 import { getBuffMap } from '../getStatMap';
 import { buildTransformativeReactionSnapshot } from '../snapshot';
 import { applyUnisonBoon, decayBuffUses, runApplyEffect, updateBondOfLife, updateHealth } from '../states';
+import { runRestoreEnergy } from '../restoreEnergy';
 
 const ruleHandlers = {
+  venti_restoreEnergy(ctx, _, __, state) {
+    if (!state.absorbElement) return;
+
+    if (ctx.saveSnapshots) {
+      const targets = ctx.cache.memberIds.filter((memberId) =>
+        CHARACTER[GI][memberId].element === state.absorbElement
+      );
+
+      runRestoreEnergy(ctx, {
+        restoreEnergy: {
+          targets,
+          flat: 15
+        },
+      });
+    }
+  },
+
   kavehFireCores(ctx) {
     const bloomState = ctx.states.aura.bloom;
     if (!bloomState) return;
@@ -139,10 +158,10 @@ const ruleHandlers = {
   },
 };
 
-export function runRuleCommand(ctx, rule, effect, spec) {
+export function runRuleCommand(ctx, rule, effect, spec, state) {
   const handler = ruleHandlers[rule];
 
   if (handler) {
-    handler(ctx, effect, spec);
+    handler(ctx, effect, spec, state);
   }
 }

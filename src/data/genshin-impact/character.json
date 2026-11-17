@@ -4596,7 +4596,6 @@
     ]
   },
   "10000022": {
-    "disabled": true,
     "name": "Venti",
     "version": 1.0,
     "id": 10000022,
@@ -4613,7 +4612,217 @@
     },
     "energy": 60,
     "hexerei": true,
-    "effects": [],
+    "effects": [
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "ref": "normal_windsunderArrow",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 8000
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "cooldown": 100,
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "normal_windsunderArrow",
+              "spec": {
+                "duration": 1000,
+                "extend": true
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "burst_stormeye",
+              "spec": {
+                "duration": 1000,
+                "extend": true
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "burst_stormeyeAbsorption",
+              "spec": {
+                "duration": 1000,
+                "extend": true
+              }
+            }
+          ]
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "type": "normalAttack"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "anemo",
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              }
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "stats": {
+            "damageMv%": 1.5
+          }
+        },
+        "maxExtensions": 2
+      },
+      {
+        "ref": "burst_stormeye",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 8000,
+          "offset": 400
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 400,
+          "action": "elementalBurst.1"
+        },
+        "expire": {
+          "commands": {
+            "type": "use",
+            "ref": "a4_self"
+          }
+        },
+        "maxExtensions": 2
+      },
+      {
+        "ref": "burst_stormeyeAbsorption",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 8010,
+          "offset": 1610
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 400,
+          "action": "elementalBurst.1"
+        },
+        "expire": {
+          "commands": {
+            "type": "rule",
+            "rule": "venti_restoreEnergy"
+          }
+        },
+        "maxExtensions": 2,
+        "absorbElement": true
+      },
+      {
+        "ref": "a4_self",
+        "use": {
+          "when": "command",
+          "action": {
+            "restoreEnergy": {
+              "flat": 15
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "ref": "witchsEveRite_1",
+        "stores": "$applier",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "swirl",
+                "stellarSwirl"
+              ]
+            },
+            "effectStacks": {
+              "HAS": "burst_stormeye"
+            }
+          },
+          "duration": 4000
+        },
+        "buff": {
+          "stats": {
+            "dmgBonus%": 0.5
+          }
+        }
+      },
+      {
+        "enable": {
+          "secretRite": true
+        },
+        "ref": "witchsEveRite_2",
+        "apply": {
+          "by": "$team",
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "swirl",
+                "stellarSwirl"
+              ]
+            },
+            "effectStacks": {
+              "HAS": "burst_stormeye"
+            }
+          },
+          "duration": 4000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalBurst.1",
+                "elementalBurst.2"
+              ]
+            }
+          },
+          "stats": {
+            "damageMv%": 0.35
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Divine Marksmanship",
@@ -4662,7 +4871,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 500
           },
           {
             "name": "Normal Attack 2",
@@ -4689,7 +4899,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 500
           },
           {
             "name": "Normal Attack 3",
@@ -4716,7 +4927,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 500
           },
           {
             "name": "Normal Attack 4",
@@ -4762,7 +4974,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 500
           },
           {
             "name": "Normal Attack 5",
@@ -4789,7 +5002,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 500
           },
           {
             "name": "Normal Attack 6",
@@ -4822,6 +5036,11 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 1000,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -4874,12 +5093,10 @@
           },
           {
             "name": "Windsunder Arrow",
-            "type": "normalAttack",
-            "damage": {
-              "element": "anemo",
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     1.6,
                     1.7,
                     1.8,
@@ -4907,9 +5124,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skyward Sonnet: Press",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -4934,9 +5152,10 @@
             }
           },
           {
-            "name": "Skyward Sonnet: Hold",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -4967,9 +5186,19 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Wind's Grand Ode: DoT",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "DoT",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst Anemo",
+                "time": 1000,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -4994,9 +5223,15 @@
             }
           },
           {
-            "name": "Wind's Grand Ode: Elemental Absorption",
+            "name": "Additional Elemental DMG",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst Other",
+                "time": 1000,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -5019,15 +5254,44 @@
                 }
               ]
             }
-          },
-          {
-            "name": "Wind's Grand Ode",
-            "type": "elementalBurst"
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15515,
+      "setCounts": {
+        "15044": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "elementalSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.3",
+        "normalAttack.4",
+        "normalAttack.0",
+        "normalAttack.1"
+      ]
+    },
+    "teamPreset": [
+      10000128,
+      10000132,
+      10000131,
+      10000123
+    ]
   },
   "10000023": {
     "name": "Xiangling",
@@ -15990,9 +16254,9 @@
     "hexerei": true,
     "effects": [
       {
-        "ref": "ultDot",
+        "ref": "burst_dot",
         "apply": {
-          "when": "hit",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
@@ -16008,16 +16272,16 @@
         }
       },
       {
-        "ref": "ultAbsorption",
+        "ref": "burst_dotAbsorption",
         "apply": {
-          "when": "hit",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
             }
           },
-          "duration": 6100,
-          "offset": 4100
+          "duration": 6010,
+          "offset": 4010
         },
         "use": {
           "when": "interval",
@@ -16231,7 +16495,7 @@
         "rank": 2,
         "modify": {
           "type": "effect",
-          "ref": "ultDot",
+          "ref": "burst_dot",
           "spec": {
             "apply": {
               "duration": 2000
@@ -16243,7 +16507,7 @@
         "rank": 2,
         "modify": {
           "type": "effect",
-          "ref": "ultAbsorption",
+          "ref": "burst_dotAbsorption",
           "spec": {
             "apply": {
               "duration": 2000
@@ -25643,7 +25907,7 @@
                 },
                 {
                   "effectStacks": {
-                    "COUNT": [
+                    "SUM": [
                       {
                         "HAS": "turret1"
                       },
@@ -25687,7 +25951,7 @@
                 },
                 {
                   "effectStacks": {
-                    "COUNT": [
+                    "SUM": [
                       {
                         "HAS": "turret1"
                       },
@@ -25731,7 +25995,7 @@
                 },
                 {
                   "effectStacks": {
-                    "COUNT": [
+                    "SUM": [
                       {
                         "HAS": "turret1"
                       },
@@ -54284,7 +54548,7 @@
         "enable": {
           "counts": {
             "element": {
-              "COUNT": [
+              "SUM": [
                 {
                   "HAS": "pyro"
                 },
@@ -54317,7 +54581,7 @@
             "element": {
               "AND": [
                 {
-                  "COUNT": [
+                  "SUM": [
                     {
                       "HAS": "pyro"
                     },
@@ -54355,7 +54619,7 @@
             "element": {
               "AND": [
                 {
-                  "COUNT": [
+                  "SUM": [
                     {
                       "HAS": "pyro"
                     },
@@ -54398,7 +54662,7 @@
             "element": {
               "AND": [
                 {
-                  "COUNT": [
+                  "SUM": [
                     {
                       "HAS": "pyro"
                     },
@@ -54442,7 +54706,7 @@
         "enable": {
           "counts": {
             "element": {
-              "COUNT": [
+              "SUM": [
                 {
                   "HAS": "pyro"
                 },
@@ -54481,7 +54745,7 @@
         "enable": {
           "counts": {
             "element": {
-              "COUNT": [
+              "SUM": [
                 {
                   "HAS": "pyro"
                 },
@@ -54520,7 +54784,7 @@
         "enable": {
           "counts": {
             "element": {
-              "COUNT": [
+              "SUM": [
                 {
                   "HAS": "pyro"
                 },
@@ -63540,9 +63804,6 @@
       },
       "rotation": [
         "elementalSkill.0"
-      ],
-      "rotationAlt": [
-        "elementalBurst.0"
       ]
     },
     "teamPreset": [

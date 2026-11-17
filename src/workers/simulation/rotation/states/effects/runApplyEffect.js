@@ -125,7 +125,7 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
           const wasRemoved = runRemoveEffect(state, remove);
 
           if (remove.commands) {
-            ctx.runCommands(effect.ownerId, remove.commands);
+            ctx.runCommands(remove.commands, effect.ownerId);
           }
 
           if (wasRemoved) {

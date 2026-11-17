@@ -118,7 +118,7 @@ export const runRotation = (cache, equipMaps, specId, logFilter = false) => {
   ctx.hasRule = (rule) => hasRule(ctx, rule);
   ctx.runAction = (action, options) => runAction(ctx, action, options);
   ctx.runEffects = (when, event) => runEffects(ctx, when, event);
-  ctx.runCommands = (sourceId, commands, applier) => runCommands(ctx, sourceId, commands, applier);
+  ctx.runCommands = (sourceId, commands, applier, state) => runCommands(ctx, sourceId, commands, applier, state);
   initPassives(ctx);
 
   // Rotation loop
@@ -126,6 +126,7 @@ export const runRotation = (cache, equipMaps, specId, logFilter = false) => {
   const appearances = Object.fromEntries(memberIds.map((id) => [id, 0]));
 
   // First pass to initialize states
+  ctx.runEffects('enterCombat');
   runCycle(ctx, memberOrder, appearances, true);
   if (gameId === WW) {
     ctx.offTuneBuildup.push(ctx.states.tune.offTune);
