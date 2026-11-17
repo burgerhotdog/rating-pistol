@@ -10,9 +10,8 @@ const RotationEditor = ({ member, onChange }) => {
       <Button
         variant="outlined"
         onClick={() => setOpen(true)}
-        disabled
       >
-        Edit Rotation (WIP)
+        Edit Rotation
       </Button>
 
       <RotationEditorDialog
