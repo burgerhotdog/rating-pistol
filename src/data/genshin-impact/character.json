@@ -63540,6 +63540,9 @@
       },
       "rotation": [
         "elementalSkill.0"
+      ],
+      "rotationAlt": [
+        "elementalBurst.0"
       ]
     },
     "teamPreset": [

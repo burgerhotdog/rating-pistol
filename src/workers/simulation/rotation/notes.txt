@@ -1,5 +1,7 @@
 to improve:
     healthUpdate
     attackSpd
-    unisonResponse
     bloom doing self dmg
+    change er from duration to no ult
+    tune break with unison rotations
+    2 min window instead of 1 rot
