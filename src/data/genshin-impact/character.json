@@ -7542,7 +7542,8 @@
             }
           },
           "duration": 30000
-        }
+        },
+        "geoConstruct": true
       },
       {
         "ref": "starshatter",
@@ -8413,8 +8414,9 @@
         }
       },
       {
+        "ref": "skill_stoneStele",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalSkill.2"
@@ -8425,14 +8427,27 @@
         "use": {
           "when": "interval",
           "cooldown": 2000,
-          "action": "elementalSkill.3"
+          "action": "elementalSkill.3",
+          "commands": {
+            "type": "rule",
+            "ref": "skill_steleResonance",
+            "rule": "zhongli_steleResonance"
+          }
         },
-        "snapshotBuffs": true
+        "snapshotBuffs": true,
+        "geoConstruct": true
+      },
+      {
+        "ref": "skill_steleResonance",
+        "use": {
+          "when": "command",
+          "action": "elementalSkill.3"
+        }
       },
       {
         "stores": "global",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalSkill.4"
@@ -8740,6 +8755,12 @@
             "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -8768,6 +8789,12 @@
             "name": "Stone Stele",
             "damage": {
               "type": "elementalSkill",
+              "gauge": 2,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -8795,6 +8822,12 @@
             "name": "Stone Stele: Resonance",
             "damage": {
               "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -8873,6 +8906,7 @@
             "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 4,
               "multipliers": [
                 {
                   "mv": [
@@ -13424,7 +13458,8 @@
           "cooldown": 2000,
           "action": "elementalSkill.1"
         },
-        "snapshotBuffs": true
+        "snapshotBuffs": true,
+        "geoConstruct": true
       },
       {
         "chance": 0.5,
@@ -25120,8 +25155,9 @@
         "maxStacks": 5
       },
       {
+        "ref": "skill_ushi",
         "apply": {
-          "when": "hit",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
@@ -25140,7 +25176,8 @@
             "type": "apply",
             "ref": "superlativeSuperstrength"
           }
-        }
+        },
+        "geoConstruct": true
       },
       {
         "ref": "oniKing",
@@ -51336,7 +51373,7 @@
     "nightsoul": 60,
     "effects": [
       {
-        "ref": "turboTwirly",
+        "ref": "skill_turboTwirly",
         "apply": {
           "when": "use",
           "filter": {
@@ -51365,7 +51402,8 @@
           "when": "interval",
           "cooldown": 2000,
           "action": "elementalSkill.2"
-        }
+        },
+        "geoConstruct": true
       },
       {
         "ref": "endBlessing",
@@ -51452,11 +51490,11 @@
           },
           "commands": {
             "type": "apply",
-            "ref": "turboTwirly",
+            "ref": "skill_turboTwirly",
             "filter": {
               "effectStacks": {
                 "NOT": {
-                  "HAS": "turboTwirly"
+                  "HAS": "skill_turboTwirly"
                 }
               }
             },

@@ -9,6 +9,7 @@ export * from './aura';
 export * from './bondOfLife';
 export * from './icd';
 export * from './nightsoul';
+export * from './geoConstructs';
 
 // WW
 export * from './negative-statuses';
