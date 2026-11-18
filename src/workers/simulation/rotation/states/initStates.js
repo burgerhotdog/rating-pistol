@@ -17,6 +17,10 @@ export const initStates = (gameId, memberIds) => {
     ...(gameId === GI && {
       aura: {},
       icd: initPerMember(),
+      sourcewaterDroplets: {
+        count: 0,
+        timers: [],
+      },
       bondOfLife: initPerMember(() => 0),
       nightsoul: initPerMember(() => ({
         blessing: false,

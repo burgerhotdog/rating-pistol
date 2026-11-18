@@ -43696,27 +43696,71 @@
     "arkhe": true,
     "effects": [
       {
-        "apply": {
-          "when": "start",
-          "filter": {
+        "ref": "normal_chargedAttackHeal",
+        "use": [
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "normalAttack.4"
+              },
+              "states": {
+                "sourcewaterDroplets": {
+                  "count": 1
+                }
+              }
+            },
             "action": {
-              "ref": "normalAttack.4"
+              "health": {
+                "value": 0.16
+              },
+              "sourcewaterDroplets": -1
             }
           },
-          "uses": 3,
-          "offset": 100
-        },
-        "use": {
-          "when": "interval",
-          "cooldown": 150,
-          "action": {
-            "health": {
-              "value": 0.16
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "normalAttack.4"
+              },
+              "states": {
+                "sourcewaterDroplets": {
+                  "count": 2
+                }
+              }
+            },
+            "action": {
+              "health": {
+                "value": 0.32
+              },
+              "sourcewaterDroplets": -2
+            }
+          },
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "normalAttack.4"
+              },
+              "states": {
+                "sourcewaterDroplets": {
+                  "count": {
+                    ">=": 3
+                  }
+                }
+              }
+            },
+            "action": {
+              "health": {
+                "value": 0.48
+              },
+              "sourcewaterDroplets": -3
             }
           }
-        }
+        ]
       },
       {
+        "ref": "normal_chargedAttackDrain",
         "apply": {
           "when": "start",
           "filter": {
@@ -43739,52 +43783,43 @@
         }
       },
       {
-        "ref": "sourcewaterDroplets",
-        "apply": {
-          "when": "command"
-        },
-        "maxStacks": 12
-      },
-      {
-        "apply": {
+        "ref": "skill_createDroplets",
+        "use": {
           "when": "hit",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
             }
           },
-          "uses": 1,
-          "offset": 1000,
-          "commands": {
-            "type": "apply",
-            "ref": "sourcewaterDroplets",
-            "spec": {
-              "stacks": 3
-            }
+          "action": {
+            "sourcewaterDroplets": 3
           }
-        },
+        }
+      },
+      {
+        "ref": "spiritbreathThorn",
         "use": {
-          "when": "interval",
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "cooldown": 10000,
           "action": "elementalSkill.1"
         }
       },
       {
+        "ref": "burst_waterfalls",
         "apply": {
-          "when": "hit",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
             }
           },
           "uses": 2,
-          "offset": 500,
-          "commands": {
-            "type": "apply",
-            "ref": "sourcewaterDroplets",
-            "spec": {
-              "stacks": 6
-            }
-          }
+          "offset": 500
         },
         "use": {
           "when": "interval",
@@ -43793,7 +43828,21 @@
         }
       },
       {
-        "ref": "pastDraconicGlories1",
+        "ref": "burst_createDroplets",
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "action": {
+            "sourcewaterDroplets": 6
+          }
+        }
+      },
+      {
+        "ref": "a1_pastDraconicGlories1",
         "apply": {
           "by": "$team",
           "when": "reaction",
@@ -43806,7 +43855,7 @@
         }
       },
       {
-        "ref": "pastDraconicGlories2",
+        "ref": "a1_pastDraconicGlories2",
         "apply": {
           "by": "$team",
           "when": "reaction",
@@ -43819,7 +43868,7 @@
         }
       },
       {
-        "ref": "pastDraconicGlories3",
+        "ref": "a1_pastDraconicGlories3",
         "apply": {
           "by": "$team",
           "when": "reaction",
@@ -43835,7 +43884,7 @@
         }
       },
       {
-        "ref": "pastDraconicGlories4",
+        "ref": "a1_pastDraconicGlories4",
         "apply": {
           "by": "$team",
           "when": "reaction",
@@ -43851,7 +43900,7 @@
         }
       },
       {
-        "ref": "pastDraconicGlories5",
+        "ref": "a1_pastDraconicGlories5",
         "apply": {
           "by": "$team",
           "when": "reaction",
@@ -43871,7 +43920,7 @@
         }
       },
       {
-        "ref": "pastDraconicGlories6",
+        "ref": "a1_pastDraconicGlories6",
         "apply": {
           "by": "$team",
           "when": "reaction",
@@ -43894,192 +43943,179 @@
         }
       },
       {
-        "buff": {
-          "filter": {
-            "AND": [
-              {
-                "action": {
-                  "ref": "normalAttack.4"
-                }
+        "ref": "a1_buff",
+        "buff": [
+          {
+            "filter": {
+              "action": {
+                "ref": "normalAttack.4"
               },
-              {
-                "effectStacks": {
-                  "SUM": [
-                    "pastDraconicGlories1",
-                    "pastDraconicGlories2",
-                    "pastDraconicGlories3",
-                    "pastDraconicGlories4",
-                    "pastDraconicGlories5",
-                    "pastDraconicGlories6",
-                    "pastDraconicGloriesFree"
-                  ],
-                  "==": 1
-                }
+              "effectStacks": {
+                "SUM": [
+                  "a1_pastDraconicGlories1",
+                  "a1_pastDraconicGlories2",
+                  "a1_pastDraconicGlories3",
+                  "a1_pastDraconicGlories4",
+                  "a1_pastDraconicGlories5",
+                  "a1_pastDraconicGlories6",
+                  "c1_pastDraconicGlories"
+                ],
+                "==": 1
               }
-            ]
+            },
+            "stats": {
+              "damageMv%": 0.1
+            }
           },
-          "stats": {
-            "damageMv%": 0.1
-          }
-        }
-      },
-      {
-        "buff": {
-          "filter": {
-            "AND": [
-              {
-                "action": {
-                  "ref": "normalAttack.4"
-                }
+          {
+            "filter": {
+              "action": {
+                "ref": "normalAttack.4"
               },
-              {
-                "effectStacks": {
-                  "SUM": [
-                    "pastDraconicGlories1",
-                    "pastDraconicGlories2",
-                    "pastDraconicGlories3",
-                    "pastDraconicGlories4",
-                    "pastDraconicGlories5",
-                    "pastDraconicGlories6",
-                    "pastDraconicGloriesFree"
-                  ],
-                  "==": 2
-                }
+              "effectStacks": {
+                "SUM": [
+                  "a1_pastDraconicGlories1",
+                  "a1_pastDraconicGlories2",
+                  "a1_pastDraconicGlories3",
+                  "a1_pastDraconicGlories4",
+                  "a1_pastDraconicGlories5",
+                  "a1_pastDraconicGlories6",
+                  "c1_pastDraconicGlories"
+                ],
+                "==": 2
               }
-            ]
+            },
+            "stats": {
+              "damageMv%": 0.25
+            }
           },
-          "stats": {
-            "damageMv%": 0.25
-          }
-        }
-      },
-      {
-        "buff": {
-          "filter": {
-            "AND": [
-              {
-                "action": {
-                  "ref": "normalAttack.4"
-                }
+          {
+            "filter": {
+              "action": {
+                "ref": "normalAttack.4"
               },
-              {
-                "effectStacks": {
-                  "SUM": [
-                    "pastDraconicGlories1",
-                    "pastDraconicGlories2",
-                    "pastDraconicGlories3",
-                    "pastDraconicGlories4",
-                    "pastDraconicGlories5",
-                    "pastDraconicGlories6",
-                    "pastDraconicGloriesFree"
-                  ],
-                  ">=": 3
-                }
+              "effectStacks": {
+                "SUM": [
+                  "a1_pastDraconicGlories1",
+                  "a1_pastDraconicGlories2",
+                  "a1_pastDraconicGlories3",
+                  "a1_pastDraconicGlories4",
+                  "a1_pastDraconicGlories5",
+                  "a1_pastDraconicGlories6",
+                  "c1_pastDraconicGlories"
+                ],
+                ">=": 3
               }
-            ]
-          },
-          "stats": {
-            "damageMv%": 0.6
+            },
+            "stats": {
+              "damageMv%": 0.6
+            }
           }
-        }
+        ]
       },
       {
+        "ref": "a4",
         "buff": {
           "filter": {
             "health": {
-              ">=": 0.4
+              ">": 0.3
             }
           },
           "stats": {
-            "hydroDmgBonus%": 0.06
-          }
-        }
-      },
-      {
-        "buff": {
-          "filter": {
-            "health": {
-              ">=": 0.5
-            }
+            "hydroDmgBonus%": 0.006
           },
-          "stats": {
-            "hydroDmgBonus%": 0.06
-          }
-        }
-      },
-      {
-        "buff": {
-          "filter": {
-            "health": {
-              ">=": 0.6
-            }
-          },
-          "stats": {
-            "hydroDmgBonus%": 0.06
-          }
-        }
-      },
-      {
-        "buff": {
-          "filter": {
-            "health": {
-              ">=": 0.7
-            }
-          },
-          "stats": {
-            "hydroDmgBonus%": 0.06
-          }
-        }
-      },
-      {
-        "buff": {
-          "filter": {
-            "health": {
-              ">=": 0.8
-            }
-          },
-          "stats": {
-            "hydroDmgBonus%": 0.06
-          }
+          "rule": "neuvillette_a4"
         }
       },
       {
         "rank": 1,
-        "ref": "pastDraconicGloriesFree",
+        "ref": "c1_pastDraconicGlories",
         "apply": {
           "when": "swapOn"
+        },
+        "remove": {
+          "when": "swapOff"
         }
       },
       {
         "rank": 2,
-        "buff": {
-          "filter": {
-            "special": "neuvillette1"
+        "buff": [
+          {
+            "filter": {
+              "action": {
+                "ref": "normalAttack.4"
+              },
+              "effectStacks": {
+                "SUM": [
+                  "a1_pastDraconicGlories1",
+                  "a1_pastDraconicGlories2",
+                  "a1_pastDraconicGlories3",
+                  "a1_pastDraconicGlories4",
+                  "a1_pastDraconicGlories5",
+                  "a1_pastDraconicGlories6",
+                  "c1_pastDraconicGlories"
+                ],
+                "==": 1
+              }
+            },
+            "stats": {
+              "critDmg%": 0.14
+            }
           },
-          "stats": {
-            "critDmg%": 0.14
+          {
+            "filter": {
+              "action": {
+                "ref": "normalAttack.4"
+              },
+              "effectStacks": {
+                "SUM": [
+                  "a1_pastDraconicGlories1",
+                  "a1_pastDraconicGlories2",
+                  "a1_pastDraconicGlories3",
+                  "a1_pastDraconicGlories4",
+                  "a1_pastDraconicGlories5",
+                  "a1_pastDraconicGlories6",
+                  "c1_pastDraconicGlories"
+                ],
+                "==": 2
+              }
+            },
+            "stats": {
+              "critDmg%": 0.28
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "ref": "normalAttack.4"
+              },
+              "effectStacks": {
+                "SUM": [
+                  "a1_pastDraconicGlories1",
+                  "a1_pastDraconicGlories2",
+                  "a1_pastDraconicGlories3",
+                  "a1_pastDraconicGlories4",
+                  "a1_pastDraconicGlories5",
+                  "a1_pastDraconicGlories6",
+                  "c1_pastDraconicGlories"
+                ],
+                ">=": 3
+              }
+            },
+            "stats": {
+              "critDmg%": 0.42
+            }
           }
-        }
+        ]
       },
       {
-        "rank": 2,
-        "buff": {
-          "filter": {
-            "special": "neuvillette2"
-          },
-          "stats": {
-            "critDmg%": 0.28
-          }
-        }
-      },
-      {
-        "rank": 2,
-        "buff": {
-          "filter": {
-            "special": "neuvillette3"
-          },
-          "stats": {
-            "critDmg%": 0.42
+        "rank": 4,
+        "use": {
+          "when": "healed",
+          "field": "onField",
+          "cooldown": 4000,
+          "action": {
+            "sourcewaterDroplets": 1
           }
         }
       }
@@ -44201,12 +44237,12 @@
             "name": "Charged Attack: Equitable Judgment",
             "type": "chargedAttack",
             "damage": {
-              "attr": "hp",
               "icd": {
                 "tag": "Charged Attack",
                 "time": 2500,
                 "hits": 3
               },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -46838,7 +46874,7 @@
           "duration": 300000
         },
         "remove": {
-          "when": "after",
+          "when": "end",
           "filter": {
             "action": {
               "ref": "elementalSkill.0"
@@ -49239,7 +49275,9 @@
               },
               "states": {
                 "sourcewaterDroplets": {
-                  "==": 1
+                  "count": {
+                    "==": 1
+                  }
                 }
               }
             },
@@ -49256,7 +49294,9 @@
               },
               "states": {
                 "sourcewaterDroplets": {
-                  ">=": 2
+                  "count": {
+                    ">=": 2
+                  }
                 }
               }
             },
@@ -77755,7 +77795,7 @@
       {
         "rank": 1,
         "use": {
-          "when": "after",
+          "when": "end",
           "filter": {
             "action": {
               "ref": "normalAttack.4"

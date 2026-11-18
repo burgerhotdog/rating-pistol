@@ -124,8 +124,9 @@ Characters:
     Navia
         No constellations
     Neuvillette
+        Sourcewater droplets don't change charged attack duration
         A4 is every 10%
-        No C4, C6
+        No C6
     Nicole
         coordinated attack uses own stats
         No constellations

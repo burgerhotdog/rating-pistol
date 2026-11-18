@@ -17,6 +17,7 @@ import { advanceCooldowns } from './cooldowns';
 import { advanceShielded } from './shielded';
 import { advanceDaze } from './daze';
 import { advanceUnison } from './unison';
+import { advanceSourcewaterDroplets } from './sourcewaterDroplets';
 
 const getBoundary = (ctx) => {
   const { gameId } = ctx.cache;
@@ -45,6 +46,7 @@ const advanceTimers = (ctx, step) => {
   if (gameId === GI) {
     advanceAuraTimers(ctx, step);
     advanceIcds(ctx, step);
+    advanceSourcewaterDroplets(ctx, step);
   }
 
   if (gameId === WW) {
