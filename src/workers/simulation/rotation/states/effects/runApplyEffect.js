@@ -114,6 +114,11 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
       }
     }
 
+    // If state represents a geo construct
+    if (effect.geoConstruct) {
+      ctx.runEffects('createGeoConstruct', { ownerId: effect.ownerId });
+    }
+
     // return state.stacks === maxStacks;
 
     // If effect should be removed when reaching max stacks

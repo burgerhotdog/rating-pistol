@@ -1,5 +1,9 @@
 function isSpecialConstruct(effect) {
-  // Geo Traveller Ult
+  if ( // Geo Traveller Stone Wall
+    effect.ownerId === 100000056 &&
+    effect.ref === 'burst_stoneWall'
+  ) return true;
+  
   if ( // Kachina Turbo Twirly
     effect.ownerId === 10000100 &&
     effect.ref === 'skill_turboTwirly'
@@ -9,7 +13,7 @@ function isSpecialConstruct(effect) {
 export function countGeoConstructs(ctx) {
   const { globalEffects, memberEffects } = ctx.states;
 
-  let geoConstructs = 0;
+  let numConstructs = 0;
   let specialConstructs = 0;
 
   function checkState(state) {
@@ -19,7 +23,7 @@ export function countGeoConstructs(ctx) {
     if (isSpecialConstruct(effect)) {
       specialConstructs++;
     } else {
-      geoConstructs++;
+      numConstructs++;
     }
   }
 
@@ -35,7 +39,7 @@ export function countGeoConstructs(ctx) {
     }
   }
 
-  const moondrifts = ctx.states.aura.lunarCrystallize ? 3 : 0;
+  const numMoondrifts = ctx.states.aura.lunarCrystallize ? 3 : 0;
 
-  return geoConstructs + specialConstructs + moondrifts;
+  return Math.min(numConstructs, 3) + specialConstructs + numMoondrifts;
 }

@@ -1,5 +1,6 @@
 import { CHARACTER, GI, WW } from '@/data';
 import { evaluateFilter } from '@/utils';
+import { countGeoConstructs } from './states';
 
 function evaluateSpecial(ctx, special, effOwnerId, event, fieldId) {
   const gameId = ctx.cache.gameId
@@ -10,6 +11,9 @@ function evaluateSpecial(ctx, special, effOwnerId, event, fieldId) {
   const nsState = ctx.states.nightsoul?.[effOwnerId];
 
   switch (special) {
+    case 'chiori_tamato2':
+      return countGeoConstructs(ctx) > 0;
+
     case 'baizhu1':
       return ctx.states.memberHealth[onFieldId] < 0.5;
     case 'baizhu2':

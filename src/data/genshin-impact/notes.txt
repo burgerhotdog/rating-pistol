@@ -28,6 +28,8 @@ Characters:
         No C1
         No C4 cooldown
         C6 Buff goes to first not healed
+    Chiori
+        No constellations
     Citlali
         No constellations
     Clorinde
