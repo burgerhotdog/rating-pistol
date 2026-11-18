@@ -14028,7 +14028,7 @@
       {
         "ref": "stack1",
         "apply": {
-          "when": "start",
+          "when": "use",
           "field": "*",
           "filter": {
             "action": {
@@ -14067,66 +14067,66 @@
         }
       },
       {
-        "buff": {
-          "filter": {
-            "effectStacks": {
-              "SUM": [
-                "stack1",
-                "stack2",
-                "stack3"
-              ],
-              "==": 1
+        "ref": "remedy",
+        "buff": [
+          {
+            "filter": {
+              "effectStacks": {
+                "SUM": [
+                  "stack1",
+                  "stack2",
+                  "stack3"
+                ],
+                "==": 1
+              }
+            },
+            "stats": {
+              "hp%": [
+                0.12,
+                0.24
+              ]
             }
           },
-          "stats": {
-            "hp%": [
-              0.12,
-              0.24
-            ]
-          }
-        }
-      },
-      {
-        "buff": {
-          "filter": {
-            "effectStacks": {
-              "SUM": [
-                "stack1",
-                "stack2",
-                "stack3"
-              ],
-              "==": 2
+          {
+            "filter": {
+              "effectStacks": {
+                "SUM": [
+                  "stack1",
+                  "stack2",
+                  "stack3"
+                ],
+                "==": 2
+              }
+            },
+            "stats": {
+              "hp%": [
+                0.24,
+                0.48
+              ]
             }
           },
-          "stats": {
-            "hp%": [
-              0.24,
-              0.48
-            ]
-          }
-        }
-      },
-      {
-        "buff": {
-          "filter": {
-            "effectStacks": {
-              "SUM": [
-                "stack1",
-                "stack2",
-                "stack3"
-              ],
-              "==": 3
+          {
+            "filter": {
+              "effectStacks": {
+                "SUM": [
+                  "stack1",
+                  "stack2",
+                  "stack3"
+                ],
+                "==": 3
+              }
+            },
+            "stats": {
+              "hp%": [
+                0.4,
+                0.8
+              ]
             }
-          },
-          "stats": {
-            "hp%": [
-              0.4,
-              0.8
-            ]
           }
-        }
+        ]
       },
       {
+        "ref": "applyBurstCritRateBuff",
         "use": {
           "when": "interval",
           "filter": {
@@ -14141,7 +14141,7 @@
           },
           "commands": {
             "type": "apply",
-            "ref": "burstCR4s",
+            "ref": "burstCritRateBuff",
             "spec": {
               "duration": 4000
             }
@@ -14149,7 +14149,7 @@
         }
       },
       {
-        "ref": "burstCR4s",
+        "ref": "burstCritRateBuff",
         "apply": {
           "when": "command"
         },

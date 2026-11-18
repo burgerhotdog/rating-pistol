@@ -46805,7 +46805,6 @@
     ]
   },
   "10000091": {
-    "disabled": true,
     "name": "Navia",
     "version": 4.3,
     "id": 10000091,
@@ -46824,7 +46823,7 @@
     "arkhe": true,
     "effects": [
       {
-        "ref": "crystalShrapnel",
+        "ref": "skill_crystalShrapnel",
         "apply": {
           "by": "$team",
           "when": "reaction",
@@ -46835,9 +46834,249 @@
                 "lunarCrystallize"
               ]
             }
+          },
+          "duration": 300000
+        },
+        "remove": {
+          "when": "after",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
           }
         },
         "maxStacks": 6
+      },
+      {
+        "ref": "skill_shardshotBuff",
+        "buff": [
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              },
+              "effectStacks": {
+                "NOT": {
+                  "HAS": "skill_crystalShrapnel"
+                }
+              }
+            },
+            "stats": {
+              "damageMv%": 0.2
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              },
+              "effectStacks": {
+                "skill_crystalShrapnel": 1
+              }
+            },
+            "stats": {
+              "damageMv%": 0.4
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              },
+              "effectStacks": {
+                "skill_crystalShrapnel": 2
+              }
+            },
+            "stats": {
+              "damageMv%": 0.667
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              },
+              "effectStacks": {
+                "skill_crystalShrapnel": 3
+              }
+            },
+            "stats": {
+              "damageMv%": 1
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              },
+              "effectStacks": {
+                "skill_crystalShrapnel": 4
+              }
+            },
+            "stats": {
+              "damageMv%": 1,
+              "dmgBonus%": 0.15
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              },
+              "effectStacks": {
+                "skill_crystalShrapnel": 5
+              }
+            },
+            "stats": {
+              "damageMv%": 1,
+              "dmgBonus%": 0.3
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.0"
+              },
+              "effectStacks": {
+                "skill_crystalShrapnel": 6
+              }
+            },
+            "stats": {
+              "damageMv%": 1,
+              "dmgBonus%": 0.45
+            }
+          }
+        ]
+      },
+      {
+        "ref": "surgingBlade",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "cooldown": 7000,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "burst_cannonFireSupport",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "offset": 750
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 750,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "burst_gainShrapnel",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "cooldown": 2400,
+          "commands": {
+            "type": "apply",
+            "ref": "skill_crystalShrapnel",
+            "spec": {
+              "duration": 300000
+            }
+          }
+        }
+      },
+      {
+        "ref": "a1",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 4000
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack",
+                  "plungingAttack"
+                ]
+              }
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "geo"
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": 0.4,
+            "chargedAttackDmgBonus%": 0.4,
+            "plungingAttackDmgBonus%": 0.4
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "SUM": [
+                "pyro",
+                "electro",
+                "cryo",
+                "hydro"
+              ],
+              "==": 1
+            }
+          }
+        },
+        "ref": "a4",
+        "buff": {
+          "stats": {
+            "atk%": 0.2
+          }
+        }
+      },
+      {
+        "enable": {
+          "counts": {
+            "element": {
+              "SUM": [
+                "pyro",
+                "electro",
+                "cryo",
+                "hydro"
+              ],
+              ">=": 2
+            }
+          }
+        },
+        "ref": "a4",
+        "buff": {
+          "stats": {
+            "atk%": 0.4
+          }
+        }
       }
     ],
     "skills": {
@@ -47101,9 +47340,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -47128,9 +47368,15 @@
             }
           },
           {
-            "name": "Cannon Fire Support DMG",
-            "type": "elementalBurst",
+            "name": "Cannon Fire Support",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 12000,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -47161,8 +47407,29 @@
       "weaponId": 12512,
       "setCounts": {
         "15034": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "elementalSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000091,
+      10000094,
+      10000089,
+      10000095
+    ]
   },
   "10000092": {
     "name": "Gaming",
@@ -48800,10 +49067,15 @@
         "elementalSkill.0",
         "elementalSkill.2"
       ]
-    }
+    },
+    "teamPreset": [
+      10000091,
+      10000094,
+      10000089,
+      10000095
+    ]
   },
   "10000095": {
-    "disabled": true,
     "name": "Sigewinne",
     "version": 4.7,
     "id": 10000095,
@@ -48820,7 +49092,246 @@
     },
     "energy": 70,
     "arkhe": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "skill_bubbleBalm",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "uses": 5,
+          "offset": 1700
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1700,
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "ref": "skill_bubbleBalmFinal",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "uses": 1,
+          "offset": 9000
+        },
+        "use": {
+          "when": "interval",
+          "action": {
+            "health": {
+              "value": 0.5
+            }
+          }
+        }
+      },
+      {
+        "ref": "skill_bubbleBalmHoldBuff1",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "uses": 2
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.05,
+            "healingBonus%": 0.05
+          }
+        }
+      },
+      {
+        "ref": "skill_bubbleBalmHoldBuff2",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "uses": 1
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.05,
+            "healingBonus%": 0.05
+          }
+        }
+      },
+      {
+        "ref": "skill_createDroplets",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "action": {
+            "sourcewaterDroplets": 2
+          }
+        }
+      },
+      {
+        "ref": "skill_bolClear",
+        "use": {
+          "when": "bondOfLifeUpdate",
+          "filter": {
+            "bondOfLife": 0
+          },
+          "action": {
+            "restoreEnergy": {
+              "flat": 5
+            }
+          }
+        }
+      },
+      {
+        "ref": "surgingBlade",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          },
+          "cooldown": 10000,
+          "action": "elementalSkill.3"
+        }
+      },
+      {
+        "ref": "burst_absorbDroplets",
+        "use": [
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.0"
+              },
+              "states": {
+                "sourcewaterDroplets": {
+                  "==": 1
+                }
+              }
+            },
+            "action": {
+              "sourcewaterDroplets": -1,
+              "bondOfLife": 0.1
+            }
+          },
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.0"
+              },
+              "states": {
+                "sourcewaterDroplets": {
+                  ">=": 2
+                }
+              }
+            },
+            "action": {
+              "sourcewaterDroplets": -2,
+              "bondOfLife": 0.2
+            }
+          }
+        ]
+      },
+      {
+        "ref": "a1_bedrest",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 18000
+        },
+        "buff": {
+          "stats": {
+            "hydroDmgBonus%": 0.08
+          }
+        }
+      },
+      {
+        "ref": "a1_convalescence",
+        "stores": "global",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 18000,
+          "uses": 10
+        },
+        "buff": {
+          "filter": {
+            "field": "offField",
+            "action": {
+              "damage": {
+                "type": "elementalSkill"
+              }
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "hp",
+              "step": 1000,
+              "offset": 30000,
+              "value": 80,
+              "maxValue": 2800
+            }
+          }
+        }
+      },
+      {
+        "ref": "a4",
+        "buff": {
+          "stats": {
+            "healingBonus%": 0.3
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Targeted Treatment",
@@ -48934,9 +49445,9 @@
             }
           },
           {
-            "name": "Mini-Stration Bubble DMG",
-            "type": "normalAttack",
+            "name": "Mini-Stration Bubble",
             "damage": {
+              "type": "chargedAttack",
               "multipliers": [
                 {
                   "mv": [
@@ -48994,9 +49505,24 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Bolstering Bubblebalm DMG",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
+            "duration": 2000
+          },
+          {
+            "name": "Bolstering Bubblebalm",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2000
+              },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -49018,12 +49544,10 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Bolstering Bubblebalm Healing",
-            "type": "elementalSkill",
-            "damage": {
+            },
+            "healing": {
+              "targets": "$ally",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -49042,10 +49566,8 @@
                     0.0595,
                     0.063,
                     0.0665
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     269.6314,
                     296.5983,
                     325.8124,
@@ -49069,6 +49591,7 @@
           {
             "name": "Surging Blade",
             "damage": {
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -49099,9 +49622,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 1900
+              },
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -49120,10 +49649,21 @@
                     0.2501,
                     0.2648,
                     0.2796
-                  ]
+                  ],
+                  "hits": 7
                 }
               ]
-            }
+            },
+            "duration": 3800,
+            "hitOffsets": [
+              1300,
+              1700,
+              2100,
+              2500,
+              2900,
+              3300,
+              3700
+            ]
           }
         ]
       }
@@ -49132,8 +49672,17 @@
       "weaponId": 15513,
       "setCounts": {
         "15033": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0"
+      ]
+    },
+    "teamPreset": [
+      10000091,
+      10000094,
+      10000089,
+      10000095
+    ]
   },
   "10000096": {
     "name": "Arlecchino",

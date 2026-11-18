@@ -63,8 +63,8 @@ function multipliers(raw) {
     const [key, val, n] = segment(s);
 
     return {
-      ...(n > 1 ? { times: n } : {}),
       [key]: [val],
+      ...(n > 1 ? { times: n } : {}),
     };
   });
 

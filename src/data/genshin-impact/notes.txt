@@ -29,7 +29,7 @@ Characters:
         No C4 cooldown
         C6 Buff goes to first not healed
     Chiori
-        No constellations
+        No C2, C4, C6
     Citlali
         No constellations
     Clorinde
@@ -121,6 +121,8 @@ Characters:
         Dendro core trigger offset might be wrong
         EM buff comes from self
         No C6
+    Navia
+        No constellations
     Neuvillette
         A4 is every 10%
         No C4, C6
@@ -162,6 +164,10 @@ Characters:
         Remember C6 no snapshot
         Numbers are sus
     Shenhe
+        No constellations
+    Sigewinne
+        Skill bol clear assumes 5 energy restored
+        A4 is always max
         No constellations
     Skirk
         Deaths crossing not accurate
