@@ -215,6 +215,8 @@ Characters:
         no orbitals from skill
     Yanfei
         A4 always happens
+    Yaoyao
+        C1 might not be accurate
     Yelan
         No barb reset
     Yoimiya

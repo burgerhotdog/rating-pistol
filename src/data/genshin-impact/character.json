@@ -37985,7 +37985,6 @@
     ]
   },
   "10000077": {
-    "disabled": true,
     "name": "Yaoyao",
     "version": 3.4,
     "id": 10000077,
@@ -38002,7 +38001,296 @@
     },
     "energy": 80,
     "liyue": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "skill_yuegui",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 10000,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalSkill.1"
+        },
+        "snapshotBuffs": true
+      },
+      {
+        "ref": "burst_adeptalLegacy",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "uses": 3
+        },
+        "remove": {
+          "when": "swapOff"
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "NOT": {
+                  "HAS": "burst_yuegui1"
+                }
+              }
+            },
+            "cooldown": 1000,
+            "commands": {
+              "type": "apply",
+              "ref": "burst_yuegui1",
+              "spec": {
+                "duration": 5000
+              }
+            }
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "NOT": {
+                  "HAS": "burst_yuegui2"
+                }
+              }
+            },
+            "cooldown": 1000,
+            "commands": {
+              "type": "apply",
+              "ref": "burst_yuegui2",
+              "spec": {
+                "duration": 4000
+              }
+            }
+          },
+          {
+            "when": "interval",
+            "filter": {
+              "effectStacks": {
+                "NOT": {
+                  "HAS": "burst_yuegui3"
+                }
+              }
+            },
+            "cooldown": 1000,
+            "commands": {
+              "type": "apply",
+              "ref": "burst_yuegui3",
+              "spec": {
+                "duration": 3000
+              }
+            }
+          }
+        ]
+      },
+      {
+        "ref": "burst_yuegui1",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalBurst.1"
+        },
+        "snapshotBuffs": true
+      },
+      {
+        "ref": "burst_yuegui2",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalBurst.1"
+        },
+        "snapshotBuffs": true
+      },
+      {
+        "ref": "burst_yuegui3",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "swapOff"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalBurst.1"
+        },
+        "snapshotBuffs": true
+      },
+      {
+        "ref": "a1",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 5000,
+          "offset": 600
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 600,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "a4",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalBurst.1"
+              ]
+            }
+          },
+          "duration": 5000,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": {
+            "healing": {
+              "targets": "$onField",
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": 0.8
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.1",
+                "elementalBurst.1"
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "dendroDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "cooldown": 800,
+          "action": {
+            "restoreEnergy": {
+              "flat": 3
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "specs": {
+            "elementalMastery": {
+              "attr": "hp",
+              "step": 0.003,
+              "value": 1,
+              "maxValue": 120
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 2,
+          "offset": 3000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 3000,
+          "action": {
+            "name": "Mega Radish",
+            "damage": {
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": 0.75
+                }
+              ]
+            },
+            "healing": {
+              "targets": "$onField",
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": 0.075
+                }
+              ]
+            }
+          }
+        },
+        "snapshotBuffs": true
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Toss 'N' Turn Spear",
@@ -38195,9 +38483,18 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "White Jade Radish DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "White Jade Radish",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -38219,12 +38516,10 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "White Jade Radish Healing",
-            "type": "elementalSkill",
-            "damage": {
+            },
+            "healing": {
+              "targets": "$onField",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -38243,10 +38538,8 @@
                     0.0364,
                     0.0386,
                     0.0407
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     165.0799,
                     181.5902,
                     199.4763,
@@ -38274,9 +38567,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -38298,12 +38592,21 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 5975,
+            "hitOffsets": [
+              975
+            ]
           },
           {
-            "name": "Adeptal Legacy White Jade Radish DMG",
-            "type": "elementalBurst",
+            "name": "Adeptal Legacy White Jade Radish",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 1500
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -38325,12 +38628,10 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Adeptal Legacy White Jade Radish Healing",
-            "type": "elementalBurst",
-            "damage": {
+            },
+            "healing": {
+              "targets": "$team",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -38349,10 +38650,8 @@
                     0.0429,
                     0.0454,
                     0.0479
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     194.2123,
                     213.6362,
                     234.6788,
@@ -38376,7 +38675,21 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13303,
+      "setCounts": {
+        "15025": 4
+      },
+      "rotation": [
+        "elementalSkill.0"
+      ]
+    },
+    "teamPreset": [
+      10000042,
+      10000031,
+      10000047,
+      10000077
+    ]
   },
   "10000078": {
     "name": "Alhaitham",
