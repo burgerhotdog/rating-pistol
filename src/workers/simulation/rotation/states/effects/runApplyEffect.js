@@ -1,4 +1,5 @@
 import { getBuffMap } from '../../getStatMap';
+import { auraCheck } from '../aura';
 import { applyCooldown } from '../cooldowns';
 import { runRemoveEffect } from './runRemoveEffect';
 
@@ -89,15 +90,14 @@ export function runApplyEffect(ctx, effect, apply = {}, spec = {}) {
     }
 
     if (apply.absorbElement) {
-      const auraStore = ctx.states.aura;
-      if (auraStore.pyro) {
-        state.absorbElement = 'pyro';
-      } else if (auraStore.hydro) {
-        state.absorbElement = 'hydro';
-      } else if (auraStore.electro) {
-        state.absorbElement = 'electro';
-      } else if (auraStore.cryo) {
-        state.absorbElement = 'cryo';
+      const auraElement = auraCheck(ctx, effect.ownerId);
+
+      if (auraElement) {
+        state.absorbElement = auraElement;
+        state.absorbCooldown = null;
+      } else {
+        state.absorbElement = null;
+        state.absorbCooldown = 300;
       }
     }
 

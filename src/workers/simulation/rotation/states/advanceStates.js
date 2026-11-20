@@ -12,6 +12,7 @@ import {
   advanceEffectTimers,
   fireEffectUses,
   fireEffectExpiries,
+  fireAuraChecks,
 } from './effects';
 import { advanceCooldowns } from './cooldowns';
 import { advanceShielded } from './shielded';
@@ -67,8 +68,14 @@ const advanceTimers = (ctx, step) => {
 const fireDue = (ctx) => {
   const { gameId } = ctx.cache;
 
-  if (gameId === GI) fireAuraTicks(ctx);
-  if (gameId === WW) fireNegativeStatusTicks(ctx);
+  if (gameId === GI) {
+    fireAuraTicks(ctx);
+    fireAuraChecks(ctx);
+  }
+
+  if (gameId === WW) {
+    fireNegativeStatusTicks(ctx);
+  }
 
   fireEffectUses(ctx);
   fireEffectExpiries(ctx);
