@@ -53,7 +53,7 @@ function getRequiredEr(cache, memberId, statMapOf, bonusEnergy = {}) {
   return clamp(requiredEr, energyMin, energyMax);
 }
 
-function getRequiredErMap(cache, equipMaps, bonusEnergy) {
+export function getRequiredErMap(cache, equipMaps, bonusEnergy) {
   const requiredErMap = {};
   const statMapOf = createStatMapLookup(cache, (id) => equipMaps[id]);
 

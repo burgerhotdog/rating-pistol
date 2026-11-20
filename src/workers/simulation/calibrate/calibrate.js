@@ -1,12 +1,9 @@
-
-import { createRunEquipMapFactory } from './runEquipMap';
-import { buildSkippable } from './skippable';
+import { GI } from '@/data';
+import { getEnergyLevel, toMergedObj } from '@/utils';
+import { runRotation } from '../rotation';
+import { getRequiredErMap, createEquipDurationGetter } from '../duration';
+import { createRunEquipMap } from './runEquipMap';
 import { getCeil } from './getCeil';
-
-function getDiff(prev, next) {
-  if (prev === 0) return 0;
-  return next / prev * 100 - 100;
-}
 
 function getRates({ totals, time }) {
   return {
@@ -16,95 +13,140 @@ function getRates({ totals, time }) {
   };
 }
 
-function getWeight(dpsRates, outputRates, reference, parts) {
-  const dpsLoss = Math.max(0, dpsRates.damage - outputRates.damage) / reference.damage;
+function getPreMergedMap(cache, specId) {
+  const { baseMap, staticMap } = cache.member[specId];
+  const statMap = toMergedObj(baseMap, staticMap);
+  if (cache.gameId !== GI) return statMap;
+  return toMergedObj(statMap, cache.teamResonance.stats);
+}
 
-  const outputGain = parts.reduce((sum, part) => sum + Math.max(0, outputRates[part] - dpsRates[part]) / reference[part], 0);
+function getSustainWeight(baseRates, dpsCeilResults, sustainCeilResults, sustainParts) {
+  const dpsCeilRates = getRates(dpsCeilResults);
+  const sustainCeilRates = getRates(sustainCeilResults);
 
-  if (outputGain <= 0) return 0;
+  const pivotLoss = 0.05;
+  const maxDpsLoss = 0.1;
+  const minDamageWeight = 0.001;
 
-  const maxLoss = dpsRates.damage * 0.1 / reference.damage;
+  const sustainGain = sustainParts.reduce((acc, part) => {
+    const baseline = baseRates[part] || 1;
+    return acc + Math.max(0, sustainCeilRates[part] - dpsCeilRates[part]) / baseline;
+  }, 0);
 
-  if (maxLoss <= 0) return 0;
+  if (sustainGain <= 0) return { damageWeight: 1, sustainWeight: 0, breakEven: 0 };
 
-  const effectiveLoss = dpsLoss / (1 + 4 * dpsLoss / maxLoss);
+  const damageBaseline = baseRates.damage || 1;
+  const dpsCeilDamageScore = dpsCeilRates.damage / damageBaseline;
+  const damageLoss = Math.max(0, dpsCeilRates.damage - sustainCeilRates.damage) / damageBaseline;
+  const damageLossPercent = dpsCeilDamageScore > 0
+    ? damageLoss / dpsCeilDamageScore
+    : 0;
+  const breakEven = damageLoss / sustainGain;
 
-  return effectiveLoss / outputGain;
+  let damageWeight = 1;
+  let sustainWeight = breakEven;
+
+  if (damageLossPercent <= pivotLoss) {
+    const progress = damageLossPercent / pivotLoss;
+    damageWeight = minDamageWeight + (1 - minDamageWeight) * progress;
+    sustainWeight = 1 + (breakEven - 1) * progress;
+  } else if (damageLossPercent < maxDpsLoss) {
+    const progress = (damageLossPercent - pivotLoss) / (maxDpsLoss - pivotLoss);
+    sustainWeight = breakEven * (1 - progress);
+  } else {
+    sustainWeight = 0;
+  }
+
+  return {
+    damageWeight,
+    sustainWeight,
+    breakEven,
+  };
 }
 
 export function calibrate(cache, equipMaps, specId) {
   const { gameId } = cache;
 
-  const createRunEquipMap = createRunEquipMapFactory(cache, equipMaps, specId);
+  const preMergedMap = getPreMergedMap(cache, specId);
 
-  const optimize = (calibration) => {
-    const runEquipMap = createRunEquipMap(calibration);
-    const skippable = buildSkippable(gameId, runEquipMap);
+  const { snapshots: resolveSnapshots, bonusEnergy } = runRotation(cache, equipMaps, specId, true);
+  const durationGetter = createEquipDurationGetter(cache, equipMaps, specId, bonusEnergy);
+  const runEquipMap = createRunEquipMap(preMergedMap, resolveSnapshots, durationGetter, { damage: 1 });
 
-    return getCeil(gameId, runEquipMap, specId, skippable);
-  };
-
-  const runEquipMap = createRunEquipMap();
   const baseResults = runEquipMap();
-  const baseTotals = baseResults.totals;
   const baseRates = getRates(baseResults);
 
-  const dpsCeilResults = optimize({ damage: 1 });
-  const dpsCeilTotals = dpsCeilResults.totals;
-  const dpsCeilRates = getRates(dpsCeilResults);
+  const requiredErMap = getRequiredErMap(cache, equipMaps);
+  const requiredEr = requiredErMap[specId] ?? 0;
+  const preMergedEr = getEnergyLevel(gameId, preMergedMap);
+  const requiredEquipEr = Math.max(requiredEr - preMergedEr, 0);
 
-  const reference = {
-    damage: baseRates.damage || 1,
-    healing: baseRates.healing || 1,
-    shield: baseRates.shield || 1,
+  const optimize = (calibration) => {
+    const runEquipMap = createRunEquipMap(preMergedMap, resolveSnapshots, durationGetter, calibration);
+    return getCeil(gameId, runEquipMap, specId, requiredEquipEr);
   };
 
-  const parts = [
-    ...(dpsCeilTotals.healing !== baseTotals.healing ? ['healing'] : []),
-    ...(dpsCeilTotals.shield !== baseTotals.shield ? ['shield'] : []),
+  const dpsCeilResults = optimize({ damage: 1, healing: 0.001, shield: 0.001 });
+
+  const sustainParts = [
+    ...(dpsCeilResults.totals.healing !== baseResults.totals.healing ? ['healing'] : []),
+    ...(dpsCeilResults.totals.shield !== baseResults.totals.shield ? ['shield'] : []),
   ];
 
-  if (parts.length === 0) {
+  // Early exit for characters that don't provide sustain
+  if (sustainParts.length === 0) {
     return {
       calibration: { damage: 1 },
-      scoreCeiling: dpsCeilResults.score,
       dpsCeiling: dpsCeilResults.dps,
+      scoreCeiling: dpsCeilResults.score,
     };
   }
 
-  const sustainCalibration = {
-    damage: 0.1,
-    ...Object.fromEntries(parts.map((part) => [part, 1])),
-    reference,
-  };
+  const sustainCeilResults = optimize({ reference: baseRates, damage: 0.001, ...Object.fromEntries(sustainParts.map((part) => [part, 1])) });
 
-  const sustainCeiling = optimize(sustainCalibration);
-  const sustainRates = getRates(sustainCeiling);
+  const { damageWeight, sustainWeight, breakEven } = getSustainWeight(baseRates, dpsCeilResults, sustainCeilResults, sustainParts);
 
-  const sustainWeight = getWeight(dpsCeilRates, sustainRates, reference, parts);
+  const calibration = { reference: baseRates, damage: damageWeight, ...Object.fromEntries(sustainParts.map((part) => [part, sustainWeight])) };
+  const hybridCeilResults = optimize(calibration);
 
-  const calibration = {
-    damage: 1,
-    ...(sustainWeight > 0
-      ? Object.fromEntries(parts.map((part) => [part, sustainWeight]))
-      : {}),
-    reference,
-  };
-
-  const { score: hybridCeilScore } = optimize(calibration);
-
-  console.log(
-    'Calibration Results:\n\n' +
-    `Active Sustain: ${parts.join(', ')}\n` +
-    `Sustain Weight: ${sustainWeight.toFixed(3)}\n\n` +
-    `Sustain Ceiling DPS: ${getDiff(dpsCeilRates.damage, sustainRates.damage).toFixed(1)}%\n` +
-    `Sustain Ceiling HPS: ${getDiff(dpsCeilRates.healing, sustainRates.healing).toFixed(1)}%\n` +
-    `Sustain Ceiling SPS: ${getDiff(dpsCeilRates.shield, sustainRates.shield).toFixed(1)}%\n\n`
-  );
+  printLogs(dpsCeilResults, sustainCeilResults, hybridCeilResults, sustainParts, damageWeight, sustainWeight, breakEven);
 
   return {
     calibration,
-    scoreCeiling: hybridCeilScore,
     dpsCeiling: dpsCeilResults.dps,
+    scoreCeiling: hybridCeilResults.score,
   };
+}
+
+function fmtPct(value) {
+  return `${value >= 0 ? '+' : ''}${value.toFixed(1)}%`;
+}
+
+function getDiff(prev, next) {
+  if (prev === 0) return 0;
+  return next / prev * 100 - 100;
+}
+
+function printLogs(dpsCeilResults, sustainCeilResults, hybridCeilResults, sustainParts, damageWeight, sustainWeight, breakEven) {
+  const dpsCeilRates = getRates(dpsCeilResults);
+  const sustainCeilRates = getRates(sustainCeilResults);
+  const hybridRates = getRates(hybridCeilResults);
+
+  const row = (rates) => ({
+    DPS: fmtPct(getDiff(dpsCeilRates.damage, rates.damage)),
+    HPS: fmtPct(getDiff(dpsCeilRates.healing, rates.healing)),
+    SPS: fmtPct(getDiff(dpsCeilRates.shield, rates.shield)),
+  });
+
+  console.log(
+    `Calibration (${sustainParts.join(', ')})\n` +
+    `Break-even: ${breakEven.toFixed(3)}\n` +
+    `Damage weight: ${damageWeight.toFixed(3)}\n` +
+    `Sustain weight: ${sustainWeight.toFixed(3)}`
+  );
+
+  console.table({
+    'Sustain ceiling (vs DPS ceiling)': row(sustainCeilRates),
+    'Hybrid result (vs DPS ceiling)': row(hybridRates),
+  });
 }

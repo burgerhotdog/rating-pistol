@@ -108,11 +108,11 @@ self.onmessage = async ({ data }) => {
     }),
   };
 
-  const { benchmarkLevels, benchmarkLevelsSource } = benchmarkSkillLevels(cache, equipMaps, charId, userDps);
-  self.postMessage({ benchmarkLevels, benchmarkLevelsSource });
-
   const { calibration, scoreCeiling, dpsCeiling } = calibrate(cache, equipMaps, charId);
   self.postMessage({ scoreCeiling, dpsCeiling });
+
+  const { benchmarkLevels, benchmarkLevelsSource } = benchmarkSkillLevels(cache, equipMaps, charId, userDps);
+  self.postMessage({ benchmarkLevels, benchmarkLevelsSource });
 
   const {
     scoreProgression,
