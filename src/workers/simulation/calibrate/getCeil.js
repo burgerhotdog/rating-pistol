@@ -315,10 +315,10 @@ export function getCeil(gameId, runEquipMap, currId, requiredEquipEr = 0) {
 
   rankedCombos.sort((a, b) => (a.flagged - b.flagged) || (b.score - a.score));
 
-  // Shortlist: all unflagged ER-mainstat combos, then the 10 best of the rest
+  // Shortlist: 10 best unflagged ER-mainstat combos, then the 10 best of the rest
   const erCombos = rankedCombos.filter((c) => !c.flagged && c.hasEr);
   const others = rankedCombos.filter((c) => c.flagged || !c.hasEr);
-  const shortlist = [...erCombos, ...others.slice(0, 10)];
+  const shortlist = [...erCombos.slice(0, 5), ...others.slice(0, 5)];
 
   // Pass 2: full substat fill, trying each ER slot allocation
   let best = null; // { result, met }

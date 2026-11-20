@@ -4,6 +4,7 @@ import { runRotation } from '../rotation';
 import { getRequiredErMap, createEquipDurationGetter } from '../duration';
 import { createRunEquipMap } from './runEquipMap';
 import { getCeil } from './getCeil';
+import { detectSustain } from './detectSustain';
 
 function getRates({ totals, time }) {
   return {
@@ -88,10 +89,7 @@ export function calibrate(cache, equipMaps, specId) {
 
   const dpsCeilResults = optimize({ damage: 1, healing: 0.001, shield: 0.001 });
 
-  const sustainParts = [
-    ...(dpsCeilResults.totals.healing !== baseResults.totals.healing ? ['healing'] : []),
-    ...(dpsCeilResults.totals.shield !== baseResults.totals.shield ? ['shield'] : []),
-  ];
+  const sustainParts = detectSustain(gameId, runEquipMap);
 
   // Early exit for characters that don't provide sustain
   if (sustainParts.length === 0) {
