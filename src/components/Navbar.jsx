@@ -27,6 +27,7 @@ const Navbar = () => {
           <Tab
             key={id}
             value={id}
+            title={name}
             icon={<Avatar src={icon} alt={name} />}
             sx={{
               minWidth: 0,
