@@ -159,11 +159,11 @@ export function inflictNegativeStatuses(ctx, action) {
       statusKey === 'spectroFrazzle' &&
       ctx.hasRule('heliacalEmber')
     ) {
-      ctx.runCommands(1507, [{
+      ctx.runCommands([{
         type: 'apply',
         key: '1507.1507:effect4',
         spec: { stacks: stacks * 5 },
-      }], action.ownerId);
+      }], 1507, action.ownerId);
     }
 
     if (

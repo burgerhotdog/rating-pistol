@@ -90,7 +90,7 @@ function executeRemove(ctx, state, index, fieldId) {
   runRemoveEffect(state, remove);
 
   if (remove.commands) {
-    ctx.runCommands(effect.ownerId, remove.commands, fieldId ?? effect.ownerId);
+    ctx.runCommands(remove.commands, effect.ownerId, fieldId ?? effect.ownerId);
   }
 }
 
@@ -108,7 +108,7 @@ function executeUse(ctx, state, index, fieldId) {
 
   if (use.commands) {
     for (let i = 0; i < Math.round(stacks); i++) {
-      ctx.runCommands(effect.ownerId, use.commands, fieldId ?? effect.ownerId);
+      ctx.runCommands(use.commands, effect.ownerId, fieldId ?? effect.ownerId);
     }
   }
 }
@@ -134,7 +134,7 @@ function tryApply(ctx, when, effect, event) {
 
     const commands = apply.commands;
     if (commands) {
-      ctx.runCommands(effect.ownerId, commands, applier);
+      ctx.runCommands(commands, effect.ownerId, applier);
     }
 
     break;

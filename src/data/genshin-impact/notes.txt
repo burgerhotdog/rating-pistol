@@ -28,6 +28,11 @@ Characters:
         No C1
         No C4 cooldown
         C6 Buff goes to first not healed
+    Chiori
+        No C2, C4, C6
+    Chongyun
+        No C2
+        C6 buff always active
     Citlali
         No constellations
     Clorinde
@@ -119,9 +124,12 @@ Characters:
         Dendro core trigger offset might be wrong
         EM buff comes from self
         No C6
+    Navia
+        No constellations
     Neuvillette
+        Sourcewater droplets don't change charged attack duration
         A4 is every 10%
-        No C4, C6
+        No C6
     Nicole
         coordinated attack uses own stats
         No constellations
@@ -129,6 +137,11 @@ Characters:
         No constellations
     Ningguang
         No A4
+    Noelle
+        Breastplate always heals and can heal on burst first hit
+        No A4 cooldown reduction
+        Burst and C6 Buffs aren't snapshotted at cast
+        No C6 duration increase
     Odette
         Only plume
         Marvelous Splendor applies to $ally
@@ -161,6 +174,10 @@ Characters:
         Numbers are sus
     Shenhe
         No constellations
+    Sigewinne
+        Skill bol clear assumes 5 energy restored
+        A4 is always max
+        No constellations
     Skirk
         Deaths crossing not accurate
         No constellations
@@ -179,6 +196,8 @@ Characters:
     Varesa
         No constellations
     Varka
+        No constellations
+    Venti
         No constellations
     Vesna
         No constellations
@@ -204,6 +223,8 @@ Characters:
         no orbitals from skill
     Yanfei
         A4 always happens
+    Yaoyao
+        C1 might not be accurate
     Yelan
         No barb reset
     Yoimiya

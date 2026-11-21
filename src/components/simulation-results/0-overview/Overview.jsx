@@ -1,5 +1,4 @@
 import { Card, CardHeader, Stack } from '@mui/material';
-import { formatNum } from '@/utils';
 import SummaryCard from './SummaryCard';
 import DistributionChart from './DistributionChart';
 import TimelineChart from './TimelineChart';
@@ -8,8 +7,7 @@ const Overview = ({ results }) => {
   const timelineReady =
     results.memberIds &&
     results.userSnapshots &&
-    results.userRotationTime &&
-    results.userRotationTimeSource;
+    results.userRotationTime;
 
   const distributionReady =
     results.userSnapshots;
@@ -29,16 +27,12 @@ const Overview = ({ results }) => {
 
       <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
         <Card component={Stack} sx={{ flex: 2 }}>
-          <CardHeader
-            title="Rotation Timeline"
-            subheader={`DPS: ${formatNum(results.userDps ?? 0)}`}
-          />
+          <CardHeader title="Rotation Timeline" />
           {timelineReady && (
             <TimelineChart
               memberIds={results.memberIds}
               userSnapshots={results.userSnapshots}
               userRotationTime={results.userRotationTime}
-              userRotationTimeSource={results.userRotationTimeSource}
             />
           )}
         </Card>

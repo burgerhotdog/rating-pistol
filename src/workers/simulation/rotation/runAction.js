@@ -18,6 +18,7 @@ import {
   convertHealingToValue,
   calcStunMult,
   updateUnison,
+  updateSourcewaterDroplets,
 } from './states'
 import { canSnapshot, buildSnapshot } from './snapshot';
 import { getModifiedAction } from './getModifiedAction';
@@ -137,6 +138,7 @@ export function runAction(ctx, action, options = {}) {
   }
 
   if (gameId === GI) {
+    updateSourcewaterDroplets(ctx, modifiedAction);
     updateBondOfLife(ctx, modifiedAction);
     updateNightsoulPoints(ctx, modifiedAction);
   }

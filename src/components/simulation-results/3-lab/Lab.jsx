@@ -15,11 +15,12 @@ import { Switch } from '@/components/Colored';
 import { useAccent, useData } from '@/hooks';
 import WeaponsDialog from './WeaponsDialog';
 import SetsDialog from './SetsDialog';
+import RankChart from './RankChart';
 
 const Lab = ({ results }) => {
   const langData = useData('lang');
   const [normalize, setNormalize] = useState(true);
-  const [hideLimited, setHide5Star] = useState(true);
+  const [hideLimited, setHideLimited] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
   const accent = useAccent();
 
@@ -34,6 +35,16 @@ const Lab = ({ results }) => {
     results.userMember &&
     results.userDps &&
     results.setResults;
+
+  const rankChartReady =
+    results.userMember &&
+    results.userDps &&
+    results.rankResults;
+
+  const memberChartReady =
+    results.userMember &&
+    results.userDps &&
+    results.memberResults;
 
   return (
     <Stack spacing={1} sx={{ flex: 1 }}>
@@ -72,7 +83,7 @@ const Lab = ({ results }) => {
                         <Switch
                           color={accent}
                           checked={hideLimited}
-                          onChange={(event) => setHide5Star(event.target.checked)}
+                          onChange={(event) => setHideLimited(event.target.checked)}
                         />
                       }
                     />
@@ -99,6 +110,37 @@ const Lab = ({ results }) => {
         <Card component={Stack} sx={{ flex: 1 }}>
           <CardHeader title={`${langData.Equip} Set Comparisons`} />
           {setsReady ? (
+            <Box sx={{ flex: 1, minHeight: 0, overflowY: 'auto', px: 2 }}>
+              <SetsDialog
+                userMember={results.userMember}
+                userDps={results.userDps}
+                setResults={results.setResults}
+              />
+            </Box>
+          ) : (
+            <Skeleton variant="rectangular" sx={{ flex: 1 }} />
+          )}
+        </Card>
+      </Stack>
+      <Stack direction="row" spacing={1} sx={{ flex: 1 }}>
+        <Card component={Stack} sx={{ flex: 1 }}>
+          <CardHeader title="Rank" />
+          {rankChartReady ? (
+            <Box sx={{ flex: 1, minHeight: 0, overflowY: 'auto', px: 2 }}>
+              <RankChart
+                userMember={results.userMember}
+                userDps={results.userDps}
+                rankResults={results.rankResults}
+              />
+            </Box>
+          ) : (
+            <Skeleton variant="rectangular" sx={{ flex: 1 }} />
+          )}
+        </Card>
+
+        <Card component={Stack} sx={{ flex: 1 }}>
+          <CardHeader title="Member" />
+          {memberChartReady ? (
             <Box sx={{ flex: 1, minHeight: 0, overflowY: 'auto', px: 2 }}>
               <SetsDialog
                 userMember={results.userMember}

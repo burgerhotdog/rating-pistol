@@ -84,19 +84,28 @@ export const resolveEffectTokens = (normalized) => {
     }
   }
 
-  function resolveCommands(commands, ownerId, sourceId) {
-    return commands
-      .map((command) => {
+  function resolveCommands(rawCommands, ownerId, sourceId) {
+    const commands = [];
+
+    for (const rawCommand of rawCommands) {
+      const command = { ...rawCommand };
+
+      if (Object.hasOwn(command, 'ref')) {
         const key = resolveEffectRef(command.ref, ownerId, sourceId);
-        if (!key) return null;
+        if (!key) continue;
 
-        if (command.filter) {
-          traverseFilter(command.filter, ownerId, sourceId);
-        }
+        command.key = key;
+      }
 
-        return { ...command, key };
-      })
-      .filter(Boolean);
+      if (Object.hasOwn(command, 'filter')) {
+        command.filter = structuredClone(command.filter);
+        traverseFilter(command.filter, ownerId, sourceId);
+      }
+
+      commands.push(command);
+    }
+
+    return commands;
   }
 
   // Shared by apply / remove / use / buff / expire entries

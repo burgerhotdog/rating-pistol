@@ -12,11 +12,13 @@ import {
   advanceEffectTimers,
   fireEffectUses,
   fireEffectExpiries,
+  fireAuraChecks,
 } from './effects';
 import { advanceCooldowns } from './cooldowns';
 import { advanceShielded } from './shielded';
 import { advanceDaze } from './daze';
 import { advanceUnison } from './unison';
+import { advanceSourcewaterDroplets } from './sourcewaterDroplets';
 
 const getBoundary = (ctx) => {
   const { gameId } = ctx.cache;
@@ -45,6 +47,7 @@ const advanceTimers = (ctx, step) => {
   if (gameId === GI) {
     advanceAuraTimers(ctx, step);
     advanceIcds(ctx, step);
+    advanceSourcewaterDroplets(ctx, step);
   }
 
   if (gameId === WW) {
@@ -65,8 +68,14 @@ const advanceTimers = (ctx, step) => {
 const fireDue = (ctx) => {
   const { gameId } = ctx.cache;
 
-  if (gameId === GI) fireAuraTicks(ctx);
-  if (gameId === WW) fireNegativeStatusTicks(ctx);
+  if (gameId === GI) {
+    fireAuraTicks(ctx);
+    fireAuraChecks(ctx);
+  }
+
+  if (gameId === WW) {
+    fireNegativeStatusTicks(ctx);
+  }
 
   fireEffectUses(ctx);
   fireEffectExpiries(ctx);

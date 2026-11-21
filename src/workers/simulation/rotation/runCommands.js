@@ -75,11 +75,16 @@ function runUseCommand(ctx, effect, spec = {}) {
   }
 }
 
-export function runCommands(ctx, sourceId, commands, applier) {
+export function runCommands(ctx, commands, sourceId, applier, state) {
   const effectDefs = ctx.cache.member[sourceId].effects;
 
   for (const { filter, type, key, spec, rule } of commands) {
     if (!ctx.eventFilter(filter, sourceId, {}, applier)) continue;
+
+    if (type === 'rule') {
+      runRuleCommand(ctx, rule, effectDefs[key], spec, state);
+      continue;
+    }
 
     const effect = effectDefs[key];
     if (!effect) throw new Error(`Could not resolve effect: ${key}`);
@@ -95,10 +100,6 @@ export function runCommands(ctx, sourceId, commands, applier) {
 
       case 'apply':
         runApplyEffect(ctx, effect, spec, { applier });
-        break;
-
-      case 'rule':
-        runRuleCommand(ctx, rule, effect, spec);
         break;
     }
   }

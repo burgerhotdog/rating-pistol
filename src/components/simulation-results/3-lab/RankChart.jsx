@@ -1,0 +1,132 @@
+import { memo } from 'react';
+import { Paper, Stack, Typography } from '@mui/material';
+import { alpha, useTheme } from '@mui/material/styles';
+import {
+  Bar,
+  BarChart,
+  LabelList,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts';
+import { useAccent } from '@/hooks';
+import { formatDmg, formatNum } from '@/utils';
+
+const renderTooltip = ({ payload, label }) => {
+  const { empty, dps = 0, pct = 0, isUser } = payload?.[0]?.payload ?? {};
+  if (empty) return;
+
+  const diff = pct - 100;
+  const diffStr = diff >= 0
+    ? `+${diff.toFixed(1)}`
+    : diff.toFixed(1);
+
+  return (
+    <Paper elevation={6} sx={{ px: 1, py: 0.5 }}>
+      <Typography variant="caption" color="textSecondary">
+        {label}
+      </Typography>
+      <Stack direction="row" spacing={0.5}>
+        <Typography variant="caption">
+          {formatNum(dps)} dps
+        </Typography>
+        {!isUser && (
+          <Typography
+            variant="caption"
+            color={diff >= 0 ? 'success' : 'error'}
+          >
+            ({diffStr}%)
+          </Typography>
+        )}
+      </Stack>
+    </Paper>
+  );
+};
+
+const RankChart = ({ userMember, userDps, rankResults }) => {
+  const { palette } = useTheme();
+  const accent = useAccent();
+
+  const data = rankResults
+    .map((dps, rank) => {
+      const isUser = rank === userMember.rank;
+
+      return {
+        rank,
+        dps,
+        pct: (dps / userDps) * 100,
+        isUser,
+        fill: `url(#accentGradient)`,
+        ...(!isUser && { filter: 'brightness(0.5)' }),
+      };
+    })
+    .toReversed();
+
+  const chartHeight = data.length * 64 + 40;
+
+  return (
+    <BarChart
+      data={data}
+      layout="vertical"
+      style={{
+        width: '100%',
+        height: chartHeight,
+      }}
+      responsive
+    >
+      <XAxis
+        type="number"
+        tickFormatter={formatDmg}
+      />
+
+      <YAxis
+        type="category"
+        dataKey="rank"
+        tick={false}
+      />
+
+      <Bar
+        dataKey="dps"
+        barSize={48}
+      >
+        <LabelList
+          content={({ x, y, height, index }) => {
+            const entry = data[index];
+            if (!entry?.icon) return null;
+
+            const size = Math.max(height - 8, 48);
+            const ix = x + 8;
+            const iy = y + (height - size) / 2;
+
+            return (
+              <image
+                x={ix}
+                y={iy}
+                width={size}
+                height={size}
+                href={entry.icon}
+                {...(!entry.isUser && { opacity: 0.75 })}
+                filter={entry.filter}
+              />
+            );
+          }}
+        />
+      </Bar>
+
+      <Tooltip
+        content={renderTooltip}
+        cursor={{ fill: alpha(palette.text.primary, 0.1) }}
+        isAnimationActive={false}
+      />
+
+      <defs>
+        <linearGradient id={`accentGradient`} x1="1" y1="0" x2="0" y2="0">
+          <stop offset="0%" stopColor={accent} stopOpacity={1} />
+          <stop offset="100%" stopColor={accent} stopOpacity={0} />
+        </linearGradient>
+      </defs>
+    </BarChart>
+  );
+};
+
+export default memo(RankChart);

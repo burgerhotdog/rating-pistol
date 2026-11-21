@@ -25,11 +25,11 @@ export function updateNightsoulPoints(ctx, action) {
     state.points = clamp(state.points + value, 0, nightsoulLimit);
 
     if (value < 0 && ctx.hasRule('fightingSpirit')) {
-      ctx.runCommands(10000106, [{
+      ctx.runCommands([{
         type: 'apply',
         key: '10000106.10000106:effect3',
         spec: { stacks: -value },
-      }], action.ownerId);
+      }], 10000106, action.ownerId);
     }
   }
 

@@ -1,5 +1,46 @@
-import { MAINSTAT, SUBSTAT, WW } from '@/data';
+import { MAINSTAT, SUBSTAT, MISC, WW } from '@/data';
 import { buildEquipMap } from '@/utils';
+import { buildSkippable } from './skippable';
+
+const ROLLS_PER_SLOT = 6;   // 1 initial roll + 5 upgrades
+const UPGRADE_BUDGET = 25;
+const EPS = 1e-9;
+
+function erRollsNeeded(gameId, equipMap, requiredEquipEr) {
+  const needed = requiredEquipEr - (equipMap[MISC[gameId].energyAttr] ?? 0);
+  if (needed <= EPS) return 0;
+  return Math.ceil(needed / SUBSTAT[gameId][MISC[gameId].energyAttr].value - EPS);
+}
+
+// Returns every ER allocation worth trying for this combo.
+// feasible=false => requirement can't be met; plans holds the best-effort allocation.
+function getErPlans(gameId, equipMap, requiredEquipEr, mainstatIds) {
+  const rolls = erRollsNeeded(gameId, equipMap, requiredEquipEr);
+  if (rolls === 0) return { feasible: true, plans: [{ rolls: 0, slots: 0 }] };
+
+  if (gameId === WW) {
+    // WW model: max 5 rolls per stat, no per-equip structure
+    return rolls <= 5
+      ? { feasible: true, plans: [{ rolls, slots: 0 }] }
+      : { feasible: false, plans: [{ rolls: 5, slots: 0 }] };
+  }
+
+  const eligible = mainstatIds.filter((id) => id !== MISC[gameId].energyAttr).length;
+  const minSlots = Math.ceil(rolls / ROLLS_PER_SLOT);
+
+  if (minSlots > eligible) {
+    return {
+      feasible: false,
+      plans: [{ rolls: eligible * ROLLS_PER_SLOT, slots: eligible }],
+    };
+  }
+
+  const plans = [];
+  for (let slots = minSlots; slots <= Math.min(eligible, rolls); slots++) {
+    plans.push({ rolls, slots });
+  }
+  return { feasible: true, plans };
+}
 
 const FLAT_STAT_BY_COST = {
   4: { mainstatSubId: 'atk', mainstatSubValue: 150 },
@@ -28,20 +69,37 @@ const toEquipWW = (cost, mainstatId, substats = []) => ({
 });
 
 function greedyFillSubstats(
-  gameId,
-  equipMap,
-  runEquipMap,
-  skippable,
-  mainstatIds,
+  gameId, equipMap, runEquipMap, skippable, mainstatIds,
+  erRolls = 0, erSlots = 0,
 ) {
   const substatPool = Object.keys(SUBSTAT[gameId]).filter((stat) => !skippable.has(stat));
-
   const substatsByEquip = mainstatIds.map(() => new Set());
+  const rollCounts = {};
+  let stage1Steps = 20;
+  let stage2Steps = UPGRADE_BUDGET;
+
+  // NEW: preload ER onto the first `erSlots` equips that aren't ER mainstat
+  if (erRolls > 0) {
+    const eligibleIdx = mainstatIds
+      .map((id, i) => (id !== MISC[gameId].energyAttr ? i : -1))
+      .filter((i) => i >= 0);
+
+    for (let k = 0; k < erSlots; k++) substatsByEquip[eligibleIdx[k]].add(MISC[gameId].energyAttr);
+
+    const upgrades = erRolls - erSlots;
+    equipMap = {
+      ...equipMap,
+      [MISC[gameId].energyAttr]: (equipMap[MISC[gameId].energyAttr] ?? 0) + erRolls * SUBSTAT[gameId][MISC[gameId].energyAttr].value,
+    };
+    rollCounts[MISC[gameId].energyAttr] = upgrades;
+    stage1Steps -= erSlots;
+    stage2Steps -= upgrades;
+  }
 
   let finalResult = runEquipMap(equipMap);
 
   // Stage 1: add 4 unique substats to each artifact.
-  for (let step = 0; step < 20; step++) {
+  for (let step = 0; step < stage1Steps; step++) {
     let bestResult = finalResult;
     let bestStat;
     let bestEquip;
@@ -88,9 +146,7 @@ function greedyFillSubstats(
     ]),
   );
 
-  const rollCounts = {};
-
-  for (let step = 0; step < 25; step++) {
+  for (let step = 0; step < stage2Steps; step++) {
     let bestResult = finalResult;
     let bestStat;
 
@@ -127,13 +183,23 @@ function greedyFillSubstats(
   return finalResult;
 }
 
-function greedyFillSubstatsWW(equipMap, runEquipMap, skippable) {
+function greedyFillSubstatsWW(equipMap, runEquipMap, skippable, erRolls = 0) {
   const substatPool = Object.keys(SUBSTAT[WW]);
   const counts = {};
+  let steps = 25;
+
+  if (erRolls > 0) {
+    equipMap = {
+      ...equipMap,
+      [MISC[WW].energyAttr]: (equipMap[MISC[WW].energyAttr] ?? 0) + erRolls * SUBSTAT[WW][MISC[WW].energyAttr].value,
+    };
+    counts[MISC[WW].energyAttr] = erRolls;
+    steps -= erRolls;
+  }
 
   let finalResult = runEquipMap(equipMap);
 
-  for (let step = 0; step < 25; step++) {
+  for (let step = 0; step < steps; step++) {
     let bestResult = finalResult;
     let bestSubstat;
 
@@ -210,49 +276,81 @@ function getOptionsPerSlot(gameId, evalId, skippable) {
   );
 }
 
-export function getCeil(gameId, runEquipMap, currId, skippable) {
-  const costPattern = currId === 1409
-    ? [4, 4, 1, 1, 1]
-    : [4, 3, 3, 1, 1];
+export function getCeil(gameId, runEquipMap, currId, requiredEquipEr = 0) {
+  const skippable = buildSkippable(gameId, runEquipMap);
 
+  // Never skip ER when it's required.
+  // (If buildSkippable returns a cached object, copy it before mutating.)
+  if (requiredEquipEr > 0) {
+    skippable.substats.delete(MISC[gameId].energyAttr);
+    for (const set of Object.values(skippable.mainstats)) set.delete(MISC[gameId].energyAttr);
+  }
+
+  const costPattern = currId === 1409 ? [4, 4, 1, 1, 1] : [4, 3, 3, 1, 1];
   const optionsPerSlot = getOptionsPerSlot(gameId, currId, skippable.mainstats);
 
+  const makeEquipMap = (combo) =>
+    buildEquipMap(
+      gameId === WW
+        ? costPattern.map((cost, i) => toEquipWW(cost, combo[i]))
+        : combo.map((mainstatId, i) => toEquip(gameId, i, mainstatId)),
+      true,
+    );
+
+  // Pass 1: rank combos by bare score and flag infeasible ER
   const rankedCombos = [];
 
   for (const combo of getMainstatCombos(optionsPerSlot)) {
-    const equipList = gameId === WW
-      ? costPattern.map((cost, i) => toEquipWW(cost, combo[i]))
-      : combo.map((mainstatId, i) => toEquip(gameId, i, mainstatId));
-
-    const equipMap = buildEquipMap(equipList, true);
+    const equipMap = makeEquipMap(combo);
     const score = runEquipMap(equipMap).score;
+    const { feasible } = getErPlans(gameId, equipMap, requiredEquipEr, combo);
 
-    rankedCombos.push({ combo, score });
+    rankedCombos.push({
+      combo,
+      score,
+      flagged: !feasible,
+      hasEr: requiredEquipEr > 0 && combo.includes(MISC[gameId].energyAttr),
+    });
   }
 
-  rankedCombos.sort((a, b) => b.score - a.score);
+  rankedCombos.sort((a, b) => (a.flagged - b.flagged) || (b.score - a.score));
 
-  // Pass 2 (accurate): for each shortlisted combo, fully optimize substats,
-  // then compare combos by their REAL final score - this is what actually
-  // resolves the mainstat-vs-substat interaction correctly, since it's
-  // asking evaluateEquipMap to judge the complete build, caps and all.
-  let bestResult = { fullScore: 0, score: 0 };
+  // Shortlist: 10 best unflagged ER-mainstat combos, then the 10 best of the rest
+  const erCombos = rankedCombos.filter((c) => !c.flagged && c.hasEr);
+  const others = rankedCombos.filter((c) => c.flagged || !c.hasEr);
+  const shortlist = [...erCombos.slice(0, 5), ...others.slice(0, 5)];
 
-  for (const { combo } of rankedCombos.slice(0, 10)) {
-    const bareEquips = gameId === WW
-      ? costPattern.map((cost, i) => toEquipWW(cost, combo[i]))
-      : combo.map((mainstatId, i) => toEquip(gameId, i, mainstatId));
+  // Pass 2: full substat fill, trying each ER slot allocation
+  let best = null; // { result, met }
 
-    const bareEquipMap = buildEquipMap(bareEquips, true);
+  for (const { combo, flagged } of shortlist) {
+    const bareEquipMap = makeEquipMap(combo);
+    const { plans } = getErPlans(gameId, bareEquipMap, requiredEquipEr, combo);
+    const met = !flagged;
 
-    const result = gameId === WW
-      ? greedyFillSubstatsWW(bareEquipMap, runEquipMap, skippable.substats)
-      : greedyFillSubstats(gameId, bareEquipMap, runEquipMap, skippable.substats, combo);
+    for (const { rolls, slots } of plans) {
+      const result = gameId === WW
+        ? greedyFillSubstatsWW(bareEquipMap, runEquipMap, skippable.substats, rolls)
+        : greedyFillSubstats(
+            gameId, bareEquipMap, runEquipMap, skippable.substats, combo, rolls, slots,
+          );
 
-    if (result.score > bestResult.score) {
-      bestResult = result;
+      // met results always beat unmet ones; otherwise higher score wins
+      if (
+        !best ||
+        (met && !best.met) ||
+        (met === best.met && result.score > best.result.score)
+      ) {
+        best = { result, met };
+      }
     }
   }
 
-  return bestResult;
+  if (requiredEquipEr > 0 && !best?.met) {
+    console.log(
+      `getCeil: could not reach required ER (${requiredEquipEr}) for ${currId}; returning best effort`,
+    );
+  }
+
+  return best?.result ?? { fullScore: 0, score: 0 };
 }

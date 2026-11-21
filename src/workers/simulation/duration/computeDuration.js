@@ -53,7 +53,7 @@ function getRequiredEr(cache, memberId, statMapOf, bonusEnergy = {}) {
   return clamp(requiredEr, energyMin, energyMax);
 }
 
-function getRequiredErMap(cache, equipMaps, bonusEnergy) {
+export function getRequiredErMap(cache, equipMaps, bonusEnergy) {
   const requiredErMap = {};
   const statMapOf = createStatMapLookup(cache, (id) => equipMaps[id]);
 
@@ -80,7 +80,6 @@ function getRequiredImpactMap(cache, equipMaps) {
 
 function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, specEquipMap, requiredImpactMap) {
   const { gameId } = cache;
-  const source = {};
   let fullTime = 0;
   const statMapOf = createStatMapLookup(cache, (id) => id === specId ? specEquipMap : equipMaps[id]);
   const isUnison = cache.rotationOrder;
@@ -88,14 +87,6 @@ function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, s
   for (const memberId in cache.member) {
     const { id, duration, durationAlt, concertoPenalty } = cache.member[memberId];
     const hasUnisonRot = isUnison && cache.rotationOrder[0] !== id;
-    const mSource = source[id] = {
-      duration,
-      added: 0,
-      ...(hasUnisonRot && {
-        durationUnison: durationAlt ?? duration,
-        addedUnison: 0,
-      }),
-    };
 
     fullTime += duration;
     if (hasUnisonRot) {
@@ -109,7 +100,6 @@ function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, s
       const ratio = currImpact / requiredImpact;
       const adjusted = duration / ratio - duration;
 
-      mSource.added += adjusted;
       fullTime += adjusted;
     }
 
@@ -117,7 +107,6 @@ function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, s
     if (!energy) continue;
 
     if (gameId === WW && concertoPenalty) {
-      mSource.added += 3000;
       fullTime += 3000;
     }
 
@@ -132,11 +121,10 @@ function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, s
     const missingEnergy = Math.max(0, energy - generated);
     const addedTime = missingEnergy * 150;
 
-    mSource.added += addedTime;
     fullTime += addedTime;
   }
 
-  return { time: fullTime, source };
+  return fullTime;
 }
 
 // Resolves immediately for the given cache and equipMaps

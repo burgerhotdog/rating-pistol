@@ -1,50 +1,36 @@
-import { GI } from '@/data';
 import { getTotals, toMergedObj } from '@/utils';
-import { runRotation } from '../rotation';
-import { createEquipDurationGetter } from '../duration';
 
-export function createRunEquipMapFactory(cache, equipMaps, specId) {
-  const { gameId } = cache;
+function runEquipMap(preMerged, equipMap, resolveSnapshots, partWeights, baseRates, durationGetter) {
+  const statMap = toMergedObj(preMerged, equipMap);
 
-  const preMerged = toMergedObj(...[
-    cache.member[specId].baseMap,
-    cache.member[specId].staticMap,
-    ...(gameId === GI ? [cache.teamResonance.stats] : []),
-  ]);
+  const snapshots = resolveSnapshots(statMap);
+  const totals = getTotals(snapshots);
 
-  const { snapshots: resolveSnapshots, bonusEnergy } = runRotation(cache, equipMaps, specId, true);
+  const fullScore = partWeights.reduce((acc, [part, weight]) => {
+    const value = totals[part] ?? 0;
+    const divisor = baseRates?.[part] || 1;
 
-  const durationGetter = createEquipDurationGetter(cache, equipMaps, specId, bonusEnergy);
+    return acc + value / divisor * weight;
+  }, 0);
 
-  return (calibration = { damage: 1 }) => {
-    const { reference, ...weights } = calibration;
-    const partWeights = Object.entries(weights);
+  const time = durationGetter(equipMap);
 
-    return (equipMap = {}) => {
-      const statMap = toMergedObj(preMerged, equipMap);
-      const snapshots = resolveSnapshots(statMap);
-      const totals = getTotals(snapshots);
+  const score = fullScore / time * 1000;
+  const dps = totals.damage / time * 1000;
 
-      const fullScore = partWeights.reduce((acc, [part, weight]) => {
-        const value = totals[part] ?? 0;
-        const divisor = reference?.[part] ?? 1;
+  return {
+    snapshots,
+    totals,
+    fullScore,
+    time,
+    score,
+    dps,
+  };
+}
 
-        return acc + value / divisor * weight;
-      }, 0);
+export function createRunEquipMap(preMerged, resolveSnapshots, durationGetter, calibration) {
+  const { reference, ...weights } = calibration;
+  const partWeights = Object.entries(weights).filter(Boolean);
 
-      const { time } = durationGetter(equipMap);
-
-      const score = fullScore / time * 1000;
-      const dps = totals.damage / time * 1000;
-
-      return {
-        snapshots,
-        totals,
-        fullScore,
-        time,
-        score,
-        dps,
-      };
-    };
-  }
+  return (equipMap = {}) => runEquipMap(preMerged, equipMap, resolveSnapshots, partWeights, reference, durationGetter);
 }

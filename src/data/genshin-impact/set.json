@@ -2043,22 +2043,16 @@
         "use": {
           "when": "interval",
           "filter": {
-            "AND": [
-              {
-                "states": {
-                  "aura": {
-                    "HAS": "burning"
-                  }
-                }
-              },
-              {
-                "effectStacks": {
-                  "NOT": {
-                    "burningBuff": 5
-                  }
-                }
+            "states": {
+              "aura": {
+                "HAS": "burning"
               }
-            ]
+            },
+            "effectStacks": {
+              "NOT": {
+                "burningBuff": 5
+              }
+            }
           },
           "cooldown": 1000,
           "commands": {
@@ -2072,31 +2066,25 @@
         "use": {
           "when": "interval",
           "filter": {
-            "AND": [
-              {
-                "states": {
-                  "aura": {
-                    "NOT": {
-                      "HAS": "burning"
-                    }
-                  }
-                }
-              },
-              {
-                "effectStacks": {
-                  "AND": [
-                    {
-                      "NOT": {
-                        "HAS": "burningGrace"
-                      }
-                    },
-                    {
-                      "HAS": "burningBuff"
-                    }
-                  ]
+            "states": {
+              "aura": {
+                "NOT": {
+                  "HAS": "burning"
                 }
               }
-            ]
+            },
+            "effectStacks": {
+              "AND": [
+                {
+                  "NOT": {
+                    "HAS": "burningGrace"
+                  }
+                },
+                {
+                  "HAS": "burningBuff"
+                }
+              ]
+            }
           },
           "cooldown": 1000,
           "commands": {
@@ -2131,6 +2119,19 @@
             "ref": "burningGrace",
             "spec": {
               "duration": 6000
+            }
+          }
+        }
+      },
+      {
+        "bonus": 4,
+        "use": {
+          "when": "enterCombat",
+          "commands": {
+            "type": "apply",
+            "ref": "burningBuff",
+            "spec": {
+              "stacks": 5
             }
           }
         }

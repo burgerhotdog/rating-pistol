@@ -14,13 +14,21 @@ const lunarCrystallizeAction = {
 };
 
 export function reactLunarCrystallize(ctx, ownerId, gaugeUnits) {
-  const state = ctx.states.aura.lunarCrystallize ??= {
-    reaction: 'lunarCrystallize',
-    timesLeft: 3,
-  };
+  const auraStore = ctx.states.aura;
+
+  if (!auraStore.lunarCrystallize) {
+    auraStore.lunarCrystallize = {
+      reaction: 'lunarCrystallize',
+      timesLeft: 3,
+    };
+
+    ctx.runEffects('createGeoConstruct');
+  }
+
+  const state = auraStore.lunarCrystallize;
   const units = gaugeUnits / 2;
 
-  const excess = consumeAura(ctx.states.aura, 'hydro', units);
+  const excess = consumeAura(auraStore, 'hydro', units);
   state.timesLeft--;
   ctx.runEffects('reaction', { ownerId, reaction: lunarCrystallizeReaction });
 

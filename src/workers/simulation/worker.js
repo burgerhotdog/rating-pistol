@@ -7,6 +7,7 @@ import { calibrate } from './calibrate';
 import { benchmarkSkillLevels } from './skill-level-tests';
 import { runEquipTests, runTrials } from './equip-tests';
 import { runLabTests } from './lab-tests';
+import { rankTests } from './rank-tests';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
@@ -90,14 +91,12 @@ self.onmessage = async ({ data }) => {
     snapshots: userSnapshots,
     bonusEnergy,
     time: userRotationTime,
-    source: userRotationTimeSource,
     dps: userDps,
   } = getRotationOrder(rawCache, equipMaps);
   self.postMessage({
     rotationOrder,
     userSnapshots,
     userRotationTime,
-    userRotationTimeSource,
     userDps,
   });
 
@@ -110,11 +109,11 @@ self.onmessage = async ({ data }) => {
     }),
   };
 
-  const { benchmarkLevels, benchmarkLevelsSource } = benchmarkSkillLevels(cache, equipMaps, charId, userDps);
-  self.postMessage({ benchmarkLevels, benchmarkLevelsSource });
-
   const { calibration, scoreCeiling, dpsCeiling } = calibrate(cache, equipMaps, charId);
   self.postMessage({ scoreCeiling, dpsCeiling });
+
+  const { benchmarkLevels, benchmarkLevelsSource } = benchmarkSkillLevels(cache, equipMaps, charId, userDps);
+  self.postMessage({ benchmarkLevels, benchmarkLevelsSource });
 
   const {
     scoreProgression,
@@ -142,6 +141,9 @@ self.onmessage = async ({ data }) => {
 
   const { weaponResults, setResults } = runLabTests(cache, equipMaps, bonusEnergy);
   self.postMessage({ weaponResults, setResults });
+
+  const rankResults = rankTests(cache, equipMaps, charId);
+  self.postMessage({ rankResults });
 
   self.postMessage({ status: 'done' });
 };

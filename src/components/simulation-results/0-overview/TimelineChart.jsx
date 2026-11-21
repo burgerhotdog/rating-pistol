@@ -12,87 +12,60 @@ import {
 import { useData, usePageParams } from '@/hooks';
 import { formatDmg, formatNum, formatStr } from '@/utils';
 
-function buildData(snapshots, areaStack, userRotationTime, userRotationTimeSource) {
-  const roundedUserRotationTime = Math.round(userRotationTime);
-  const runtimeDamage = {};
+function buildAreaStack(memberIds, snapshots, gameId, charDatas, elemDatas) {
+  const areaStack = memberIds.map((memberId) => {
+    const { name, element, icon } = charDatas[memberId];
+    const { color } = elemDatas[element];
+    return { dataKey: memberId, name, color, icon };
+  });
 
-  const sorted = snapshots.toSorted((a, b) => a.runtime - b.runtime);
-
-  const adjustmentRatios = Object.fromEntries(
-    Object.entries(userRotationTimeSource)
-      .map(([id, { duration, added }]) => {
-        const ratio = (duration + added) / duration;
-        return [id, ratio];
-      })
-  );
-
-  let prevOnFieldId = sorted[0].onFieldId;
-  let rawOnFieldOffset = 0;
-  let adjustedOnFieldOffset = 0;
-
-  for (const { onFieldId, runtime, ownerId, damageType, damage } of sorted) {
-    if (onFieldId !== prevOnFieldId) {
-      const { duration, added } = userRotationTimeSource[prevOnFieldId];
-      prevOnFieldId = onFieldId;
-      rawOnFieldOffset += duration;
-      adjustedOnFieldOffset += duration + added;
-    }
-
-    if (!damage) continue;
-
-    const dataKey = ownerId === 'system' ? damageType : ownerId;
-
-    const adjustmentRatio = adjustmentRatios[onFieldId];
-    const partToAdjust = runtime - rawOnFieldOffset;
-    const adjustedRuntime = adjustedOnFieldOffset + partToAdjust * adjustmentRatio;
-
-    const time = Math.min((Math.floor(adjustedRuntime / 1000) + 1) * 1000, roundedUserRotationTime);
-
-    runtimeDamage[time] ??= { time };
-    runtimeDamage[time][dataKey] = (runtimeDamage[time][dataKey] ?? 0) + damage;
+  const systemDamageTypes = {};
+  for (const { ownerId, damageType, damage } of snapshots) {
+    if (ownerId !== 'system') continue;
+    systemDamageTypes[damageType] = (systemDamageTypes[damageType] ?? 0) + damage;
   }
 
-  runtimeDamage[0] ??= { time: 0 };
-  runtimeDamage[roundedUserRotationTime] ??= { time: roundedUserRotationTime };
-  for (const { dataKey } of areaStack) {
-    runtimeDamage[0][dataKey] ??= 0;
-  }
-
-  const data = Object.values(runtimeDamage).sort((a, b) => a.time - b.time);
-  
-  for (let i = 0; i < data.length; i++) {
-    const curr = data[i];
-
-    for (const { dataKey } of areaStack) {
-      curr[dataKey] ??= 0;
-    }
-
-    if (i === 0) continue;
-
-    const prev = data[i - 1];
-
-    for (const { dataKey } of areaStack) {
-      curr[dataKey] += prev[dataKey];
-    }
-  }
-
-  let currTime = 0;
-  const filled = [data[0]];
-
-  for (const point of data.slice(1)) {
-    while (currTime < point.time - 1000) {
-      currTime += 1000;
-      filled.push({
-        ...filled.at(-1),
-        time: currTime,
+  Object.entries(systemDamageTypes)
+    .sort(([, a], [, b]) => b - a)
+    .forEach(([damageType]) => {
+      areaStack.push({
+        dataKey: damageType,
+        name: formatStr(damageType),
+        color: '#ffffff',
+        icon: `${gameId}/system/${damageType}.webp`,
       });
+    });
+
+  return areaStack;
+};
+
+function buildData(snapshots, areaStack) {
+  const dataKeys = areaStack.map(({ dataKey }) => dataKey);
+  const sortedSnaps = snapshots.toSorted((a, b) => a.runtime - b.runtime);
+  const lastTime = 1000 + Math.floor(sortedSnaps.at(-1).runtime / 1000) * 1000;
+
+  const data = [];
+  let snapIndex = 0;
+
+  for (let time = 0; time <= lastTime; time += 1000) {
+    const prevBucket = data.at(-1);
+    const bucket = { time };
+    for (const dataKey of dataKeys) {
+      bucket[dataKey] = prevBucket?.[dataKey] ?? 0;
     }
 
-    filled.push(point);
-    currTime = point.time;
+    while (sortedSnaps[snapIndex]?.runtime < time) {
+      const { ownerId, damageType, damage } = sortedSnaps[snapIndex++];
+      if (!damage) continue;
+
+      const dataKey = ownerId === 'system' ? damageType : ownerId;
+      bucket[dataKey] += damage;
+    }
+
+    data.push(bucket);
   }
 
-  return filled;
+  return data;
 }
 
 const tooltipContent = ({ payload }, areaStack) => {
@@ -156,63 +129,16 @@ const tooltipContent = ({ payload }, areaStack) => {
   );
 };
 
-const RotationTimeline = ({
-  memberIds,
-  userSnapshots,
-  userRotationTime,
-  userRotationTimeSource,
-}) => {
+const RotationTimeline = ({ memberIds, userSnapshots }) => {
   const { gameId } = usePageParams();
   const { palette } = useTheme();
   const charDatas = useData('character');
-  const elementDatas = useData('element');
+  const elemDatas = useData('element');
 
-  if (
-    !memberIds ||
-    !userSnapshots ||
-    !userRotationTime ||
-    !userRotationTimeSource
-  ) return;
+  if (!memberIds || !userSnapshots) return;
 
-  const areaStack = [
-    ...memberIds.map((id) => {
-      const { name, element, icon } = charDatas[id];
-      const { color } = elementDatas[element];
-      return {
-        dataKey: id,
-        name,
-        color,
-        icon,
-      };
-    }),
-    ...Object.entries(userSnapshots
-      .reduce((acc, { ownerId, damageType, damage }) => {
-        if (ownerId === 'system') {
-          acc[damageType] = damage;
-        }
-        return acc;
-      }, {}))
-      .sort(([, a], [, b]) => b - a)
-      .map(([damageType]) => ({
-        dataKey: damageType,
-        name: formatStr(damageType),
-        color: '#ffffff',
-        icon: `${gameId}/reaction/${damageType}.webp`,
-      })),
-  ];
-
-  const data = buildData(userSnapshots, areaStack, userRotationTime, userRotationTimeSource);
-  const maxSecond = Math.floor(userRotationTime / 1000);
-  const interval = Math.max(1, Math.ceil(maxSecond / 6));
-  const ticks = [];
-
-  for (let second = 0; second < maxSecond; second += interval) {
-    ticks.push(second * 1000);
-  }
-
-  if (ticks.at(-1) !== userRotationTime) {
-    ticks.push(userRotationTime);
-  }
+  const areaStack = buildAreaStack(memberIds, userSnapshots, gameId, charDatas, elemDatas);
+  const data = buildData(userSnapshots, areaStack);
 
   return (
     <AreaChart
@@ -228,9 +154,8 @@ const RotationTimeline = ({
       <XAxis
         type="number"
         dataKey="time"
-        domain={[0, userRotationTime]}
+        domain={[0, 'dataMax']}
         tick={{ fontSize: 12 }}
-        ticks={ticks}
         tickFormatter={(time) => `${parseFloat((time / 1000).toFixed(1))}s`}
       />
 

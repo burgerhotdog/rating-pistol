@@ -1,4 +1,5 @@
 import { runUseEffect } from './runUseEffect';
+import { auraCheck } from '../aura';
 
 const intervalCache = new WeakMap();
 
@@ -39,7 +40,7 @@ function expireEffectState(ctx, state, storeOwnerId) {
   if (!expire) return;
 
   if (ctx.eventFilter(expire.filter, effect.ownerId, {}, storeOwnerId ?? effect.ownerId)) {
-    ctx.runCommands(effect.ownerId, expire.commands);
+    ctx.runCommands(expire.commands, effect.ownerId, storeOwnerId ?? effect.ownerId, state);
   };
 }
 
@@ -75,6 +76,10 @@ function getStateBoundary(state) {
 
   if (state.removeTimer > 0) {
     boundary = Math.min(boundary, state.removeTimer);
+  }
+
+  if (state.absorbCooldown > 0) {
+    boundary = Math.min(boundary, state.absorbCooldown);
   }
 
   return boundary;
@@ -151,6 +156,10 @@ function advanceStateTimers(state, step) {
     }
   }
 
+  if (state.absorbCooldown > 0) {
+    state.absorbCooldown = Math.max(state.absorbCooldown - step, 0);
+  }
+
   if (expiring) {
     state.expiring = true;
   }
@@ -172,7 +181,7 @@ function fireIntervalUses(ctx, state, storeOwnerId) {
     const removed = runUseEffect(ctx, state, use, spec);
 
     if (use.commands) {
-      ctx.runCommands(effect.ownerId, use.commands, storeOwnerId);
+      ctx.runCommands(use.commands, effect.ownerId, storeOwnerId, state);
     }
 
     if (removed) break;
@@ -211,4 +220,23 @@ export function fireEffectUses(ctx) {
 
 export function fireEffectExpiries(ctx) {
   forEachState(ctx, (state, storeOwnerId) => fireExpiry(ctx, state, storeOwnerId));
+}
+
+function fireAuraCheck(ctx, state) {
+  if (state.absorbCooldown !== 0) return; // null/undefined/>0 are all skipped
+
+  const { effect } = state;
+  const auraElement = auraCheck(ctx, effect.ownerId);
+
+  if (auraElement) {
+    state.absorbElement = auraElement;
+    state.absorbCooldown = null;
+  } else {
+    state.absorbElement = null;
+    state.absorbCooldown = 300;
+  }
+}
+
+export function fireAuraChecks(ctx) {
+  forEachState(ctx, (state) => fireAuraCheck(ctx, state));
 }
