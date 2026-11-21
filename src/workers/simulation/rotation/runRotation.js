@@ -77,9 +77,9 @@ function runCycle(ctx, order, appearances, init = false) {
     }
 
     if (appearances[memberId] % 2) {
-      return mCache.rotationAlt ?? mCache.rotation;
-    } else {
       return mCache.rotation;
+    } else {
+      return mCache.rotationAlt ?? mCache.rotation;
     }
   }
 
