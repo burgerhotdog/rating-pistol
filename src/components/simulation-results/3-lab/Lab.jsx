@@ -155,8 +155,8 @@ const Lab = ({ results }) => {
             />
           ) : tab === 3 && memberChartReady ? (
             <MemberChart
-              userMember={results.userMember}
               userDps={results.userDps}
+              memberId={results.memberIds[memberIndex]}
               memberResult={results.memberResults[memberIndex]}
             />
           ) : (

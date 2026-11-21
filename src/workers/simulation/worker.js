@@ -146,7 +146,7 @@ self.onmessage = async ({ data }) => {
   const rankResults = rankTests(cache, equipMaps, charId);
   self.postMessage({ rankResults });
 
-  const memberResults = memberTests(rawCache.memberIds, cache, equipMaps, charId, data?.builds, userDps);
+  const memberResults = memberTests(data.team, cache, equipMaps, charId, data.builds, userDps);
   self.postMessage({ memberResults });
 
   self.postMessage({ status: 'done' });

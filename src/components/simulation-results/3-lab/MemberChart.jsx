@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { useAccent } from '@/hooks';
+import { useData } from '@/hooks';
 import { formatDmg, formatNum } from '@/utils';
 
 const renderTooltip = ({ payload, label }) => {
@@ -43,23 +43,26 @@ const renderTooltip = ({ payload, label }) => {
   );
 };
 
-const MemberChart = ({ userMember, userDps, memberResult }) => {
+const MemberChart = ({ userDps, memberId, memberResult }) => {
   const { palette } = useTheme();
-  const accent = useAccent();
+  const elemDatas = useData('element');
+  const charDatas = useData('character');
 
   if (!memberResult) return;
 
   const data = memberResult
     .map(({ id, name, dps }) => {
-      const isUser = id === userMember.id;
+      const isUser = id === memberId;
+      const { icon, element } = charDatas[id];
 
       return {
         id,
         name,
+        icon,
         dps,
         pct: (dps / userDps) * 100,
         isUser,
-        fill: `url(#accentGradient)`,
+        fill: `url(#gradient${element})`,
         ...(!isUser && { filter: 'brightness(0.5)' }),
       };
     })
@@ -123,10 +126,12 @@ const MemberChart = ({ userMember, userDps, memberResult }) => {
       />
 
       <defs>
-        <linearGradient id={`accentGradient`} x1="1" y1="0" x2="0" y2="0">
-          <stop offset="0%" stopColor={accent} stopOpacity={1} />
-          <stop offset="100%" stopColor={accent} stopOpacity={0} />
-        </linearGradient>
+        {Object.entries(elemDatas).map(([elem, { color }]) => (
+          <linearGradient key={elem} id={`gradient${elem}`} x1="1" y1="0" x2="0" y2="0">
+            <stop offset="0%" stopColor={color} stopOpacity={1} />
+            <stop offset="100%" stopColor={color} stopOpacity={0} />
+          </linearGradient>
+        ))}
       </defs>
     </BarChart>
   );
