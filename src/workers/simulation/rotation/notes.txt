@@ -8,3 +8,4 @@ to improve:
     geo constructs dont destroy each other at 3
     elevation rxns use all chars
     guoba swirl
+    Iansan movement rule

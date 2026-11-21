@@ -12897,7 +12897,6 @@
     ]
   },
   "10000036": {
-    "disabled": true,
     "name": "Chongyun",
     "version": 1.0,
     "id": 10000036,
@@ -12914,7 +12913,186 @@
     },
     "energy": 40,
     "liyue": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "skill_frostField",
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 10000
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "character": {
+              "type": [
+                "sword",
+                "claymore",
+                "polearm"
+              ]
+            },
+            "field": "onField",
+            "action": {
+              "category": "normalAttack",
+              "type": [
+                "normalAttack",
+                "chargedAttack",
+                "plungingAttack"
+              ]
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "cryo"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "type": [
+                "sword",
+                "claymore",
+                "polearm"
+              ]
+            },
+            "field": "onField"
+          },
+          "stats": {
+            "attackSpd%": 0.08
+          }
+        }
+      },
+      {
+        "ref": "a4",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 10000
+        },
+        "remove": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "commands": {
+            "type": "use",
+            "ref": "a4_action"
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "use",
+            "ref": "a4_action"
+          }
+        }
+      },
+      {
+        "ref": "a4_action",
+        "use": {
+          "when": "command",
+          "action": "elementalSkill.2"
+        }
+      },
+      {
+        "ref": "a4_buff",
+        "stores": "global",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "stats": {
+            "cryoResReduction%": 0.1
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.3"
+            }
+          },
+          "action": {
+            "damage": {
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": 0.5,
+                  "times": 3
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "states": {
+              "aura": {
+                "HAS": "cryo"
+              }
+            }
+          },
+          "cooldown": 2000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 1
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalBurst.0",
+                "elementalBurst.1"
+              ]
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "action": "elementalBurst.1"
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Demonbane",
@@ -13115,9 +13293,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Spirit Blade: Chonghua's Layered Frost",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -13143,26 +13322,53 @@
           },
           {
             "name": "Infusion Duration",
-            "type": "buff",
+            "buff": {
+              "multipliers": [
+                {
+                  "flat": [
+                    2000,
+                    2100,
+                    2200,
+                    2300,
+                    2400,
+                    2500,
+                    2600,
+                    2700,
+                    2800,
+                    2900,
+                    3000,
+                    3000,
+                    3000,
+                    3000,
+                    3000
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Extra Spirit Blade",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
-                    2,
-                    2.1,
-                    2.2,
-                    2.3,
-                    2.4,
-                    2.5,
-                    2.6,
-                    2.7,
-                    2.8,
-                    2.9,
-                    3,
-                    3,
-                    3,
-                    3,
-                    3
+                    1.7204,
+                    1.8494,
+                    1.9785,
+                    2.1505,
+                    2.2795,
+                    2.4086,
+                    2.5806,
+                    2.7526,
+                    2.9247,
+                    3.0967,
+                    3.2688,
+                    3.4408,
+                    3.6559,
+                    3.8709,
+                    4.086
                   ]
                 }
               ]
@@ -13175,9 +13381,39 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Spirit Blade: Cloud-Parting Star",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "multipliers": [
+                {
+                  "mv": [
+                    1.424,
+                    1.5308,
+                    1.6376,
+                    1.78,
+                    1.8868,
+                    1.9936,
+                    2.136,
+                    2.2784,
+                    2.4208,
+                    2.5632,
+                    2.7056,
+                    2.848,
+                    3.026,
+                    3.204,
+                    3.382
+                  ],
+                  "times": 3
+                }
+              ]
+            }
+          },
+          {
+            "name": "Extra Spirit Blade (C6)",
+            "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -13208,8 +13444,18 @@
       "weaponId": 12403,
       "setCounts": {
         "15007": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000114,
+      10000112,
+      10000036,
+      10000140
+    ]
   },
   "10000037": {
     "disabled": true,
@@ -41861,7 +42107,6 @@
     }
   },
   "10000083": {
-    "disabled": true,
     "name": "Lynette",
     "version": 4.0,
     "id": 10000083,
@@ -41878,7 +42123,262 @@
     },
     "energy": 70,
     "arkhe": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "skill_restoreHealth",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "action": {
+            "health": {
+              "value": 0.25
+            }
+          }
+        }
+      },
+      {
+        "ref": "skill_drainHealth",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 4000,
+          "offset": 1000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": {
+            "health": {
+              "value": -0.06
+            }
+          }
+        }
+      },
+      {
+        "ref": "surgingBlade",
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "cooldown": 10000,
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "burst_bogglecatBox",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "offset": 1500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "rank": -2,
+        "ref": "burst_vividShot",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "offset": 1500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2300,
+          "action": "elementalBurst.2"
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "a4"
+          }
+        },
+        "absorbElement": true
+      },
+      {
+        "enable": {
+          "uniqueElementCount": 1
+        },
+        "ref": "a1",
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.08
+          }
+        }
+      },
+      {
+        "enable": {
+          "uniqueElementCount": 2
+        },
+        "ref": "a1",
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.12
+          }
+        }
+      },
+      {
+        "enable": {
+          "uniqueElementCount": 3
+        },
+        "ref": "a1",
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.16
+          }
+        }
+      },
+      {
+        "enable": {
+          "uniqueElementCount": 4
+        },
+        "ref": "a1",
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.2
+          }
+        }
+      },
+      {
+        "ref": "a4",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.2"
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalBurstDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "ref": "burst_vividShot",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "offset": 1500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2300,
+          "action": [
+            "elementalBurst.2",
+            "elementalBurst.2"
+          ]
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "a4"
+          }
+        },
+        "absorbElement": true
+      },
+      {
+        "rank": 6,
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 6000
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "category": "normalAttack"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "anemo"
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "anemoDmgBonus%": 0.2
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Rapid Ritesword",
@@ -42090,9 +42590,10 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Enigma Thrust DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -42149,9 +42650,15 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -42176,9 +42683,15 @@
             }
           },
           {
-            "name": "Bogglecat Box DMG",
-            "type": "elementalBurst",
+            "name": "Bogglecat Box",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -42203,9 +42716,15 @@
             }
           },
           {
-            "name": "Vivid Shot DMG",
-            "type": "elementalBurst",
+            "name": "Vivid Shot",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Vivid Shot",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -42232,7 +42751,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 11401,
+      "setCounts": {
+        "15002": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000086,
+      10000058,
+      10000150,
+      10000083
+    ]
   },
   "10000084": {
     "name": "Lyney",
@@ -50192,7 +50726,7 @@
                     0.2648,
                     0.2796
                   ],
-                  "hits": 7
+                  "times": 7
                 }
               ]
             },
