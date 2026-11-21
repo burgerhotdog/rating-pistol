@@ -134,6 +134,11 @@ Characters:
         No constellations
     Ningguang
         No A4
+    Noelle
+        Breastplate always heals and can heal on burst first hit
+        No A4 cooldown reduction
+        Burst and C6 Buffs aren't snapshotted at cast
+        No C6 duration increase
     Odette
         Only plume
         Marvelous Splendor applies to $ally

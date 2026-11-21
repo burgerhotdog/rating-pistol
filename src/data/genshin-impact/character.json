@@ -11192,7 +11192,6 @@
     ]
   },
   "10000034": {
-    "disabled": true,
     "name": "Noelle",
     "version": 1.0,
     "id": 10000034,
@@ -11208,7 +11207,169 @@
       "def%": 0.3
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "skill_breastplate",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 12000
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "OR": [
+                {
+                  "damage": {
+                    "type": [
+                      "normalAttack",
+                      "chargedAttack"
+                    ]
+                  }
+                },
+                {
+                  "ref": [
+                    "elementalSkill.0",
+                    "elementalBurst.0"
+                  ]
+                }
+              ]
+            }
+          },
+          "action": "elementalSkill.1"
+        },
+        "expire": {
+          "commands": {
+            "type": "use",
+            "ref": "c4"
+          }
+        },
+        "snapshotBuffs": true
+      },
+      {
+        "ref": "burst_sweepingTime",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "category": "normalAttack"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "geo"
+            }
+          }
+        },
+        "buff": {
+          "specRefs": {
+            "atk": {
+              "attr": "def",
+              "step": 1,
+              "value": "elementalBurst.1"
+            }
+          }
+        }
+      },
+      {
+        "ref": "a1",
+        "use": {
+          "by": "$team",
+          "when": "healthUpdate",
+          "filter": {
+            "field": "onField",
+            "health": {
+              "<": 0.3
+            }
+          },
+          "cooldown": 60000,
+          "action": {
+            "shield": {
+              "duration": 20000,
+              "attr": "def",
+              "multipliers": [
+                {
+                  "mv": 4
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "stats": {
+            "chargedAttackDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "ref": "c4",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            },
+            "effectStacks": {
+              "HAS": "skill_breastplate"
+            }
+          },
+          "action": {
+            "damage": {
+              "gauge": 2,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": 4
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "specs": {
+            "atk": {
+              "attr": "def",
+              "step": 1,
+              "value": 0.5
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Favonius Bladework - Maid",
@@ -11409,9 +11570,15 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Breastplate",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 2,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "attr": "def",
               "multipliers": [
                 {
@@ -11434,10 +11601,7 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Breastplate: Shield",
+            },
             "shield": {
               "duration": 12000,
               "attr": "def",
@@ -11482,8 +11646,9 @@
             }
           },
           {
-            "name": "Breastplate: Healing",
+            "name": "Breastplate Healing",
             "healing": {
+              "targets": "$team",
               "attr": "def",
               "multipliers": [
                 {
@@ -11527,11 +11692,10 @@
           },
           {
             "name": "Healing Triggering Chance",
-            "type": "buff",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.5,
                     0.51,
                     0.52,
@@ -11559,9 +11723,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Sweeping Time",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -11581,15 +11751,7 @@
                     1.512,
                     1.596
                   ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Skill DMG",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
+                },
                 {
                   "mv": [
                     0.928,
@@ -11614,11 +11776,10 @@
           },
           {
             "name": "ATK Bonus",
-            "type": "buff",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.4,
                     0.43,
                     0.46,
@@ -11646,8 +11807,36 @@
       "weaponId": 12407,
       "setCounts": {
         "15021": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.2"
+      ]
+    },
+    "teamPreset": [
+      10000034,
+      10000130,
+      10000125,
+      10000127
+    ]
   },
   "10000035": {
     "name": "Qiqi",
@@ -70879,8 +71068,8 @@
     "teamPreset": [
       10000126,
       10000130,
-      10000127,
-      10000125
+      10000125,
+      10000127
     ]
   },
   "10000127": {
@@ -71751,8 +71940,8 @@
     "teamPreset": [
       10000126,
       10000130,
-      10000127,
-      10000125
+      10000125,
+      10000127
     ]
   },
   "10000128": {
@@ -74683,8 +74872,8 @@
     "teamPreset": [
       10000126,
       10000130,
-      10000127,
-      10000125
+      10000125,
+      10000127
     ]
   },
   "10000131": {

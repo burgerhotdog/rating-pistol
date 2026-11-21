@@ -5,7 +5,6 @@ to improve:
     change er from duration to no ult
     tune break with unison rotations
     2 min window instead of 1 rot
-    element absorption doesnt keep trying to absorb
     geo constructs dont destroy each other at 3
     elevation rxns use all chars
     guoba swirl
