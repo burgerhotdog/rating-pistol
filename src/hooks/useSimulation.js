@@ -58,7 +58,7 @@ export const useSimulation = (team) => {
     worker.onmessage = ({ data }) => {
       setResult((prev) => ({ ...prev, ...data }));
 
-      if (data.status === 'done') {
+      if (data.status === 'done' || data.status === 'error') {
         worker.terminate();
         if (workerRef.current === worker) {
           workerRef.current = null;

@@ -146,8 +146,14 @@ self.onmessage = async ({ data }) => {
   const rankResults = rankTests(cache, equipMaps, charId);
   self.postMessage({ rankResults });
 
-  const memberResults = memberTests(data.team, cache, equipMaps, charId, data.builds, userDps);
-  self.postMessage({ memberResults });
+  try {
+    const memberResults = await memberTests(data.team, cache, equipMaps, charId, data.builds, userDps);
+    self.postMessage({ memberResults });
+  } catch (error) {
+    console.error('Member tests failed:', error);
+    self.postMessage({ status: 'error', memberTestError: error.message });
+    return;
+  }
 
   self.postMessage({ status: 'done' });
 };

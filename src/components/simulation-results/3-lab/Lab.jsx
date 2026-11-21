@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Swords, Boxes, Astroid, Users } from 'lucide-react';
 import {
+  Alert,
   Box,
   Card,
   CardHeader,
@@ -153,6 +154,8 @@ const Lab = ({ results }) => {
               userDps={results.userDps}
               rankResults={results.rankResults}
             />
+          ) : tab === 3 && results.memberTestError ? (
+            <Alert severity="error">{results.memberTestError}</Alert>
           ) : tab === 3 && memberChartReady ? (
             <MemberChart
               userDps={results.userDps}

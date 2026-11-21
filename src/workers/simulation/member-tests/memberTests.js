@@ -3,7 +3,7 @@ import { initMember } from '@/utils';
 import { buildCache } from '../cache';
 import { getRotationOrder } from '../rotation-order';
 
-function testAltMembers(team, cache, equipMaps, charId, builds, userDps, memberId) {
+export function testAltMembers(team, cache, equipMaps, charId, builds, userDps, memberId) {
   const result = [];
 
   for (const charData of Object.values(CHARACTER[cache.gameId])) {
@@ -31,20 +31,4 @@ function testAltMembers(team, cache, equipMaps, charId, builds, userDps, memberI
   }
 
   return result;
-}
-
-export function memberTests(team, cache, equipMaps, charId, builds, userDps) {
-  const memberResults = [];
-
-  for (const { id: memberId } of team.filter((member) => member.id)) {
-    if (memberId === charId) {
-      memberResults.push(null);
-      continue;
-    }
-
-    const result = testAltMembers(team, cache, equipMaps, charId, builds, userDps, memberId);
-    memberResults.push(result);
-  }
-
-  return memberResults;
 }

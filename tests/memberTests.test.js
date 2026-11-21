@@ -3,7 +3,13 @@ import { CHARACTER, GI, WW } from '@/data';
 import { initMember } from '@/utils';
 import { buildCache } from '@/workers/simulation/cache';
 import { getRotationOrder } from '@/workers/simulation/rotation-order';
-import { memberTests } from '@/workers/simulation/member-tests';
+import { testAltMembers } from '@/workers/simulation/member-tests/memberTests';
+
+const memberTests = (team, cache, equipMaps, charId, builds, userDps) => team
+  .filter((member) => member.id)
+  .map(({ id }) => id === charId
+    ? null
+    : testAltMembers(team, cache, equipMaps, charId, builds, userDps, id));
 
 describe('memberTests', () => {
   it.each([

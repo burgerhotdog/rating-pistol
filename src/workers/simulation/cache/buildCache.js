@@ -23,7 +23,7 @@ function buildCacheMember(cache, member) {
   const baseMap = mCache.baseMap = buildBaseMap(gameId, member.id, member.weaponId);
   const actionDefs = mCache.actions = getActionDefs(gameId, member, memberIds, baseMap);
 
-  const { rotation, duration } = getConvertedRotation(gameId, member, member.rotation, actionDefs, memberIds);
+  const { rotation, duration } = getConvertedRotation(gameId, member, member.rotation, actionDefs, memberIds, true);
   mCache.rotation = rotation;
   mCache.duration = duration;
 
