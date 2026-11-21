@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { CHARACTER, WEAPON, SET, ECHO } from '@/data';
-import { usePageParams } from '@/hooks';
+import { usePageParams, useBuilds } from '@/hooks';
 
 const isValid = ({ gameId, charId, team }) => team
   .filter((member) => member.id != null)
@@ -28,15 +28,16 @@ const isValid = ({ gameId, charId, team }) => team
   });
 
 export const useSimulation = (team) => {
+  const builds = useBuilds();
   const { gameId, charId } = usePageParams();
   const workerRef = useRef(null);
   const prevPayloadRef = useRef(undefined);
   const [result, setResult] = useState({ disabled: true });
 
   const payload = useMemo(() => {
-    const data = { gameId, charId, team };
+    const data = { gameId, charId, team, builds };
     return isValid(data) ? data : null;
-  }, [gameId, charId, team]);
+  }, [gameId, charId, team, builds]);
 
   if (prevPayloadRef.current !== payload) {
     prevPayloadRef.current = payload;
@@ -57,7 +58,7 @@ export const useSimulation = (team) => {
     worker.onmessage = ({ data }) => {
       setResult((prev) => ({ ...prev, ...data }));
 
-      if (data.status === 'done') {
+      if (data.status === 'done' || data.status === 'error') {
         worker.terminate();
         if (workerRef.current === worker) {
           workerRef.current = null;

@@ -37851,7 +37851,7 @@
         "36": 5
       },
       "mainEcho": 6000225,
-      "rotation": [
+      "rotationAlt": [
         "introSkill.2",
         "normalAttack.2",
         "normalAttack.3",
@@ -37860,7 +37860,7 @@
         "resonanceSkill.1",
         "outroSkill.0"
       ],
-      "rotationAlt": [
+      "rotation": [
         "introSkill.5",
         "normalAttack.17",
         "normalAttack.18",
@@ -39706,7 +39706,7 @@
         "36": 5
       },
       "mainEcho": 6000224,
-      "rotation": [
+      "rotationAlt": [
         "introSkill.0",
         "normalAttack.3",
         "normalAttack.4",
@@ -39715,7 +39715,7 @@
         "normalAttack.0",
         "outroSkill.0"
       ],
-      "rotationAlt": [
+      "rotation": [
         "introSkill.3",
         "forteCircuit.1",
         "forteCircuit.2",

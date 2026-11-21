@@ -8,6 +8,7 @@ import { benchmarkSkillLevels } from './skill-level-tests';
 import { runEquipTests, runTrials } from './equip-tests';
 import { runLabTests } from './lab-tests';
 import { rankTests } from './rank-tests';
+import { memberTests } from './member-tests';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
@@ -144,6 +145,15 @@ self.onmessage = async ({ data }) => {
 
   const rankResults = rankTests(cache, equipMaps, charId);
   self.postMessage({ rankResults });
+
+  try {
+    const memberResults = await memberTests(data.team, cache, equipMaps, charId, data.builds, userDps);
+    self.postMessage({ memberResults });
+  } catch (error) {
+    console.error('Member tests failed:', error);
+    self.postMessage({ status: 'error', memberTestError: error.message });
+    return;
+  }
 
   self.postMessage({ status: 'done' });
 };

@@ -9,4 +9,3 @@ to improve:
     elevation rxns use all chars
     guoba swirl
     Iansan movement rule
-    skill lvls tests and rank tests dont modify stuff for rotationAlt or rotationInit

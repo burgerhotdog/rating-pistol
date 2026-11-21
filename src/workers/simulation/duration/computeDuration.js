@@ -82,16 +82,23 @@ function resolveDuration(cache, equipMaps, requiredErMap, bonusEnergy, specId, s
   const { gameId } = cache;
   let fullTime = 0;
   const statMapOf = createStatMapLookup(cache, (id) => id === specId ? specEquipMap : equipMaps[id]);
-  const isUnison = cache.rotationOrder;
+  const order = cache.rotationOrder ?? cache.memberIds.toReversed();
+  const appearances = Object.fromEntries(cache.memberIds.map((id) => [id, 0]));
+  const rotationDurations = Object.fromEntries(cache.memberIds.map((id) => [id, 0]));
+
+  // The initialization pass advances appearances without contributing to duration.
+  for (const id of order) appearances[id]++;
+
+  for (const id of order) {
+    const { duration, durationAlt } = cache.member[id];
+    rotationDurations[id] += appearances[id] % 2 ? durationAlt ?? duration : duration;
+    appearances[id]++;
+  }
 
   for (const memberId in cache.member) {
-    const { id, duration, durationAlt, concertoPenalty } = cache.member[memberId];
-    const hasUnisonRot = isUnison && cache.rotationOrder[0] !== id;
-
+    const { id, concertoPenalty } = cache.member[memberId];
+    const duration = rotationDurations[id];
     fullTime += duration;
-    if (hasUnisonRot) {
-      fullTime += durationAlt ?? duration;
-    }
 
     if (gameId === ZZZ) {
       const requiredImpact = requiredImpactMap[id];

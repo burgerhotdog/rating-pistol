@@ -1,10 +1,9 @@
 import { CHARACTER } from '@/data';
-import { toMergedObj, getTotals, getMvIndex, getCompressed } from '@/utils';
+import { toMergedObj, getTotals, getMvIndex } from '@/utils';
 import { runRotation } from '../rotation';
 import { computeDuration } from '../duration';
 import { getEffectDefs } from '../cache/effects';
-
-const parts = ['damage', 'healing', 'shield'];
+import { getSkillLevelRotations, updateSkillLevelAction } from '../skillLevelActions';
 
 function modifySkillLevel(testCache, skillId) {
   const { gameId, charId } = testCache;
@@ -12,47 +11,8 @@ function modifySkillLevel(testCache, skillId) {
   const charSkills = CHARACTER[gameId][charId].skills;
 
   const mvIndex = getMvIndex(gameId, charId, mCache.rank, skillId, mCache.skillLevels[skillId]);
-  const rotation = structuredClone(mCache.rotation);
+  const rotations = getSkillLevelRotations(mCache, charSkills, skillId, mvIndex);
   const effects = structuredClone(mCache.effects);
-
-  // rotation
-  for (const action of rotation) {
-    if (action.category !== skillId) continue;
-
-    for (const part of parts) {
-      const actionPart = action[part];
-      if (!actionPart) continue;
-
-      const rawPartDef = charSkills[skillId].actions[action.index]?.[part];
-      if (!rawPartDef) continue;
-
-      actionPart.compressed = getCompressed(
-        rawPartDef.multipliers,
-        rawPartDef.attr ?? 'atk',
-        { index: mvIndex },
-      );
-    }
-
-    if (action.health) {
-      const actionHealth = action.health = { ...action.health };
-
-      const rawHealthDef = charSkills[skillId].actions[action.index]?.health;
-      if (!rawHealthDef) continue;
-
-      if (Array.isArray(rawHealthDef.value) && rawHealthDef.value.length !== 2) {
-        actionHealth.value = rawHealthDef.value[mvIndex];
-      }
-    }
-
-    if (action.bondOfLife) {
-      const rawBondOfLifeDef = charSkills[skillId].actions[action.index]?.bondOfLife;
-      if (!rawBondOfLifeDef) continue;
-
-      if (Array.isArray(rawBondOfLifeDef) && rawBondOfLifeDef.length !== 2) {
-        action.bondOfLife = rawBondOfLifeDef[mvIndex];
-      }
-    }
-  }
 
   // effects
   for (const effect of Object.values(effects)) {
@@ -92,41 +52,7 @@ function modifySkillLevel(testCache, skillId) {
 
         if (use.action) {
           for (const action of use.action) {
-            if (action.category !== skillId) continue;
-
-            for (const part of parts) {
-              const actionPart = action[part];
-              if (!actionPart) continue;
-
-              const rawPartDef = charSkills[skillId].actions[action.index]?.[part];
-              if (!rawPartDef) continue;
-
-              actionPart.compressed = getCompressed(
-                rawPartDef.multipliers,
-                rawPartDef.attr ?? 'atk',
-                { index: mvIndex },
-              );
-            }
-
-            if (action.health) {
-              const actionHealth = action.health = { ...action.health };
-
-              const rawHealthDef = charSkills[skillId].actions[action.index]?.health;
-              if (!rawHealthDef) continue;
-
-              if (Array.isArray(rawHealthDef.value) && rawHealthDef.value.length !== 2) {
-                actionHealth.value = rawHealthDef.value[mvIndex];
-              }
-            }
-
-            if (action.bondOfLife) {
-              const rawBondOfLifeDef = charSkills[skillId].actions[action.index]?.bondOfLife;
-              if (!rawBondOfLifeDef) continue;
-
-              if (Array.isArray(rawBondOfLifeDef) && rawBondOfLifeDef.length !== 2) {
-                action.bondOfLife = rawBondOfLifeDef[mvIndex];
-              }
-            }
+            updateSkillLevelAction(action, charSkills, skillId, mvIndex);
           }
         }
       }
@@ -168,7 +94,7 @@ function modifySkillLevel(testCache, skillId) {
     }
   }
 
-  mCache.rotation = rotation;
+  Object.assign(mCache, rotations);
   mCache.effects = effects;
 }
 

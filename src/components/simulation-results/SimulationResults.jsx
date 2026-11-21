@@ -1,10 +1,6 @@
 import { useState } from 'react';
-import { Stack, Tab, CircularProgress } from '@mui/material';
-import {
-  Info,
-  Timeline,
-  Science,
-} from '@mui/icons-material';
+import { Stack, Tab } from '@mui/material';
+import { Info, Timeline, Science } from '@mui/icons-material';
 import { Tabs } from '@/components/Colored';
 import { useAccent, useData, useSimulation } from '@/hooks';
 import Overview from './0-overview';
@@ -18,16 +14,6 @@ const SimulationResults = ({ team }) => {
   const [tab, setTab] = useState(0);
 
   if (results.disabled) return;
-
-  const labReady =
-    results.userMember &&
-    results.userDps &&
-    results.weaponResults &&
-    results.setResults;
-
-  if (tab === 2 && !labReady) {
-    setTab(0);
-  }
 
   return (
     <Stack spacing={1} sx={{ flex: 1 }}>
@@ -54,14 +40,9 @@ const SimulationResults = ({ team }) => {
 
         <Tab
           value={2}
-          icon={
-            labReady
-              ? <Science />
-              : <CircularProgress size={20} color="inherit" />
-          }
+          icon={<Science />}
           iconPosition="start"
           label="Lab"
-          disabled={!labReady}
         />
       </Tabs>
 

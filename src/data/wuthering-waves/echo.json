@@ -3343,23 +3343,73 @@
             "electroDmgBonus%": 0.1
           }
         }
+      },
+      {
+        "enable": {
+          "owner": {
+            "NOT": {
+              "id": 1311
+            }
+          }
+        },
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          },
+          "action": {
+            "damage": {
+              "type": "echoSkill",
+              "element": "electro",
+              "multipliers": [
+                {
+                  "mv": 0.2736,
+                  "times": 4
+                },
+                {
+                  "mv": 1.6416
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "owner": {
+            "id": 1311
+          }
+        },
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "echoSkill.0"
+            }
+          },
+          "action": {
+            "damage": {
+              "type": "echoSkill",
+              "element": "electro",
+              "multipliers": [
+                {
+                  "mv": 0.082,
+                  "times": 5
+                },
+                {
+                  "mv": 2.3256
+                }
+              ]
+            }
+          }
+        }
       }
     ],
     "action": {
       "name": "Echo Skill: Reminiscence: Suhsin the Inevitable",
-      "type": "echoSkill",
-      "damage": {
-        "element": "electro",
-        "multipliers": [
-          {
-            "mv": 0.082,
-            "times": 5
-          },
-          {
-            "mv": 2.3256
-          }
-        ]
-      }
+      "type": "echoSkill"
     }
   },
   "390070051": {

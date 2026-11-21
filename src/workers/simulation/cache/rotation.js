@@ -23,7 +23,7 @@ function adjustTimings(rotation, actual, estimate) {
   return resolved;
 }
 
-export const getConvertedRotation = (gameId, member, rawRotation, actionDefs, memberIds) => {
+export const getConvertedRotation = (gameId, member, rawRotation, actionDefs, memberIds, isMainRotation = false) => {
   const rotation = [];
   let durationEstimate = 0;
   let timeRemoved = 0;
@@ -45,11 +45,11 @@ export const getConvertedRotation = (gameId, member, rawRotation, actionDefs, me
   }
 
   if (gameId === WW) {
-    if (member.mainEcho) {
+    if (member.mainEcho && isMainRotation) {
       insertMainEchoAction(rotation, member.mainEcho, actionDefs);
     }
 
-    if (member.id === memberIds[0]) {
+    if (member.id === memberIds[0] && isMainRotation) {
       insertTuneBreakAction(rotation, durationEstimate, member.id);
     }
   }
