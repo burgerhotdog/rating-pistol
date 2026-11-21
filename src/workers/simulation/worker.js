@@ -7,6 +7,7 @@ import { calibrate } from './calibrate';
 import { benchmarkSkillLevels } from './skill-level-tests';
 import { runEquipTests, runTrials } from './equip-tests';
 import { runLabTests } from './lab-tests';
+import { rankTests } from './rank-tests';
 
 async function resolveEquipMaps(cache, allowBlank = false) {
   const equipMaps = {};
@@ -140,6 +141,9 @@ self.onmessage = async ({ data }) => {
 
   const { weaponResults, setResults } = runLabTests(cache, equipMaps, bonusEnergy);
   self.postMessage({ weaponResults, setResults });
+
+  const rankResults = rankTests(cache, equipMaps, charId);
+  self.postMessage({ rankResults });
 
   self.postMessage({ status: 'done' });
 };

@@ -78,7 +78,7 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
               const mvBuffValue = (mv && Array.isArray(mv)) 
                 ? mv[refMvIndexToUse]
                 : mv ?? 0;
-              const flatBuffValue = (flat && Array.isArray(mv)) 
+              const flatBuffValue = (flat && Array.isArray(flat)) 
                 ? flat[refMvIndexToUse]
                 : flat ?? 0;
               apply.duration = mvBuffValue * baseAttrValue + flatBuffValue;
@@ -96,7 +96,7 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
               const mvBuffValue = (mv && Array.isArray(mv)) 
                 ? mv[refMvIndexToUse]
                 : mv ?? 0;
-              const flatBuffValue = (flat && Array.isArray(mv)) 
+              const flatBuffValue = (flat && Array.isArray(flat)) 
                 ? flat[refMvIndexToUse]
                 : flat ?? 0;
               use.cooldown = mvBuffValue * baseAttrValue + flatBuffValue;
@@ -154,7 +154,7 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
               const mvBuffValue = (mv && Array.isArray(mv)) 
                 ? mv[refMvIndexToUse]
                 : mv ?? 0;
-              const flatBuffValue = (flat && Array.isArray(mv)) 
+              const flatBuffValue = (flat && Array.isArray(flat)) 
                 ? flat[refMvIndexToUse]
                 : flat ?? 0;
               buff.stats[id] = mvBuffValue * baseAttrValue + flatBuffValue;
@@ -170,7 +170,7 @@ export function benchmarkSkillLevels(cache, equipMaps, charId, userDps) {
                 const mvBuffValue = (mv && Array.isArray(mv)) 
                   ? mv[refMvIndexToUse]
                   : mv ?? 0;
-                const flatBuffValue = (flat && Array.isArray(mv)) 
+                const flatBuffValue = (flat && Array.isArray(flat)) 
                   ? flat[refMvIndexToUse]
                   : flat ?? 0;
                 buff.specs[id][field] = mvBuffValue * baseAttrValue + flatBuffValue;
