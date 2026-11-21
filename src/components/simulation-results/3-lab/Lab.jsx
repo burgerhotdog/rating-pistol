@@ -4,9 +4,13 @@ import {
   Box,
   Card,
   CardHeader,
+  FormControl,
   FormControlLabel,
   IconButton,
+  InputLabel,
   Menu,
+  MenuItem,
+  Select,
   Skeleton,
   Stack,
   Tab,
@@ -14,18 +18,22 @@ import {
 } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Switch, Tabs } from '@/components/Colored';
-import { useAccent } from '@/hooks';
+import { useAccent, useData } from '@/hooks';
 import WeaponsDialog from './WeaponsDialog';
 import SetsDialog from './SetsDialog';
 import RankChart from './RankChart';
+import MemberChart from './MemberChart';
 
 const Lab = ({ results }) => {
   const accent = useAccent();
+  const charDatas = useData('character');
   const [tab, setTab] = useState(0);
 
   const [normalize, setNormalize] = useState(true);
   const [hideLimited, setHideLimited] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
+
+  const [memberIndex, setMemberIndex] = useState(0);
 
   const menuOpen = Boolean(anchorEl);
 
@@ -43,6 +51,11 @@ const Lab = ({ results }) => {
     results.userMember &&
     results.userDps &&
     results.rankResults;
+
+  const memberChartReady =
+    results.userMember &&
+    results.userDps &&
+    results.memberResults;
 
   return (
     <Card component={Stack} sx={{ flex: 1 }}>
@@ -83,6 +96,22 @@ const Lab = ({ results }) => {
                     />
                   }
                 />
+                {results.memberIds && (
+                  <FormControl fullWidth size="small" sx={{ mt: 1 }}>
+                    <InputLabel>Member</InputLabel>
+                    <Select
+                      label="Member"
+                      value={memberIndex}
+                      onChange={(event) => setMemberIndex(event.target.value)}
+                    >
+                      {results.memberIds.map((id, index) => (
+                        <MenuItem key={index} value={index}>
+                          {charDatas[id]?.name ?? ''}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                )}
               </Stack>
             </Menu>
           </>
@@ -123,6 +152,12 @@ const Lab = ({ results }) => {
               userMember={results.userMember}
               userDps={results.userDps}
               rankResults={results.rankResults}
+            />
+          ) : tab === 3 && memberChartReady ? (
+            <MemberChart
+              userMember={results.userMember}
+              userDps={results.userDps}
+              memberResult={results.memberResults[memberIndex]}
             />
           ) : (
             <Skeleton variant="rectangular" />
