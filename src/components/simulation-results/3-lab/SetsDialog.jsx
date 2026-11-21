@@ -23,8 +23,8 @@ function splitComboKey(comboKey) {
 }
 
 function toSetCounts(comboKey) {
-  if (comboKey === 'none') return {};
   const { setKey } = splitComboKey(comboKey);
+  if (setKey === 'none') return {};
   return Object.fromEntries(
     setKey.split('+')
       .map((setStr) => {
@@ -34,13 +34,12 @@ function toSetCounts(comboKey) {
   );
 }
 
-function toComboKey(setCounts) {
+function toComboKey(setCounts, echoId) {
   const entries = Object.entries(setCounts);
-  if (!entries.length) return 'none';
-
-  return entries
+  const setKey = entries.length ? entries
     .map(([id, count]) => `${id}_${count}`)
-    .join('+');
+    .join('+') : 'none';
+  return echoId != null ? `${setKey}|${echoId}` : setKey;
 }
 
 function getComboIcons(comboKey, setDatas) {
@@ -63,13 +62,13 @@ const toEquivKey = (gameId, setCounts) =>
     })
     .join('+');
 
-function buildData(gameId, setResults, userDps, userSetCounts, limit = false) {
+function buildData(gameId, setResults, userDps, userSetCounts, userMainEcho, limit = false) {
   const userEquivKey = toEquivKey(gameId, userSetCounts);
 
   const isUser = (comboKey) => {
     const testSetCounts = toSetCounts(comboKey);
     const testEquivKey = toEquivKey(gameId, testSetCounts);
-    return testEquivKey === userEquivKey;
+    return testEquivKey === userEquivKey && splitComboKey(comboKey).echoId === (userMainEcho ?? null);
   };
 
   const hasUserConfig = setResults.some(({ comboKey }) => isUser(comboKey));
@@ -78,7 +77,7 @@ function buildData(gameId, setResults, userDps, userSetCounts, limit = false) {
     ...setResults,
     ...(!hasUserConfig
       ? [{
-          comboKey: toComboKey(userSetCounts),
+          comboKey: toComboKey(userSetCounts, userMainEcho),
           dps: userDps,
         }]
       : []
@@ -187,7 +186,7 @@ const SetsDialog = ({ userMember, userDps, setResults }) => {
   const accent = useAccent();
   const setDatas = useData('set');
 
-  const data = buildData(gameId, setResults, userDps, userMember.setCounts);
+  const data = buildData(gameId, setResults, userDps, userMember.setCounts, userMember.mainEcho);
 
   const chartHeight = data.length * 64 + 40;
 
