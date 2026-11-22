@@ -11,6 +11,9 @@ function evaluateSpecial(ctx, special, effOwnerId, event, fieldId) {
   const nsState = ctx.states.nightsoul?.[effOwnerId];
 
   switch (special) {
+    case 'sayu_burstAbove':
+      return ctx.states.memberHealth[onFieldId] > 0.7;
+
     case 'chiori_tamato2':
       return countGeoConstructs(ctx) > 0;
 

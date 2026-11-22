@@ -172,6 +172,8 @@ Characters:
         A4 hard coded
         Remember C6 no snapshot
         Numbers are sus
+    Sayu
+        No rolling
     Shenhe
         No constellations
     Sigewinne

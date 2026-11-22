@@ -23152,7 +23152,6 @@
     ]
   },
   "10000053": {
-    "disabled": true,
     "name": "Sayu",
     "version": 2.0,
     "id": 10000053,
@@ -23168,7 +23167,171 @@
       "elementalMastery": 96
     },
     "energy": 80,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "skill_tap",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "action": [
+            "elementalSkill.1",
+            "elementalSkill.2"
+          ]
+        }
+      },
+      {
+        "rank": -1,
+        "ref": "burst_daruma",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "offset": 1700
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "special": "sayu_burstAbove"
+            },
+            "cooldown": 1700,
+            "action": "elementalBurst.1"
+          },
+          {
+            "when": "interval",
+            "cooldown": 1700,
+            "action": "elementalBurst.2"
+          }
+        ]
+      },
+      {
+        "ref": "a1",
+        "use": {
+          "when": "reaction",
+          "field": "onField",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "swirl",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "cooldown": 2000,
+          "action": {
+            "healing": {
+              "targets": "$team",
+              "attr": "elementalMastery",
+              "multipliers": [
+                {
+                  "mv": 1.2,
+                  "flat": 300
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "ref": "burst_daruma",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "offset": 1700
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1700,
+          "action": [
+            "elementalBurst.1",
+            "elementalBurst.2"
+          ]
+        }
+      },
+      {
+        "rank": 2,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.033
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": {
+          "when": "reaction",
+          "field": "onField",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "swirl",
+                "stellarSwirl"
+              ]
+            }
+          },
+          "cooldown": 2000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 1.2
+            }
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "buff": [
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.1"
+              }
+            },
+            "specs": {
+              "damageMv": {
+                "attr": "elementalMastery",
+                "step": 1,
+                "value": 0.002,
+                "maxValue": 4
+              }
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.2"
+              }
+            },
+            "specs": {
+              "healingFlat": {
+                "attr": "elementalMastery",
+                "step": 1,
+                "value": 3,
+                "maxValue": 6000
+              }
+            }
+          }
+        ]
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Shuumatsuban Ninja Blade",
@@ -23301,8 +23464,8 @@
             }
           },
           {
-            "name": "Charged Attack Spinning DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -23388,9 +23551,19 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Fuufuu Windwheel DMG",
-            "type": "elementalSkill",
+            "name": "Elemental Skill",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Fuufuu Windwheel",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill Anemo",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -23416,8 +23589,9 @@
           },
           {
             "name": "Fuufuu Whirlwind Kick: Tap",
-            "type": "elementalSkill",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -23443,8 +23617,9 @@
           },
           {
             "name": "Fuufuu Whirlwind Kick: Hold",
-            "type": "elementalSkill",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -23469,9 +23644,15 @@
             }
           },
           {
-            "name": "Fuufuu Windwheel Elemental DMG",
-            "type": "elementalSkill",
+            "name": "Fuufuu Windwheel (Elemental)",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill Other",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -23496,9 +23677,10 @@
             }
           },
           {
-            "name": "Fuufuu Whirlwind Kick Elemental DMG",
-            "type": "elementalSkill",
+            "name": "Fuufuu Whirlwind Kick (Elemental)",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -23529,9 +23711,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill Activation DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -23553,12 +23736,9 @@
                   ]
                 }
               ]
-            }
-          },
-          {
-            "name": "Skill Activation Healing",
-            "type": "elementalBurst",
-            "damage": {
+            },
+            "healing": {
+              "targets": "$team",
               "multipliers": [
                 {
                   "mv": [
@@ -23577,10 +23757,8 @@
                     1.9584,
                     2.0736,
                     2.1888
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     577.3388,
                     635.0807,
                     697.6345,
@@ -23602,9 +23780,15 @@
             }
           },
           {
-            "name": "Muji-Muji Daruma DMG",
-            "type": "elementalBurst",
+            "name": "Muji-Muji Daruma Damage",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -23630,8 +23814,7 @@
           },
           {
             "name": "Muji-Muji Daruma Healing",
-            "type": "elementalBurst",
-            "damage": {
+            "healing": {
               "multipliers": [
                 {
                   "mv": [
@@ -23650,10 +23833,8 @@
                     1.6973,
                     1.7971,
                     1.897
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     500.3603,
                     550.4033,
                     604.6165,
@@ -23677,7 +23858,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12401,
+      "setCounts": {
+        "15002": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000042,
+      10000031,
+      10000067,
+      10000053
+    ]
   },
   "10000054": {
     "name": "Sangonomiya Kokomi",
@@ -78116,6 +78312,11 @@
             "name": "Charged Attack: Gradient Detonation",
             "type": "chargedAttack",
             "damage": {
+              "icd": {
+                "tag": "Charged Attack",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -78235,6 +78436,11 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -78407,7 +78613,7 @@
             "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
-              "gauge": 1,
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": {
@@ -79334,8 +79540,7 @@
               "gauge": 1,
               "icd": {
                 "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
+                "time": 2000
               },
               "multipliers": [
                 {

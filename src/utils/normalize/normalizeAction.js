@@ -187,6 +187,16 @@ export function normalizeAction(gameId, rawAction, spec) {
         damage.gauge ??= 1;
       }
 
+      if (
+        action.damage?.type &&
+        (
+          action.damage.type.startsWith('lunar') ||
+          action.damage.type.startsWith('stellar')
+        )
+      ) {
+        delete damage.gauge;
+      }
+
       // Icd
       if (action.type !== 'plunge') {
         if (spec.weaponType === 'sword' || spec.weaponType === 'claymore') {
