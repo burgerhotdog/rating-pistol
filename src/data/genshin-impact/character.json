@@ -65939,7 +65939,7 @@
     "moonsign": true,
     "effects": [
       {
-        "ref": "frostgroveSanctuary",
+        "ref": "skill_frostgroveSanctuary",
         "apply": {
           "when": "use",
           "filter": {
@@ -65960,7 +65960,7 @@
         }
       },
       {
-        "ref": "holdSkillSwitcher",
+        "ref": "skill_holdSkillSwitcher",
         "use": [
           {
             "when": "use",
@@ -66010,7 +66010,7 @@
         ]
       },
       {
-        "ref": "moonSong",
+        "ref": "skill_moonSong",
         "apply": {
           "when": "consumeVerdantDew",
           "uses": 1
@@ -66019,17 +66019,17 @@
           "when": "interval",
           "filter": {
             "effectStacks": {
-              "HAS": "convertMoonSong"
+              "HAS": "burst_convertMoonSong"
             }
           },
           "commands": [
             {
               "type": "remove",
-              "ref": "convertMoonSong"
+              "ref": "burst_convertMoonSong"
             },
             {
               "type": "apply",
-              "ref": "paleHymn",
+              "ref": "burst_paleHymn",
               "spec": {
                 "uses": 6,
                 "extend": true
@@ -66040,7 +66040,7 @@
         "maxStacks": 6
       },
       {
-        "ref": "skillResReduction",
+        "ref": "skill_resReduction",
         "stores": "global",
         "apply": {
           "when": "hit",
@@ -66063,7 +66063,7 @@
         }
       },
       {
-        "ref": "paleHymn",
+        "ref": "burst_paleHymn",
         "stores": "global",
         "apply": {
           "when": "use",
@@ -66113,7 +66113,7 @@
         }
       },
       {
-        "ref": "convertMoonSong",
+        "ref": "burst_convertMoonSong",
         "apply": {
           "when": "use",
           "filter": {
@@ -66247,7 +66247,7 @@
         "buff": {
           "filter": {
             "effectStacks": {
-              "HAS": "paleHymn"
+              "HAS": "burst_paleHymn"
             }
           },
           "specs": {
