@@ -35930,7 +35930,6 @@
     ]
   },
   "10000072": {
-    "disabled": true,
     "name": "Candace",
     "version": 3.1,
     "id": 10000072,
@@ -35946,7 +35945,173 @@
       "hp%": 0.24
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "burst_prayerOfCrimsonCrown",
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 9000
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "character": {
+              "type": [
+                "sword",
+                "claymore",
+                "polearm"
+              ]
+            },
+            "field": "onField",
+            "action": {
+              "category": "normalAttack"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "hydro"
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "normalAttackDmgBonus%": 0.2
+          }
+        }
+      },
+      {
+        "ref": "burst_ripplingWave",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 9000,
+          "uses": 3
+        },
+        "use": {
+          "by": "$team",
+          "when": "swapOn",
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "a4",
+        "stores": "$team",
+        "buff": {
+          "filter": {
+            "field": "onField",
+            "action": {
+              "damage": {
+                "AND": [
+                  {
+                    "type": "normalAttack"
+                  },
+                  {
+                    "NOT": {
+                      "element": "physical"
+                    }
+                  }
+                ]
+              }
+            },
+            "effectStacks": {
+              "HAS": "burst_prayerOfCrimsonCrown"
+            }
+          },
+          "specs": {
+            "dmgBonus%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 0.005
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "modify": {
+          "type": "effect",
+          "ref": "burst_prayerOfCrimsonCrown",
+          "spec": {
+            "apply": {
+              "duration": 3000
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "hp%": 0.2
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "use": {
+          "by": "$team",
+          "when": "hit",
+          "filter": {
+            "field": "onField",
+            "action": {
+              "damage": {
+                "AND": [
+                  {
+                    "type": "normalAttack"
+                  },
+                  {
+                    "NOT": {
+                      "element": "physical"
+                    }
+                  }
+                ]
+              }
+            },
+            "effectStacks": {
+              "HAS": "burst_prayerOfCrimsonCrown"
+            }
+          },
+          "cooldown": 2300,
+          "action": {
+            "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": 0.15
+                }
+              ]
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Gleaming Spear - Guardian Stance",
@@ -36139,55 +36304,11 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Shield DMG Absorption",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.12,
-                    0.129,
-                    0.138,
-                    0.15,
-                    0.159,
-                    0.168,
-                    0.18,
-                    0.192,
-                    0.204,
-                    0.216,
-                    0.228,
-                    0.24,
-                    0.255,
-                    0.27,
-                    0.285
-                  ]
-                },
-                {
-                  "mv": [
-                    1155.5629,
-                    1271.1353,
-                    1396.3386,
-                    1531.173,
-                    1675.6384,
-                    1829.7349,
-                    1993.4624,
-                    2166.8208,
-                    2349.8105,
-                    2542.4312,
-                    2744.6826,
-                    2956.5652,
-                    3178.0789,
-                    3409.2236,
-                    3649.9995
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "name": "Basic DMG",
-            "type": "elementalSkill",
-            "damage": {
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -36212,9 +36333,11 @@
             }
           },
           {
-            "name": "Charged Up DMG",
+            "name": "Elemental Skill: Hold",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -36237,6 +36360,50 @@
                 }
               ]
             }
+          },
+          {
+            "name": "Shield DMG Absorption",
+            "shield": {
+              "attr": "hp",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.12,
+                    0.129,
+                    0.138,
+                    0.15,
+                    0.159,
+                    0.168,
+                    0.18,
+                    0.192,
+                    0.204,
+                    0.216,
+                    0.228,
+                    0.24,
+                    0.255,
+                    0.27,
+                    0.285
+                  ],
+                  "flat": [
+                    1155.5629,
+                    1271.1353,
+                    1396.3386,
+                    1531.173,
+                    1675.6384,
+                    1829.7349,
+                    1993.4624,
+                    2166.8208,
+                    2349.8105,
+                    2542.4312,
+                    2744.6826,
+                    2956.5652,
+                    3178.0789,
+                    3409.2236,
+                    3649.9995
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -36245,9 +36412,11 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -36272,9 +36441,11 @@
             }
           },
           {
-            "name": "Wave Impact DMG",
-            "type": "elementalBurst",
+            "name": "Wave Impact",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -36301,7 +36472,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 13303,
+      "setCounts": {
+        "15007": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000096,
+      10000072,
+      10000032,
+      10000103
+    ]
   },
   "10000073": {
     "name": "Nahida",
