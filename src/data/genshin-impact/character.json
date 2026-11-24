@@ -60657,7 +60657,6 @@
     ]
   },
   "10000108": {
-    "disabled": true,
     "name": "Lan Yan",
     "version": 5.3,
     "id": 10000108,
@@ -60673,8 +60672,141 @@
       "atk%": 0.24
     },
     "energy": 60,
+    "energyMax": 1,
     "liyue": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "skill_feathermoonRings",
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "action": [
+            "elementalSkill.2",
+            "elementalSkill.2",
+            "elementalSkill.2"
+          ]
+        }
+      },
+      {
+        "ref": "a1",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            },
+            "states": {
+              "aura": {
+                "HAS": [
+                  "hydro",
+                  "pyro",
+                  "cryo",
+                  "electro"
+                ]
+              }
+            }
+          },
+          "duration": 12500
+        },
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          },
+          "action": "elementalSkill.3"
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.3"
+            }
+          },
+          "stats": {
+            "damageMv%": -0.5
+          }
+        },
+        "absorbElement": true
+      },
+      {
+        "ref": "a4",
+        "buff": [
+          {
+            "filter": {
+              "action": {
+                "ref": [
+                  "elementalSkill.2",
+                  "elementalSkill.3"
+                ]
+              }
+            },
+            "specs": {
+              "damageFlat": {
+                "attr": "elementalMastery",
+                "step": 1,
+                "value": 3.09
+              }
+            }
+          },
+          {
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.0"
+              }
+            },
+            "specs": {
+              "damageFlat": {
+                "attr": "elementalMastery",
+                "step": 1,
+                "value": 7.74
+              }
+            }
+          }
+        ]
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            },
+            "effectStacks": {
+              "HAS": "a1"
+            }
+          },
+          "action": [
+            "elementalSkill.2",
+            "elementalSkill.2",
+            "elementalSkill.2"
+          ]
+        }
+      },
+      {
+        "rank": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 60
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Black Pheasant Strides on Water",
@@ -60847,7 +60979,8 @@
                     0.8041,
                     0.8514,
                     0.8987
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
@@ -60886,9 +61019,64 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Feathermoon Ring DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
+            "shield": {
+              "duration": 12500,
+              "multipliers": [
+                {
+                  "mv": [
+                    2.7648,
+                    2.9722,
+                    3.1795,
+                    3.456,
+                    3.6634,
+                    3.8707,
+                    4.1472,
+                    4.4237,
+                    4.7002,
+                    4.9766,
+                    5.2531,
+                    5.5296,
+                    5.8752,
+                    6.2208,
+                    6.5664
+                  ],
+                  "flat": [
+                    1155.5629,
+                    1271.1353,
+                    1396.3386,
+                    1531.173,
+                    1675.6384,
+                    1829.7349,
+                    1993.4624,
+                    2166.8208,
+                    2349.8105,
+                    2542.4312,
+                    2744.6826,
+                    2956.5652,
+                    3178.0789,
+                    3409.2236,
+                    3649.9995
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Elemental Skill: Throw Feathermoon Rings",
+            "type": "elementalSkill"
+          },
+          {
+            "name": "Feathermoon Ring (Anemo)",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -60913,46 +61101,33 @@
             }
           },
           {
-            "name": "Shield DMG Absorption",
-            "type": "elementalSkill",
+            "name": "Feathermoon Ring (Other)",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill Absorbed",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
-                    2.7648,
-                    2.9722,
-                    3.1795,
-                    3.456,
-                    3.6634,
-                    3.8707,
-                    4.1472,
-                    4.4237,
-                    4.7002,
-                    4.9766,
-                    5.2531,
-                    5.5296,
-                    5.8752,
-                    6.2208,
-                    6.5664
-                  ]
-                },
-                {
-                  "mv": [
-                    1155.5629,
-                    1271.1353,
-                    1396.3386,
-                    1531.173,
-                    1675.6384,
-                    1829.7349,
-                    1993.4624,
-                    2166.8208,
-                    2349.8105,
-                    2542.4312,
-                    2744.6826,
-                    2956.5652,
-                    3178.0789,
-                    3409.2236,
-                    3649.9995
+                    0.9626,
+                    1.0348,
+                    1.1069,
+                    1.2032,
+                    1.2754,
+                    1.3476,
+                    1.4438,
+                    1.5401,
+                    1.6364,
+                    1.7326,
+                    1.8289,
+                    1.9251,
+                    2.0454,
+                    2.1658,
+                    2.2861
                   ]
                 }
               ]
@@ -60965,9 +61140,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -60986,7 +61167,8 @@
                     5.1226,
                     5.4239,
                     5.7253
-                  ]
+                  ],
+                  "times": 3
                 }
               ]
             }
@@ -60994,7 +61176,23 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 14302,
+      "setCounts": {
+        "15002": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.1",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000096,
+      10000060,
+      10000032,
+      10000108
+    ]
   },
   "10000109": {
     "name": "Yumemizuki Mizuki",
