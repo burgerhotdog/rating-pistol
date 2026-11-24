@@ -41,6 +41,9 @@ Characters:
         C1 doesnt pass along to next
         C2 is inaccurate because of C1
         No C4, C6
+    Dehya
+        No dmg mitigation
+        No C2+
     Diluc
         No constellations
     Diona
