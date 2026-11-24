@@ -29743,7 +29743,6 @@
     ]
   },
   "10000062": {
-    "disabled": true,
     "name": "Aloy",
     "version": 2.2,
     "id": 10000062,
@@ -29759,7 +29758,195 @@
       "cryoDmgBonus%": 0.288
     },
     "energy": 40,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "skill_chillwaterBomblets",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 1,
+          "offset": 500
+        },
+        "use": {
+          "when": "interval",
+          "action": [
+            "elementalSkill.1",
+            "elementalSkill.1",
+            "elementalSkill.1",
+            "elementalSkill.1",
+            "elementalSkill.1",
+            "elementalSkill.1"
+          ]
+        }
+      },
+      {
+        "ref": "skill_coil",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            },
+            "effectStacks": {
+              "NOT": {
+                "HAS": "skill_rushingIce"
+              }
+            }
+          },
+          "cooldown": 100
+        },
+        "remove": {
+          "when": "maxStacks",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "skill_rushingIce",
+              "spec": {
+                "duration": 10000
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "a4_apply",
+              "spec": {
+                "duration": 10000,
+                "offset": 1000
+              }
+            }
+          ]
+        },
+        "buff": {
+          "statRefs": {
+            "normalAttackDmgBonus%": "elementalSkill.2"
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "skill_rushingIce",
+        "apply": {
+          "when": "command"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "cryo",
+              "gauge": 1,
+              "icd": {
+                "tag": "Normal Attack",
+                "time": 2500,
+                "hits": 3
+              }
+            }
+          }
+        },
+        "buff": {
+          "statRefs": {
+            "normalAttackDmgBonus%": "elementalSkill.3"
+          }
+        }
+      },
+      {
+        "ref": "a1",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            },
+            "effectStacks": {
+              "NOT": {
+                "HAS": "skill_rushingIce"
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.16
+          }
+        }
+      },
+      {
+        "ref": "a1_ally",
+        "stores": "$ally",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            },
+            "effectStacks": {
+              "NOT": {
+                "HAS": "skill_rushingIce"
+              }
+            }
+          },
+          "cooldown": 100,
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.08
+          }
+        }
+      },
+      {
+        "ref": "a4_apply",
+        "apply": {
+          "when": "command"
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "commands": {
+            "type": "apply",
+            "ref": "a4_buff"
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "a4_buff"
+          }
+        }
+      },
+      {
+        "ref": "a4_buff",
+        "apply": {
+          "when": "command"
+        },
+        "buff": {
+          "stats": {
+            "cryoDmgBonus%": 0.035
+          }
+        },
+        "maxStacks": 10
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Rapid Fire",
@@ -29952,9 +30139,10 @@
         "name": "Frozen Wilds",
         "actions": [
           {
-            "name": "Freeze Bomb DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -29979,9 +30167,11 @@
             }
           },
           {
-            "name": "Chillwater Bomblet DMG",
-            "type": "elementalSkill",
+            "name": "Chillwater Bomblet",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -30006,39 +30196,11 @@
             }
           },
           {
-            "name": "ATK Decrease",
-            "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    0.12,
-                    0.12,
-                    0.12,
-                    0.13,
-                    0.13,
-                    0.13,
-                    0.14,
-                    0.14,
-                    0.14,
-                    0.15,
-                    0.15,
-                    0.15,
-                    0.15,
-                    0.15,
-                    0.15
-                  ]
-                }
-              ]
-            }
-          },
-          {
             "name": "Coil Normal Attack DMG Bonus",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.0585,
                     0.0619,
                     0.0654,
@@ -30055,55 +30217,16 @@
                     0.1134,
                     0.1179
                   ]
-                },
-                {
-                  "mv": [
-                    0.1169,
-                    0.1239,
-                    0.1309,
-                    0.14,
-                    0.147,
-                    0.154,
-                    0.1631,
-                    0.1722,
-                    0.1813,
-                    0.1904,
-                    0.1995,
-                    0.2086,
-                    0.2177,
-                    0.2268,
-                    0.2359
-                  ]
-                },
-                {
-                  "mv": [
-                    0.1754,
-                    0.1858,
-                    0.1963,
-                    0.21,
-                    0.2205,
-                    0.231,
-                    0.2447,
-                    0.2583,
-                    0.272,
-                    0.2856,
-                    0.2993,
-                    0.3129,
-                    0.3266,
-                    0.3402,
-                    0.3538
-                  ]
                 }
               ]
             }
           },
           {
             "name": "Rushing Ice Normal Attack DMG Bonus",
-            "type": "elementalSkill",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     0.2923,
                     0.3098,
                     0.3272,
@@ -30130,9 +30253,10 @@
         "name": "Prophecies of Dawn",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
                   "mv": [
@@ -30159,7 +30283,22 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15403,
+      "setCounts": {
+        "15007": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000002,
+      10000089,
+      10000062,
+      10000112
+    ]
   },
   "10000063": {
     "name": "Shenhe",

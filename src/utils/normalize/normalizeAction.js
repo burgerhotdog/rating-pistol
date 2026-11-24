@@ -2,6 +2,10 @@ import { GI, WW, ZZZ, CHARACTER } from '@/data';
 import { lerp } from '../math';
 import { toArray } from '../toArray';
 
+function standardIcd(tag) {
+  return { tag, time: 2500, hits: 3 };
+}
+
 const DEFAULT_DURATIONS = {
   [GI]: {
     'normalAttack': 750,
@@ -178,44 +182,50 @@ export function normalizeAction(gameId, rawAction, spec) {
       }
     }
 
-    if (gameId === GI && category === 'normalAttack') {
-      // Gauge
-      if (
-        spec.weaponType !== 'bow' ||
-        (action.type === 'chargedAttack' || action.damage?.type === 'chargedAttack')
-      ) {
-        damage.gauge ??= 1;
-      }
-
-      if (
-        action.damage?.type &&
-        (
-          action.damage.type.startsWith('lunar') ||
-          action.damage.type.startsWith('stellar')
-        )
-      ) {
-        delete damage.gauge;
-      }
-
-      // Icd
-      if (action.type !== 'plunge') {
-        if (spec.weaponType === 'sword' || spec.weaponType === 'claymore') {
-          damage.icd ??= { tag: 'Normal Attack', time: 2500, hits: 3 };
+    if (gameId === GI) {
+      if (category === 'normalAttack') {
+        // Gauge
+        if (
+          spec.weaponType !== 'bow' ||
+          (action.type === 'chargedAttack' || action.damage?.type === 'chargedAttack')
+        ) {
+          damage.gauge ??= 1;
         }
 
-        if (spec.weaponType === 'polearm') {
-          if (action.type === 'normalAttack') {
-            damage.icd ??= { tag: 'Normal Attack', time: 2500, hits: 3 };
-          } else {
-            damage.icd ??= { tag: 'Charged Attack', time: 500 };
-          }
+        if (
+          action.damage?.type &&
+          (
+            action.damage.type.startsWith('lunar') ||
+            action.damage.type.startsWith('stellar')
+          )
+        ) {
+          delete damage.gauge;
         }
 
-        if (spec.weaponType === 'catalyst') {
-          if (action.type === 'normalAttack') {
+        // Icd
+        if (action.type !== 'plunge') {
+          if (spec.weaponType === 'sword' || spec.weaponType === 'claymore') {
             damage.icd ??= { tag: 'Normal Attack', time: 2500, hits: 3 };
           }
+
+          if (spec.weaponType === 'polearm') {
+            if (action.type === 'normalAttack') {
+              damage.icd ??= { tag: 'Normal Attack', time: 2500, hits: 3 };
+            } else {
+              damage.icd ??= { tag: 'Charged Attack', time: 500 };
+            }
+          }
+
+          if (spec.weaponType === 'catalyst') {
+            if (action.type === 'normalAttack') {
+              damage.icd ??= { tag: 'Normal Attack', time: 2500, hits: 3 };
+            }
+          }
         }
+      }
+
+      if (typeof damage.icd === 'string') {
+        damage.icd = standardIcd(damage.icd);
       }
     }
   }
