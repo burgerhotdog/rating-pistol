@@ -5940,16 +5940,10 @@
         "stores": "global",
         "buff": {
           "filter": {
-            "AND": [
-              {
-                "radiance": "stellarConduct"
-              },
-              {
-                "effectStacks": {
-                  "HAS": "thunderbeastsTarge"
-                }
-              }
-            ]
+            "radiance": "stellarConduct",
+            "effectStacks": {
+              "HAS": "thunderbeastsTarge"
+            }
           },
           "stats": {
             "cryoResReduction%": 0.15
@@ -5961,19 +5955,11 @@
         "stores": "$team",
         "buff": {
           "filter": {
-            "AND": [
-              {
-                "radiance": "stellarConduct"
-              },
-              {
-                "field": "onField"
-              },
-              {
-                "effectStacks": {
-                  "HAS": "thunderbeastsTarge"
-                }
-              }
-            ]
+            "radiance": "stellarConduct",
+            "field": "onField",
+            "effectStacks": {
+              "HAS": "thunderbeastsTarge"
+            }
           },
           "stats": {
             "elementalMastery": 200
@@ -7966,18 +7952,12 @@
         "use": {
           "when": "hit",
           "filter": {
-            "AND": [
-              {
-                "effectStacks": {
-                  "HAS": "sparks"
-                }
-              },
-              {
-                "action": {
-                  "ref": "normalAttack.2"
-                }
-              }
-            ]
+            "action": {
+              "ref": "normalAttack.2"
+            },
+            "effectStacks": {
+              "HAS": "sparks"
+            }
           },
           "action": "normalAttack.3"
         }
@@ -8995,18 +8975,12 @@
         "use": {
           "when": "reaction",
           "filter": {
-            "AND": [
-              {
-                "reaction": {
-                  "elements": "electro"
-                }
-              },
-              {
-                "effectStacks": {
-                  "HAS": "oz"
-                }
-              }
-            ]
+            "reaction": {
+              "elements": "electro"
+            },
+            "effectStacks": {
+              "HAS": "oz"
+            }
           },
           "cooldown": 500,
           "action": {
@@ -9031,18 +9005,12 @@
           "by": "$team",
           "when": "reaction",
           "filter": {
-            "AND": [
-              {
-                "reaction": {
-                  "reaction": "overloaded"
-                }
-              },
-              {
-                "effectStacks": {
-                  "HAS": "oz"
-                }
-              }
-            ]
+            "reaction": {
+              "reaction": "overloaded"
+            },
+            "effectStacks": {
+              "HAS": "oz"
+            }
           },
           "duration": 10000
         },
@@ -33070,7 +33038,6 @@
     ]
   },
   "10000068": {
-    "disabled": true,
     "name": "Dori",
     "version": 3.0,
     "id": 10000068,
@@ -33086,7 +33053,124 @@
       "hp%": 0.24
     },
     "energy": 80,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "skill_afterSalesRounds",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "action": [
+            "elementalSkill.1",
+            "elementalSkill.1"
+          ]
+        }
+      },
+      {
+        "ref": "burst_jinniDamage",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 400,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "burst_jinniHeal",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "offset": 2000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": [
+            "elementalBurst.2",
+            "elementalBurst.3"
+          ]
+        }
+      },
+      {
+        "rank": 1,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "rank": 2,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.2"
+            }
+          },
+          "action": {
+            "name": "Jinni Toop",
+            "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "C2",
+                "time": 2500,
+                "hits": 3
+              },
+              "multipliers": [
+                {
+                  "mv": 0.5
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField",
+            "health": {
+              "<": 0.5
+            }
+          },
+          "stats": {
+            "healingReceived%": 0.5
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Marvelous Sword-Dance (Modified)",
@@ -33192,8 +33276,8 @@
             }
           },
           {
-            "name": "Charged Attack Spinning DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack",
+            "type": "chargedAttack",
             "damage": {
               "multipliers": [
                 {
@@ -33279,9 +33363,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Troubleshooter Shot DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -33306,9 +33396,15 @@
             }
           },
           {
-            "name": "After-Sales Service Round DMG",
-            "type": "elementalSkill",
+            "name": "After-Sales Service Round",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -33339,9 +33435,18 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Connector DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Connector",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 3000
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -33367,8 +33472,9 @@
           },
           {
             "name": "Continuous Healing",
-            "type": "elementalBurst",
-            "damage": {
+            "healing": {
+              "targets": "$onField",
+              "attr": "hp",
               "multipliers": [
                 {
                   "mv": [
@@ -33387,10 +33493,8 @@
                     0.1417,
                     0.1501,
                     0.1584
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     641.9796,
                     706.1865,
                     775.7439,
@@ -33413,35 +33517,40 @@
           },
           {
             "name": "Energy Regeneration",
-            "type": "elementalBurst",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.6,
-                    1.7,
-                    1.8,
-                    1.9,
-                    2,
-                    2.1,
-                    2.2,
-                    2.3,
-                    2.4,
-                    2.5,
-                    2.5,
-                    2.5,
-                    2.5,
-                    2.5,
-                    2.5
-                  ]
-                }
+            "restoreEnergy": {
+              "targets": "$onField",
+              "flat": [
+                1.6,
+                1.7,
+                1.8,
+                1.9,
+                2,
+                2.1,
+                2.2,
+                2.3,
+                2.4,
+                2.5,
+                2.5,
+                2.5,
+                2.5,
+                2.5,
+                2.5
               ]
             }
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12401,
+      "setCounts": {
+        "15007": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0"
+      ]
+    }
   },
   "10000069": {
     "name": "Tighnari",
@@ -43635,7 +43744,6 @@
     ]
   },
   "10000085": {
-    "disabled": true,
     "name": "Freminet",
     "version": 4.0,
     "id": 10000085,
@@ -43652,7 +43760,317 @@
     },
     "energy": 60,
     "arkhe": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "skill_persTimer",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 10000
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          }
+        },
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "normalAttack"
+            }
+          },
+          "action": "elementalSkill.1",
+          "commands": [
+            {
+              "type": "apply",
+              "ref": "skill_pressureLevel"
+            },
+            {
+              "type": "apply",
+              "ref": "skill_pressureLevel",
+              "filter": {
+                "effectStacks": {
+                  "HAS": "burst_subnauticalHunter"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "skill_pressureLevel",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "skill_shatteringPressure",
+        "use": [
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.2"
+              },
+              "effectStacks": {
+                "NOT": {
+                  "HAS": "skill_pressureLevel"
+                }
+              }
+            },
+            "action": "elementalSkill.3"
+          },
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.2"
+              },
+              "effectStacks": {
+                "skill_pressureLevel": 1
+              }
+            },
+            "action": [
+              "elementalSkill.4",
+              "elementalSkill.5"
+            ]
+          },
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.2"
+              },
+              "effectStacks": {
+                "skill_pressureLevel": 2
+              }
+            },
+            "action": [
+              "elementalSkill.6",
+              "elementalSkill.7"
+            ]
+          },
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.2"
+              },
+              "effectStacks": {
+                "skill_pressureLevel": 3
+              }
+            },
+            "action": [
+              "elementalSkill.8",
+              "elementalSkill.9"
+            ]
+          },
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.2"
+              },
+              "effectStacks": {
+                "skill_pressureLevel": 4
+              }
+            },
+            "action": "elementalSkill.10"
+          }
+        ]
+      },
+      {
+        "ref": "spiritbreathThorn",
+        "use": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "cooldown": 9000,
+          "action": "elementalSkill.11"
+        }
+      },
+      {
+        "ref": "burst_subnauticalHunter",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "stats": {
+            "damageMv%": 1
+          }
+        }
+      },
+      {
+        "ref": "a4",
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": "shatter"
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.3",
+                "elementalSkill.4",
+                "elementalSkill.5",
+                "elementalSkill.6",
+                "elementalSkill.7",
+                "elementalSkill.8",
+                "elementalSkill.9",
+                "elementalSkill.10"
+              ]
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.4
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.3",
+                "elementalSkill.4",
+                "elementalSkill.5",
+                "elementalSkill.6",
+                "elementalSkill.7",
+                "elementalSkill.8",
+                "elementalSkill.9",
+                "elementalSkill.10"
+              ]
+            }
+          },
+          "stats": {
+            "critRate%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "use": [
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": [
+                  "elementalSkill.2"
+                ]
+              },
+              "effectStacks": {
+                "skill_pressureLevel": 4
+              }
+            },
+            "action": {
+              "restoreEnergy": {
+                "flat": 3
+              }
+            }
+          },
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": [
+                  "elementalSkill.2"
+                ]
+              }
+            },
+            "action": {
+              "restoreEnergy": {
+                "flat": 2
+              }
+            }
+          }
+        ]
+      },
+      {
+        "rank": 4,
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "frozen",
+                "shatter",
+                "superconduct",
+                "stellarConduct"
+              ]
+            }
+          },
+          "cooldown": 300,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "atk%": 0.09
+          }
+        },
+        "maxStacks": 2
+      },
+      {
+        "rank": 6,
+        "apply": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "frozen",
+                "shatter",
+                "superconduct",
+                "stellarConduct"
+              ]
+            }
+          },
+          "cooldown": 300,
+          "duration": 6000
+        },
+        "buff": {
+          "stats": {
+            "critDmg%": 0.12
+          }
+        },
+        "maxStacks": 3
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Flowing Eddies",
@@ -43683,7 +44101,11 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 533,
+            "hitOffsets": [
+              433
+            ]
           },
           {
             "name": "Normal Attack 2",
@@ -43710,7 +44132,11 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 550,
+            "hitOffsets": [
+              383
+            ]
           },
           {
             "name": "Normal Attack 3",
@@ -43737,7 +44163,11 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 983,
+            "hitOffsets": [
+              700
+            ]
           },
           {
             "name": "Normal Attack 4",
@@ -43764,7 +44194,11 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 1433,
+            "hitOffsets": [
+              700
+            ]
           },
           {
             "name": "Charged Attack",
@@ -43854,9 +44288,15 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Upward Thrust DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -43878,12 +44318,22 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 700,
+            "hitOffsets": [
+              483
+            ]
           },
           {
-            "name": "Frost DMG",
-            "type": "elementalSkill",
+            "name": "Frost",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -43908,9 +44358,23 @@
             }
           },
           {
-            "name": "Level 0 Shattering Pressure DMG",
+            "name": "Shattering Pressure",
             "type": "elementalSkill",
+            "duration": 883,
+            "hitOffsets": [
+              617
+            ]
+          },
+          {
+            "name": "Shattering Pressure: Level 0 (Cryo)",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -43935,9 +44399,15 @@
             }
           },
           {
-            "name": "Level 1 Shattering Pressure DMG",
-            "type": "elementalSkill",
+            "name": "Shattering Pressure: Level 1 (Cryo)",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -43957,7 +44427,16 @@
                     2.2554,
                     2.3807
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Shattering Pressure: Level 1 (Physical)",
+            "damage": {
+              "type": "elementalSkill",
+              "element": "physical",
+              "multipliers": [
                 {
                   "mv": [
                     0.4869,
@@ -43981,9 +44460,15 @@
             }
           },
           {
-            "name": "Level 2 Shattering Pressure DMG",
-            "type": "elementalSkill",
+            "name": "Shattering Pressure: Level 2 (Cryo)",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -44003,7 +44488,16 @@
                     1.5788,
                     1.6665
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Shattering Pressure: Level 2 (Physical)",
+            "damage": {
+              "type": "elementalSkill",
+              "element": "physical",
+              "multipliers": [
                 {
                   "mv": [
                     0.852,
@@ -44027,9 +44521,15 @@
             }
           },
           {
-            "name": "Level 3 Shattering Pressure DMG",
-            "type": "elementalSkill",
+            "name": "Shattering Pressure: Level 3 (Cryo)",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Skill",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -44049,7 +44549,16 @@
                     0.9022,
                     0.9523
                   ]
-                },
+                }
+              ]
+            }
+          },
+          {
+            "name": "Shattering Pressure: Level 3 (Physical)",
+            "damage": {
+              "type": "elementalSkill",
+              "element": "physical",
+              "multipliers": [
                 {
                   "mv": [
                     1.2172,
@@ -44073,9 +44582,10 @@
             }
           },
           {
-            "name": "Level 4 Shattering Pressure DMG",
-            "type": "elementalSkill",
+            "name": "Shattering Pressure: Level 4 (Physical)",
             "damage": {
+              "type": "elementalSkill",
+              "element": "physical",
               "multipliers": [
                 {
                   "mv": [
@@ -44131,9 +44641,10 @@
         "name": "Shadowhunter's Ambush",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -44155,12 +44666,49 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 867,
+            "hitOffsets": [
+              733
+            ]
           }
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 12425,
+      "setCounts": {
+        "15018": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "elementalSkill.2",
+        "elementalSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "elementalSkill.2",
+        "normalAttack.0",
+        "elementalSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "elementalSkill.2",
+        "normalAttack.0",
+        "elementalSkill.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.3",
+        "elementalSkill.2"
+      ]
+    },
+    "teamPreset": [
+      10000085,
+      10000031,
+      10000089,
+      10000080
+    ]
   },
   "10000086": {
     "name": "Wriothesley",

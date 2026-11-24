@@ -3,7 +3,6 @@ to improve:
     attackSpd
     bloom doing self dmg
     change er from duration to no ult
-    tune break with unison rotations
     2 min window instead of 1 rot
     geo constructs dont destroy each other at 3
     elevation rxns use all chars

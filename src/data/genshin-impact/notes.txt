@@ -45,6 +45,10 @@ Characters:
         No constellations
     Diona
         Shield Duration is fixed
+    Dori
+        No A4
+        No C4 energy
+        No C6
     Durin
         No constellations
     Emilie
