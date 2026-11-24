@@ -13426,7 +13426,6 @@
     ]
   },
   "10000037": {
-    "disabled": true,
     "name": "Ganyu",
     "version": 1.2,
     "id": 10000037,
@@ -13443,7 +13442,101 @@
     },
     "energy": 60,
     "liyue": true,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "normal_frostFlakeArrow",
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.7"
+            }
+          },
+          "action": "normalAttack.8"
+        }
+      },
+      {
+        "ref": "skill_lotus",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "uses": 1,
+          "offset": 6000
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalSkill.1"
+        }
+      },
+      {
+        "ref": "burst_pearl",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000,
+          "offset": 300
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 300,
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "a1",
+        "apply": {
+          "when": "end",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.7"
+            }
+          },
+          "duration": 5000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "normalAttack.7",
+                "normalAttack.8"
+              ]
+            }
+          },
+          "stats": {
+            "critRate%": 0.2
+          }
+        }
+      },
+      {
+        "ref": "a4",
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "filter": {
+            "field": "onField"
+          },
+          "stats": {
+            "cryoDmgBonus%": 0.2
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Liutian Archery",
@@ -13662,7 +13755,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 1600
           },
           {
             "name": "Frostflake Arrow Bloom",
@@ -13725,36 +13819,38 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Inherited HP",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
-                    1.2,
-                    1.29,
-                    1.38,
-                    1.5,
-                    1.59,
-                    1.68,
-                    1.8,
-                    1.92,
-                    2.04,
-                    2.16,
-                    2.28,
-                    2.4,
-                    2.55,
-                    2.7,
-                    2.85
+                    1.32,
+                    1.419,
+                    1.518,
+                    1.65,
+                    1.749,
+                    1.848,
+                    1.98,
+                    2.112,
+                    2.244,
+                    2.376,
+                    2.508,
+                    2.64,
+                    2.805,
+                    2.97,
+                    3.135
                   ]
                 }
               ]
             }
           },
           {
-            "name": "Skill DMG",
-            "type": "elementalSkill",
+            "name": "Explosion",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -13785,9 +13881,19 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Ice Shard DMG",
-            "type": "elementalBurst",
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
+            "name": "Ice Shard",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 2500,
+                "hits": 3
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -13818,8 +13924,25 @@
       "weaponId": 15502,
       "setCounts": {
         "15003": 4
-      }
-    }
+      },
+      "rotation": [
+        "elementalBurst.0",
+        "elementalSkill.0",
+        "normalAttack.7",
+        "normalAttack.7",
+        "normalAttack.7",
+        "elementalSkill.0",
+        "normalAttack.7",
+        "normalAttack.7",
+        "normalAttack.7"
+      ]
+    },
+    "teamPreset": [
+      10000037,
+      10000089,
+      10000063,
+      10000112
+    ]
   },
   "10000038": {
     "name": "Albedo",
