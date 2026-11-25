@@ -4315,7 +4315,6 @@
     ]
   },
   "12416": {
-    "disabled": true,
     "name": "Akuoumaru",
     "version": 2.2,
     "id": 12416,
@@ -4326,7 +4325,14 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "special": "akuoumaru",
+        "buff": {
+          "stats": {}
+        }
+      }
+    ]
   },
   "12417": {
     "name": "Forest Regalia",
@@ -6616,7 +6622,6 @@
     ]
   },
   "13416": {
-    "disabled": true,
     "name": "Wavebreaker's Fin",
     "version": 2.2,
     "id": 13416,
@@ -6627,7 +6632,14 @@
       "baseAtk": 620,
       "atk%": 0.138
     },
-    "effects": []
+    "effects": [
+      {
+        "special": "wavebreakersFin",
+        "buff": {
+          "stats": {}
+        }
+      }
+    ]
   },
   "13417": {
     "name": "Moonpiercer",
@@ -12769,7 +12781,6 @@
     ]
   },
   "15416": {
-    "disabled": true,
     "name": "Mouun's Moon",
     "version": 2.2,
     "id": 15416,
@@ -12780,7 +12791,14 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "special": "mouunsMoon",
+        "buff": {
+          "stats": {}
+        }
+      }
+    ]
   },
   "15417": {
     "name": "King's Squire",
