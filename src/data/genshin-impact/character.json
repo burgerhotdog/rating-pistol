@@ -52813,7 +52813,6 @@
     ]
   },
   "10000097": {
-    "disabled": true,
     "name": "Sethos",
     "version": 4.7,
     "id": 10000097,
@@ -52829,7 +52828,332 @@
       "elementalMastery": 96
     },
     "energy": 60,
-    "effects": [],
+    "effects": [
+      {
+        "ref": "skill_energy",
+        "use": {
+          "when": "reaction",
+          "filter": {
+            "reaction": {
+              "reaction": [
+                "electroCharged",
+                "lunarCharged",
+                "superconduct",
+                "stellarConduct",
+                "overloaded",
+                "quicken",
+                "aggravate",
+                "hyperbloom"
+              ]
+            },
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "action": {
+            "restoreEnergy": {
+              "flat": 12
+            }
+          }
+        }
+      },
+      {
+        "ref": "burst_twilightMeditation",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 8000
+        },
+        "remove": {
+          "when": "swapOff"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "normalAttack"
+              }
+            }
+          },
+          "spec": {
+            "damage": {
+              "type": "chargedAttack",
+              "element": "electro",
+              "gauge": 1,
+              "icd": {
+                "tag": "Dusk Bolt",
+                "time": 2500,
+                "hits": 3
+              }
+            }
+          }
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "type": "normalAttack",
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "specRefs": {
+            "damageFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": "elementalBurst.1"
+            }
+          }
+        }
+      },
+      {
+        "ref": "a4_scorchingSandshade",
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "normalAttack.4"
+            },
+            "effectStacks": {
+              "NOT": {
+                "HAS": "a4_10sBlock"
+              }
+            }
+          },
+          "specs": {
+            "damageFlat": {
+              "attr": "elementalMastery",
+              "step": 1,
+              "value": 7
+            }
+          }
+        }
+      },
+      {
+        "ref": "a4_5sGrace",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.4"
+            },
+            "effectStacks": {
+              "NOT": {
+                "HAS": "a4_regain"
+              }
+            }
+          },
+          "duration": 5000
+        },
+        "expire": {
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "a4_4hitCount"
+            },
+            {
+              "type": "apply",
+              "ref": "a4_block"
+            }
+          ]
+        }
+      },
+      {
+        "ref": "a4_4hitCount",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.4"
+            },
+            "effectStacks": {
+              "NOT": {
+                "HAS": "a4_block"
+              }
+            }
+          }
+        },
+        "remove": {
+          "when": "maxStacks",
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "a4_5sGrace"
+            },
+            {
+              "type": "apply",
+              "ref": "a4_block"
+            }
+          ]
+        },
+        "maxStacks": 4
+      },
+      {
+        "ref": "a4_block",
+        "apply": {
+          "when": "command"
+        }
+      },
+      {
+        "ref": "a4_regain",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.4"
+            },
+            "effectStacks": {
+              "NOT": {
+                "HAS": "a4_regain"
+              }
+            }
+          },
+          "duration": 15000
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "a4_block"
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "normalAttack.4"
+            }
+          },
+          "stats": {
+            "critRate%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.4"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.15
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "apply": [
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "normalAttack.4"
+              }
+            },
+            "duration": 10000
+          },
+          {
+            "when": "reaction",
+            "filter": {
+              "reaction": {
+                "reaction": [
+                  "electroCharged",
+                  "lunarCharged",
+                  "superconduct",
+                  "stellarConduct",
+                  "overloaded",
+                  "quicken",
+                  "aggravate",
+                  "hyperbloom"
+                ]
+              },
+              "action": {
+                "ref": "elementalSkill.0"
+              }
+            },
+            "duration": 10000
+          },
+          {
+            "when": "use",
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.0"
+              }
+            },
+            "duration": 10000
+          }
+        ],
+        "buff": {
+          "stats": {
+            "electroDmgBonus%": 0.15
+          }
+        },
+        "maxStacks": 2,
+        "independentStacks": true
+      },
+      {
+        "rank": 4,
+        "stores": "$team",
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "OR": [
+              {
+                "action": {
+                  "ref": "normalAttack.4"
+                }
+              },
+              {
+                "action": {
+                  "ref": [
+                    "normalAttack.0",
+                    "normalAttack.2",
+                    "normalAttack.3"
+                  ]
+                },
+                "effectStacks": {
+                  "HAS": "burst_twilightMeditation"
+                }
+              }
+            ]
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 80
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "normalAttack.4"
+            }
+          },
+          "cooldown": 15000,
+          "action": {
+            "restoreEnergy": {
+              "flat": 20
+            }
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Royal Reed Archery",
@@ -52860,7 +53184,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 500
           },
           {
             "name": "Normal Attack 2",
@@ -52906,7 +53231,8 @@
                   ]
                 }
               ]
-            }
+            },
+            "duration": 500
           },
           {
             "name": "Normal Attack 3",
@@ -52963,50 +53289,55 @@
             }
           },
           {
-            "name": "Shadowpiercing Shot DMG",
-            "type": "normalAttack",
+            "name": "Charged Attack: Shadowpiercing Shot",
+            "type": "chargedAttack",
+            "restoreEnergy": {
+              "flat": -20
+            },
             "damage": {
+              "gauge": 2,
               "multipliers": [
                 {
-                  "mv": [
-                    1.4,
-                    1.505,
-                    1.61,
-                    1.75,
-                    1.855,
-                    1.96,
-                    2.1,
-                    2.24,
-                    2.38,
-                    2.52,
-                    2.66,
-                    2.8,
-                    2.975,
-                    3.15,
-                    3.325
-                  ]
-                },
-                {
-                  "mv": [
-                    1.3456,
-                    1.4465,
-                    1.5474,
-                    1.682,
-                    1.7829,
-                    1.8838,
-                    2.0184,
-                    2.153,
-                    2.2875,
-                    2.4221,
-                    2.5566,
-                    2.6912,
-                    2.8594,
-                    3.0276,
-                    3.1958
-                  ]
+                  "mv": {
+                    "atk": [
+                      1.4,
+                      1.505,
+                      1.61,
+                      1.75,
+                      1.855,
+                      1.96,
+                      2.1,
+                      2.24,
+                      2.38,
+                      2.52,
+                      2.66,
+                      2.8,
+                      2.975,
+                      3.15,
+                      3.325
+                    ],
+                    "elementalMastery": [
+                      1.3456,
+                      1.4465,
+                      1.5474,
+                      1.682,
+                      1.7829,
+                      1.8838,
+                      2.0184,
+                      2.153,
+                      2.2875,
+                      2.4221,
+                      2.5566,
+                      2.6912,
+                      2.8594,
+                      3.0276,
+                      3.1958
+                    ]
+                  }
                 }
               ]
-            }
+            },
+            "duration": 300
           },
           {
             "name": "Plunging Attack",
@@ -53041,9 +53372,10 @@
         "name": "Ancient Rite: The Thundering Sands",
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -53074,12 +53406,15 @@
         "rankModify": 5,
         "actions": [
           {
+            "name": "Elemental Burst",
+            "type": "elementalBurst"
+          },
+          {
             "name": "Dusk Bolt DMG Increase",
-            "type": "elementalBurst",
-            "damage": {
+            "buff": {
               "multipliers": [
                 {
-                  "mv": [
+                  "flat": [
                     1.9616,
                     2.1087,
                     2.2558,
@@ -53103,7 +53438,36 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15304,
+      "setCounts": {
+        "15003": 4
+      },
+      "rotation": [
+        "normalAttack.4",
+        "elementalSkill.0",
+        "elementalBurst.0",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.0",
+        "normalAttack.1",
+        "normalAttack.0",
+        "normalAttack.1",
+        "elementalSkill.0"
+      ]
+    },
+    "teamPreset": [
+      10000097,
+      10000031,
+      10000061,
+      10000043
+    ]
   },
   "10000098": {
     "name": "Clorinde",
@@ -70965,7 +71329,6 @@
     ]
   },
   "10000124": {
-    "disabled": true,
     "name": "Jahoda",
     "version": 6.2,
     "id": 10000124,
@@ -70982,7 +71345,99 @@
     },
     "energy": 70,
     "moonsign": true,
-    "effects": [],
+    "effects": [
+      {
+        "enable": {
+          "ascendantGleam": true
+        },
+        "ref": "skill_treasureFlask",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.0"
+            }
+          },
+          "duration": 22000,
+          "offset": 4000
+        },
+        "remove": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalSkill.1"
+              ]
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 2000,
+          "action": "elementalSkill.3"
+        },
+        "absorbElement": true
+      },
+      {
+        "ref": "burst_healing",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 12000,
+          "offset": 2000
+        },
+        "use": [
+          {
+            "when": "interval",
+            "filter": {
+              "special": "jahoda_70"
+            },
+            "cooldown": 2000,
+            "action": [
+              "elementalBurst.2",
+              "elementalBurst.3"
+            ]
+          },
+          {
+            "when": "interval",
+            "cooldown": 2000,
+            "action": "elementalBurst.2"
+          }
+        ]
+      },
+      {
+        "rank": 6,
+        "enable": {
+          "ascendantGleam": true
+        },
+        "stores": "$team",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.2"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "filter": {
+            "character": {
+              "HAS": "moonsign"
+            }
+          },
+          "stats": {
+            "critRate%": 0.05,
+            "critDmg%": 0.4
+          }
+        }
+      }
+    ],
     "skills": {
       "normalAttack": {
         "name": "Strike While the Arrow's Hot",
@@ -71130,36 +71585,18 @@
         "rankModify": 5,
         "actions": [
           {
-            "name": "Smoke Bomb DMG",
+            "name": "Elemental Skill",
             "type": "elementalSkill",
-            "damage": {
-              "multipliers": [
-                {
-                  "mv": [
-                    1.59,
-                    1.7092,
-                    1.8285,
-                    1.9875,
-                    2.1067,
-                    2.226,
-                    2.385,
-                    2.544,
-                    2.703,
-                    2.862,
-                    3.021,
-                    3.18,
-                    3.3788,
-                    3.5775,
-                    3.7763
-                  ]
-                }
-              ]
-            }
+            "duration": 2500,
+            "hitOffsets": [
+              500
+            ]
           },
           {
-            "name": "Unfilled Treasure Flask DMG",
-            "type": "elementalSkill",
+            "name": "Unfilled Treasure Flask",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -71184,9 +71621,10 @@
             }
           },
           {
-            "name": "Filled Treasure Flask DMG",
-            "type": "elementalSkill",
+            "name": "Filled Treasure Flask",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -71211,9 +71649,10 @@
             }
           },
           {
-            "name": "Meowball DMG",
-            "type": "elementalSkill",
+            "name": "Meowball",
             "damage": {
+              "type": "elementalSkill",
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -71244,9 +71683,10 @@
         "rankModify": 3,
         "actions": [
           {
-            "name": "Skill DMG",
+            "name": "Elemental Burst",
             "type": "elementalBurst",
             "damage": {
+              "gauge": 1,
               "multipliers": [
                 {
                   "mv": [
@@ -71271,9 +71711,15 @@
             }
           },
           {
-            "name": "Purrsonal Coordinated Assistance Robot DMG",
-            "type": "elementalBurst",
+            "name": "Purrsonal Coordinated Assistance Robot",
             "damage": {
+              "type": "elementalBurst",
+              "gauge": 1,
+              "icd": {
+                "tag": "Elemental Burst",
+                "time": 15000,
+                "hits": 4
+              },
               "multipliers": [
                 {
                   "mv": [
@@ -71299,8 +71745,8 @@
           },
           {
             "name": "Purrsonal Coordinated Assistance Robot Healing",
-            "type": "elementalBurst",
-            "damage": {
+            "healing": {
+              "targets": "$onField",
               "multipliers": [
                 {
                   "mv": [
@@ -71319,10 +71765,8 @@
                     1.6973,
                     1.7971,
                     1.897
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     500.7376,
                     550.8184,
                     605.0725,
@@ -71345,8 +71789,8 @@
           },
           {
             "name": "Lowest HP Character Additional Healing",
-            "type": "elementalBurst",
-            "damage": {
+            "healing": {
+              "targets": "$lowest",
               "multipliers": [
                 {
                   "mv": [
@@ -71365,10 +71809,8 @@
                     0.6528,
                     0.6912,
                     0.7296
-                  ]
-                },
-                {
-                  "mv": [
+                  ],
+                  "flat": [
                     192.5972,
                     211.8596,
                     232.7272,
@@ -71392,7 +71834,23 @@
         ]
       }
     },
-    "memberPreset": {}
+    "memberPreset": {
+      "weaponId": 15401,
+      "setCounts": {
+        "15002": 4
+      },
+      "rotation": [
+        "elementalSkill.0",
+        "elementalSkill.2",
+        "elementalBurst.0"
+      ]
+    },
+    "teamPreset": [
+      10000120,
+      10000116,
+      10000025,
+      10000124
+    ]
   },
   "10000125": {
     "name": "Columbina",

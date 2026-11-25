@@ -11,6 +11,9 @@ function evaluateSpecial(ctx, special, effOwnerId, event, fieldId) {
   const nsState = ctx.states.nightsoul?.[effOwnerId];
 
   switch (special) {
+    case 'jahoda_70':
+      return ctx.states.memberHealth[onFieldId] > 0.7;
+
     case 'sayu_burstAbove':
       return ctx.states.memberHealth[onFieldId] > 0.7;
 

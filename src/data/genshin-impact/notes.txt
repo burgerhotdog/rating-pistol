@@ -87,6 +87,9 @@ Characters:
         No constellations
     Itto
         No constellations
+    Jahoda
+        No A1, A4
+        No C1, C2, C4
     Kaeya
         No constellations
     Kinich
@@ -181,6 +184,9 @@ Characters:
         Numbers are sus
     Sayu
         No rolling
+    Sethos
+        A1 always active
+        C4 always active
     Shenhe
         No constellations
     Sigewinne
