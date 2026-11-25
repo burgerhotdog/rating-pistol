@@ -1,6 +1,6 @@
 import { WEAPON, MISC, MAINSTAT, SUBSTAT, GI, HSR, WW, ZZZ } from '@/data';
 import { toMergedObj } from '@/utils';
-import { runVariantDps } from '../variantDps';
+import { runBestVariantDps } from '../variantDps';
 
 const critMainstatKeys = {
   [GI]: 4,
@@ -171,7 +171,7 @@ function testNormStats(
     [charId]: normEquipMap,
   };
 
-  return runVariantDps(cache, normEquipMaps, charId, normOverrides, durationGetter);
+  return runBestVariantDps(cache, normEquipMaps, charId, normOverrides, durationGetter);
 }
 
 export function createTestNormStats(cache, equipMaps, charId, durationGetter) {

@@ -13,14 +13,7 @@ function getPermutations(arr) {
 }
 
 function testOrder(cache, equipMaps, order) {
-  const testCache = {
-    ...cache,
-    ...(order.length === 5 ? {
-      rotationOrder: order,
-    } : {
-      memberIds: order,
-    }),
-  };
+  const testCache = withRotationOrder(cache, order);
 
   const { snapshots, bonusEnergy } = runRotation(testCache, equipMaps);
   const totals = getTotals(snapshots);
@@ -36,7 +29,19 @@ function testOrder(cache, equipMaps, order) {
   };
 }
 
-function getTestOrders(gameId, memberIds) {
+export function withRotationOrder(cache, order) {
+  return {
+    ...cache,
+    ...(order.length === 5 ? {
+      rotationOrder: order,
+    } : {
+      memberIds: order,
+      rotationOrder: undefined,
+    }),
+  };
+}
+
+export function getTestOrders(gameId, memberIds) {
   const [first, ...rest] = memberIds;
 
   if (

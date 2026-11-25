@@ -92,13 +92,12 @@ const RankChart = ({ userMember, userDps, rankResults }) => {
         <LabelList
           content={({ x, y, height, index }) => {
             const entry = data[index];
-            if (!entry?.icon) return null;
 
             const size = Math.max(height - 8, 48);
             const ix = x + 8;
             const iy = y + (height - size) / 2;
 
-            return (
+            return entry.icon ? (
               <image
                 x={ix}
                 y={iy}
@@ -108,6 +107,18 @@ const RankChart = ({ userMember, userDps, rankResults }) => {
                 {...(!entry.isUser && { opacity: 0.75 })}
                 filter={entry.filter}
               />
+            ) : (
+              <text
+                x={ix + size / 2}
+                y={iy + size / 2}
+                textAnchor="middle"
+                dominantBaseline="central"
+                fontSize={size * 0.5}
+                fontWeight="bold"
+                fill={palette.text.primary}
+              >
+                {entry.rank}
+              </text>
             );
           }}
         />

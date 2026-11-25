@@ -41,10 +41,17 @@ Characters:
         C1 doesnt pass along to next
         C2 is inaccurate because of C1
         No C4, C6
+    Dehya
+        No dmg mitigation
+        No C2+
     Diluc
         No constellations
     Diona
         Shield Duration is fixed
+    Dori
+        No A4
+        No C4 energy
+        No C6
     Durin
         No constellations
     Emilie
@@ -80,6 +87,9 @@ Characters:
         No constellations
     Itto
         No constellations
+    Jahoda
+        No A1, A4
+        No C1, C2, C4
     Kaeya
         No constellations
     Kinich
@@ -172,6 +182,11 @@ Characters:
         A4 hard coded
         Remember C6 no snapshot
         Numbers are sus
+    Sayu
+        No rolling
+    Sethos
+        A1 always active
+        C4 always active
     Shenhe
         No constellations
     Sigewinne

@@ -4,7 +4,7 @@ import {
   getDefaultWeapRank,
   toMergedObj,
 } from '@/utils';
-import { runVariantDps } from '../variantDps';
+import { runBestVariantDps } from '../variantDps';
 import { createTestNormStats } from './testNormStats';
 import { getNormWeapEffs } from './normWeapEffs';
 import { reNormBaseEffs } from './reNormBaseEffs';
@@ -63,7 +63,7 @@ function testWeapon(
   return {
     weaponId: testWeapId,
     weaponRank: testWeapRank,
-    dps: runVariantDps(cache, equipMaps, charId, memberOverrides, durationGetter),
+    dps: runBestVariantDps(cache, equipMaps, charId, memberOverrides, durationGetter),
     ...(normStatsDps && { normalized: normStatsDps }),
   };
 }
