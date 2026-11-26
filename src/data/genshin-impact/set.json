@@ -1318,6 +1318,7 @@
       },
       {
         "bonus": 4,
+        "special": "gildedDreams",
         "apply": {
           "when": "reaction",
           "field": "*",
@@ -1326,8 +1327,7 @@
         },
         "buff": {
           "stats": {}
-        },
-        "special": "gildedDreams"
+        }
       }
     ]
   },

@@ -579,7 +579,6 @@
     ]
   },
   "11412": {
-    "disabled": true,
     "name": "Sword of Descension",
     "version": 1.0,
     "id": 11412,
@@ -590,7 +589,53 @@
       "baseAtk": 440,
       "atk%": 0.352
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": 10000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": 2
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "enable": {
+          "owner": {
+            "id": [
+              100000052,
+              100000053,
+              100000054,
+              100000055,
+              100000056,
+              100000057,
+              100000058
+            ]
+          }
+        },
+        "buff": {
+          "stats": {
+            "atk": 66
+          }
+        }
+      }
+    ]
   },
   "11413": {
     "name": "Festering Desire",
@@ -2118,42 +2163,31 @@
           "cooldown": 300,
           "duration": 8000
         },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.04,
-              0.08
-            ]
-          }
-        },
-        "maxStacks": 5
-      },
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "HAS": "damage"
-            }
-          },
-          "cooldown": 300,
-          "duration": 8000
-        },
-        "buff": {
-          "filter": {
-            "states": {
-              "shielded": {
-                ">": 0
+        "buff": [
+          {
+            "filter": {
+              "states": {
+                "shielded": {
+                  ">": 0
+                }
               }
+            },
+            "stats": {
+              "atk%": [
+                0.08,
+                0.16
+              ]
             }
           },
-          "stats": {
-            "atk%": [
-              0.04,
-              0.08
-            ]
+          {
+            "stats": {
+              "atk%": [
+                0.04,
+                0.08
+              ]
+            }
           }
-        },
+        ],
         "maxStacks": 5
       }
     ]
@@ -4281,7 +4315,6 @@
     ]
   },
   "12416": {
-    "disabled": true,
     "name": "Akuoumaru",
     "version": 2.2,
     "id": 12416,
@@ -4292,7 +4325,21 @@
       "baseAtk": 510,
       "atk%": 0.413
     },
-    "effects": []
+    "effects": [
+      {
+        "special": "akuoumaru",
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "stats": {}
+        }
+      }
+    ]
   },
   "12417": {
     "name": "Forest Regalia",
@@ -5367,42 +5414,31 @@
           "cooldown": 300,
           "duration": 8000
         },
-        "buff": {
-          "stats": {
-            "atk%": [
-              0.04,
-              0.08
-            ]
-          }
-        },
-        "maxStacks": 5
-      },
-      {
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "action": {
-              "HAS": "damage"
-            }
-          },
-          "cooldown": 300,
-          "duration": 8000
-        },
-        "buff": {
-          "filter": {
-            "states": {
-              "shielded": {
-                ">": 0
+        "buff": [
+          {
+            "filter": {
+              "states": {
+                "shielded": {
+                  ">": 0
+                }
               }
+            },
+            "stats": {
+              "atk%": [
+                0.08,
+                0.16
+              ]
             }
           },
-          "stats": {
-            "atk%": [
-              0.04,
-              0.08
-            ]
+          {
+            "stats": {
+              "atk%": [
+                0.04,
+                0.08
+              ]
+            }
           }
-        },
+        ],
         "maxStacks": 5
       }
     ]
@@ -6593,7 +6629,6 @@
     ]
   },
   "13416": {
-    "disabled": true,
     "name": "Wavebreaker's Fin",
     "version": 2.2,
     "id": 13416,
@@ -6604,7 +6639,21 @@
       "baseAtk": 620,
       "atk%": 0.138
     },
-    "effects": []
+    "effects": [
+      {
+        "special": "wavebreakersFin",
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "stats": {}
+        }
+      }
+    ]
   },
   "13417": {
     "name": "Moonpiercer",
@@ -7362,7 +7411,6 @@
     ]
   },
   "13504": {
-    "disabled": true,
     "name": "Vortex Vanquisher",
     "version": 1.1,
     "id": 13504,
@@ -7373,7 +7421,56 @@
       "baseAtk": 608,
       "atk%": 0.496
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "shieldStrength%": [
+              0.2,
+              0.4
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "HAS": "damage"
+            }
+          },
+          "cooldown": 300,
+          "duration": 8000
+        },
+        "buff": [
+          {
+            "filter": {
+              "states": {
+                "shielded": {
+                  ">": 0
+                }
+              }
+            },
+            "stats": {
+              "atk%": [
+                0.08,
+                0.16
+              ]
+            }
+          },
+          {
+            "stats": {
+              "atk%": [
+                0.04,
+                0.08
+              ]
+            }
+          }
+        ],
+        "maxStacks": 5
+      }
+    ]
   },
   "13505": {
     "name": "Primordial Jade Winged-Spear",
@@ -7425,7 +7522,6 @@
     ]
   },
   "13507": {
-    "disabled": true,
     "name": "Calamity Queller",
     "version": 2.4,
     "id": 13507,
@@ -7436,7 +7532,70 @@
       "baseAtk": 741,
       "atk%": 0.165
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "elementalDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      },
+      {
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": "elementalSkill"
+            }
+          },
+          "duration": 20000,
+          "cooldown": 1000
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 1000,
+          "commands": {
+            "type": "apply",
+            "ref": "buff"
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "remove",
+            "ref": "buff"
+          }
+        }
+      },
+      {
+        "ref": "buff",
+        "apply": {
+          "when": "command"
+        },
+        "buff": [
+          {
+            "field": "offField",
+            "stats": {
+              "atk%": [
+                0.064,
+                0.128
+              ]
+            }
+          },
+          {
+            "stats": {
+              "atk%": [
+                0.032,
+                0.064
+              ]
+            }
+          }
+        ],
+        "maxStacks": 6
+      }
+    ]
   },
   "13509": {
     "name": "Engulfing Lightning",
@@ -11995,7 +12154,6 @@
     ]
   },
   "15302": {
-    "disabled": true,
     "name": "Sharpshooter's Oath",
     "version": 1.0,
     "id": 15302,
@@ -12006,7 +12164,26 @@
       "baseAtk": 401,
       "critDmg%": 0.469
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "filter": {
+            "action": {
+              "type": "chargedAttack",
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "stats": {
+            "dmgBonus%": [
+              0.24,
+              0.48
+            ]
+          }
+        }
+      }
+    ]
   },
   "15303": {
     "name": "Recurve Bow",
@@ -12033,7 +12210,6 @@
     }
   },
   "15305": {
-    "disabled": true,
     "name": "Messenger",
     "version": 1.0,
     "id": 15305,
@@ -12044,7 +12220,34 @@
       "baseAtk": 448,
       "critDmg%": 0.312
     },
-    "effects": []
+    "effects": [
+      {
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "type": "chargedAttack",
+              "damage": {
+                "type": "chargedAttack"
+              }
+            }
+          },
+          "cooldown": 10000,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1,
+                    2
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "15401": {
     "name": "Favonius Warbow",
@@ -12280,7 +12483,6 @@
     "effects": []
   },
   "15409": {
-    "disabled": true,
     "name": "The Viridescent Hunt",
     "version": 1.0,
     "id": 15409,
@@ -12291,7 +12493,45 @@
       "baseAtk": 510,
       "critRate%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "normalAttack",
+                  "chargedAttack"
+                ]
+              }
+            }
+          },
+          "cooldown": [
+            14000,
+            10000
+          ],
+          "duration": 4000,
+          "offset": 500
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 500,
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    0.4,
+                    0.8
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "15410": {
     "name": "Alley Hunter",
@@ -12322,7 +12562,6 @@
     ]
   },
   "15411": {
-    "disabled": true,
     "name": "Fading Twilight",
     "version": 2.7,
     "id": 15411,
@@ -12333,7 +12572,63 @@
       "baseAtk": 565,
       "energyRecharge%": 0.306
     },
-    "effects": []
+    "effects": [
+      {
+        "ref": "buffStatus",
+        "apply": {
+          "when": "hit",
+          "field": "*",
+          "filter": {
+            "action": {
+              "HAS": "damage"
+            }
+          },
+          "cooldown": 7000
+        },
+        "remove": {
+          "when": "maxStacks"
+        },
+        "maxStacks": 3
+      },
+      {
+        "buff": [
+          {
+            "filter": {
+              "effectStacks": {
+                "buffStatus": 2
+              }
+            },
+            "stats": {
+              "dmgBonus%": [
+                0.14,
+                0.28
+              ]
+            }
+          },
+          {
+            "filter": {
+              "effectStacks": {
+                "buffStatus": 1
+              }
+            },
+            "stats": {
+              "dmgBonus%": [
+                0.1,
+                0.2
+              ]
+            }
+          },
+          {
+            "stats": {
+              "dmgBonus%": [
+                0.06,
+                0.12
+              ]
+            }
+          }
+        ]
+      }
+    ]
   },
   "15412": {
     "name": "Mitternachts Waltz",
@@ -12425,7 +12720,6 @@
     ]
   },
   "15414": {
-    "disabled": true,
     "name": "Hamayumi",
     "version": 2.0,
     "id": 15414,
@@ -12437,7 +12731,22 @@
       "baseAtk": 454,
       "atk%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "buff": {
+          "stats": {
+            "normalAttackDmgBonus%": [
+              0.16,
+              0.32
+            ],
+            "chargedAttackDmgBonus%": [
+              0.12,
+              0.24
+            ]
+          }
+        }
+      }
+    ]
   },
   "15415": {
     "name": "Predator",
@@ -12486,7 +12795,6 @@
     ]
   },
   "15416": {
-    "disabled": true,
     "name": "Mouun's Moon",
     "version": 2.2,
     "id": 15416,
@@ -12497,10 +12805,23 @@
       "baseAtk": 565,
       "atk%": 0.276
     },
-    "effects": []
+    "effects": [
+      {
+        "special": "mouunsMoon",
+        "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
+          "stats": {}
+        }
+      }
+    ]
   },
   "15417": {
-    "disabled": true,
     "name": "King's Squire",
     "version": 3.0,
     "id": 15417,
@@ -12512,7 +12833,62 @@
       "baseAtk": 454,
       "atk%": 0.551
     },
-    "effects": []
+    "effects": [
+      {
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "type": [
+                "elementalSkill",
+                "elementalBurst"
+              ]
+            }
+          },
+          "cooldown": 20000,
+          "duration": 12000
+        },
+        "remove": {
+          "when": "swapOff",
+          "commands": {
+            "type": "use",
+            "ref": "removeAction"
+          }
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": [
+              60,
+              140
+            ]
+          }
+        },
+        "expire": {
+          "commands": {
+            "type": "use",
+            "ref": "removeAction"
+          }
+        }
+      },
+      {
+        "ref": "removeAction",
+        "use": {
+          "when": "command",
+          "action": {
+            "damage": {
+              "multipliers": [
+                {
+                  "mv": [
+                    1,
+                    1.8
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
   },
   "15418": {
     "name": "End of the Line",

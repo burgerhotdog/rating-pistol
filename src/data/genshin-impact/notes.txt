@@ -279,10 +279,14 @@ Weapons:
         Clear BoL gives max buff
     Frostbearer
         Effect always hits
+    Hamayumi
+        No 100% energy effect
     Heretic's Molten Blade
         No effect
     Jadefall's Splendor
         dmg bonus for all elements
+    Messenger
+        Not guaranteed crit dmg
     Mistsplitter Reforged
         Assumes 100% uptime on below full energy
     Oathsworn Eye
@@ -305,6 +309,8 @@ Weapons:
         No effect
     Sturdy Bone
         No effect
+    Sword of Descension
+        effect always hits
     Symphonist of Scents
         Doesn't apply buff to healed
     Talking Stick
@@ -315,6 +321,8 @@ Weapons:
         Healing doesn't need a crit
     The Dockhand's Assistant
         Might double count healing performed on self
+    The Viridescent Hunt
+        Effect always hits
     Traveler's Handy Sword
         No effect
     Wandering Evenstar
