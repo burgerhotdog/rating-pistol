@@ -4329,6 +4329,13 @@
       {
         "special": "akuoumaru",
         "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
           "stats": {}
         }
       }
@@ -6636,6 +6643,13 @@
       {
         "special": "wavebreakersFin",
         "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
           "stats": {}
         }
       }
@@ -12795,6 +12809,13 @@
       {
         "special": "mouunsMoon",
         "buff": {
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "elementalBurst"
+              }
+            }
+          },
           "stats": {}
         }
       }

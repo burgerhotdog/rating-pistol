@@ -1,6 +1,6 @@
 import { CHARACTER, GI } from '@/data';
 import { toArray } from '../toArray';
-import { resolveRankedValue } from '../resolveRankedValue';
+import { resolveRankedValue } from '../resolve';
 
 export function handleSpecialEffect(gameId, effect, spec = {}) {
   const { memberIds, counts } = spec;
