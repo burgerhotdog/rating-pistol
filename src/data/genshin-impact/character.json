@@ -465,11 +465,7 @@
             "damage": {
               "element": "cryo",
               "gauge": 1,
-              "icd": {
-                "tag": "Alternate Sprint",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Alternate Sprint",
               "multipliers": [
                 {
                   "flat": 0
@@ -527,11 +523,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -588,11 +580,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -1393,11 +1381,7 @@
             "name": "Normal Attack 1",
             "type": "normalAttack",
             "damage": {
-              "icd": {
-                "tag": "Lisa Electro DMG",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Lisa Electro DMG",
               "multipliers": [
                 {
                   "mv": [
@@ -1425,11 +1409,7 @@
             "name": "Normal Attack 2",
             "type": "normalAttack",
             "damage": {
-              "icd": {
-                "tag": "Lisa Electro DMG",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Lisa Electro DMG",
               "multipliers": [
                 {
                   "mv": [
@@ -1457,11 +1437,7 @@
             "name": "Normal Attack 3",
             "type": "normalAttack",
             "damage": {
-              "icd": {
-                "tag": "Lisa Electro DMG",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Lisa Electro DMG",
               "multipliers": [
                 {
                   "mv": [
@@ -1489,11 +1465,7 @@
             "name": "Normal Attack 4",
             "type": "normalAttack",
             "damage": {
-              "icd": {
-                "tag": "Lisa Electro DMG",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Lisa Electro DMG",
               "multipliers": [
                 {
                   "mv": [
@@ -1582,11 +1554,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Lisa Electro DMG",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Lisa Electro DMG",
               "multipliers": [
                 {
                   "mv": [
@@ -1749,11 +1717,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -2122,11 +2086,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -2290,11 +2250,7 @@
             "name": "Ring Contact",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "flat": 0
@@ -3893,11 +3849,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst Extra",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst Extra",
               "multipliers": [
                 {
                   "mv": [
@@ -3926,11 +3878,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst Extra",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst Extra",
               "multipliers": [
                 {
                   "mv": [
@@ -3959,11 +3907,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst Extra",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst Extra",
               "multipliers": [
                 {
                   "mv": [
@@ -3992,11 +3936,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst Extra",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst Extra",
               "multipliers": [
                 {
                   "mv": [
@@ -4675,11 +4615,7 @@
             "damage": {
               "element": "anemo",
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              }
+              "icd": "Normal Attack"
             }
           }
         },
@@ -5707,11 +5643,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -5907,11 +5839,7 @@
           "action": {
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": 0.2
@@ -6330,11 +6258,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -6886,11 +6810,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -7649,11 +7569,7 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "icd": {
-                "tag": "Charged Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -7681,11 +7597,7 @@
             "name": "Star Jade",
             "damage": {
               "type": "chargedAttack",
-              "icd": {
-                "tag": "Charged Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -7812,11 +7724,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -8204,11 +8112,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 2,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -8237,11 +8141,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -8280,11 +8180,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -8736,11 +8632,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -8770,11 +8662,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 2,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -8803,11 +8691,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -10609,11 +10493,7 @@
               "type": "normalAttack",
               "element": "hydro",
               "gauge": 1,
-              "icd": {
-                "tag": "Riptide",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Riptide",
               "multipliers": [
                 {
                   "mv": [
@@ -10733,11 +10613,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -10767,11 +10643,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -10801,11 +10673,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -10834,11 +10702,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -10867,11 +10731,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -10900,11 +10760,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -10952,11 +10808,7 @@
             "type": "chargedAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Charged Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -11302,11 +11154,7 @@
           "action": {
             "damage": {
               "gauge": 2,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": 4
@@ -11542,11 +11390,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 2,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "attr": "def",
               "multipliers": [
                 {
@@ -11695,11 +11539,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -12557,11 +12397,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill New",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill New",
               "multipliers": [
                 {
                   "mv": [
@@ -12634,11 +12470,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -12711,11 +12543,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill New",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill New",
               "multipliers": [
                 {
                   "mv": [
@@ -13889,11 +13717,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -14842,11 +14666,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -14918,11 +14738,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -14994,11 +14810,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -15060,11 +14872,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -15093,11 +14901,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst DMG",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst DMG",
               "multipliers": [
                 {
                   "mv": [
@@ -15867,11 +15671,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -15934,11 +15734,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "flat": 0
@@ -15951,11 +15747,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 2,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -16199,11 +15991,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": 0.5,
@@ -16598,11 +16386,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 2,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -16631,11 +16415,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 2,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -16671,11 +16451,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -16704,11 +16480,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -16737,11 +16509,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -17967,11 +17735,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst Pyro",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst Pyro",
               "multipliers": [
                 {
                   "mv": [
@@ -20634,11 +20398,7 @@
             "damage": {
               "element": "pyro",
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              }
+              "icd": "Normal Attack"
             }
           }
         },
@@ -20901,11 +20661,7 @@
             "damage": {
               "type": "chargedAttack",
               "gauge": 1,
-              "icd": {
-                "tag": "Charged Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -21003,11 +20759,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 2,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -21035,11 +20787,7 @@
             "name": "Aurous Blaze Explosion",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -21533,11 +21281,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -22118,11 +21862,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -22742,11 +22482,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -22836,11 +22572,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Musou Isshin Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Musou Isshin Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -22870,11 +22602,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Musou Isshin Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Musou Isshin Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -22904,11 +22632,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Musou Isshin Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Musou Isshin Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -22938,11 +22662,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Musou Isshin Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Musou Isshin Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -22991,11 +22711,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Musou Isshin Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Musou Isshin Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -23025,11 +22741,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Musou Isshin Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Musou Isshin Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -23650,11 +23362,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill Anemo",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill Anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -23739,11 +23447,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill Other",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill Other",
               "multipliers": [
                 {
                   "mv": [
@@ -23875,11 +23579,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -25238,11 +24938,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "attr": "def",
               "multipliers": [
                 {
@@ -25797,11 +25493,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -27613,11 +27305,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -27646,11 +27334,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -27679,11 +27363,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -27712,11 +27392,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -29214,11 +28890,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": 2
@@ -29599,11 +29271,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -29694,11 +29362,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -29847,11 +29511,7 @@
             "damage": {
               "element": "cryo",
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              }
+              "icd": "Normal Attack"
             }
           }
         },
@@ -30813,11 +30473,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -31899,11 +31555,7 @@
             },
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -31932,11 +31584,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -32016,11 +31664,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "attr": "hp",
               "multipliers": [
                 {
@@ -32437,11 +32081,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -32471,11 +32111,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -32505,11 +32141,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -32603,11 +32235,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -32806,11 +32434,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Sprout",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Sprout",
               "multipliers": [
                 {
                   "mv": 0.4
@@ -33219,11 +32843,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -33394,11 +33014,7 @@
             "name": "Jinni Toop",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "C2",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "C2",
               "multipliers": [
                 {
                   "mv": 0.5
@@ -33629,11 +33245,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -33662,11 +33274,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -34250,11 +33858,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -34283,11 +33887,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -34672,11 +34272,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "attr": "hp",
               "multipliers": [
                 {
@@ -34707,11 +34303,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "attr": "hp",
               "multipliers": [
                 {
@@ -34742,11 +34334,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "attr": "hp",
               "multipliers": [
                 {
@@ -34777,11 +34365,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "attr": "hp",
               "multipliers": [
                 {
@@ -34811,11 +34395,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "attr": "hp",
               "multipliers": [
                 {
@@ -34845,11 +34425,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "attr": "hp",
               "multipliers": [
                 {
@@ -34879,11 +34455,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "attr": "hp",
               "multipliers": [
                 {
@@ -35637,11 +35209,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -35671,11 +35239,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -35705,11 +35269,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -35739,11 +35299,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -35792,11 +35348,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -38177,11 +37729,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "attr": "hp",
               "multipliers": [
                 {
@@ -38548,11 +38096,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -40532,11 +40076,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": {
@@ -41676,11 +41216,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -41709,11 +41245,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -43550,11 +43082,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -43583,11 +43111,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -43616,11 +43140,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Vivid Shot",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Vivid Shot",
               "multipliers": [
                 {
                   "mv": [
@@ -44883,11 +44403,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -44920,11 +44436,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -44961,11 +44473,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -44994,11 +44502,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -45055,11 +44559,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -45116,11 +44616,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -45957,11 +45453,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -46608,11 +46100,7 @@
             "name": "Charged Attack: Equitable Judgment",
             "type": "chargedAttack",
             "damage": {
-              "icd": {
-                "tag": "Charged Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack",
               "attr": "hp",
               "multipliers": [
                 {
@@ -46747,11 +46235,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "attr": "hp",
               "multipliers": [
                 {
@@ -46781,11 +46265,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "attr": "hp",
               "multipliers": [
                 {
@@ -47218,11 +46698,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -47251,11 +46727,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -48693,11 +48165,7 @@
               "damage": {
                 "type": "elementalSkill",
                 "gauge": 1,
-                "icd": {
-                  "tag": "C2",
-                  "time": 2500,
-                  "hits": 3
-                },
+                "icd": "C2",
                 "multipliers": [
                   {
                     "mv": 1.2
@@ -48709,11 +48177,7 @@
               "damage": {
                 "type": "elementalSkill",
                 "gauge": 1,
-                "icd": {
-                  "tag": "C2",
-                  "time": 2500,
-                  "hits": 3
-                },
+                "icd": "C2",
                 "multipliers": [
                   {
                     "mv": 1.2
@@ -50213,11 +49677,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -50754,11 +50214,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -52885,11 +52341,7 @@
               "type": "chargedAttack",
               "element": "electro",
               "gauge": 1,
-              "icd": {
-                "tag": "Dusk Bolt",
-                "time": 2500,
-                "hits": 3
-              }
+              "icd": "Dusk Bolt"
             }
           }
         },
@@ -54000,11 +53452,7 @@
             "damage": {
               "type": "normalAttack",
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -54034,11 +53482,7 @@
             "damage": {
               "type": "normalAttack",
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -54072,11 +53516,7 @@
             "damage": {
               "type": "normalAttack",
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -54105,11 +53545,7 @@
             "damage": {
               "type": "normalAttack",
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -54138,11 +53574,7 @@
             "damage": {
               "type": "normalAttack",
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -54221,11 +53653,7 @@
             ],
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -54872,11 +54300,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -55330,11 +54754,7 @@
               "type": "elementalSkill",
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "attr": "def",
               "multipliers": [
                 {
@@ -55368,11 +54788,7 @@
               "type": "elementalSkill",
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "attr": "def",
               "multipliers": [
                 {
@@ -55879,11 +55295,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -55914,11 +55326,7 @@
               "type": "elementalBurst",
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -56975,11 +56383,7 @@
             "type": "normalAttack",
             "damage": {
               "nightsoulAligned": true,
-              "icd": {
-                "tag": "Blade Roller",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Blade Roller",
               "attr": "def",
               "multipliers": [
                 {
@@ -57009,11 +56413,7 @@
             "type": "normalAttack",
             "damage": {
               "nightsoulAligned": true,
-              "icd": {
-                "tag": "Blade Roller",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Blade Roller",
               "attr": "def",
               "multipliers": [
                 {
@@ -57043,11 +56443,7 @@
             "type": "normalAttack",
             "damage": {
               "nightsoulAligned": true,
-              "icd": {
-                "tag": "Blade Roller",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Blade Roller",
               "attr": "def",
               "multipliers": [
                 {
@@ -57077,11 +56473,7 @@
             "type": "normalAttack",
             "damage": {
               "nightsoulAligned": true,
-              "icd": {
-                "tag": "Blade Roller",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Blade Roller",
               "attr": "def",
               "multipliers": [
                 {
@@ -57177,11 +56569,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "attr": "def",
               "multipliers": [
                 {
@@ -57244,11 +56632,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "attr": "def",
               "multipliers": [
                 {
@@ -57324,11 +56708,7 @@
               "type": "elementalBurst",
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "attr": "def",
               "multipliers": [
                 {
@@ -58860,11 +58240,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Tap",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Tap",
               "multipliers": [
                 {
                   "mv": [
@@ -59500,11 +58876,7 @@
               "damage": {
                 "nightsoulAligned": true,
                 "gauge": 1,
-                "icd": {
-                  "tag": "Elemental Skill",
-                  "time": 2500,
-                  "hits": 3
-                },
+                "icd": "Elemental Skill",
                 "multipliers": [
                   {
                     "mv": 1.6
@@ -59709,11 +59081,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": 3.2
@@ -59875,11 +59243,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -60476,11 +59840,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Flamestrider",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Flamestrider",
               "multipliers": [
                 {
                   "mv": [
@@ -60510,11 +59870,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Flamestrider",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Flamestrider",
               "multipliers": [
                 {
                   "mv": [
@@ -60544,11 +59900,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Flamestrider",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Flamestrider",
               "multipliers": [
                 {
                   "mv": [
@@ -60578,11 +59930,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Flamestrider",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Flamestrider",
               "multipliers": [
                 {
                   "mv": [
@@ -60612,11 +59960,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Flamestrider",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Flamestrider",
               "multipliers": [
                 {
                   "mv": [
@@ -60645,11 +59989,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Flamestrider",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Flamestrider",
               "multipliers": [
                 {
                   "mv": [
@@ -60680,11 +60020,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Flamestrider",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Flamestrider",
               "multipliers": [
                 {
                   "mv": [
@@ -60715,11 +60051,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Flamestrider",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Flamestrider",
               "multipliers": [
                 {
                   "mv": [
@@ -60749,11 +60081,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Flamestrider",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Flamestrider",
               "multipliers": [
                 {
                   "mv": [
@@ -61440,11 +60768,7 @@
               "type": "elementalBurst",
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Spiritvessel Skull",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Spiritvessel Skull",
               "multipliers": [
                 {
                   "mv": [
@@ -61904,11 +61228,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -61937,11 +61257,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill Absorbed",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill Absorbed",
               "multipliers": [
                 {
                   "mv": [
@@ -61976,11 +61292,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 2,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -62538,11 +61850,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -63464,11 +62772,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -63819,11 +63123,7 @@
             "type": "chargedAttack",
             "damage": {
               "nightsoulAligned": true,
-              "icd": {
-                "tag": "Varesa General",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Varesa General",
               "multipliers": [
                 {
                   "mv": [
@@ -63964,11 +63264,7 @@
             "type": "chargedAttack",
             "damage": {
               "nightsoulAligned": true,
-              "icd": {
-                "tag": "Varesa General",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Varesa General",
               "multipliers": [
                 {
                   "mv": [
@@ -64037,11 +63333,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Varesa General",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Varesa General",
               "multipliers": [
                 {
                   "mv": [
@@ -64071,11 +63363,7 @@
             "damage": {
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Varesa General",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Varesa General",
               "multipliers": [
                 {
                   "mv": [
@@ -64173,11 +63461,7 @@
               "type": "plungingAttack",
               "nightsoulAligned": true,
               "gauge": 1,
-              "icd": {
-                "tag": "Varesa General",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Varesa General",
               "multipliers": [
                 {
                   "mv": [
@@ -66052,11 +65336,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -66085,11 +65365,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -66118,11 +65394,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -66170,11 +65442,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -66222,11 +65490,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -66255,11 +65519,7 @@
             "type": "chargedAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Charged Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -66332,11 +65592,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -66366,11 +65622,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -68710,11 +67962,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -68743,11 +67991,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -68776,11 +68020,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -68809,11 +68049,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -68843,11 +68079,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -69501,11 +68733,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -69563,11 +68791,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -69973,11 +69197,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": {
@@ -70026,11 +69246,7 @@
             "verdantDew": 1,
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Charged Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack",
               "multipliers": [
                 {
                   "mv": {
@@ -70188,11 +69404,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": {
@@ -71003,11 +70215,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -71106,11 +70314,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst A",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst A",
               "multipliers": [
                 {
                   "mv": [
@@ -71177,11 +70381,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst B",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst B",
               "multipliers": [
                 {
                   "mv": [
@@ -75350,11 +74550,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack Other",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack Other",
               "multipliers": [
                 {
                   "mv": [
@@ -75383,11 +74579,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack Anemo",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack Anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -75416,11 +74608,7 @@
             "damage": {
               "type": "normalAttack",
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack Other",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack Other",
               "multipliers": [
                 {
                   "mv": [
@@ -75449,11 +74637,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack Anemo",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack Anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -75482,11 +74666,7 @@
             "damage": {
               "type": "normalAttack",
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack Other",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack Other",
               "multipliers": [
                 {
                   "mv": [
@@ -75515,11 +74695,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack Other",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack Other",
               "multipliers": [
                 {
                   "mv": [
@@ -75548,11 +74724,7 @@
             "damage": {
               "type": "normalAttack",
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack Anemo",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack Anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -75581,11 +74753,7 @@
             "type": "normalAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack Other",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack Other",
               "multipliers": [
                 {
                   "mv": [
@@ -75614,11 +74782,7 @@
             "damage": {
               "type": "normalAttack",
               "gauge": 1,
-              "icd": {
-                "tag": "Normal Attack Anemo",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Normal Attack Anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -75647,11 +74811,7 @@
             "type": "chargedAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Charged Attack Other",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack Other",
               "multipliers": [
                 {
                   "mv": [
@@ -75680,11 +74840,7 @@
             "damage": {
               "type": "chargedAttack",
               "gauge": 1,
-              "icd": {
-                "tag": "Charged Attack Anemo",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack Anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -75713,11 +74869,7 @@
             "type": "chargedAttack",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Charged Attack Other",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack Other",
               "multipliers": [
                 {
                   "mv": [
@@ -75746,11 +74898,7 @@
             "damage": {
               "type": "chargedAttack",
               "gauge": 1,
-              "icd": {
-                "tag": "Charged Attack Anemo",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack Anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -75779,11 +74927,7 @@
             "damage": {
               "type": "chargedAttack",
               "gauge": 1,
-              "icd": {
-                "tag": "Charged Attack Other",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack Other",
               "multipliers": [
                 {
                   "mv": [
@@ -75812,11 +74956,7 @@
             "damage": {
               "type": "chargedAttack",
               "gauge": 1,
-              "icd": {
-                "tag": "Charged Attack Anemo",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack Anemo",
               "multipliers": [
                 {
                   "mv": [
@@ -76654,11 +75794,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -76694,11 +75830,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -77199,11 +76331,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "attr": "def",
               "multipliers": [
                 {
@@ -79150,11 +78278,7 @@
             "damage": {
               "type": "chargedAttack",
               "element": "cryo",
-              "icd": {
-                "tag": "Condensed Beam",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Condensed Beam",
               "multipliers": [
                 {
                   "mv": [
@@ -79301,11 +78425,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -79394,11 +78514,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -79428,11 +78544,7 @@
             "damage": {
               "type": "elementalBurst",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [
@@ -80107,11 +79219,7 @@
             "name": "Charged Attack: Gradient Detonation",
             "type": "chargedAttack",
             "damage": {
-              "icd": {
-                "tag": "Charged Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -80231,11 +79339,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "multipliers": [
                 {
                   "mv": [
@@ -81902,11 +81006,7 @@
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "attr": "hp",
               "multipliers": [
                 {
@@ -81936,11 +81036,7 @@
             "damage": {
               "type": "elementalSkill",
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Skill",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Skill",
               "attr": "hp",
               "multipliers": [
                 {
@@ -82702,11 +81798,7 @@
             "name": "Charged Attack",
             "type": "chargedAttack",
             "damage": {
-              "icd": {
-                "tag": "Charged Attack",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Charged Attack",
               "multipliers": [
                 {
                   "mv": [
@@ -84382,11 +83474,7 @@
             "type": "elementalBurst",
             "damage": {
               "gauge": 1,
-              "icd": {
-                "tag": "Elemental Burst",
-                "time": 2500,
-                "hits": 3
-              },
+              "icd": "Elemental Burst",
               "multipliers": [
                 {
                   "mv": [

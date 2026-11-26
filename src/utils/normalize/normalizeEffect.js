@@ -1,6 +1,7 @@
 import { CHARACTER } from '@/data';
 import { toArray, resolveRankedValue, normalizeAction } from '@/utils';
 import { handleSpecialEffect } from './specialEffect';
+import { standardIcd } from './normalizeIcd';
 
 function normalizeScope(rawScope, { ownerId, memberIds }) {
   switch (rawScope) {
@@ -129,6 +130,16 @@ export const normalizeEffect = (gameId, rawEffect, spec) => {
 
       return use;
     });
+  }
+
+  if (effect.modify) {
+    if (effect.modify.type === 'action') {
+      if (typeof effect.modify.spec?.damage?.icd === 'string') {
+        effect.modify = structuredClone(effect.modify);
+        const tag = effect.modify.spec.damage.icd;
+        effect.modify.spec.damage.icd = standardIcd(tag);
+      }
+    }
   }
 
   if (effect.buff) {

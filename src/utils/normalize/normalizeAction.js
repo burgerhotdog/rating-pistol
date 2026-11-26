@@ -1,10 +1,7 @@
 import { GI, WW, ZZZ, CHARACTER } from '@/data';
 import { lerp } from '../math';
 import { toArray } from '../toArray';
-
-function standardIcd(tag) {
-  return { tag, time: 2500, hits: 3 };
-}
+import { standardIcd } from './normalizeIcd';
 
 const DEFAULT_DURATIONS = {
   [GI]: {
