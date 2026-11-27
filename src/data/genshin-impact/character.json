@@ -64100,7 +64100,7 @@
     "nightsoul": 80,
     "effects": [
       {
-        "ref": "blessing",
+        "ref": "skill_startBlessing",
         "apply": {
           "when": "use",
           "filter": {
@@ -64118,11 +64118,8 @@
             }
           },
           "commands": {
-            "type": "apply",
-            "ref": "endBlessing",
-            "spec": {
-              "uses": 1
-            }
+            "type": "use",
+            "ref": "skill_endBlessing"
           }
         },
         "use": {
@@ -64136,12 +64133,9 @@
         }
       },
       {
-        "ref": "endBlessing",
-        "apply": {
-          "when": "command"
-        },
+        "ref": "skill_endBlessing",
         "use": {
-          "when": "interval",
+          "when": "command",
           "action": {
             "nightsoul": {
               "blessing": false
@@ -64150,32 +64144,180 @@
         }
       },
       {
-        "ref": "sedationMark",
-        "apply": {
-          "when": "hit",
-          "filter": {
-            "AND": [
-              {
-                "action": {
-                  "ref": "elementalBurst.0"
-                }
+        "ref": "burst_applySedationMark",
+        "use": [
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.0"
               },
-              {
-                "states": {
-                  "aura": {
-                    "HAS": [
-                      "hydro",
-                      "pyro",
-                      "cryo",
-                      "electro"
-                    ]
-                  }
+              "states": {
+                "aura": {
+                  "HAS": "pyro"
                 }
               }
-            ]
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "burst_sedationMarkPyro",
+              "spec": {
+                "uses": 1,
+                "offset": 2000
+              }
+            }
           },
-          "uses": 1,
-          "offset": 2000
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.0"
+              },
+              "states": {
+                "aura": {
+                  "HAS": "hydro"
+                }
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "burst_sedationMarkHydro",
+              "spec": {
+                "uses": 1,
+                "offset": 2000
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.0"
+              },
+              "states": {
+                "aura": {
+                  "HAS": "electro"
+                }
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "burst_sedationMarkElectro",
+              "spec": {
+                "uses": 1,
+                "offset": 2000
+              }
+            }
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "action": {
+                "ref": "elementalBurst.0"
+              },
+              "states": {
+                "aura": {
+                  "HAS": "cryo"
+                }
+              }
+            },
+            "commands": {
+              "type": "apply",
+              "ref": "burst_sedationMarkCryo",
+              "spec": {
+                "uses": 1,
+                "offset": 2000
+              }
+            }
+          }
+        ]
+      },
+      {
+        "ref": "burst_sedationMarkPyro",
+        "apply": {
+          "when": "command"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "pyro"
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "burst_sedationMarkHydro",
+        "apply": {
+          "when": "command"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "hydro"
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "burst_sedationMarkElectro",
+        "apply": {
+          "when": "command"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "electro"
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "action": "elementalBurst.1"
+        }
+      },
+      {
+        "ref": "burst_sedationMarkCryo",
+        "apply": {
+          "when": "command"
+        },
+        "modify": {
+          "type": "action",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.1"
+            }
+          },
+          "spec": {
+            "damage": {
+              "element": "cryo"
+            }
+          }
         },
         "use": {
           "when": "interval",
@@ -64228,6 +64370,41 @@
               "flat": 6
             }
           }
+        }
+      },
+      {
+        "rank": 2,
+        "stores": "global",
+        "rule": "ifa_c2"
+      },
+      {
+        "rank": 4,
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 15000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 100
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          },
+          "cooldown": 1000,
+          "action": "elementalSkill.2"
         }
       }
     ],
@@ -64391,7 +64568,7 @@
               "nightsoulAligned": true,
               "gauge": 1,
               "icd": {
-                "tag": "Normal Attack 2",
+                "tag": "Tonicshot",
                 "time": 12000,
                 "hits": 2
               },
@@ -64460,6 +64637,66 @@
               ]
             },
             "duration": 600
+          },
+          {
+            "name": "Extra Tonicshot (C6)",
+            "damage": {
+              "type": "normalAttack",
+              "nightsoulAligned": true,
+              "gauge": 1,
+              "icd": {
+                "tag": "Tonicshot",
+                "time": 12000,
+                "hits": 2
+              },
+              "multipliers": [
+                {
+                  "mv": 1.2
+                }
+              ]
+            },
+            "healing": {
+              "targets": "$team",
+              "attr": "elementalMastery",
+              "multipliers": [
+                {
+                  "mv": [
+                    0.2016,
+                    0.2167,
+                    0.2318,
+                    0.252,
+                    0.2671,
+                    0.2822,
+                    0.3024,
+                    0.3226,
+                    0.3427,
+                    0.3629,
+                    0.383,
+                    0.4032,
+                    0.4284,
+                    0.4536,
+                    0.4788
+                  ],
+                  "flat": [
+                    48.1485,
+                    52.964,
+                    58.1808,
+                    63.7989,
+                    69.8183,
+                    76.239,
+                    83.061,
+                    90.2842,
+                    97.9088,
+                    105.9347,
+                    114.3618,
+                    123.1903,
+                    132.42,
+                    142.051,
+                    152.0834
+                  ]
+                }
+              ]
+            }
           }
         ]
       },
@@ -64500,6 +64737,7 @@
             "name": "Sedation Mark",
             "damage": {
               "type": "elementalBurst",
+              "gauge": 1,
               "icd": {
                 "tag": "Sedation Mark",
                 "time": 2000

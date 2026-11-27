@@ -1,4 +1,4 @@
-const ruleHandlers = {
+const handlers = {
   neuvillette_a4(ctx) {
     const health = ctx.states.memberHealth[10000087];
     const stacks = (health - 0.3) / 0.01;
@@ -10,14 +10,21 @@ const ruleHandlers = {
   },
 
   ifa_a1(ctx) {
-    let totalNightsoulPoints = 0;
+    const hasC2 = ctx.hasRule('ifa_c2');
+
+    let totalCurrNsPoints = 0;
     for (const memberIdStr in ctx.states.nightsoul) {
       const { points } = ctx.states.nightsoul[memberIdStr];
-      totalNightsoulPoints += points;
+      totalCurrNsPoints += points;
     }
 
-    const rescueEssentials = Math.min(150, totalNightsoulPoints);
-    return rescueEssentials;
+    let rescueEssentialsPoints = totalCurrNsPoints;
+    if (hasC2) {
+      rescueEssentialsPoints += 4 * Math.max(0, totalCurrNsPoints - 60);
+    }
+
+    const rescueEssentialsLimit = hasC2 ? 200 : 150;
+    return Math.min(rescueEssentialsLimit, rescueEssentialsPoints);
   },
 
   zaniOutro(ctx) {
@@ -26,7 +33,7 @@ const ruleHandlers = {
 };
 
 export function getBuffRuleMult(ctx, rule) {
-  const handler = ruleHandlers[rule];
+  const handler = handlers[rule];
 
   if (handler) {
     return handler(ctx);
