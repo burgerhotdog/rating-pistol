@@ -79,7 +79,6 @@ Characters:
         Movement is approximated
         Overflow handling is inaccurate
     Ifa
-        No A1
         No C2, C4, C6
     Illuga
         No geo construct rule

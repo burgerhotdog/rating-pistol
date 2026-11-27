@@ -9,6 +9,17 @@ const ruleHandlers = {
     return ctx.states.bondOfLife[10000096] ?? 0;
   },
 
+  ifa_a1(ctx) {
+    let totalNightsoulPoints = 0;
+    for (const memberIdStr in ctx.states.nightsoul) {
+      const { points } = ctx.states.nightsoul[memberIdStr];
+      totalNightsoulPoints += points;
+    }
+
+    const rescueEssentials = Math.min(150, totalNightsoulPoints);
+    return rescueEssentials;
+  },
+
   zaniOutro(ctx) {
     return ctx.states.negativeStatuses.spectroFrazzle?.stacks ?? 0;
   },

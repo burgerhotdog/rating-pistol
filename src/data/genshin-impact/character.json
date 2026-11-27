@@ -64183,6 +64183,24 @@
         }
       },
       {
+        "ref": "a1",
+        "stores": "$team",
+        "buff": {
+          "filter": {
+            "nightsoul": {
+              "blessing": true
+            }
+          },
+          "stats": {
+            "swirlReactionBonus%": 0.015,
+            "electroChargedReactionBonus%": 0.015,
+            "lunarChargedReactionBonus%": 0.002,
+            "stellarSwirlReactionBonus%": 0.0024
+          },
+          "rule": "ifa_a1"
+        }
+      },
+      {
         "ref": "a4",
         "apply": {
           "by": "$any",
