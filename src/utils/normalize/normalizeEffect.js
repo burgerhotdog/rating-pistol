@@ -1,5 +1,6 @@
 import { CHARACTER } from '@/data';
-import { toArray, resolveRankedValue, normalizeAction } from '@/utils';
+import { toArray, resolveRankedValue } from '@/utils';
+import { normalizeAction } from './action';
 import { handleSpecialEffect } from './specialEffect';
 import { standardIcd } from './normalizeIcd';
 

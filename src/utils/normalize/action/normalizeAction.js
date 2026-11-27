@@ -1,7 +1,7 @@
 import { GI, WW, ZZZ, CHARACTER } from '@/data';
-import { lerp } from '../math';
-import { toArray } from '../toArray';
-import { standardIcd } from './normalizeIcd';
+import { toArray, lerp } from '@/utils';
+import { standardIcd } from '../normalizeIcd';
+import { normalizeActionBuff } from './buff';
 
 const DEFAULT_DURATIONS = {
   [GI]: {
@@ -79,21 +79,8 @@ export function normalizeAction(gameId, rawAction, spec) {
     key: `${ownerId}:${category}.${index}`,
   };
 
-  if (action.buff) {
-    const baseAttr = action.buff.baseAttr;
-    const baseAttrValue = spec.baseMap[baseAttr] ?? 0;
-
-    const { mv, flat } = action.buff.multipliers[0];
-    const mvBuffValue = (mv && Array.isArray(mv)) 
-      ? mv[spec.mvIndex]
-      : mv ?? 0;
-    const flatBuffValue = (flat && Array.isArray(flat)) 
-      ? flat[spec.mvIndex]
-      : flat ?? 0;
-    action.buff.value = mvBuffValue * baseAttrValue + flatBuffValue;
-
-    action.buff.mvIndex = spec.mvIndex;
-    action.buff.baseAttrValue = baseAttrValue;
+  if (Object.hasOwn(action, 'buff')) {
+    normalizeActionBuff(action, spec.baseMap, spec.mvIndex);
     return action;
   }
 

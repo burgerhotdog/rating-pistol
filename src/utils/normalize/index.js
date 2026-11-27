@@ -1,5 +1,5 @@
 export * from './modifyEffect';
-export * from './normalizeAction';
+export * from './action';
 export * from './normalizeEffect';
 export * from './resolveEffectTokens';
 export * from './resolveModifyEffects';

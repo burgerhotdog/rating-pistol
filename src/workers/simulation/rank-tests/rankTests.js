@@ -1,5 +1,5 @@
 import { CHARACTER } from '@/data';
-import { toMergedObj, getTotals, getMvIndex } from '@/utils';
+import { toMergedObj, getTotals, getMvIndex, resolveBuffValue } from '@/utils';
 import { runRotation } from '../rotation';
 import { computeDuration } from '../duration';
 import { getEffectDefs } from '../cache/effects';
@@ -18,76 +18,37 @@ function modifySkillLevel(testCache, skillId) {
   for (const effect of Object.values(effects)) {
     if (effect.apply) {
       for (const apply of effect.apply) {
-        if (apply.durationRefRaw) {
-          const { mvIndex: refMvIndex, baseAttrValue, multipliers } = apply.durationRefRaw;
-          const refMvIndexToUse = apply.durationRef.split('.')[0] === skillId ? mvIndex : refMvIndex;
-
-          const { mv, flat } = multipliers[0];
-          const mvBuffValue = (mv && Array.isArray(mv)) 
-            ? mv[refMvIndexToUse]
-            : mv ?? 0;
-          const flatBuffValue = (flat && Array.isArray(flat)) 
-            ? flat[refMvIndexToUse]
-            : flat ?? 0;
-          apply.duration = mvBuffValue * baseAttrValue + flatBuffValue;
+        if (apply.durationRefRaw && apply.durationRef.split('.')[0] === skillId) {
+          apply.duration = resolveBuffValue(apply.durationRefRaw.multipliers[0], 0, mvIndex);
         }
       }
     }
 
     if (effect.use) {
       for (const use of effect.use) {
-        if (use.cooldownRefRaw) {
-          const { mvIndex: refMvIndex, baseAttrValue, multipliers } = use.cooldownRefRaw;
-          const refMvIndexToUse = use.cooldownRef.split('.')[0] === skillId ? mvIndex : refMvIndex;
-
-          const { mv, flat } = multipliers[0];
-          const mvBuffValue = (mv && Array.isArray(mv)) 
-            ? mv[refMvIndexToUse]
-            : mv ?? 0;
-          const flatBuffValue = (flat && Array.isArray(flat)) 
-            ? flat[refMvIndexToUse]
-            : flat ?? 0;
-          use.cooldown = mvBuffValue * baseAttrValue + flatBuffValue;
+        if (use.cooldownRefRaw && use.cooldownRef.split('.')[0] === skillId) {
+          use.cooldown = resolveBuffValue(use.cooldownRefRaw.multipliers[0], 0, mvIndex);
         }
 
-        if (use.action) {
-          for (const action of use.action) {
-            updateSkillLevelAction(action, charSkills, skillId, mvIndex);
-          }
+        for (const action of (use.action ?? [])) {
+          updateSkillLevelAction(action, charSkills, skillId, mvIndex);
         }
       }
     }
 
-    for (const buff of effect.buff ?? []) {
+    for (const buff of (effect.buff ?? [])) {
       if (buff.statRefsRaw) {
-        for (const [id, { mvIndex: refMvIndex, baseAttrValue, multipliers }] of Object.entries(buff.statRefsRaw)) {
-          // only re-index refs pointing at the skill currently under test; otherwise keep the ref's real level
-          const refMvIndexToUse = buff.statRefs[id].split('.')[0] === skillId ? mvIndex : refMvIndex;
-
-          const { mv, flat } = multipliers[0];
-          const mvBuffValue = (mv && Array.isArray(mv)) 
-            ? mv[refMvIndexToUse]
-            : mv ?? 0;
-          const flatBuffValue = (flat && Array.isArray(flat)) 
-            ? flat[refMvIndexToUse]
-            : flat ?? 0;
-          buff.stats[id] = mvBuffValue * baseAttrValue + flatBuffValue;
+        for (const [id, { multipliers, baseAttrValue }] of Object.entries(buff.statRefsRaw)) {
+          if (buff.statRefs[id].split('.')[0] !== skillId) continue;
+          buff.stats[id] = resolveBuffValue(multipliers[0], baseAttrValue, mvIndex);
         }
       }
 
       if (buff.specRefsRaw) {
         for (const [id, fieldMap] of Object.entries(buff.specRefsRaw)) {
-          for (const [field, { mvIndex: refMvIndex, baseAttrValue, multipliers }] of Object.entries(fieldMap)) {
-            const refMvIndexToUse = buff.specRefs[id][field].split('.')[0] === skillId ? mvIndex : refMvIndex;
-
-            const { mv, flat } = multipliers[0];
-            const mvBuffValue = (mv && Array.isArray(mv)) 
-              ? mv[refMvIndexToUse]
-              : mv ?? 0;
-            const flatBuffValue = (flat && Array.isArray(flat)) 
-              ? flat[refMvIndexToUse]
-              : flat ?? 0;
-            buff.specs[id][field] = mvBuffValue * baseAttrValue + flatBuffValue;
+          for (const [field, { multipliers, baseAttrValue }] of Object.entries(fieldMap)) {
+            if (buff.specRefs[id][field].split('.')[0] !== skillId) continue;
+            buff.specs[id][field] = resolveBuffValue(multipliers[0], baseAttrValue, mvIndex);
           }
         }
       }
@@ -102,7 +63,6 @@ function getTestCache(cache, charId, rank) {
   const testCache = structuredClone(cache);
   const mCache = testCache.member[charId];
   mCache.rank = rank;
-
 
   const {
     charEffectDefs,
