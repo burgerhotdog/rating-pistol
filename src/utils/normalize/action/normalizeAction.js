@@ -1,7 +1,8 @@
 import { GI, WW, ZZZ, CHARACTER } from '@/data';
 import { toArray, lerp } from '@/utils';
-import { standardIcd } from '../normalizeIcd';
 import { normalizeActionBuff } from './buff';
+import { normalizeGauge } from './gauge';
+import { normalizeIcd } from './icd';
 
 const DEFAULT_DURATIONS = {
   [GI]: {
@@ -167,50 +168,8 @@ export function normalizeAction(gameId, rawAction, spec) {
     }
 
     if (gameId === GI) {
-      if (category === 'normalAttack') {
-        // Gauge
-        if (
-          spec.weaponType !== 'bow' ||
-          (action.type === 'chargedAttack' || action.damage?.type === 'chargedAttack')
-        ) {
-          damage.gauge ??= 1;
-        }
-
-        if (
-          action.damage?.type &&
-          (
-            action.damage.type.startsWith('lunar') ||
-            action.damage.type.startsWith('stellar')
-          )
-        ) {
-          delete damage.gauge;
-        }
-
-        // Icd
-        if (action.type !== 'plunge') {
-          if (spec.weaponType === 'sword' || spec.weaponType === 'claymore') {
-            damage.icd ??= { tag: 'Normal Attack', time: 2500, hits: 3 };
-          }
-
-          if (spec.weaponType === 'polearm') {
-            if (action.type === 'normalAttack') {
-              damage.icd ??= { tag: 'Normal Attack', time: 2500, hits: 3 };
-            } else {
-              damage.icd ??= { tag: 'Charged Attack', time: 500 };
-            }
-          }
-
-          if (spec.weaponType === 'catalyst') {
-            if (action.type === 'normalAttack') {
-              damage.icd ??= { tag: 'Normal Attack', time: 2500, hits: 3 };
-            }
-          }
-        }
-      }
-
-      if (typeof damage.icd === 'string') {
-        damage.icd = standardIcd(damage.icd);
-      }
+      normalizeGauge(action, spec.weaponType);
+      normalizeIcd(action, spec.weaponType);
     }
   }
 
