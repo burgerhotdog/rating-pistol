@@ -83054,11 +83054,11 @@
       "critDmg%": 0.384
     },
     "energy": 60,
-    "energyMax": 1.3,
     "effects": [
       {
+        "ref": "skill_danceDoublePlume",
         "apply": {
-          "when": "end",
+          "when": "use",
           "filter": {
             "action": {
               "ref": [
@@ -83068,97 +83068,149 @@
             }
           },
           "duration": 20000,
-          "commands": {
-            "type": "apply",
-            "ref": "marvelousSplendor",
-            "spec": {
-              "duration": 20000,
-              "stacks": 4
+          "offset": 2000
+        },
+        "remove": {
+          "ref": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
             }
           }
         },
         "use": {
           "when": "interval",
-          "cooldown": 2000,
+          "cooldown": 4000,
           "action": "elementalSkill.4"
         }
       },
       {
+        "ref": "skill_danceDoubleWing",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 20000,
+          "offset": 4000
+        },
+        "remove": {
+          "ref": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "cooldown": 4000,
+          "action": "elementalSkill.7"
+        }
+      },
+      {
+        "ref": "skill_codaGlimmer",
+        "use": [
+          {
+            "when": "end",
+            "filter": {
+              "radiance": "stellarSwirl",
+              "action": {
+                "ref": "elementalSkill.1"
+              }
+            },
+            "action": "elementalSkill.3"
+          },
+          {
+            "when": "end",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.1"
+              }
+            },
+            "action": "elementalSkill.2"
+          }
+        ]
+      },
+      {
+        "ref": "skill_plumeWingGlimmer",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.1"
+            }
+          }
+        },
+        "remove": {
+          "ref": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          }
+        },
         "use": [
           {
             "when": "hit",
             "filter": {
-              "AND": [
-                {
-                  "radiance": "stellarConduct"
-                },
-                {
-                  "action": {
-                    "ref": "elementalSkill.4"
-                  }
-                }
-              ]
+              "radiance": "stellarConduct",
+              "action": {
+                "ref": "elementalSkill.4"
+              }
             },
             "action": "elementalSkill.5"
           },
           {
             "when": "hit",
             "filter": {
-              "AND": [
-                {
-                  "radiance": "stellarSwirl"
-                },
-                {
-                  "action": {
-                    "ref": "elementalSkill.4"
-                  }
-                }
-              ]
+              "radiance": "stellarSwirl",
+              "action": {
+                "ref": "elementalSkill.4"
+              }
             },
             "action": "elementalSkill.6"
-          }
-        ]
-      },
-      {
-        "use": [
-          {
-            "when": "end",
-            "filter": {
-              "AND": [
-                {
-                  "radiance": "stellarConduct"
-                },
-                {
-                  "action": {
-                    "ref": "elementalSkill.1"
-                  }
-                }
-              ]
-            },
-            "action": "elementalSkill.2"
           },
           {
-            "when": "end",
+            "when": "hit",
             "filter": {
-              "AND": [
-                {
-                  "radiance": "stellarSwirl"
-                },
-                {
-                  "action": {
-                    "ref": "elementalSkill.1"
-                  }
-                }
-              ]
+              "radiance": "stellarConduct",
+              "action": {
+                "ref": "elementalSkill.7"
+              }
             },
-            "action": "elementalSkill.3"
+            "action": "elementalSkill.8"
+          },
+          {
+            "when": "hit",
+            "filter": {
+              "radiance": "stellarSwirl",
+              "action": {
+                "ref": "elementalSkill.7"
+              }
+            },
+            "action": "elementalSkill.9"
           }
         ]
       },
       {
-        "ref": "snowSwansDream",
+        "ref": "burst_snowSwansDream",
         "apply": {
-          "when": "start",
+          "when": "use",
           "filter": {
             "action": {
               "ref": "elementalBurst.0"
@@ -83173,19 +83225,112 @@
         }
       },
       {
-        "ref": "marvelousSplendor",
-        "stores": "$ally",
+        "ref": "a1_self",
         "apply": {
-          "when": "command"
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          },
+          "duration": 20000,
+          "stacks": 4
+        },
+        "remove": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          }
         },
         "buff": {
           "stats": {
             "stellarGlimmerReactionBonus%": 0.15
           }
         },
-        "maxStacks": 4
+        "maxStacks": 6
       },
       {
+        "ref": "a1_ally",
+        "stores": "$ally",
+        "apply": {
+          "when": "command"
+        },
+        "remove": {
+          "by": 10000150,
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          }
+        },
+        "buff": {
+          "stats": {
+            "stellarGlimmerReactionBonus%": 0.15
+          }
+        },
+        "maxStacks": 6
+      },
+      {
+        "rank": -1,
+        "ref": "a1_moveStacks",
+        "apply": {
+          "when": "swapOff",
+          "filter": {
+            "effectStacks": {
+              "HAS": "a1_self"
+            }
+          },
+          "duration": 20000,
+          "offset": 1000,
+          "uses": 4
+        },
+        "remove": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "field": "offField",
+          "cooldown": 1000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "a1_self",
+              "spec": {
+                "stacks": 1
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "a1_ally",
+              "spec": {
+                "stacks": 1
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ref": "a4",
         "buff": {
           "filter": {
             "action": {
@@ -83209,6 +83354,7 @@
         }
       },
       {
+        "ref": "stellarJubilee",
         "stores": "global",
         "buff": {
           "specs": {
@@ -83218,6 +83364,285 @@
               "value": 0.007,
               "maxValue": 0.14
             }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "use": [
+          {
+            "when": "end",
+            "filter": {
+              "radiance": "stellarSwirl",
+              "action": {
+                "ref": "elementalSkill.1"
+              }
+            },
+            "action": {
+              "damage": {
+                "type": "stellarSwirl",
+                "multipliers": [
+                  {
+                    "mv": 4.5
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "when": "end",
+            "filter": {
+              "action": {
+                "ref": "elementalSkill.1"
+              }
+            },
+            "action": {
+              "damage": {
+                "type": "stellarConduct",
+                "multipliers": [
+                  {
+                    "mv": 3
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "rank": 1,
+        "modify": {
+          "type": "effect",
+          "ref": "a1_self",
+          "spec": {
+            "apply": {
+              "stacks": 2
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "ref": "a1_moveStacks",
+        "apply": {
+          "when": "swapOff",
+          "filter": {
+            "effectStacks": {
+              "HAS": "a1_self"
+            }
+          },
+          "duration": 20000,
+          "offset": 1000,
+          "uses": 3
+        },
+        "remove": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.0",
+                "elementalBurst.0"
+              ]
+            }
+          }
+        },
+        "use": {
+          "when": "interval",
+          "field": "offField",
+          "cooldown": 1000,
+          "commands": [
+            {
+              "type": "remove",
+              "ref": "a1_self",
+              "filter": {
+                "effectStacks": {
+                  "NOT": {
+                    "HAS": "c6"
+                  }
+                }
+              },
+              "spec": {
+                "stacks": 2
+              }
+            },
+            {
+              "type": "apply",
+              "ref": "a1_ally",
+              "spec": {
+                "stacks": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "rank": 2,
+        "modify": {
+          "type": "effect",
+          "ref": "a1_self",
+          "spec": {
+            "buff": {
+              "stats": {
+                "atk%": 0.07
+              }
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "modify": {
+          "type": "effect",
+          "ref": "a1_ally",
+          "spec": {
+            "buff": {
+              "stats": {
+                "atk%": 0.07
+              }
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "stores": "global",
+        "buff": [
+          {
+            "filter": {
+              "radiance": "stellarConduct",
+              "effectStacks": {
+                "HAS": "skill_danceDoublePlume"
+              }
+            },
+            "stats": {
+              "cryoResReduction%": 0.2,
+              "electroResReduction%": 0.2
+            }
+          },
+          {
+            "filter": {
+              "radiance": "stellarSwirl",
+              "effectStacks": {
+                "HAS": "skill_danceDoublePlume"
+              }
+            },
+            "stats": {
+              "cryoResReduction%": 0.2,
+              "anemoResReduction%": 0.2
+            }
+          }
+        ]
+      },
+      {
+        "rank": 4,
+        "stores": "$ally",
+        "apply": {
+          "when": "use",
+          "filter": {
+            "action": {
+              "ref": "elementalBurst.0"
+            }
+          },
+          "duration": 20000
+        },
+        "buff": {
+          "statRefs": {
+            "stellarGlimmerReactionBonus%": "elementalBurst.2"
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": [
+          {
+            "by": "$team",
+            "when": "hit",
+            "filter": {
+              "radiance": "stellarSwirl",
+              "action": {
+                "damage": {
+                  "type": [
+                    "stellarConduct",
+                    "stellarSwirl"
+                  ]
+                }
+              }
+            },
+            "cooldown": 3500,
+            "action": {
+              "damage": {
+                "type": "stellarSwirl",
+                "multipliers": [
+                  {
+                    "mv": 0.99
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "by": "$team",
+            "when": "hit",
+            "filter": {
+              "action": {
+                "damage": {
+                  "type": [
+                    "stellarConduct",
+                    "stellarSwirl"
+                  ]
+                }
+              }
+            },
+            "cooldown": 3500,
+            "action": {
+              "damage": {
+                "type": "stellarConduct",
+                "multipliers": [
+                  {
+                    "mv": 0.66
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "rank": 6,
+        "ref": "c6"
+      },
+      {
+        "rank": 6,
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "HAS": "a1_self"
+            }
+          },
+          "stats": {
+            "elevation%": 0.25
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "stores": "$ally",
+        "buff": {
+          "filter": {
+            "effectStacks": {
+              "HAS": "a1_ally"
+            }
+          },
+          "stats": {
+            "elevation%": 0.25
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "buff": {
+          "stats": {
+            "elevation%": 0.2
           }
         }
       }
@@ -83469,7 +83894,7 @@
             }
           },
           {
-            "name": "Elemental Skill: Adagio: Coda at Dawn's Tolling",
+            "name": "Elemental Skill: Coda at Dawn's Tolling",
             "type": "elementalSkill",
             "damage": {
               "gauge": 1,
@@ -83502,7 +83927,7 @@
             }
           },
           {
-            "name": "Adagio: Coda at Dawn's Tolling: Stellar-Conduct",
+            "name": "Coda at Dawn's Tolling: Stellar-Conduct",
             "damage": {
               "type": "stellarConduct",
               "multipliers": [
@@ -83529,7 +83954,7 @@
             }
           },
           {
-            "name": "Adagio: Coda at Dawn's Tolling: Stellar Swirl",
+            "name": "Coda at Dawn's Tolling: Stellar Swirl",
             "damage": {
               "type": "stellarSwirl",
               "multipliers": [
@@ -83775,7 +84200,7 @@
             }
           },
           {
-            "name": "Snow Swan's Dream Stellar Glimmer Reaction DMG Bonus",
+            "name": "Snow Swan's Dream",
             "buff": {
               "multipliers": [
                 {
@@ -83795,6 +84220,32 @@
                     0.62,
                     0.66,
                     0.7
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "Ally Snow Swan's Dream (C4)",
+            "buff": {
+              "multipliers": [
+                {
+                  "flat": [
+                    0.07,
+                    0.09,
+                    0.11,
+                    0.13,
+                    0.15,
+                    0.17,
+                    0.19,
+                    0.21,
+                    0.23,
+                    0.25,
+                    0.27,
+                    0.29,
+                    0.31,
+                    0.33,
+                    0.35
                   ]
                 }
               ]

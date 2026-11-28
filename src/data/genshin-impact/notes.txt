@@ -20,7 +20,7 @@ Characters:
     Charlotte
         No C4, C6
     Chasca
-        Skill element ordFer is fixed ECHPA
+        Skill element order is fixed ECHPA
         A1 is not 33%/66%/100% but 0%/100% with starting with 2 PHCE elements
         A1 shell follows reverse priority order (ECHP)
         No constellations
@@ -79,7 +79,7 @@ Characters:
         Movement is approximated
         Overflow handling is inaccurate
     Ifa
-        C6 50% change is simulated
+        C6 50% chance is simulated
     Illuga
         No geo construct rule
     Ineffa
@@ -151,10 +151,6 @@ Characters:
         No A4 cooldown reduction
         Burst and C6 Buffs aren't snapshotted at cast
         No C6 duration increase
-    Odette
-        Only plume
-        Marvelous Splendor applies to $ally
-        No constellations
     Ororon
         C2 simplified for single target
     Prune

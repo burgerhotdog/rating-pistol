@@ -35,6 +35,7 @@ export function elevationReactionFormula(statMap, rxnKey, rxnMultiplier, rxnElem
     elevationBaseDamage(statMap, rxnKey, rxnMultiplier) *
     getCritMult(statMap) *
     getResMult(GI, rxnElement, statMap) *
+    (1 + getAttr('elevation%', statMap)) *
     (1 + getAttr(`${rxnKey}ExtraStrikeChance%`, statMap))
   );
 }

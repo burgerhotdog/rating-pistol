@@ -47,9 +47,12 @@ export function runLunarFormula(action, statMap) {
     getAttr('lunarFlat', statMap) +
     getAttr(`${type}Flat`, statMap);
 
+  const elevation = 1 + getAttr('elevation%', statMap);
+
   return (
     baseDamage *
     getCritMult(statMap) *
-    getResMult(GI, element, statMap)
+    getResMult(GI, element, statMap) *
+    elevation
   );
 }

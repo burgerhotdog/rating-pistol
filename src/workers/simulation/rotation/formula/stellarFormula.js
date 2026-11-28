@@ -45,9 +45,12 @@ export function runStellarFormula(action, statMap, rxnMult = 1) {
     (1 + getEmBonus(statMap) + getRxnBonus(statMap, type)) +
     getRxnFlat(statMap, type);
 
+  const elevation = 1 + getAttr('elevation%', statMap);
+
   return (
     rxnDamage *
     getCritMult(statMap) *
-    getResMult(GI, element, statMap)
+    getResMult(GI, element, statMap) *
+    elevation
   );
 }
