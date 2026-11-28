@@ -33952,7 +33952,7 @@
     "energy": 70,
     "effects": [
       {
-        "ref": "tranquilityAura",
+        "ref": "skill_tranquilityAura",
         "apply": {
           "when": "use",
           "filter": {
@@ -33984,7 +33984,7 @@
         }
       },
       {
-        "ref": "lingeringAeon",
+        "ref": "burst_lingeringAeon",
         "apply": {
           "when": "use",
           "filter": {
@@ -34023,50 +34023,7 @@
             }
           }
         },
-        "ref": "a1_1",
-        "stores": "$team",
-        "apply": {
-          "by": "$any",
-          "when": "hit",
-          "filter": {
-            "action": {
-              "damage": {
-                "type": "bloom"
-              }
-            }
-          },
-          "duration": 10000
-        },
-        "buff": {
-          "stats": {
-            "elementalMastery": 100
-          }
-        }
-      },
-      {
-        "enable": {
-          "counts": {
-            "element": {
-              "AND": [
-                {
-                  "NOT": {
-                    "HAS": [
-                      "pyro",
-                      "electro",
-                      "anemo",
-                      "geo",
-                      "cryo"
-                    ]
-                  }
-                },
-                {
-                  "HAS": "dendro"
-                }
-              ]
-            }
-          }
-        },
-        "ref": "a1_2",
+        "ref": "a1_goldenChalicesBounty",
         "stores": "global",
         "apply": {
           "when": "use",
@@ -34083,12 +34040,36 @@
         "rule": "nilouBountifulCores"
       },
       {
+        "ref": "a1_bountyEmBuff",
+        "stores": "$team",
+        "apply": {
+          "by": "$any",
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": "bloom"
+              }
+            },
+            "effectStacks": {
+              "HAS": "a1_goldenChalicesBounty"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "elementalMastery": 100
+          }
+        }
+      },
+      {
         "ref": "a4",
         "stores": "global",
         "buff": {
           "filter": {
             "effectStacks": {
-              "HAS": "a1_2"
+              "HAS": "a1_goldenChalicesBounty"
             }
           },
           "specs": {
@@ -34098,6 +34079,148 @@
               "offset": 30000,
               "value": 0.09,
               "maxValue": 4
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": "elementalSkill.3"
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.65
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "modify": {
+          "type": "effect",
+          "ref": "skill_tranquilityAura",
+          "spec": {
+            "apply": {
+              "duration": 6000
+            }
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "stores": "global",
+        "apply": {
+          "by": "$team",
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "element": "hydro"
+              }
+            },
+            "effectStacks": {
+              "HAS": "a1_goldenChalicesBounty"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "hydroResReduction%": 0.35
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "stores": "global",
+        "apply": {
+          "by": "$any",
+          "when": "hit",
+          "filter": {
+            "action": {
+              "damage": {
+                "type": [
+                  "bloom",
+                  "lunarBloom"
+                ]
+              }
+            },
+            "effectStacks": {
+              "HAS": "a1_goldenChalicesBounty"
+            }
+          },
+          "duration": 10000
+        },
+        "buff": {
+          "stats": {
+            "dendroResReduction%": 0.35
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "use": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.3",
+                "elementalSkill.6"
+              ]
+            }
+          },
+          "action": {
+            "restoreEnergy": {
+              "flat": 15
+            }
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "apply": {
+          "when": "hit",
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalSkill.3",
+                "elementalSkill.6"
+              ]
+            }
+          },
+          "duration": 8000
+        },
+        "buff": {
+          "filter": {
+            "action": {
+              "ref": [
+                "elementalBurst.0",
+                "elementalBurst.1"
+              ]
+            }
+          },
+          "stats": {
+            "dmgBonus%": 0.5
+          }
+        }
+      },
+      {
+        "rank": 6,
+        "buff": {
+          "specs": {
+            "critRate%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 0.006,
+              "maxValue": 0.3
+            },
+            "critDmg%": {
+              "attr": "hp",
+              "step": 1000,
+              "value": 0.012,
+              "maxValue": 0.6
             }
           }
         }

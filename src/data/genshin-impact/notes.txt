@@ -142,8 +142,6 @@ Characters:
     Nicole
         coordinated attack uses own stats
         No constellations
-    Nilou
-        No constellations
     Ningguang
         No A4
     Noelle
